@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "kind": "native-core-curated-branded-combo-replay",
+  "deck_id": "branded",
+  "replay_sha256": "89d9ddb53b7f27976e30626e85f33cad30d5823fd86779adba8af94273a8ea40",
+  "bytes": 55010,
+  "frames": 161,
+  "initial_hand": [
+    44362883,
+    62962630,
+    14558127,
+    10045474,
+    82738008
+  ],
+  "main_remaining": 35,
+  "extra": 15,
+  "quiet_opponent_hand": 5,
+  "quiet_opponent_main": 40,
+  "initial_full_curated_deck_verified": true,
+  "native_special_summons": [
+    {
+      "frame": 35,
+      "code": 87746184
+    },
+    {
+      "frame": 113,
+      "code": 44146295
+    }
+  ],
+  "summon_completion_frames": [
+    36,
+    114
+  ],
+  "final_monsters": [
+    44146295
+  ],
+  "final_legal_action_prompt": true,
+  "rejected_response_frames": 0,
+  "deck_sha256": "6daefc1d2983e16d605d2a867a7c5a2702164ddacdb94e13d3822c799c1c5ea1",
+  "puzzle_sha256": "203c50b45c76d5f9fb269acdb0ae0bb7f82996dd4eb6f71bc058b7e2b74bd646",
+  "script_zip_sha256": "454f09a05025351e2ee5ac261addce4b941ea0af4d075174806b4f9ad76c8c14",
+  "card_database_sha256": "04b1197239517ab50fb49db8450f83e920a81f5d82a83bdc8f9c7f7ed1aa8400",
+  "native_wrapper_library_sha256": "1b8fb99f371258afa7408d3e09d59477ae59a5b5e71d4c673504d1c24ab0dbf5",
+  "publisher_wrapper_assembly_sha256": "57d0517f1e4c7bd6211d35fdc1806c19ed5ed39b3d48c4a52662cf052b038db6",
+  "generator_sha256": "1fcc00a069b167aff07f85d8dd315e4ab0ac43eebf702e17e7441b33cdf74d8a",
+  "native_runner_sha256": "56e73742119e092dca1305e5e7f96ac216073af129815f1107b6cccb94f92406",
+  "puzzle_generator_sha256": "d517d8ee019e5440ecd8c2245d5d87f618c6cd0406237bff36ff3602deaffe15",
+  "replay_driver_sha256": "248c78da1376641893075efca4faec696aec4a8f57d42d8cfd4b3883e0a69aa1",
+  "limits": "One no-interruption Branded Fusion -> Albion -> Mirrorjade example on the full curated deck. It does not verify every written tutorial line or GUI animation/rendering fidelity.",
+  "shipping_parser": {
+    "ok": true,
+    "runtime": "publisher native libmonobdwgc-2.0.dylib",
+    "method": "MDPro3.TcpHelper::GetPackages",
+    "assembly_sha256": "57d0517f1e4c7bd6211d35fdc1806c19ed5ed39b3d48c4a52662cf052b038db6",
+    "package_count": 161,
+    "reconstructed_bytes": 55010,
+    "reconstructed_sha256": "89d9ddb53b7f27976e30626e85f33cad30d5823fd86779adba8af94273a8ea40",
+    "byte_exact_frame_round_trip": true,
+    "unity_object_operations_executed": false
+  }
+}

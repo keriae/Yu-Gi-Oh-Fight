@@ -1,0 +1,1283 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using MDPro3.AI;
+using MDPro3.Duel.YGOSharp;
+using MDPro3.Servant;
+using MDPro3.UI.ServantUI;
+using MDPro3.Utility;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace MDPro3.UI.Client
+{
+    internal partial class FightClient
+    {
+        private DeckEditorUI clientEditorUI;
+        private string editorRelativeName;
+        private string editorLoadedPath;
+        private readonly List<EditorMount> editorMounts = new List<EditorMount>();
+        private RectTransform editorViewHost, editorCollectionHost, editorDetailHost;
+        private TextMeshProUGUI editorTitleText, editorStateText, editorCountsText, editorSummaryText;
+        private Button editorSaveButton;
+        private readonly List<Button> editorToolbarButtons = new List<Button>();
+        private RectTransform editorDivider, editorActionHost, editorHeaderInput, editorHeaderArea, editorHeaderNameGroup;
+        private Rect editorHeaderInputBounds;
+        private float editorActionNativeHeight;
+        private EditorWidget editorDeckWidget, editorPoolWidget;
+        private EditorInspector editorInspector;
+        private FightCardPoolCache editorImageCache;
+        private readonly List<EditorTypography> editorTypography = new List<EditorTypography>();
+        private readonly Dictionary<ScrollRect, EditorScrollAnchor> editorScrollAnchors = new Dictionary<ScrollRect, EditorScrollAnchor>();
+        private readonly Dictionary<SelectionButton_CardInDeck, EditorCardGeometry> editorCardGeometry = new Dictionary<SelectionButton_CardInDeck, EditorCardGeometry>();
+        private bool editorOverwriteAllowed;
+        private bool editorAwaitingMount;
+        private bool editorAwaitingOverwrite;
+        private Action editorSaveContinuation;
+        private int editorInspectedCode;
+        private EditorDeckScroll editorDeckScroll;
+        private readonly List<EditorDeckSection> editorDeckSections = new List<EditorDeckSection>();
+        private readonly List<EditorTab> editorTabs = new List<EditorTab>();
+        private readonly List<EditorGraphic> editorGraphics = new List<EditorGraphic>();
+        private readonly List<EditorBehaviour> editorBehaviours = new List<EditorBehaviour>();
+        private readonly List<GameObject> editorAdditions = new List<GameObject>();
+        private int editorLayoutSignature = -1;
+        private SelectionButton editorHeaderTutorial;
+
+        internal bool EditorDirty => clientEditorUI != null && clientEditorUI.DeckView != null && clientEditorUI.DeckView.GetDirty();
+
+        internal void OpenEditor(string personalRelativeName)
+        {
+            try
+            {
+                var root = Path.GetFullPath(Program.PATH_DECK).TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
+                var path = Path.GetFullPath(Path.Combine(root, personalRelativeName + Program.EXPANSION_YDK));
+                if (!path.StartsWith(root, StringComparison.Ordinal) || !File.Exists(path))
+                    throw new FileNotFoundException("找不到这套个人卡组。");
+                if (Program.instance.currentServant == Program.instance.deckEditor && EditorDirty)
+                {
+                    var box = ShowDialog("当前卡组尚未保存", 640, 290);
+                    FightUI.Text(box, "打开另一套卡组前，请保存或放弃当前修改。", 28, 82, 580, 64, 20);
+                    FightUI.Button(box, "取消", 28, 208, 160, 48, CloseDialog);
+                    FightUI.Button(box, "放弃修改", 208, 208, 160, 48, () => { DiscardEditor(); OpenEditor(personalRelativeName); });
+                    FightUI.Button(box, "保存并打开", 388, 208, 224, 48, () => SaveEditorThen(() => OpenEditor(personalRelativeName)), true);
+                    return;
+                }
+                ReleaseEditor();
+                editorRelativeName = personalRelativeName;
+                editorLoadedPath = path;
+                editorOverwriteAllowed = false;
+                // An explicit file can be opened even if the legacy default is empty.
+                // Browsing/editing never selects a default.
+                Program.instance.deckEditor.SwitchCondition(DeckEditor.Condition.EditDeck, personalRelativeName);
+                DeckEditor.DeckName = editorRelativeName;
+                DeckEditor.Deck = new Deck(path);
+                DeckEditor.Deck.type = Path.GetDirectoryName(personalRelativeName) ?? string.Empty;
+                DeckEditor.DeckIsFromLocal = true;
+                DeckEditor.Recommendation = null;
+                Program.instance.deckEditor.returnServant = Program.instance.menu;
+                Program.instance.deckEditor.returnAction = () => Navigate("decks");
+                var existingUI = Program.instance.deckEditor.GetUI<DeckEditorUI>();
+                if (existingUI != null)
+                {
+                    existingUI.CardCollectionView.historyCards = DeckEditor.historyCards;
+                    existingUI.DeckView.PrintDeck(DeckEditor.Deck, editorRelativeName, DeckView.Condition.Editable);
+                }
+                Program.instance.ShiftToServant(Program.instance.deckEditor);
+                editorAwaitingMount = true;
+                Navigate("editor");
+            }
+            catch (Exception e) { ShowStatus("打开卡组失败：" + e.Message); }
+        }
+
+        internal void RenderEditor()
+        {
+            ReleaseEditor();
+            FightUI.Clear(Body);
+            var buttonWidth = Compact ? 108f : 136f;
+            var saveWidth = Compact ? 128f : 168f;
+            var actionGap = Compact ? 10f : Gap;
+            var actionWidth = buttonWidth * 4 + saveWidth + actionGap * 4;
+            editorTitleText = FightUI.Text(Body, "我的 / " + (editorRelativeName ?? "卡组编辑器"), 0, 4,
+                Mathf.Max(120, BodyWidth - actionWidth - 16), 36, Compact ? 25 : 32, FightUI.Gold);
+            editorTitleText.enableAutoSizing = true; editorTitleText.fontSizeMin = Compact ? 22 : 28; editorTitleText.fontSizeMax = Compact ? 25 : 32;
+            FightUI.Hint(editorTitleText.gameObject, editorRelativeName ?? "卡组编辑器");
+            editorStateText = FightUI.Text(Body, "正在加载构筑…", 0, 43, BodyWidth - actionWidth, 24, 16, FightUI.Muted);
+            var bx = BodyWidth - actionWidth;
+            editorToolbarButtons.Add(FightUI.Button(Body, "展开教程", bx, 8, buttonWidth, 44, OpenEditorTutorial)); bx += buttonWidth + actionGap;
+            editorToolbarButtons.Add(FightUI.Button(Body, "禁限卡表", bx, 8, buttonWidth, 44, () => clientEditorUI?.OnRegulation())); bx += buttonWidth + actionGap;
+            editorToolbarButtons.Add(FightUI.Button(Body, "手牌测试", bx, 8, buttonWidth, 44, () => clientEditorUI?.OnHandTest())); bx += buttonWidth + actionGap;
+            editorToolbarButtons.Add(FightUI.Button(Body, "更多", bx, 8, buttonWidth, 44, OpenEditorMore)); bx += buttonWidth + actionGap;
+            editorSaveButton = FightUI.Button(Body, "保存卡组", bx, 8, saveWidth, 44, () => SaveEditor(), true, false);
+
+            var top = Compact ? 76f : 88f;
+            var viewHeight = Mathf.Max(240, BodyHeight - top - 40);
+            var detailWidth = Compact ? 228f : 336f;
+            var collectionWidth = Compact ? 392f : 592f;
+            var deckWidth = BodyWidth - detailWidth - collectionWidth - Gap * 2;
+            if (deckWidth < 400)
+            {
+                collectionWidth = Mathf.Max(300, BodyWidth * .32f);
+                detailWidth = Mathf.Max(180, BodyWidth * .18f);
+                deckWidth = BodyWidth - detailWidth - collectionWidth - Gap * 2;
+            }
+            FightUI.Line(Body, 0, top - 8, BodyWidth, FightUI.GoldBorder);
+            editorDivider = Body.GetChild(Body.childCount - 1) as RectTransform;
+            editorDetailHost = FightUI.Panel(Body, 0, top, detailWidth, viewHeight, FightUI.Raised);
+            editorViewHost = FightUI.Panel(Body, detailWidth + Gap, top, deckWidth, viewHeight, FightUI.PanelColor);
+            editorCollectionHost = FightUI.Panel(Body, detailWidth + Gap + deckWidth + Gap, top, collectionWidth, viewHeight, FightUI.PanelColor);
+            editorDetailHost.gameObject.AddComponent<RectMask2D>();
+            editorViewHost.gameObject.AddComponent<RectMask2D>();
+            editorCollectionHost.gameObject.AddComponent<RectMask2D>();
+            editorCountsText = FightUI.Text(Body, "左键查看 · 卡池右键添加 · 构筑右键移除 · 中键增加 · 拖动调整", 0,
+                BodyHeight - 30, BodyWidth - 280, 28, 15, FightUI.Muted);
+            editorSummaryText = FightUI.Text(Body, "正在读取卡组…", BodyWidth - 270, BodyHeight - 30, 270, 28, 16, FightUI.Gold, TextAlignmentOptions.MidlineRight);
+            editorAwaitingMount = true;
+            TryMountEditor();
+        }
+
+        internal void ReflowEditorViewport(float oldWidth, float oldHeight)
+        {
+            if (Body == null || editorViewHost == null || editorCollectionHost == null || editorDetailHost == null) return;
+            var inputs = Body.GetComponentsInChildren<TMP_InputField>(true).Where(input => input.isFocused)
+                .Select(input => new EditorInputAnchor(input)).ToArray();
+            RememberEditorScroll(clientEditorUI?.DeckView?.ScrollRect);
+            RememberEditorScroll(clientEditorUI?.CardCollectionView?.superScrollView?.scrollRect);
+            RememberEditorScroll(editorInspector?.Scroll);
+            FightUI.Place(Body, Gap, BodyTop, BodyWidth, BodyHeight);
+            LayoutEditorShell();
+            ReflowEditorWidget(editorDeckWidget, true);
+            ReflowEditorWidget(editorPoolWidget, false);
+            LayoutEditorHeader();
+            Canvas.ForceUpdateCanvases();
+            editorLayoutSignature = -1;
+            LayoutEditorDeckSections();
+            foreach (var tab in editorTabs) tab.Reflow();
+            LayoutEditorInspector();
+            if (editorActionHost != null && clientEditorUI?.CardActionMenu != null)
+            {
+                FightUI.Place(editorActionHost, 0, 0, BodyWidth, BodyHeight);
+                var action = clientEditorUI.CardActionMenu.GetComponent<RectTransform>();
+                var scale = Mathf.Min(1, (BodyHeight - 16) / editorActionNativeHeight);
+                FightUI.Place(action, 0, 0, BodyWidth / scale, BodyHeight / scale);
+                action.localScale = new Vector3(scale, scale, 1);
+                LayoutEditorTypography(action, scale);
+            }
+            Canvas.ForceUpdateCanvases();
+            RestoreEditorScroll(clientEditorUI?.DeckView?.ScrollRect);
+            RestoreEditorScroll(clientEditorUI?.CardCollectionView?.superScrollView?.scrollRect);
+            RestoreEditorScroll(editorInspector?.Scroll);
+            clientEditorUI?.CardCollectionView?.superScrollView?.SynchronizeViewport();
+            foreach (var input in inputs) input.Restore();
+            if (Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1")
+                Debug.Log("[FightEditorReflow] " + oldWidth + "x" + oldHeight + " -> " + W + "x" + H
+                    + " deckScale=" + (editorDeckWidget != null ? editorDeckWidget.Rect.localScale.x : 0)
+                    + " poolScale=" + (editorPoolWidget != null ? editorPoolWidget.Rect.localScale.x : 0)
+                    + " columns=" + string.Join(",", editorDeckSections.Select(section => section.Grid.constraintCount)));
+        }
+
+        private void LayoutEditorShell()
+        {
+            var buttonWidth = Compact ? 108f : 136f;
+            var saveWidth = Compact ? 128f : 168f;
+            var actionGap = Compact ? 10f : Gap;
+            var actionWidth = buttonWidth * 4 + saveWidth + actionGap * 4;
+            FightUI.Place(editorTitleText.rectTransform, 0, 4, Mathf.Max(120, BodyWidth - actionWidth - 16), 36);
+            editorTitleText.fontSizeMin = Compact ? 22 : 28; editorTitleText.fontSizeMax = Compact ? 25 : 32;
+            editorTitleText.fontSize = editorTitleText.fontSizeMax;
+            FightUI.Place(editorStateText.rectTransform, 0, 43, BodyWidth - actionWidth, 24);
+            var bx = BodyWidth - actionWidth;
+            foreach (var button in editorToolbarButtons)
+            {
+                FightUI.Place(button.GetComponent<RectTransform>(), bx, 8, buttonWidth, 44);
+                bx += buttonWidth + actionGap;
+            }
+            FightUI.Place(editorSaveButton.GetComponent<RectTransform>(), bx, 8, saveWidth, 44);
+            var top = Compact ? 76f : 88f;
+            var viewHeight = Mathf.Max(240, BodyHeight - top - 40);
+            var detailWidth = Compact ? 228f : 336f;
+            // The native pool owns six columns. Extra desktop space belongs to
+            // the deck grid; keep pool controls and card art at authored scale.
+            var collectionWidth = Compact ? 392f : 592f;
+            var deckWidth = BodyWidth - detailWidth - collectionWidth - Gap * 2;
+            if (deckWidth < 400)
+            {
+                collectionWidth = Mathf.Max(300, BodyWidth * .32f);
+                detailWidth = Mathf.Max(180, BodyWidth * .18f);
+                deckWidth = BodyWidth - detailWidth - collectionWidth - Gap * 2;
+            }
+            FightUI.Place(editorDivider, 0, top - 8, BodyWidth, 1);
+            FightUI.Place(editorDetailHost, 0, top, detailWidth, viewHeight);
+            FightUI.Place(editorViewHost, detailWidth + Gap, top, deckWidth, viewHeight);
+            FightUI.Place(editorCollectionHost, detailWidth + Gap + deckWidth + Gap, top, collectionWidth, viewHeight);
+            FightUI.Place(editorCountsText.rectTransform, 0, BodyHeight - 30, BodyWidth - 280, 28);
+            FightUI.Place(editorSummaryText.rectTransform, BodyWidth - 270, BodyHeight - 30, 270, 28);
+        }
+
+        private void RememberEditorScroll(ScrollRect scroll)
+        {
+            if (scroll == null || scroll.content == null) return;
+            if (!editorScrollAnchors.TryGetValue(scroll, out var anchor))
+                editorScrollAnchors[scroll] = anchor = new EditorScrollAnchor();
+            anchor.Remember(scroll);
+        }
+
+        private void RestoreEditorScroll(ScrollRect scroll)
+        {
+            if (scroll != null && editorScrollAnchors.TryGetValue(scroll, out var anchor)) anchor.Restore(scroll);
+        }
+
+        private void OpenEditorTutorial()
+        {
+            var entry = DeckAcademy.FindCurrent(DeckAcademy.Load());
+            if (entry != null) OpenTutorial(entry);
+            else Navigate("academy");
+        }
+
+        internal void TickEditor()
+        {
+            if (Program.instance == null || Program.instance.currentServant != Program.instance.deckEditor)
+                return;
+            if (editorAwaitingMount) TryMountEditor();
+            if (clientEditorUI == null || editorStateText == null) return;
+            var view = clientEditorUI.DeckView;
+            if (editorTitleText != null)
+            {
+                editorTitleText.text = "我的 / " + (editorRelativeName ?? "卡组编辑器");
+                FightUI.Hint(editorTitleText.gameObject, editorRelativeName ?? "卡组编辑器");
+            }
+            if (editorSaveButton != null) editorSaveButton.interactable = view.deckLoaded;
+            if (editorHeaderTutorial != null && editorHeaderTutorial.GetButtonText() == "展开教程")
+                editorHeaderTutorial.gameObject.SetActive(false);
+            LayoutEditorDeckSections();
+            foreach (var tab in editorTabs) tab.Refresh();
+            editorStateText.text = !view.deckLoaded ? "正在加载构筑…" :
+                (view.GetDirty() ? "◆ 未保存" : "已保存") + "    禁限表 " + DeckEditor.Banlist.Name;
+            editorStateText.color = view.GetDirty() ? FightUI.Gold : FightUI.Muted;
+            if (editorSummaryText != null)
+                editorSummaryText.text = view.deckLoaded ? "主 " + view.mainCount + "  ·  额外 " + view.extraCount + "  ·  副 " + view.sideCount : "正在读取卡组…";
+            var inspected = clientEditorUI.CardDetailView != null ? clientEditorUI.CardDetailView.Card : null;
+            if (inspected != null && inspected.Id != editorInspectedCode) RenderEditorInspector(inspected);
+        }
+
+        private void TryMountEditor()
+        {
+            if (editorViewHost == null || Program.instance.deckEditor.servantUI == null || Program.instance.deckEditor.inTransition)
+                return;
+            var ui = Program.instance.deckEditor.GetUI<DeckEditorUI>();
+            if (ui == null || ui.DeckView == null || ui.CardCollectionView == null) return;
+            clientEditorUI = ui;
+            // Resolve every element before detaching from the prefab's manager.
+            var detail = ui.CardDetailView;
+            var action = ui.CardActionMenu;
+            var drag = ui.DragCard;
+            var dragImage = ui.DragCardImage;
+            Canvas.ForceUpdateCanvases();
+            editorDeckWidget = MountEditorWidget(ui.DeckView.GetComponent<RectTransform>(), editorViewHost, 772, ui.DeckView.ScrollRect.GetComponent<RectTransform>(), true);
+            editorPoolWidget = MountEditorWidget(ui.CardCollectionView.GetComponent<RectTransform>(), editorCollectionHost, 552, ui.CardCollectionView.superScrollView.scrollRect.GetComponent<RectTransform>(), false);
+            MountEditorHeader(ui.DeckView);
+            MountEditorDeckSections(ui.DeckView);
+            MountEditorTabs(ui.CardCollectionView);
+            editorImageCache = new FightCardPoolCache();
+            ui.CardCollectionView.ClientImageCache = editorImageCache;
+            foreach (var image in ui.CardCollectionView.GetComponentsInChildren<CardRawImageHandler>(true))
+                if (image.GetComponentInParent<SelectionButton_CardInCollection>() != null) image.SetClientPool(editorImageCache);
+            if (detail != null)
+            {
+                // CardDetailView remains the real selection/data controller. The new
+                // inspector renders that state with readable desktop typography.
+                if (DeckEditor.Deck.Main.Count > 0)
+                {
+                    var first = CardsManager.Get(DeckEditor.Deck.Main[0]);
+                    ui.ShowDetail(first); RenderEditorInspector(first);
+                }
+                else RenderEditorInspector(null);
+            }
+            else FightUI.Text(editorDetailHost, "点击卡片查看完整卡文", 16, 20, editorDetailHost.rect.width - 32, 64, 18, FightUI.Muted);
+
+            if (action != null)
+            {
+                var state = new EditorMount(action.GetComponent<RectTransform>()); editorMounts.Add(state);
+                editorActionNativeHeight = state.Rect.rect.height > 64 ? state.Rect.rect.height : 810;
+                var scale = Mathf.Min(1, (BodyHeight - 16) / editorActionNativeHeight);
+                editorActionHost = FightUI.Node(Body, "Card Actions", 0, 0, BodyWidth, BodyHeight);
+                editorActionHost.gameObject.AddComponent<RectMask2D>();
+                state.Rect.SetParent(editorActionHost, false);
+                FightUI.Place(state.Rect, 0, 0, BodyWidth / scale, BodyHeight / scale);
+                state.Rect.localScale = new Vector3(scale, scale, 1);
+                SkinEditorWidget(state.Rect, scale);
+            }
+            if (drag != null)
+            {
+                var state = new EditorMount(drag); editorMounts.Add(state);
+                drag.SetParent(Body, false); drag.anchorMin = drag.anchorMax = new Vector2(.5f, .5f); drag.pivot = new Vector2(.5f, .5f);
+                drag.anchoredPosition = Vector2.zero; drag.localScale = Vector3.one; drag.gameObject.SetActive(false);
+            }
+            ui.DeckView.KeepCurrentDeckOnSave = true;
+            ui.ClientSave = () => SaveEditor();
+            ui.ClientOverlayParent = Body;
+            editorAwaitingMount = false;
+        }
+
+        private void MountEditorHeader(DeckView view)
+        {
+            var tutorialButton = view.ButtonDeck;
+            if (tutorialButton != null && tutorialButton.GetButtonText() == "展开教程")
+            {
+                editorMounts.Add(new EditorMount(tutorialButton.GetComponent<RectTransform>()));
+                tutorialButton.gameObject.SetActive(false); editorHeaderTutorial = tutorialButton;
+            }
+            var input = view.GetInputField()?.GetComponent<RectTransform>();
+            RectTransform header = null;
+            for (var parent = input != null ? input.parent as RectTransform : null; parent != null; parent = parent.parent as RectTransform)
+                if (parent.name == "HeaderArea") { header = parent; break; }
+            if (header == null || input == null) return;
+            var group = header.Find("NameAreaGroup") as RectTransform;
+            if (group == null || !input.IsChildOf(group)) group = input.parent != header ? input.parent as RectTransform : null;
+            if (group == input) group = null;
+            var bounds = EditorBounds(group != null ? group : header, input);
+            var icon = header.Find("IconDeck") as RectTransform;
+            bounds.x = (icon != null ? EditorBounds(header, icon).xMax : 56) + 16;
+            if (group != null)
+            {
+                editorMounts.Add(new EditorMount(group));
+                DisableEditorLayoutDrivers(group);
+            }
+            editorMounts.Add(new EditorMount(input));
+            editorHeaderInput = input; editorHeaderArea = header; editorHeaderNameGroup = group; editorHeaderInputBounds = bounds;
+            LayoutEditorHeader();
+        }
+
+        private void LayoutEditorHeader()
+        {
+            if (editorHeaderInput == null || editorHeaderArea == null) return;
+            var bounds = editorHeaderInputBounds;
+            var width = Mathf.Max(120, editorHeaderArea.rect.width - bounds.x - 16);
+            if (editorHeaderNameGroup != null)
+            {
+                var groupBounds = EditorBounds(editorHeaderArea, editorHeaderNameGroup);
+                FightUI.Place(editorHeaderNameGroup, bounds.x, groupBounds.y, width, groupBounds.height);
+                FightUI.Place(editorHeaderInput, 0, bounds.y, width, bounds.height);
+            }
+            else FightUI.Place(editorHeaderInput, bounds.x, bounds.y, width, bounds.height);
+        }
+
+        private EditorWidget MountEditorWidget(RectTransform rect, RectTransform host, float authoredWidth, RectTransform columnAnchor, bool expand)
+        {
+            var state = new EditorMount(rect); editorMounts.Add(state);
+            // The prefab component is a full-screen wrapper. Its actual deck/pool
+            // column is fixed-width and aligned within that wrapper. Scale the
+            // column, then crop/translate the unchanged authored wrapper into it.
+            // Resizing the wrapper to the column would break stretch margins.
+            var frame = FindEditorColumn(rect, authoredWidth, columnAnchor);
+            var before = EditorBounds(rect, frame);
+            var nativeWidth = before.width;
+            var oldHeight = rect.rect.height;
+            var oldWidth = rect.rect.width;
+            var extent = EditorColumnExtent(rect, before, nativeWidth);
+            var topInset = Mathf.Max(0, extent.y);
+            var bottomInset = Mathf.Max(0, oldHeight - extent.yMax);
+            var widget = new EditorWidget(rect, host, frame, oldWidth, nativeWidth, topInset, bottomInset,
+                Mathf.Max(0, before.y - extent.y), Mathf.Max(0, extent.yMax - before.yMax));
+            if (frame != rect) editorMounts.Add(new EditorMount(frame));
+            var scale = Mathf.Min(1, (host.rect.width - 16) / nativeWidth);
+            DumpEditorRects(rect, "before", frame, scale);
+            rect.SetParent(host, false);
+            ReflowEditorWidget(widget, expand);
+            SkinEditorWidget(rect, scale);
+            DumpEditorRects(rect, "mounted", frame, scale);
+            return widget;
+        }
+
+        private void ReflowEditorWidget(EditorWidget widget, bool expand)
+        {
+            if (widget == null || widget.Rect == null || widget.Frame == null || widget.Host == null) return;
+            var rect = widget.Rect; var frame = widget.Frame; var host = widget.Host;
+            var scale = Mathf.Clamp((host.rect.width - 16) / widget.NativeWidth, .001f, 1);
+            var columnWidth = expand ? (host.rect.width - 16) / scale : widget.NativeWidth;
+            var desiredHeight = (host.rect.height - 16) / scale;
+            FightUI.Place(rect, 0, 0, widget.WrapperWidth,
+                desiredHeight + widget.TopInset + widget.BottomInset);
+            rect.localScale = new Vector3(scale, scale, 1);
+            if (frame != rect)
+            {
+                frame.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, columnWidth);
+                frame.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,
+                    Mathf.Max(160, desiredHeight - widget.TopBleed - widget.BottomBleed));
+            }
+            Canvas.ForceUpdateCanvases();
+            var after = EditorBounds(rect, frame);
+            rect.anchoredPosition = new Vector2(8 - after.x * scale, -8 + (after.y - widget.TopBleed) * scale);
+            LayoutEditorTypography(rect, scale);
+        }
+
+        private static RectTransform FindEditorColumn(RectTransform wrapper, float authoredWidth, RectTransform preferred)
+        {
+            var selected = preferred;
+            if (selected == null || EditorBounds(wrapper, selected).width < authoredWidth * .6f
+                || EditorBounds(wrapper, selected).width > authoredWidth * 1.6f)
+            {
+                selected = wrapper.GetComponentsInChildren<RectTransform>(true)
+                    .Where(r => r != wrapper && r.gameObject.activeInHierarchy && EditorBounds(wrapper, r).width >= authoredWidth * .8f
+                        && EditorBounds(wrapper, r).width <= authoredWidth * 1.3f)
+                    .OrderByDescending(r => r.rect.height).FirstOrDefault();
+            }
+            if (selected == null) return wrapper;
+            for (var parent = selected.parent as RectTransform; parent != null && parent != wrapper; parent = parent.parent as RectTransform)
+            {
+                var width = EditorBounds(wrapper, parent).width;
+                if (width >= EditorBounds(wrapper, selected).width && width <= authoredWidth * 1.3f) selected = parent;
+            }
+            return selected;
+        }
+
+        private static Rect EditorBounds(RectTransform wrapper, RectTransform item)
+        {
+            var corners = new Vector3[4]; item.GetWorldCorners(corners);
+            var left = wrapper.InverseTransformPoint(corners[0]);
+            var right = wrapper.InverseTransformPoint(corners[2]);
+            return new Rect(left.x + wrapper.rect.width * wrapper.pivot.x,
+                wrapper.rect.height * (1 - wrapper.pivot.y) - right.y, right.x - left.x, right.y - left.y);
+        }
+
+        private static Rect EditorColumnExtent(RectTransform wrapper, Rect frame, float nativeWidth)
+        {
+            var top = frame.y; var bottom = frame.yMax;
+            foreach (var r in wrapper.GetComponentsInChildren<RectTransform>(true))
+            {
+                if (r == wrapper || !r.gameObject.activeInHierarchy) continue;
+                var scroll = r.GetComponentInParent<ScrollRect>();
+                if (scroll != null && scroll.transform.IsChildOf(wrapper)
+                    && r != scroll.GetComponent<RectTransform>() && r != scroll.viewport) continue;
+                var bounds = EditorBounds(wrapper, r);
+                if (bounds.width < nativeWidth * .8f || bounds.width > nativeWidth * 1.3f || bounds.height < 8) continue;
+                if (bounds.xMax < frame.x || bounds.x > frame.xMax) continue;
+                top = Mathf.Min(top, bounds.y); bottom = Mathf.Max(bottom, bounds.yMax);
+            }
+            return new Rect(frame.x, top, nativeWidth, Mathf.Max(1, bottom - top));
+        }
+
+        private static void DumpEditorRects(RectTransform wrapper, string phase, RectTransform column, float scale)
+        {
+            if (Environment.GetEnvironmentVariable("FIGHT_UI_TEST") != "1") return;
+            Debug.Log("[FightEditorRects] " + phase + " " + wrapper.name + " column=" + column.name
+                + " frame=" + EditorBounds(wrapper, column) + " scale=" + scale + " wrapper=" + wrapper.rect);
+            foreach (var r in wrapper.GetComponentsInChildren<RectTransform>(true))
+            {
+                var depth = 0; for (var p = r.parent; p != null && p != wrapper; p = p.parent) depth++;
+                if (depth > 2 || r.name == "Text" || r.GetComponentInParent<SelectionButton_CardInDeck>() != null
+                    || r.GetComponentInParent<SelectionButton_CardInCollection>() != null) continue;
+                Debug.Log("[FightEditorRects] " + phase + " " + r.name + " bounds=" + EditorBounds(wrapper, r)
+                    + " anchors=" + r.anchorMin + "/" + r.anchorMax + " size=" + r.sizeDelta + " pos=" + r.anchoredPosition
+                    + " scale=" + r.localScale + " drivers=" + string.Join(",", r.GetComponents<Component>().Where(c => c != null).Select(c => c.GetType().Name)));
+            }
+        }
+
+        private void MountEditorDeckSections(DeckView view)
+        {
+            var scroll = view.ScrollRect;
+            var frame = scroll.GetComponent<RectTransform>();
+            editorDeckScroll = new EditorDeckScroll(scroll);
+            var viewport = FightUI.Node(frame, "Fight Deck Viewport", 8, 4, frame.rect.width - 24, frame.rect.height - 8);
+            viewport.gameObject.AddComponent<RectMask2D>();
+            // Empty space and group headings must also receive wheel/drag input.
+            viewport.gameObject.AddComponent<Image>().color = Color.clear;
+            var loading = viewport.gameObject.AddComponent<CanvasGroup>();
+            loading.alpha = view.deckLoaded ? 1 : 0; loading.blocksRaycasts = view.deckLoaded;
+            var content = FightUI.Node(viewport, "Fight Deck Content", 0, 0, viewport.rect.width, viewport.rect.height);
+            editorAdditions.Add(viewport.gameObject);
+            editorDeckScroll.Content = content; editorDeckScroll.Viewport = viewport; editorDeckScroll.Loading = loading;
+            scroll.StopMovement(); scroll.content = content; scroll.viewport = viewport;
+            scroll.enabled = true;
+            scroll.horizontal = false; scroll.vertical = true; scroll.movementType = ScrollRect.MovementType.Clamped;
+            scroll.scrollSensitivity = 48;
+            if (scroll.verticalScrollbar != null)
+            {
+                editorMounts.Add(new EditorMount(scroll.verticalScrollbar.GetComponent<RectTransform>()));
+                scroll.verticalScrollbar.gameObject.SetActive(false);
+            }
+            var rail = FightUI.Panel(frame, frame.rect.width - 10, 4, 5, frame.rect.height - 8, FightUI.Border, false, "Fight Deck Scrollbar");
+            editorDeckScroll.Rail = rail;
+            var thumb = FightUI.Panel(rail, 0, 0, 5, rail.rect.height, FightUI.GoldBorder, false, "Thumb");
+            FightUI.Stretch(thumb);
+            var bar = rail.gameObject.AddComponent<Scrollbar>();
+            bar.targetGraphic = thumb.GetComponent<Image>(); bar.handleRect = thumb; bar.direction = Scrollbar.Direction.BottomToTop;
+            scroll.verticalScrollbar = bar; scroll.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide;
+            editorAdditions.Add(rail.gameObject);
+
+            var locations = new[] { DeckView.DeckLocation.MainDeck, DeckView.DeckLocation.ExtraDeck, DeckView.DeckLocation.SideDeck };
+            var labels = new[] { "主卡组", "额外卡组", "副卡组" };
+            for (var i = 0; i < locations.Length; i++)
+            {
+                var gridRect = view.GetDeckLocationParent(locations[i]);
+                var grid = gridRect.GetComponent<GridLayoutGroup>();
+                var root = gridRect.GetComponentInParent<UIHover>().GetComponent<RectTransform>();
+                editorMounts.Add(new EditorMount(root)); editorMounts.Add(new EditorMount(gridRect));
+                DisableEditorLayoutDrivers(root); DisableEditorLayoutDrivers(gridRect, grid);
+                // Keep the actual hover/drop region and card grid. The original
+                // bottom/percentage-anchored headings are replaced inside it.
+                foreach (var graphic in root.GetComponentsInChildren<Graphic>(true))
+                {
+                    if (graphic.transform == root || graphic.transform.IsChildOf(gridRect)) continue;
+                    editorGraphics.Add(new EditorGraphic(graphic)); graphic.enabled = false;
+                }
+                root.SetParent(content, false);
+                var header = FightUI.Node(root, "Fight Section Header", 4, 0, content.rect.width - 8, 34);
+                var title = FightUI.Text(header, labels[i], 0, 0, 180, 32, 24, FightUI.Gold, TextAlignmentOptions.MidlineLeft);
+                var facts = FightUI.Text(header, "", 180, 0, header.rect.width - 180, 32, Mathf.Max(20, 16 / view.transform.localScale.x), FightUI.Muted, TextAlignmentOptions.MidlineRight);
+                title.raycastTarget = facts.raycastTarget = false;
+                string emptyLabel = locations[i] == DeckView.DeckLocation.MainDeck ? "主卡暂空 · 从卡池添加或拖入卡片"
+                    : locations[i] == DeckView.DeckLocation.ExtraDeck ? "额外卡组暂空 · 将额外怪兽拖入这里" : "副卡暂空 · 将卡片拖入这里";
+                var emptyHint = FightUI.Text(root, emptyLabel, 12, 58, content.rect.width - 24, 40, 24, FightUI.Muted, TextAlignmentOptions.MidlineLeft);
+                emptyHint.raycastTarget = false; editorAdditions.Add(emptyHint.gameObject);
+                editorAdditions.Add(header.gameObject);
+                editorDeckSections.Add(new EditorDeckSection(root, grid, locations[i], labels[i], title, facts, emptyHint));
+                grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount; grid.startAxis = GridLayoutGroup.Axis.Horizontal;
+                grid.childAlignment = TextAnchor.UpperLeft; grid.padding = new RectOffset(); grid.spacing = new Vector2(4, 4);
+            }
+            view.ClientDeckLayout = true;
+            editorLayoutSignature = -1;
+            LayoutEditorDeckSections();
+            scroll.verticalNormalizedPosition = 1;
+        }
+
+        private void DisableEditorLayoutDrivers(RectTransform rect, Behaviour retained = null)
+        {
+            foreach (var driver in rect.GetComponents<Behaviour>())
+            {
+                if (driver == retained || (!(driver is LayoutGroup) && !(driver is ContentSizeFitter))) continue;
+                editorBehaviours.Add(new EditorBehaviour(driver)); driver.enabled = false;
+            }
+        }
+
+        private void LayoutEditorDeckSections()
+        {
+            if (editorDeckScroll == null || clientEditorUI == null || editorDeckScroll.Content == null
+                || editorDeckScroll.Viewport == null || editorDeckScroll.Loading == null) return;
+            var view = clientEditorUI.DeckView; var scroll = view.ScrollRect;
+            var frame = scroll.GetComponent<RectTransform>();
+            var viewport = editorDeckScroll.Viewport; var content = editorDeckScroll.Content;
+            editorDeckScroll.Loading.alpha = view.deckLoaded ? 1 : 0;
+            editorDeckScroll.Loading.blocksRaycasts = view.deckLoaded;
+            var width = frame.rect.width - 24; var height = frame.rect.height - 8;
+            var signature = Mathf.RoundToInt(width) * 31 + Mathf.RoundToInt(height) + (view.deckLoaded ? 1 : 0);
+            foreach (var section in editorDeckSections)
+            {
+                section.ResizeCells(LargeViewport);
+                signature = signature * 67 + view.GetDeckLocationCount(section.Location);
+                section.Refresh(view);
+            }
+            if (view.cards != null) foreach (var card in view.cards)
+            {
+                if (card == null || card.transform.childCount == 0) continue;
+                var section = editorDeckSections.FirstOrDefault(value => value.Location == card.location);
+                if (section == null) continue;
+                if (!editorCardGeometry.TryGetValue(card, out var geometry))
+                    editorCardGeometry[card] = geometry = new EditorCardGeometry(card.transform.GetChild(0) as RectTransform);
+                geometry.Apply(LargeViewport ? section.Grid.cellSize.x / section.NativeCell.x : 1);
+            }
+            if (signature == editorLayoutSignature) return;
+            editorLayoutSignature = signature;
+            FightUI.Place(viewport, 8, 4, width, height);
+            if (editorDeckScroll.Rail != null)
+                FightUI.Place(editorDeckScroll.Rail, frame.rect.width - 10, 4, 5, height);
+            var y = 0f;
+            foreach (var section in editorDeckSections)
+            {
+                var grid = section.Grid; var count = view.GetDeckLocationCount(section.Location);
+                var gridWidth = width - 8;
+                var columns = Mathf.Max(1, Mathf.FloorToInt((gridWidth + grid.spacing.x) / (grid.cellSize.x + grid.spacing.x)));
+                var rows = Mathf.Max(1, Mathf.CeilToInt((float)count / columns));
+                var gridHeight = rows * grid.cellSize.y + (rows - 1) * grid.spacing.y;
+                var sectionHeight = 38 + gridHeight + 12;
+                grid.constraintCount = columns;
+                FightUI.Place(section.Root, 0, y, width, sectionHeight);
+                FightUI.Place(grid.GetComponent<RectTransform>(), 4, 38, gridWidth, gridHeight);
+                section.Reflow(width, view.transform.localScale.x);
+                section.Root.localScale = Vector3.one;
+                y += sectionHeight + 8;
+            }
+            content.sizeDelta = new Vector2(width, Mathf.Max(height, y - 8));
+            content.anchoredPosition = new Vector2(0, Mathf.Clamp(content.anchoredPosition.y, 0, Mathf.Max(0, content.rect.height - height)));
+            if (view.deckLoaded && Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1")
+                Debug.Log("[FightEditorLayout] viewport=" + viewport.rect + " content=" + content.rect
+                    + " sections=" + string.Join(" > ", editorDeckSections.Select(s => s.Root.name + ":y=" + (-s.Root.anchoredPosition.y)
+                        + ",height=" + s.Root.rect.height + ",rows=" + Mathf.CeilToInt((float)view.GetDeckLocationCount(s.Location) / s.Grid.constraintCount)
+                        + ",parent=" + s.Root.parent.name)));
+        }
+
+        private void MountEditorTabs(CardCollectionView collection)
+        {
+            var scale = collection.transform.localScale.x;
+            var tabArea = collection.GetComponentsInChildren<RectTransform>(true).FirstOrDefault(rect => rect.name == "TabArea");
+            if (tabArea == null) return;
+            foreach (var graphic in tabArea.GetComponentsInChildren<Graphic>(true))
+            {
+                editorGraphics.Add(new EditorGraphic(graphic)); graphic.enabled = false;
+            }
+            var toggles = tabArea.GetComponentsInChildren<SelectionToggle_CardCollectionTab>(true);
+            var host = FightUI.Node(tabArea, "Fight card pool tabs", 0, 0, tabArea.rect.width, tabArea.rect.height);
+            host.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+            FightUI.Stretch(host); editorAdditions.Add(host.gameObject);
+            var areas = new[] { CardCollectionView.Area.Collection, CardCollectionView.Area.Bookmark, CardCollectionView.Area.History };
+            var labels = new[] { "卡池", "收藏", "历史" };
+            float width = tabArea.rect.width / 3;
+            for (int i = 0; i < areas.Length; i++)
+            {
+                var area = areas[i]; var native = toggles.FirstOrDefault(toggle => toggle.ClientArea == area);
+                var panel = FightUI.Panel(host, i * width, 0, width, tabArea.rect.height, FightUI.PanelColor, true, "Fight Tab " + labels[i]);
+                panel.GetComponent<Outline>().effectColor = FightUI.Border;
+                var button = panel.gameObject.AddComponent<Button>(); button.targetGraphic = panel.GetComponent<Image>();
+                var frame = panel.GetComponentInChildren<FightFrame>(); frame.ButtonFrame = true;
+                panel.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
+                button.onClick.AddListener(() => { if (native != null) native.SetToggleOn(); else collection.ShowArea(area); });
+                var text = FightUI.Text(panel, labels[i], 0, 0, width, tabArea.rect.height, Mathf.Max(22, 17 / scale), FightUI.Muted, TextAlignmentOptions.Center);
+                FightUI.Stretch(text.rectTransform); text.raycastTarget = false;
+                var tab = new EditorTab(collection, area, panel.GetComponent<Image>(), panel.GetComponent<Outline>(), text);
+                editorTabs.Add(tab); tab.Refresh();
+            }
+        }
+
+        private void RenderEditorInspector(Card card)
+        {
+            if (editorDetailHost == null) return;
+            if (editorInspector?.Scroll != null) editorScrollAnchors.Remove(editorInspector.Scroll);
+            FightUI.Clear(editorDetailHost);
+            editorInspectedCode = card != null ? card.Id : 0;
+            var width = editorDetailHost.rect.width; var height = editorDetailHost.rect.height;
+            editorInspector = new EditorInspector { Card = card };
+            if (card == null)
+            {
+                editorInspector.EmptyIcon = FightUI.Icon(editorDetailHost, "deck", (width - 48) / 2, 48, 48, 48, FightUI.GoldBorder).GetComponent<RectTransform>();
+                editorInspector.Heading = FightUI.Text(editorDetailHost, "选择一张卡片", 16, 120, width - 32, 36, 20, FightUI.Foreground, TextAlignmentOptions.Center);
+                editorInspector.Description = FightUI.Text(editorDetailHost, "点击构筑或卡池中的卡片\n查看卡文与加入 / 移除操作", 16, 168, width - 32, 96, 17, FightUI.Muted, TextAlignmentOptions.Center);
+                return;
+            }
+            var inspector = FightUI.Scroll(editorDetailHost, 12, 0, width - 24, 120, 120, out var scroll);
+            scroll.name = "Card effect scroll";
+            editorInspector.Content = inspector; editorInspector.Scroll = scroll;
+            var heading = FightUI.Text(editorDetailHost, card.Name, 12, 10, width - 24, 100, Compact ? 20 : 25, FightUI.Foreground);
+            heading.enableWordWrapping = true; heading.enableAutoSizing = true;
+            FightUI.Hint(heading.gameObject, card.Name); editorInspector.Heading = heading;
+            editorInspector.ArtDivider = FightUI.Panel(editorDetailHost, 12, 0, width - 24, 1, FightUI.Border, false, "Divider");
+            var typeLabel = card.HasType(CardType.Monster) ? card.GetAttributeString() + "  " + card.GetTypeForUI() : card.GetTypeForUI();
+            editorInspector.Type = FightUI.Text(editorDetailHost, typeLabel, 12, 0, width - 24, 40, 16, FightUI.Muted);
+            editorInspector.Type.enableWordWrapping = true;
+            editorInspector.Parameters = FightUI.Text(editorDetailHost, EditorCardParameters(card), 12, 0, width - 24, 40, 16);
+            var art = FightUI.Art(editorDetailHost, card.Id, 0, 0, 138, 138 * 1.46f, true);
+            FightUI.CardButton(art, () => UIManager.ShowCardInfoDetail(card));
+            editorInspector.Art = art.transform.parent as RectTransform;
+            foreach (RectTransform child in editorInspector.Art) FightUI.Stretch(child);
+            editorInspector.EffectHeading = FightUI.Text(editorDetailHost, "卡片效果", 12, 0, width - 24, 30, 16, FightUI.Gold);
+            editorInspector.EffectDivider = FightUI.Panel(editorDetailHost, 12, 0, width - 24, 1, FightUI.Border, false, "Effect divider");
+            editorInspector.Description = FightUI.Text(inspector, card.Desc, 0, 0, width - 44, 500, Compact ? 17 : 19, FightUI.Foreground);
+            editorInspector.Description.lineSpacing = 7;
+            editorInspector.Description.paragraphSpacing = 10;
+            editorInspector.Description.overflowMode = TextOverflowModes.Overflow;
+            editorInspector.ControlsDivider = FightUI.Panel(editorDetailHost, 12, 0, width - 24, 1, FightUI.GoldBorder, false, "Divider");
+            editorInspector.Add = FightUI.Button(editorDetailHost, "+", 12, 0, 44, 40, () => clientEditorUI?.AddCard(card));
+            editorInspector.Remove = FightUI.Button(editorDetailHost, "−", 64, 0, 44, 40, () => clientEditorUI?.RemoveCard(card));
+            FightUI.Hint(editorInspector.Add.gameObject, "加入构筑");
+            FightUI.Hint(editorInspector.Remove.gameObject, "从构筑移除");
+            editorInspector.More = FightUI.Button(editorDetailHost, "更多", 116, 0, width - 128, 40, () => OpenEditorCardMore(card));
+            LayoutEditorInspector();
+        }
+
+        private void LayoutEditorInspector()
+        {
+            if (editorInspector == null || editorDetailHost == null) return;
+            var item = editorInspector;
+            var width = editorDetailHost.rect.width; var height = editorDetailHost.rect.height;
+            if (item.Card == null)
+            {
+                FightUI.Place(item.EmptyIcon, (width - 48) / 2, 48, 48, 48);
+                FightUI.Place(item.Heading.rectTransform, 16, 120, width - 32, 36);
+                FightUI.Place(item.Description.rectTransform, 16, 168, width - 32, 96);
+                return;
+            }
+            item.Heading.fontSizeMin = Compact ? 17 : 21; item.Heading.fontSizeMax = Compact ? 20 : 25;
+            item.Heading.fontSize = item.Heading.fontSizeMax;
+            var headingHeight = Mathf.Clamp(item.Heading.GetPreferredValues(item.Heading.text, width - 24, float.PositiveInfinity).y + 6, 38, Compact ? 92 : 108);
+            FightUI.Place(item.Heading.rectTransform, 12, 10, width - 24, headingHeight);
+            var artTop = 10 + headingHeight + 24;
+            FightUI.Place(item.ArtDivider, 12, artTop - 12, width - 24, 1);
+            var typeHeight = item.Type.GetPreferredValues(item.Type.text, width - 24, float.PositiveInfinity).y + 6;
+            var parametersHeight = item.Parameters.GetPreferredValues(item.Parameters.text, width - 24, float.PositiveInfinity).y + 6;
+            // Reserve a useful effect viewport before assigning space to the art.
+            var effectBudget = Mathf.Clamp(height * .27f, 110, 250);
+            var artHeightBudget = Mathf.Max(64, height - artTop - 12 - typeHeight - parametersHeight - 112 - effectBudget);
+            var artWidth = Mathf.Min(Mathf.Min(Compact ? 138 : 220, width - 32), artHeightBudget / 1.46f);
+            var artHeight = artWidth * 1.46f;
+            FightUI.Place(item.Art, (width - artWidth) / 2, artTop, artWidth, artHeight);
+            var y = artTop + artHeight + 12;
+            FightUI.Place(item.Type.rectTransform, 12, y, width - 24, typeHeight); y += typeHeight;
+            FightUI.Place(item.Parameters.rectTransform, 12, y, width - 24, parametersHeight); y += parametersHeight;
+            y += 8;
+            FightUI.Place(item.EffectDivider, 12, y, width - 24, 1); y += 10;
+            FightUI.Place(item.EffectHeading.rectTransform, 12, y, width - 24, 26); y += 34;
+            var scrollHeight = Mathf.Max(48, height - 72 - y);
+            var scrollWidth = width - 24;
+            FightUI.Place(item.Scroll.GetComponent<RectTransform>(), 12, y, scrollWidth, scrollHeight);
+            FightUI.Place(item.Scroll.viewport, 0, 0, scrollWidth, scrollHeight);
+            var rail = item.Scroll.verticalScrollbar.GetComponent<RectTransform>();
+            FightUI.Place(rail, scrollWidth - 15, 2, 14, scrollHeight - 4);
+            var track = rail.Find("Track") as RectTransform;
+            if (track != null) FightUI.Place(track, 10, 0, 4, scrollHeight - 4);
+            item.Description.fontSize = Compact ? 17 : 19;
+            var preferred = item.Description.GetPreferredValues(item.Description.text, scrollWidth - 20, float.PositiveInfinity).y + 12;
+            FightUI.Place(item.Description.rectTransform, 0, 2, scrollWidth - 20, preferred);
+            item.Content.sizeDelta = new Vector2(scrollWidth, Mathf.Max(scrollHeight, preferred + 4));
+            item.Content.anchoredPosition = new Vector2(0, Mathf.Clamp(item.Content.anchoredPosition.y, 0, Mathf.Max(0, item.Content.rect.height - scrollHeight)));
+            var controlsY = height - 50;
+            FightUI.Place(item.ControlsDivider, 12, controlsY - 8, width - 24, 1);
+            FightUI.Place(item.Add.GetComponent<RectTransform>(), 12, controlsY, 44, 40);
+            FightUI.Place(item.Remove.GetComponent<RectTransform>(), 64, controlsY, 44, 40);
+            FightUI.Place(item.More.GetComponent<RectTransform>(), 116, controlsY, width - 128, 40);
+        }
+
+        private static string EditorCardParameters(Card card)
+        {
+            if (!card.HasType(CardType.Monster)) return card.GetSpellTrapType();
+            var levelType = card.GetLevelType();
+            string value;
+            if (levelType == Card.LevelType.Link)
+            {
+                var arrows = new List<string>();
+                if (card.HasLinkMarker(CardLinkMarker.TopLeft)) arrows.Add("↖");
+                if (card.HasLinkMarker(CardLinkMarker.Top)) arrows.Add("↑");
+                if (card.HasLinkMarker(CardLinkMarker.TopRight)) arrows.Add("↗");
+                if (card.HasLinkMarker(CardLinkMarker.Left)) arrows.Add("←");
+                if (card.HasLinkMarker(CardLinkMarker.Right)) arrows.Add("→");
+                if (card.HasLinkMarker(CardLinkMarker.BottomLeft)) arrows.Add("↙");
+                if (card.HasLinkMarker(CardLinkMarker.Bottom)) arrows.Add("↓");
+                if (card.HasLinkMarker(CardLinkMarker.BottomRight)) arrows.Add("↘");
+                value = "LINK-" + card.GetLinkCount() + "   ATK " + card.GetAttackString()
+                    + "\n连接箭头 " + (arrows.Count == 0 ? "—" : string.Join(" ", arrows));
+            }
+            else value = (levelType == Card.LevelType.Rank ? "阶级 " : "等级 ") + card.Level
+                + "\nATK " + card.GetAttackString() + "   DEF " + card.GetDefenseString();
+            if (card.HasType(CardType.Pendulum)) value += "\n灵摆刻度 " + card.LScale + " / " + card.RScale;
+            return value;
+        }
+
+        private void SkinEditorWidget(Transform widget, float scale)
+        {
+            bool IsCardVisual(Component component) => component.GetComponentInParent<SelectionButton_CardInDeck>() != null
+                || component.GetComponentInParent<SelectionButton_CardInCollection>() != null;
+            void Tint(Graphic graphic, Color color)
+            {
+                graphic.color = color;
+                var container = graphic.GetComponent<YgomSystem.UI.ColorContainerGraphic>();
+                if (container != null) container.baseColor = color;
+            }
+            foreach (var text in widget.GetComponentsInChildren<TextMeshProUGUI>(true))
+            {
+                if (IsCardVisual(text)) continue;
+                Tint(text, text.GetComponentInParent<Selectable>() != null ? FightUI.Gold : FightUI.Foreground);
+                if (!editorTypography.Any(item => item.Text == text)) editorTypography.Add(new EditorTypography(text));
+            }
+            foreach (var image in widget.GetComponentsInChildren<Image>(true))
+            {
+                if (IsCardVisual(image)) continue;
+                var name = image.name.ToLowerInvariant();
+                if (name.Contains("card") || name.Contains("attribute") || name.Contains("rarity")
+                    || name.Contains("icondeck") || name.Contains("limit") || name.Contains("point")) continue;
+                var control = image.GetComponentInParent<Selectable>();
+                bool ordinaryControl = control != null && (control is Button || control is TMP_InputField)
+                    && !control.name.ToLowerInvariant().Contains("noitem");
+                bool surface = name.Contains("background") || name.Contains("plate") || name.Contains("window")
+                    || name == "bg" || name == "base" || name.Contains("frame")
+                    || ordinaryControl && control.targetGraphic == image;
+                if (name.Contains("icon") || ordinaryControl && !surface && name != "line")
+                {
+                    image.material = null;
+                    Tint(image, FightUI.Gold);
+                    continue;
+                }
+                if (name == "line")
+                {
+                    image.material = null;
+                    Tint(image, ordinaryControl ? Color.clear : FightUI.GoldBorder);
+                    continue;
+                }
+                if (surface)
+                {
+                    image.sprite = ordinaryControl ? FightSkin.ButtonSurface : FightSkin.Surface;
+                    image.type = Image.Type.Sliced; image.material = null;
+                    Tint(image, FightUI.Raised);
+                    if (ordinaryControl && control.transform.Find("Fight control frame") == null)
+                    {
+                        var border = control.gameObject.AddComponent<FightOutline>();
+                        border.effectColor = FightUI.GoldBorder; border.effectDistance = new Vector2(1, -1);
+                        var frame = FightUI.Node(control.transform, "Fight control frame", 0, 0, 0, 0);
+                        FightUI.Stretch(frame);
+                        var metal = frame.gameObject.AddComponent<FightFrame>();
+                        metal.ButtonFrame = true; metal.Bind(border, image);
+                    }
+                }
+            }
+            foreach (var control in widget.GetComponentsInChildren<Selectable>(true))
+            {
+                if (IsCardVisual(control)) continue;
+                var frame = control.transform.Find("Fight control frame")?.GetComponent<FightFrame>();
+                if (frame != null)
+                    (control.GetComponent<FightButtonFeedback>() ?? control.gameObject.AddComponent<FightButtonFeedback>()).Bind(frame);
+                if (control is TMP_InputField input)
+                {
+                    FightUI.ConfigurePlainTextInput(input);
+                }
+            }
+            LayoutEditorTypography(widget, scale);
+        }
+
+        private void LayoutEditorTypography(Transform widget, float scale)
+        {
+            foreach (var item in editorTypography)
+                if (item.Text != null && item.Text.transform.IsChildOf(widget)) item.Apply(scale);
+        }
+
+        internal bool SaveEditorThen(Action continued)
+        {
+            CancelEditorSaveContinuation();
+            editorSaveContinuation = continued;
+            return SaveEditor();
+        }
+
+        internal void CancelEditorSaveContinuation()
+        {
+            if (!editorAwaitingOverwrite) return;
+            editorAwaitingOverwrite = false;
+            editorSaveContinuation = null;
+            editorOverwriteAllowed = false;
+        }
+
+        private void ResetEditorSaveContinuation()
+        {
+            editorAwaitingOverwrite = false;
+            editorSaveContinuation = null;
+            editorOverwriteAllowed = false;
+        }
+
+        internal bool SaveEditor()
+        {
+            if (clientEditorUI == null || !clientEditorUI.DeckView.deckLoaded)
+            {
+                ResetEditorSaveContinuation();
+                ShowStatus("卡组仍在加载，请稍后再保存。"); return false;
+            }
+            var view = clientEditorUI.DeckView;
+            try
+            {
+                if (DeckEditor.Banlist.Name != BanlistManager.EMPTY_LIST_NAME
+                    && (view.mainCount > 60 || view.extraCount > 15 || view.sideCount > 15))
+                    throw new InvalidOperationException("构筑超过张数上限。未完成的卡组可以保存，超出上限时请选择无禁限卡表。");
+                var name = Deck.NormalizeDeckFileName(view.GetDeckName());
+                if (!Deck.IsValidDeckFileName(name)) throw new InvalidOperationException("请填写有效的卡组名称。");
+                var data = view.FromObjectDeckToCodedDeck();
+                var relative = string.IsNullOrEmpty(data.type) ? name : data.type + "/" + name;
+                var target = Path.GetFullPath(Program.PATH_DECK + relative + Program.EXPANSION_YDK);
+                if (!editorOverwriteAllowed && File.Exists(target)
+                    && !string.Equals(target, editorLoadedPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    var box = ShowDialog("覆盖同名卡组", 620, 280);
+                    FightUI.Text(box, "“" + relative + "”已经存在。保存将替换这套个人卡组的文件。", 28, 88, 560, 94, 20);
+                    FightUI.Button(box, "取消", 260, 208, 144, 48, CloseDialog);
+                    FightUI.Button(box, "覆盖并保存", 424, 208, 168, 48, () =>
+                    {
+                        editorAwaitingOverwrite = false;
+                        CloseDialog();
+                        editorOverwriteAllowed = true;
+                        SaveEditor();
+                    }, true);
+                    editorAwaitingOverwrite = true;
+                    return false;
+                }
+                view.KeepCurrentDeckOnSave = true;
+                if (!view.Save()) { ResetEditorSaveContinuation(); return false; }
+                var oldRelative = editorRelativeName;
+                var oldPath = editorLoadedPath;
+                editorRelativeName = relative;
+                editorLoadedPath = target;
+                DeckEditor.Deck = view.Deck;
+                DeckEditor.DeckName = relative;
+                DeckEditor.DeckIsFromLocal = true;
+                editorOverwriteAllowed = false;
+                var sourceRenamed = !string.Equals(oldPath, target, StringComparison.Ordinal)
+                    && (!File.Exists(oldPath) || string.Equals(oldPath, target, StringComparison.OrdinalIgnoreCase));
+                if (sourceRenamed && Config.GetConfigDeckName() == oldRelative && oldRelative != relative)
+                    Config.SetConfigDeck(relative);
+                if (sourceRenamed)
+                {
+                    var config = ResponsesAiConfigStore.Load();
+                    var changed = false;
+                    if (SameEditorPath(config.DeckA, oldPath)) { config.DeckA = target; changed = true; }
+                    if (SameEditorPath(config.DeckB, oldPath)) { config.DeckB = target; changed = true; }
+                    if (changed) ResponsesAiConfigStore.SaveChoices(config.DeckA, config.DeckB, config.AiVsAi);
+                }
+                Config.Save();
+                ShowStatus("已保存个人卡组：" + relative);
+                var continuation = editorSaveContinuation;
+                ResetEditorSaveContinuation();
+                continuation?.Invoke();
+                return true;
+            }
+            catch (Exception e) { ResetEditorSaveContinuation(); ShowStatus("保存失败：" + e.Message); return false; }
+        }
+
+        private static bool SameEditorPath(string value, string path)
+        {
+            if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(path)) return false;
+            try { return string.Equals(Path.GetFullPath(value), path, StringComparison.OrdinalIgnoreCase); }
+            catch { return false; }
+        }
+
+        internal void DiscardEditor()
+        {
+            if (clientEditorUI == null) return;
+            if (!string.IsNullOrEmpty(editorLoadedPath) && File.Exists(editorLoadedPath))
+            {
+                var disk = new Deck(editorLoadedPath);
+                disk.type = Path.GetDirectoryName(editorRelativeName) ?? string.Empty;
+                DeckEditor.Deck = disk;
+                DeckEditor.DeckName = editorRelativeName;
+                clientEditorUI.DeckView.PrintDeck(disk, editorRelativeName, DeckView.Condition.Editable);
+                clientEditorUI.DeckView.SetDirty(false);
+            }
+            else clientEditorUI.DeckView.SetDirty(false);
+        }
+
+        internal void ReleaseEditor()
+        {
+            ResetEditorSaveContinuation();
+            // Clear active ownership before restoring native objects. A second
+            // release (including shutdown callbacks) must see a detached editor.
+            var ui = clientEditorUI; clientEditorUI = null;
+            var scrolling = editorDeckScroll; editorDeckScroll = null;
+            editorAwaitingMount = false;
+            try
+            {
+                if (ui != null)
+                {
+                    ui.ClientSave = null;
+                    ui.ClientOverlayParent = null;
+                    if (ui.CardCollectionView != null)
+                    {
+                        ui.CardCollectionView.ClientImageCache = null;
+                        foreach (var image in ui.CardCollectionView.GetComponentsInChildren<CardRawImageHandler>(true))
+                            if (image.GetComponentInParent<SelectionButton_CardInCollection>() != null) image.SetClientPool(null);
+                    }
+                    editorImageCache?.Dispose(); editorImageCache = null;
+                    if (ui.DeckView != null)
+                    {
+                        ui.DeckView.KeepCurrentDeckOnSave = false;
+                        ui.DeckView.ClientDeckLayout = false;
+                    }
+                }
+                foreach (var section in editorDeckSections) section.Restore();
+                foreach (var graphic in editorGraphics) graphic.Restore();
+                foreach (var typography in editorTypography) typography.Restore();
+                foreach (var geometry in editorCardGeometry.Values) geometry.Apply(1);
+                for (var i = editorMounts.Count - 1; i >= 0; i--) editorMounts[i].Restore();
+                scrolling?.Restore();
+                foreach (var driver in editorBehaviours) driver.Restore();
+            }
+            finally
+            {
+                // Destroy only client additions after cards and native controls
+                // have returned to their original parents. Pending Destroy nodes
+                // are hidden immediately so another mount in this frame is safe.
+                foreach (var addition in editorAdditions)
+                    if (addition != null) { addition.SetActive(false); UnityEngine.Object.Destroy(addition); }
+                editorDeckSections.Clear(); editorTabs.Clear(); editorGraphics.Clear(); editorBehaviours.Clear(); editorAdditions.Clear();
+                editorToolbarButtons.Clear(); editorTypography.Clear(); editorScrollAnchors.Clear();
+                editorCardGeometry.Clear();
+                editorLayoutSignature = -1;
+                editorHeaderTutorial = null;
+                editorDeckWidget = editorPoolWidget = null; editorInspector = null;
+                editorDivider = editorActionHost = editorHeaderInput = editorHeaderArea = editorHeaderNameGroup = null;
+                editorMounts.Clear();
+                editorViewHost = editorCollectionHost = editorDetailHost = null;
+                editorTitleText = editorStateText = editorCountsText = editorSummaryText = null; editorSaveButton = null;
+            }
+        }
+
+        private sealed class EditorWidget
+        {
+            internal readonly RectTransform Rect, Host, Frame;
+            internal readonly float WrapperWidth, NativeWidth, TopInset, BottomInset, TopBleed, BottomBleed;
+            internal EditorWidget(RectTransform rect, RectTransform host, RectTransform frame,
+                float wrapperWidth, float nativeWidth, float topInset, float bottomInset, float topBleed, float bottomBleed)
+            {
+                Rect = rect; Host = host; Frame = frame; WrapperWidth = wrapperWidth; NativeWidth = nativeWidth;
+                TopInset = topInset; BottomInset = bottomInset; TopBleed = topBleed; BottomBleed = bottomBleed;
+            }
+        }
+
+        private sealed class EditorInspector
+        {
+            internal Card Card;
+            internal ScrollRect Scroll;
+            internal RectTransform Content, Art, ArtDivider, ControlsDivider, EmptyIcon, EffectDivider;
+            internal TextMeshProUGUI Heading, Type, Parameters, Description, EffectHeading;
+            internal Button Add, Remove, More;
+        }
+
+        private sealed class EditorInputAnchor
+        {
+            private readonly TMP_InputField input;
+            private readonly string text;
+            private readonly int caret, anchor, focus;
+            internal EditorInputAnchor(TMP_InputField value)
+            {
+                input = value; text = value.text; caret = value.caretPosition;
+                anchor = value.selectionAnchorPosition; focus = value.selectionFocusPosition;
+            }
+            internal void Restore()
+            {
+                if (input == null || !input.isFocused || input.text != text) return;
+                input.caretPosition = caret; input.selectionAnchorPosition = anchor; input.selectionFocusPosition = focus;
+            }
+        }
+
+        private sealed class EditorScrollAnchor
+        {
+            private bool known;
+            private float requested, applied;
+            internal void Remember(ScrollRect scroll)
+            {
+                var current = scroll.verticalNormalizedPosition;
+                // A taller viewport may temporarily fit the whole content. Keep
+                // the previous position until the user actually scrolls again.
+                if (!known || Mathf.Abs(current - applied) > .001f) requested = Mathf.Clamp01(current);
+                known = true;
+            }
+            internal void Restore(ScrollRect scroll)
+            {
+                if (scroll.content == null) return;
+                var viewport = scroll.viewport != null ? scroll.viewport : scroll.GetComponent<RectTransform>();
+                scroll.StopMovement();
+                scroll.verticalNormalizedPosition = scroll.content.rect.height > viewport.rect.height + .5f ? requested : 1;
+                applied = scroll.verticalNormalizedPosition;
+            }
+        }
+
+        private sealed class EditorTypography
+        {
+            internal readonly TextMeshProUGUI Text;
+            private readonly float size, min, max;
+            internal EditorTypography(TextMeshProUGUI text)
+            { Text = text; size = text.fontSize; min = text.fontSizeMin; max = text.fontSizeMax; }
+            internal void Apply(float scale)
+            {
+                Text.fontSize = Mathf.Clamp(size, 16 / scale, 28 / scale);
+                if (!Text.enableAutoSizing) return;
+                Text.fontSizeMin = Mathf.Clamp(min, 16 / scale, 28 / scale);
+                Text.fontSizeMax = Mathf.Clamp(max, Text.fontSizeMin, 28 / scale);
+            }
+            internal void Restore()
+            {
+                if (Text == null) return;
+                Text.fontSize = size; Text.fontSizeMin = min; Text.fontSizeMax = max;
+            }
+        }
+
+        private sealed class EditorCardGeometry
+        {
+            private readonly RectTransform[] rects;
+            private readonly Vector2[] sizes;
+            private readonly Vector3[] positions;
+            private float applied = 1;
+            internal EditorCardGeometry(RectTransform root)
+            {
+                rects = root != null ? root.GetComponentsInChildren<RectTransform>(true) : Array.Empty<RectTransform>();
+                sizes = rects.Select(rect => rect.sizeDelta).ToArray();
+                positions = rects.Select(rect => rect.anchoredPosition3D).ToArray();
+            }
+            internal void Apply(float scale)
+            {
+                if (Mathf.Approximately(scale, applied)) return;
+                applied = scale;
+                // Size authored child geometry so the native drag animation can
+                // keep using its own localScale without erasing viewport density.
+                for (int i = 0; i < rects.Length; i++)
+                {
+                    if (rects[i] == null) continue;
+                    rects[i].sizeDelta = sizes[i] * scale;
+                    rects[i].anchoredPosition3D = positions[i] * scale;
+                }
+            }
+        }
+
+        private sealed class EditorDeckScroll
+        {
+            private readonly ScrollRect scroll;
+            private readonly RectTransform originalContent, originalViewport;
+            private readonly Scrollbar originalBar;
+            private readonly ScrollRect.ScrollbarVisibility visibility;
+            private readonly ScrollRect.MovementType movement;
+            private readonly bool horizontal, vertical, enabled;
+            private readonly float sensitivity;
+            private readonly Vector3 originalContentPosition;
+            internal RectTransform Content, Viewport, Rail;
+            internal CanvasGroup Loading;
+            internal EditorDeckScroll(ScrollRect value)
+            {
+                scroll = value; originalContent = value.content; originalViewport = value.viewport;
+                originalBar = value.verticalScrollbar; visibility = value.verticalScrollbarVisibility;
+                movement = value.movementType; horizontal = value.horizontal; vertical = value.vertical;
+                sensitivity = value.scrollSensitivity;
+                enabled = value.enabled;
+                originalContentPosition = originalContent != null ? originalContent.anchoredPosition3D : Vector3.zero;
+            }
+            internal void Restore()
+            {
+                if (scroll == null) return;
+                scroll.StopMovement(); scroll.content = originalContent; scroll.viewport = originalViewport;
+                scroll.verticalScrollbar = originalBar; scroll.verticalScrollbarVisibility = visibility;
+                scroll.movementType = movement; scroll.horizontal = horizontal; scroll.vertical = vertical;
+                scroll.scrollSensitivity = sensitivity;
+                scroll.enabled = enabled;
+                // The native prefab can intentionally have no ScrollRect content.
+                // Its normalized setter dereferences that null content. Restore
+                // geometry directly without running a bounds calculation.
+                if (originalContent != null) originalContent.anchoredPosition3D = originalContentPosition;
+            }
+        }
+
+        private sealed class EditorDeckSection
+        {
+            internal readonly RectTransform Root;
+            internal readonly GridLayoutGroup Grid;
+            internal readonly DeckView.DeckLocation Location;
+            internal readonly Vector2 NativeCell;
+            private readonly string label;
+            private readonly TextMeshProUGUI title, facts, emptyHint;
+            private readonly GridLayoutGroup.Constraint constraint;
+            private readonly int columns;
+            private readonly GridLayoutGroup.Axis axis;
+            private readonly TextAnchor alignment;
+            private readonly RectOffset padding;
+            private readonly Vector2 spacing;
+            internal EditorDeckSection(RectTransform root, GridLayoutGroup grid, DeckView.DeckLocation location,
+                string name, TextMeshProUGUI heading, TextMeshProUGUI counts, TextMeshProUGUI hint)
+            {
+                Root = root; Grid = grid; Location = location; label = name; title = heading; facts = counts; emptyHint = hint;
+                constraint = grid.constraint; columns = grid.constraintCount; axis = grid.startAxis;
+                NativeCell = grid.cellSize;
+                alignment = grid.childAlignment; padding = grid.padding; spacing = grid.spacing;
+            }
+            internal void Refresh(DeckView view)
+            {
+                var count = Location == DeckView.DeckLocation.MainDeck ? view.mainCount
+                    : Location == DeckView.DeckLocation.ExtraDeck ? view.extraCount : view.sideCount;
+                title.text = label + " · " + count;
+                if (emptyHint != null) emptyHint.gameObject.SetActive(count == 0);
+                if (view.cards == null) return;
+                var types = Location == DeckView.DeckLocation.ExtraDeck
+                    ? new[] { CardType.Fusion, CardType.Synchro, CardType.Xyz, CardType.Link }
+                    : new[] { CardType.Monster, CardType.Spell, CardType.Trap };
+                var names = Location == DeckView.DeckLocation.ExtraDeck
+                    ? new[] { "融合", "同调", "超量", "连接" } : new[] { "怪兽", "魔法", "陷阱" };
+                var values = new List<string>();
+                for (var i = 0; i < types.Length; i++)
+                {
+                    var number = view.cards.Count(c => c != null && c.location == Location && c.Card != null && c.Card.Id != 0 && c.Card.HasType(types[i]));
+                    if (number > 0) values.Add(names[i] + " " + number);
+                }
+                facts.text = string.Join(" · ", values);
+            }
+            internal void Reflow(float width, float scale)
+            {
+                var header = title.transform.parent as RectTransform;
+                FightUI.Place(header, 4, 0, width - 8, 34);
+                FightUI.Place(title.rectTransform, 0, 0, 180, 32);
+                FightUI.Place(facts.rectTransform, 180, 0, Mathf.Max(1, width - 188), 32);
+                facts.fontSize = Mathf.Max(20, 16 / scale);
+                FightUI.Place(emptyHint.rectTransform, 12, 58, width - 24, 40);
+            }
+            internal void ResizeCells(bool large)
+            {
+                Grid.cellSize = large ? new Vector2(94, 94 * 1.46f) : NativeCell;
+            }
+            internal void Restore()
+            {
+                if (Grid == null) return;
+                Grid.constraint = constraint; Grid.constraintCount = columns; Grid.startAxis = axis;
+                Grid.childAlignment = alignment; Grid.padding = padding; Grid.spacing = spacing;
+                Grid.cellSize = NativeCell;
+            }
+        }
+
+        private sealed class EditorTab
+        {
+            private readonly CardCollectionView collection;
+            private readonly CardCollectionView.Area area;
+            private readonly Image image;
+            private readonly Outline outline;
+            private readonly TextMeshProUGUI text;
+            internal EditorTab(CardCollectionView control, CardCollectionView.Area selectedArea, Image fill, Outline border, TextMeshProUGUI label)
+            { collection = control; area = selectedArea; image = fill; outline = border; text = label; }
+            internal void Refresh()
+            {
+                if (collection == null || image == null) return;
+                bool selected = collection.area == area;
+                image.color = selected ? FightUI.Raised : FightUI.PanelColor;
+                outline.effectColor = selected ? FightUI.GoldBorder : FightUI.Border;
+                text.color = selected ? FightUI.Active : FightUI.Muted;
+            }
+            internal void Reflow()
+            {
+                if (image == null || collection == null) return;
+                var panel = image.rectTransform;
+                var host = panel.parent as RectTransform;
+                var width = host.rect.width / 3;
+                var index = area == CardCollectionView.Area.Collection ? 0 : area == CardCollectionView.Area.Bookmark ? 1 : 2;
+                FightUI.Place(panel, index * width, 0, width, host.rect.height);
+                text.fontSize = Mathf.Max(22, 17 / collection.transform.localScale.x);
+            }
+        }
+
+        private sealed class EditorGraphic
+        {
+            private readonly Graphic graphic;
+            private readonly bool enabled;
+            internal EditorGraphic(Graphic value) { graphic = value; enabled = value.enabled; }
+            internal void Restore() { if (graphic != null) graphic.enabled = enabled; }
+        }
+
+        private sealed class EditorBehaviour
+        {
+            private readonly Behaviour behaviour;
+            private readonly bool enabled;
+            internal EditorBehaviour(Behaviour value) { behaviour = value; enabled = value.enabled; }
+            internal void Restore() { if (behaviour != null) behaviour.enabled = enabled; }
+        }
+
+        private sealed class EditorMount
+        {
+            internal readonly RectTransform Rect;
+            private readonly Transform parent;
+            private readonly int sibling;
+            private readonly Vector2 min, max, pivot, size;
+            private readonly Vector3 position;
+            private readonly Vector3 scale;
+            private readonly Quaternion rotation;
+            private readonly bool active;
+            internal EditorMount(RectTransform rect)
+            {
+                Rect = rect; parent = rect.parent; sibling = rect.GetSiblingIndex(); min = rect.anchorMin; max = rect.anchorMax;
+                pivot = rect.pivot; position = rect.anchoredPosition3D; size = rect.sizeDelta; scale = rect.localScale;
+                rotation = rect.localRotation; active = rect.gameObject.activeSelf;
+            }
+            internal void Restore()
+            {
+                if (Rect == null || parent == null) return;
+                Rect.SetParent(parent, false); Rect.SetSiblingIndex(sibling); Rect.anchorMin = min; Rect.anchorMax = max;
+                Rect.pivot = pivot; Rect.anchoredPosition3D = position; Rect.sizeDelta = size; Rect.localScale = scale;
+                Rect.localRotation = rotation; Rect.gameObject.SetActive(active);
+            }
+        }
+    }
+}

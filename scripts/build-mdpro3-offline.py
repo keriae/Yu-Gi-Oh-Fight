@@ -1,0 +1,233 @@
+#!/usr/bin/env python3
+"""Build Yu-Gi-Oh! Fight with the preserved MDPro3 duel runtime atomically."""
+from __future__ import annotations
+
+from contextlib import contextmanager
+import fcntl
+import hashlib
+import importlib.util
+import json
+import os
+from pathlib import Path
+import plistlib
+import shutil
+import subprocess
+import sys
+import tempfile
+
+from source_build_state import atomic_exchange, validate_generation
+from native_server_host import HOST_PATH, compile_host, verify_host
+from client_ui_assets import content_hashes as client_ui_hashes
+
+ROOT = Path(__file__).resolve().parents[1]
+NAME = "Yu-Gi-Oh! Fight"
+IDENTIFIER = "io.github.keriae.yugiohfight"
+EXECUTABLE_NAME = "YuGiOhFight"
+LAUNCHER_SOURCE = "Sources/IndependentGameBootstrap.swift"
+LAUNCHER_ARCHITECTURES = ("arm64", "x86_64")
+LAUNCHER_SWIFT_VERSION = "6"
+LAUNCHER_MINIMUM_MACOS = "13.0"
+
+
+def file_digest(path: Path) -> str:
+    value = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            value.update(block)
+    return value.hexdigest()
+
+
+def run(*args: str | Path) -> None:
+    subprocess.run([str(arg) for arg in args], cwd=ROOT, check=True)
+
+
+def launcher_build_record() -> dict:
+    # Keep this source record inside the signed bundle. A hash of the signed
+    # main executable would become stale when the outer app is signed again.
+    return {"schema": 1, "source_path": LAUNCHER_SOURCE,
+            "source_sha256": file_digest(ROOT / LAUNCHER_SOURCE),
+            "builder_sha256": file_digest(Path(__file__).resolve()),
+            "architectures": list(LAUNCHER_ARCHITECTURES),
+            "swift_version": LAUNCHER_SWIFT_VERSION,
+            "minimum_macos": LAUNCHER_MINIMUM_MACOS}
+
+
+def copy_client(source: Path, destination: Path) -> None:
+    # APFS clones preserve bytes while avoiding a second physical copy of large assets.
+    cloned = subprocess.run(["cp", "-cR", str(source), str(destination)],
+                            stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    if cloned.returncode == 0:
+        return
+    if destination.exists():
+        shutil.rmtree(destination)
+    run("ditto", source, destination)
+
+
+def package_client_ui(client: Path, manifest: dict) -> dict:
+    """Bind each new menu image/font to an exact packaged path and digest."""
+    source = ROOT / "content/client-ui"
+    hashes = client_ui_hashes(source)
+    if hashes != manifest.get("client_ui_content"):
+        raise ValueError("Client UI content changed after compilation; rebuild first.")
+    changes = []
+    for relative, expected in hashes.items():
+        path = source / relative
+        target = client / "Data/ClientUI" / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, target)
+        if file_digest(target) != expected:
+            raise ValueError("Client UI asset changed during packaging: " + relative)
+        changes.append({"path": target.relative_to(client).as_posix(), "sha256": expected})
+    return {"ok": True, "files": len(changes), "changes": changes}
+
+
+@contextmanager
+def application_lock(support: Path):
+    support.mkdir(parents=True, exist_ok=True)
+    with (support / ".native-game-lock").open("a+") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise SystemExit("Close " + NAME + " before replacing its application bundle.")
+        try:
+            yield
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
+
+
+def main() -> None:
+    (ROOT / "artifacts").mkdir(parents=True, exist_ok=True)
+    destination = ROOT / "dist" / (NAME + ".app")
+    support = Path.home() / "Library/Application Support" / NAME
+    # Reject an active game before compilation or any package work.
+    with application_lock(support):
+        if destination.exists() and not (destination / "Contents/Resources/.mdpro3-source-build").is_file():
+            raise ValueError("Refusing to replace an application not made by this source build.")
+        spec = importlib.util.spec_from_file_location("mdpro3_source_builder", ROOT / "scripts/build-mdpro3-source.py")
+        assert spec and spec.loader
+        builder = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(builder)
+        snapshot = builder.build_source()
+        manifest_path = snapshot / "manifest.json"
+        manifest = validate_generation(snapshot)
+        run(sys.executable, ROOT / "scripts/verify-native-client.py", "--output", ROOT / "artifacts/mdpro3-publisher-verification.json")
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix=".independent-build.", dir=destination.parent) as work:
+            stage = Path(work)
+            app = stage / (NAME + ".app")
+            contents = app / "Contents"
+            resources = contents / "Resources"
+            resources.mkdir(parents=True)
+            (contents / "MacOS").mkdir()
+            (resources / ".independent-build").touch()
+            (resources / ".mdpro3-source-build").touch()
+            client = resources / "Client"
+            copy_client(ROOT / "vendor/MDPro3-mac", client)
+            run(sys.executable, ROOT / "scripts/prune-staged-client.py", "--client", client,
+                "--output", ROOT / "artifacts/mdpro3-staged-inventory.json")
+            run(sys.executable, ROOT / "scripts/verify-native-client.py", "--client", client,
+                "--output", ROOT / "artifacts/mdpro3-staged-verification.json")
+            managed = client / "MDPro3.app/Contents/Resources/Data/Managed"
+            for extension in ("dll", "pdb"):
+                shutil.copy2(snapshot / ("Assembly-CSharp." + extension), managed)
+            for extension, key in (("dll", "assembly_sha256"), ("pdb", "pdb_sha256")):
+                if file_digest(managed / ("Assembly-CSharp." + extension)) != manifest[key]:
+                    raise ValueError("Packaged source " + extension + " digest mismatch.")
+            spec = importlib.util.spec_from_file_location("mdpro3_defaults", ROOT / "scripts/seed-offline-defaults.py")
+            assert spec and spec.loader
+            defaults = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(defaults)
+            default_report = defaults.seed(client, manifest_path)
+            spec = importlib.util.spec_from_file_location("mdpro3_academy_seed", ROOT / "scripts/seed-deck-academy.py")
+            academy = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(academy)
+            academy_report = academy.seed(client, manifest_path)
+            ui_report = package_client_ui(client, manifest)
+            (ROOT / "artifacts/mdpro3-deck-academy-seed.json").write_text(json.dumps(academy_report, indent=2, ensure_ascii=False) + "\n")
+            (ROOT / "artifacts/mdpro3-offline-defaults.json").write_text(json.dumps(default_report, indent=2, ensure_ascii=False) + "\n")
+            (client / "Video/Art").mkdir(parents=True, exist_ok=True)
+            native = client / "MDPro3.app"
+            native_info = native / "Contents/Info.plist"
+            info = plistlib.loads(native_info.read_bytes())
+            info["CFBundleIdentifier"] = IDENTIFIER
+            info["CFBundleName"] = NAME
+            info["CFBundleDisplayName"] = NAME
+            native_info.write_bytes(plistlib.dumps(info, sort_keys=False))
+            shutil.copy2(native / "Contents/Resources/PlayerIcon.icns", resources / "MDPro3.icns")
+            # Reuse the exact signed binary also used by temporary duel proofs.
+            host_metadata = compile_host(ROOT / "build/ygoserver-host")
+            host = client / HOST_PATH
+            host.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / "build/ygoserver-host", host)
+            verify_host(client, host_metadata)
+            for architecture in LAUNCHER_ARCHITECTURES:
+                run("xcrun", "swiftc", "-swift-version", LAUNCHER_SWIFT_VERSION, "-parse-as-library", "-O", "-target",
+                    architecture + "-apple-macos" + LAUNCHER_MINIMUM_MACOS, ROOT / LAUNCHER_SOURCE, "-o", stage / architecture)
+            run("xcrun", "lipo", "-create", stage / "arm64", stage / "x86_64", "-output", contents / "MacOS" / EXECUTABLE_NAME)
+            (contents / "Info.plist").write_bytes(plistlib.dumps({
+                "CFBundleExecutable": EXECUTABLE_NAME, "CFBundleIconFile": "MDPro3.icns", "CFBundleIdentifier": IDENTIFIER,
+                "CFBundleName": NAME, "CFBundleDisplayName": NAME, "CFBundlePackageType": "APPL", "CFBundleShortVersionString": "0.1.0",
+                "CFBundleVersion": "1", "LSMinimumSystemVersion": LAUNCHER_MINIMUM_MACOS, "NSHighResolutionCapable": True,
+                "MDPro3StateFolder": NAME,
+            }, sort_keys=False))
+            shutil.copy2(manifest_path, resources / "Source-Build.json")
+            shutil.copy2(snapshot / "compatibility.json", resources / "compatibility.json")
+            (resources / "Launcher-Build.json").write_text(json.dumps(launcher_build_record(), indent=2) + "\n")
+            for path in (ROOT / "README.md", ROOT / "THIRD_PARTY_NOTICES.md"):
+                shutil.copy2(path, resources)
+            shutil.copytree(ROOT / "docs", resources / "docs")
+            # The copied native bundle's resource signature is stale after replacing
+            # its assembly and Info.plist. Sign before dyld loads its Mono runtime.
+            run("codesign", "--force", "--sign", "-", "--timestamp=none", native)
+            run(sys.executable, ROOT / "scripts/test-mdpro3-source-runtime.py", "--client", client,
+                "--assembly", managed / "Assembly-CSharp.dll", "--manifest", manifest_path,
+                "--output", ROOT / "artifacts/mdpro3-source-runtime-packaged.json")
+            for path in (contents / "MacOS" / EXECUTABLE_NAME, app):
+                run("codesign", "--force", "--sign", "-", "--timestamp=none", path)
+            run("codesign", "--verify", "--deep", "--strict", app)
+            verify_host(client, host_metadata)
+            publisher_manifest = ROOT / "vendor/MDPro3-mac-metadata/checksums.txt"
+            publisher = {name: value for value, name in
+                         (line.split("  ", 1) for line in publisher_manifest.read_text().splitlines())}
+            permitted = {
+                "MDPro3.app/Contents/Info.plist", "MDPro3.app/Contents/MacOS/MDPro3",
+                "MDPro3.app/Contents/_CodeSignature/CodeResources",
+                "MDPro3.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+                "MDPro3.app/Contents/Resources/Data/Managed/Assembly-CSharp.pdb",
+                "Data/config.conf",
+                HOST_PATH,
+            } | {item["path"] for item in default_report["changes"]} | {item["path"] for item in academy_report["changes"]} | {item["path"] for item in ui_report["changes"]}
+            changes = {}
+            for path in sorted(client.rglob("*")):
+                if not path.is_file():
+                    continue
+                relative = path.relative_to(client).as_posix()
+                actual = file_digest(path)
+                before = publisher.get(relative)
+                if actual != before:
+                    if relative not in permitted:
+                        raise ValueError("Unexpected packaged resource change: " + relative)
+                    changes[relative] = {"publisher_sha256": before, "sha256": actual}
+            change_report = {"ok": True, "source_build_sha256": file_digest(manifest_path),
+                             "publisher_manifest_sha256": file_digest(publisher_manifest), "changes": changes,
+                             "native_server_host": host_metadata, "client_ui": ui_report}
+            (resources / "Client-Changes.json").write_text(json.dumps(change_report, indent=2) + "\n")
+            (ROOT / "artifacts/mdpro3-client-changes.json").write_text(json.dumps(change_report, indent=2) + "\n")
+            # The final change inventory is part of the outer application's signed resources.
+            run("codesign", "--force", "--sign", "-", "--timestamp=none", app)
+            run("codesign", "--verify", "--deep", "--strict", app)
+            if destination.exists():
+                # The previous app is moved into the stage by the same atomic
+                # exchange. A failed exchange leaves the installed app intact.
+                atomic_exchange(app, destination)
+            else:
+                os.rename(app, destination)
+    report = {"ok": True, "application": str(destination), "source_compiled": True,
+              "assembly_sha256": manifest["assembly_sha256"], "publisher_version": "1.4.7-2", "state_folder": str(support),
+              "native_server_host": host_metadata}
+    (ROOT / "artifacts/mdpro3-offline-build.json").write_text(json.dumps(report, indent=2) + "\n")
+    print(json.dumps(report, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

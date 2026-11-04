@@ -1,0 +1,497 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using MDPro3.Utility;
+
+namespace MDPro3.UI.Client
+{
+    // Real Unity controls. Coordinates are local, measured from the top left.
+    internal static class FightUI
+    {
+        public static readonly Color Background = Hex("050B12"), PanelColor = Hex("09141D"), Raised = Hex("101F2A"),
+            Border = Hex("253541"), GoldBorder = Hex("68583B"), Gold = Hex("C7AA72"), Active = Hex("E4C180"),
+            Foreground = Hex("D8CDB6"), Muted = Hex("A29F95"), Cyan = Hex("35D4EF"), CyanText = Hex("C5F6FF"),
+            ActionFill = Hex("082A3B"), Danger = Hex("CC7970");
+        public static Color Hex(string value) { ColorUtility.TryParseHtmlString("#" + value, out var c); return c; }
+        public static string BalancedLines(string value, int targetCharacters)
+        {
+            if (string.IsNullOrEmpty(value) || value.Contains("\n") || value.Length <= targetCharacters) return value;
+            int lines = Math.Max(2, (int)Math.Ceiling(value.Length / (float)Math.Max(1, targetCharacters)));
+            var result = new System.Text.StringBuilder(); int start = 0;
+            while (lines > 1)
+            {
+                int take = (int)Math.Ceiling((value.Length - start) / (float)lines);
+                int end = start + take;
+                if (end < value.Length && char.IsLowSurrogate(value[end])) end++;
+                // Prefer existing word boundaries for Latin names while keeping
+                // the original characters available to the full-text tooltip.
+                for (int distance = 0; distance <= Math.Min(3, take / 3); distance++)
+                {
+                    int right = end + distance, left = end - distance;
+                    if (right < value.Length - 1 && char.IsWhiteSpace(value[right])) { end = right + 1; break; }
+                    if (left > start && char.IsWhiteSpace(value[left])) { end = left + 1; break; }
+                }
+                result.Append(value, start, end - start).Append('\n'); start = end; lines--;
+            }
+            return result.Append(value, start, value.Length - start).ToString();
+        }
+        public static FightTooltip Hint(GameObject target, string message)
+        {
+            var hint = target.GetComponent<FightTooltip>() ?? target.AddComponent<FightTooltip>();
+            hint.Hint = message; return hint;
+        }
+        public static T FocusKey<T>(T control, string key) where T : Selectable
+        {
+            var identity = control.GetComponent<FightFocusKey>() ?? control.gameObject.AddComponent<FightFocusKey>();
+            identity.Key = key; return control;
+        }
+        public static RectTransform Node(Transform parent, string name, float x, float y, float w, float h)
+        {
+            var rt = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>();
+            rt.SetParent(parent, false); Place(rt, x, y, w, h); return rt;
+        }
+        public static void Place(RectTransform rt, float x, float y, float w, float h)
+        {
+            rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0, 1);
+            rt.anchoredPosition = new Vector2(x, -y); rt.sizeDelta = new Vector2(w, h);
+        }
+        public static void Stretch(RectTransform rt)
+        {
+            rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one; rt.offsetMin = rt.offsetMax = Vector2.zero;
+        }
+        public static RectTransform Panel(Transform parent, float x, float y, float w, float h, Color? fill = null, bool border = true, string name = "Panel")
+        {
+            var rt = Node(parent, name, x, y, w, h);
+            var image = rt.gameObject.AddComponent<Image>(); image.color = fill ?? PanelColor;
+            if (border)
+            {
+                image.sprite = FightSkin.Surface; image.type = Image.Type.Sliced;
+                var line = rt.gameObject.AddComponent<FightOutline>(); line.effectColor = GoldBorder;
+                var frame = Node(rt, "Metal frame", 0, 0, w, h); Stretch(frame);
+                frame.gameObject.AddComponent<FightFrame>().Bind(line, image);
+            }
+            return rt;
+        }
+        public static TextMeshProUGUI Text(Transform parent, string value, float x, float y, float w, float h, float size = 20, Color? color = null, TextAlignmentOptions align = TextAlignmentOptions.TopLeft)
+        {
+            value = (value ?? "").Replace("▾", "· 选择").Replace("☑", "✓");
+            var rt = Node(parent, "Text", x, y, w, h); var t = rt.gameObject.AddComponent<TextMeshProUGUI>();
+            t.font = Program.instance.ui_.tmpFont; t.text = value; t.fontSize = size; t.color = color ?? Foreground;
+            t.alignment = align; t.richText = false; t.raycastTarget = true; t.enableWordWrapping = true; t.overflowMode = TextOverflowModes.Ellipsis;
+            rt.gameObject.AddComponent<FightTooltip>();
+            if (!value.Contains("\n") && h <= size * 2)
+            {
+                t.enableWordWrapping = false;
+                // The publisher font has a taller CJK line box than its visual
+                // glyph height. Reserve its measured line, otherwise TMP's
+                // vertical ellipsis can discard an entire short heading.
+                float lineHeight = t.GetPreferredValues(value, float.PositiveInfinity, float.PositiveInfinity).y;
+                rt.sizeDelta = new Vector2(w, Mathf.Max(h, lineHeight + 2));
+            }
+            return t;
+        }
+        public static TextMeshProUGUI HeroTitle(Transform parent, string value, float x, float y, float w, float h, float size)
+        {
+            var t = Text(parent, value, x, y, w, h, size, Active);
+            if (FightSkin.TitleFont != null) t.font = FightSkin.TitleFont;
+            t.fontStyle = FontStyles.Bold; t.characterSpacing = 1;
+            t.color = Color.white;
+            t.enableVertexGradient = true;
+            t.colorGradient = new VertexGradient(Hex("E9D9B8"), Hex("E9D9B8"), Hex("A58B61"), Hex("A58B61"));
+            t.enableWordWrapping = false;
+            return t;
+        }
+        public static Button Button(Transform parent, string label, float x, float y, float w, float h, Action action, bool primary = false, bool enabled = true)
+        {
+            var rt = Panel(parent, x, y, w, h, primary ? ActionFill : Raised, true, label);
+            rt.GetComponent<Outline>().effectColor = primary ? Cyan : GoldBorder;
+            rt.GetComponent<Image>().sprite = primary ? FightSkin.ActionSurface : FightSkin.ButtonSurface;
+            var frame = rt.GetComponentInChildren<FightFrame>(); frame.Primary = primary; frame.ButtonFrame = true;
+            var b = rt.gameObject.AddComponent<Button>(); b.targetGraphic = rt.GetComponent<Image>();
+            var colors = b.colors; colors.normalColor = Color.white; colors.highlightedColor = new Color(1.26f, 1.28f, 1.3f);
+            colors.pressedColor = Hex("7A909C"); colors.selectedColor = new Color(1.18f, 1.15f, 1.1f); colors.disabledColor = new Color(.42f, .42f, .42f, .72f); colors.fadeDuration = .12f; b.colors = colors;
+            b.interactable = enabled; b.onClick.AddListener(() => { if (action != null) action(); });
+            var size = h >= 64 ? 27 : h >= 50 ? 22 : h >= 40 ? 19 : 17;
+            var caption = Text(rt, label, 10, 0, w - 20, h, size, primary ? CyanText : Gold, TextAlignmentOptions.Center);
+            caption.characterSpacing = .6f;
+            rt.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
+            return b;
+        }
+        public static Button SwitchRow(Transform parent, string label, bool value, float x, float y, float w, float h, Action action)
+        {
+            // Keep a full-row Button hit area and the existing Outline API,
+            // while presenting a switch rather than a bevelled action button.
+            var rt = Panel(parent, x, y, w, h, Color.clear, true, label);
+            var surface = rt.GetComponent<Image>(); surface.sprite = null; surface.type = Image.Type.Simple;
+            rt.GetComponent<Outline>().enabled = false;
+            rt.GetComponentInChildren<FightFrame>().enabled = false;
+            var b = rt.gameObject.AddComponent<Button>(); b.targetGraphic = rt.GetComponent<Image>();
+            b.onClick.AddListener(() => action?.Invoke());
+            var colors = b.colors; colors.highlightedColor = Color.white; colors.selectedColor = Color.white; colors.fadeDuration = .12f; b.colors = colors;
+            var caption = Text(rt, label, 14, 0, Mathf.Max(32, w - 90), h, 18, Foreground, TextAlignmentOptions.Left);
+            var toggle = Node(rt, "Switch " + (value ? "on" : "off"), w - 65, (h - 24) / 2, 46, 24).gameObject.AddComponent<FightToggleGraphic>();
+            toggle.Value = value; toggle.color = Color.white; toggle.raycastTarget = false;
+            rt.gameObject.AddComponent<FightSwitchFeedback>().Bind(b, toggle, caption);
+            return b;
+        }
+        public static void SetSwitchValue(Button row, bool value)
+        {
+            var graphic = row == null ? null : row.GetComponentInChildren<FightToggleGraphic>(true);
+            if (graphic == null) return;
+            graphic.Value = value; graphic.name = "Switch " + (value ? "on" : "off");
+            row.GetComponent<FightSwitchFeedback>()?.Refresh();
+        }
+        public static void ReflowSwitchRow(Button row, float width, float height, float labelInset = 14)
+        {
+            if (row == null) return;
+            row.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+            var caption = row.GetComponentInChildren<TextMeshProUGUI>(true);
+            if (caption != null) Place(caption.rectTransform, labelInset, 0, Mathf.Max(32, width - 90), height);
+            var graphic = row.GetComponentInChildren<FightToggleGraphic>(true);
+            if (graphic != null) Place(graphic.rectTransform, width - 65, (height - 24) / 2, 46, 24);
+        }
+        public static Button Tab(Transform parent, string label, bool selected, float x, float y, float w, float h, Action action, bool enabled = true)
+        {
+            var b = Button(parent, label, x, y, w, h, action, false, enabled);
+            b.GetComponent<Image>().color = selected ? Raised : new Color(0, 0, 0, .08f);
+            b.GetComponent<Outline>().enabled = false;
+            var text = b.GetComponentInChildren<TextMeshProUGUI>(); text.color = selected ? Active : Muted;
+            if (selected)
+            {
+                Line(b.transform, 12, h - 2, w - 24, Gold);
+                Icon(b.transform, "diamond", w / 2 - 4, h - 7, 8, 8, Active);
+            }
+            return b;
+        }
+        public static Button TextAction(Transform parent, string label, float x, float y, float w, float h, Action action, bool enabled = true)
+        {
+            var rt = Node(parent, label, x, y, w, h); var image = rt.gameObject.AddComponent<Image>(); image.color = Color.clear;
+            var button = rt.gameObject.AddComponent<Button>(); button.targetGraphic = image; button.interactable = enabled;
+            button.onClick.AddListener(() => action?.Invoke());
+            var text = Text(rt, label, 0, 0, w, h, h >= 56 ? 26 : h >= 44 ? 22 : 20, enabled ? Gold : Muted, TextAlignmentOptions.MidlineLeft);
+            text.fontStyle = FontStyles.Bold;
+            button.targetGraphic = text;
+            var colors = button.colors; colors.highlightedColor = new Color(1.2f, 1.2f, 1.15f); colors.fadeDuration = .12f; button.colors = colors;
+            var rule = Panel(rt, 0, Mathf.Min(h - 2, h * .5f + text.fontSize * .5f + 5), Mathf.Min(w, text.preferredWidth), 1, Gold, false, "Action underline");
+            rule.GetComponent<Image>().raycastTarget = false;
+            rt.gameObject.AddComponent<FightTextActionFeedback>().Bind(button, rule.GetComponent<Image>());
+            return button;
+        }
+        public static FightIcon Icon(Transform parent, string kind, float x, float y, float w, float h, Color? color = null)
+        {
+            var icon = Node(parent, "Icon " + kind, x, y, w, h).gameObject.AddComponent<FightIcon>();
+            icon.Kind = kind; icon.color = color ?? Gold; icon.raycastTarget = false; return icon;
+        }
+        public static void OrnamentLine(Transform parent, float x, float y, float w)
+        {
+            Icon(parent, "diamond", x, y - 5, 14, 14, GoldBorder);
+            Line(parent, x + 22, y + 2, Mathf.Max(0, w - 22), GoldBorder);
+        }
+        public static TMP_InputField Input(Transform parent, string value, string placeholder, float x, float y, float w, float h, Action<string> changed = null, bool password = false, bool multiline = false)
+        {
+            var rt = Panel(parent, x, y, w, h, Hex("07121B"), true, "Input");
+            var border = rt.GetComponent<Outline>(); border.effectColor = Border;
+            var frame = rt.GetComponentInChildren<FightFrame>(); frame.Primary = false; frame.ButtonFrame = true;
+            var viewport = Node(rt, "Viewport", 12, 5, w - 24, h - 10); viewport.gameObject.AddComponent<RectMask2D>();
+            var t = Text(viewport, "", 0, 0, w - 24, h - 10, 18, Foreground, multiline ? TextAlignmentOptions.TopLeft : TextAlignmentOptions.Left);
+            var p = Text(viewport, placeholder, 0, 0, w - 24, h - 10, 18, Muted, multiline ? TextAlignmentOptions.TopLeft : TextAlignmentOptions.Left);
+            // TMP creates its caret renderer in OnEnable, which requires the
+            // text component to have been assigned already.
+            rt.gameObject.SetActive(false);
+            var input = rt.gameObject.AddComponent<TMP_InputField>(); input.textViewport = viewport; input.textComponent = t; input.placeholder = p;
+            input.targetGraphic = rt.GetComponent<Image>(); input.contentType = password ? TMP_InputField.ContentType.Password : TMP_InputField.ContentType.Standard;
+            input.lineType = multiline ? TMP_InputField.LineType.MultiLineNewline : TMP_InputField.LineType.SingleLine;
+            ConfigurePlainTextInput(input);
+            input.text = value ?? "";
+            input.onValueChanged.AddListener(v => changed?.Invoke(v)); rt.gameObject.SetActive(true); return input;
+        }
+        public static void ConfigurePlainTextInput(TMP_InputField input)
+        {
+            // TMP checks its own richText flag when decorating IME composition.
+            // Disabling only the label exposes its generated <u> tags as text.
+            input.richText = false; input.isRichTextEditingAllowed = false;
+            input.caretColor = Cyan; input.customCaretColor = true; input.caretWidth = 2;
+            input.caretBlinkRate = .85f;
+            input.selectionColor = new Color(.16f, .6f, .72f, .3f);
+            if (input.textComponent != null)
+            {
+                input.textComponent.richText = false;
+                input.textComponent.overflowMode = TextOverflowModes.Overflow;
+                input.textComponent.enableWordWrapping = input.lineType != TMP_InputField.LineType.SingleLine;
+                // Geometry/Midline alignment builds the caret around local y=0.
+                // Top-pivot viewports then clip its upper half. Middle uses the
+                // character's actual ascender/descender within the text rect.
+                if (input.lineType == TMP_InputField.LineType.SingleLine || input.textComponent.verticalAlignment == VerticalAlignmentOptions.Geometry)
+                    input.textComponent.verticalAlignment = VerticalAlignmentOptions.Middle;
+            }
+            if (input.placeholder is TMP_Text placeholder)
+            {
+                placeholder.richText = false;
+                if (input.lineType == TMP_InputField.LineType.SingleLine || placeholder.verticalAlignment == VerticalAlignmentOptions.Geometry)
+                    placeholder.verticalAlignment = VerticalAlignmentOptions.Middle;
+            }
+            if (input.textViewport != null && input.textViewport.GetComponent<RectMask2D>() == null
+                && input.textViewport.GetComponent<Mask>() == null)
+                input.textViewport.gameObject.AddComponent<RectMask2D>();
+            ConfigureInputFeedback(input);
+        }
+        public static void ConfigureInputFeedback(Selectable input)
+        {
+            var feedback = input.GetComponent<FightInputFeedback>() ?? input.gameObject.AddComponent<FightInputFeedback>();
+            feedback.Bind(input);
+        }
+        public static RectTransform Scroll(Transform parent, float x, float y, float w, float h, float contentHeight, out ScrollRect scroll)
+        {
+            var rt = Panel(parent, x, y, w, h, PanelColor, false, "Scroll");
+            var vp = Node(rt, "Viewport", 0, 0, w, h); vp.gameObject.AddComponent<RectMask2D>();
+            var content = Node(vp, "Content", 0, 0, w, Mathf.Max(h, contentHeight));
+            scroll = rt.gameObject.AddComponent<ScrollRect>(); scroll.viewport = vp; scroll.content = content;
+            scroll.horizontal = false; scroll.vertical = true; scroll.movementType = ScrollRect.MovementType.Clamped; scroll.scrollSensitivity = 40;
+            // The visual rail stays thin; its transparent hit area is wide
+            // enough to grab reliably at both desktop sizes.
+            var rail = Panel(rt, w - 15, 2, 14, h - 4, Color.clear, false, "Scrollbar");
+            var track = Panel(rail, 10, 0, 4, h - 4, Border, false, "Track"); track.GetComponent<Image>().raycastTarget = false;
+            var handle = Node(rail, "Scrollbar handle", 0, 0, 14, h - 4); Stretch(handle);
+            var thumb = Panel(handle, 10, 0, 4, h - 4, GoldBorder, false, "Thumb");
+            Stretch(thumb); thumb.offsetMin = new Vector2(10, 0); thumb.offsetMax = Vector2.zero;
+            var bar = rail.gameObject.AddComponent<Scrollbar>(); bar.targetGraphic = thumb.GetComponent<Image>(); bar.handleRect = handle; bar.direction = Scrollbar.Direction.BottomToTop;
+            var colors = bar.colors; colors.highlightedColor = new Color(1.5f, 1.4f, 1.15f); colors.pressedColor = new Color(1.75f, 1.65f, 1.3f); colors.fadeDuration = .12f; bar.colors = colors;
+            scroll.verticalScrollbar = bar; scroll.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide;
+            return content;
+        }
+        public static RectTransform Scroll(Transform parent, float x, float y, float w, float h, float contentHeight)
+            => Scroll(parent, x, y, w, h, contentHeight, out _);
+        public static void Clear(Transform parent)
+        {
+            FightClient.Instance?.RememberFocusForRefresh(parent);
+            foreach (Transform child in parent) { child.gameObject.SetActive(false); UnityEngine.Object.Destroy(child.gameObject); }
+        }
+        public static void Line(Transform parent, float x, float y, float w, Color? color = null)
+            => Panel(parent, x, y, w, 1, color ?? Border, false, "Divider");
+        public static RawImage Art(Transform parent, int code, float x, float y, float w, float h, bool fullCard = false)
+        {
+            var rt = Panel(parent, x, y, w, h, Raised, false, "CardArt " + code);
+            var pixels = Node(rt, "Card Image", 0, 0, w, h);
+            var placeholder = Node(rt, "Card placeholder", 0, 0, w, h).gameObject.AddComponent<FightCardBack>();
+            placeholder.raycastTarget = false; placeholder.color = GoldBorder;
+            pixels.SetAsLastSibling();
+            var img = pixels.gameObject.AddComponent<RawImage>(); rt.GetComponent<Image>().raycastTarget = false;
+            img.color = Color.clear; img.raycastTarget = false;
+            rt.gameObject.AddComponent<FightArt>().Load(code, img, fullCard); return img;
+        }
+        public static Button CardButton(RawImage image, Action action)
+        {
+            var button = image.gameObject.AddComponent<Button>(); image.raycastTarget = true; button.targetGraphic = image;
+            button.transition = Selectable.Transition.None; button.onClick.AddListener(() => action?.Invoke());
+            var rt = image.transform.parent as RectTransform;
+            var outline = rt.gameObject.AddComponent<FightOutline>(); outline.effectColor = Gold; outline.enabled = false;
+            var frameRoot = Node(rt, "Card focus frame", 0, 0, rt.rect.width, rt.rect.height); Stretch(frameRoot);
+            var frame = frameRoot.gameObject.AddComponent<FightFrame>(); frame.ButtonFrame = true; frame.Bind(outline, rt.GetComponent<Image>());
+            image.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
+            return button;
+        }
+        public static void PreviewOnFocus(Button button, Action preview)
+        {
+            var focus = button.gameObject.AddComponent<FightHoverPreview>();
+            focus.Preview = preview;
+        }
+        public static RawImage Asset(Transform parent, string filename, float x, float y, float w, float h, bool cover = true)
+        {
+            var rt = Node(parent, "Visual", x, y, w, h); var img = rt.gameObject.AddComponent<RawImage>(); img.raycastTarget = false;
+            var path = "Data/ClientUI/" + filename;
+            if (File.Exists(path))
+            {
+                var tex = FightAsset.Acquire(path); img.texture = tex;
+                float imageRatio = (float)tex.width / tex.height, frameRatio = w / h;
+                if (cover)
+                {
+                    if (imageRatio > frameRatio) { float visible = frameRatio / imageRatio; img.uvRect = new Rect((1 - visible) / 2, 0, visible, 1); }
+                    else { float visible = imageRatio / frameRatio; img.uvRect = new Rect(0, (1 - visible) / 2, 1, visible); }
+                }
+                else
+                {
+                    float fitW = imageRatio > frameRatio ? w : h * imageRatio, fitH = imageRatio > frameRatio ? w / imageRatio : h;
+                    Place(rt, x + (w - fitW) / 2, y + (h - fitH) / 2, fitW, fitH);
+                }
+            }
+            else img.color = Raised;
+            return img;
+        }
+    }
+    internal sealed class FightAsset : MonoBehaviour
+    {
+        private static readonly Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        internal static Texture2D Acquire(string path)
+        {
+            if (textures.TryGetValue(path, out var cached) && cached != null) return cached;
+            var texture = new Texture2D(2, 2); texture.name = "Fight artwork " + Path.GetFileName(path);
+            texture.LoadImage(File.ReadAllBytes(path)); texture.wrapMode = TextureWrapMode.Clamp;
+            textures[path] = texture; return texture;
+        }
+        internal static void ClearCache()
+        {
+            foreach (var texture in textures.Values) if (texture != null) Destroy(texture);
+            textures.Clear();
+        }
+    }
+    internal sealed class FightFocusKey : MonoBehaviour
+    {
+        internal string Key;
+    }
+    internal sealed class FightHoverPreview : MonoBehaviour, IPointerEnterHandler, ISelectHandler
+    {
+        internal Action Preview;
+        private void ShowPreview()
+        {
+            var button = GetComponent<Button>();
+            if (button != null && button.IsInteractable()) Preview?.Invoke();
+        }
+        public void OnPointerEnter(PointerEventData pointer) => ShowPreview();
+        public void OnSelect(BaseEventData selection) => ShowPreview();
+    }
+    internal sealed class FightTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    {
+        private RectTransform tooltip;
+        private Coroutine delayed;
+        private Vector2 pointerPosition;
+        private Camera eventCamera;
+        internal string Hint;
+        public void OnPointerEnter(PointerEventData pointer)
+        {
+            Hide();
+            var text = GetComponent<TextMeshProUGUI>();
+            if (text != null && (!text.isTextOverflowing || text.GetComponentInParent<TMP_InputField>() != null)) return;
+            if (string.IsNullOrEmpty(Hint ?? (text != null ? text.text : null))) return;
+            pointerPosition = pointer.position; eventCamera = pointer.enterEventCamera; delayed = StartCoroutine(ShowAfterDelay());
+        }
+        private IEnumerator ShowAfterDelay()
+        {
+            yield return new WaitForSecondsRealtime(.35f); delayed = null;
+            var text = GetComponent<TextMeshProUGUI>(); var canvas = GetComponentInParent<Canvas>();
+            var message = Hint ?? (text != null ? text.text : null);
+            if (canvas == null || !canvas.enabled || string.IsNullOrEmpty(message)) yield break;
+            var parent = FightClient.Instance?.TooltipRootFor(transform) ?? canvas.rootCanvas.transform as RectTransform;
+            if (parent == null || !RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, pointerPosition, eventCamera, out var local)) yield break;
+            var parentWidth = parent.rect.width; var parentHeight = parent.rect.height;
+            var width = Mathf.Min(Mathf.Min(520, parentWidth - 32), Mathf.Max(160, text != null ? text.preferredWidth + 32 : message.Length * 18 + 32));
+            var x = Mathf.Clamp(local.x - parent.rect.xMin + 16, 16, parentWidth - width - 16);
+            tooltip = FightUI.Panel(parent, x, 0, width, 60, FightUI.Raised, true, "Full text");
+            tooltip.GetComponent<Image>().raycastTarget = false;
+            var label = FightUI.Text(tooltip, message, 16, 12, width - 32, 36, 18);
+            label.enableWordWrapping = true; label.raycastTarget = false;
+            var height = Mathf.Min(Mathf.Min(320, parentHeight - 32), Mathf.Max(48, label.GetPreferredValues(message, width - 32, 1000).y + 24));
+            var y = parent.rect.yMax - local.y + 16;
+            var anchor = GetComponent<RectTransform>();
+            if (anchor != null)
+            {
+                var corners = new Vector3[4]; anchor.GetWorldCorners(corners);
+                var bottom = parent.InverseTransformPoint(corners[0]); var top = parent.InverseTransformPoint(corners[1]);
+                y = parent.rect.yMax - bottom.y + 10;
+                if (y + height > parentHeight - 16) y = parent.rect.yMax - top.y - height - 10;
+            }
+            y = Mathf.Clamp(y, 16, parentHeight - height - 16);
+            FightUI.Place(tooltip, x, y, width, height); FightUI.Place(label.rectTransform, 16, 12, width - 32, height - 24);
+            tooltip.gameObject.AddComponent<FightPageReveal>();
+        }
+        public void OnPointerExit(PointerEventData pointer) => Hide();
+        private void OnDisable() => Hide();
+        private void OnDestroy() => Hide();
+        private void Hide() { if (delayed != null) StopCoroutine(delayed); delayed = null; if (tooltip != null) { tooltip.gameObject.SetActive(false); Destroy(tooltip.gameObject); } tooltip = null; }
+    }
+    internal sealed class FightArt : MonoBehaviour
+    {
+        private int card; private bool art, ownsReference, disposed, started;
+        private RawImage target;
+        private FightCardBack placeholder;
+        private float reveal;
+        private RectMask2D[] masks;
+        private readonly Vector3[] corners = new Vector3[4];
+        private CancellationTokenSource cancel = new CancellationTokenSource();
+        internal bool Ready => target != null && target.texture != null && target.canvasRenderer.GetColor().a > .9f;
+        internal bool Visible
+        {
+            get
+            {
+                if (target == null || !gameObject.activeInHierarchy) return false;
+                var visible = Bounds(target.rectTransform);
+                if (!Intersects(visible, new Rect(0, 0, Screen.width, Screen.height))) return false;
+                foreach (var mask in masks)
+                    if (mask != null && mask.enabled && !Intersects(visible, Bounds(mask.GetComponent<RectTransform>()))) return false;
+                return true;
+            }
+        }
+        public void Load(int code, RawImage image, bool fullCard)
+        {
+            card = code; art = !fullCard; target = image; masks = image.GetComponentsInParent<RectMask2D>();
+            placeholder = GetComponentInChildren<FightCardBack>();
+            // A long directory must not fill the shared loader queue with
+            // hidden rows before the selected construction can appear.
+        }
+        private void Update()
+        {
+            if (disposed || target == null) return;
+            if (!started)
+            {
+                if (!Visible) return;
+                started = true; if (placeholder != null) placeholder.Loading = true;
+                LoadVisible();
+            }
+            if (target.texture == null) return;
+            reveal = Mathf.Min(1, reveal + Time.unscaledDeltaTime * 7);
+            target.canvasRenderer.SetColor(new Color(1, 1, 1, reveal));
+            if (reveal >= 1) { if (placeholder != null) placeholder.gameObject.SetActive(false); enabled = false; }
+        }
+        private Rect Bounds(RectTransform rect)
+        {
+            rect.GetWorldCorners(corners);
+            return new Rect(corners[0].x, corners[0].y, corners[2].x - corners[0].x, corners[2].y - corners[0].y);
+        }
+        private static bool Intersects(Rect a, Rect b) => a.xMax > b.xMin && a.xMin < b.xMax && a.yMax > b.yMin && a.yMin < b.yMax;
+        private async void LoadVisible()
+        {
+            try
+            {
+                // Read-only client previews use a complete rendered card face.
+                // The original duel/editor retains its live video materials.
+                var tex = art ? await CardImageLoader.LoadArtAsync(card, false, cancel.Token) : await CardImageLoader.LoadCardAsync(card, false, cancel.Token, true);
+                ownsReference = tex != null;
+                if (disposed || cancel.IsCancellationRequested || target == null) ReleaseReference();
+                else if (tex != null)
+                {
+                    target.texture = tex; target.color = Color.white; target.canvasRenderer.SetColor(new Color(1, 1, 1, 0));
+                    if (placeholder != null) placeholder.Loading = false;
+                    if (art)
+                    {
+                        var rect = target.rectTransform.rect;
+                        float imageRatio = (float)tex.width / tex.height, frameRatio = rect.width / rect.height;
+                        if (imageRatio > frameRatio) { float crop = frameRatio / imageRatio; target.uvRect = new Rect((1 - crop) / 2, 0, crop, 1); }
+                        else { float crop = imageRatio / frameRatio; target.uvRect = new Rect(0, (1 - crop) / 2, 1, crop); }
+                    }
+                }
+                else ShowMissing();
+            }
+            catch (OperationCanceledException) { }
+            catch (Exception e) { ShowMissing(); Debug.LogWarning("Fight card art: " + e.Message); }
+        }
+        private void ShowMissing()
+        {
+            if (disposed || target == null) return;
+            enabled = false;
+            if (placeholder != null) { placeholder.Loading = false; placeholder.Failed = true; placeholder.SetVerticesDirty(); }
+            FightUI.Hint(target.gameObject, "卡图暂不可用，卡片名称与说明仍可查看。");
+        }
+        private void ReleaseReference()
+        {
+            if (!ownsReference) return;
+            ownsReference = false;
+            if (art) CardImageLoader.ReleaseArt(card); else CardImageLoader.ReleaseCard(card, true);
+        }
+        private void OnDestroy() { disposed = true; cancel.Cancel(); ReleaseReference(); cancel.Dispose(); }
+    }
+}

@@ -1,0 +1,490 @@
+{
+  "ok": true,
+  "kind": "fixed-hand-academy-practice-initialization",
+  "puzzles": [
+    {
+      "id": "ryzeal",
+      "ok": true,
+      "lua_loaded": true,
+      "hand": [
+        8633261,
+        14558127,
+        10045474,
+        42141493,
+        23434538
+      ],
+      "main_remaining": 35,
+      "extra": 15,
+      "legal_action_prompt": true,
+      "opponent_hand": 5,
+      "full_main_and_extra_identities_verified": true,
+      "first_starter_action": {
+        "kind": "normal_summon",
+        "code": 8633261,
+        "legal": true
+      },
+      "available_native_actions": {
+        "normal_summon": [
+          8633261,
+          14558127,
+          42141493,
+          23434538
+        ],
+        "special_summon": [
+          8633261
+        ],
+        "change_position": [],
+        "set_monster": [
+          8633261,
+          14558127,
+          42141493,
+          23434538
+        ],
+        "set_spell": [
+          10045474
+        ],
+        "activate": [
+          42141493,
+          23434538
+        ]
+      },
+      "initial_messages": [
+        {
+          "bytes": 114,
+          "first_function": 163
+        },
+        {
+          "bytes": 3,
+          "first_function": 41
+        },
+        {
+          "bytes": 103,
+          "first_function": 11
+        }
+      ],
+      "script_errors": [],
+      "puzzle_sha256": "3eeb25192a03a54fc359f8fda23ecfee5f2a4be89b6e310733e5b26dca42b2bd",
+      "deck_sha256": "319269648b8abe25d8f93805a5dcff1382ce984f2aa49b3044725325d2e279c1"
+    },
+    {
+      "id": "maliss",
+      "ok": true,
+      "lua_loaded": true,
+      "hand": [
+        32061192,
+        20938824,
+        14558127,
+        10045474,
+        42141493
+      ],
+      "main_remaining": 35,
+      "extra": 15,
+      "legal_action_prompt": true,
+      "opponent_hand": 5,
+      "full_main_and_extra_identities_verified": true,
+      "first_starter_action": {
+        "kind": "normal_summon",
+        "code": 32061192,
+        "legal": true
+      },
+      "available_native_actions": {
+        "normal_summon": [
+          32061192,
+          20938824,
+          14558127,
+          42141493
+        ],
+        "special_summon": [],
+        "change_position": [],
+        "set_monster": [
+          32061192,
+          20938824,
+          14558127,
+          42141493
+        ],
+        "set_spell": [
+          10045474
+        ],
+        "activate": [
+          20938824,
+          42141493
+        ]
+      },
+      "initial_messages": [
+        {
+          "bytes": 114,
+          "first_function": 163
+        },
+        {
+          "bytes": 3,
+          "first_function": 41
+        },
+        {
+          "bytes": 96,
+          "first_function": 11
+        }
+      ],
+      "script_errors": [],
+      "puzzle_sha256": "42d7445048917f48c8fb0e61d4345c249ae87db018ac13f6208a6c7a9424afae",
+      "deck_sha256": "7ed2fd552e63ba0b5671ffd6f63e7a2cdee454b2abd47e91aea6e1722e1ba047"
+    },
+    {
+      "id": "mitsurugi",
+      "ok": true,
+      "lua_loaded": true,
+      "hand": [
+        13332685,
+        18176525,
+        14558127,
+        10045474,
+        42141493
+      ],
+      "main_remaining": 35,
+      "extra": 15,
+      "legal_action_prompt": true,
+      "opponent_hand": 5,
+      "full_main_and_extra_identities_verified": true,
+      "first_starter_action": {
+        "kind": "activate",
+        "code": 13332685,
+        "legal": true
+      },
+      "available_native_actions": {
+        "normal_summon": [
+          18176525,
+          14558127,
+          42141493
+        ],
+        "special_summon": [],
+        "change_position": [],
+        "set_monster": [
+          18176525,
+          14558127,
+          42141493
+        ],
+        "set_spell": [
+          10045474
+        ],
+        "activate": [
+          13332685,
+          42141493
+        ]
+      },
+      "initial_messages": [
+        {
+          "bytes": 114,
+          "first_function": 163
+        },
+        {
+          "bytes": 3,
+          "first_function": 41
+        },
+        {
+          "bytes": 82,
+          "first_function": 11
+        }
+      ],
+      "script_errors": [],
+      "puzzle_sha256": "11cb9c124ecd4fea1480a21f807f4ddae67c5f332a93f7b0f7a337fcba545e11",
+      "deck_sha256": "82dd1602a707b7c6380ae9eb55faf7a711622a38ce084a8cb694a4fcf489ae3b"
+    },
+    {
+      "id": "dracotail",
+      "ok": true,
+      "lua_loaded": true,
+      "hand": [
+        75003700,
+        44482554,
+        14558127,
+        10045474,
+        42141493
+      ],
+      "main_remaining": 35,
+      "extra": 15,
+      "legal_action_prompt": true,
+      "opponent_hand": 5,
+      "full_main_and_extra_identities_verified": true,
+      "first_starter_action": {
+        "kind": "normal_summon",
+        "code": 75003700,
+        "legal": true
+      },
+      "available_native_actions": {
+        "normal_summon": [
+          75003700,
+          14558127,
+          42141493
+        ],
+        "special_summon": [],
+        "change_position": [],
+        "set_monster": [
+          75003700,
+          14558127,
+          42141493
+        ],
+        "set_spell": [
+          10045474
+        ],
+        "activate": [
+          42141493
+        ]
+      },
+      "initial_messages": [
+        {
+          "bytes": 114,
+          "first_function": 163
+        },
+        {
+          "bytes": 3,
+          "first_function": 41
+        },
+        {
+          "bytes": 71,
+          "first_function": 11
+        }
+      ],
+      "script_errors": [],
+      "puzzle_sha256": "97405287a37d6755a7a70eb946e94d7fb2553937affa0ced32052fb346585259",
+      "deck_sha256": "98d6c7e5f857344862f88b61211ed0aa430c24e2ca0d1ef28623cb30681d0d38"
+    },
+    {
+      "id": "k9-vs",
+      "ok": true,
+      "lua_loaded": true,
+      "hand": [
+        92248362,
+        55031170,
+        29302858,
+        93156774,
+        14558127
+      ],
+      "main_remaining": 35,
+      "extra": 15,
+      "legal_action_prompt": true,
+      "opponent_hand": 5,
+      "full_main_and_extra_identities_verified": true,
+      "first_starter_action": {
+        "kind": "normal_summon",
+        "code": 92248362,
+        "legal": true
+      },
+      "available_native_actions": {
+        "normal_summon": [
+          92248362,
+          55031170,
+          29302858,
+          14558127
+        ],
+        "special_summon": [],
+        "change_position": [],
+        "set_monster": [
+          29302858,
+          14558127
+        ],
+        "set_spell": [],
+        "activate": [
+          93156774
+        ]
+      },
+      "initial_messages": [
+        {
+          "bytes": 114,
+          "first_function": 163
+        },
+        {
+          "bytes": 3,
+          "first_function": 41
+        },
+        {
+          "bytes": 64,
+          "first_function": 11
+        }
+      ],
+      "script_errors": [],
+      "puzzle_sha256": "28a10a520ab338a7876c320fbbbeccb1f0245dc03d9988d43cd1e73756d2abc7",
+      "deck_sha256": "1735cd36a82fd873ac87dc3ae87d347f88d16c8be11db997e112da3f71491b3d"
+    },
+    {
+      "id": "yubel",
+      "ok": true,
+      "lua_loaded": true,
+      "hand": [
+        62318994,
+        14558127,
+        10045474,
+        42141493,
+        65681983
+      ],
+      "main_remaining": 35,
+      "extra": 15,
+      "legal_action_prompt": true,
+      "opponent_hand": 5,
+      "full_main_and_extra_identities_verified": true,
+      "first_starter_action": {
+        "kind": "normal_summon",
+        "code": 62318994,
+        "legal": true
+      },
+      "available_native_actions": {
+        "normal_summon": [
+          62318994,
+          14558127,
+          42141493
+        ],
+        "special_summon": [],
+        "change_position": [],
+        "set_monster": [
+          62318994,
+          14558127,
+          42141493
+        ],
+        "set_spell": [
+          10045474,
+          65681983
+        ],
+        "activate": [
+          42141493,
+          65681983
+        ]
+      },
+      "initial_messages": [
+        {
+          "bytes": 114,
+          "first_function": 163
+        },
+        {
+          "bytes": 3,
+          "first_function": 41
+        },
+        {
+          "bytes": 89,
+          "first_function": 11
+        }
+      ],
+      "script_errors": [],
+      "puzzle_sha256": "07ca377620bda6728c9bc05d91e8bb363128894fc9bfa8c94f17b5de3f1deeed",
+      "deck_sha256": "05eeaa7f964d1cee0458d7c1096ad3600aa969f06d1b1b73f711b0560cf7a074"
+    },
+    {
+      "id": "tenpai",
+      "ok": true,
+      "lua_loaded": true,
+      "hand": [
+        39931513,
+        14558127,
+        10045474,
+        8267140,
+        14532163
+      ],
+      "main_remaining": 35,
+      "extra": 15,
+      "legal_action_prompt": true,
+      "opponent_hand": 5,
+      "full_main_and_extra_identities_verified": true,
+      "first_starter_action": {
+        "kind": "normal_summon",
+        "code": 39931513,
+        "legal": true
+      },
+      "available_native_actions": {
+        "normal_summon": [
+          39931513,
+          14558127
+        ],
+        "special_summon": [],
+        "change_position": [],
+        "set_monster": [
+          39931513,
+          14558127
+        ],
+        "set_spell": [
+          10045474,
+          8267140,
+          14532163
+        ],
+        "activate": []
+      },
+      "initial_messages": [
+        {
+          "bytes": 114,
+          "first_function": 163
+        },
+        {
+          "bytes": 3,
+          "first_function": 41
+        },
+        {
+          "bytes": 60,
+          "first_function": 11
+        }
+      ],
+      "script_errors": [],
+      "puzzle_sha256": "21122a3a11dbb1ec0cd6c2a97e6a49a38a4a23f1745b9ee1b1c8fbbf9e7da5ef",
+      "deck_sha256": "ec355d16616f7679b3bfbdb7ba862f89f6646ab2f73492f7bcfb77375674547d"
+    },
+    {
+      "id": "branded",
+      "ok": true,
+      "lua_loaded": true,
+      "hand": [
+        44362883,
+        62962630,
+        14558127,
+        10045474,
+        82738008
+      ],
+      "main_remaining": 35,
+      "extra": 15,
+      "legal_action_prompt": true,
+      "opponent_hand": 5,
+      "full_main_and_extra_identities_verified": true,
+      "first_starter_action": {
+        "kind": "activate",
+        "code": 44362883,
+        "legal": true
+      },
+      "available_native_actions": {
+        "normal_summon": [
+          62962630,
+          14558127
+        ],
+        "special_summon": [],
+        "change_position": [],
+        "set_monster": [
+          62962630,
+          14558127
+        ],
+        "set_spell": [
+          44362883,
+          10045474,
+          82738008
+        ],
+        "activate": [
+          44362883
+        ]
+      },
+      "initial_messages": [
+        {
+          "bytes": 114,
+          "first_function": 163
+        },
+        {
+          "bytes": 3,
+          "first_function": 41
+        },
+        {
+          "bytes": 71,
+          "first_function": 11
+        }
+      ],
+      "script_errors": [],
+      "puzzle_sha256": "6a2077f633f72f9e907a5a597b811db2e79b7d65ddb5bfcf5d3ed9184b89ebf2",
+      "deck_sha256": "6daefc1d2983e16d605d2a867a7c5a2702164ddacdb94e13d3822c799c1c5ea1"
+    }
+  ],
+  "limits": "Native core initialization of fixed practice starts. It does not verify the complete suggested combo or prove an automatic demonstration.",
+  "native_library_sha256": "9ebca5960c34e45e33446ff7c152b11f65d49e9a309998455630ddb439654197",
+  "script_zip_sha256": "454f09a05025351e2ee5ac261addce4b941ea0af4d075174806b4f9ad76c8c14",
+  "card_database_sha256": "04b1197239517ab50fb49db8450f83e920a81f5d82a83bdc8f9c7f7ed1aa8400",
+  "generator_sha256": "716c815cbe4d449b2df1e1499d9295fcb46126ffb3aacecd0a31ea9e3f73eb83"
+}

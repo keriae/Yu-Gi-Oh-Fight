@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "kind": "native-guided-ryzeal-opening-prefix",
+  "id": "ryzeal",
+  "executed": [
+    "Normal Summon Ice Ryzeal",
+    "Ice summons Sword Ryzeal from deck",
+    "Sword searches Ext Ryzeal"
+  ],
+  "field": [
+    8633261,
+    35844557
+  ],
+  "hand": [
+    10045474,
+    42141493,
+    14558127,
+    23434538,
+    34022970
+  ],
+  "prompts": [
+    18,
+    16,
+    12,
+    16,
+    15,
+    18,
+    19,
+    12,
+    16,
+    15,
+    16,
+    11
+  ],
+  "script_errors": [],
+  "puzzle_sha256": "4df3cf5a3f6adde5b1b0b302fb26fc22f0e38dca978a9ee24d8fd57f5ee188a5",
+  "deck_sha256": "319269648b8abe25d8f93805a5dcff1382ce984f2aa49b3044725325d2e279c1",
+  "native_library_sha256": "9ebca5960c34e45e33446ff7c152b11f65d49e9a309998455630ddb439654197",
+  "script_zip_sha256": "454f09a05025351e2ee5ac261addce4b941ea0af4d075174806b4f9ad76c8c14",
+  "card_database_sha256": "04b1197239517ab50fb49db8450f83e920a81f5d82a83bdc8f9c7f7ed1aa8400",
+  "probe_sha256": "d00fc203a153a0af8b5662366df26e9ec11c4eb8cbb1b24e02b4790451506c08",
+  "limits": "Executes this opening prefix only; it does not prove the later Xyz line or generate an automatic replay."
+}

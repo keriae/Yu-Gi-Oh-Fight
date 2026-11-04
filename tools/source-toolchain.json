@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "dotnet_sdk": {
+    "version": "8.0.427",
+    "release_metadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/8.0/releases.json",
+    "release_version": "8.0.33",
+    "install_path": ".tools/dotnet8",
+    "required_files": ["dotnet", "sdk/8.0.427/Roslyn/bincore/csc.dll", "packs/NETStandard.Library.Ref/2.1.0/ref/netstandard2.1/netstandard.dll"],
+    "archives": {
+      "osx-arm64": {
+        "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/8.0.427/dotnet-sdk-8.0.427-osx-arm64.tar.gz",
+        "sha512": "79786b93f249d233b15f1d6338d4798bd71c8143f267c5e84de76c9eb8a1054920e56ea5478f7bddfb74b951cc58aaca11fbd780cf134350b7cb7cdcb42a8c8c",
+        "archive_name": "dotnet-sdk-8.0.427-osx-arm64.tar.gz",
+        "local_archives": ["build/dotnet8-sdk.tar.gz"]
+      },
+      "osx-x64": {
+        "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/8.0.427/dotnet-sdk-8.0.427-osx-x64.tar.gz",
+        "sha512": "a6c6d0a3708b15e20285f4f662195b6fd276e3df2fc91c0a38f30681ff8a23d5e322ada8a92e9b410343449eab635d01b30a4f55aeef6f884651a559cce07707",
+        "archive_name": "dotnet-sdk-8.0.427-osx-x64.tar.gz",
+        "local_archives": ["build/dotnet8-sdk.tar.gz"]
+      }
+    },
+    "runtime_build_only": true
+  },
+  "mono_cecil": {
+    "version": "0.11.6",
+    "source": "https://api.nuget.org/v3-flatcontainer/mono.cecil/0.11.6/mono.cecil.0.11.6.nupkg",
+    "sha256": "d2a23832aaa948ba9a01acc42b5726e34c5f995958f1b30d45c0e7c70b3a72d5",
+    "archive_name": "mono.cecil.0.11.6.nupkg",
+    "local_archives": ["build/mono.cecil.0.11.6.nupkg"],
+    "install_path": ".tools/mono-cecil-0.11.6",
+    "required_files": ["lib/netstandard2.0/Mono.Cecil.dll"],
+    "runtime_build_only": true
+  }
+}
