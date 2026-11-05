@@ -537,40 +537,7 @@ namespace MDPro3.UI.Client
             index = index < 0 ? (reverse ? controls.Length - 1 : 0) : (index + (reverse ? -1 : 1) + controls.Length) % controls.Length;
             var selected = controls[index]; selected.Select(); RevealClientControl(selected);
         }
-        private static void RevealClientControl(Selectable selected)
-        {
-            foreach (var scroll in selected.GetComponentsInParent<ScrollRect>())
-            {
-                if (scroll.content == null || scroll.viewport == null || !selected.transform.IsChildOf(scroll.content)) continue;
-                var corners = new Vector3[4]; selected.GetComponent<RectTransform>().GetWorldCorners(corners);
-                if (scroll.vertical)
-                {
-                    float range = scroll.content.rect.height - scroll.viewport.rect.height;
-                    if (range > 0)
-                    {
-                        float top = scroll.content.rect.yMax - scroll.content.InverseTransformPoint(corners[1]).y;
-                        float bottom = scroll.content.rect.yMax - scroll.content.InverseTransformPoint(corners[0]).y;
-                        float offset = (1 - scroll.verticalNormalizedPosition) * range;
-                        if (top < offset + 8) offset = top - 8;
-                        else if (bottom > offset + scroll.viewport.rect.height - 8) offset = bottom - scroll.viewport.rect.height + 8;
-                        scroll.StopMovement(); scroll.verticalNormalizedPosition = 1 - Mathf.Clamp(offset, 0, range) / range;
-                    }
-                }
-                if (scroll.horizontal)
-                {
-                    float range = scroll.content.rect.width - scroll.viewport.rect.width;
-                    if (range > 0)
-                    {
-                        float left = scroll.content.InverseTransformPoint(corners[0]).x - scroll.content.rect.xMin;
-                        float right = scroll.content.InverseTransformPoint(corners[3]).x - scroll.content.rect.xMin;
-                        float offset = scroll.horizontalNormalizedPosition * range;
-                        if (left < offset + 8) offset = left - 8;
-                        else if (right > offset + scroll.viewport.rect.width - 8) offset = right - scroll.viewport.rect.width + 8;
-                        scroll.StopMovement(); scroll.horizontalNormalizedPosition = Mathf.Clamp(offset, 0, range) / range;
-                    }
-                }
-            }
-        }
+        private static void RevealClientControl(Selectable selected) => FightUI.RevealControl(selected);
         private static Vector3 ClientFocusPosition(Selectable control)
         {
             var position = control.transform.position;

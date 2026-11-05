@@ -46,23 +46,65 @@ namespace MDPro3.UI.Client
         public static Color Hex(string value) { ColorUtility.TryParseHtmlString("#" + value, out var c); return c; }
         public static string BalancedLines(string value, int targetCharacters)
         {
-            if (string.IsNullOrEmpty(value) || value.Contains("\n") || value.Length <= targetCharacters) return value;
-            int lines = Math.Max(2, (int)Math.Ceiling(value.Length / (float)Math.Max(1, targetCharacters)));
-            var result = new System.Text.StringBuilder(); int start = 0;
-            while (lines > 1)
+            if (string.IsNullOrEmpty(value) || value.IndexOfAny(new[] { '\n', '\r', '\u2028', '\u2029' }) >= 0) return value;
+            targetCharacters = Math.Max(1, targetCharacters);
+            if (value.Length <= targetCharacters) return value;
+            int[] elements = System.Globalization.StringInfo.ParseCombiningCharacters(value);
+            var boundaries = new List<(int end, int next, int before, int after)>();
+            bool previousCjk = false; int longest = 0, segmentStart = 0, segmentFirst = 0;
+            for (int element = 0; element < elements.Length; element++)
             {
-                int take = (int)Math.Ceiling((value.Length - start) / (float)lines);
-                int end = start + take;
-                if (end < value.Length && char.IsLowSurrogate(value[end])) end++;
-                // Prefer existing word boundaries for Latin names while keeping
-                // the original characters available to the full-text tooltip.
-                for (int distance = 0; distance <= Math.Min(3, take / 3); distance++)
+                int index = elements[element], next = element + 1 < elements.Length ? elements[element + 1] : value.Length;
+                char character = value[index];
+                bool nonbreaking = character == '\u00A0' || character == '\u2007' || character == '\u202F' || character == '\u2060' || character == '\u200C' || character == '\u200D';
+                if (char.IsWhiteSpace(character) && !nonbreaking)
                 {
-                    int right = end + distance, left = end - distance;
-                    if (right < value.Length - 1 && char.IsWhiteSpace(value[right])) { end = right + 1; break; }
-                    if (left > start && char.IsWhiteSpace(value[left])) { end = left + 1; break; }
+                    int firstSpace = element;
+                    while (element + 1 < elements.Length && char.IsWhiteSpace(value[elements[element + 1]])
+                        && value[elements[element + 1]] != '\u00A0' && value[elements[element + 1]] != '\u2007' && value[elements[element + 1]] != '\u202F')
+                    {
+                        element++; next = element + 1 < elements.Length ? elements[element + 1] : value.Length;
+                    }
+                    if (index > segmentStart && next < value.Length)
+                    { boundaries.Add((index, next, firstSpace, element + 1)); longest = Math.Max(longest, firstSpace - segmentFirst); segmentStart = next; segmentFirst = element + 1; }
+                    previousCjk = false; continue;
                 }
-                result.Append(value, start, end - start).Append('\n'); start = end; lines--;
+                int scalar = char.IsHighSurrogate(character) && index + 1 < value.Length && char.IsLowSurrogate(value[index + 1])
+                    ? char.ConvertToUtf32(character, value[index + 1]) : character;
+                bool cjk = (scalar >= 0x2E80 && scalar <= 0x9FFF) || (scalar >= 0xAC00 && scalar <= 0xD7FF)
+                    || (scalar >= 0xF900 && scalar <= 0xFAFF) || (scalar >= 0x20000 && scalar <= 0x323AF);
+                // Keep whole alphabetic words, nonbreaking spans and Unicode
+                // text elements intact, including Latin prefixes in CJK names.
+                if (index > segmentStart && (previousCjk || cjk) && !nonbreaking
+                    && value[index - 1] != '\u00A0' && value[index - 1] != '\u2007' && value[index - 1] != '\u202F' && value[index - 1] != '\u2060' && value[index - 1] != '\u200C' && value[index - 1] != '\u200D')
+                { boundaries.Add((index, index, element, element)); longest = Math.Max(longest, element - segmentFirst); segmentStart = index; segmentFirst = element; }
+                previousCjk = cjk;
+            }
+            if (boundaries.Count == 0) return value;
+            longest = Math.Max(longest, elements.Length - segmentFirst);
+            // A long printed word sets the useful line width instead of
+            // creating extra, fragmentary lines around short connecting words.
+            float lineWidth = Math.Max(targetCharacters, longest);
+            int lines = Math.Min(boundaries.Count + 1, Math.Max(2, longest > targetCharacters
+                ? (int)Math.Round(elements.Length / lineWidth, MidpointRounding.AwayFromZero) : (int)Math.Ceiling(elements.Length / lineWidth)));
+            var result = new System.Text.StringBuilder(); int start = 0, startWeight = 0, firstBoundary = 0;
+            float maximumLineWidth = lineWidth + 2;
+            while (lines > 1 || elements.Length - startWeight > maximumLineWidth)
+            {
+                // Use another legal line when a balanced grouping would make
+                // a long word share an overwide line with its neighbour.
+                lines = Math.Min(boundaries.Count - firstBoundary + 1, Math.Max(lines,
+                    (int)Math.Ceiling((elements.Length - startWeight) / maximumLineWidth)));
+                float target = (elements.Length - startWeight) / (float)lines;
+                int best = firstBoundary;
+                for (int candidate = firstBoundary + 1; candidate <= boundaries.Count - lines + 1; candidate++)
+                {
+                    if (boundaries[candidate].before - startWeight > maximumLineWidth
+                        || Math.Abs(boundaries[candidate].before - startWeight - target) > Math.Abs(boundaries[best].before - startWeight - target)) break;
+                    best = candidate;
+                }
+                result.Append(value, start, boundaries[best].end - start).Append('\n');
+                start = boundaries[best].next; startWeight = boundaries[best].after; firstBoundary = best + 1; lines--;
             }
             return result.Append(value, start, value.Length - start).ToString();
         }
@@ -86,6 +128,40 @@ namespace MDPro3.UI.Client
             var identity = control.GetComponent<FightFocusKey>() ?? control.gameObject.AddComponent<FightFocusKey>();
             identity.KeyboardTarget = keyboardTarget == control ? null : keyboardTarget;
             return control;
+        }
+        public static void RevealControl(Selectable selected)
+        {
+            foreach (var scroll in selected.GetComponentsInParent<ScrollRect>())
+            {
+                if (scroll.content == null || scroll.viewport == null || !selected.transform.IsChildOf(scroll.content)) continue;
+                var corners = new Vector3[4]; selected.GetComponent<RectTransform>().GetWorldCorners(corners);
+                if (scroll.vertical)
+                {
+                    float range = scroll.content.rect.height - scroll.viewport.rect.height;
+                    if (range > 0)
+                    {
+                        float top = scroll.content.rect.yMax - scroll.content.InverseTransformPoint(corners[1]).y;
+                        float bottom = scroll.content.rect.yMax - scroll.content.InverseTransformPoint(corners[0]).y;
+                        float offset = (1 - scroll.verticalNormalizedPosition) * range;
+                        if (top < offset + 8) offset = top - 8;
+                        else if (bottom > offset + scroll.viewport.rect.height - 8) offset = bottom - scroll.viewport.rect.height + 8;
+                        scroll.StopMovement(); scroll.verticalNormalizedPosition = 1 - Mathf.Clamp(offset, 0, range) / range;
+                    }
+                }
+                if (scroll.horizontal)
+                {
+                    float range = scroll.content.rect.width - scroll.viewport.rect.width;
+                    if (range > 0)
+                    {
+                        float left = scroll.content.InverseTransformPoint(corners[0]).x - scroll.content.rect.xMin;
+                        float right = scroll.content.InverseTransformPoint(corners[3]).x - scroll.content.rect.xMin;
+                        float offset = scroll.horizontalNormalizedPosition * range;
+                        if (left < offset + 8) offset = left - 8;
+                        else if (right > offset + scroll.viewport.rect.width - 8) offset = right - scroll.viewport.rect.width + 8;
+                        scroll.StopMovement(); scroll.horizontalNormalizedPosition = Mathf.Clamp(offset, 0, range) / range;
+                    }
+                }
+            }
         }
         public static RectTransform Node(Transform parent, string name, float x, float y, float w, float h)
         {

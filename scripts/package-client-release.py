@@ -18,6 +18,7 @@ from typing import BinaryIO
 import zipfile
 
 from source_build_state import game_source_paths
+from native_file_browser import LIBRARY_PATH as FILE_BROWSER_PATH, verify_file_browser
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,9 +28,17 @@ BASE = ROOT / "artifacts/client-release"
 ASSEMBLY = Path("Contents/Resources/Client/MDPro3.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll")
 MANIFEST = Path("Contents/Resources/Source-Build.json")
 DOCUMENT = Path("Contents/Resources/THIRD_PARTY_NOTICES.md")
-CRITICAL_FILES = (ASSEMBLY, MANIFEST, DOCUMENT,
+RELEASE_DOCUMENTS = (DOCUMENT,
                   Path("Contents/Resources/COPYRIGHT.md"), Path("Contents/Resources/README.md"),
-                  Path("Contents/Resources/docs/BUILDING.md"), Path("Contents/Resources/docs/ASSETS.md"))
+                  Path("Contents/Resources/docs/BUILDING.md"), Path("Contents/Resources/docs/ASSETS.md"),
+                  Path("Contents/Resources/native/README.md"),
+                  Path("Contents/Resources/docs/media/preview.jpg"),
+                  Path("Contents/Resources/docs/media/launch-trailer.mp4"),
+                  Path("Contents/Resources/docs/media/launch-trailer.srt"),
+                  Path("Contents/Resources/docs/media/full-duel.mp4"))
+NATIVE_FILE_BROWSER = Path("Contents/Resources/Client") / FILE_BROWSER_PATH
+FILE_BROWSER_LICENSE = Path("Contents/Resources/licenses/StandaloneFileBrowser-LICENSE.txt")
+CRITICAL_FILES = (ASSEMBLY, MANIFEST, NATIVE_FILE_BROWSER, FILE_BROWSER_LICENSE, *RELEASE_DOCUMENTS)
 
 
 def require(value: bool, message: str) -> None:
@@ -238,10 +247,16 @@ def main() -> None:
             "Application assembly does not match its release manifest")
     sources = {path.relative_to(ROOT / "game").as_posix(): digest(path) for path in game_source_paths(ROOT)}
     require(sources == manifest.get("source_files"), "Compile and package the current game sources before archiving")
-    for relative in CRITICAL_FILES[2:]:
+    for relative in RELEASE_DOCUMENTS:
         source = ROOT / relative.relative_to("Contents/Resources")
         require(source.is_file() and digest(source) == expected[relative.as_posix()],
                 "Packaged release document is stale: " + source.name)
+    client = app / "Contents/Resources/Client"
+    changes = read(app / "Contents/Resources/Client-Changes.json")
+    require(changes.get("native_file_browser") is not None, "Packaged native file selector metadata is missing")
+    verify_file_browser(client, changes["native_file_browser"])
+    require(expected[FILE_BROWSER_LICENSE.as_posix()] == digest(ROOT / "native/StandaloneFileBrowser/LICENSE.txt"),
+            "Packaged native file selector license is stale")
     require(not any((app / "Contents/Resources/Client").rglob("credentials.json*")),
             "Application bundle contains private credentials")
     verify_signature(app)

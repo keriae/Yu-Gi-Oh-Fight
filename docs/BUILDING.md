@@ -33,12 +33,13 @@ versions; `vendor/MDPro3-release-source/manifest.json` records source provenance
 
 A complete build validates publisher checksums, academy cards and replays,
 the source assembly in the publisher's Mono runtime, the separate native
-server host and the final macOS code signature. Packaging publishes the new
+server host, the universal native file selector and the final macOS code
+signature. Packaging publishes the new
 application atomically. Close the game before replacing its application.
 
 After a code-only change, an existing application can be updated with
 `python3 scripts/update-mdpro3-code.py`. It refuses stale source inputs,
-changed resources or launcher changes; these require a complete build.
+changed resources, native bridges or launcher changes; these require a complete build.
 
 Local test scripts and acceptance fixtures are intentionally excluded from
 Git. `--ui-proof` is available only for code-only local validation builds;
@@ -64,7 +65,7 @@ rights remain subject to [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
 使用 macOS 13+、Xcode Command Line Tools 和 Python 3 构建。执行上方依赖准备与
 构建命令即可生成应用，无需安装 Unity Editor。运行数据存放在独立的用户目录，
 不进入仓库或安装包。构建工具验证固定发行资源、源码兼容性、卡组学院录像、
-Mono 加载和应用签名；本地验收脚本与产物不提交 Git。
+Mono 加载、双架构原生文件选择器和应用签名；本地验收脚本与产物不提交 Git。
 
 仅修改 C# 代码时可先 `--code-only`，再执行代码更新脚本。资源或启动器修改需
-完整构建。更新与构建前请关闭游戏。归档命令只生成本地 ZIP，不执行上传。
+完整构建；原生桥接修改同样需要完整构建。更新与构建前请关闭游戏。归档命令只生成本地 ZIP，不执行上传。

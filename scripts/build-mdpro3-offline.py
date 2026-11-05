@@ -17,6 +17,8 @@ import tempfile
 
 from source_build_state import atomic_exchange, validate_generation
 from native_server_host import HOST_PATH, compile_host, verify_host
+from native_file_browser import (LIBRARY_PATH as FILE_BROWSER_PATH, MANAGED_LINK as FILE_BROWSER_LINK,
+                                 LINK_TARGET as FILE_BROWSER_LINK_TARGET, compile_file_browser, verify_file_browser)
 from client_ui_assets import content_hashes as client_ui_hashes
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,7 +29,11 @@ LAUNCHER_SOURCE = "Sources/IndependentGameBootstrap.swift"
 LAUNCHER_ARCHITECTURES = ("arm64", "x86_64")
 LAUNCHER_SWIFT_VERSION = "6"
 LAUNCHER_MINIMUM_MACOS = "13.0"
-RELEASE_DOCUMENTS = ("README.md", "THIRD_PARTY_NOTICES.md", "COPYRIGHT.md", "docs/BUILDING.md", "docs/ASSETS.md")
+RELEASE_DOCUMENTS = (
+    "README.md", "THIRD_PARTY_NOTICES.md", "COPYRIGHT.md", "docs/BUILDING.md", "docs/ASSETS.md", "native/README.md",
+    "docs/media/preview.jpg", "docs/media/launch-trailer.mp4", "docs/media/launch-trailer.srt",
+    "docs/media/full-duel.mp4",
+)
 
 
 def file_digest(path: Path) -> str:
@@ -66,6 +72,7 @@ def package_documents(resources: Path) -> None:
     licenses.mkdir(exist_ok=True)
     for source in (ROOT / "vendor/Mono-LICENSE.txt", ROOT / "content/ai/tokenizers/LICENSE.tiktoken"):
         shutil.copy2(source, licenses / source.name)
+    shutil.copy2(ROOT / "native/StandaloneFileBrowser/LICENSE.txt", licenses / "StandaloneFileBrowser-LICENSE.txt")
 
 
 def copy_client(source: Path, destination: Path) -> None:
@@ -176,6 +183,10 @@ def main() -> None:
             host.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(ROOT / "build/ygoserver-host", host)
             verify_host(client, host_metadata)
+            file_browser_metadata = compile_file_browser(ROOT / "build/libStandaloneFileBrowser.dylib")
+            shutil.copy2(ROOT / "build/libStandaloneFileBrowser.dylib", client / FILE_BROWSER_PATH)
+            (client / FILE_BROWSER_LINK).symlink_to(FILE_BROWSER_LINK_TARGET)
+            verify_file_browser(client, file_browser_metadata)
             for architecture in LAUNCHER_ARCHITECTURES:
                 run("xcrun", "swiftc", "-swift-version", LAUNCHER_SWIFT_VERSION, "-parse-as-library", "-O", "-target",
                     architecture + "-apple-macos" + LAUNCHER_MINIMUM_MACOS, ROOT / LAUNCHER_SOURCE, "-o", stage / architecture)
@@ -200,6 +211,7 @@ def main() -> None:
                 run("codesign", "--force", "--sign", "-", "--timestamp=none", path)
             run("codesign", "--verify", "--deep", "--strict", app)
             verify_host(client, host_metadata)
+            verify_file_browser(client, file_browser_metadata)
             publisher_manifest = ROOT / "vendor/MDPro3-mac-metadata/checksums.txt"
             publisher = {name: value for value, name in
                          (line.split("  ", 1) for line in publisher_manifest.read_text().splitlines())}
@@ -210,6 +222,7 @@ def main() -> None:
                 "MDPro3.app/Contents/Resources/Data/Managed/Assembly-CSharp.pdb",
                 "Data/config.conf",
                 HOST_PATH,
+                FILE_BROWSER_PATH, FILE_BROWSER_LINK,
             } | {item["path"] for item in default_report["changes"]} | {item["path"] for item in academy_report["changes"]} | {item["path"] for item in ui_report["changes"]}
             changes = {}
             for path in sorted(client.rglob("*")):
@@ -224,7 +237,8 @@ def main() -> None:
                     changes[relative] = {"publisher_sha256": before, "sha256": actual}
             change_report = {"ok": True, "source_build_sha256": file_digest(manifest_path),
                              "publisher_manifest_sha256": file_digest(publisher_manifest), "changes": changes,
-                             "native_server_host": host_metadata, "client_ui": ui_report}
+                             "native_server_host": host_metadata, "native_file_browser": file_browser_metadata,
+                             "client_ui": ui_report}
             (resources / "Client-Changes.json").write_text(json.dumps(change_report, indent=2) + "\n")
             (ROOT / "artifacts/mdpro3-client-changes.json").write_text(json.dumps(change_report, indent=2) + "\n")
             # The final change inventory is part of the outer application's signed resources.
@@ -238,7 +252,7 @@ def main() -> None:
                 os.rename(app, destination)
     report = {"ok": True, "application": str(destination), "source_compiled": True,
               "assembly_sha256": manifest["assembly_sha256"], "publisher_version": "1.4.7-2", "state_folder": str(support),
-              "native_server_host": host_metadata}
+              "native_server_host": host_metadata, "native_file_browser": file_browser_metadata}
     (ROOT / "artifacts/mdpro3-offline-build.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, ensure_ascii=False))
 

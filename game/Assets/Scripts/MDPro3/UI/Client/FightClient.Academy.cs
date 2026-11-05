@@ -352,7 +352,12 @@ namespace MDPro3.UI.Client
             // must not carry the previous chapter's offset into a new step.
             CompleteLibraryRefresh(chapterScroll, TutorialReadingPosition());
             var summary = FightUI.Panel(Body, workspaceX + navW + contentW + Gap * 2, 64, summaryW, panelH);
-            ModuleDivider(summary, "教学构筑", 18, 16, summaryW - 36, 23);
+            FightUI.Icon(summary, "diamond", 18, 25, 10, 10, FightUI.GoldBorder);
+            var deckHeading = FightUI.Text(summary, "教学构筑", 38, 16, summaryW - 142, 32, Compact ? 17 : 23, FightUI.Foreground);
+            deckHeading.name = "Tutorial deck heading";
+            deckHeading.enableWordWrapping = false; deckHeading.enableAutoSizing = true;
+            deckHeading.fontSizeMin = 13; deckHeading.fontSizeMax = Compact ? 17 : 23;
+            FightUI.Line(summary, 18, 54, summaryW - 36, FightUI.Border);
             var fullDeck = FightUI.TextAction(summary, "查看 →", summaryW - 92, 13, 74, 32, ShowTutorialDeck);
             fullDeck.name = "查看完整构筑"; FightUI.Hint(fullDeck.gameObject, "查看完整教学构筑与真实卡片");
             var sc = FightUI.Scroll(summary, 8, 70, summaryW - 16, panelH - 78, panelH - 78);
@@ -440,7 +445,21 @@ namespace MDPro3.UI.Client
         private float DrawTutorialCards(RectTransform parent, int[] codes, float y, float width)
         {
             if (codes.Length == 0) return y;
-            float cw = Mathf.Min(Compact ? 100 : 144, (width - 48 - 12 * Mathf.Min(4, codes.Length - 1)) / Mathf.Max(1, Mathf.Min(5, codes.Length))), ch = cw * 1.45f;
+            float cw = Mathf.Min(Compact ? 100 : 144, (width - 48 - 12 * Mathf.Min(4, codes.Length - 1)) / Mathf.Max(1, Mathf.Min(5, codes.Length)));
+            var names = codes.Select(DeckAcademy.CardName).ToArray();
+            var printedNames = names.Select(name => FightUI.BalancedLines(name, Mathf.Max(4, Mathf.FloorToInt(cw / 15)))).ToArray();
+            // Exceptional long words need a wider card, rather than a tiny
+            // caption. The existing horizontal reader handles wider rows.
+            var measure = FightUI.RawText(parent, "", 0, 0, cw, 32, 11);
+            measure.enableWordWrapping = false; measure.overflowMode = TextOverflowModes.Overflow;
+            measure.rectTransform.sizeDelta = new Vector2(10000, 10000); measure.gameObject.SetActive(false);
+            foreach (string name in printedNames)
+            {
+                measure.text = name;
+                cw = Mathf.Max(cw, Mathf.Ceil(TutorialCaptionWidth(measure) + 2));
+            }
+            Destroy(measure.gameObject);
+            float ch = cw * 1.45f;
             float captionH = Compact ? 36 : 48;
             var row = FightUI.Scroll(parent, 24, y, width - 48, ch + captionH + 12, ch + captionH + 12, out var scroll);
             scroll.horizontal = true; scroll.vertical = false;
@@ -451,11 +470,18 @@ namespace MDPro3.UI.Client
             for (int i = 0; i < codes.Length; i++)
             {
                 var code = codes[i]; var img = FightUI.Art(row, code, i * (cw + 12), 0, cw, ch, true);
-                var label = LibraryWrappedText(row, FightUI.BalancedLines(DeckAcademy.CardName(code), Mathf.Max(4, Mathf.FloorToInt(cw / 15))), i * (cw + 12), ch + 10, cw, captionH, Compact ? 14 : 15, FightUI.Foreground, TextAlignmentOptions.Top);
+                var label = LibraryWrappedText(row, printedNames[i], i * (cw + 12), ch + 10, cw, captionH, Compact ? 14 : 15, FightUI.Foreground, TextAlignmentOptions.Top, localize: false);
+                // BalancedLines owns line breaks; fit whole words inside each
+                // card column instead of letting TMP split them a second time.
+                label.enableWordWrapping = false; label.enableAutoSizing = false;
                 label.overflowMode = TextOverflowModes.Overflow;
+                float naturalWidth = TutorialCaptionWidth(label);
+                if (naturalWidth > cw - 2) label.fontSize = Mathf.Max(11, label.fontSize * (cw - 2) / naturalWidth);
+                TutorialCaptionWidth(label);
+                label.overflowMode = TextOverflowModes.Ellipsis;
                 captionH = Mathf.Max(captionH, label.GetPreferredValues(label.text, cw, float.PositiveInfinity).y + 2);
                 captions.Add(label);
-                FightUI.Hint(label.gameObject, DeckAcademy.CardName(code));
+                FightUI.RawHint(label.gameObject, names[i]);
                 label.raycastTarget = true;
                 var captionAction = label.gameObject.AddComponent<UnityEngine.UI.Button>();
                 captionAction.targetGraphic = label; captionAction.transition = UnityEngine.UI.Selectable.Transition.ColorTint;
@@ -481,6 +507,20 @@ namespace MDPro3.UI.Client
             if (!overflow) return y + readingHeight;
             TutorialCardScrollbar(scroll, width - 48, readingHeight + 2);
             return y + readingHeight + 20;
+        }
+        private static float TutorialCaptionWidth(TextMeshProUGUI text)
+        {
+            // New TMP components need their mesh initialized before their font
+            // metrics include the publisher font's fallback glyphs and spacing.
+            var alignment = text.alignment;
+            text.alignment = TextAlignmentOptions.TopLeft;
+            text.ForceMeshUpdate(true, true);
+            float width = 0;
+            for (int line = 0; line < text.textInfo.lineCount; line++)
+                width = Mathf.Max(width, text.textInfo.lineInfo[line].maxAdvance);
+            text.alignment = alignment;
+            text.ForceMeshUpdate(true, true);
+            return width;
         }
         private static void TutorialCardScrollbar(UnityEngine.UI.ScrollRect scroll, float width, float y)
         {
@@ -942,13 +982,31 @@ namespace MDPro3.UI.Client
             var text = FightUI.Text(b.transform, label, 58, 9, width - 70, 48, 17, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.MidlineLeft);
             text.enableWordWrapping = true; text.overflowMode = TextOverflowModes.Overflow;
             if (selected) text.fontStyle = FontStyles.Bold;
+            // Fit only a complete Latin word. The full title can still gain
+            // lines, and CJK prose is never treated as one oversized word.
+            var words = new System.Text.RegularExpressions.Regex(
+                @"[A-Za-z0-9\u00C0-\u024F\u1E00-\u1EFF]+(?:[.'’:/<>-][A-Za-z0-9\u00C0-\u024F\u1E00-\u1EFF]+)*").Matches(text.text, 0);
+            if (words.Count > 0)
+            {
+                string title = text.text; var bounds = text.rectTransform.sizeDelta;
+                text.enableWordWrapping = false; text.enableAutoSizing = false;
+                text.rectTransform.sizeDelta = new Vector2(10000, 10000);
+                float wordWidth = 0;
+                foreach (System.Text.RegularExpressions.Match word in words)
+                { text.text = word.Value; wordWidth = Mathf.Max(wordWidth, TutorialCaptionWidth(text)); }
+                float available = width - 72;
+                if (wordWidth > available) text.fontSize = Mathf.Max(12, text.fontSize * available / wordWidth);
+                text.text = title; text.enableWordWrapping = true; text.rectTransform.sizeDelta = bounds;
+                text.ForceMeshUpdate(true, true);
+            }
             float textHeight = Mathf.Max(46, text.GetPreferredValues(text.text, width - 70, float.PositiveInfinity).y + 2);
             float rowHeight = Mathf.Max(64, textHeight + 18);
             text.rectTransform.sizeDelta = new Vector2(width - 70, textHeight);
             var row = b.GetComponent<RectTransform>(); row.sizeDelta = new Vector2(width, rowHeight);
             var marker = FightUI.Panel(b.transform, 8, (rowHeight - 36) / 2, 38, 36, selected ? FightUI.Hex("2A2B29") : FightUI.Background, false, "Route marker");
             marker.GetComponent<UnityEngine.UI.Image>().raycastTarget = false;
-            FightUI.Text(marker, number, 2, 0, 34, 36, number.Length > 2 ? 13 : 15, selected ? FightUI.Active : FightUI.Muted, TextAlignmentOptions.Center);
+            string markerLabel = number == "总览" ? "00" : number == "终场" ? "✓" : number;
+            FightUI.RawText(marker, markerLabel, 2, 0, 34, 36, 15, selected ? FightUI.Active : FightUI.Muted, TextAlignmentOptions.Center);
             FightUI.Hint(text.gameObject, label);
             return row;
         }

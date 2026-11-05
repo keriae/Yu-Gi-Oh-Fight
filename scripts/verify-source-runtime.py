@@ -115,6 +115,19 @@ def managed_check(client: Path, managed: Path) -> dict:
         assembly = open_assembly(domain, str(managed / "Assembly-CSharp.dll").encode())
         check(assembly, "Source-built Assembly-CSharp did not load")
         image = get_image(assembly)
+        file_selector_resolved = []
+        if (managed / "libStandaloneFileBrowser.dylib").is_file():
+            selector = klass(image, b"SFB", b"StandaloneFileBrowserMac")
+            check(selector, "macOS file selector wrapper did not resolve")
+            lookup_native = api("mono_lookup_pinvoke_call", pointer, [pointer, ctypes.POINTER(string), ctypes.POINTER(string)])
+            for name, count in (("DialogOpenFilePanel", 4), ("DialogOpenFilePanelAsync", 5),
+                                ("DialogOpenFolderPanel", 3), ("DialogOpenFolderPanelAsync", 4),
+                                ("DialogSaveFilePanel", 4), ("DialogSaveFilePanelAsync", 5)):
+                selected = method(selector, name.encode(), count)
+                exception_class, exception_message = string(), string()
+                check(selected and lookup_native(selected, ctypes.byref(exception_class), ctypes.byref(exception_message)),
+                      "Mono could not resolve the packaged file selector: " + name)
+                file_selector_resolved.append(name)
         default_field = {"defaultSelectable": "UnityEngine.UI.Selectable"}
         ui_schemas = {
             "MainMenuUI": default_field,
@@ -218,6 +231,7 @@ def managed_check(client: Path, managed: Path) -> dict:
                 "cpu_entry_points_resolved": list(cpu_methods), "unity_scene_executed": False,
                 "animation_methods_jit_compiled": compiled,
                 "academy_ui_methods_jit_compiled": academy_compiled,
+                "native_file_selector_entry_points_resolved": file_selector_resolved,
                 "gc_handles": "pointer-sized Mono v2 APIs"}
     finally:
         for handle in reversed(handles):

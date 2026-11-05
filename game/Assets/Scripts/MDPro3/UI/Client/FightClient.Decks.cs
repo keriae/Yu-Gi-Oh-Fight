@@ -64,7 +64,10 @@ namespace MDPro3.UI.Client
         {
             bool active = deckGroup == group;
             var row = FightUI.Panel(parent, 4, y, width, 48, active ? FightUI.Raised : Color.clear, true, group);
-            var groupLabel = FightUI.Text(row, group == "全部" ? "全部卡组" : group, 14, 0, width - 56, 48, Compact ? 17 : 19,
+            bool personalGroup = group != "全部" && group != "默认分组" && !(page == "picker" && !pickerPersonalOnly && group == "我的")
+                && (page == "decks" || page == "picker") && Directory.Exists(Path.Combine(Program.PATH_DECK, group));
+            string caption = group == "全部" ? "全部卡组" : personalGroup ? FightText.Keep(group) : group;
+            var groupLabel = FightUI.Text(row, caption, 14, 0, width - 56, 48, Compact ? 17 : 19,
                 active ? FightUI.Active : FightUI.Muted, TextAlignmentOptions.MidlineLeft);
             groupLabel.enableWordWrapping = false; groupLabel.enableAutoSizing = true;
             groupLabel.fontSizeMin = 15; groupLabel.fontSizeMax = Compact ? 17 : 19;
@@ -76,7 +79,7 @@ namespace MDPro3.UI.Client
             if (!active) button.targetGraphic.color = Color.clear;
             var frame = row.GetComponentInChildren<FightFrame>(); frame.ButtonFrame = true;
             row.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
-            FightUI.Hint(row.gameObject, group == "全部" ? "全部卡组" : group);
+            FightUI.Hint(row.gameObject, caption);
             button.onClick.AddListener(() => { deckGroup = group; Rebuild(); });
         }
 
@@ -130,7 +133,7 @@ namespace MDPro3.UI.Client
         private void SetCurrent(string path)
         {
             if (string.IsNullOrEmpty(path) || !File.Exists(path)) throw new FileNotFoundException("卡组文件不存在。");
-            Config.SetConfigDeck(PersonalName(path)); Config.Save(); ShowStatus("已设为当前卡组：" + PersonalName(path));
+            Config.SetConfigDeck(PersonalName(path)); Config.Save(); ShowStatus("已设为当前卡组：" + FightText.Keep(PersonalName(path)));
             cpuDeck = PersonalName(path);
         }
         private void RenderDecks()
@@ -323,7 +326,7 @@ namespace MDPro3.UI.Client
                     FightUI.Text(card, "主 " + deck.Main.Count + "   额外 " + deck.Extra.Count + "   副 " + deck.Side.Count,
                         12, coverHeight + 118, cellW - 24, 24, 14, FightUI.Muted);
                 }
-                catch (Exception e) { FightUI.Text(card, d.Name + "\n" + e.Message, 12, 12, cellW - 24, cellH - 24, 18, FightUI.Danger); }
+                catch (Exception e) { FightUI.Text(card, (d.Recommendation != null ? d.Name : FightText.Keep(d.Name)) + "\n" + e.Message, 12, 12, cellW - 24, cellH - 24, 18, FightUI.Danger); }
                 var button = card.gameObject.AddComponent<Button>(); button.targetGraphic = card.GetComponent<Image>();
                 var colors = button.colors; colors.highlightedColor = new Color(1.2f, 1.2f, 1.2f); colors.fadeDuration = .16f; button.colors = colors;
                 card.gameObject.AddComponent<FightButtonFeedback>().Bind(card.GetComponentInChildren<FightFrame>());
@@ -543,7 +546,7 @@ namespace MDPro3.UI.Client
         {
             var name = DeckLibrary.CreateEditableCopy(entry);
             OpenEditor(name);
-            if (page == "editor" && editorRelativeName == name) ShowStatus("已复制到我的：" + name);
+            if (page == "editor" && editorRelativeName == name) ShowStatus("已复制到我的：" + FightText.Keep(name));
         }
 
         private void RenderDeckDetailInspector(int code)
@@ -703,7 +706,7 @@ namespace MDPro3.UI.Client
             var box = ShowDialog("新建卡组", 620, 440); string name = "新卡组"; bool import = false;
             string group = deckGroup != "全部" && deckGroup != "默认分组" ? deckGroup : "";
             FightUI.Text(box, "名称", 28, 86, 260, 28, 19, FightUI.Muted);
-            FightUI.Text(box, "保存到 " + (group.Length == 0 ? "默认分组" : group), 292, 86, 296, 28, 15, FightUI.Muted, TextAlignmentOptions.TopRight);
+            FightUI.Text(box, "保存到 " + (group.Length == 0 ? "默认分组" : FightText.Keep(group)), 292, 86, 296, 28, 15, FightUI.Muted, TextAlignmentOptions.TopRight);
             var error = FightUI.Text(box, "", 28, 284, 560, 56, 15, FightUI.Danger);
             TMP_InputField nameField = null;
             nameField = FightUI.Input(box, name, "卡组名称", 28, 122, 560, 48, v =>
@@ -765,7 +768,7 @@ namespace MDPro3.UI.Client
                 if (label.StartsWith("删除", StringComparison.Ordinal)) FightUI.StyleDestructiveButton(actionButton);
             };
             add("重命名", () => Prompt("重命名卡组", "新名称", Path.GetFileNameWithoutExtension(d.Path), name => { CheckName(name); MoveDeck(d.Path, Path.Combine(Path.GetDirectoryName(d.Path), name + ".ydk")); Rebuild(); }));
-            add("复制独立副本", () => { var name = DeckLibrary.CreateEditableCopy(File.ReadAllBytes(d.Path), d.Name.Replace("/", " · ")); selectedPath = Path.GetFullPath(Program.PATH_DECK + name + ".ydk"); Rebuild(); ShowStatus("已复制：" + name); });
+            add("复制独立副本", () => { var name = DeckLibrary.CreateEditableCopy(File.ReadAllBytes(d.Path), d.Name.Replace("/", " · ")); selectedPath = Path.GetFullPath(Program.PATH_DECK + name + ".ydk"); Rebuild(); ShowStatus("已复制：" + FightText.Keep(name)); });
             add("移动到分组", () => ChooseGroup(d, false));
             add("复制到分组", () => ChooseGroup(d, true));
             add("复制 YDKE 卡组码", () => { GUIUtility.systemCopyBuffer = YdkeConverter.DeckToYdke(new Deck(d.Path)); ShowStatus("YDKE 卡组码已复制"); });
@@ -782,13 +785,14 @@ namespace MDPro3.UI.Client
                 var group = groups[i];
                 var destinationDirectory = Path.GetFullPath(Path.Combine(Program.PATH_DECK, group == "默认分组" ? "" : group)).TrimEnd(Path.DirectorySeparatorChar);
                 bool currentGroup = string.Equals(Path.GetDirectoryName(Path.GetFullPath(d.Path)), destinationDirectory, StringComparison.OrdinalIgnoreCase);
-                var choice = FightUI.Button(list, group + (currentGroup ? " · 当前分组" : ""), 4, i * 56, 554, 48, () => Try(() =>
+                string caption = group == "默认分组" ? group : FightText.Keep(group);
+                var choice = FightUI.Button(list, caption + (currentGroup ? " · 当前分组" : ""), 4, i * 56, 554, 48, () => Try(() =>
                 {
                     var target = Path.Combine(Program.PATH_DECK, group == "默认分组" ? "" : group, Path.GetFileName(d.Path));
                     if (File.Exists(target)) throw new IOException("目标分组已有同名文件。");
                     if (copy) File.Copy(d.Path, target); else MoveDeck(d.Path, target); CloseDialog(); Rebuild();
                 }), false, !currentGroup);
-                FightUI.Hint(choice.gameObject, group + (currentGroup ? "\n卡组已在此分组中" : ""));
+                FightUI.Hint(choice.gameObject, caption + (currentGroup ? "\n卡组已在此分组中" : ""));
             }
         }
         private void MoveDeck(string source, string target)
@@ -820,7 +824,7 @@ namespace MDPro3.UI.Client
             Prompt("导出 YDK", "保存到完整文件路径", defaultPath, path =>
             {
                 var target = Path.GetFullPath(path);
-                Action save = () => { Directory.CreateDirectory(Path.GetDirectoryName(target)); File.Copy(d.Path, target, true); ShowStatus("已导出到 " + target); };
+                Action save = () => { Directory.CreateDirectory(Path.GetDirectoryName(target)); File.Copy(d.Path, target, true); ShowStatus("已导出到 " + FightText.Keep(target)); };
                 if (File.Exists(target)) Confirm("覆盖导出文件", "目标文件已存在，是否覆盖？", save); else save();
             });
         }
@@ -828,7 +832,7 @@ namespace MDPro3.UI.Client
         {
             string group = deckGroup, directory = Path.Combine(Program.PATH_DECK, group);
             if (group == "默认分组" || group == "全部" || !Directory.Exists(directory)) return;
-            var box = ShowDialog("管理分组 · " + group, 620, 360);
+            var box = ShowDialog("管理分组 · " + FightText.Keep(group), 620, 360);
             FightUI.Button(box, "重命名分组", 28, 88, 564, 48, () => Prompt("重命名分组", "新名称", group, name =>
             {
                 CheckName(name); var target = Path.Combine(Program.PATH_DECK, name); if (Directory.Exists(target)) throw new IOException("该分组已经存在。");
@@ -843,7 +847,7 @@ namespace MDPro3.UI.Client
                 deckGroup = name; Rebuild();
             }));
             var decks = Directory.GetFiles(directory, "*.ydk");
-            var deleteGroup = FightUI.Button(box, "删除分组…", 28, 216, 564, 48, () => Confirm("删除分组", "删除分组“" + group + "”及其中 " + decks.Length + " 套卡组？", () =>
+            var deleteGroup = FightUI.Button(box, "删除分组…", 28, 216, 564, 48, () => Confirm("删除分组", "删除分组“" + FightText.Keep(group) + "”及其中 " + decks.Length + " 套卡组？", () =>
             {
                 foreach (var file in decks) { File.Delete(file); UpdateDeckReferences(file, null); }
                 if (!Directory.EnumerateFileSystemEntries(directory).Any()) Directory.Delete(directory);

@@ -21,6 +21,7 @@ import sys
 import tempfile
 
 from native_server_host import HOST_PATH, verify_host
+from native_file_browser import LIBRARY_PATH as FILE_BROWSER_PATH, verify_file_browser
 from source_build_state import atomic_exchange, game_source_paths, source_snapshot, validate_generation
 from client_ui_assets import content_hashes as client_ui_hashes
 
@@ -165,6 +166,11 @@ def verify_package(app: Path, manifest: dict, changes: dict, launcher: dict) -> 
     require(changes["changes"].get(HOST_PATH, {}).get("sha256") == changes["native_server_host"]["sha256"],
             "Native host inventory is incomplete")
     verify_host(client, changes["native_server_host"])
+    require(changes.get("native_file_browser") is not None,
+            "Native file selector metadata is missing; use the complete builder")
+    require(changes["changes"].get(FILE_BROWSER_PATH, {}).get("sha256") == changes["native_file_browser"]["sha256"],
+            "Native file selector inventory is incomplete")
+    verify_file_browser(client, changes["native_file_browser"])
     signature(app)
 
 

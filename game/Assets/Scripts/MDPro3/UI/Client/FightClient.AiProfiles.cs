@@ -103,7 +103,7 @@ namespace MDPro3.UI.Client
         {
             if (!AiProfileDirty) { continued(); return; }
             var box = ShowDialog("当前分身尚未保存", 650, 278);
-            var text = FightUI.Text(box, "「" + aiProfileDraft.Name + "」", 28, 84, 594, 84, 18, FightUI.Foreground);
+            var text = FightUI.RawText(box, "「" + aiProfileDraft.Name + "」", 28, 84, 594, 84, 18, FightUI.Foreground);
             text.richText = false; text.enableWordWrapping = true;
             FightUI.Button(box, "继续编辑", 28, 200, 164, 48, CloseDialog);
             FightUI.Button(box, "放弃并继续", 208, 200, 164, 48, () => { CloseDialog(); continued(); });
@@ -146,7 +146,7 @@ namespace MDPro3.UI.Client
             if (aiProfileDraft == null || aiProfiles.Count < 2) return;
             string id = aiProfileDraft.Id;
             var box = ShowDialog("删除 AI 分身", 620, 268);
-            var text = FightUI.Text(box, "删除「" + aiProfileDraft.Name + "」及其 AI 配置、外观和已记住的凭据？", 28, 84, 564, 86, 18);
+            var text = FightUI.Text(box, "删除「" + FightText.Keep(aiProfileDraft.Name) + "」及其 AI 配置、外观和已记住的凭据？", 28, 84, 564, 86, 18);
             text.richText = false; text.enableWordWrapping = true;
             FightUI.Button(box, "保留分身", 252, 196, 160, 48, CloseDialog);
             var remove = FightUI.Button(box, "删除分身", 428, 196, 164, 48, () => Try(() =>
@@ -248,7 +248,7 @@ namespace MDPro3.UI.Client
         private string AiProfileAppearanceName(string category, string value)
         {
             if (value == "0") return category == "Mate" || category == "Stand" ? "不显示" : "使用默认";
-            if (category == "Character") return CharacterName(value);
+            if (category == "Character") return FightText.Keep(CharacterName(value));
             return AppearanceValueName(category, value);
         }
         private void ChooseAiProfileAppearance(string category, string label)
@@ -260,7 +260,7 @@ namespace MDPro3.UI.Client
                 var characters = Enumerable.Range(0, 10).SelectMany(i => data.GetSeriesCharacters(i.ToString("00")))
                     .Where(c => !c.notReady && CollectionSpriteExists("sn" + c.id)).ToArray();
                 var ids = new[] { "0" }.Concat(characters.Select(c => c.id)).ToArray();
-                var names = new[] { "使用默认角色" }.Concat(characters.Select(c => data.GetName(c.id))).ToArray();
+                var names = new[] { "使用默认角色" }.Concat(characters.Select(c => FightText.Keep(data.GetName(c.id)))).ToArray();
                 SettingsChoose("分身角色", ids, names, value => { aiProfileDraft.Appearance[category] = value; UpdateSettingsDirtyLabel(); RenderSettings(); }, AiProfileAppearanceValue(aiProfileDraft, category)); return;
             }
             float width = Mathf.Min(850, W - 48), height = Mathf.Min(680, H - 48), inner = width - 56;

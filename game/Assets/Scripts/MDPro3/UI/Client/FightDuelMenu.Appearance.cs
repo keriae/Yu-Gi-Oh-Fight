@@ -13,10 +13,14 @@ namespace MDPro3.UI.Client
     internal sealed partial class FightDuelMenu
     {
         private int appearanceSide;
+        private ScrollRect appearanceScroll;
         private string AppearanceSlot => appearanceSide == 2 ? "0Tag" : appearanceSide == 3 ? "1Tag" : appearanceSide.ToString();
 
         private void ShowAppearance()
         {
+            float position = appearanceScroll != null && dialog != null && appearanceScroll.transform.IsChildOf(dialog) ? appearanceScroll.verticalNormalizedPosition : 1;
+            var selected = UnityEngine.EventSystems.EventSystem.current?.currentSelectedGameObject;
+            string focusedKey = selected == null ? null : selected.GetComponent<FightFocusKey>()?.Key;
             string prefix = OcgCore.condition.ToString();
             var panel = ShowDialog("外观与角色", 600);
             var scopes = RoomServant.Mode == 2 ? new[] { "我方", "对方", "我方队友", "对方队友" } : new[] { "我方", "对方" };
@@ -24,15 +28,16 @@ namespace MDPro3.UI.Client
             float tabWidth = (580 - (scopes.Length - 1) * 12) / scopes.Length;
             for (int i = 0; i < scopes.Length; i++)
             {
-                int side = i; FightUI.Tab(panel, scopes[i], appearanceSide == i, 24 + i * (tabWidth + 12), 84, tabWidth, 42, () => { appearanceSide = side; ShowAppearance(); });
+                int side = i; FightUI.FocusKey(FightUI.Tab(panel, scopes[i], appearanceSide == i, 24 + i * (tabWidth + 12), 84, tabWidth, 42,
+                    () => { appearanceSide = side; ShowAppearance(); }), "duel:appearance-side:" + side);
             }
             FightUI.Text(panel, "外观设置于下一场对局生效。", 24, 134, 580, 30, 15, FightUI.Muted);
-            var content = FightUI.Scroll(panel, 20, 178, 588, 394, 900);
+            var content = FightUI.Scroll(panel, 20, 178, 588, 394, 900, out appearanceScroll);
             float offset = 0;
             if (OcgCore.condition == OcgCore.Condition.Duel && appearanceSide == 0)
             {
-                FightUI.SwitchRow(content, "使用此外观覆盖卡组外观", Config.GetBool("OverrideDeckAppearance", false), 4, 0, 562, 44,
-                    () => { Config.SetBool("OverrideDeckAppearance", !Config.GetBool("OverrideDeckAppearance", false)); Config.Save(); ShowAppearance(); });
+                FightUI.FocusKey(FightUI.SwitchRow(content, "使用此外观覆盖卡组外观", Config.GetBool("OverrideDeckAppearance", false), 4, 0, 562, 44,
+                    () => { Config.SetBool("OverrideDeckAppearance", !Config.GetBool("OverrideDeckAppearance", false)); Config.Save(); ShowAppearance(); }), "duel:appearance-override");
                 offset = 58;
             }
             FightUI.Text(content, "决斗者名称", 4, offset, 560, 26, 17, FightUI.Gold);
@@ -47,7 +52,7 @@ namespace MDPro3.UI.Client
                 var field = entry;
                 FightUI.Text(content, field.Item2, 4, y, 150, 44, 17, FightUI.Foreground, TextAlignmentOptions.MidlineLeft);
                 string key = field.Item1 == "Wallpaper" ? "Wallpaper" : prefix + field.Item1 + AppearanceSlot;
-                string current = Config.Get(key, "0");
+                string current = Config.Get(key, field.Item1 == "Character" ? MDPro3.Duel.VoicePlayer.defaultCharacter : "0");
                 string caption = field.Item1 == "Character" ? CharacterSelector.characters?.GetName(current) ?? current
                     : ItemOptions(field.Item1).FirstOrDefault(item => item.id.ToString() == current).name;
                 if (current == Items.CODE_RANDOM.ToString()) caption = FightText.Get("随机");
@@ -59,6 +64,10 @@ namespace MDPro3.UI.Client
                 y += 56;
             }
             content.sizeDelta = new Vector2(588, y + 12);
+            appearanceScroll.verticalNormalizedPosition = position;
+            RefreshNavigation();
+            var retained = panel.GetComponentsInChildren<Selectable>().FirstOrDefault(item => item.GetComponent<FightFocusKey>()?.Key == focusedKey && item.IsInteractable());
+            if (retained != null) Focus(retained);
         }
         private static Items.ItemType ItemType(string category) => category switch
         {
@@ -85,11 +94,12 @@ namespace MDPro3.UI.Client
         }
         private void ChooseAppearance(string category, string label, string key, string current)
         {
-            var panel = ShowDialog("选择" + label, 600);
-            var list = FightUI.Scroll(panel, 20, 144, 588, 428, 1000);
+            var panel = ShowDialog("选择" + label, 600, nested: true);
+            var list = FightUI.Scroll(panel, 20, 144, 588, 428, 1000, out var pickerScroll);
             Action<string> draw = term =>
             {
                 FightUI.Clear(list);
+                pickerScroll.StopMovement(); pickerScroll.verticalNormalizedPosition = 1;
                 List<(string Id, string Name)> choices;
                 if (category == "Character")
                 {
@@ -99,10 +109,11 @@ namespace MDPro3.UI.Client
                         .Select(item => (item.id, data.GetName(item.id))).ToList();
                 }
                 else choices = ItemOptions(category).Where(item => ItemInstalled(item, category)).Select(item => (item.id.ToString(), item.name)).ToList();
-                choices = choices.Where(item => string.IsNullOrWhiteSpace(term) || (item.Name ?? "").IndexOf(term.Trim(), StringComparison.OrdinalIgnoreCase) >= 0 || item.Id.Contains(term.Trim())).ToList();
                 if (category != "Character") choices.Insert(0, (Items.CODE_RANDOM.ToString(), FightText.Get("随机")));
                 if (category == "Grave" || category == "Stand") choices.Insert(0, (Items.CODE_SAME.ToString(), FightText.Get("与场地相同")));
                 if (category == "Mate" || category == "Stand" || category == "Wallpaper") choices.Insert(0, ("0", FightText.Get("不显示")));
+                string query = (term ?? "").Trim();
+                choices = choices.Where(item => query.Length == 0 || (item.Name ?? "").IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0 || item.Id.Contains(query)).ToList();
                 const float cellW = 134, cellH = 178;
                 for (int i = 0; i < choices.Count; i++)
                 {
@@ -111,7 +122,7 @@ namespace MDPro3.UI.Client
                     {
                         Config.Set(key, item.Id); Config.Save();
                         if (category == "Wallpaper") { UIManager.currentWallpaper = item.Id; Program.instance.ui_.ChangeWallpaper(item.Id); }
-                        ShowAppearance();
+                        DismissDialog(); ShowAppearance();
                     }, selected), "duel:appearance-item:" + item.Id);
                     var image = FightUI.Node(tile.transform, "Duel appearance image", 8, 8, cellW - 16, 112).gameObject.AddComponent<Image>();
                     image.preserveAspect = true; image.raycastTarget = false; image.color = Color.clear;
@@ -123,9 +134,13 @@ namespace MDPro3.UI.Client
                 }
                 if (choices.Count == 0) FightUI.Text(list, "没有匹配素材", 12, 54, 548, 60, 20, FightUI.Muted, TextAlignmentOptions.Center);
                 list.sizeDelta = new Vector2(588, Mathf.Max(428, Mathf.Ceil(choices.Count / 4f) * 190));
+                pickerScroll.verticalNormalizedPosition = 1;
+                RefreshNavigation();
             };
             FightUI.FocusKey(FightUI.Input(panel, "", "搜索素材名称或编号", 24, 86, 580, 42, draw), "duel:appearance-search");
             draw("");
+            var currentChoice = list.GetComponentsInChildren<Selectable>().FirstOrDefault(item => item.GetComponent<FightFocusKey>()?.Key == "duel:appearance-item:" + current);
+            if (currentChoice != null) Focus(currentChoice);
         }
 
     }

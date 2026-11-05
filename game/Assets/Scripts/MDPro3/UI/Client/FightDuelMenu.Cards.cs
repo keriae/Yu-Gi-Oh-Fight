@@ -48,7 +48,7 @@ namespace MDPro3.UI.Client
                 var effect = effects[i]; var card = CardsManager.Get(effect.Key);
                 var row = FightUI.Panel(content, 4, i * 118, 548, 106, selectedCard == effect.Key ? FightUI.Raised : FightUI.Background, true, "Attached effect " + effect.Key);
                 var image = FightUI.Art(row, effect.Key, 12, 8, 62, 90, true);
-                FightUI.CardButton(image, () => SelectCard(effect.Key));
+                FightUI.FocusKey(FightUI.CardButton(image, () => SelectCard(effect.Key)), "duel:effect-art:" + effect.Key);
                 FightUI.RawText(row, card.Name, 92, 14, 432, 34, 19, FightUI.Foreground);
                 string owner = effect.Value == 1 ? "我方" : effect.Value == 2 ? "对方" : "双方";
                 FightUI.Text(row, owner, 92, 58, 400, 28, 15, effect.Value == 2 ? FightUI.Danger : FightUI.CyanText);
@@ -99,11 +99,12 @@ namespace MDPro3.UI.Client
             if (selectedCard <= 0)
             { FightUI.Text(reader, "选择一张卡片查看详情", 20, 136, w - 40, 80, 20, FightUI.Muted, TextAlignmentOptions.Center); return; }
             var card = CardsManager.Get(selectedCard);
-            FightUI.RawText(reader, card.Name, 20, 16, w - 40, 54, 23, FightUI.Active);
+            var title = FightUI.RawText(reader, card.Name, 20, 16, w - 40, 54, 23, FightUI.Active);
+            title.enableWordWrapping = true; title.enableAutoSizing = true; title.fontSizeMin = 18; title.fontSizeMax = 23;
             var image = FightUI.Art(reader, selectedCard, 20, 88, 106, 154, true);
             FightUI.CardButton(image, ShowLargeCard);
             var meta = FightUI.RawText(reader, card.GetTypeForUI() + "\n" + card.GetSetNameWithBracket() + (card.HasType(CardType.Monster) ? "\nATK " + card.GetAttackString() + " / DEF " + card.GetDefenseString() : ""), 144, 88, w - 164, 126, 16, FightUI.Muted);
-            meta.overflowMode = TextOverflowModes.Overflow;
+            meta.enableAutoSizing = true; meta.fontSizeMin = 13; meta.fontSizeMax = 16;
             FightUI.Button(reader, "完整卡片信息", 144, 212, w - 164, 40, ShowCardDialog);
             var description = FightUI.Scroll(reader, 18, 270, w - 36, h - 288, 600);
             var text = FightUI.RawText(description, card.GetDescription(), 8, 0, w - 68, 600, 17, FightUI.Foreground);
@@ -114,10 +115,12 @@ namespace MDPro3.UI.Client
         private void ShowCardDialog()
         {
             var card = CardsManager.Get(selectedCard); var panel = ShowDialog("完整卡片信息", 600);
-            FightUI.RawText(panel, card.Name, 24, 86, 580, 50, 23, FightUI.Active);
+            var title = FightUI.RawText(panel, card.Name, 24, 86, 580, 50, 23, FightUI.Active);
+            title.enableWordWrapping = true; title.enableAutoSizing = true; title.fontSizeMin = 18; title.fontSizeMax = 23;
             var image = FightUI.Art(panel, selectedCard, 24, 150, 160, 232, true);
             FightUI.CardButton(image, ShowLargeCard);
-            FightUI.RawText(panel, card.GetTypeForUI() + "\n" + card.GetSetNameWithBracket() + (card.HasType(CardType.Monster) ? "\nATK " + card.GetAttackString() + " / DEF " + card.GetDefenseString() : "") + "\n" + selectedCard, 208, 150, 396, 132, 17, FightUI.Muted);
+            var metadata = FightUI.RawText(panel, card.GetTypeForUI() + "\n" + card.GetSetNameWithBracket() + (card.HasType(CardType.Monster) ? "\nATK " + card.GetAttackString() + " / DEF " + card.GetDefenseString() : "") + "\n" + selectedCard, 208, 150, 396, 132, 17, FightUI.Muted);
+            metadata.enableAutoSizing = true; metadata.fontSizeMin = 13; metadata.fontSizeMax = 17;
             FightUI.Button(panel, "放大卡图", 208, 296, 188, 44, ShowLargeCard);
             FightUI.Button(panel, "保存卡图", 412, 296, 192, 44, () => SaveCardImage(image));
             var content = FightUI.Scroll(panel, 20, 398, 588, 174, 800);
@@ -125,15 +128,18 @@ namespace MDPro3.UI.Client
             description.overflowMode = TextOverflowModes.Overflow; description.lineSpacing = 4;
             float textHeight = Mathf.Max(174, description.GetPreferredValues(description.text, 560, float.PositiveInfinity).y + 18);
             content.sizeDelta = new Vector2(588, textHeight); description.rectTransform.sizeDelta = new Vector2(560, textHeight);
+            RefreshNavigation();
         }
         private void ShowLargeCard()
         {
-            var panel = ShowDialog("卡片预览", 640);
+            var panel = ShowDialog("卡片预览", 640, nested: dialog != null);
             FightUI.Art(panel, selectedCard, 133, 88, 362, 524, true);
+            RefreshNavigation();
         }
         private void SaveCardImage(RawImage image)
         {
-            if (saving || image == null || image.texture == null) return;
+            if (saving) return;
+            if (image == null || image.texture == null) { MessageManager.Toast(FightText.Get("卡图正在加载，请稍候。")); return; }
             saving = true;
             RenderTexture target = null; Texture2D copy = null; var previous = RenderTexture.active;
             try

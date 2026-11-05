@@ -90,6 +90,33 @@ POSSIBILITY OF SUCH DAMAGE.
 The following retained components carry the MIT permission text reproduced
 below. Their respective copyright notices must remain with substantial copies.
 
+### AssetStudio
+
+Source: [Perfare/AssetStudio](https://github.com/Perfare/AssetStudio).
+Original [MIT notice](https://github.com/Perfare/AssetStudio/blob/master/LICENSE):
+
+Copyright (c) 2016 Radu.
+Copyright (c) 2016-2020 Perfare.
+
+The notice covers the upstream library portions retained under
+`game/Assets/Tools/AssetStudio/`. MDPro3-specific changes retain the provenance
+and rights scope described above.
+
+### StandaloneFileBrowser
+
+Source: [gkngkc/UnityStandaloneFileBrowser](https://github.com/gkngkc/UnityStandaloneFileBrowser).
+Original [MIT notice](https://github.com/gkngkc/UnityStandaloneFileBrowser/blob/master/LICENSE.txt):
+
+Copyright (c) 2017 Gökhan Gökçe.
+
+The upstream library portions retained under
+`game/Assets/Tools/StandaloneFileBrowser/` use the MIT permission text below.
+The macOS native selector under `native/StandaloneFileBrowser/` derives from
+upstream commit `04a5d49ed2545556da8a7192e86c69bd47641f10`; its original file
+hashes and local changes are recorded in `provenance.json`. Modifications
+Copyright (c) 2026 keriae, under the same MIT terms. The original license is
+also retained beside its source and in the application documentation.
+
 ### OpenAI tiktoken
 
 Source: [openai/tiktoken](https://github.com/openai/tiktoken), reference version

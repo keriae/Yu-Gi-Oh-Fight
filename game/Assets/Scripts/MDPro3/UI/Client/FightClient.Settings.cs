@@ -1135,8 +1135,8 @@ namespace MDPro3.UI.Client
         {
             if (Program.instance.ocgcore.showing) return;
 #if UNITY_EDITOR || (!UNITY_ANDROID && !UNITY_IOS)
-            var extensions = background ? new[] { new ExtensionFilter("背景图片", "png", "jpg", "jpeg") } : new[] { new ExtensionFilter("卡组 / 回放 / 资源", "ydk", "yrp", "yrp3d", "ypk", "zip", "cdb", "conf", "png", "jpg", "jpeg", "mp4") };
-            StandaloneFileBrowser.OpenFilePanelAsync("选择导入文件", "", extensions, !background, paths => CopyClientImports(paths, background));
+            var extensions = background ? new[] { new ExtensionFilter(FightText.Get("背景图片"), "png", "jpg", "jpeg") } : new[] { new ExtensionFilter(FightText.Get("卡组 / 回放 / 资源"), "ydk", "yrp", "yrp3d", "ypk", "zip", "cdb", "conf", "png", "jpg", "jpeg", "mp4") };
+            StandaloneFileBrowser.OpenFilePanelAsync(FightText.Get("选择导入文件"), "", extensions, !background, paths => CopyClientImports(paths, background));
 #else
             if (background) NativeFilePicker.PickFile(path => CopyClientImports(new[] { path }, true), new[] { "image/png", "image/jpeg" });
             else NativeFilePicker.PickMultipleFiles(paths => CopyClientImports(paths, false), null);
@@ -1189,7 +1189,7 @@ namespace MDPro3.UI.Client
             var files = Directory.Exists(directory) ? Directory.GetFiles(directory, "*", SearchOption.AllDirectories) : Array.Empty<string>();
             if (files.Length == 0) { ReportSettingsDataStatus("没有可导出的" + label + "。"); return; }
 #if UNITY_EDITOR || (!UNITY_ANDROID && !UNITY_IOS)
-            StandaloneFileBrowser.OpenFolderPanelAsync("选择导出目录", "", false, paths =>
+            StandaloneFileBrowser.OpenFolderPanelAsync(FightText.Get("选择导出目录"), "", false, paths =>
             {
                 if (paths == null || paths.Length == 0 || string.IsNullOrEmpty(paths[0])) return;
                 try

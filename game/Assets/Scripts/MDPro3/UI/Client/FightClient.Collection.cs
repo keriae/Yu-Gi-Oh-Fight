@@ -1187,14 +1187,17 @@ namespace MDPro3.UI.Client
         }
         private string AppearanceValueName(string category, string value)
         {
-            if (category == "PlayerName") return string.IsNullOrEmpty(value) ? "使用默认名称" : value;
-            if (category == "Character") return CharacterName(value) + "（" + value + "）";
+            if (category == "PlayerName") return string.IsNullOrEmpty(value) ? "使用默认名称" : FightText.Keep(value);
+            if (category == "Character") return value == "0" ? "使用默认角色" : FightText.Keep(CharacterName(value)) + "（" + value + "）";
             if (value == "0") return AppearanceAllowsNone(category) ? "不显示" : category == "Field" ? "使用默认场地"
                 : category == "Grave" ? "使用默认墓地外观" : "使用默认外观";
             if (value == Items.CODE_SAME.ToString()) return "与场地一致";
             if (value == Items.CODE_RANDOM.ToString()) return "随机外观";
             var item = CollectionItems(AppearanceItemType(category)).FirstOrDefault(entry => entry.id.ToString() == value);
-            return item.id != 0 ? CollectionDisplayName(item) + "（" + value + "）" : "素材未安装（" + value + "）";
+            if (item.id == 0) return "素材未安装（" + value + "）";
+            string name = item.name;
+            return string.IsNullOrWhiteSpace(name) || name.Trim().Equals(Items.STRING_NULL, StringComparison.OrdinalIgnoreCase)
+                ? "名称未提供（" + value + "）" : FightText.Keep(name) + "（" + value + "）";
         }
         internal bool SaveAppearance()
         {

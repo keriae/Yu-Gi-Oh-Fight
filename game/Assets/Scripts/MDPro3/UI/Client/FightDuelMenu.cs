@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -27,6 +28,13 @@ namespace MDPro3.UI.Client
         private RectTransform root, window, body, dialogShade, dialog;
         private MonoBehaviour previousBlocker;
         private GameObject previousSelection, dialogSelection;
+        private readonly Stack<DialogFrame> dialogHistory = new Stack<DialogFrame>();
+        private GameObject focusedControl;
+        private sealed class DialogFrame
+        {
+            internal RectTransform Panel, Shade;
+            internal GameObject OutsideSelection, Selection;
+        }
         private string page = "settings", category = "audio", effectsSignature = "";
         private float scrollPosition = 1;
         private ScrollRect scroll;
@@ -81,6 +89,7 @@ namespace MDPro3.UI.Client
                 if (Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
                     MoveFocus(Keyboard.current.shiftKey.isPressed ? -1 : 1);
             }
+            KeepFocusInScope();
             if (page == "effects" && dialog == null)
             {
                 string next = EffectsSignature();
@@ -89,12 +98,11 @@ namespace MDPro3.UI.Client
         }
         private void MoveFocus(int direction)
         {
-            var scope = dialog != null ? dialog : window;
-            if (scope == null) return;
-            var choices = scope.GetComponentsInChildren<Selectable>().Where(item => item.IsInteractable() && !(item is Scrollbar)).ToArray();
+            var choices = FocusControls();
             if (choices.Length == 0 || EventSystem.current == null) return;
             int current = Array.FindIndex(choices, item => item.gameObject == EventSystem.current.currentSelectedGameObject);
-            choices[(current + direction + choices.Length) % choices.Length].Select();
+            int next = current < 0 ? (direction < 0 ? choices.Length - 1 : 0) : (current + direction + choices.Length) % choices.Length;
+            Focus(choices[next]);
         }
         internal void Open(string next)
         {
@@ -115,10 +123,11 @@ namespace MDPro3.UI.Client
         internal void Close(bool sound = true)
         {
             if (!Showing) return;
+            bool ownsInput = UIManager.InputBlocker == this;
             CloseDialog();
             Config.Save(); canvas.enabled = false;
-            if (UIManager.InputBlocker == this) UIManager.InputBlocker = previousBlocker;
-            if (EventSystem.current != null)
+            if (ownsInput) UIManager.InputBlocker = previousBlocker;
+            if (ownsInput && EventSystem.current != null)
                 EventSystem.current.SetSelectedGameObject(previousSelection != null && previousSelection.activeInHierarchy ? previousSelection : null);
             Program.instance.ocgcore.GetUI<OcgCoreUI>()?.ResetAttachedEffectState();
             if (sound) AudioManager.PlaySE("SE_MENU_CANCEL");
@@ -129,7 +138,7 @@ namespace MDPro3.UI.Client
             if (scroll != null) scrollPosition = scroll.verticalNormalizedPosition;
             var selected = EventSystem.current == null ? null : EventSystem.current.currentSelectedGameObject;
             string focusedKey = selected == null ? null : selected.GetComponent<FightFocusKey>()?.Key;
-            FightUI.Clear(root); dialog = dialogShade = null;
+            CloseDialog(); FightUI.Clear(root);
             if (page == "card") { window = body = null; ShowCardDialog(); return; }
             var shade = FightUI.Panel(root, -4000, -4000, 9280, 8720, new Color(.006f, .015f, .025f, .78f), false, "Duel menu backdrop");
             shade.gameObject.AddComponent<Button>().onClick.AddListener(() => Close());
@@ -150,9 +159,11 @@ namespace MDPro3.UI.Client
             if (page != "settings") FightUI.Button(window, "对局设置", Width - 188, Height - 48, 160, 36, () => Open("settings"));
             if (EventSystem.current != null)
             {
-                var retained = root.GetComponentsInChildren<Selectable>().FirstOrDefault(item => item.GetComponent<FightFocusKey>()?.Key == focusedKey && item.IsInteractable());
-                if (retained != null) retained.Select(); else close.Select();
+                var retained = string.IsNullOrEmpty(focusedKey) ? null : window.GetComponentsInChildren<Selectable>()
+                    .FirstOrDefault(item => item.GetComponent<FightFocusKey>()?.Key == focusedKey && item.IsActive() && item.IsInteractable());
+                Focus(retained != null ? retained : close);
             }
+            RefreshNavigation();
         }
         private void RenderSettings()
         {
@@ -198,7 +209,7 @@ namespace MDPro3.UI.Client
                 Switch(content, "ShowFPS", "显示 FPS", true, ref y);
                 Section(content, "画质", ref y);
                 Choice(content, "Quality", "画质", "2000", new[] { "0", "1000", "2000", "3000", "4000", "5000" }, new[] { "非常低", "低", "中等", "高", "非常高", "极致" }, ref y);
-                Choice(content, "AAA", "抗锯齿模式", "0", new[] { "0", "1000", "2000", "3000", "4000", "5000" }, new[] { "Off", "FXAA", "SMAA Low", "SMAA Medium", "SMAA High", "TAA" }, ref y);
+                Choice(content, "AAA", "抗锯齿模式", "0", new[] { "0", "1000", "2000", "3000", "4000", "5000" }, new[] { "关", "FXAA", "SMAA 低", "SMAA 中", "SMAA 高", "TAA" }, ref y);
                 Choice(content, "Shadow", "阴影质量", "0", new[] { "0", "1000", "2000", "3000", "4000" }, new[] { "非常低", "低", "中等", "高", "非常高" }, ref y);
                 Switch(content, "VideoCard", "动态卡图", true, ref y);
             }
@@ -214,7 +225,8 @@ namespace MDPro3.UI.Client
                 Choice(content, "Language", "界面语言", Language.GetConfig(), locales, locales.Select(LocaleName).ToArray(), ref y);
                 Choice(content, "CardLanguage", "卡片语言", Language.GetCardConfig(), locales, locales.Select(LocaleName).ToArray(), ref y);
                 var styles = Enum.GetNames(typeof(CardRenderer.CardStyle));
-                Choice(content, "CardStyle", "卡面风格", CardRenderer.CardStyle.OCG_TCG.ToString(), styles, styles, ref y);
+                Choice(content, "CardStyle", "卡面风格", CardRenderer.CardStyle.OCG_TCG.ToString(), styles,
+                    styles.Select(style => style == "OCG_TCG" ? "标准卡面（OCG / TCG）" : style == "RUSH_DUEL" ? "超速决斗（RUSH DUEL）" : style).ToArray(), ref y);
                 var backgrounds = BackgroundManager.backgrounds;
                 Choice(content, "Background", "背景", "0", new[] { "0" }.Concat(backgrounds.Keys.Select(item => item.ToString())).ToArray(), new[] { "随机" }.Concat(backgrounds.Values).ToArray(), ref y);
             }
@@ -324,44 +336,75 @@ namespace MDPro3.UI.Client
             else if (key.EndsWith("FaceDown", StringComparison.Ordinal)) foreach (var card in OcgCore.cards) card.ShowFaceDownCardOrNot(card.NeedShowFaceDownCard());
             else if (key.EndsWith("Acc", StringComparison.Ordinal) && OcgCore.Accing && !key.EndsWith("AutoAcc", StringComparison.Ordinal)) Program.instance.ocgcore.GetUI<OcgCoreUI>().OnAcc();
         }
-        private RectTransform ShowDialog(string title, float dialogHeight = 440)
+        private RectTransform ShowDialog(string title, float dialogHeight = 440, bool nested = false)
         {
-            CloseDialog();
+            if (nested && dialog != null)
+            {
+                dialogHistory.Push(new DialogFrame { Panel = dialog, Shade = dialogShade, OutsideSelection = dialogSelection,
+                    Selection = EventSystem.current == null ? null : EventSystem.current.currentSelectedGameObject });
+                dialog.gameObject.SetActive(false); dialogShade.gameObject.SetActive(false);
+            }
+            else CloseDialog();
             dialogSelection = EventSystem.current == null ? null : EventSystem.current.currentSelectedGameObject;
             dialogShade = FightUI.Panel(root, -4000, -4000, 9280, 8720, new Color(.005f, .014f, .022f, .7f), false, "Duel secondary backdrop");
             dialogShade.gameObject.AddComponent<Button>().onClick.AddListener(DismissDialog);
             dialog = FightUI.Panel(root, 326, (720 - dialogHeight) / 2, 628, dialogHeight, FightUI.PanelColor, true, "Duel secondary dialog");
             FightUI.Text(dialog, title, 24, 20, 532, 38, 24, FightUI.Active);
-            var close = FightUI.Button(dialog, "×", 566, 18, 38, 38, DismissDialog);
+            var close = FightUI.FocusKey(FightUI.Button(dialog, dialogHistory.Count > 0 ? "←" : "×", 566, 18, 38, 38, DismissDialog), "duel:dialog-close");
+            FightUI.Hint(close.gameObject, dialogHistory.Count > 0 ? "返回上一级" : "关闭弹窗");
             FightUI.Line(dialog, 24, 70, 580, FightUI.Border);
-            if (EventSystem.current != null) close.Select();
+            Focus(close);
             return dialog;
         }
         private void DismissDialog()
         {
-            if (page == "card") Close(); else CloseDialog();
+            if (dialogHistory.Count > 0)
+            {
+                DestroyDialog(dialog, dialogShade);
+                var parent = dialogHistory.Pop(); dialog = parent.Panel; dialogShade = parent.Shade; dialogSelection = parent.OutsideSelection;
+                dialogShade.gameObject.SetActive(true); dialog.gameObject.SetActive(true);
+                var retained = parent.Selection == null ? null : parent.Selection.GetComponent<Selectable>();
+                Focus(retained != null && retained.IsInteractable() ? retained : dialog.GetComponentInChildren<Selectable>());
+                RefreshNavigation();
+            }
+            else if (page == "card") Close(); else CloseDialog();
+        }
+        private static void DestroyDialog(RectTransform panel, RectTransform shade)
+        {
+            if (panel != null) { panel.gameObject.SetActive(false); Destroy(panel.gameObject); }
+            if (shade != null) { shade.gameObject.SetActive(false); Destroy(shade.gameObject); }
         }
         internal void CloseDialog()
         {
             bool hadDialog = dialog != null;
-            if (dialog != null) { dialog.gameObject.SetActive(false); Destroy(dialog.gameObject); }
-            if (dialogShade != null) { dialogShade.gameObject.SetActive(false); Destroy(dialogShade.gameObject); }
+            DestroyDialog(dialog, dialogShade);
+            while (dialogHistory.Count > 0)
+            {
+                var parent = dialogHistory.Pop(); DestroyDialog(parent.Panel, parent.Shade); dialogSelection = parent.OutsideSelection;
+            }
             dialog = dialogShade = null;
-            if (hadDialog && EventSystem.current != null) EventSystem.current.SetSelectedGameObject(dialogSelection != null && dialogSelection.activeInHierarchy ? dialogSelection : null);
+            if (hadDialog && UIManager.InputBlocker == this && EventSystem.current != null)
+                EventSystem.current.SetSelectedGameObject(dialogSelection != null && dialogSelection.activeInHierarchy ? dialogSelection : null);
             dialogSelection = null;
+            focusedControl = null;
+            RefreshNavigation();
         }
         private void Choose(string title, string[] values, string[] labels, string current, Action<string> chosen, Func<string, bool> available = null)
         {
             var panel = ShowDialog(title, Mathf.Min(560, 104 + values.Length * 54));
             float listHeight = panel.rect.height - 96;
             var content = FightUI.Scroll(panel, 20, 84, 588, listHeight, values.Length * 54);
+            Selectable selected = null;
             for (int i = 0; i < values.Length; i++)
             {
                 string value = values[i]; bool active = value == current;
                 var button = FightUI.FocusKey(FightUI.Button(content, labels[i], 4, i * 54, 566, 46, () => { CloseDialog(); chosen(value); }, active, available == null || available(value)), "duel:choice:" + value);
                 var text = button.GetComponentInChildren<TextMeshProUGUI>(); text.alignment = TextAlignmentOptions.MidlineLeft;
                 if (active) FightUI.Text(button.transform, "✓", 528, 0, 28, 46, 20, FightUI.Active, TextAlignmentOptions.Center);
+                if (active && button.IsInteractable()) selected = button;
             }
+            RefreshNavigation();
+            if (selected != null) Focus(selected);
         }
         private void ConfirmExit(bool retry)
         {
@@ -377,6 +420,7 @@ namespace MDPro3.UI.Client
                 core.ConfirmAuxiliaryExit();
             }, true), "duel:confirm-exit");
             FightUI.StyleDestructiveButton(confirm);
+            RefreshNavigation();
         }
 
         private void OnApplicationQuit()
