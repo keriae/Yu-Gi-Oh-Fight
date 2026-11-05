@@ -36,6 +36,16 @@ Interrupted dependency copies are recovered on the next `--from` run. A copy
 lock prevents another preparation process from replacing active staging files;
 its local lock file is retained so retries share the same lock.
 
+The importer copies top-level dependency links into independent directories and
+preserves internal links. If your existing `vendor/MDPro3-mac` or its workspace
+parent directory is a symbolic link, `--check` may verify it, but preparation
+refuses to repair through the link. New dependency copies also refuse linked
+destination paths under `vendor/`, `.tools/`, or `build/`. Move the reported
+link to a backup location, then rerun `--from` with the donor checkout to create
+a separate runtime copy. The importer never removes the link
+for you. Full builds copy the actual runtime directory into independent staging;
+publisher files containing internal links are rejected before pruning or seeding.
+
 The application is written to `dist/Yu-Gi-Oh! Fight.app`. Toolchains, publisher
 runtime downloads, intermediate generations, applications and diagnostic
 reports are ignored by Git. The game keeps user data separately in
@@ -94,6 +104,13 @@ Mono 加载、双架构原生文件选择器和应用签名；本地验收脚本
 
 `--from` 拷贝中断后也可直接重试；进程锁保护正在拷贝的临时目录，锁文件保留
 在本地供重试共用。发行包下载前检查安全解包依赖，完整构建在编译前检查 Swift 版本。
+
+导入会将顶层依赖链接复制为独立目录，并保留内部链接。已有 `vendor/MDPro3-mac`
+或其工作区内父目录若是符号链接，可用 `--check` 只读验证；准备命令不会沿链接
+修复来源目录。新依赖拷贝也会拒绝 `vendor/`、`.tools/` 或 `build/` 下经过链接的
+目标路径。请先将链接移到备份位置，再对来源工作区运行 `--from` 以建立独立副本，工具不会
+自行删除链接。完整构建复制真实运行时目录，发行文件中的内部链接会在整理或
+播种前被拒绝。
 
 仅修改 C# 代码时可先 `--code-only`，再执行代码更新脚本。资源或启动器修改需
 完整构建；原生桥接修改同样需要完整构建。更新与构建前请关闭游戏。归档命令只生成本地 ZIP，不执行上传。

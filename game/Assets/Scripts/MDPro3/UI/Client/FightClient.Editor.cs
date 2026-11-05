@@ -49,6 +49,7 @@ namespace MDPro3.UI.Client
         private readonly Dictionary<Graphic, EditorGraphicStyle> editorGraphicStyles = new Dictionary<Graphic, EditorGraphicStyle>();
         private readonly Dictionary<Selectable, EditorControlStyle> editorControlStyles = new Dictionary<Selectable, EditorControlStyle>();
         private readonly List<Component> editorSkinComponents = new List<Component>();
+        private readonly Dictionary<TextMeshProUGUI, string> editorNativeLabels = new Dictionary<TextMeshProUGUI, string>();
         private readonly Dictionary<Selectable, TextMeshProUGUI> editorPoolToolLabels = new Dictionary<Selectable, TextMeshProUGUI>();
         private SelectionButton editorPoolSearchCommand;
         private TextMeshProUGUI editorPoolSearchCount;
@@ -125,6 +126,8 @@ namespace MDPro3.UI.Client
             editorToolbarButtons.Add(FightUI.Button(Body, "手牌测试", bx, 8, buttonWidth, 44, () => clientEditorUI?.OnHandTest(), false, false)); bx += buttonWidth + actionGap;
             editorToolbarButtons.Add(FightUI.Button(Body, "更多", bx, 8, buttonWidth, 44, OpenEditorMore, false, false)); bx += buttonWidth + actionGap;
             editorSaveButton = FightUI.Button(Body, "保存卡组", bx, 8, saveWidth, 44, () => SaveEditor(), true, false);
+            FightUI.Hint(editorToolbarButtons[0].gameObject, "查看当前卡组主题的完整展开教程");
+            FightUI.Hint(editorToolbarButtons[1].gameObject, "查看与选择禁限卡表");
 
             var top = Compact ? 76f : 88f;
             var viewHeight = Mathf.Max(240, BodyHeight - top - 40);
@@ -155,6 +158,7 @@ namespace MDPro3.UI.Client
             FightUI.FocusKey(editorSectionJumpButton, "editor:section-jump");
             FightUI.Hint(editorSectionJumpButton.gameObject, "定位主卡、额外或副卡区域，不改变构筑");
             editorAwaitingMount = true;
+            LayoutEditorShell();
             TryMountEditor();
         }
 
@@ -202,19 +206,22 @@ namespace MDPro3.UI.Client
 
         private void LayoutEditorShell()
         {
-            var buttonWidth = Compact ? 108f : 136f;
+            var buttonWidths = editorToolbarButtons.Select(button => Mathf.Max(Compact ? 108f : 136f,
+                Mathf.Ceil(MeasureEditorCaption(button.GetComponentInChildren<TextMeshProUGUI>(), FightText.Get(button.name), 19) + 24))).ToArray();
             var saveWidth = Compact ? 128f : 168f;
             var actionGap = Compact ? 10f : Gap;
-            var actionWidth = buttonWidth * 4 + saveWidth + actionGap * 4;
+            var actionWidth = SumEditorWidths(buttonWidths) + saveWidth + actionGap * 4;
             FightUI.Place(editorTitleText.rectTransform, 0, 4, Mathf.Max(120, BodyWidth - actionWidth - 16), 36);
             editorTitleText.fontSizeMin = Compact ? 22 : 28; editorTitleText.fontSizeMax = Compact ? 25 : 32;
             editorTitleText.fontSize = editorTitleText.fontSizeMax;
             FightUI.Place(editorStateText.rectTransform, 0, 43, BodyWidth - actionWidth, 24);
             var bx = BodyWidth - actionWidth;
-            foreach (var button in editorToolbarButtons)
+            for (int i = 0; i < editorToolbarButtons.Count; i++)
             {
-                FightUI.Place(button.GetComponent<RectTransform>(), bx, 8, buttonWidth, 44);
-                bx += buttonWidth + actionGap;
+                var button = editorToolbarButtons[i];
+                FightUI.Place(button.GetComponent<RectTransform>(), bx, 8, buttonWidths[i], 44);
+                FightUI.Place(button.GetComponentInChildren<TextMeshProUGUI>().rectTransform, 10, 0, buttonWidths[i] - 20, 44);
+                bx += buttonWidths[i] + actionGap;
             }
             FightUI.Place(editorSaveButton.GetComponent<RectTransform>(), bx, 8, saveWidth, 44);
             var top = Compact ? 76f : 88f;
@@ -328,6 +335,9 @@ namespace MDPro3.UI.Client
             MountEditorDeckSections(ui.DeckView);
             MountEditorTabs(ui.CardCollectionView);
             LabelEditorPoolTools(ui.CardCollectionView);
+            BindEditorNativeLabel(ui.CardCollectionView.InputSearch.InputField.placeholder as TextMeshProUGUI, "搜索卡名或编号");
+            BindEditorNativeLabel(ui.CardCollectionView.GetComponent<ElementObjectManager>()
+                ?.GetNestedElement<TextMeshProUGUI>("CardListArea/NoItemText"), "没有匹配的卡片");
             editorImageCache = new FightCardPoolCache();
             ui.CardCollectionView.ClientImageCache = editorImageCache;
             foreach (var image in ui.CardCollectionView.GetComponentsInChildren<CardRawImageHandler>(true))
@@ -805,7 +815,7 @@ namespace MDPro3.UI.Client
             control.Select(); RevealClientControl(control);
             string location = target.location == DeckView.DeckLocation.MainDeck ? "主卡组"
                 : target.location == DeckView.DeckLocation.ExtraDeck ? "额外卡组" : "副卡组";
-            ShowStatus("已定位到" + location + "：" + target.Card.Name);
+            ShowStatus("已定位到" + location + "：" + FightText.Keep(target.Card.Name));
         }
 
         private void LayoutEditorInspector()
@@ -856,15 +866,52 @@ namespace MDPro3.UI.Client
             item.Content.anchoredPosition = new Vector2(0, Mathf.Clamp(item.Content.anchoredPosition.y, 0, Mathf.Max(0, item.Content.rect.height - scrollHeight)));
             var controlsY = height - 50;
             FightUI.Place(item.ControlsDivider, 12, controlsY - 8, width - 24, 1);
-            var actionWidth = (width - 40) / 3;
             var actions = new[] { item.Add, item.Remove, item.More };
+            var captions = actions.Select(action => action.GetComponentInChildren<TextMeshProUGUI>()).ToArray();
+            var labels = new[] { FightText.Get("加入"), FightText.Get("移除"), FightText.Get("更多") };
+            float available = width - 40, fontSize = Compact ? 16 : 18;
+            Func<float[]> measure = () => captions.Select((caption, index) => MeasureEditorCaption(caption, labels[index], fontSize) + 16).ToArray();
+            var actionWidths = measure();
+            while (fontSize > 12 && SumEditorWidths(actionWidths) > available)
+            { fontSize -= .5f; actionWidths = measure(); }
+            float extra = Mathf.Max(0, available - SumEditorWidths(actionWidths)) / 3, x = 12;
             for (int i = 0; i < actions.Length; i++)
             {
-                FightUI.Place(actions[i].GetComponent<RectTransform>(), 12 + i * (actionWidth + 8), controlsY, actionWidth, 40);
-                var caption = actions[i].GetComponentInChildren<TextMeshProUGUI>();
-                caption.fontSize = Compact ? 16 : 18;
+                float actionWidth = actionWidths[i] + extra;
+                FightUI.Place(actions[i].GetComponent<RectTransform>(), x, controlsY, actionWidth, 40);
+                var caption = captions[i];
+                caption.enableWordWrapping = false; caption.enableAutoSizing = true;
+                caption.fontSizeMax = fontSize; caption.fontSizeMin = 12; caption.fontSize = fontSize;
                 FightUI.Place(caption.rectTransform, 4, 0, actionWidth - 8, 40);
+                x += actionWidth + 8;
             }
+        }
+
+        private static float SumEditorWidths(float[] widths)
+        {
+            float total = 0;
+            foreach (float width in widths) total += width;
+            return total;
+        }
+
+        private static float MeasureEditorCaption(TextMeshProUGUI text, string value, float size)
+        {
+            float previousSize = text.fontSize;
+            bool previousAutoSize = text.enableAutoSizing;
+            var previousAlignment = text.alignment;
+            text.enableAutoSizing = false; text.fontSize = size; text.alignment = TextAlignmentOptions.TopLeft;
+            text.ForceMeshUpdate(true, true);
+            float width = text.GetPreferredValues(value, float.PositiveInfinity, float.PositiveInfinity).x;
+            text.fontSize = previousSize; text.enableAutoSizing = previousAutoSize; text.alignment = previousAlignment;
+            return width;
+        }
+
+        private void BindEditorNativeLabel(TextMeshProUGUI text, string source)
+        {
+            if (text == null) return;
+            if (!editorNativeLabels.ContainsKey(text)) editorNativeLabels.Add(text, text.text);
+            var binding = text.gameObject.AddComponent<FightLocalizedText>();
+            binding.Initialize(text, source); editorSkinComponents.Add(binding);
         }
 
         private static string EditorCardParameters(Card card)
@@ -1207,6 +1254,7 @@ namespace MDPro3.UI.Client
                 foreach (var style in editorGraphicStyles.Values) style.Restore();
                 foreach (var style in editorControlStyles.Values) style.Restore();
                 foreach (var typography in editorTypography) typography.Restore();
+                foreach (var label in editorNativeLabels) if (label.Key != null) label.Key.text = label.Value;
                 foreach (var geometry in editorCardGeometry.Values) geometry.Apply(1);
                 for (var i = editorMounts.Count - 1; i >= 0; i--) editorMounts[i].Restore();
                 scrolling?.Restore();
@@ -1227,6 +1275,7 @@ namespace MDPro3.UI.Client
                     }
                 editorDeckSections.Clear(); editorTabs.Clear(); editorGraphics.Clear(); editorBehaviours.Clear(); editorAdditions.Clear();
                 editorGraphicStyles.Clear(); editorControlStyles.Clear(); editorSkinComponents.Clear();
+                editorNativeLabels.Clear();
                 editorPoolToolLabels.Clear();
                 editorPoolSearchCommand = null; editorPoolSearchCount = null;
                 editorSectionJumpButton = null;

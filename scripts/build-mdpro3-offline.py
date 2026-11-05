@@ -77,14 +77,22 @@ def package_documents(resources: Path) -> None:
 
 
 def copy_client(source: Path, destination: Path) -> None:
+    source = source.resolve(strict=True)
+    if not source.is_dir():
+        raise ValueError("The client copy source must be a directory.")
+    if destination.exists() or destination.is_symlink():
+        raise ValueError("Client staging must start at an absent path; refusing to merge or replace existing files.")
     # APFS clones preserve bytes while avoiding a second physical copy of large assets.
     cloned = subprocess.run(["cp", "-cR", str(source), str(destination)],
                             stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-    if cloned.returncode == 0:
-        return
-    if destination.exists():
-        shutil.rmtree(destination)
-    run("ditto", source, destination)
+    if cloned.returncode:
+        if destination.is_symlink():
+            raise ValueError("The client copy did not produce an independent staging directory.")
+        if destination.exists():
+            shutil.rmtree(destination)
+        run("ditto", source, destination)
+    if destination.is_symlink() or not destination.is_dir():
+        raise ValueError("The client copy did not produce an independent staging directory.")
 
 
 def package_client_ui(client: Path, manifest: dict) -> dict:

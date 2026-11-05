@@ -9,11 +9,32 @@ import sys
 
 ROOT = Path(__file__).resolve().parent
 
+def dependency_link(path: Path):
+    try:
+        path.relative_to(ROOT)
+    except ValueError:
+        return None
+    for component in [path, *path.parents]:
+        if component == ROOT:
+            break
+        if component.is_symlink():
+            return component
+    return None
+
+def link_recovery(link: Path):
+    return ("Dependency path uses a symbolic link: " + link.relative_to(ROOT).as_posix()
+            + ". Move the link aside, then run python3 prepare-dependencies.py "
+              "--from /path/to/donor-checkout to create independent copies. "
+              "Use --check for read-only verification")
+
 def clone_missing(source: Path, destination: Path):
     if destination.exists():
         return
     if not source.exists():
         return
+    link = dependency_link(destination)
+    if link is not None:
+        raise ValueError(link_recovery(link))
     # Copy a donor dependency itself, rather than installing a link back into
     # that checkout where a later resource repair could write original files.
     source = source.resolve(strict=True)
@@ -41,7 +62,7 @@ def clone_missing(source: Path, destination: Path):
         if result.returncode:
             discard_partial()
             if source.is_dir():
-                shutil.copytree(source, temporary)
+                shutil.copytree(source, temporary, symlinks=True)
             else:
                 shutil.copy2(source, temporary)
         temporary.rename(destination)
@@ -53,6 +74,11 @@ def main():
     args = parser.parse_args()
     if sys.version_info < (3, 12):
         parser.error("Dependency preparation requires Python 3.12 or later for safe publisher archive extraction")
+    runtime = ROOT / "vendor/MDPro3-mac"
+    if not args.check:
+        link = dependency_link(runtime)
+        if link is not None:
+            parser.error(link_recovery(link))
     if args.source and not args.check:
         source = args.source.resolve(strict=True)
         if source == ROOT:
@@ -63,7 +89,6 @@ def main():
             clone_missing(source / relative, ROOT / relative)
     (ROOT / "artifacts").mkdir(exist_ok=True)
     subprocess.run([sys.executable, str(ROOT / "scripts/setup-source-toolchain.py"), *( ["--check"] if args.check else [] )], cwd=ROOT, check=True)
-    runtime = ROOT / "vendor/MDPro3-mac"
     verification = [sys.executable, str(ROOT / "scripts/verify-native-client.py"),
                     "--output", str(ROOT / "artifacts/dependency-resources.json")]
     if args.check and not runtime.is_dir():

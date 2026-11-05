@@ -19,7 +19,7 @@ namespace MDPro3.UI.Client
     internal sealed partial class FightDuelMenu : MonoBehaviour
     {
         internal static FightDuelMenu Instance { get; private set; }
-        internal static bool BlocksInput => Instance != null && Instance.Showing;
+        internal static bool BlocksInput => Instance != null && (Instance.Showing || Instance.consumedInputFrame == Time.frameCount);
         internal bool Showing => canvas != null && canvas.enabled;
         internal RectTransform Root => root;
         internal RectTransform Dialog => dialog;
@@ -36,6 +36,8 @@ namespace MDPro3.UI.Client
             internal GameObject OutsideSelection, Selection;
         }
         private string page = "settings", category = "audio", effectsSignature = "";
+        private string backPage;
+        private int consumedInputFrame = -1;
         private float scrollPosition = 1;
         private ScrollRect scroll;
         private int width, height;
@@ -82,10 +84,14 @@ namespace MDPro3.UI.Client
             if (width != Screen.width || height != Screen.height) Fit();
             if (UIManager.InputBlocker == this)
             {
-                if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
-                { if (dialog != null) DismissDialog(); else if (page != "settings") Open("settings"); else Close(); }
-                else if (UserInput.WasCancelPressed || UserInput.MouseRightDown)
-                { if (dialog != null) DismissDialog(); else Close(); }
+                if ((Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) || UserInput.WasCancelPressed || UserInput.MouseRightDown)
+                {
+                    // The duel must not process the same cancel again after
+                    // the final auxiliary layer has closed this frame.
+                    consumedInputFrame = Time.frameCount;
+                    Back();
+                    if (!Showing) return;
+                }
                 if (Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
                     MoveFocus(Keyboard.current.shiftKey.isPressed ? -1 : 1);
             }
@@ -104,16 +110,23 @@ namespace MDPro3.UI.Client
             int next = current < 0 ? (direction < 0 ? choices.Length - 1 : 0) : (current + direction + choices.Length) % choices.Length;
             Focus(choices[next]);
         }
-        internal void Open(string next)
+        private void Back()
+        {
+            if (dialog != null) DismissDialog();
+            else if (backPage != null) Open(backPage);
+            else Close();
+        }
+        internal void Open(string next, string returnPage = null)
         {
             if (!Showing)
             {
                 previousBlocker = UIManager.InputBlocker;
                 previousSelection = EventSystem.current == null ? null : EventSystem.current.currentSelectedGameObject;
                 UIManager.InputBlocker = this; canvas.enabled = true;
+                ResetCardReading();
                 AudioManager.PlaySE("SE_MENU_SELECT_01");
             }
-            CloseDialog(); page = next; scrollPosition = 1; scroll = null;
+            CloseDialog(); page = next; backPage = returnPage; scrollPosition = 1; scroll = null;
             var ui = Program.instance.ocgcore.GetUI<OcgCoreUI>();
             ui?.CardDescription.Hide(); ui?.CardList?.Hide();
             if (next == "effects") { effectsSignature = EffectsSignature(); ui?.SwitchAttachedEffectState(); }
@@ -136,6 +149,7 @@ namespace MDPro3.UI.Client
         private void Render()
         {
             if (scroll != null) scrollPosition = scroll.verticalNormalizedPosition;
+            CaptureCardReading();
             var selected = EventSystem.current == null ? null : EventSystem.current.currentSelectedGameObject;
             string focusedKey = selected == null ? null : selected.GetComponent<FightFocusKey>()?.Key;
             CloseDialog(); FightUI.Clear(root);
