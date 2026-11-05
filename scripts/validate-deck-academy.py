@@ -177,7 +177,8 @@ def step_frames(values: dict, count: int, frames: int) -> list[int]:
     return result
 
 
-def validate_replay_binding(content: Path, client: Path, entry: dict, proof: dict, environment: dict) -> dict:
+def validate_replay_binding(content: Path, client: Path, entry: dict, proof: dict, environment: dict,
+                            authoring_sources: bool = False) -> dict:
     identifier = entry["id"]
     if proof.get("id") != identifier or proof.get("ok") is not True or proof.get("complete_combo_verified") is not True:
         raise ValueError("Complete combo proof is missing or unsuccessful")
@@ -192,10 +193,14 @@ def validate_replay_binding(content: Path, client: Path, entry: dict, proof: dic
     if proof.get("starter_hand") != entry["starter_hand"]:
         raise ValueError("Replay proof fixed hand differs from catalog")
     expected_policy = "tools/DeckAcademyProof/" + POLICIES[identifier]
-    if proof.get("policy_source") != expected_policy or sha(checked_path(ROOT, expected_policy)) != proof.get("policy_sha256"):
+    if proof.get("policy_source") != expected_policy or not re.fullmatch(r"[0-9a-f]{64}", str(proof.get("policy_sha256", ""))):
+        raise ValueError("Replay policy provenance is missing or invalid")
+    if authoring_sources and sha(checked_path(ROOT, expected_policy)) != proof["policy_sha256"]:
         raise ValueError("Replay policy source hash mismatch")
     for source, path_field, hash_field in RECORDER_SOURCES:
-        if environment.get(path_field) != source or sha(checked_path(ROOT, source)) != environment.get(hash_field):
+        if environment.get(path_field) != source or not re.fullmatch(r"[0-9a-f]{64}", str(environment.get(hash_field, ""))):
+            raise ValueError("Replay recorder provenance is missing or invalid: " + hash_field)
+        if authoring_sources and sha(checked_path(ROOT, source)) != environment[hash_field]:
             raise ValueError("Replay recorder source hash mismatch: " + hash_field)
     for source, field in (("Data/script.zip", "script_zip_sha256"), ("Data/locales/zh-CN/cards.cdb", "card_database_sha256"),
                           ("MDPro3.app/Contents/PlugIns/libocgcore.dylib", "native_library_sha256")):
@@ -381,7 +386,7 @@ def validate_recommendations(catalog: dict, content: Path, client: Path, cards: 
             "curated_cards_scripts_sections_and_regulation_verified": True}
 
 
-def validate_library(content: Path = CONTENT, client: Path = CLIENT) -> dict:
+def validate_library(content: Path = CONTENT, client: Path = CLIENT, authoring_sources: bool = False) -> dict:
     content, client = Path(content).absolute(), Path(client).absolute()
     errors, decks = [], []
     report = {"ok": False, "errors": errors, "decks": decks,
@@ -538,7 +543,8 @@ def validate_library(content: Path = CONTENT, client: Path = CLIENT) -> dict:
                             raise ValueError("Practice Lua did not finish setup")
                     else:
                         proof = next(item for item in full_proof["decks"] if item["id"] == identifier)
-                        item["replay_validation"] = validate_replay_binding(content, client, entry, proof, full_proof.get("environment", {}))
+                        item["replay_validation"] = validate_replay_binding(content, client, entry, proof,
+                                                                           full_proof.get("environment", {}), authoring_sources)
                         item["automatic_replay"] = True
                         if generated_tokens:
                             observed = set()
@@ -570,9 +576,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--content", type=Path, default=CONTENT)
     parser.add_argument("--client", type=Path, default=CLIENT)
+    parser.add_argument("--authoring-sources", action="store_true", help="Also check local recording tools against retained provenance")
     parser.add_argument("--output", "--report", dest="output", type=Path, default=ROOT / "artifacts/mdpro3-deck-academy-validation.json")
     args = parser.parse_args()
-    report = validate_library(args.content, args.client)
+    report = validate_library(args.content, args.client, args.authoring_sources)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps({"ok": report["ok"], "decks": len(report["decks"]), "errors": report["errors"]}, ensure_ascii=False))

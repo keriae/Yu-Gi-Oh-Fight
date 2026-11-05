@@ -237,6 +237,7 @@ namespace MDPro3.UI
         #region Attached Effects
 
         private readonly Dictionary<int, int> attachedEffects = new();
+        internal IReadOnlyDictionary<int, int> AuxiliaryEffects => attachedEffects;
         private bool showForAttachedEffects;
         private readonly List<GameCard> gameCardsForAttachedEffects = new();
         private readonly List<GameCard> _attachedEffectCards = new();

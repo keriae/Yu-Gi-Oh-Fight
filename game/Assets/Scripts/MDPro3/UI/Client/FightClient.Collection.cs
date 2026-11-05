@@ -659,9 +659,9 @@ namespace MDPro3.UI.Client
             libraryRightPanel = right;
             var item = available.FirstOrDefault(i => i.id == collectionMateId);
             AddLibraryPreviewBadge(right, "预览", rightW);
-            var mateCaption = LibraryWrappedText(right, item.id == 0 ? "暂无可用伙伴" : CollectionDisplayName(item), 16, 16, LibraryCaptionWidth(rightW), 104, 25, FightUI.Active);
+            var mateCaption = LibraryWrappedText(right, item.id == 0 ? FightText.Get("暂无可用伙伴") : CollectionDisplayName(item), 16, 16, LibraryCaptionWidth(rightW), 104, 25, FightUI.Active, localize: false);
             libraryCaption = mateCaption;
-            FightUI.Hint(mateCaption.gameObject, item.id == 0 ? "暂无可用伙伴" : CollectionDisplayName(item));
+            FightUI.RawHint(mateCaption.gameObject, item.id == 0 ? FightText.Get("暂无可用伙伴") : CollectionDisplayName(item));
             var stage = LibraryStageBounds(rightW, panelH);
             CreateCollectionStage(right, stage.x, stage.y, stage.width, stage.height, false);
             collectionUseMateButton = FightUI.Button(right, "选用并前往外观", stage.x, stage.yMax + 14, 184, 44, () =>
@@ -705,8 +705,8 @@ namespace MDPro3.UI.Client
                 FightUI.PreviewOnFocus(b, () => PreviewCollectionMate(item));
                 CollectionItemImage(b.transform, item.id.ToString(), Items.ItemType.Mate, 8, 8, cellW - 16, cellW - 16);
                 string displayName = CollectionDisplayName(item);
-                var name = LibraryWrappedText(b.transform, displayName, 7, cellW, cellW - 14, 52, 17, item.id == collectionMateId ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center);
-                FightUI.Hint(name.gameObject, displayName);
+                var name = LibraryWrappedText(b.transform, displayName, 7, cellW, cellW - 14, 52, 17, item.id == collectionMateId ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center, localize: false);
+                FightUI.RawHint(name.gameObject, displayName);
             }, () => CompleteCollectionDirectory(scroll, mateScroll, width, panelHeight));
             RefreshCollectionPreviewContext();
             CompleteLibraryRefresh(scroll, mateScroll);
@@ -734,7 +734,7 @@ namespace MDPro3.UI.Client
             collectionMateId = item.id; collectionPendingMateTap = 0;
             collectionPreviewFilteredOut = false; RefreshCollectionPreviewContext();
             HighlightCollectionEntry(item.id);
-            libraryCaption.text = CollectionDisplayName(item); FightUI.Hint(libraryCaption.gameObject, libraryCaption.text);
+            libraryCaption.text = CollectionDisplayName(item); FightUI.RawHint(libraryCaption.gameObject, libraryCaption.text);
             ClearCollectionModel();
             collectionPreviewLoaded = collectionPreviewError = false;
             collectionLoadStarted = Time.unscaledTime;
@@ -748,7 +748,7 @@ namespace MDPro3.UI.Client
             collectionCutinId = card.Id; collectionPendingCutinPlay = 0;
             collectionPreviewFilteredOut = false;
             HighlightCollectionEntry(card.Id);
-            libraryCaption.text = card.Name; FightUI.Hint(libraryCaption.gameObject, card.Name);
+            libraryCaption.text = card.Name; FightUI.RawHint(libraryCaption.gameObject, card.Name);
             ClearCollectionModel();
             ReflowLibraryPreview(libraryRightPanel.rect.width, libraryRightPanel.rect.height);
             LoadCollectionAnimation(card.Id, false);
@@ -796,8 +796,8 @@ namespace MDPro3.UI.Client
             libraryRightPanel = right;
             var card = collectionCutins.FirstOrDefault(c => c.Id == collectionCutinId);
             AddLibraryPreviewBadge(right, "预览", rightW);
-            libraryCaption = LibraryWrappedText(right, card == null ? "暂无可用召唤动画" : card.Name, 16, 16, LibraryCaptionWidth(rightW), 104, 25, FightUI.Gold);
-            FightUI.Hint(libraryCaption.gameObject, libraryCaption.text);
+            libraryCaption = LibraryWrappedText(right, card == null ? FightText.Get("暂无可用召唤动画") : card.Name, 16, 16, LibraryCaptionWidth(rightW), 104, 25, FightUI.Gold, localize: false);
+            FightUI.RawHint(libraryCaption.gameObject, libraryCaption.text);
             var stage = LibraryStageBounds(rightW, BodyHeight - y);
             CreateCollectionStage(right, stage.x, stage.y, stage.width, stage.height, true);
             var autoPlay = FightUI.FocusKey(FightUI.SwitchRow(right, "自动播放", collectionAutoPlay, stage.x, stage.yMax + 14, 186, 44,
@@ -845,9 +845,9 @@ namespace MDPro3.UI.Client
                 collectionBrowseIds[b] = card.Id;
                 FightUI.PreviewOnFocus(b, () => PreviewCollectionAnimation(card));
                 FightUI.Art(b.transform, card.Id, 8, 8, 60, 60);
-                var name = LibraryWrappedText(b.transform, card.Name, 80, 7, width - 152, 160, 18, card.Id == collectionCutinId ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.MidlineLeft);
+                var name = LibraryWrappedText(b.transform, card.Name, 80, 7, width - 152, 160, 18, card.Id == collectionCutinId ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.MidlineLeft, localize: false);
                 name.name = "Animation resource title";
-                FightUI.Hint(name.gameObject, card.Name);
+                FightUI.RawHint(name.gameObject, card.Name);
                 FightUI.Text(b.transform, "卡片编号 " + card.Id, 80, 50, width - 152, 22, 13, FightUI.Muted, TextAlignmentOptions.MidlineLeft).name = "Animation resource id";
                 FightUI.Icon(b.transform, "play", width - 60, 28, 20, 24, card.Id == collectionCutinId ? FightUI.Gold : FightUI.Muted);
                 float titleH = Mathf.Max(40, name.GetPreferredValues(name.text, width - 152, float.PositiveInfinity).y + 4);
@@ -1088,8 +1088,8 @@ namespace MDPro3.UI.Client
             if (appearanceCategory == "PlayerName" && libraryCaption != null && appearanceDraft != null)
             {
                 var name = appearanceDraft.Values["PlayerName"];
-                libraryCaption.text = string.IsNullOrEmpty(name) ? "使用默认名称" : name;
-                FightUI.Hint(libraryCaption.gameObject, libraryCaption.text);
+                libraryCaption.text = string.IsNullOrEmpty(name) ? FightText.Get("使用默认名称") : name;
+                FightUI.RawHint(libraryCaption.gameObject, libraryCaption.text);
                 ReflowLibraryPreview(libraryRightPanel.rect.width, libraryRightPanel.rect.height);
             }
         }
@@ -1336,8 +1336,8 @@ namespace MDPro3.UI.Client
                 float artW = appearanceCategory == "Protector" ? (artH - 14) / 1.43f : Mathf.Min(cellW - 14, artH - 14);
                 CollectionItemImage(b.transform, item.id.ToString(), type, (cellW - artW) / 2, 7, artW, artH - 14);
                 string displayName = CollectionDisplayName(item);
-                var name = LibraryWrappedText(b.transform, displayName, 5, artH, cellW - 10, 52, 16, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center);
-                FightUI.Hint(name.gameObject, displayName);
+                var name = LibraryWrappedText(b.transform, displayName, 5, artH, cellW - 10, 52, 16, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center, localize: false);
+                FightUI.RawHint(name.gameObject, displayName);
                 AddAppearanceResourceState(b, appearanceCategory, item.id.ToString(), selected, cellW);
             }, () => CompleteCollectionDirectory(scroll, appearanceScroll, width, height));
             CompleteLibraryRefresh(scroll, appearanceScroll);
@@ -1404,9 +1404,9 @@ namespace MDPro3.UI.Client
         {
             string currentName = appearanceCategory == "PlayerName" ? appearanceDraft.Values["PlayerName"] : appearanceCategory == "Character" ? CharacterName(appearanceDraft.Values["Character"]) : SelectedAppearanceName();
             AddLibraryPreviewBadge(right, appearanceCategory == "Case" ? "预览" : AppearanceCategoryDirty(appearanceCategory) ? "待应用" : "已应用", width, AppearanceCategoryDirty(appearanceCategory));
-            var caption = LibraryWrappedText(right, string.IsNullOrEmpty(currentName) ? "使用默认名称" : currentName, 16, 16, LibraryCaptionWidth(width), 104, 22, FightUI.Gold);
+            var caption = LibraryWrappedText(right, string.IsNullOrEmpty(currentName) ? FightText.Get("使用默认名称") : currentName, 16, 16, LibraryCaptionWidth(width), 104, 22, FightUI.Gold, localize: false);
             libraryCaption = caption;
-            FightUI.Hint(caption.gameObject, string.IsNullOrEmpty(currentName) ? "使用默认名称" : currentName);
+            FightUI.RawHint(caption.gameObject, string.IsNullOrEmpty(currentName) ? FightText.Get("使用默认名称") : currentName);
             var stage = LibraryStageBounds(width, height);
             CreateCollectionStage(right, stage.x, stage.y, stage.width, stage.height, false);
             collectionCamera.orthographic = false; collectionCamera.fieldOfView = 40;
@@ -1590,8 +1590,8 @@ namespace MDPro3.UI.Client
                 CollectionCardCaption(button.transform, cellW, portraitH, selected, captionH);
                 var image = CollectionBlankImage(button.transform, 7, 7, cellW - 14, portraitH - 14); LoadCollectionCharacterSprite(image, "sn" + character.id, collectionGeneration);
                 string originalName = data.GetName(character.id);
-                var name = LibraryWrappedText(button.transform, originalName, 5, portraitH, cellW - 10, captionH - 8, captionSize, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center);
-                FightUI.Hint(name.gameObject, originalName);
+                var name = LibraryWrappedText(button.transform, originalName, 5, portraitH, cellW - 10, captionH - 8, captionSize, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center, localize: false);
+                FightUI.RawHint(name.gameObject, originalName);
                 AddAppearanceResourceState(button, "Character", character.id, selected, cellW);
             }, () => CompleteCollectionDirectory(scroll, characterScroll, width, height));
             CompleteLibraryRefresh(scroll, characterScroll);

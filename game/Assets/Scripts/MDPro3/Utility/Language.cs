@@ -22,8 +22,23 @@ namespace MDPro3.Utility
 
         public static string GetConfig()
         {
-            return Config.Get(ConfigName, SimplifiedChinese);
+            return Config.Get(ConfigName, DefaultLanguage());
         }
+
+        private static string DefaultLanguage() => UnityEngine.Application.systemLanguage switch
+        {
+            UnityEngine.SystemLanguage.ChineseTraditional => TraditionalChinese,
+            UnityEngine.SystemLanguage.Chinese => SimplifiedChinese,
+            UnityEngine.SystemLanguage.ChineseSimplified => SimplifiedChinese,
+            UnityEngine.SystemLanguage.Japanese => Japanese,
+            UnityEngine.SystemLanguage.Korean => Korean,
+            UnityEngine.SystemLanguage.Spanish => Spanish,
+            UnityEngine.SystemLanguage.French => French,
+            UnityEngine.SystemLanguage.German => German,
+            UnityEngine.SystemLanguage.Italian => Italian,
+            UnityEngine.SystemLanguage.Portuguese => Portuguese,
+            _ => English
+        };
 
         public static void SetConfig(string language)
         {
@@ -32,7 +47,7 @@ namespace MDPro3.Utility
 
         public static string GetCardConfig()
         {
-            return Config.Get(CardConfigName, SimplifiedChinese);
+            return Config.Get(CardConfigName, GetConfig());
         }
 
         public static void SetCardConfig(string language)
@@ -42,7 +57,7 @@ namespace MDPro3.Utility
 
         public static string GetPrereleaseConfig()
         {
-            return Config.Get(PrereleaseName, SimplifiedChinese);
+            return Config.Get(PrereleaseName, GetCardConfig());
         }
 
         public static void SetPrereleaseConfig(string language)

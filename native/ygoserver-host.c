@@ -1,3 +1,5 @@
+/* Original bridge contributions copyright (c) 2026 keriae.
+   Third-party libraries retain their own licenses; see COPYRIGHT.md. */
 #include <dlfcn.h>
 #include <pthread.h>
 #include <signal.h>

@@ -8,9 +8,10 @@ game performs no tokenizer download and needs no external Python process.
 
 The matching pre-tokenization expression and byte-pair count are implemented
 in `PromptTokenCounter.cs`. See `LICENSE.tiktoken` for tiktoken's MIT license.
-`tools/ResponsesAIProof/tokenizer-fixtures.json` was generated with tiktoken
-0.12.0 `get_encoding("o200k_base").encode_ordinary`, including Chinese,
-English, JSON, Unicode, random mixtures and long repeated text.
+Local verification uses tiktoken 0.12.0
+`get_encoding("o200k_base").encode_ordinary`, including Chinese, English,
+JSON, Unicode, random mixtures and long repeated text. Test fixtures are
+excluded from Git.
 
 This is a local estimate rather than a promise about an arbitrary provider's
 model tokenizer. Total request budgeting adds 5% and 1024 tokens of formatting

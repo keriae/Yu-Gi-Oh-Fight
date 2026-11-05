@@ -837,7 +837,7 @@ namespace MDPro3.UI.Client
             if (underline != null)
             {
                 var rect = underline.GetComponent<RectTransform>();
-                rect.sizeDelta = new Vector2(Mathf.Min(statusText.rectTransform.rect.width, statusText.GetPreferredValues(status, float.PositiveInfinity, float.PositiveInfinity).x), 1);
+                rect.sizeDelta = new Vector2(Mathf.Min(statusText.rectTransform.rect.width, statusText.GetPreferredValues(FightText.Get(status), float.PositiveInfinity, float.PositiveInfinity).x), 1);
                 underline.GetComponent<Image>().color = statusText.color;
             }
         }
@@ -859,7 +859,7 @@ namespace MDPro3.UI.Client
             var text = FightUI.Text(box, message, 28, 88, width - 74, 120, 20, error ? FightUI.Danger : FightUI.Foreground);
             text.text = message; text.richText = false; text.enableWordWrapping = true; text.overflowMode = TextOverflowModes.Overflow;
             text.lineSpacing = 4; text.paragraphSpacing = 6; text.name = "Complete operation message";
-            float preferred = text.GetPreferredValues(message, width - 74, float.PositiveInfinity).y + 4;
+            float preferred = text.GetPreferredValues(FightText.Get(message), width - 74, float.PositiveInfinity).y + 4;
             var reading = FightUI.Scroll(box, 28, 88, width - 56, height - 170, preferred);
             text.rectTransform.SetParent(reading, false);
             FightUI.Place(text.rectTransform, 0, 0, width - 74, preferred);
@@ -867,11 +867,11 @@ namespace MDPro3.UI.Client
             Button copy = null;
             copy = FightUI.Button(box, "复制提示", width - 196, height - 66, 168, 48, () =>
             {
-                GUIUtility.systemCopyBuffer = message;
+                GUIUtility.systemCopyBuffer = FightText.Get(message);
                 copy.GetComponentInChildren<TextMeshProUGUI>().text = "已复制";
             });
         }
-        internal RectTransform ShowDialog(string title, float width = 620, float height = 360, bool refresh = false)
+        internal RectTransform ShowDialog(string title, float width = 620, float height = 360, bool refresh = false, bool localize = true)
         {
             bool refreshingDialog = refresh && modal != null;
             var retainedOrigin = dialogOriginFocus;
@@ -882,10 +882,11 @@ namespace MDPro3.UI.Client
             var box = FightUI.Panel(modal, (W - width) / 2, (H - height) / 2, width, height);
             clientModalBox = box; clientModalSize = new Vector2(width, height);
             box.gameObject.AddComponent<FightPageReveal>();
-            var heading = FightUI.Text(box, title, 28, 22, width - 96, 42, 27, FightUI.Active); heading.characterSpacing = 1;
-            heading.text = title; heading.enableWordWrapping = false; heading.enableAutoSizing = true;
+            var heading = localize ? FightUI.Text(box, title, 28, 22, width - 96, 42, 27, FightUI.Active)
+                : FightUI.RawText(box, title, 28, 22, width - 96, 42, 27, FightUI.Active); heading.characterSpacing = 1;
+            heading.enableWordWrapping = false; heading.enableAutoSizing = true;
             heading.fontSizeMin = 22; heading.fontSizeMax = 27; heading.maxVisibleLines = 1;
-            FightUI.Hint(heading.gameObject, title);
+            if (localize) FightUI.Hint(heading.gameObject, title); else FightUI.RawHint(heading.gameObject, title);
             FightUI.Line(box, 28, 67, width - 56, FightUI.Border);
             var close = FightUI.Button(box, "×", width - 64, 18, 40, 40, CloseDialog);
             close.GetComponent<Image>().color = Color.clear; close.GetComponent<Outline>().enabled = false;
@@ -928,7 +929,7 @@ namespace MDPro3.UI.Client
             float width = box.rect.width, readingWidth = width - 56;
             var body = FightUI.Text(box, message, 28, 88, readingWidth, 94, 20);
             body.enableWordWrapping = true;
-            float preferred = body.GetPreferredValues(message, readingWidth, float.PositiveInfinity).y + 2;
+            float preferred = body.GetPreferredValues(FightText.Get(message), readingWidth, float.PositiveInfinity).y + 2;
             float readingHeight = Mathf.Min(Mathf.Max(94, preferred), H - 234);
             float height = readingHeight + 186, actionsY = height - 72;
             FightUI.Place(box, (W - width) / 2, (H - height) / 2, width, height);
@@ -938,7 +939,7 @@ namespace MDPro3.UI.Client
                 var reading = FightUI.Scroll(box, 28, 88, readingWidth, readingHeight, preferred);
                 body.rectTransform.SetParent(reading, false);
                 readingWidth -= 22;
-                preferred = body.GetPreferredValues(message, readingWidth, float.PositiveInfinity).y + 2;
+                preferred = body.GetPreferredValues(FightText.Get(message), readingWidth, float.PositiveInfinity).y + 2;
                 reading.sizeDelta = new Vector2(reading.rect.width, preferred);
                 FightUI.Place(body.rectTransform, 0, 0, readingWidth, preferred);
             }
@@ -950,9 +951,9 @@ namespace MDPro3.UI.Client
             if (verb != null) FightUI.StyleDestructiveButton(confirm);
         }
         private void Try(Action action) { try { action?.Invoke(); } catch (Exception e) { ShowStatus(e.Message, true); Debug.LogWarning("[FightClient] " + e); } }
-        private void PageTitle(string title)
+        private void PageTitle(string title, bool localize = true)
         {
-            var heading = FightUI.HeroTitle(Body, title, 0, 2, BodyWidth * .6f, 48, Compact ? 30 : 36);
+            var heading = FightUI.HeroTitle(Body, title, 0, 2, BodyWidth * .6f, 48, Compact ? 30 : 36, localize);
             heading.characterSpacing = .8f;
         }
         private void StartCore(Action start)

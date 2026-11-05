@@ -1,3 +1,4 @@
+// Original launcher contributions copyright (c) 2026 keriae. See COPYRIGHT.md.
 import AppKit
 import CryptoKit
 import Darwin
@@ -21,6 +22,40 @@ struct IndependentGameBootstrap {
     static let applicationIdentifier = Bundle.main.bundleIdentifier ?? "io.github.keriae.yugiohfight"
     static let applicationName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
         ?? "Yu-Gi-Oh! Fight"
+    enum InterfaceLanguage: Sendable {
+        case simplifiedChinese, traditionalChinese, english
+
+        static func from(_ identifier: String) -> InterfaceLanguage {
+            let code = identifier.replacingOccurrences(of: "_", with: "-").lowercased()
+            guard code.hasPrefix("zh") else { return .english }
+            return code.contains("hant") || code.hasPrefix("zh-tw") || code.hasPrefix("zh-hk") || code.hasPrefix("zh-mo")
+                ? .traditionalChinese : .simplifiedChinese
+        }
+    }
+    // Resolve the saved interface choice once, before background preparation.
+    // The immutable, Sendable value is safe to use from both AppKit and workers.
+    static let interfaceLanguage: InterfaceLanguage = {
+        if let support = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
+            let configURL = support.appendingPathComponent(folderName).appendingPathComponent("Data/config.conf")
+            if let config = try? String(contentsOf: configURL, encoding: .utf8) {
+                for line in config.components(separatedBy: .newlines) {
+                    let pair = line.components(separatedBy: "->")
+                    if pair.count == 2 && pair[0].trimmingCharacters(in: .whitespaces) == "Language" {
+                        let saved = pair[1].trimmingCharacters(in: .whitespaces)
+                        if !saved.isEmpty { return InterfaceLanguage.from(saved) }
+                    }
+                }
+            }
+        }
+        return InterfaceLanguage.from(Locale.preferredLanguages.first ?? "en-US")
+    }()
+    static func localized(_ simplified: String, _ english: String, _ traditional: String) -> String {
+        switch interfaceLanguage {
+        case .simplifiedChinese: return simplified
+        case .traditionalChinese: return traditional
+        case .english: return english
+        }
+    }
     static let policy = """
     (version 1)
     (allow default)
@@ -33,7 +68,8 @@ struct IndependentGameBootstrap {
 
     @MainActor final class PreparationWindow {
         let window: NSWindow
-        let status = NSTextField(labelWithString: "正在准备本地游戏资源…")
+        let status = NSTextField(labelWithString: IndependentGameBootstrap.localized(
+            "正在准备本地游戏资源…", "Preparing local game resources…", "正在準備本機遊戲資源…"))
         let indicator = NSProgressIndicator()
 
         init() {
@@ -41,10 +77,12 @@ struct IndependentGameBootstrap {
                               styleMask: [.titled], backing: .buffered, defer: false)
             window.title = IndependentGameBootstrap.applicationName
             window.isReleasedWhenClosed = false
-            let heading = NSTextField(labelWithString: "游戏即将开始")
+            let heading = NSTextField(labelWithString: IndependentGameBootstrap.localized(
+                "游戏即将开始", "Your duel is almost ready", "遊戲即將開始"))
             heading.font = .systemFont(ofSize: 20, weight: .semibold)
             status.font = .systemFont(ofSize: 13)
-            let detail = NSTextField(labelWithString: "首次启动或更新后的准备时间可能较长。")
+            let detail = NSTextField(labelWithString: IndependentGameBootstrap.localized(
+                "首次启动或更新后的准备时间可能较长。", "First launch or an update may take a little longer.", "首次啟動或更新後的準備時間可能較長。"))
             detail.textColor = .secondaryLabelColor
             detail.font = .systemFont(ofSize: 12)
             indicator.style = .bar
@@ -82,16 +120,16 @@ struct IndependentGameBootstrap {
     @MainActor static func main() {
         do {
             guard let resources = Bundle.main.resourceURL else {
-                throw failure("应用资源目录缺失。")
+                throw failure("应用资源目录缺失。", "The application resources folder is missing.", "應用程式資源目錄遺失。")
             }
             let client = resources.appendingPathComponent("Client", isDirectory: true).resolvingSymlinksInPath()
             let executable = client.appendingPathComponent("MDPro3.app/Contents/MacOS/MDPro3")
             let files = FileManager.default
             guard files.isExecutableFile(atPath: executable.path) else {
-                throw failure("原生游戏客户端尚未完整获取；请完成客户端与资源校验后重新打包。")
+                throw failure("游戏客户端不完整，请安装完整的应用后重试。", "The game client is incomplete. Install a complete app and try again.", "遊戲用戶端不完整，請安裝完整的應用程式後重試。")
             }
             guard files.isExecutableFile(atPath: "/usr/bin/sandbox-exec") else {
-                throw failure("这台 Mac 不支持当前单机网络隔离方式，未启动客户端。")
+                throw failure("这台 Mac 不支持当前单机网络隔离方式，未启动客户端。", "This Mac does not support the offline network isolation method. The game was not started.", "這台 Mac 不支援目前的單機網路隔離方式，未啟動用戶端。")
             }
             let support = try files.url(for: .applicationSupportDirectory, in: .userDomainMask,
                                         appropriateFor: nil, create: true)
@@ -142,9 +180,12 @@ struct IndependentGameBootstrap {
         application.setActivationPolicy(.regular)
         application.activate(ignoringOtherApps: true)
         let alert = NSAlert()
-        alert.messageText = "独立游戏尚未启动"
-        alert.informativeText = error.localizedDescription
-        alert.addButton(withTitle: "关闭")
+        alert.messageText = localized("游戏未能启动", "The game could not start", "遊戲未能啟動")
+        let detail = error as NSError
+        alert.informativeText = detail.domain == "MasterDuelIndependent" ? detail.localizedDescription
+            : localized("资源准备或启动失败，请检查数据目录权限与可用空间后重试。", "Resource preparation or launch failed. Check data-folder permissions and available storage, then try again.", "資源準備或啟動失敗，請檢查資料目錄權限與可用空間後重試。")
+                + "\n\n" + detail.domain + " (\(detail.code))"
+        alert.addButton(withTitle: localized("关闭", "Close", "關閉"))
         alert.runModal()
         exit(1)
     }
@@ -168,8 +209,8 @@ struct IndependentGameBootstrap {
                            workingDirectory: support, logDescriptor: log.fileDescriptor, launchLock: lock)
     }
 
-    static func failure(_ detail: String) -> NSError {
-        NSError(domain: "MasterDuelIndependent", code: 1, userInfo: [NSLocalizedDescriptionKey: detail])
+    static func failure(_ simplified: String, _ english: String, _ traditional: String) -> NSError {
+        NSError(domain: "MasterDuelIndependent", code: 1, userInfo: [NSLocalizedDescriptionKey: localized(simplified, english, traditional)])
     }
 
     static func nativeEnvironment(in support: URL, inherited: [String: String]) -> [String: String] {
@@ -187,7 +228,7 @@ struct IndependentGameBootstrap {
         for value in values {
             guard let pointer = strdup(value) else {
                 for pointer in pointers { free(pointer) }
-                throw failure("无法分配游戏启动参数。")
+                throw failure("无法分配游戏启动参数。", "Could not allocate the game launch arguments.", "無法配置遊戲啟動參數。")
             }
             pointers.append(pointer)
         }
@@ -201,17 +242,17 @@ struct IndependentGameBootstrap {
     // the kernel releases it when the game exits, including a crash or signal.
     static func replaceProcess(executable: String, arguments: [String], environment: [String: String],
                                workingDirectory: URL, logDescriptor: Int32, launchLock: Int32) throws -> Never {
-        guard chdir(workingDirectory.path) == 0 else { throw failure("无法打开游戏数据目录：\(errno)") }
+        guard chdir(workingDirectory.path) == 0 else { throw failure("无法打开游戏数据目录：\(errno)", "Could not open the game data folder: \(errno)", "無法開啟遊戲資料目錄：\(errno)") }
         var argv = try cStrings(arguments)
         defer { for pointer in argv { free(pointer) } }
         var envp = try cStrings(environment.sorted { $0.key < $1.key }.map { $0.key + "=" + $0.value })
         defer { for pointer in envp { free(pointer) } }
         let flags = fcntl(launchLock, F_GETFD)
         guard flags >= 0, fcntl(launchLock, F_SETFD, flags & ~FD_CLOEXEC) == 0 else {
-            throw failure("无法保留游戏启动锁：\(errno)")
+            throw failure("无法保留游戏启动锁：\(errno)", "Could not retain the game launch lock: \(errno)", "無法保留遊戲啟動鎖：\(errno)")
         }
         guard dup2(logDescriptor, STDOUT_FILENO) >= 0, dup2(logDescriptor, STDERR_FILENO) >= 0 else {
-            throw failure("无法记录游戏日志：\(errno)")
+            throw failure("无法记录游戏日志：\(errno)", "Could not write the game log: \(errno)", "無法記錄遊戲日誌：\(errno)")
         }
         try recordLaunchPID(in: workingDirectory)
         // This defer runs only when exec fails. After a normal game exit the
@@ -226,7 +267,8 @@ struct IndependentGameBootstrap {
                 }
             }
         }
-        throw failure("无法启动原生游戏：\(String(cString: strerror(error)))（\(error)）")
+        let reason = String(cString: strerror(error))
+        throw failure("无法启动游戏：\(reason)（\(error)）", "Could not start the game: \(reason) (\(error))", "無法啟動遊戲：\(reason)（\(error)）")
     }
 
     // Unity persists desktop dimensions in its own preferences. Supply a usable
@@ -264,11 +306,11 @@ struct IndependentGameBootstrap {
     // existing game instead of racing migration or starting another local server.
     static func acquireLaunchLock(in support: URL) throws -> Int32 {
         let fd = open(support.appendingPathComponent(".native-game-lock").path, O_CREAT | O_RDWR | O_CLOEXEC, 0o600)
-        guard fd >= 0 else { throw failure("无法锁定游戏数据目录。") }
+        guard fd >= 0 else { throw failure("无法锁定游戏数据目录。", "Could not lock the game data folder.", "無法鎖定遊戲資料目錄。") }
         if flock(fd, LOCK_EX | LOCK_NB) == 0 { return fd }
         let error = errno
         _ = close(fd)
-        guard error == EWOULDBLOCK else { throw failure("无法锁定游戏数据目录：\(error)") }
+        guard error == EWOULDBLOCK else { throw failure("无法锁定游戏数据目录：\(error)", "Could not lock the game data folder: \(error)", "無法鎖定遊戲資料目錄：\(error)") }
         if let value = try? String(contentsOf: support.appendingPathComponent(".native-game-pid"), encoding: .utf8),
            let pid = Int32(value), let game = NSRunningApplication(processIdentifier: pid) {
             game.activate(options: [.activateAllWindows])
@@ -290,7 +332,7 @@ struct IndependentGameBootstrap {
         defer { try? files.removeItem(at: temporary) }
         try files.copyItem(at: source, to: temporary)
         guard rename(temporary.path, target.path) == 0 else {
-            throw failure("无法更新游戏数据：\(target.path)（\(errno)）")
+            throw failure("无法更新游戏数据：\(target.path)（\(errno)）", "Could not update game data: \(target.path) (\(errno))", "無法更新遊戲資料：\(target.path)（\(errno)）")
         }
     }
 
@@ -298,7 +340,7 @@ struct IndependentGameBootstrap {
         let base = folder.resolvingSymlinksInPath().pathComponents
         let components = file.resolvingSymlinksInPath().pathComponents
         guard components.starts(with: base), components.count > base.count else {
-            throw failure("资源路径超出目录：\(file.path)")
+            throw failure("资源路径超出目录：\(file.path)", "Resource path is outside its folder: \(file.path)", "資源路徑超出目錄：\(file.path)")
         }
         return components.dropFirst(base.count).joined(separator: "/")
     }
@@ -320,16 +362,17 @@ struct IndependentGameBootstrap {
         // Upgrade unchanged shipped databases/scripts/deck examples. A user's
         // changed copy or newly added file stays in the writable data tree.
         for name in ["Data", "Deck", "Puzzle", "Replay"] {
-            progress?(name == "Data" ? "正在准备卡片数据…" : "正在准备卡组与练习…")
+            progress?(name == "Data" ? localized("正在准备卡片数据…", "Preparing card data…", "正在準備卡片資料…")
+                : localized("正在准备卡组与练习…", "Preparing decks and practice…", "正在準備牌組與練習…"))
             let original = source.appendingPathComponent(name, isDirectory: true)
             let writable = destination.appendingPathComponent(name, isDirectory: true)
             if name == "Replay" && !files.fileExists(atPath: original.path) { continue }
-            guard files.fileExists(atPath: original.path) else { throw failure("缺少游戏数据目录：\(name)") }
+            guard files.fileExists(atPath: original.path) else { throw failure("缺少游戏数据目录：\(name)", "Game data folder is missing: \(name)", "缺少遊戲資料目錄：\(name)") }
             if try ensureDirectory(writable, logical: name, source: source, previous: previous) {
                 migratedWritableDirectories.insert(name)
             }
             guard let entries = files.enumerator(at: original, includingPropertiesForKeys: [.isDirectoryKey, .isRegularFileKey]) else {
-                throw failure("无法读取游戏数据目录：\(original.path)")
+                throw failure("无法读取游戏数据目录：\(original.path)", "Could not read the game data folder: \(original.path)", "無法讀取遊戲資料目錄：\(original.path)")
             }
             for case let file as URL in entries {
                 let relative = try relativePath(of: file, in: original)
@@ -344,7 +387,7 @@ struct IndependentGameBootstrap {
                 }
                 guard attributes.isRegularFile == true else { continue }
                 if (try? files.destinationOfSymbolicLink(atPath: target.path)) != nil {
-                    throw failure("游戏数据文件必须可写，不能是外部链接：\(target.path)")
+                    throw failure("游戏数据文件必须可写，不能是外部链接：\(target.path)", "Game data must be writable files rather than external links: \(target.path)", "遊戲資料檔案必須可寫入，不能是外部連結：\(target.path)")
                 }
                 let incoming = try digest(file)
                 if !files.fileExists(atPath: target.path) {
@@ -370,11 +413,12 @@ struct IndependentGameBootstrap {
             try ensureDirectory(destination.appendingPathComponent(name), logical: name, source: source, previous: previous)
         }
         for name in ["StandaloneOSX", "Picture", "Video"] {
-            progress?(name == "StandaloneOSX" ? "正在准备游戏场景…" : "正在准备卡片画面…")
+            progress?(name == "StandaloneOSX" ? localized("正在准备游戏场景…", "Preparing game scenes…", "正在準備遊戲場景…")
+                : localized("正在准备卡片画面…", "Preparing card visuals…", "正在準備卡片畫面…"))
             let resource = source.appendingPathComponent(name, isDirectory: true)
             let link = destination.appendingPathComponent(name)
             // Videos are optional in the baseline; Unity creates Video/Art.
-            guard name == "Video" || files.fileExists(atPath: resource.path) else { throw failure("缺少原生画面资源目录：\(name)") }
+            guard name == "Video" || files.fileExists(atPath: resource.path) else { throw failure("缺少画面资源目录：\(name)", "Visual resource folder is missing: \(name)", "缺少畫面資源目錄：\(name)") }
             try ensureDirectory(link, logical: name, source: source, previous: previous)
             if files.fileExists(atPath: resource.path) {
                 try mapResourceTree(source: resource, destination: link, logicalRoot: name, previous: previous, next: &next, progress: progress)
@@ -393,7 +437,7 @@ struct IndependentGameBootstrap {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         try encoder.encode(next).write(to: marker, options: .atomic)
-        progress?("准备完成，正在启动游戏…")
+        progress?(localized("准备完成，正在启动游戏…", "Ready. Starting the game…", "準備完成，正在啟動遊戲…"))
     }
 
     @discardableResult
@@ -403,7 +447,7 @@ struct IndependentGameBootstrap {
         if let target = try? files.destinationOfSymbolicLink(atPath: path.path) {
             let current = source.appendingPathComponent(logical).path
             let old = previous.map { URL(fileURLWithPath: $0.source).appendingPathComponent(logical).path }
-            guard target == current || target == old else { throw failure("目录链接来源不匹配：\(path.path)") }
+            guard target == current || target == old else { throw failure("目录链接来源不匹配：\(path.path)", "Folder link source does not match: \(path.path)", "目錄連結來源不符：\(path.path)") }
             // Writable data can include user-only files absent from the new
             // distribution. Preserve the whole tree before replacing its link.
             let snapshot = path.deletingLastPathComponent().appendingPathComponent(".bootstrap-migrate-" + UUID().uuidString)
@@ -443,13 +487,15 @@ struct IndependentGameBootstrap {
                                 progress: (@Sendable (String) -> Void)? = nil) throws {
         let files = FileManager.default
         guard let enumeration = files.enumerator(at: source, includingPropertiesForKeys: [.isDirectoryKey, .isRegularFileKey], options: []) else {
-            throw failure("无法读取资源目录：\(source.path)")
+            throw failure("无法读取资源目录：\(source.path)", "Could not read the resource folder: \(source.path)", "無法讀取資源目錄：\(source.path)")
         }
         var processed = 0
         for case let original as URL in enumeration {
             processed += 1
             if processed % 256 == 0 {
-                progress?("正在准备\(logicalRoot == "StandaloneOSX" ? "游戏场景" : "卡片画面")（\(processed) 项）…")
+                let phase = logicalRoot == "StandaloneOSX" ? localized("游戏场景", "game scenes", "遊戲場景")
+                    : localized("卡片画面", "card visuals", "卡片畫面")
+                progress?(localized("正在准备\(phase)（\(processed) 项）…", "Preparing \(phase) (\(processed) items)…", "正在準備\(phase)（\(processed) 項）…"))
             }
             // Background threads have no AppKit event-loop autorelease pool.
             // Release temporary Foundation path objects for each mapped entry.
@@ -468,7 +514,7 @@ struct IndependentGameBootstrap {
                     if !mutable && existing == original.path { next.links[logical] = existing; return }
                     let old = previous?.links[logical] ?? previous.map { URL(fileURLWithPath: $0.source).appendingPathComponent(logical).path }
                     guard existing == original.path || existing == old else {
-                        throw failure("资源链接来源不匹配：\(target.path)")
+                        throw failure("资源链接来源不匹配：\(target.path)", "Resource link source does not match: \(target.path)", "資源連結來源不符：\(target.path)")
                     }
                     if mutable, files.fileExists(atPath: target.path) {
                         try copyAtomically(URL(fileURLWithPath: existing), to: target)

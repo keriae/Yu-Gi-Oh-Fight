@@ -14,12 +14,12 @@ namespace MDPro3.UI.Client
             var measure = FightUI.Text(box, "", 0, 0, width - 74, 100, 20);
             measure.gameObject.SetActive(false);
             float titleHeight = Mathf.Max(28,
-                Mathf.Max(measure.GetPreferredValues(leftTitle, width - 74, float.PositiveInfinity).y,
-                    measure.GetPreferredValues(rightTitle, width - 74, float.PositiveInfinity).y) + 2);
+                Mathf.Max(measure.GetPreferredValues(FightText.Get(leftTitle), width - 74, float.PositiveInfinity).y,
+                    measure.GetPreferredValues(FightText.Get(rightTitle), width - 74, float.PositiveInfinity).y) + 2);
             measure.fontSize = 14;
             float subtitleHeight = string.IsNullOrEmpty(leftSubtitle) && string.IsNullOrEmpty(rightSubtitle) ? 0 : Mathf.Max(24,
-                Mathf.Max(measure.GetPreferredValues(leftSubtitle, width - 74, float.PositiveInfinity).y,
-                    measure.GetPreferredValues(rightSubtitle, width - 74, float.PositiveInfinity).y) + 2);
+                Mathf.Max(measure.GetPreferredValues(FightText.Get(leftSubtitle), width - 74, float.PositiveInfinity).y,
+                    measure.GetPreferredValues(FightText.Get(rightSubtitle), width - 74, float.PositiveInfinity).y) + 2);
             Destroy(measure.gameObject);
             return new Vector2(titleHeight, subtitleHeight);
         }
@@ -171,13 +171,13 @@ namespace MDPro3.UI.Client
             if (clientEditorUI == null) return;
             var ui = clientEditorUI;
             var box = ShowDialog("卡片操作", 660, 528);
-            var name = FightUI.Text(box, card.Name, 28, 86, box.rect.width - 56, 104, 22, FightUI.Foreground);
+            var name = FightUI.RawText(box, card.Name, 28, 86, box.rect.width - 56, 104, 22, FightUI.Foreground);
             name.enableWordWrapping = true; name.enableAutoSizing = true;
             name.fontSizeMin = 20; name.fontSizeMax = 22;
             float nameHeight = Mathf.Clamp(name.GetPreferredValues(card.Name, box.rect.width - 56, float.PositiveInfinity).y + 6, 40, 104);
             name.rectTransform.sizeDelta = new Vector2(box.rect.width - 56, nameHeight);
             float offset = nameHeight - 40 + 28;
-            FightUI.Hint(name.gameObject, card.Name);
+            FightUI.RawHint(name.gameObject, card.Name);
             int copies = ui.DeckView.GetCardCount(card.Id);
             FightUI.Text(box, copies > 0 ? "当前构筑中有 " + copies + " 张同名卡片" : "当前构筑尚未加入这张卡片", 28, 90 + nameHeight, box.rect.width - 244, 24, 15, copies > 0 ? FightUI.Gold : FightUI.Muted);
             var locate = FightUI.TextAction(box, "定位这张卡  ↗", box.rect.width - 200, 86 + nameHeight, 172, 32,

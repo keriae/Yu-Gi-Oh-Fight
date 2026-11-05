@@ -703,9 +703,9 @@ namespace MDPro3.UI.Client
             var inspector = FightUI.Scroll(editorDetailHost, 12, 0, width - 24, 120, 120, out var scroll);
             scroll.name = "Card effect scroll";
             editorInspector.Content = inspector; editorInspector.Scroll = scroll;
-            var heading = FightUI.Text(editorDetailHost, card.Name, 12, 10, width - 24, 100, Compact ? 20 : 25, FightUI.Foreground);
+            var heading = FightUI.RawText(editorDetailHost, card.Name, 12, 10, width - 24, 100, Compact ? 20 : 25, FightUI.Foreground);
             heading.enableWordWrapping = true; heading.enableAutoSizing = true;
-            FightUI.Hint(heading.gameObject, card.Name); editorInspector.Heading = heading;
+            FightUI.RawHint(heading.gameObject, card.Name); editorInspector.Heading = heading;
             editorInspector.ArtDivider = FightUI.Panel(editorDetailHost, 12, 0, width - 24, 1, FightUI.Border, false, "Divider");
             var typeLabel = card.HasType(CardType.Monster) ? card.GetAttributeString() + "  " + card.GetTypeForUI() : card.GetTypeForUI();
             editorInspector.Type = FightUI.Text(editorDetailHost, typeLabel, 12, 0, width - 24, 40, 16, FightUI.Muted);
@@ -724,7 +724,7 @@ namespace MDPro3.UI.Client
             editorInspector.Copies = FightUI.Text(editorDetailHost, "", width - 102, 0, 90, 30, 14, FightUI.Muted, TextAlignmentOptions.MidlineRight);
             editorInspector.Copies.raycastTarget = false;
             editorInspector.EffectDivider = FightUI.Panel(editorDetailHost, 12, 0, width - 24, 1, FightUI.Border, false, "Effect divider");
-            editorInspector.Description = FightUI.Text(inspector, card.Desc, 0, 0, width - 44, 500, Compact ? 17 : 19, FightUI.Foreground);
+            editorInspector.Description = FightUI.RawText(inspector, card.Desc, 0, 0, width - 44, 500, Compact ? 17 : 19, FightUI.Foreground);
             editorInspector.Description.lineSpacing = 7;
             editorInspector.Description.paragraphSpacing = 10;
             editorInspector.Description.overflowMode = TextOverflowModes.Overflow;

@@ -156,7 +156,9 @@ namespace MDPro3
 
             InitializeAllManagers();
             InitializeAllServants();
+#if FIGHT_UI_PROOF
             Utility.RuntimeFramePacingProof.RunIfRequested();
+#endif
         }
 
         public void ReadParams()
@@ -392,10 +394,12 @@ namespace MDPro3
             AI.ResponsesAiClient.Pump();
             TcpHelper.PerFrameFunction();
             AI.ResponsesDuelSession.PerFrame();
+#if FIGHT_UI_PROOF
             AI.ResponsesAiProof.PerFrame();
             AI.ResponsesAiUiProof.PerFrame();
             AI.ResponsesSpectatorUiProof.PerFrame();
             Utility.DeckLibraryUiProof.PerFrame();
+#endif
             foreach (Manager manager in managers) 
                 manager.PerFrameFunction();
             foreach (Servant.Servant servant in servants) 

@@ -17,6 +17,8 @@ import time
 from typing import BinaryIO
 import zipfile
 
+from source_build_state import game_source_paths
+
 
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT / "dist/Yu-Gi-Oh! Fight.app"
@@ -24,8 +26,10 @@ OUTPUT = ROOT / "dist/Yu-Gi-Oh! Fight-macOS-final.zip"
 BASE = ROOT / "artifacts/client-release"
 ASSEMBLY = Path("Contents/Resources/Client/MDPro3.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll")
 MANIFEST = Path("Contents/Resources/Source-Build.json")
-DOCUMENT = Path("Contents/Resources/docs/CLIENT_UX_REFINEMENT.md")
-CRITICAL_FILES = (ASSEMBLY, MANIFEST, DOCUMENT)
+DOCUMENT = Path("Contents/Resources/THIRD_PARTY_NOTICES.md")
+CRITICAL_FILES = (ASSEMBLY, MANIFEST, DOCUMENT,
+                  Path("Contents/Resources/COPYRIGHT.md"), Path("Contents/Resources/README.md"),
+                  Path("Contents/Resources/docs/BUILDING.md"), Path("Contents/Resources/docs/ASSETS.md"))
 
 
 def require(value: bool, message: str) -> None:
@@ -202,7 +206,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--app", type=Path, default=APP, help="Verified application bundle to archive")
     parser.add_argument("--output", type=Path, default=OUTPUT, help="Final ZIP destination")
-    parser.add_argument("--base", type=Path, default=BASE, help="Directory containing delivery.json")
+    parser.add_argument("--base", type=Path, default=BASE, help="Directory for the local archive verification record")
     args = parser.parse_args()
     requested_app = args.app.expanduser().absolute()
     require(not requested_app.is_symlink(), "Application bundle must not be a symbolic link")
@@ -223,11 +227,6 @@ def main() -> None:
         require(not path.is_symlink() and (not path.exists() or path.is_file()),
                 "Release record destination must be a regular file: " + str(path))
 
-    delivery_path = base / "delivery.json"
-    delivery = read(delivery_path)
-    require(delivery.get("ok") is True and delivery.get("installed_assembly_matches") is True
-            and delivery.get("signature_verified") is True and delivery.get("packaged_document_matches") is True,
-            "A successful final delivery verification is required before packaging")
     expected = critical_hashes(app)
     manifest = read(app / MANIFEST)
     require(manifest.get("ok") is True and manifest.get("source_compiled") is True
@@ -235,9 +234,16 @@ def main() -> None:
             and "FIGHT_UI_PROOF" not in manifest.get("compiler_defines", []),
             "The application must contain the shipping release build")
     assembly_sha = expected[ASSEMBLY.as_posix()]
-    require(delivery.get("release_assembly_sha256") == manifest.get("assembly_sha256") == assembly_sha,
-            "Final delivery and application release assemblies differ")
-    delivery_sha = digest(delivery_path)
+    require(manifest.get("assembly_sha256") == assembly_sha,
+            "Application assembly does not match its release manifest")
+    sources = {path.relative_to(ROOT / "game").as_posix(): digest(path) for path in game_source_paths(ROOT)}
+    require(sources == manifest.get("source_files"), "Compile and package the current game sources before archiving")
+    for relative in CRITICAL_FILES[2:]:
+        source = ROOT / relative.relative_to("Contents/Resources")
+        require(source.is_file() and digest(source) == expected[relative.as_posix()],
+                "Packaged release document is stale: " + source.name)
+    require(not any((app / "Contents/Resources/Client").rglob("credentials.json*")),
+            "Application bundle contains private credentials")
     verify_signature(app)
 
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -246,8 +252,8 @@ def main() -> None:
         staged = Path(directory) / output.name
         archive_metadata = create_archive(app, staged)
         members = verify_archive(staged, app.name, expected)
-        require(critical_hashes(app) == expected and digest(delivery_path) == delivery_sha,
-                "Application or delivery evidence changed while packaging")
+        require(critical_hashes(app) == expected,
+                "Application changed while packaging")
         verify_signature(app)
         archive_sha = digest(staged)
         archive_bytes = staged.stat().st_size
@@ -257,7 +263,7 @@ def main() -> None:
 
     record = {"ok": True, "kind": "macos-client-release-archive", "application": str(app),
               "archive": str(output), "archive_sha256": archive_sha, "archive_bytes": archive_bytes,
-              "release_assembly_sha256": assembly_sha, "delivery_sha256": delivery_sha,
+              "release_assembly_sha256": assembly_sha,
               "signature_verified": True, "zip_crc_verified": True, "critical_members": members,
               "resource_forks_preserved": True, "checksums": str(checksums)}
     record.update(archive_metadata)

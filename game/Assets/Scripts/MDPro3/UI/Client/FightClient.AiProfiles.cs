@@ -176,11 +176,11 @@ namespace MDPro3.UI.Client
                     card.GetComponent<Image>().color = selected ? FightUI.Raised : FightUI.PanelColor;
                     card.GetComponent<Outline>().effectColor = selected ? FightUI.Gold : FightUI.Border;
                     AiProfilePortrait(card.transform, item, 12, 14, 66);
-                    var name = FightUI.Text(card.transform, item.Name, 92, 16, cardWidth - 132, 34, 20, selected ? FightUI.Gold : FightUI.Foreground);
+                    var name = FightUI.RawText(card.transform, item.Name, 92, 16, cardWidth - 132, 34, 20, selected ? FightUI.Gold : FightUI.Foreground);
                     name.richText = false; name.enableAutoSizing = true; name.fontSizeMin = 15; name.fontSizeMax = 20;
-                    var model = FightUI.Text(card.transform, item.Config.Model, 92, 52, cardWidth - 106, 24, 14, FightUI.Muted); model.richText = false; model.overflowMode = TextOverflowModes.Ellipsis;
+                    var model = FightUI.RawText(card.transform, item.Config.Model, 92, 52, cardWidth - 106, 24, 14, FightUI.Muted); model.richText = false; model.overflowMode = TextOverflowModes.Ellipsis;
                     if (selected) FightUI.Icon(card.transform, "check", cardWidth - 32, 24, 16, 16, FightUI.Active);
-                    FightUI.Hint(card.gameObject, item.Name + " · " + item.Config.Model);
+                    FightUI.RawHint(card.gameObject, item.Name + " · " + item.Config.Model);
                 }
                 if (items.Length == 0) FightUI.Text(list, "没有匹配的分身", 0, 20, inner, 52, 20, FightUI.Muted, TextAlignmentOptions.Center);
                 list.sizeDelta = new Vector2(inner, Mathf.Max(viewportHeight, Mathf.Ceil(items.Length / 2f) * 110)); scroll.verticalNormalizedPosition = 1;

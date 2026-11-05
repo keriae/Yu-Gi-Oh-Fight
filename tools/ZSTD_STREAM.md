@@ -25,20 +25,6 @@ contexts and files are closed on errors; caller-owned input streams stay open.
 Concatenated frames and small reads are supported. A missing libzstd makes this
 optional module unavailable; the existing CLI remains a suitable fallback.
 
-Reproduce the cached-archive comparison without altering game files:
-
-```sh
-python3 tools/benchmark_zstd_stream.py --phase closeup-004 --count 200 \
-  --output artifacts/zstd-stream-benchmark.json
-```
-
-The benchmark first verifies all selected cached packages against their
-publisher size/SHA records. It compares full decompressed SHA and every tar
-member's name, size and content SHA against the existing zstd CLI. Malformed
-input, early tar termination, concatenated frames, valid empty frames, short
-compressed reads and high compression ratio are checked separately.
-
-Initial 200-package measurement: CLI 3.24 seconds, helper 0.028 seconds.
-This measures decompression and in-memory tar reads only. Network requests,
-atomic writes, fsync and per-file publisher SHA remain necessary and are not
-included in that speed comparison. The generated JSON is temporary and is not committed.
+The downloader still verifies publisher package sizes and hashes, contained
+paths, extracted file sizes and final file hashes before publishing resources.
+Local comparison benchmarks and malformed-input fixtures are excluded from Git.

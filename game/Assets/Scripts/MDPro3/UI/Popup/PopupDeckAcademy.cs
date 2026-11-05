@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using MDPro3.Utility;
+using MDPro3.UI.Client;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -312,9 +313,9 @@ namespace MDPro3.UI.Popup
             noResults.SetActive(count == 0);
             hasMatches = count > 0;
             if (libraryCount != null)
-                libraryCount.text = count + " / " + catalog.decks.Count + " 套卡组";
+                libraryCount.text = FightText.Get(count + " / " + catalog.decks.Count + " 套卡组");
             foreach (var pair in categoryButtons)
-                pair.Value.SetButtonText((pair.Key == (category ?? "全部") ? "▶ " : string.Empty) + CategoryLabel(pair.Key));
+                pair.Value.SetButtonText(FightText.Get((pair.Key == (category ?? "全部") ? "▶ " : string.Empty) + CategoryLabel(pair.Key)));
             if (first != null && !deckButtons[deckEntries.IndexOf(selectedDeck)].gameObject.activeSelf)
             {
                 selectedDeck = first;
@@ -325,9 +326,9 @@ namespace MDPro3.UI.Popup
                 RefreshPage();
             if (!hasMatches)
             {
-                pageTitle.text = "没有匹配的卡组";
-                pageNumber.text = string.Empty;
-                pageText.text = "请清空或更换关键词，也可调整分类。";
+                pageTitle.text = FightText.Get("没有匹配的卡组");
+                pageNumber.text = FightText.Get(string.Empty);
+                pageText.text = FightText.Get("请清空或更换关键词，也可调整分类。");
                 previousButton.GetComponent<Selectable>().interactable = false;
                 nextButton.GetComponent<Selectable>().interactable = false;
             }
@@ -366,8 +367,8 @@ namespace MDPro3.UI.Popup
             if (page < 0)
             {
                 var deck = DeckAcademy.Template(selectedDeck);
-                pageTitle.text = selectedDeck.name + " · 核心玩法";
-                pageNumber.text = "总览";
+                pageTitle.text = FightText.Get(selectedDeck.name + " · 核心玩法");
+                pageNumber.text = FightText.Get("总览");
                 text.AppendLine(selectedDeck.description).AppendLine();
                 text.Append("主卡组 ").Append(deck.Main.Count).Append(" / 额外 ").Append(deck.Extra.Count)
                     .Append(" / 副卡组 ").Append(deck.Side.Count).AppendLine();
@@ -376,34 +377,34 @@ namespace MDPro3.UI.Popup
                     text.Append(" · ").Append(selectedDeck.difficulty);
                 text.AppendLine();
                 text.Append("适用禁限表：").AppendLine(selectedDeck.regulation).AppendLine();
-                text.AppendLine("固定起手（5 张）").AppendLine(DeckAcademy.CardNames(selectedDeck.starter_hand)).AppendLine();
+                text.AppendLine("固定起手（5 张）").AppendLine(FightText.Keep(DeckAcademy.CardNames(selectedDeck.starter_hand))).AppendLine();
                 if (selectedDeck.starter_cards != null && selectedDeck.starter_cards.Length > 0)
-                    text.AppendLine("核心启动卡").AppendLine(DeckAcademy.CardNames(selectedDeck.starter_cards)).AppendLine();
+                    text.AppendLine("核心启动卡").AppendLine(FightText.Keep(DeckAcademy.CardNames(selectedDeck.starter_cards))).AppendLine();
             }
             else if (page < selectedDeck.steps.Length)
             {
                 var step = selectedDeck.steps[page];
-                pageTitle.text = selectedDeck.name + " · " + step.title;
-                pageNumber.text = "步骤 " + (page + 1) + " / " + selectedDeck.steps.Length;
+                pageTitle.text = FightText.Get(selectedDeck.name + " · " + step.title);
+                pageNumber.text = FightText.Get("步骤 " + (page + 1) + " / " + selectedDeck.steps.Length);
                 text.AppendLine(step.text);
                 if (step.card_codes != null && step.card_codes.Length > 0)
-                    text.AppendLine().AppendLine("涉及卡片").AppendLine(DeckAcademy.CardNames(step.card_codes));
+                    text.AppendLine().AppendLine("涉及卡片").AppendLine(FightText.Keep(DeckAcademy.CardNames(step.card_codes)));
             }
             else
             {
-                pageTitle.text = selectedDeck.name + " · 终场与注意事项";
-                pageNumber.text = "终场";
+                pageTitle.text = FightText.Get(selectedDeck.name + " · 终场与注意事项");
+                pageNumber.text = FightText.Get("终场");
                 if (selectedDeck.end_board != null)
                 {
                     text.AppendLine(selectedDeck.end_board.text).AppendLine();
                     if (selectedDeck.end_board.codes != null && selectedDeck.end_board.codes.Length > 0)
-                        text.AppendLine(DeckAcademy.CardNames(selectedDeck.end_board.codes)).AppendLine();
+                        text.AppendLine(FightText.Keep(DeckAcademy.CardNames(selectedDeck.end_board.codes))).AppendLine();
                 }
                 if (selectedDeck.cautions != null)
                     foreach (var caution in selectedDeck.cautions)
                         text.Append("• ").AppendLine(caution).AppendLine();
             }
-            pageText.text = text.ToString();
+            pageText.text = FightText.Get(text.ToString());
             if (helpOnly)
                 DeckAcademy.SetGuidePage(page);
             Canvas.ForceUpdateCanvases();
@@ -460,7 +461,7 @@ namespace MDPro3.UI.Popup
                 label.font = textTemplate.font;
                 label.fontSharedMaterial = textTemplate.fontSharedMaterial;
             }
-            label.text = text;
+            label.text = FightText.Get(text);
             label.color = Color.white;
             label.fontSize = size;
             label.richText = false;
@@ -490,7 +491,7 @@ namespace MDPro3.UI.Popup
                 if (selectable != null && selectable.IsInteractable())
                     action?.Invoke();
             });
-            button.SetButtonText(text);
+            button.SetButtonText(FightText.Get(text));
             var rect = button.GetComponent<RectTransform>();
             rect.anchoredPosition = Vector2.zero;
             rect.localScale = Vector3.one;

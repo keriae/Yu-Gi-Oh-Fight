@@ -17,7 +17,6 @@ vendor/*
 !vendor/MDPro3-mac.manifest.json
 !vendor/MDPro3-mac.metalink.xml
 !vendor/Mono-LICENSE.txt
-!vendor/YgoMaster-LICENSE.txt
 !vendor/MDPro3-mac-metadata/
 vendor/MDPro3-mac-metadata/*
 !vendor/MDPro3-mac-metadata/checksums.txt
@@ -33,3 +32,16 @@ scripts/ui_test_fixture.py
 game/Assets/Scripts/MDPro3/UI/Client/Validation/
 game/Assets/Scripts/MDPro3/AI/*Proof.cs*
 game/Assets/Scripts/MDPro3/Utility/*Proof.cs*
+
+# Local audits, benchmarks and recording fixtures are not release sources.
+scripts/audit-*.py
+scripts/evaluate-*.py
+scripts/verify-client-release.py
+tools/*Check/
+tools/*Proof/
+tools/ResponsesAiCheck/
+tools/audit-*.py
+tools/benchmark_*.py
+tools/inspect-runtime-warnings.py
+tools/measure-mdpro3-process.py
+tools/README.replay-audit.md

@@ -153,7 +153,7 @@ namespace MDPro3.UI.Client
             BeginLibraryRefresh(academyScroll, query + "\t" + academyCategory);
             FightUI.Clear(academyGrid);
             academyPreviewItems.Clear();
-            var items = academy.decks.Where(d => DeckAcademy.Matches(d, query, academyCategory == "全部" ? "" : academyCategory, query.Length == 0 ? null : AcademyLessonCardNames(d))).ToList();
+            var items = academy.decks.Where(d => DeckAcademy.Matches(d, query, academyCategory == "全部" ? "" : academyCategory, query.Length == 0 ? null : AcademyLessonCardNames(d) + " " + FightText.Get(d.name + " " + d.description + " " + string.Join(" ", d.tags ?? Array.Empty<string>())))).ToList();
             if (academySelection == null || !items.Contains(academySelection)) academySelection = items.FirstOrDefault();
             int cols = Compact ? 3 : LargeViewport ? 6 : 4;
             const float cardGap = 16;
@@ -404,7 +404,7 @@ namespace MDPro3.UI.Client
             float headingY = Compact ? 40 : 52;
             var heading = FightUI.Text(parent, title, 16, headingY, width, 96, Compact ? 24 : 26, FightUI.Foreground);
             heading.enableWordWrapping = true; heading.overflowMode = TextOverflowModes.Overflow; heading.fontStyle = FontStyles.Bold;
-            float height = Mathf.Max(32, heading.GetPreferredValues(title ?? "", width, float.PositiveInfinity).y + 2);
+            float height = Mathf.Max(32, heading.GetPreferredValues(heading.text, width, float.PositiveInfinity).y + 2);
             heading.rectTransform.sizeDelta = new Vector2(width, height);
             FightUI.Line(parent, 16, headingY + height + (Compact ? 8 : 12), width, FightUI.Border);
             return headingY + height + (Compact ? 18 : 30);
@@ -413,7 +413,7 @@ namespace MDPro3.UI.Client
         {
             var t = FightUI.Text(parent, text, 16, y, width, 160, size, FightUI.Foreground);
             t.overflowMode = TextOverflowModes.Overflow; t.lineSpacing = 8; t.paragraphSpacing = 6;
-            float height = Mathf.Max(48, t.GetPreferredValues(text ?? "", width, 0).y + 16);
+            float height = Mathf.Max(48, t.GetPreferredValues(t.text, width, 0).y + 16);
             t.rectTransform.sizeDelta = new Vector2(width, height);
             parent.sizeDelta = new Vector2(parent.sizeDelta.x, Mathf.Max(parent.sizeDelta.y, y + height + 24));
             return y + height;
@@ -426,7 +426,7 @@ namespace MDPro3.UI.Client
                 var text = FightUI.Text(note, cautions[i], 48, 12, width - 62, 64, Compact ? 18 : 20, FightUI.Foreground);
                 text.enableWordWrapping = true; text.overflowMode = TextOverflowModes.Overflow;
                 text.lineSpacing = 4; text.paragraphSpacing = 4;
-                float textHeight = text.GetPreferredValues(cautions[i], width - 62, float.PositiveInfinity).y + 2;
+                float textHeight = text.GetPreferredValues(text.text, width - 62, float.PositiveInfinity).y + 2;
                 text.rectTransform.sizeDelta = new Vector2(width - 62, textHeight);
                 float height = Mathf.Max(56, textHeight + 24);
                 note.sizeDelta = new Vector2(width, height);
@@ -524,7 +524,7 @@ namespace MDPro3.UI.Client
                 FightUI.FocusKey(row, "puzzles:file:" + Path.GetFullPath(p));
                 FightUI.PreviewOnFocus(row, () => PreviewPuzzle(p));
                 var icon = FightUI.Icon(row.transform, "swords", 20, 24, 30, 30, selected ? FightUI.Active : FightUI.GoldBorder);
-                var title = LibraryWrappedText(row.transform, Path.GetFileNameWithoutExtension(p), 70, 8, fileList.rect.width - 120, 38, 23, selected ? FightUI.Active : FightUI.Foreground);
+                var title = LibraryWrappedText(row.transform, Path.GetFileNameWithoutExtension(p), 70, 8, fileList.rect.width - 120, 38, 23, selected ? FightUI.Active : FightUI.Foreground, localize: false);
                 FightUI.Text(row.transform, Path.GetFileName(Path.GetDirectoryName(p)), 70, 49, fileList.rect.width - 120, 26, 15, FightUI.Muted);
                 var arrow = FightUI.Icon(row.transform, "arrow", fileList.rect.width - 38, 30, 20, 20, selected ? FightUI.Active : FightUI.GoldBorder);
                 puzzlePreviewItems.Add(CreateLibraryPreviewItem(row, p, title, null, icon, arrow));
@@ -583,8 +583,8 @@ namespace MDPro3.UI.Client
             var info = FightUI.Panel(Body, previewW + Gap, 64, infoW, panelH, FightUI.PanelColor, false);
             var information = FightUI.Scroll(info, 8, 8, infoW - 16, panelH - 16, panelH - 16, out var readingScroll);
             readingScroll.name = "Puzzle information reading";
-            var puzzleTitle = LibraryWrappedText(information, Path.GetFileNameWithoutExtension(selectedPuzzle), 16, 16, infoW - 48, 120, 28, FightUI.Active);
-            FightUI.Hint(puzzleTitle.gameObject, Path.GetFileNameWithoutExtension(selectedPuzzle));
+            var puzzleTitle = LibraryWrappedText(information, Path.GetFileNameWithoutExtension(selectedPuzzle), 16, 16, infoW - 48, 120, 28, FightUI.Active, localize: false);
+            FightUI.RawHint(puzzleTitle.gameObject, Path.GetFileNameWithoutExtension(selectedPuzzle));
             float sourceY = 16 + puzzleTitle.rectTransform.sizeDelta.y + 28;
             string description = ReadPuzzleDescription(selectedPuzzle);
             if (!string.IsNullOrWhiteSpace(description))
@@ -668,7 +668,7 @@ namespace MDPro3.UI.Client
                 FightUI.FocusKey(row, "replays:file:" + Path.GetFullPath(p));
                 FightUI.PreviewOnFocus(row, () => PreviewReplay(p));
                 var icon = FightUI.Icon(row.transform, "replay", 20, 24, 28, 28, selectedReplay == p ? FightUI.Active : FightUI.GoldBorder);
-                var title = LibraryWrappedText(row.transform, Path.GetFileNameWithoutExtension(p), 68, 8, fileList.rect.width - 180, 38, 22, selectedReplay == p ? FightUI.Active : FightUI.Foreground);
+                var title = LibraryWrappedText(row.transform, Path.GetFileNameWithoutExtension(p), 68, 8, fileList.rect.width - 180, 38, 22, selectedReplay == p ? FightUI.Active : FightUI.Foreground, localize: false);
                 LibraryTag(row.transform, Path.GetExtension(p).TrimStart('.').ToUpperInvariant(), fileList.rect.width - 104, 27, 86);
                 FightUI.Text(row.transform, File.GetLastWriteTime(p).ToString("yyyy-MM-dd  HH:mm"), 68, 48, fileList.rect.width - 180, 26, 15, FightUI.Muted);
                 replayPreviewItems.Add(CreateLibraryPreviewItem(row, p, title, null, icon));
@@ -726,9 +726,9 @@ namespace MDPro3.UI.Client
             float readingHeight = Mathf.Max(48, actionsY - 84);
             var meta = FightUI.Scroll(filePreview, 16, 70, w - 32, readingHeight, readingHeight, out var previewScroll);
             previewScroll.name = "Replay preview reading";
-            var title = LibraryWrappedText(meta, Path.GetFileNameWithoutExtension(replayPath), 8, 8, w - 48, float.PositiveInfinity, Compact ? 24 : 28, FightUI.Active);
+            var title = LibraryWrappedText(meta, Path.GetFileNameWithoutExtension(replayPath), 8, 8, w - 48, float.PositiveInfinity, Compact ? 24 : 28, FightUI.Active, localize: false);
             title.name = "Replay full title"; title.overflowMode = TextOverflowModes.Overflow;
-            FightUI.Hint(title.gameObject, Path.GetFileNameWithoutExtension(replayPath));
+            FightUI.RawHint(title.gameObject, Path.GetFileNameWithoutExtension(replayPath));
             float dateY = 8 + title.rectTransform.sizeDelta.y + 10;
             var date = FightUI.Text(meta, File.GetLastWriteTime(replayPath).ToString("yyyy-MM-dd HH:mm"), 8, dateY, Mathf.Max(120, w - 170), 28, 14, FightUI.Muted);
             FightUI.Hint(date.gameObject, "文件最后修改时间");
@@ -746,8 +746,8 @@ namespace MDPro3.UI.Client
                 {
                     var player = parsed.playerData[i]; var playerDeck = new Deck(player.main, player.extra, new List<int>());
                     var row = LibrarySelection(meta, 8, playerY, w - 48, 70, false, () => ShowReplayDeck(player));
-                    string playerName = string.IsNullOrWhiteSpace(player.name) ? "玩家 " + (i + 1) + " · 名称未提供" : player.name;
-                    var name = LibraryWrappedText(row.transform, playerName, 48, 8, w - 124, 240, 18, FightUI.Foreground);
+                    string playerName = string.IsNullOrWhiteSpace(player.name) ? FightText.Get("玩家 ") + (i + 1) + FightText.Get(" · 名称未提供") : player.name;
+                    var name = LibraryWrappedText(row.transform, playerName, 48, 8, w - 124, 240, 18, FightUI.Foreground, localize: false);
                     name.overflowMode = TextOverflowModes.Overflow;
                     float nameHeight = name.GetPreferredValues(playerName, w - 124, float.PositiveInfinity).y + 2;
                     name.rectTransform.sizeDelta = new Vector2(w - 124, nameHeight);
@@ -756,7 +756,7 @@ namespace MDPro3.UI.Client
                     FightUI.Text(row.transform, (i + 1).ToString("00"), 10, (rowHeight - 28) / 2, 28, 28, 16, FightUI.GoldBorder, TextAlignmentOptions.Center);
                     FightUI.Text(row.transform, "主 " + playerDeck.Main.Count + "  ·  额 " + playerDeck.Extra.Count, 48, nameHeight + 16, w - 124, 26, 14, FightUI.Muted);
                     FightUI.Icon(row.transform, "arrow", w - 78, (rowHeight - 18) / 2, 18, 18, FightUI.GoldBorder);
-                    FightUI.Hint(name.gameObject, playerName + " · 点击查看录像构筑");
+                    FightUI.RawHint(name.gameObject, playerName + FightText.Get(" · 点击查看录像构筑"));
                     playerY += rowHeight + 8;
                 }
                 meta.sizeDelta = new Vector2(w - 32, Mathf.Max(readingHeight, playerY + 8));
@@ -766,7 +766,7 @@ namespace MDPro3.UI.Client
                 string detail = replayError ?? (replayLoading ? "正在读取录像信息…" : "此录像未保存双方构筑。");
                 var explanation = LibraryWrappedText(meta, detail, 8, metaY, w - 48, float.PositiveInfinity, 18, !playable && !reading ? FightUI.Danger : FightUI.Muted);
                 explanation.lineSpacing = 4;
-                float explanationHeight = explanation.GetPreferredValues(detail, w - 48, float.PositiveInfinity).y + 4;
+                float explanationHeight = explanation.GetPreferredValues(FightText.Get(detail), w - 48, float.PositiveInfinity).y + 4;
                 explanation.rectTransform.sizeDelta = new Vector2(w - 48, explanationHeight);
                 meta.sizeDelta = new Vector2(w - 32, Mathf.Max(readingHeight, metaY + explanationHeight + 16));
             }
@@ -783,7 +783,7 @@ namespace MDPro3.UI.Client
             if (!godAvailable) godButton.GetComponentInChildren<TextMeshProUGUI>().text = "上帝视角 · 需离线记录";
             FightUI.Hint(godButton.gameObject, godAvailable ? "从可读取的离线录像还原双方视角" : "仅可读取的离线回放支持上帝视角");
             FightUI.Button(filePreview, "重命名", 24, h - 66, (w - 60) / 2, 40, () => Prompt("重命名回放", "新名称", Path.GetFileNameWithoutExtension(replayPath), name => RenameClientReplay(replayPath, name)));
-            var delete = FightUI.Button(filePreview, "删除…", (w + 12) / 2, h - 66, (w - 60) / 2, 40, () => Confirm("删除回放", "删除录像“" + Path.GetFileNameWithoutExtension(replayPath) + "”？", () => { File.Delete(replayPath); selectedReplay = null; Rebuild(); }));
+            var delete = FightUI.Button(filePreview, "删除…", (w + 12) / 2, h - 66, (w - 60) / 2, 40, () => Confirm("删除回放", "删除录像“" + FightText.Keep(Path.GetFileNameWithoutExtension(replayPath)) + "”？", () => { File.Delete(replayPath); selectedReplay = null; Rebuild(); }));
             delete.GetComponentInChildren<TextMeshProUGUI>().color = FightUI.Danger;
         }
         private void RenameClientReplay(string replayPath, string name)
@@ -942,7 +942,7 @@ namespace MDPro3.UI.Client
             var text = FightUI.Text(b.transform, label, 58, 9, width - 70, 48, 17, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.MidlineLeft);
             text.enableWordWrapping = true; text.overflowMode = TextOverflowModes.Overflow;
             if (selected) text.fontStyle = FontStyles.Bold;
-            float textHeight = Mathf.Max(46, text.GetPreferredValues(label ?? "", width - 70, float.PositiveInfinity).y + 2);
+            float textHeight = Mathf.Max(46, text.GetPreferredValues(text.text, width - 70, float.PositiveInfinity).y + 2);
             float rowHeight = Mathf.Max(64, textHeight + 18);
             text.rectTransform.sizeDelta = new Vector2(width - 70, textHeight);
             var row = b.GetComponent<RectTransform>(); row.sizeDelta = new Vector2(width, rowHeight);
@@ -952,11 +952,12 @@ namespace MDPro3.UI.Client
             FightUI.Hint(text.gameObject, label);
             return row;
         }
-        private TextMeshProUGUI LibraryWrappedText(Transform parent, string value, float x, float y, float width, float maxHeight, float size, Color color, TextAlignmentOptions alignment = TextAlignmentOptions.TopLeft)
+        private TextMeshProUGUI LibraryWrappedText(Transform parent, string value, float x, float y, float width, float maxHeight, float size, Color color, TextAlignmentOptions alignment = TextAlignmentOptions.TopLeft, bool localize = true)
         {
-            var text = FightUI.Text(parent, value, x, y, width, maxHeight, size, color, alignment);
+            var text = localize ? FightUI.Text(parent, value, x, y, width, maxHeight, size, color, alignment)
+                : FightUI.RawText(parent, value, x, y, width, maxHeight, size, color, alignment);
             text.enableWordWrapping = true; text.lineSpacing = 2;
-            float height = Mathf.Clamp(text.GetPreferredValues(value ?? "", width, float.PositiveInfinity).y + 2, size + 6, maxHeight);
+            float height = Mathf.Clamp(text.GetPreferredValues(text.text, width, float.PositiveInfinity).y + 2, size + 6, maxHeight);
             text.rectTransform.sizeDelta = new Vector2(width, alignment == TextAlignmentOptions.Center ? maxHeight : height);
             return text;
         }

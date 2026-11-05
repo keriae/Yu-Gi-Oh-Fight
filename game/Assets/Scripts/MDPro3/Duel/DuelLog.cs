@@ -13,22 +13,26 @@ namespace MDPro3.Duel
     {
         #region Mono
 
-        public static Color myColor = new(0f, 0.18f, 0.76f, 1f);
-        public static Color opColor = Color.red;
-        public static Color myArrowColor = new(0f, 0.5f, 1f, 1f);
-        public static Color opArrowColor = new(1f, 0.2f, 0.2f, 1f);
-        public static Color myChainColor = new(0.2f, 0.6f, 1f, 1f);
-        public static Color opChainColor = new(1f, 0.2f, 0.2f, 1f);
-        public static Color damageColor = Color.red;
-        public static Color recoverColor = new(0, 0.7f, 1f, 1f);
-        public static Color boxedHeaderColor = new(0.42f, 0.44f, 0.44f, 0.92f);
-        public static Color boxedBodyColor = new(0.34f, 0.35f, 0.35f, 0.92f);
-        public static Color chainBandColor = new(0.42f, 0.44f, 0.47f, 0.9f);
+        public static Color myColor = new(0.04f, 0.18f, 0.23f, 1f);
+        public static Color opColor = new(0.27f, 0.12f, 0.12f, 1f);
+        public static Color myArrowColor = MDPro3.UI.Client.FightUI.Cyan;
+        public static Color opArrowColor = MDPro3.UI.Client.FightUI.Danger;
+        public static Color myChainColor = MDPro3.UI.Client.FightUI.Cyan;
+        public static Color opChainColor = MDPro3.UI.Client.FightUI.Danger;
+        public static Color damageColor = MDPro3.UI.Client.FightUI.Danger;
+        public static Color recoverColor = MDPro3.UI.Client.FightUI.CyanText;
+        public static Color boxedHeaderColor = new(0.08f, 0.14f, 0.18f, 0.96f);
+        public static Color boxedBodyColor = new(0.04f, 0.08f, 0.11f, 0.96f);
+        public static Color chainBandColor = new(0.08f, 0.15f, 0.19f, 0.96f);
 
         [SerializeField] private RectTransform baseRect;
         [SerializeField] private ScrollRect scrollRect;
         [SerializeField] private CanvasGroup cg;
         [SerializeField] private Image bg;
+
+        internal RectTransform AuxiliaryRect => baseRect;
+        internal ScrollRect AuxiliaryScroll => scrollRect;
+        internal void AuxiliaryLatest() => SnapToLatest();
 
         public bool showing;
         private bool draged = false;
@@ -47,6 +51,7 @@ namespace MDPro3.Duel
             scrollRect.verticalScrollbar.onValueChanged.AddListener(Refresh);
             scrollRect.GetComponent<DoWhenOnDrag>().action = () => { draged = true; };
             bg.gameObject.SetActive(false);
+            MDPro3.UI.Client.FightDuelLogSkin.Attach(this);
         }
 
         public void Show()
@@ -69,6 +74,7 @@ namespace MDPro3.Duel
         public void Hide(bool mute = false)
         {
             showing = false;
+            cg.blocksRaycasts = false;
             draged = false;
             MoveBaseRectX(HideX, transitionTime);
             cg.DOFade(0f, transitionTime);
@@ -98,6 +104,7 @@ namespace MDPro3.Duel
 
         public void AddLog(GameObject item, bool indent = false, bool chainIndent = true)
         {
+            MDPro3.UI.Client.FightDuelLogSkin.StyleRecord(item);
             var rect = item.GetComponent<RectTransform>();
             var height = rect.rect.height;
             if (UsingMobileLayout)
@@ -327,8 +334,6 @@ namespace MDPro3.Duel
 
         public void AddSingleCardMessageToLog(int code, GPS from, GPS to, string reason, bool indent = false, bool boxed = false)
         {
-            var core = Program.instance.ocgcore;
-
             var item = ABLoader.LoadMasterDuelGameObject(code > 0 ? "DuelLogSingleCard" : "DuelLogSingleCard2");
             var sideImage = item.transform.GetChild(1).GetComponent<Image>();
             Color targetColor = boxed ? boxedBodyColor : (to.InMyControl() ? myColor : opColor);
@@ -352,10 +357,9 @@ namespace MDPro3.Duel
                 cardFace.material = to.controller == 0 ? OcgCore.myProtector : OcgCore.opProtector;
                 cardFace.transform.GetChild(0).gameObject.SetActive(false);
             }
-            cardFace.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
-            {
-                core.GetUI<OcgCoreUI>().CardDescription.Show(null, null, code, to);
-            });
+            var cardButton = cardFace.transform.GetChild(1).GetComponent<Button>();
+            cardButton.interactable = code > 0;
+            cardButton.onClick.AddListener(() => MDPro3.UI.Client.FightDuelMenu.OpenLogCard(code));
 
             if (to.InPosition(CardPosition.Defence) && to.InLocation(CardLocation.MonsterZone))
                 cardFace.transform.localEulerAngles = new Vector3(0f, 0f, 90f);
@@ -439,7 +443,6 @@ namespace MDPro3.Duel
 
         public void AddOpeningDrawMessageToLog(IReadOnlyList<int> codes, GPS to, string reason)
         {
-            var core = Program.instance.ocgcore;
             var item = ABLoader.LoadMasterDuelGameObject("DuelLogSingleCard");
             var rootRect = item.GetComponent<RectTransform>();
 
@@ -526,12 +529,8 @@ namespace MDPro3.Duel
                 {
                     _ = Program.instance.texture_.LoadCardToRawImageWithoutMaterialAsync(cardFace, code, true);
                     var targetCode = code;
-                    var targetTo = to;
                     button.interactable = true;
-                    button.onClick.AddListener(() =>
-                    {
-                        core.GetUI<OcgCoreUI>().CardDescription.Show(null, null, targetCode, targetTo);
-                    });
+                    button.onClick.AddListener(() => MDPro3.UI.Client.FightDuelMenu.OpenLogCard(targetCode));
                 }
                 else
                 {

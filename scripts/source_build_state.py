@@ -33,6 +33,21 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def game_source_paths(root: Path, validation: bool = False) -> list[Path]:
+    """Keep local acceptance code out of production assemblies and inventories."""
+    game = root / "game"
+    sources = []
+    for path in game.rglob("*.cs"):
+        relative = path.relative_to(game)
+        if "Editor" in relative.parts:
+            continue
+        local_validation = ("UI/Client/Validation/" in relative.as_posix()
+                            or (path.name.endswith("Proof.cs") and path.parent.name in {"AI", "Utility"}))
+        if validation or not local_validation:
+            sources.append(path)
+    return sorted(sources)
+
+
 def validate_generation(generation: Path) -> dict:
     manifest = json.loads((generation / "manifest.json").read_text())
     if not all(manifest.get(key) for key in ("ok", "source_compiled", "compatibility_verified")):
@@ -126,7 +141,7 @@ def source_snapshot(root: Path) -> Path:
     with source_build_lock(root):
         output = root / "build/mdpro3-source"
         if not output.is_symlink():
-            raise ValueError("Build the legacy source output once before requesting a retained snapshot.")
+            raise ValueError("Compile the source output before requesting a retained snapshot.")
         snapshot = output.resolve(strict=True)
         validate_generation(snapshot)
         return snapshot

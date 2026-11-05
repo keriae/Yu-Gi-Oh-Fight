@@ -39,7 +39,7 @@ def main():
         if source == ROOT:
             parser.error("--from must point to another checkout")
         for relative in ["vendor/MDPro3-mac", "vendor/MDPro3-mac.manifest.json", "vendor/MDPro3-mac.metalink.xml",
-                         "vendor/Mono-LICENSE.txt", "vendor/YgoMaster-LICENSE.txt", ".tools/dotnet8", ".tools/mono-cecil-0.11.6",
+                         ".tools/dotnet8", ".tools/mono-cecil-0.11.6",
                          "build/dotnet8-sdk.tar.gz", "build/mono.cecil.0.11.6.nupkg"]:
             clone_missing(source / relative, ROOT / relative)
     (ROOT / "artifacts").mkdir(exist_ok=True)

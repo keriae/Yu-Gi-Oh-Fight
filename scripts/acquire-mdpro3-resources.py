@@ -213,8 +213,9 @@ def main():
         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
         log_path = METADATA / f"complete-app-build-{stamp}.log"
         command = [sys.executable, str(ROOT / "scripts/build-mdpro3-offline.py")]
-        record = {"command": command, "log": str(log_path), "started_utc": stamp,
-                  "application": str(ROOT / "dist/Yu-Gi-Oh! Fight.app")}
+        record = {"command": ["python3", "scripts/build-mdpro3-offline.py"],
+                  "log": log_path.relative_to(ROOT).as_posix(), "started_utc": stamp,
+                  "application": "dist/Yu-Gi-Oh! Fight.app"}
         state["complete_build"] = record
         save(state)
         emit(f"Full verified payload ready; building separate app, log: {log_path}")

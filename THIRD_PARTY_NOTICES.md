@@ -1,57 +1,114 @@
-# Third-party components
+# Third-party notices
 
-Yu-Gi-Oh! Fight derives its preserved game runtime and C# sources from the local
-`../masterduel` project. The notices below retain that project's upstream source
-and license provenance. Historical archived components are references only and
-are not required by this new client's launcher.
+Yu-Gi-Oh! Fight is an unofficial community project maintained by
+[keriae](https://github.com/keriae). It is not affiliated with or endorsed by
+Konami. Yu-Gi-Oh! names, cards, characters, artwork, animations, music, sound
+effects and other game assets belong to their respective rights holders.
 
-## YgoMaster
+These notices describe component provenance. They do not grant permission to
+redistribute third-party software or game assets. Original notices in retained
+source files and separately obtained runtimes continue to apply. The project
+does not assign a repository-wide license to third-party code or assets; see
+[COPYRIGHT.md](COPYRIGHT.md) for the scope of original project contributions.
 
-Source: https://github.com/pixeltris/YgoMaster
+## MDPro3 and the game runtime
 
-Pinned release: v1.79; commit: c24aa153f78c72006e904174043b1c0c553680da.
+- Sources: [MDPro3](https://code.moenext.com/sherry_chaos/MDPro3) and
+  [MyCard distribution](https://code.moenext.com/mycard/MDPro3).
+- Release: `1.4.7-2`; source commit:
+  `72fb92ad02d173aeb5a5bb06f23603d892aec9c1`.
+- Matching source archives and their file hashes are retained in
+  `vendor/MDPro3-release-source/`. Editable derived code is under `game/`.
+- Publisher resource checksums are under `vendor/MDPro3-mac-metadata/`.
 
-The historical upstream source is archived in `../masterduel-legacy-20261101/vendor/YgoMaster-src`, unmodified. Its MIT license is preserved as `vendor/YgoMaster-LICENSE.txt` and in the source checkout. These are the initial Windows/Wine investigation components. The original official Master Duel executable is not included.
+The matching upstream repositories do not provide a root license for all
+current sources and resources. A license from an older mirror is not applied
+to them. The build obtains and verifies the publisher runtime separately;
+Unity scenes, AssetBundles, card data and matching native libraries remain
+publisher components. This repository does not include the official Master
+Duel executable.
 
-## Independent native Mac client and resources
+The runtime includes Unity and Unity packages such as TextMesh Pro,
+Addressables and the Input System, as well as the community YGOPro rule
+libraries, card scripts, databases and WindBot. These retain their original
+terms. The native rule libraries are used unchanged with the matching MDPro3
+ABI. Relevant upstream projects include
+[ygopro-core](https://github.com/edo9300/ygopro-core),
+[Project Ignis scripts](https://github.com/ProjectIgnis/CardScripts),
+[Project Ignis databases](https://github.com/ProjectIgnis/BabelCDB), and
+[WindBot](https://github.com/IceYGO/windbot).
+The license of a separate upstream project is not a substitute for the terms
+of the exact publisher files.
 
-The current game integration uses the public MDPro3 macOS release `1.4.7-2`, distributed by MyCard. Sources: https://code.moenext.com/sherry_chaos/MDPro3 and https://code.moenext.com/mycard/MDPro3 ; publisher metadata is retained under `vendor/MDPro3-mac-metadata/`.
+## Libraries retained in source and runtime
 
-The source-built variant compiles the full Assembly-CSharp from the matching release commit `72fb92ad02d173aeb5a5bb06f23603d892aec9c1`. Original Scripts/Tools archives and per-file identities are retained in `vendor/MDPro3-release-source/`; editable derived sources are in `game/`. Unity-generated script and job registration code is reconstructed directly from publisher metadata/IL. Compile-only references use Microsoft.NETFramework.ReferenceAssemblies.net48 1.0.3, NETStandard.Library.Ref 2.1.0, and UnityCsReference declarations; these reference supplements are not shipped as runtime libraries. Individual notices in third-party source trees are preserved.
+The `game/Assets/Tools/` and upstream source trees include AssetStudio,
+StandaloneFileBrowser, 7-Zip/LZMA support, and other compatibility code.
+Their source-level notices and restrictions remain intact. Unity runtime
+libraries, Mono, Newtonsoft.Json, UniTask, DOTween and other publisher-managed
+dependencies retain their component licenses. The source build checks their
+publisher hashes and does not replace their licensing information.
 
-The native client contains Unity runtime components, YGOPro libraries, and Master Duel-derived artwork and animation assets. These retain their respective copyrights and file notices. The current upstream source/resource repositories do not advertise a root license; a license from an older GitHub mirror is not applied to current resources. Native libraries are kept unchanged to preserve their matching ABI. This local project does not establish new redistribution rights or affiliation with Konami.
+The retained Mono license collection is `vendor/Mono-LICENSE.txt`. The
+Mersenne Twister implementation in
+`game/Assets/Scripts/Tools/mt19937ar.cs` retains the original copyright and
+conditions of Makoto Matsumoto, Takuji Nishimura, Mutsuo Saito and Mitil.
+For binary distributions, its notice is reproduced below.
 
-## Community native rule engine
+### Mersenne Twister notice
 
-The separate native engine is directly compiled from https://github.com/edo9300/ygopro-core at commit `6864373c24d7313c8e451df17877c12c4f713c46`. Its AGPL-3.0-or-later license and corresponding source are archived in `../masterduel-legacy-20261101/vendor/ocgcore/`. Lua and its copyright are retained in the pinned submodule. The local engine integration/smoke program also uses AGPL-3.0-or-later, as recorded in the archived `native/README.md`.
+Copyright (C) 1997–2002, Makoto Matsumoto and Takuji Nishimura.
+Copyright (C) 2005, Mutsuo Saito. Copyright (C) 2006, Mitil.
+All rights reserved.
 
-Card script and database source snapshots come from Project Ignis at commits recorded in the archived `native/provenance.json`. Their individual source notices are retained. Static source presence does not establish complete rule equivalence with Konami's engine.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
 
-## Windows Mono runtime
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+3. The names of its contributors may not be used to endorse or promote
+   products derived from this software without specific prior written
+   permission.
 
-The historical payload, archived outside the current project, comes from YgoMaster's official `YgoMaster-Linux-Data-v1.zip` release asset, which the upstream [Linux documentation](https://github.com/pixeltris/YgoMaster/blob/v1.79/Docs/Linux.md) identifies as a reduced Windows Mono distribution. Mono runtime/class libraries generally use MIT, with some third-party BSD components; preserved notices are in `vendor/Mono-LICENSE.txt`. The license file is from https://github.com/mono/mono/blob/main/LICENSE and identifies per-component terms. Source and associated notices are available at https://github.com/mono/mono.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
 
-## REA development tooling
+## MIT components
 
-Source: https://github.com/morluto/rea ; npm package: `rea-agents@6.8.0`.
+The following retained components carry the MIT permission text reproduced
+below. Their respective copyright notices must remain with substantial copies.
 
-REA was used by the original project for development investigation and is not a launcher runtime dependency. Its own package retains its MIT license and third-party notices. Static reports preserve REA tool/provider provenance and their limited coverage.
+### OpenAI tiktoken
 
-## Original client and compatibility runtimes
+Source: [openai/tiktoken](https://github.com/openai/tiktoken), reference version
+`0.12.0`. Copyright (c) 2022 OpenAI, Shantanu Jain.
 
-The retained legacy launcher research would require a separately obtained official Master Duel client and compatible Wine/CrossOver installation. These are not bundled or required by Yu-Gi-Oh! Fight. The project is unofficial and is not affiliated with Konami.
+The `o200k_base` merge-rank data and original notice are retained in
+`content/ai/tokenizers/`. The source-built assembly embeds the rank table for
+local prompt budgeting. Its original MIT notice is also retained as
+`content/ai/tokenizers/LICENSE.tiktoken`.
 
-## OpenAI tiktoken tokenizer data
+### Brotli decoder
 
-Source: https://github.com/openai/tiktoken ; reference version 0.12.0.
-The `o200k_base` merge-rank table is embedded in the source-built assembly for
-local prompt budgeting. Its pre-tokenization expression is used by the local
-BPE counter. The rank table and original notice are retained under
-`content/ai/tokenizers/`.
+Source: [google/brotli](https://github.com/google/brotli).
+Copyright 2015 Google Inc. All Rights Reserved.
 
-MIT License
+The C# decoder retained under `game/Assets/Tools/AssetStudio/Brotli/` declares
+the MIT license in its source headers.
 
-Copyright (c) 2022 OpenAI, Shantanu Jain
+### MIT permission text
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -70,3 +127,30 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Build-only tools
+
+The build uses a pinned .NET SDK, Mono.Cecil, Microsoft reference assemblies
+and UnityCsReference declarations. Their package licenses remain applicable.
+Reference supplements are used for compilation and compatibility checks and
+are not shipped as replacement runtime libraries. Package identities and
+download sources are recorded in `tools/source-toolchain.json` and
+`vendor/MDPro3-release-source/manifest.json`.
+
+The promotional media sources under `media/promo/` use
+[React](https://github.com/facebook/react) and
+[Remotion](https://www.remotion.dev/license). These are build-only media
+dependencies, separate from the game runtime. Their package licenses and
+Remotion's applicable usage terms remain in effect; dependencies are not
+vendored in this repository.
+
+## 中文说明
+
+Yu-Gi-Oh! Fight 由 keriae 维护，是非官方爱好者项目，与科乐美（Konami）
+无关联，也未获得其背书。游戏王名称、卡牌、角色、图像、动画、音乐、音效
+及其他游戏资源归各自权利人所有。
+
+第三方代码、运行时与资源保留各自的许可和版权。本文件用于说明来源，
+不构成资源再分发授权，也不为整个派生代码树授予统一许可证。MDPro3 当前
+源码与资源没有覆盖全部内容的根许可证，不能套用旧镜像或其他上游项目的
+许可证。发布安装包或传播视频时，应遵守所使用内容的相关条款。

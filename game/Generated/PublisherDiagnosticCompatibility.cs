@@ -7,12 +7,16 @@ using YgomGame.Duel;
 using YgomSystem.ElementSystem;
 using YgomSystem.UI;
 
+// Preserve the publisher's Unity type, field and callback bindings without
+// retaining its diagnostic logging or animator-testing implementation.
+
 [RequireComponent(typeof(Animator))]
 public class AnimatorTriggerTest : MonoBehaviour
 {
     public string trigger;
     public bool test;
     private Animator animator;
+
     private void Start() { }
     private void Update() { }
 }

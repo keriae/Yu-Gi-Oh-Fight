@@ -363,7 +363,7 @@ namespace MDPro3.UI.Client
             {
                 var label = FightUI.Text(content, part, 12, y, width - 94, 100, 18, part == FilterErrorSummary() ? FightUI.Danger : FightUI.Foreground);
                 label.lineSpacing = 5; label.paragraphSpacing = 8; label.overflowMode = TextOverflowModes.Overflow;
-                float rowHeight = Mathf.Max(32, label.GetPreferredValues(part, width - 94, float.PositiveInfinity).y + 12);
+                float rowHeight = Mathf.Max(32, label.GetPreferredValues(label.text, width - 94, float.PositiveInfinity).y + 12);
                 label.rectTransform.sizeDelta = new Vector2(width - 94, rowHeight);
                 FightUI.Line(content, 12, y + rowHeight + 8, width - 94, FightUI.Border);
                 y += rowHeight + 28;

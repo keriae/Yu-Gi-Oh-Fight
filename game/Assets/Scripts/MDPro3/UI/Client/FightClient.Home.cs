@@ -89,7 +89,7 @@ namespace MDPro3.UI.Client
             float p = Compact ? 16 : 32, inner = side - p * 2;
             float avatarSize = Compact ? 54 : 96;
             HomeAvatar(content, p + (Compact ? 2 : 8), Compact ? 8 : 18, avatarSize, 0);
-            var name = Config.Get("DuelPlayerName0", "").Trim(); if (string.IsNullOrEmpty(name)) name = "决斗者";
+            var name = Config.Get("DuelPlayerName0", "").Trim(); if (string.IsNullOrEmpty(name)) name = FightText.Get("决斗者");
             float nameX = p + avatarSize + (Compact ? 16 : 28);
             float nameY = Compact ? 11 : 33;
             var playerName = HomeDeckTitle(content, name, nameX, nameY, side - nameX - p, 38, Compact ? 24 : 28, FightUI.Foreground);
@@ -110,7 +110,7 @@ namespace MDPro3.UI.Client
                 FightUI.Icon(deckPanel, "deck", 12 + thumb * .25f, 12 + thumb * .25f, thumb * .5f, thumb * .5f, FightUI.GoldBorder);
             }
             float deckNameX = thumb + 32;
-            var deckName = HomeDeckTitle(deckPanel, exists ? active : "尚未选择卡组", deckNameX, Compact ? 9 : 20,
+            var deckName = HomeDeckTitle(deckPanel, exists ? active : FightText.Get("尚未选择卡组"), deckNameX, Compact ? 9 : 20,
                 inner - deckNameX - 16, Compact ? 42 : 68, Compact ? 19 : 25, FightUI.Gold);
             float countsY = Mathf.Max(Compact ? 57 : 100, (Compact ? 9 : 20) + deckName.rectTransform.sizeDelta.y + 7);
             if (exists) FightUI.Text(deckPanel, "主 " + currentDeck.Main.Count + "  ·  额外 " + currentDeck.Extra.Count + "  ·  副 " + currentDeck.Side.Count,
@@ -121,7 +121,7 @@ namespace MDPro3.UI.Client
             {
                 BindHomeCard(deckPanel, () => ShowBattleDeck(path));
                 FightUI.FocusKey(deckPanel.GetComponent<Button>(), "home:current-deck-inspect");
-                FightUI.Hint(deckPanel.gameObject, "查看当前卡组的完整构筑 · " + active);
+                FightUI.Hint(deckPanel.gameObject, "查看当前卡组的完整构筑 · " + FightText.Keep(active));
             }
             float by = Mathf.Max(Compact ? 214 : 362, deckY + deckH + (Compact ? 12 : 16)), buttonH = Compact ? 42 : 50;
             var editCurrent = FightUI.Button(content, "编辑卡组", p, by, (inner - 16) / 2, buttonH, () => OpenEditor(active), false, exists);
@@ -141,7 +141,7 @@ namespace MDPro3.UI.Client
                     var image = FightUI.Art(teaching, code, tutorialPad + i * (handW + 6), handY, handW, handH, true);
                     var card = FightUI.CardButton(image, () => ShowCard(code));
                     FightUI.FocusKey(card, "home:starter:" + i);
-                    FightUI.Hint(card.gameObject, CardsManager.Get(code).Name + " · 查看卡片");
+                    FightUI.Hint(card.gameObject, FightText.Keep(CardsManager.Get(code).Name) + " · 查看卡片");
                 }
             FightUI.Line(teaching, tutorialPad, Compact ? 122 : 196, inner - tutorialPad * 2);
             var handPractice = FightUI.TextAction(teaching, "固定起手练习  →", tutorialPad, Compact ? 128 : 206, inner - tutorialPad * 2, Compact ? 40 : 44,
@@ -457,9 +457,9 @@ namespace MDPro3.UI.Client
                     var row = FightUI.Panel(content, 8, 8 + i * rowH, width - 78, rowH - 10,
                         profile.Id == selected ? FightUI.Raised : FightUI.PanelColor, true, "AI 分身 · " + profile.Name);
                     DrawBattleProfileAvatar(row, profile, 16, 16, 62);
-                    var name = FightUI.Text(row, profile.Name, 96, 12, width - 242, 36, 23, profile.Id == selected ? FightUI.Gold : FightUI.Foreground);
+                    var name = FightUI.RawText(row, profile.Name, 96, 12, width - 242, 36, 23, profile.Id == selected ? FightUI.Gold : FightUI.Foreground);
                     name.richText = false; name.raycastTarget = false;
-                    var model = FightUI.Text(row, profile.Config.Model, 96, 54, width - 242, 30, 16,
+                    var model = FightUI.RawText(row, profile.Config.Model, 96, 54, width - 242, 30, 16,
                         FightUI.Muted); model.richText = false; model.raycastTarget = false;
                     FightUI.Icon(row, profile.Id == selected ? "check" : "arrow", width - 124, 36, 24, 24, FightUI.Gold);
                     BindHomeCard(row, () => Try(() =>
@@ -470,7 +470,7 @@ namespace MDPro3.UI.Client
                         CloseDialog(); Rebuild();
                     }));
                     FightUI.FocusKey(row.GetComponent<Button>(), "battle:profile-option:" + profile.Id);
-                    FightUI.Hint(row.gameObject, "选择 " + profile.Name + " · " + profile.Config.Model);
+                    FightUI.Hint(row.gameObject, "选择 " + FightText.Keep(profile.Name) + " · " + FightText.Keep(profile.Config.Model));
                 }
                 content.sizeDelta = new Vector2(width - 48, Mathf.Max(viewportHeight, matches.Length * rowH + 16));
                 scroll.StopMovement(); scroll.verticalNormalizedPosition = 1;
@@ -529,7 +529,7 @@ namespace MDPro3.UI.Client
                 var text = FightUI.Text(content, detail, 8, y, width - 84, 80, 18, FightUI.Foreground);
                 text.name = "Battle preparation issue " + key;
                 text.text = detail; text.richText = false; text.lineSpacing = 4; text.overflowMode = TextOverflowModes.Overflow;
-                float textHeight = text.GetPreferredValues(detail, width - 84, float.PositiveInfinity).y + 8;
+                float textHeight = text.GetPreferredValues(FightText.Get(detail), width - 84, float.PositiveInfinity).y + 8;
                 text.rectTransform.sizeDelta = new Vector2(width - 84, textHeight); y += textHeight + 8;
                 if (issue != null)
                 {
@@ -586,7 +586,7 @@ namespace MDPro3.UI.Client
                 }
                 else DrawBattleProfileAvatar(identity, profile, 6, 6, avatar);
                 float textX = avatar + 20;
-                var name = FightUI.Text(identity, identityName ?? profile?.Name ?? "选择 AI 分身", textX, 0, identity.rect.width - textX - 32,
+                var name = FightUI.RawText(identity, identityName ?? profile?.Name ?? FightText.Get("选择 AI 分身"), textX, 0, identity.rect.width - textX - 32,
                     Compact ? 32 : 40, Compact ? 21 : 27, FightUI.Foreground); name.richText = false; name.raycastTarget = false;
                 name.name = "Battle duelist name";
                 var role = FightUI.Text(identity, identityName != null ? "电脑" : "AI", textX, Compact ? 30 : 42,
@@ -600,12 +600,12 @@ namespace MDPro3.UI.Client
             else
             {
                 HomeAvatar(panel, pad, headerY, avatar, 0);
-                string player = Config.Get("DuelPlayerName0", "决斗者"); if (string.IsNullOrWhiteSpace(player)) player = "决斗者";
-                var playerName = FightUI.Text(panel, player, pad + avatar + 16, headerY - 2,
+                string player = Config.Get("DuelPlayerName0", ""); if (string.IsNullOrWhiteSpace(player)) player = FightText.Get("决斗者");
+                var playerName = FightUI.RawText(panel, player, pad + avatar + 16, headerY - 2,
                     w - pad * 2 - avatar - 16, 40, Compact ? 22 : 28, FightUI.Foreground);
                 playerName.name = "Battle duelist name"; playerName.richText = false;
                 float roleY = headerY + (Compact ? 30 : 44);
-                var playerRole = HomeDeckTitle(panel, "玩家", pad + avatar + 16, roleY, w - pad * 2 - avatar - 20, 26, Compact ? 16 : 17, FightUI.Muted);
+                var playerRole = HomeDeckTitle(panel, FightText.Get("玩家"), pad + avatar + 16, roleY, w - pad * 2 - avatar - 20, 26, Compact ? 16 : 17, FightUI.Muted);
                 playerRole.name = "Battle duelist type";
                 headerBottom = Mathf.Max(headerBottom, roleY + playerRole.rectTransform.sizeDelta.y);
             }
@@ -699,8 +699,7 @@ namespace MDPro3.UI.Client
         }
         private TextMeshProUGUI HomeDeckTitle(Transform parent, string value, float x, float y, float width, float height, float size, Color color, bool bold = false)
         {
-            var title = FightUI.Text(parent, value, x, y, width, height, size, color);
-            title.text = value;
+            var title = FightUI.RawText(parent, value, x, y, width, height, size, color);
             if (bold) title.fontStyle = FontStyles.Bold;
             var single = title.GetPreferredValues(value, float.PositiveInfinity, float.PositiveInfinity);
             bool wraps = single.x > width || (value ?? "").Contains("\n");
@@ -708,14 +707,14 @@ namespace MDPro3.UI.Client
             float lineHeight = title.GetPreferredValues("国", float.PositiveInfinity, float.PositiveInfinity).y;
             float preferred = wraps ? title.GetPreferredValues(value, width, float.PositiveInfinity).y + 2 : single.y + 2;
             title.rectTransform.sizeDelta = new Vector2(width, wraps ? Mathf.Min(lineHeight * 2 + 4, Mathf.Max(height, preferred)) : Mathf.Max(lineHeight + 2, Mathf.Min(height, preferred)));
-            FightUI.Hint(title.gameObject, value);
+            FightUI.RawHint(title.gameObject, value);
             return title;
         }
         private TextMeshProUGUI HomeWrappedText(Transform parent, string value, float x, float y, float width, float height, float size, Color color)
         {
             var text = FightUI.Text(parent, value, x, y, width, height, size, color);
             text.enableWordWrapping = true;
-            text.rectTransform.sizeDelta = new Vector2(width, Mathf.Max(height, text.GetPreferredValues(value, width, float.PositiveInfinity).y + 2));
+            text.rectTransform.sizeDelta = new Vector2(width, Mathf.Max(height, text.GetPreferredValues(text.text, width, float.PositiveInfinity).y + 2));
             return text;
         }
         private void BindHomeCard(RectTransform card, Action action)
@@ -738,7 +737,7 @@ namespace MDPro3.UI.Client
             catch (Exception error) when (error is IOException || error is UnauthorizedAccessException || error is ArgumentException)
             { ShowStatus("无法读取卡组：" + error.Message, true); return; }
             var width = Mathf.Min(W - 64, 1200); var height = H - 80;
-            var box = ShowDialog(System.IO.Path.GetFileNameWithoutExtension(path) + " · 只读构筑", width, height);
+            var box = ShowDialog(FightText.Keep(System.IO.Path.GetFileNameWithoutExtension(path)) + " · 只读构筑", width, height);
             var content = FightUI.Scroll(box, 24, 88, width - 48, height - 112, 1200);
             DrawDeckCards(content, deck, width - 48);
         }

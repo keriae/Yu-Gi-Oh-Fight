@@ -69,7 +69,12 @@ namespace MDPro3.UI.Client
         public static FightTooltip Hint(GameObject target, string message)
         {
             var hint = target.GetComponent<FightTooltip>() ?? target.AddComponent<FightTooltip>();
-            hint.Hint = message; return hint;
+            hint.Hint = message; hint.LocalizeHint = true; return hint;
+        }
+        public static FightTooltip RawHint(GameObject target, string message)
+        {
+            var hint = target.GetComponent<FightTooltip>() ?? target.AddComponent<FightTooltip>();
+            hint.Hint = message; hint.LocalizeHint = false; return hint;
         }
         public static T FocusKey<T>(T control, string key) where T : Selectable
         {
@@ -110,30 +115,37 @@ namespace MDPro3.UI.Client
             return rt;
         }
         public static TextMeshProUGUI Text(Transform parent, string value, float x, float y, float w, float h, float size = 20, Color? color = null, TextAlignmentOptions align = TextAlignmentOptions.TopLeft)
+            => CreateText(parent, value, x, y, w, h, size, color, align, true);
+        public static TextMeshProUGUI RawText(Transform parent, string value, float x, float y, float w, float h, float size = 20, Color? color = null, TextAlignmentOptions align = TextAlignmentOptions.TopLeft)
+            => CreateText(parent, value, x, y, w, h, size, color, align, false);
+        private static TextMeshProUGUI CreateText(Transform parent, string value, float x, float y, float w, float h, float size, Color? color, TextAlignmentOptions align, bool localize)
         {
-            value = (value ?? "").Replace("▾", "· 选择").Replace("☑", "✓");
+            value = value ?? "";
             var rt = Node(parent, "Text", x, y, w, h); var t = rt.gameObject.AddComponent<TextMeshProUGUI>();
-            t.font = Program.instance.ui_.tmpFont; FightSkin.EnsureSymbolFallback(t.font); t.text = value; t.fontSize = size; t.color = color ?? Foreground;
+            t.font = Program.instance.ui_.tmpFont; FightSkin.EnsureSymbolFallback(t.font); t.text = localize ? FightText.Get(value) : value; t.fontSize = size; t.color = color ?? Foreground;
             t.alignment = align; t.richText = false; t.raycastTarget = true; t.enableWordWrapping = true; t.overflowMode = TextOverflowModes.Ellipsis;
             t.wordSpacing = 1.5f;
-            rt.gameObject.AddComponent<FightTooltip>();
-            if (!value.Contains("\n") && h <= size * 2)
+            rt.gameObject.AddComponent<FightTooltip>().LocalizeHint = localize;
+            if (!t.text.Contains("\n") && h <= size * 2)
             {
                 t.enableWordWrapping = false;
+                if (localize && Language.GetConfig() != Language.SimplifiedChinese && Language.GetConfig() != Language.TraditionalChinese)
+                { t.enableAutoSizing = true; t.fontSizeMax = size; t.fontSizeMin = Mathf.Max(12, size * .76f); }
                 // The publisher font has a taller CJK line box than its visual
                 // glyph height. Reserve its measured line, otherwise TMP's
                 // vertical ellipsis can discard an entire short heading.
-                float lineHeight = t.GetPreferredValues(value, float.PositiveInfinity, float.PositiveInfinity).y;
+                float lineHeight = t.GetPreferredValues(t.text, float.PositiveInfinity, float.PositiveInfinity).y;
                 rt.sizeDelta = new Vector2(w, Mathf.Max(h, lineHeight + 2));
             }
+            if (localize) FightText.Bind(t, value);
             return t;
         }
-        public static TextMeshProUGUI HeroTitle(Transform parent, string value, float x, float y, float w, float h, float size)
+        public static TextMeshProUGUI HeroTitle(Transform parent, string value, float x, float y, float w, float h, float size, bool localize = true)
         {
-            var t = Text(parent, value, x, y, w, h, size, Active);
+            var t = localize ? Text(parent, value, x, y, w, h, size, Active) : RawText(parent, value, x, y, w, h, size, Active);
             if (FightSkin.TitleFont != null)
             {
-                FightSkin.TitleFont.TryAddCharacters(value ?? "");
+                FightSkin.TitleFont.TryAddCharacters(t.text);
                 t.font = FightSkin.TitleFont;
             }
             t.fontStyle = FontStyles.Bold; t.characterSpacing = 1;
@@ -141,11 +153,11 @@ namespace MDPro3.UI.Client
             t.enableVertexGradient = true;
             t.colorGradient = new VertexGradient(Hex("E9D9B8"), Hex("E9D9B8"), Hex("A58B61"), Hex("A58B61"));
             t.enableWordWrapping = false;
-            float titleLine = t.GetPreferredValues(value ?? "", float.PositiveInfinity, float.PositiveInfinity).y;
+            float titleLine = t.GetPreferredValues(t.text, float.PositiveInfinity, float.PositiveInfinity).y;
             t.rectTransform.sizeDelta = new Vector2(w, Mathf.Max(h, titleLine + 4));
             return t;
         }
-        public static Button Button(Transform parent, string label, float x, float y, float w, float h, Action action, bool primary = false, bool enabled = true)
+        public static Button Button(Transform parent, string label, float x, float y, float w, float h, Action action, bool primary = false, bool enabled = true, bool localize = true)
         {
             var rt = Panel(parent, x, y, w, h, primary ? ActionFill : Raised, true, label);
             rt.GetComponent<Outline>().effectColor = primary ? Cyan : GoldBorder;
@@ -156,7 +168,17 @@ namespace MDPro3.UI.Client
             colors.pressedColor = Hex("819CA8"); colors.selectedColor = new Color(1.18f, 1.15f, 1.1f); colors.disabledColor = new Color(.52f, .52f, .52f, .8f); colors.fadeDuration = .14f; b.colors = colors;
             b.interactable = enabled; b.onClick.AddListener(() => { if (action != null) action(); });
             var size = h >= 64 ? 27 : h >= 50 ? 22 : h >= 40 ? 19 : 17;
-            var caption = Text(rt, label, 10, 0, w - 20, h, size, primary ? CyanText : Gold, TextAlignmentOptions.Center);
+            var caption = localize ? Text(rt, label, 10, 0, w - 20, h, size, primary ? CyanText : Gold, TextAlignmentOptions.Center)
+                : RawText(rt, label, 10, 0, w - 20, h, size, primary ? CyanText : Gold, TextAlignmentOptions.Center);
+            var language = Language.GetConfig();
+            if (!(label ?? "").Contains("\n") && !caption.text.Contains("\n")
+                && language != Language.SimplifiedChinese && language != Language.TraditionalChinese && language != "zh-SC")
+            {
+                caption.enableWordWrapping = false;
+                caption.enableAutoSizing = true;
+                caption.fontSizeMax = size;
+                caption.fontSizeMin = Mathf.Max(12, size * .76f);
+            }
             caption.characterSpacing = primary ? .9f : .35f;
             rt.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
             return b;
@@ -249,7 +271,7 @@ namespace MDPro3.UI.Client
             var border = rt.GetComponent<Outline>(); border.effectColor = Border;
             var frame = rt.GetComponentInChildren<FightFrame>(); frame.Primary = false; frame.ButtonFrame = true;
             var viewport = Node(rt, "Viewport", 12, 5, w - 24, h - 10); viewport.gameObject.AddComponent<RectMask2D>();
-            var t = Text(viewport, "", 0, 0, w - 24, h - 10, 18, Foreground, multiline ? TextAlignmentOptions.TopLeft : TextAlignmentOptions.Left);
+            var t = RawText(viewport, "", 0, 0, w - 24, h - 10, 18, Foreground, multiline ? TextAlignmentOptions.TopLeft : TextAlignmentOptions.Left);
             var p = Text(viewport, placeholder, 0, 0, w - 24, h - 10, 18, Muted, multiline ? TextAlignmentOptions.TopLeft : TextAlignmentOptions.Left);
             // TMP creates its caret renderer in OnEnable, which requires the
             // text component to have been assigned already.
@@ -419,6 +441,7 @@ namespace MDPro3.UI.Client
         private Vector2 pointerPosition;
         private Camera eventCamera;
         internal string Hint;
+        internal bool LocalizeHint = true;
         public void OnPointerEnter(PointerEventData pointer)
         {
             Hide();
@@ -471,7 +494,7 @@ namespace MDPro3.UI.Client
             activeTooltip = this;
             tooltip = FightUI.Panel(parent, 16, 16, 160, 60, FightUI.Raised, true, "Full text");
             tooltip.GetComponent<Image>().raycastTarget = false;
-            tooltipLabel = FightUI.Text(tooltip, message, 16, 12, 128, 36, 18);
+            tooltipLabel = FightUI.RawText(tooltip, message, 16, 12, 128, 36, 18);
             tooltipLabel.enableWordWrapping = true; tooltipLabel.raycastTarget = false;
             LayoutTooltip(message);
             if (tooltip != null) tooltip.gameObject.AddComponent<FightPageReveal>();
@@ -482,6 +505,7 @@ namespace MDPro3.UI.Client
             if (parent == null || tooltipLabel == null || parent.rect.width < 64 || parent.rect.height < 64
                 || !RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, pointerPosition, eventCamera, out var local)) { Hide(); return; }
             displayedMessage = message; parentSize = parent.rect.size;
+            if (LocalizeHint) message = FightText.Get(message);
             tooltipLabel.text = message;
             float parentWidth = parent.rect.width, parentHeight = parent.rect.height;
             float width = Mathf.Min(Mathf.Min(520, parentWidth - 32), Mathf.Max(160,

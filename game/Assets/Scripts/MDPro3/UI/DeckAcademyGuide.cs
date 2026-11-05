@@ -44,6 +44,7 @@ namespace MDPro3.UI
         private bool lastCanFollow;
         private int lastPage = -2;
         private DeckAcademyDeck lastDeck;
+        private string lastLanguage, lastCardLanguage;
         private readonly List<TextMeshProUGUI> actionCaptions = new();
         private readonly Dictionary<int, float> readingPositions = new();
 
@@ -133,34 +134,34 @@ namespace MDPro3.UI
             var follow = DeckAcademy.FollowReplayGuide;
             var finished = replay && DeckAcademy.ReplayFinished;
             var canFollow = DeckAcademy.CanFollowReplayGuide;
-            bool chapterChanged = lastDeck != deck || lastPage != page;
+            bool chapterChanged = lastDeck != deck || lastPage != page || lastLanguage != Language.GetConfig() || lastCardLanguage != Language.GetCardConfig();
             if (lastDeck != deck || lastReplay != replay) readingPositions.Clear();
             else if (chapterChanged) RememberReadingPosition(lastPage);
             else RememberReadingPosition(page);
-            modeStatus.text = !replay ? "固定起手练习 · 手动阅读" : finished ? "演示已结束 · 可继续阅读"
-                : (OcgCore.pause ? "演示暂停" : "演示播放中") + " · " + (follow ? "跟随提示" : "手动阅读");
+            modeStatus.text = FightText.Get(!replay ? "固定起手练习 · 手动阅读" : finished ? "演示已结束 · 可继续阅读"
+                : (OcgCore.pause ? "演示暂停" : "演示播放中") + " · " + (follow ? "跟随提示" : "手动阅读"));
             replayControls.SetActive(replay);
             if (chapterChanged)
             {
                 if (page < deck.steps.Length)
                 {
                     var step = deck.steps[page];
-                    chapterTitle.text = deck.name;
-                    stepCounter.text = (page + 1).ToString("00") + " / " + deck.steps.Length.ToString("00");
-                    stepTitle.text = step.title;
-                    instructions.text = string.IsNullOrWhiteSpace(step.text) ? "此步骤暂未提供文字说明，可查看涉及卡片或打开完整教程。" : step.text;
-                    cardsHeading.text = "涉及卡片 · " + (step.card_codes?.Length ?? 0) + " 张";
+                    chapterTitle.text = FightText.Get(deck.name);
+                    stepCounter.text = FightText.Get((page + 1).ToString("00") + " / " + deck.steps.Length.ToString("00"));
+                    stepTitle.text = FightText.Get(step.title);
+                    instructions.text = FightText.Get(string.IsNullOrWhiteSpace(step.text) ? "此步骤暂未提供文字说明，可查看涉及卡片或打开完整教程。" : step.text);
+                    cardsHeading.text = FightText.Get("涉及卡片 · " + (step.card_codes?.Length ?? 0) + " 张");
                     cardsText.text = DeckAcademy.CardNames(step.card_codes);
                 }
                 else
                 {
-                    chapterTitle.text = deck.name;
-                    stepCounter.text = "终场";
-                    stepTitle.text = "终场与注意事项";
+                    chapterTitle.text = FightText.Get(deck.name);
+                    stepCounter.text = FightText.Get("终场");
+                    stepTitle.text = FightText.Get("终场与注意事项");
                     string cautionText = string.Join("\n\n", deck.cautions ?? new string[0]);
-                    instructions.text = (string.IsNullOrWhiteSpace(deck.end_board?.text) ? "完成展开路线后，可结合终场卡片检查场面。" : deck.end_board.text)
-                        + (string.IsNullOrWhiteSpace(cautionText) ? "" : "\n\n注意事项\n" + cautionText);
-                    cardsHeading.text = "终场卡片 · " + (deck.end_board?.codes?.Length ?? 0) + " 张";
+                    instructions.text = FightText.Get((string.IsNullOrWhiteSpace(deck.end_board?.text) ? "完成展开路线后，可结合终场卡片检查场面。" : deck.end_board.text)
+                        + (string.IsNullOrWhiteSpace(cautionText) ? "" : "\n\n注意事项\n" + cautionText));
+                    cardsHeading.text = FightText.Get("终场卡片 · " + (deck.end_board?.codes?.Length ?? 0) + " 张");
                     cardsText.text = DeckAcademy.CardNames(deck.end_board?.codes);
                 }
                 cardsHeading.gameObject.SetActive(!string.IsNullOrWhiteSpace(cardsText.text));
@@ -173,12 +174,12 @@ namespace MDPro3.UI
             UpdateReadingStatus();
             previousButton.GetComponent<Selectable>().interactable = page > 0;
             nextButton.GetComponent<Selectable>().interactable = page < deck.steps.Length;
-            playbackButton.SetButtonText(finished ? "已结束" : OcgCore.pause ? "播放" : "暂停");
+            playbackButton.SetButtonText(FightText.Get(finished ? "已结束" : OcgCore.pause ? "播放" : "暂停"));
             playbackButton.GetComponent<Selectable>().interactable = !finished;
             singleStepButton.GetComponent<Selectable>().interactable = !finished;
-            followButton.SetButtonText(follow ? "已跟随" : canFollow ? "跟随提示" : "手动阅读");
+            followButton.SetButtonText(FightText.Get(follow ? "已跟随" : canFollow ? "跟随提示" : "手动阅读"));
             followButton.GetComponent<Selectable>().interactable = canFollow && !follow;
-            lastDeck = deck;
+            lastDeck = deck; lastLanguage = Language.GetConfig(); lastCardLanguage = Language.GetCardConfig();
             lastPage = page;
             lastReplay = replay;
             lastPause = OcgCore.pause;
@@ -189,7 +190,7 @@ namespace MDPro3.UI
 
         private void Update()
         {
-            if (!DeckAcademy.HasActiveGuide || lastDeck != DeckAcademy.ActiveDeck
+            if (!DeckAcademy.HasActiveGuide || lastLanguage != Language.GetConfig() || lastCardLanguage != Language.GetCardConfig() || lastDeck != DeckAcademy.ActiveDeck
                 || lastPage != Mathf.Clamp(DeckAcademy.ActiveTutorialPage, 0, DeckAcademy.ActiveDeck.steps.Length)
                 || lastReplay != DeckAcademy.HasActiveReplay || lastPause != OcgCore.pause
                 || lastFollow != DeckAcademy.FollowReplayGuide || lastFinished != DeckAcademy.ReplayFinished
@@ -254,7 +255,7 @@ namespace MDPro3.UI
             instructionsLayout.minHeight = instructionsLayout.preferredHeight =
                 Mathf.Clamp(availableHeight - fixedHeight, 80f, 230f);
             body.SetActive(!collapsed && !constrained);
-            collapseButton.SetButtonText(constrained ? "教程" : collapsed ? "展开" : "收起");
+            collapseButton.SetButtonText(FightText.Get(constrained ? "教程" : collapsed ? "展开" : "收起"));
             lastParentSize = size;
         }
 
@@ -281,7 +282,7 @@ namespace MDPro3.UI
             string location = page < count ? "阅读步骤 " + (page + 1).ToString("00") + " / " + count.ToString("00") : "阅读终场";
             if (body.activeSelf && instructionsScroll.content.rect.height > instructionsScroll.viewport.rect.height + 1f)
                 location += instructionsScroll.verticalNormalizedPosition <= .01f ? " · 已读到底" : " · 可向下阅读";
-            if (readingStatus.text != location) readingStatus.text = location;
+            if (readingStatus.text != location) readingStatus.text = FightText.Get(location);
         }
 
         private void ChangePage(int delta)
@@ -455,7 +456,8 @@ namespace MDPro3.UI
             var label = go.GetComponent<TextMeshProUGUI>();
             label.font = fontTemplate.font;
             label.fontSharedMaterial = fontTemplate.fontSharedMaterial;
-            label.text = text;
+            label.text = FightText.Get(text);
+            if (name != "GuideCards") FightText.Bind(label, text);
             label.fontSize = size;
             label.richText = false;
             label.color = FightUI.Foreground;

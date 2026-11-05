@@ -18,9 +18,6 @@ DECKS = {
     "Data/Windbot/Decks/AI_BlueEyes.ydk": "592c765a10758ddfcae20fec40ccea7eea42bb1e12fdf2a827165597fa059a71",
 }
 DEFAULT_CONFIG = (
-    "Language->zh-CN\r\n"
-    "CardLanguage->zh-CN\r\n"
-    "PrereleaseLanguage->zh-CN\r\n"
     "DeckInUse->Blue Eyes\r\n"
 ).encode("utf-8")
 DIALOGS = {

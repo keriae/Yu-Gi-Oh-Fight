@@ -205,7 +205,7 @@ namespace MDPro3.UI.Client
         }
 
         private bool DeckMatchesSearch(ClientDeck deck, string[] terms)
-            => deck.Recommendation != null ? DeckLibrary.Matches(deck.Recommendation, search)
+            => deck.Recommendation != null ? terms.All(term => (DeckLibrary.SearchText(deck.Recommendation) + " " + FightText.Get(DeckLibrary.SearchText(deck.Recommendation))).IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                 : terms.All(term => deck.Name.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0);
 
         private void ClearDeckBrowseSearch()
@@ -313,11 +313,11 @@ namespace MDPro3.UI.Client
                         var badge = FightUI.Panel(card, cellW - 84, 12, 72, 24, FightUI.Background, false);
                         FightUI.Text(badge, "当前使用", 0, 0, 72, 24, 13, FightUI.Active, TextAlignmentOptions.Center);
                     }
-                    var title = FightUI.Text(card, d.Name, 12, coverHeight + 17, cellW - 24, 66, Compact ? 21 : 23, FightUI.Foreground);
+                    var title = FightUI.RawText(card, d.Recommendation != null ? FightText.Get(d.Name) : d.Name, 12, coverHeight + 17, cellW - 24, 66, Compact ? 21 : 23, FightUI.Foreground);
                     title.name = "Deck tile title"; title.fontStyle = FontStyles.Bold;
                     title.enableWordWrapping = true; title.enableAutoSizing = true;
                     title.fontSizeMin = Compact ? 18 : 20; title.fontSizeMax = Compact ? 21 : 23;
-                    FightUI.Hint(card.gameObject, d.Name);
+                    FightUI.RawHint(card.gameObject, d.Recommendation != null ? FightText.Get(d.Name) : d.Name);
                     FightUI.Text(card, d.Recommendation?.Variant ?? d.Group, 12, coverHeight + 86, cellW - 24, 22, 14, FightUI.Muted);
                     FightUI.Line(card, 12, coverHeight + 111, cellW - 24, FightUI.Border);
                     FightUI.Text(card, "主 " + deck.Main.Count + "   额外 " + deck.Extra.Count + "   副 " + deck.Side.Count,
@@ -383,12 +383,12 @@ namespace MDPro3.UI.Client
                 var c = FightUI.Scroll(deckPreview, 8, 70, w - 16, previewHeight, 500);
                 float artHeight = Compact ? 64 : 176;
                 FightUI.Art(c, d.Recommendation?.CoverCard ?? DeckLibrary.CoverFor(deck), 10, 0, w - 36, artHeight);
-                var title = FightUI.Text(c, d.Name, 10, artHeight + (Compact ? 10 : 12), w - 36, 96, Compact ? 23 : 27, FightUI.Foreground);
+                var title = FightUI.RawText(c, d.Recommendation != null ? FightText.Get(d.Name) : d.Name, 10, artHeight + (Compact ? 10 : 12), w - 36, 96, Compact ? 23 : 27, FightUI.Foreground);
                 title.enableWordWrapping = true; title.enableAutoSizing = true;
                 title.fontSizeMin = Compact ? 20 : 23; title.fontSizeMax = Compact ? 23 : 27;
-                float titleHeight = Mathf.Clamp(title.GetPreferredValues(d.Name, w - 36, float.PositiveInfinity).y + 6, 34, 92);
+                float titleHeight = Mathf.Clamp(title.GetPreferredValues(title.text, w - 36, float.PositiveInfinity).y + 6, 34, 92);
                 title.rectTransform.sizeDelta = new Vector2(w - 36, titleHeight);
-                FightUI.Hint(title.gameObject, d.Name);
+                FightUI.RawHint(title.gameObject, d.Recommendation != null ? FightText.Get(d.Name) : d.Name);
                 float y = artHeight + (Compact ? 14 : 18) + titleHeight;
                 FightUI.Text(c, d.Recommendation != null ? "推荐模板 · 只读" : "我的卡组 · " + d.Group, 10, y, w - 36, 24, 15, FightUI.Muted);
                 y += Compact ? 28 : 44;
@@ -463,7 +463,7 @@ namespace MDPro3.UI.Client
             string name = detailEntry?.Name ?? PersonalName(path);
             bool sameReadingDeck = SameDeckPath(path, detailReadingDeckPath);
             if (!sameReadingDeck) { detailCardReadingPositions.Clear(); detailReadingDeckPath = path; }
-            PageTitle(name);
+            PageTitle(name, detailEntry != null);
             var deck = new Deck(path);
             int cover = detailEntry?.CoverCard ?? DeckLibrary.CoverFor(deck);
             float inspectorWidth = Compact ? 218 : LargeViewport ? 352 : 280, summaryWidth = Compact ? 254 : LargeViewport ? 408 : 336;
@@ -497,7 +497,7 @@ namespace MDPro3.UI.Client
                 var descriptionText = FightUI.Text(summary, description, 16, y, summaryWidth - 32, 360, 18, FightUI.Foreground);
                 descriptionText.lineSpacing = 5; descriptionText.paragraphSpacing = 10;
                 descriptionText.overflowMode = TextOverflowModes.Overflow;
-                float descriptionHeight = descriptionText.GetPreferredValues(description, summaryWidth - 32, float.PositiveInfinity).y + 12;
+                float descriptionHeight = descriptionText.GetPreferredValues(descriptionText.text, summaryWidth - 32, float.PositiveInfinity).y + 12;
                 descriptionText.rectTransform.sizeDelta = new Vector2(summaryWidth - 32, descriptionHeight); y += descriptionHeight + 24;
             }
             if (detailEntry?.Tags.Length > 0)
@@ -564,14 +564,14 @@ namespace MDPro3.UI.Client
             float readingHeight = height - 62;
             var inspector = FightUI.Scroll(detailInspector, 0, 0, width, readingHeight, readingHeight, out var readingScroll);
             var card = CardsManager.Get(code);
-            var name = FightUI.Text(inspector, card.Name, 16, 14, width - 32, 100, Compact ? 21 : 25, FightUI.Foreground);
+            var name = FightUI.RawText(inspector, card.Name, 16, 14, width - 32, 100, Compact ? 21 : 25, FightUI.Foreground);
             float oneLineWidth = name.GetPreferredValues(card.Name, float.PositiveInfinity, float.PositiveInfinity).x;
             if (Compact && oneLineWidth > width - 32 && oneLineWidth <= (width - 32) * 1.12f)
                 name.fontSize = Mathf.Max(19, name.fontSize * (width - 32) / oneLineWidth);
             name.enableWordWrapping = true; name.overflowMode = TextOverflowModes.Overflow;
             float nameHeight = name.GetPreferredValues(card.Name, width - 32, float.PositiveInfinity).y + 6;
             name.rectTransform.sizeDelta = new Vector2(width - 32, nameHeight);
-            FightUI.Hint(name.gameObject, card.Name);
+            FightUI.RawHint(name.gameObject, card.Name);
             float artTop = 14 + nameHeight + 26;
             FightUI.Line(inspector, 16, artTop - 18, width - 32, FightUI.GoldBorder);
             float artWidth = Mathf.Min(width - 56, Compact ? 108 : 176), artHeight = artWidth * 1.46f;
@@ -579,15 +579,15 @@ namespace MDPro3.UI.Client
             float y = artTop + artHeight + 18;
             string type = card.HasType(CardType.Monster) ? card.GetAttributeString() + "  " + card.GetTypeForUI() : card.GetTypeForUI();
             var typeText = FightUI.Text(inspector, type, 16, y, width - 32, 64, 15, FightUI.Muted);
-            float typeHeight = typeText.GetPreferredValues(type, width - 32, float.PositiveInfinity).y + 8;
+            float typeHeight = typeText.GetPreferredValues(typeText.text, width - 32, float.PositiveInfinity).y + 8;
             typeText.rectTransform.sizeDelta = new Vector2(width - 32, typeHeight); y += typeHeight;
             string parameters = EditorCardParameters(card);
             var parameterText = FightUI.Text(inspector, parameters, 16, y, width - 32, 80, 16, FightUI.Gold);
-            float parametersHeight = parameterText.GetPreferredValues(parameters, width - 32, float.PositiveInfinity).y + 10;
+            float parametersHeight = parameterText.GetPreferredValues(parameterText.text, width - 32, float.PositiveInfinity).y + 10;
             parameterText.rectTransform.sizeDelta = new Vector2(width - 32, parametersHeight); y += parametersHeight + 8;
             FightUI.Line(inspector, 16, y - 4, width - 32);
             FightUI.Text(inspector, "卡片效果", 16, y + 4, width - 32, 28, 15, FightUI.Gold); y += 40;
-            var text = FightUI.Text(inspector, card.Desc, 16, y, width - 38, 800, Compact ? 16 : 18, FightUI.Foreground);
+            var text = FightUI.RawText(inspector, card.Desc, 16, y, width - 38, 800, Compact ? 16 : 18, FightUI.Foreground);
             text.lineSpacing = 5; text.paragraphSpacing = 8;
             text.overflowMode = TextOverflowModes.Overflow;
             float textHeight = text.GetPreferredValues(card.Desc, width - 38, float.PositiveInfinity).y + 12;
@@ -640,7 +640,7 @@ namespace MDPro3.UI.Client
             var card = CardsManager.Get(code);
             float width = Mathf.Min(820, W - 48), height = Mathf.Min(700, H - 48);
             var box = ShowDialog("卡片详情", width, height);
-            var name = FightUI.Text(box, card.Name, 28, 84, width - 56, 100, 24, FightUI.Foreground);
+            var name = FightUI.RawText(box, card.Name, 28, 84, width - 56, 100, 24, FightUI.Foreground);
             name.overflowMode = TextOverflowModes.Overflow; name.lineSpacing = 4;
             float nameHeight = name.GetPreferredValues(card.Name, width - 56, float.PositiveInfinity).y + 8;
             name.rectTransform.sizeDelta = new Vector2(width - 56, nameHeight);
@@ -659,7 +659,7 @@ namespace MDPro3.UI.Client
             FightUI.Text(box, "卡片效果", effectX, top, effectWidth, 30, 17, FightUI.Gold);
             var c = FightUI.Scroll(box, effectX, top + 38, effectWidth, contentHeight - 38, contentHeight - 38, out var scroll);
             scroll.name = "Card detail reading";
-            var text = FightUI.Text(c, card.Desc, 0, 2, effectWidth - 22, 790, 20, FightUI.Foreground);
+            var text = FightUI.RawText(c, card.Desc, 0, 2, effectWidth - 22, 790, 20, FightUI.Foreground);
             text.lineSpacing = 7; text.paragraphSpacing = 10;
             text.overflowMode = TextOverflowModes.Overflow;
             float textHeight = text.GetPreferredValues(card.Desc, effectWidth - 22, float.PositiveInfinity).y + 12;
@@ -758,7 +758,7 @@ namespace MDPro3.UI.Client
         }
         private void DeckActions(ClientDeck d)
         {
-            var box = ShowDialog("卡组操作 · " + d.Name, 620, 530); int row = 0;
+            var box = ShowDialog("卡组操作 · " + FightText.Keep(d.Name), 620, 530); int row = 0;
             Action<string, Action> add = (label, action) =>
             {
                 var actionButton = FightUI.Button(box, label, 28, 86 + row++ * 56, 564, 48, () => { CloseDialog(); Try(action); });
@@ -770,7 +770,7 @@ namespace MDPro3.UI.Client
             add("复制到分组", () => ChooseGroup(d, true));
             add("复制 YDKE 卡组码", () => { GUIUtility.systemCopyBuffer = YdkeConverter.DeckToYdke(new Deck(d.Path)); ShowStatus("YDKE 卡组码已复制"); });
             add("导出 YDK 文件", () => ExportDeck(d));
-            add("删除卡组…", () => Confirm("删除卡组", "删除“" + d.Name + "”？该操作会删除此独立文件。", () => { File.Delete(d.Path); UpdateDeckReferences(d.Path, null); selectedPath = null; Rebuild(); ShowStatus("已删除卡组"); }));
+            add("删除卡组…", () => Confirm("删除卡组", "删除“" + FightText.Keep(d.Name) + "”？该操作会删除此独立文件。", () => { File.Delete(d.Path); UpdateDeckReferences(d.Path, null); selectedPath = null; Rebuild(); ShowStatus("已删除卡组"); }));
         }
         private void ChooseGroup(ClientDeck d, bool copy)
         {

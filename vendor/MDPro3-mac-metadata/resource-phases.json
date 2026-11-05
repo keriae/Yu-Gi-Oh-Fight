@@ -235,7 +235,6 @@
   "current_phase": null,
   "download_workers": 8,
   "batch_size": 2000,
-  "build_complete_after_verification": true,
   "full_file_verification": {
     "scope": "full",
     "checked_files": 48347,

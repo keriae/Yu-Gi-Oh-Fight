@@ -12,7 +12,7 @@ import zipfile
 import importlib.util
 import argparse
 
-from source_build_state import build_transaction, validate_generation
+from source_build_state import build_transaction, game_source_paths, validate_generation
 from client_ui_assets import content_hashes as client_ui_hashes
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -115,7 +115,7 @@ def compile_generation(output: Path, ui_proof: bool = False) -> None:
     references = output / "references"
     netstandard = ROOT / ".tools/dotnet8/packs/NETStandard.Library.Ref/2.1.0/ref/netstandard2.1/netstandard.dll"
     run(DOTNET, ROOT / "tools/SourceReferences/bin/Release/net8.0/SourceReferences.dll", MANAGED, net48, references, netstandard)
-    source_files = sorted(p for p in (ROOT / "game").rglob("*.cs") if "Editor" not in p.relative_to(ROOT / "game").parts)
+    source_files = game_source_paths(ROOT, validation=ui_proof)
     if not source_files or not (ROOT / "game/Generated/MonoScriptRegistration.g.cs").is_file() or not (ROOT / "game/Generated/JobReflectionRegistration.g.cs").is_file():
         raise ValueError("Complete game sources and the reconstructed Unity registrations are required.")
     inputs, adjustments, hashes = [], [], {}

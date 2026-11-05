@@ -106,6 +106,18 @@ namespace MDPro3
             return original;
         }
 
+        /// <summary>Reads a translation without adding unknown client copy to the installed catalog.</summary>
+        public static bool TryGet(string original, out string translated, int type = 0)
+        {
+            if (original != null && GetTranslations(type).TryGetValue(original, out translated))
+            {
+                translated = translated.Replace(CONFIG_LINE_BREAK, Program.STRING_LINE_BREAK).Replace(STRING_EMPTY, string.Empty);
+                return true;
+            }
+            translated = original;
+            return false;
+        }
+
         public static string Get(string original, string replace, int type = 0)
         {
             return Get(original, type).Replace("[?]", replace);

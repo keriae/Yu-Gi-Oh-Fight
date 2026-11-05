@@ -21,7 +21,7 @@ import sys
 import tempfile
 
 from native_server_host import HOST_PATH, verify_host
-from source_build_state import atomic_exchange, source_snapshot, validate_generation
+from source_build_state import atomic_exchange, game_source_paths, source_snapshot, validate_generation
 from client_ui_assets import content_hashes as client_ui_hashes
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -103,8 +103,7 @@ def bound_file(root: Path, relative: str) -> Path:
 
 def current_sources() -> dict:
     return {path.relative_to(ROOT / "game").as_posix(): digest(path)
-            for path in (ROOT / "game").rglob("*.cs")
-            if "Editor" not in path.relative_to(ROOT / "game").parts}
+            for path in game_source_paths(ROOT)}
 
 
 def source_and_resources(snapshot: Path, manifest: dict, client: Path) -> None:
@@ -252,10 +251,7 @@ def main() -> None:
                 shutil.copy2(snapshot / ("Assembly-CSharp." + extension), client / MANAGED)
             shutil.copy2(snapshot / "manifest.json", updated / "Source-Build.json")
             shutil.copy2(snapshot / "compatibility.json", updated / "compatibility.json")
-            for name in ("README.md", "THIRD_PARTY_NOTICES.md"):
-                shutil.copy2(ROOT / name, updated / name)
-            shutil.rmtree(updated / "docs")
-            shutil.copytree(ROOT / "docs", updated / "docs")
+            builder.package_documents(updated)
             info_path = contents / "Info.plist"
             info = plistlib.loads(info_path.read_bytes())
             require(info.get("CFBundleIdentifier") == builder.IDENTIFIER
@@ -265,7 +261,7 @@ def main() -> None:
             info["CFBundleVersion"] = str(int(version) + 1)
             info_path.write_bytes(plistlib.dumps(info, sort_keys=False))
             runtime_path = work / "source-runtime.json"
-            run(sys.executable, ROOT / "scripts/test-mdpro3-source-runtime.py", "--client", client,
+            run(sys.executable, ROOT / "scripts/verify-source-runtime.py", "--client", client,
                 "--assembly", client / MANAGED / "Assembly-CSharp.dll", "--manifest", snapshot / "manifest.json",
                 "--output", runtime_path)
             runtime = read(runtime_path)

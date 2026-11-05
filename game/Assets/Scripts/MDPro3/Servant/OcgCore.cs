@@ -261,6 +261,7 @@ namespace MDPro3.Servant
         {
             servantUI.gameObject.SetActive(true);
             servantUI.Show(true);
+            Program.instance.ui_.chatPanel.Hide();
             var ui = servantUI as OcgCoreUI;
             ui.CG.alpha = 0f;
             ui.CG.blocksRaycasts = false;
@@ -298,7 +299,7 @@ namespace MDPro3.Servant
 
         public override void PerFrameFunction()
         {
-            if (!showing)
+            if (!showing || MDPro3.UI.Client.FightDuelMenu.BlocksInput)
                 return;
 
             if (DuelBGManager == null)
@@ -400,13 +401,7 @@ namespace MDPro3.Servant
                 DuelBGManager.HideTargetLines();
             }
 
-            if ((UserInput.WasCancelPressed
-                || UserInput.WasSubmitPressed))
-            {
-                ToChat();
-            }
-
-            if (Program.instance.ui_.chatPanel.showing || inputMode)
+            if (inputMode)
                 return;
 
             if (Keyboard.current != null)
@@ -525,9 +520,7 @@ namespace MDPro3.Servant
 
         public void ToChat()
         {
-            if (condition == Condition.Replay || inPuzzle)
-                return;
-            Program.instance.ui_.chatPanel.Switch();
+            Program.instance.ui_.chatPanel.Hide();
         }
 
 #endregion
@@ -680,6 +673,16 @@ namespace MDPro3.Servant
                 InterString.Get("否")
             };
             UIManager.ShowPopupYesOrNo(selections, ActionSurrender, ActionCancelSurrender);
+        }
+
+        internal void ConfirmAuxiliaryExit()
+        {
+            if (condition == Condition.Duel && !Program.instance.room.duelEnded)
+            {
+                RoomServant.JoinWithReconnect = false;
+                ActionSurrender();
+            }
+            else OnDuelResultConfirmed(true);
         }
 
         private void ActionSurrender()

@@ -75,7 +75,7 @@ namespace MDPro3.UI.Client
                     {
                         var description = FightUI.Text(row, detail, textX, detailY, rowWidth - textX - 40, 60, 16, FightUI.Muted);
                         description.richText = false; description.raycastTarget = false; description.overflowMode = TextOverflowModes.Overflow;
-                        detailHeight = description.GetPreferredValues(detail, rowWidth - textX - 40, float.PositiveInfinity).y + 4;
+                        detailHeight = description.GetPreferredValues(description.text, rowWidth - textX - 40, float.PositiveInfinity).y + 4;
                         description.rectTransform.sizeDelta = new Vector2(rowWidth - textX - 40, detailHeight);
                     }
                     float rowHeight = Mathf.Max(112, detailY + detailHeight + 16);
@@ -85,7 +85,7 @@ namespace MDPro3.UI.Client
                     FightUI.Icon(row, selected ? "check" : "arrow", rowWidth - 34, (rowHeight - 22) / 2, 22, 22, FightUI.Gold);
                     BindHomeCard(row, () => { selectedBot = index; CloseDialog(); Rebuild(); });
                     FightUI.FocusKey(row.GetComponent<Button>(), "cpu:opponent:" + index);
-                    FightUI.Hint(row.gameObject, bot.name + (detail.Length > 0 ? "\n" + detail : ""));
+                    FightUI.Hint(row.gameObject, FightText.Keep(bot.name) + (detail.Length > 0 ? "\n" + detail : ""));
                     y += rowHeight + 12;
                 }
                 if (matches.Length == 0)

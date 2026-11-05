@@ -27,6 +27,7 @@ LAUNCHER_SOURCE = "Sources/IndependentGameBootstrap.swift"
 LAUNCHER_ARCHITECTURES = ("arm64", "x86_64")
 LAUNCHER_SWIFT_VERSION = "6"
 LAUNCHER_MINIMUM_MACOS = "13.0"
+RELEASE_DOCUMENTS = ("README.md", "THIRD_PARTY_NOTICES.md", "COPYRIGHT.md", "docs/BUILDING.md", "docs/ASSETS.md")
 
 
 def file_digest(path: Path) -> str:
@@ -50,6 +51,21 @@ def launcher_build_record() -> dict:
             "architectures": list(LAUNCHER_ARCHITECTURES),
             "swift_version": LAUNCHER_SWIFT_VERSION,
             "minimum_macos": LAUNCHER_MINIMUM_MACOS}
+
+
+def package_documents(resources: Path) -> None:
+    """Only install public documentation and retained component notices."""
+    docs = resources / "docs"
+    if docs.exists():
+        shutil.rmtree(docs)
+    for relative in RELEASE_DOCUMENTS:
+        target = resources / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / relative, target)
+    licenses = resources / "licenses"
+    licenses.mkdir(exist_ok=True)
+    for source in (ROOT / "vendor/Mono-LICENSE.txt", ROOT / "content/ai/tokenizers/LICENSE.tiktoken"):
+        shutil.copy2(source, licenses / source.name)
 
 
 def copy_client(source: Path, destination: Path) -> None:
@@ -173,13 +189,11 @@ def main() -> None:
             shutil.copy2(manifest_path, resources / "Source-Build.json")
             shutil.copy2(snapshot / "compatibility.json", resources / "compatibility.json")
             (resources / "Launcher-Build.json").write_text(json.dumps(launcher_build_record(), indent=2) + "\n")
-            for path in (ROOT / "README.md", ROOT / "THIRD_PARTY_NOTICES.md"):
-                shutil.copy2(path, resources)
-            shutil.copytree(ROOT / "docs", resources / "docs")
+            package_documents(resources)
             # The copied native bundle's resource signature is stale after replacing
             # its assembly and Info.plist. Sign before dyld loads its Mono runtime.
             run("codesign", "--force", "--sign", "-", "--timestamp=none", native)
-            run(sys.executable, ROOT / "scripts/test-mdpro3-source-runtime.py", "--client", client,
+            run(sys.executable, ROOT / "scripts/verify-source-runtime.py", "--client", client,
                 "--assembly", managed / "Assembly-CSharp.dll", "--manifest", manifest_path,
                 "--output", ROOT / "artifacts/mdpro3-source-runtime-packaged.json")
             for path in (contents / "MacOS" / EXECUTABLE_NAME, app):

@@ -647,7 +647,7 @@ namespace MDPro3.UI.ServantUI
 
         public void OnAttachedEffect()
         {
-            CardList.SwitchForAttachedEffects();
+            MDPro3.UI.Client.FightDuelMenu.ToggleEffects();
         }
 
         public void SwitchAttachedEffectState()
@@ -669,7 +669,7 @@ namespace MDPro3.UI.ServantUI
 
         public void OnSetting()
         {
-            Program.instance.ShowSubServant(Program.instance.setting);
+            MDPro3.UI.Client.FightDuelMenu.OpenSettings();
         }
 
         private bool bgDetailShowing;
@@ -766,9 +766,7 @@ namespace MDPro3.UI.ServantUI
 
         public void ToChat()
         {
-            if (condition == Condition.Replay || inPuzzle)
-                return;
-            Program.instance.ui_.chatPanel.Switch();
+            Program.instance.ui_.chatPanel.Hide();
         }
 
         #endregion
