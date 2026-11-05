@@ -103,7 +103,7 @@ local prompt budgeting. Its original MIT notice is also retained as
 ### Brotli decoder
 
 Source: [google/brotli](https://github.com/google/brotli).
-Copyright 2015 Google Inc. All Rights Reserved.
+Copyright 2015, 2017 Google Inc. All Rights Reserved.
 
 The C# decoder retained under `game/Assets/Tools/AssetStudio/Brotli/` declares
 the MIT license in its source headers.

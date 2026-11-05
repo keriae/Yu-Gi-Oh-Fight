@@ -457,7 +457,7 @@ namespace MDPro3.UI.Client
             {
                 var label = SettingsFieldLabel(parent, field.Label, 0, y + 2, labelWidth, 44);
                 var number = ParseStoredFloat(value); var display = value.StartsWith("invalid:", StringComparison.Ordinal) ? value.Substring(8) : number.ToString("0.###", CultureInfo.InvariantCulture);
-                if (field.Min == field.Max) display = "关闭";
+                if (field.Min == field.Max) display = FightText.Get("关");
                 Slider slider = null; TMP_InputField input = null;
                 var hint = SettingsWrappedText(parent, SettingsNumberHint(field, number), controlX, y + 50, controlWidth, 26, 15, FightUI.Muted);
                 hint.name = "Setting feedback " + field.Key;
@@ -547,7 +547,7 @@ namespace MDPro3.UI.Client
                 int index = (int)number;
                 if (field.Key == "Quality" && index >= 0 && index <= 5) current = new[] { "非常低", "低", "中等", "高", "非常高", "极致" }[index];
                 if (field.Key == "Shadow" && index >= 0 && index <= 4) current = new[] { "非常低", "低", "中等", "高", "非常高" }[index];
-                if (field.Key == "AAA" && index >= 0 && index <= 5) current = new[] { "关闭", "FXAA", "SMAA 低", "SMAA 中", "SMAA 高", "TAA" }[index];
+                if (field.Key == "AAA" && index >= 0 && index <= 5) current = new[] { "关", "FXAA", "SMAA 低", "SMAA 中", "SMAA 高", "TAA" }[index];
             }
             return current ?? "";
         }

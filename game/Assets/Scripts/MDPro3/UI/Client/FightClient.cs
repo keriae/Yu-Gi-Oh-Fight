@@ -781,13 +781,27 @@ namespace MDPro3.UI.Client
             string[] labels = { "首页", "卡组", "学院", "回放", "收藏" };
             string[] routes = { "home", "decks", "academy", "replays", "collection" };
             float nx = playX + playW + Gap * 1.5f, nw = Compact ? 110 : LargeViewport ? 144 : 160;
+            float utilityX = W - Gap - (Compact ? 126 : LargeViewport ? 148 : 176);
+            string language = Language.GetConfig();
+            bool nonChinese = language != Language.SimplifiedChinese && language != Language.TraditionalChinese && language != "zh-SC";
+            if (nonChinese) nw = Mathf.Min(nw + 20, (utilityX - 8 - nx) / labels.Length);
+            float navFontSize = Compact ? 22 : LargeViewport ? 24 : 27;
             for (int i = 0; i < labels.Length; i++)
             {
                 var route = routes[i]; var b = FightUI.Button(top, labels[i], nx + nw * i + 3, 22, nw - 6, Header - 42,
                     () => Navigate(route));
                 b.GetComponent<Image>().color = Color.clear; b.GetComponent<Outline>().enabled = false;
                 FightUI.FocusKey(b, "navigation:" + route);
-                foreach (var t in b.GetComponentsInChildren<TextMeshProUGUI>()) { t.fontSize = Compact ? 22 : LargeViewport ? 24 : 27; t.characterSpacing = Compact ? 1.5f : 2; t.color = ActiveSection() == route ? FightUI.Active : FightUI.Muted; }
+                foreach (var t in b.GetComponentsInChildren<TextMeshProUGUI>())
+                {
+                    t.fontSize = navFontSize; t.characterSpacing = nonChinese ? .4f : Compact ? 1.5f : 2;
+                    t.color = ActiveSection() == route ? FightUI.Active : FightUI.Muted;
+                    if (nonChinese)
+                    {
+                        t.enableWordWrapping = false; t.enableAutoSizing = true;
+                        t.fontSizeMax = navFontSize; t.fontSizeMin = 14;
+                    }
+                }
                 if (ActiveSection() == route)
                 {
                     b.GetComponent<Image>().color = new Color(.14f, .20f, .23f, .3f);
@@ -795,7 +809,7 @@ namespace MDPro3.UI.Client
                     FightUI.Icon(top, "diamond", nx + nw * i + nw / 2 - 7, Header - 27, 14, 14, FightUI.Active);
                 }
             }
-            FightUI.Panel(top, W - Gap - (Compact ? 126 : LargeViewport ? 148 : 176), Header * .32f,
+            FightUI.Panel(top, utilityX, Header * .32f,
                 1, Header * .36f, FightUI.Border, false, "Utility divider").GetComponent<Image>().raycastTarget = false;
             float iconW = Compact ? 52 : LargeViewport ? 60 : 72, iconSize = Compact ? 28 : LargeViewport ? 32 : 40;
             HeaderIcon(top, "设置", "settings", W - Gap - iconW * 2 - (Compact ? 10 : 24), iconW, iconSize, () => OpenSettings(), ActiveSection() == "settings");

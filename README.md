@@ -1,49 +1,100 @@
+<div align="center">
+
 # Yu-Gi-Oh! Fight
 
-基于 `../masterduel` 的本地游戏重构。菜单、卡组、学院、回放、收藏和设置使用统一的暗蓝、古金与青蓝视觉系统；对局内卡文、控制按钮、教学指导和 AI 状态栏也提供配套精修。对局规则、场地、真实卡图与原生操作继续使用 MDPro3 实现。设计图用于风格参考，实际卡库、教程和对局数据来自原项目。
+**Build your deck. Learn your opening. Challenge an AI duelist.**
 
-## 构建与启动
+A community-made desktop dueling client with a cohesive interface, guided practice, customizable AI duelists, and real duel replays.
 
-macOS 13+，Apple Silicon / Intel。开发构建需要 Xcode Command Line Tools 和 Python 3，工具脚本会准备固定 .NET 8 / Mono.Cecil 依赖。游戏安装包包含运行时，运行不需要 Unity Editor 或 .NET。
+[English](#play-your-way) · [简体中文](#中文) · [Build from source](docs/BUILDING.md) · [Copyright & credits](THIRD_PARTY_NOTICES.md)
+
+</div>
+
+[![Yu-Gi-Oh! Fight — gameplay preview](docs/media/preview.jpg)](docs/media/launch-trailer.mp4)
+
+**[Watch the trailer with game audio](docs/media/launch-trailer.mp4)** · **[Watch a complete recorded duel](docs/media/full-duel.mp4)**
+
+## Play your way
+
+- **Make a deck your own.** Browse classic and competitive builds, organize your collection, search the card pool, inspect card text, and edit your Main, Extra, and Side Decks.
+- **Learn by playing.** Explore 52 academy decks with opening-hand exercises, step-by-step combo guides, authentic demonstration replays, and puzzle challenges.
+- **Meet your AI duelists.** Create separate profiles with their own model, endpoint, credentials, and appearance. Play against an AI, watch two AI profiles duel, or practice against the local computer opponents.
+- **Keep the duel in focus.** Read the duel log, inspect attached effects, adjust sound and presentation, and view your deck through the same dark-blue, gold, and cyan interface. The duel screen stays free of the chat window.
+- **Replay and review.** Watch saved duels with pause, speed controls, card inspection, and the available replay perspectives.
+- **Personalize the experience.** Choose avatars, frames, sleeves, fields, mates, characters, and voice settings. Interface and card languages can be selected separately.
+
+AI duels use a user-configured Responses-compatible service and may incur that provider's usage charges. Local computer opponents and academy exercises do not require an AI API key.
+
+## Get started
+
+The current distribution target is **macOS 13 or later**. The packaged app includes its runtime; players do not need Unity Editor or .NET.
+
+For a source build, install Python 3 and Xcode Command Line Tools, then run:
 
 ```sh
-python3 prepare-dependencies.py --from ../masterduel
+python3 prepare-dependencies.py
 python3 build.py --open
 ```
 
-也可省略 `--from`，按原项目的固定发行清单下载所需资源。`--from` 只读取原项目，将缺失的运行时和工具链克隆到本项目，已经存在的目录不替换。检查依赖用 `python3 prepare-dependencies.py --check`。
+The app is generated at `dist/Yu-Gi-Oh! Fight.app`. Dependency downloads are pinned and verified. See [the build guide](docs/BUILDING.md) for reusing an existing runtime, code updates, and optional archives. Other platforms are not validated by this project.
 
-应用输出为 `dist/Yu-Gi-Oh! Fight.app`。只编译 C# 用 `python3 build.py --code-only`。完整构建保留原发行 SHA-256、程序集兼容检查、原生规则和真实 Mono 加载验证，最后签名并原子发布应用。
+Your decks, replays, settings, and remembered AI credentials live in `~/Library/Application Support/Yu-Gi-Oh! Fight/`. They are separate from the repository and the app bundle. To preview importing an older MDPro3 Offline save, run `python3 scripts/import-legacy-state.py`; add `--apply` to copy missing files while preserving existing saves. Credentials are excluded from imports unless explicitly requested.
 
-已有成功构建时，可在编译后运行 `python3 scripts/update-mdpro3-code.py` 更新应用中的程序集并重新签名。该命令校验源码、资源和旧应用清单；修改资源、启动器或原生服务后应执行完整构建。
+## Languages
 
-原生 UI 验收使用 `python3 build.py --code-only --ui-proof`，测试代码集中在 `Client/Validation/`。普通构建排除验收入口与布局调试代码，更新器拒绝验收程序集。最终验收、交付核对和中间产物清理命令见 [最终交付记录](docs/CLIENT_UX_REFINEMENT.md)。最终应用为 `dist/Yu-Gi-Oh! Fight.app`，直接启动即可；压缩分享是可选操作，大型运行时和构建产物不提交 Git。
+The redesigned client includes English, Simplified Chinese, and Traditional Chinese text, including academy material. The upstream runtime provides ten standard locales for its interface and card data. Other locales use upstream translations where available and English for new client text. First launch follows the system language when supported; saved language choices are preserved. Card availability and translation coverage depend on the installed upstream language resources.
 
-## AI 分身与对战准备
+## Source and credits
 
-在「设置 → AI 分身」中新建多个决斗者，分别配置模型、服务、密钥和外观；已有分身可复制后独立修改。外观包含头像、头像框、卡套、场地、伙伴、角色、墓地、底座与卡盒。切换分身时会保护未保存的修改。旧版共享 AI 配置会作为默认分身保留。
+The client builds on **MDPro3** and its matching duel engine and runtime. This repository contains the editable client sources, independent UI artwork, academy content, a macOS launcher, and reproducible build tooling. Large runtime downloads, build products, personal data, and local acceptance scripts are excluded from Git.
 
-AI 对战准备页点击头像或名称选择分身，点击卡组封面选择构筑，点击中央 VS 进入对战。AI 对 AI 的双方使用各自的 AI 配置和外观。电脑对战也使用中央 VS 与直接卡组选择。新增功能及验证记录见 [AI 分身与 VS 入口](docs/AI_DUELIST_PROFILES.md)。
+| Location | Contents |
+| --- | --- |
+| `game/Assets/Scripts/MDPro3/` | Client and duel integration |
+| `content/client-ui/` | Artwork and client translations |
+| `content/deck-academy/` | Decks, exercises, guides, and replay data |
+| `Sources/`, `native/` | macOS launcher and native bridges |
+| `scripts/`, `tools/` | Build, resource, and release verification tools |
+| `docs/` | Build notes, asset provenance, and gameplay media |
 
-## 存档与迁移
+**An unofficial community project by [keriae](https://github.com/keriae).** It is not affiliated with or endorsed by Konami. Yu-Gi-Oh! names, cards, characters, and third-party assets remain the property of their respective rights holders. This project does not relicense them. Read [COPYRIGHT.md](COPYRIGHT.md), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and [asset provenance](docs/ASSETS.md) before redistributing code or assets.
 
-新版使用 `~/Library/Application Support/Yu-Gi-Oh! Fight/`，不会自动改动旧版 `MDPro3 Offline` 存档。旧卡组、录像、残局、自定义图片和常用设置可显式导入：
+---
+
+## 中文
+
+**构筑自己的卡组，练习起手展开，与 AI 决斗者对战。**
+
+Yu-Gi-Oh! Fight 是基于 MDPro3 的非官方桌面决斗客户端。首页、卡组、学院、回放、收藏、设置以及对战菜单统一采用暗蓝、古金与青蓝视觉，保留真实卡图、原生规则和对战演出。
+
+[观看带游戏声音的宣传视频](docs/media/launch-trailer.mp4) · [观看完整对战录屏](docs/media/full-duel.mp4)
+
+### 主要功能
+
+- **卡组构筑**：浏览经典与竞技推荐，管理分组，搜索卡池，阅读卡文，编辑主卡组、额外卡组和副卡组。
+- **学习与练习**：52 套学院卡组，固定起手练习、逐步展开指导、真实示范录像与残局挑战。
+- **AI 分身对战**：为不同分身单独配置模型、服务、密钥和外观；支持玩家对 AI、AI 对 AI 观战及本地电脑对战。
+- **精细对战菜单**：日志、附加效果、设置、卡组查看和相关弹窗融入现有界面；对战时移除聊天窗口。
+- **录像复盘**：暂停、加速、查看卡片，以及录像支持的不同观看视角。
+- **外观与多语言**：头像、头像框、卡套、场地、伙伴、角色与语音设置；界面语言和卡片语言分别选择。
+
+AI 对战需要自行配置兼容 Responses 的服务，费用由对应服务收取。本地电脑对战和学院练习不需要 AI 密钥。
+
+### 构建与存档
+
+当前支持 **macOS 13+**，安装包自带运行时，运行无需 Unity Editor 或 .NET。源码构建需要 Python 3 与 Xcode Command Line Tools：
 
 ```sh
-python3 scripts/import-legacy-state.py
-python3 scripts/import-legacy-state.py --apply
+python3 prepare-dependencies.py
+python3 build.py --open
 ```
 
-第一条仅预览。第二条复制缺失的个人文件，遇到同名文件保留新版内容，并保存 `Legacy-Import.json` 清单。首次启动前导入可同时带入旧设置；启动后的同名设置仍保留新版值。请关闭两版游戏后导入。AI 密钥默认不导入；如需复制已记住的密钥，加 `--include-credentials`，输出不会显示密钥内容。
+输出为 `dist/Yu-Gi-Oh! Fight.app`。完整步骤、依赖复用与更新说明见[构建文档](docs/BUILDING.md)。本项目尚未验证其他平台。
 
-## 源码与资源
+运行数据保存在 `~/Library/Application Support/Yu-Gi-Oh! Fight/`，不会进入仓库或安装包。旧版存档可用 `python3 scripts/import-legacy-state.py` 预览导入；加 `--apply` 仅复制缺失文件，保留现有数据，默认不导入密钥。
 
-- `game/Assets/Scripts/MDPro3/`：游戏源码及新版客户端 UI；Unity 绑定类型和字段保留兼容性。
-- `content/client-ui/`：新版主视觉、探索插画及独立品牌字标，构建时安装到 `Client/Data/ClientUI/`，每个文件写入打包哈希清单。素材使用 gpt-image-2 生成，提示词及生成方法见 [素材说明](docs/CLIENT_ART.md)。
-- `content/deck-academy/`：推荐卡组、52 套教程、固定起手练习和真实展开录像。
-- `scripts/`、`tools/`、`native/`、`Sources/`：继承的源码编译、原生服务、检查及 macOS 启动器。
-- `vendor/MDPro3-release-source/`：固定上游源码归档和引用包；大型发行运行时、工具链、构建缓存不提交 Git。
+新版页面和学院材料提供英文、简体中文与繁体中文；上游界面与卡片数据提供十种标准语言，其他语言的新页面文案回退到英文。首次启动按受支持的系统语言选择，保留已有用户的设置；具体卡片翻译取决于安装的上游语言资源。
 
-页面清单见 `docs/ui-design/PAGE_INDEX.md`，本轮跨页面与对局辅助界面的视觉、交互增量见 [客户端 UX/UI 精修](docs/CLIENT_UX_REFINEMENT.md)。新增界面及进入、返回流程的实机验证与底层构建验证分别记录；继承原项目的检查不等于新版所有页面和规则组合都已验证。详见 [迁移说明](docs/MIGRATION.md)、[验证记录](docs/VERIFICATION.md)、[逐页精修审查](docs/UI_POLISH_AUDIT.md) 与 [第三方来源](THIRD_PARTY_NOTICES.md)。
+### 版权与来源
 
-运行 `python3 -m unittest discover -s tests -v` 检查存档导入、资源绑定、并发构建和 AI 配置槽位隔离。这些函数测试在临时目录运行，不替代 Unity 新界面的实机检查。
+本项目由 [keriae](https://github.com/keriae) 维护，属于非官方社区项目，与 Konami 无关联且未获其背书。游戏王商标、卡片、角色及第三方素材的权利归各自权利人；本项目不对这些内容重新授权。源码、原创内容与第三方资源的适用范围见 [COPYRIGHT.md](COPYRIGHT.md)、[第三方说明](THIRD_PARTY_NOTICES.md) 和[素材来源](docs/ASSETS.md)。

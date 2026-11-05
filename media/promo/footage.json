@@ -1,0 +1,158 @@
+{
+  "capture": "Actual game window with recorded game audio; no microphone capture",
+  "capture_canvas_pixels": [
+    1920,
+    1200
+  ],
+  "trailer_fps": 30,
+  "source_captures_may_have_variable_frame_rate": true,
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "codec": "AAC"
+  },
+  "raw_recordings_ignored": true,
+  "framing": "Original captures fill 1920×1200. Final home/menu/replay captures have bottom black padding; the trailer uses top-aligned framing, and full-duel crops only that padding to 1920×1092. The editor and duel log use close views.",
+  "audio_edit": "Original clip audio is retained with short fades. A captured menu theme also plays under paused menu shots and the closing card.",
+  "full_duel": {
+    "source": "full-replay-zh.mp4",
+    "from_seconds": 26,
+    "to_seconds": 149,
+    "output": "docs/media/full-duel.mp4",
+    "crop_pixels": [
+      1920,
+      1092
+    ],
+    "fps": 30,
+    "video_codec": "H.264",
+    "audio": "Original AAC stream copied",
+    "crf": 20,
+    "max_video_bitrate_kbps": 4800
+  },
+  "files": [
+    {
+      "file": "features-zh.mp4",
+      "sha256": "5f76741252073f0929979ffce367c691a10c3d97401dca5e6689bd66076ecb5d",
+      "role": "Personal deck library, deck editor, recorded menu theme for menu and closing scenes",
+      "duration_seconds": 192.07,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 27.326
+    },
+    {
+      "file": "academy-zh.mp4",
+      "sha256": "76a7581cec9e533349af3a15db73d99d3cbb570fb520aaf9aaf115d6dae6d768",
+      "role": "Academy deck library",
+      "duration_seconds": 53.37,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 27.43
+    },
+    {
+      "file": "tutorial-zh.mp4",
+      "sha256": "4a9105dba290b7384d44dd6f87c404c2134aa31c632e960cc59a48c01cadf51b",
+      "role": "Opening hand and tutorial overview",
+      "duration_seconds": 23.495,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 27.532
+    },
+    {
+      "file": "tutorial-step-zh.mp4",
+      "sha256": "d5c18cf9efede53a34ac973549abb9dacc9e47da3741c8e339dbab04b89d1e05",
+      "role": "Individual combo step",
+      "duration_seconds": 14.961667,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 27.604
+    },
+    {
+      "file": "player-vs-ai-zh.mp4",
+      "sha256": "2635494947674f6b6b36caf039c968cd4983280fa19e7655837652084fe96818",
+      "role": "Player-versus-AI preparation",
+      "duration_seconds": 12.716667,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 27.637
+    },
+    {
+      "file": "ai-vs-ai-zh.mp4",
+      "sha256": "a1d9041bf9730d36198fffaef0cc5dc9bda7e54de27c15ce24f2739c60f7af12",
+      "role": "AI-versus-AI preparation",
+      "duration_seconds": 12.866667,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 27.668
+    },
+    {
+      "file": "home-en.mp4",
+      "sha256": "796a31939d8520acea471d0da5c267f62f4b65c739e29ba56040921325b14f1c",
+      "role": "Final English homepage",
+      "duration_seconds": 14.25,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 27.129,
+      "content_height_pixels": 1086
+    },
+    {
+      "file": "menus-zh.mp4",
+      "sha256": "e3eb1307255cb300bca0f68cd07d80ec348c0e46f6f4d1f886260219aa88c736",
+      "role": "Final duel sound settings, attack/damage log and full-card secondary modal",
+      "duration_seconds": 90.315,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 26.473,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "full-replay-zh.mp4",
+      "sha256": "d35ee914a85a9a6ba6e961edce7b870c371e4de5ab73aa78c51dc3caa01facc8",
+      "role": "Saved replay library, real duel actions and complete replay from opening to victory",
+      "duration_seconds": 173.845,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 26.676,
+      "content_height_pixels": 1092
+    }
+  ],
+  "outputs": {
+    "launch-trailer.mp4": {
+      "repository_path": "docs/media/launch-trailer.mp4",
+      "size_bytes": 17401603,
+      "sha256": "d53419f36751cb0fb3eec35f47abf1ddbe82a29a2efbf894067835b442c03281"
+    },
+    "full-duel.mp4": {
+      "repository_path": "docs/media/full-duel.mp4",
+      "size_bytes": 73393027,
+      "sha256": "de10d5cc25e820541a674635a2781b2fcb5f23d43b3c317cdbff842d14883e37"
+    },
+    "preview.jpg": {
+      "repository_path": "docs/media/preview.jpg",
+      "size_bytes": 331217,
+      "sha256": "3c607f90f48df2db8db63e2b2f79db122f2baee72f714d133d238c7f98b47d81"
+    },
+    "launch-trailer.srt": {
+      "repository_path": "docs/media/launch-trailer.srt",
+      "size_bytes": 1377,
+      "sha256": "bc7eea8ed752e6cf0198510887d5728beccd880c0e239f155514f49146796c27"
+    }
+  }
+}

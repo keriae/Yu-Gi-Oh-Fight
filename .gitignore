@@ -27,6 +27,8 @@ vendor/MDPro3-mac-metadata/*
 
 # Local verification scripts and fixtures are intentionally excluded from releases.
 tests/
+game/Assets/**/Test/
+game/Assets/**/Tests/
 scripts/test-*.py
 scripts/ui_test_fixture.py
 game/Assets/Scripts/MDPro3/UI/Client/Validation/
