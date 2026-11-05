@@ -26,6 +26,7 @@ namespace MDPro3.UI.Client
         private float SettingsSidebarWidth => Compact ? 196 : 232;
         private float SettingsWorkspaceInset => Compact ? 24 : 32;
         private float SettingsHeadingHeight => Compact ? 80 : 92;
+        private float SettingsResetWidth => settingsCategory == "duel" ? 210 : 170;
         private const float SettingsActionsHeight = 80;
         private const float AiSettingsPaneGap = 32, AiSettingsFieldHeight = 44, AiSettingsRowHeight = 68, AiSettingsJsonHeight = 176;
         private float SettingsFormWidth(float available, bool advanced) => Mathf.Min(available, advanced ? 1480 : 1080);
@@ -145,7 +146,11 @@ namespace MDPro3.UI.Client
                 var button = categoryButtons[i];
                 FightUI.Place(button.GetComponent<RectTransform>(), 12, headingHeight + 12 + i * 56, sidebar - 24, 46);
                 var label = button.GetComponentInChildren<TextMeshProUGUI>();
-                if (label != null) FightUI.Place(label.rectTransform, 18, 0, sidebar - 60, 46);
+                if (label != null) FightUI.Place(label.rectTransform, 20, 0, sidebar - 86, 46);
+                var categoryKey = button.GetComponent<FightFocusKey>()?.Key;
+                var changes = categoryKey == null ? null
+                    : button.transform.Find("Settings category changes " + categoryKey.Substring("settings:category:".Length)) as RectTransform;
+                if (changes != null) FightUI.Place(changes, sidebar - 58, 0, 26, 46);
             }
             if (settingsLayoutHeading != null)
             {
@@ -159,10 +164,12 @@ namespace MDPro3.UI.Client
             if (settingsLayoutReset != null)
             {
                 bool resetIsButton = settingsLayoutReset.GetComponent<Button>() != null;
-                FightUI.Place(settingsLayoutReset, readerInset, 16, resetIsButton ? 170 : Mathf.Max(150, physicalReaderWidth - 480), resetIsButton ? 48 : 56);
+                FightUI.Place(settingsLayoutReset, readerInset, 16, resetIsButton ? SettingsResetWidth : Mathf.Max(150, physicalReaderWidth - 480), resetIsButton ? 48 : 56);
             }
             FightUI.Place(settingsLayoutCancel, readerInset + physicalReaderWidth - 400, 16, 180, 48);
             FightUI.Place(settingsLayoutSave, readerInset + physicalReaderWidth - 208, 16, 208, 48);
+            if (settingsDataStatusLabel != null)
+                FightUI.Place(settingsDataStatusLabel.rectTransform, readerInset, 16, Mathf.Max(150, physicalReaderWidth - 480), 48);
 
             FightUI.Place(settingsScroll.GetComponent<RectTransform>(), readerX, headingHeight + 12, physicalReaderWidth, viewportHeight);
             FightUI.Place(settingsScroll.viewport, 0, 0, physicalReaderWidth, viewportHeight);

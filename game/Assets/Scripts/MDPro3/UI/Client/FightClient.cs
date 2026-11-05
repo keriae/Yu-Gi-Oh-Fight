@@ -52,7 +52,7 @@ namespace MDPro3.UI.Client
             internal RectTransform Dialog;
         }
         private RefreshFocus refreshingFocus;
-        private TextMeshProUGUI statusText, fpsText;
+        private TextMeshProUGUI statusText, fpsText, contextKeys;
         private string page = "home", status = "准备就绪";
         private string renderedPage;
         private sealed class ClientNavigationState
@@ -62,6 +62,9 @@ namespace MDPro3.UI.Client
         }
         private readonly Dictionary<string, ClientNavigationState> navigationStates = new Dictionary<string, ClientNavigationState>();
         private float statusUntil;
+        private bool statusIsError;
+        private Button statusInspectButton;
+        private FightIcon statusIcon, statusInspectArrow;
         private int oldWidth, oldHeight;
         private bool oldFullscreen;
         private bool wasCore, initialized, synchronizingPresentation, presentationStopping;
@@ -115,7 +118,7 @@ namespace MDPro3.UI.Client
             try
             {
                 academy = DeckAcademy.Load(); recommendations = DeckLibrary.Load();
-                battle = ResponsesAiConfigStore.Load(); cpuDeck = Config.GetConfigDeckName();
+                battle = ReadBattleService(out _, out _); cpuDeck = Config.GetConfigDeckName();
                 var choices = ResponsesDeckLibrary.Load(Program.PATH_DECK);
                 battle.DeckA = choices.ResolveSelection(battle.DeckA) ?? choices.FindCurrentDeck(Config.GetConfigDeckName()) ?? "";
                 battle.DeckB = choices.ResolveSelection(battle.DeckB) ?? "";
@@ -131,6 +134,9 @@ namespace MDPro3.UI.Client
                 initialized = true; Rebuild();
                 Program.instance.menu.returnAction = () => Navigate("home");
                 Debug.Log("[FightClient] ready: " + academy.decks.Count + " tutorials, " + recommendations.Count + " recommendations");
+#if FIGHT_UI_PROOF
+                if (Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1") StartCoroutine(RunClientProof());
+#endif
             }
             catch (Exception error)
             {
@@ -153,6 +159,7 @@ namespace MDPro3.UI.Client
                 fpsText.gameObject.SetActive(Config.GetBool("ShowFPS", true));
                 if (Program.instance.ui_.fps.text != null) fpsText.text = Program.instance.ui_.fps.text.text;
             }
+            RefreshContextKeys();
             if (oldWidth != Screen.width || oldHeight != Screen.height || oldFullscreen != UsesFullscreenLayout)
             {
                 if (oldFullscreen != UsesFullscreenLayout) QueueFullscreenReflow(UsesFullscreenLayout);
@@ -167,14 +174,22 @@ namespace MDPro3.UI.Client
             else if (PreferredViewportWidth != W && Time.unscaledTime - lastPhysicalResize >= .15f
                 && !ViewportInteractionActive()) Rebuild();
             if (page == "editor") TickEditor();
-            if (statusUntil > 0 && Time.unscaledTime > statusUntil) { statusUntil = 0; status = "准备就绪"; if (statusText != null) statusText.text = status; }
-            if (navigationFrame != Time.frameCount && UserInput.WasCancelPressed && !UserInput.InputFieldActivating())
+            if (statusUntil > 0 && Time.unscaledTime > statusUntil) ResetClientStatus();
+            // Read the action directly: this component is added at runtime and
+            // can update before UserInput has copied this frame's button state.
+            bool cancelPressed = UserInput.PlayerInput != null
+                ? UserInput.PlayerInput.actions["Cancel"].WasPressedThisFrame() : UserInput.WasCancelPressed;
+            if (navigationFrame != Time.frameCount && cancelPressed && !UserInput.InputFieldActivating())
             {
                 if (modal != null) CloseDialog();
                 else if (page != "editor" && !NativeUiInteractionActive())
                 {
                     if (page == "picker") Navigate(pickerOrigin);
-                    else if (page == "tutorial") Navigate(tutorialOrigin);
+                    else if (page == "tutorial") ReturnAcademyDirectory(tutorialOrigin, tutorial);
+                    else if (page == "deck-detail") Navigate(detailOrigin);
+                    else if (page == "puzzle") ReturnAcademyDirectory("puzzles", selectedPuzzle);
+                    else if (page == "settings") Navigate(settingsOrigin ?? "home");
+                    else if (page == "animations" || page == "appearance") Navigate("collection");
                     else if (page == "cpu" || page == "ai" || page == "spectator") Navigate("modes");
                     else if (page == "home") Navigate("exit");
                     else Navigate(page == "editor" ? "decks" : "home");
@@ -460,10 +475,14 @@ namespace MDPro3.UI.Client
             var parent = modal != null ? modal : root;
             var controls = parent.GetComponentsInChildren<Selectable>().Where(s => s.IsInteractable() && s.gameObject.activeInHierarchy)
                 .Where(s => !(s is Scrollbar))
+                .Where(s => s.GetComponent<FightFocusKey>()?.KeyboardTarget == null)
                 .OrderByDescending(s => ClientFocusGroupPosition(s).y).ThenBy(s => ClientFocusGroupPosition(s).x)
                 .ThenByDescending(s => ClientFocusPosition(s).y).ThenBy(s => ClientFocusPosition(s).x).ToArray();
             if (controls.Length == 0 || EventSystem.current == null) return;
-            int index = Array.FindIndex(controls, s => s.gameObject == EventSystem.current.currentSelectedGameObject);
+            var current = EventSystem.current.currentSelectedGameObject;
+            var proxy = current == null ? null : current.GetComponent<FightFocusKey>()?.KeyboardTarget;
+            if (proxy != null) current = proxy.gameObject;
+            int index = Array.FindIndex(controls, s => s.gameObject == current);
             index = index < 0 ? (reverse ? controls.Length - 1 : 0) : (index + (reverse ? -1 : 1) + controls.Length) % controls.Length;
             var selected = controls[index]; selected.Select(); RevealClientControl(selected);
         }
@@ -471,16 +490,34 @@ namespace MDPro3.UI.Client
         {
             foreach (var scroll in selected.GetComponentsInParent<ScrollRect>())
             {
-                if (!scroll.vertical || scroll.content == null || scroll.viewport == null) continue;
-                float range = scroll.content.rect.height - scroll.viewport.rect.height;
-                if (range <= 0) continue;
+                if (scroll.content == null || scroll.viewport == null || !selected.transform.IsChildOf(scroll.content)) continue;
                 var corners = new Vector3[4]; selected.GetComponent<RectTransform>().GetWorldCorners(corners);
-                float top = scroll.content.rect.yMax - scroll.content.InverseTransformPoint(corners[1]).y;
-                float bottom = scroll.content.rect.yMax - scroll.content.InverseTransformPoint(corners[0]).y;
-                float offset = (1 - scroll.verticalNormalizedPosition) * range;
-                if (top < offset + 8) offset = top - 8;
-                else if (bottom > offset + scroll.viewport.rect.height - 8) offset = bottom - scroll.viewport.rect.height + 8;
-                scroll.StopMovement(); scroll.verticalNormalizedPosition = 1 - Mathf.Clamp(offset, 0, range) / range;
+                if (scroll.vertical)
+                {
+                    float range = scroll.content.rect.height - scroll.viewport.rect.height;
+                    if (range > 0)
+                    {
+                        float top = scroll.content.rect.yMax - scroll.content.InverseTransformPoint(corners[1]).y;
+                        float bottom = scroll.content.rect.yMax - scroll.content.InverseTransformPoint(corners[0]).y;
+                        float offset = (1 - scroll.verticalNormalizedPosition) * range;
+                        if (top < offset + 8) offset = top - 8;
+                        else if (bottom > offset + scroll.viewport.rect.height - 8) offset = bottom - scroll.viewport.rect.height + 8;
+                        scroll.StopMovement(); scroll.verticalNormalizedPosition = 1 - Mathf.Clamp(offset, 0, range) / range;
+                    }
+                }
+                if (scroll.horizontal)
+                {
+                    float range = scroll.content.rect.width - scroll.viewport.rect.width;
+                    if (range > 0)
+                    {
+                        float left = scroll.content.InverseTransformPoint(corners[0]).x - scroll.content.rect.xMin;
+                        float right = scroll.content.InverseTransformPoint(corners[3]).x - scroll.content.rect.xMin;
+                        float offset = scroll.horizontalNormalizedPosition * range;
+                        if (left < offset + 8) offset = left - 8;
+                        else if (right > offset + scroll.viewport.rect.width - 8) offset = right - scroll.viewport.rect.width + 8;
+                        scroll.StopMovement(); scroll.horizontalNormalizedPosition = Mathf.Clamp(offset, 0, range) / range;
+                    }
+                }
             }
         }
         private static Vector3 ClientFocusPosition(Selectable control)
@@ -567,7 +604,8 @@ namespace MDPro3.UI.Client
             var panel = ShowDialog("尚有未保存的修改", 640, 290);
             FightUI.Text(panel, "保存后继续，或放弃本次修改。取消会保留全部输入。", 28, 80, 580, 64, 20);
             FightUI.Button(panel, "取消", 28, 208, 160, 48, CloseDialog);
-            FightUI.Button(panel, "放弃修改", 208, 208, 160, 48, () => { if (editor) DiscardEditor(); else DiscardSettings(); NavigateNow(next); });
+            var discard = FightUI.Button(panel, "放弃修改", 208, 208, 160, 48, () => { if (editor) DiscardEditor(); else DiscardSettings(); NavigateNow(next); });
+            FightUI.StyleDestructiveButton(discard);
             FightUI.Button(panel, "保存并继续", 388, 208, 224, 48, () =>
             {
                 if (editor) SaveEditorThen(() => NavigateNow(next));
@@ -576,11 +614,13 @@ namespace MDPro3.UI.Client
         }
         private void NavigateNow(string next)
         {
+#if FIGHT_UI_PROOF
             if (Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1")
                 Debug.Log("[FightProofNavigation] " + page + " -> " + next + " cancel=" + UserInput.WasCancelPressed);
+#endif
             if (next == "@quit") { Program.GameQuit(); return; }
             if (next == "exit") { Navigate("exit"); return; }
-            if (next != page) { status = "准备就绪"; statusUntil = 0; }
+            if (next != page) ResetClientStatus();
             CaptureNavigationState();
             navigationFrame = Time.frameCount;
             if (page == "settings" && next != "settings") CancelSettingsTest();
@@ -645,9 +685,33 @@ namespace MDPro3.UI.Client
             var foot = FightUI.Panel(root, 0, H - Footer, W, Footer, FightUI.PanelColor, false, "Client Footer");
             clientFooter = foot;
             FightUI.Line(foot, 0, 0, W, FightUI.Border);
-            FightUI.Icon(foot, "diamond", Gap + 4, (Footer - (Compact ? 18 : 22)) / 2, Compact ? 18 : 22, Compact ? 18 : 22);
-            statusText = FightUI.Text(foot, status, Gap + (Compact ? 32 : 40), 0, W - Gap * 2 - 200, Footer, Compact ? 16 : 18, FightUI.Muted, TextAlignmentOptions.MidlineLeft);
+            statusIcon = FightUI.Icon(foot, "diamond", Gap + 4, (Footer - (Compact ? 18 : 22)) / 2, Compact ? 18 : 22, Compact ? 18 : 22);
+            float statusX = Gap + (Compact ? 32 : 40), statusWidth = W - Gap - 440 - statusX - 12;
+            statusInspectButton = FightUI.TextAction(foot, "状态提示", statusX, 0, statusWidth, Footer, ShowClientStatusDetails, false);
+            FightUI.FocusKey(statusInspectButton, "client:status-details");
+            var statusColors = statusInspectButton.colors;
+            statusColors.normalColor = statusColors.disabledColor = Color.white;
+            statusColors.highlightedColor = new Color(1.18f, 1.18f, 1.18f);
+            statusColors.selectedColor = Color.white; statusInspectButton.colors = statusColors;
+            statusText = statusInspectButton.GetComponentInChildren<TextMeshProUGUI>();
+            statusText.fontSize = Compact ? 16 : 18; statusText.fontStyle = FontStyles.Normal;
+            statusText.richText = false; statusText.enableWordWrapping = false;
+            FightUI.Place(statusText.rectTransform, 0, 0, statusWidth - 26, Footer);
+            statusInspectArrow = FightUI.Icon(statusInspectButton.transform, "arrow", statusWidth - 20, (Footer - 14) / 2, 14, 14, FightUI.Muted);
+            RefreshFooterStatus();
+            contextKeys = FightUI.Text(foot, "", W - Gap - 440, 0, 264, Footer,
+                Compact ? 13 : 15, FightUI.Muted, TextAlignmentOptions.MidlineRight);
+            contextKeys.raycastTarget = false;
+            RefreshContextKeys();
             fpsText = FightUI.Text(foot, "", W - Gap - 160, 0, 160, Footer, Compact ? 16 : 18, FightUI.Muted, TextAlignmentOptions.MidlineRight);
+        }
+        private void RefreshContextKeys()
+        {
+            if (contextKeys == null) return;
+            bool editing = EventSystem.current != null && UserInput.InputFieldActivating();
+            var value = editing ? "正在输入  ·  Esc 结束编辑"
+                : "Tab 切换焦点  ·  Esc " + (modal != null || NativeUiInteractionActive() ? "关闭" : page == "home" ? "退出" : "返回");
+            if (contextKeys.text != value) contextKeys.text = value;
         }
         private void DrawHeader()
         {
@@ -656,11 +720,21 @@ namespace MDPro3.UI.Client
             FightUI.Line(top, 0, Header - 1, W, FightUI.Border);
             FightUI.Line(top, 0, Header - 2, W * .34f, new Color(.4f, .33f, .20f, .32f));
             var brandW = Compact ? 176 : LargeViewport ? 204 : 240; var playW = Compact ? 184 : LargeViewport ? 220 : 256;
-            FightUI.Asset(top, "brand.png", Gap + (Compact ? 4 : 8), Compact ? 8 : 10, brandW - (Compact ? 8 : 16), Header - (Compact ? 14 : 20), false);
+            var brand = FightUI.Asset(top, "brand.png", Gap + (Compact ? 4 : 8), Compact ? 8 : 10, brandW - (Compact ? 8 : 16), Header - (Compact ? 14 : 20), false);
+            brand.raycastTarget = true;
+            var brandButton = brand.gameObject.AddComponent<Button>(); brandButton.targetGraphic = brand;
+            brandButton.onClick.AddListener(() => Navigate("home"));
+            FightUI.FocusKey(brandButton, "navigation:brand");
+            var brandOutline = brand.gameObject.AddComponent<FightOutline>(); brandOutline.enabled = false;
+            var brandFrameRoot = FightUI.Node(brand.transform, "Brand focus frame", 0, 0, 0, 0); FightUI.Stretch(brandFrameRoot);
+            var brandFrame = brandFrameRoot.gameObject.AddComponent<FightFrame>(); brandFrame.ButtonFrame = true;
+            brandFrame.Bind(brandOutline);
+            brand.gameObject.AddComponent<FightButtonFeedback>().Bind(brandFrame);
+            FightUI.Hint(brand.gameObject, "返回首页");
             float playX = brandW + Gap * 2, playH = Compact ? 56 : LargeViewport ? 60 : 72, playY = (Header - playH) / 2;
-            var play = FightUI.Button(top, "◇  开始决斗", playX, playY, playW, playH, () => Navigate("modes"));
+            var play = FightUI.Button(top, "◇  开始决斗", playX, playY, playW, playH, () => Navigate("modes"), true);
             play.GetComponent<Image>().sprite = FightSkin.ActionSurface; play.GetComponent<Image>().color = FightUI.ActionFill;
-            play.GetComponent<Outline>().effectColor = FightUI.Active;
+            play.GetComponent<Outline>().effectColor = FightUI.Cyan;
             float duelIcon = Compact ? 30 : LargeViewport ? 34 : 44;
             FightUI.Icon(play.transform, "duel", Compact ? 14 : 20, (playH - duelIcon) / 2, duelIcon, duelIcon, FightUI.Active);
             var playText = play.GetComponentInChildren<TextMeshProUGUI>(); playText.text = "开始决斗"; playText.fontSize = Compact ? 26 : LargeViewport ? 28 : 34; playText.fontStyle = FontStyles.Bold;
@@ -674,13 +748,17 @@ namespace MDPro3.UI.Client
                 var route = routes[i]; var b = FightUI.Button(top, labels[i], nx + nw * i + 3, 22, nw - 6, Header - 42,
                     () => Navigate(route));
                 b.GetComponent<Image>().color = Color.clear; b.GetComponent<Outline>().enabled = false;
+                FightUI.FocusKey(b, "navigation:" + route);
                 foreach (var t in b.GetComponentsInChildren<TextMeshProUGUI>()) { t.fontSize = Compact ? 22 : LargeViewport ? 24 : 27; t.characterSpacing = Compact ? 1.5f : 2; t.color = ActiveSection() == route ? FightUI.Active : FightUI.Muted; }
                 if (ActiveSection() == route)
                 {
+                    b.GetComponent<Image>().color = new Color(.14f, .20f, .23f, .3f);
                     FightUI.Line(top, nx + nw * i + 14, Header - 20, nw - 28, FightUI.GoldBorder);
                     FightUI.Icon(top, "diamond", nx + nw * i + nw / 2 - 7, Header - 27, 14, 14, FightUI.Active);
                 }
             }
+            FightUI.Panel(top, W - Gap - (Compact ? 126 : LargeViewport ? 148 : 176), Header * .32f,
+                1, Header * .36f, FightUI.Border, false, "Utility divider").GetComponent<Image>().raycastTarget = false;
             float iconW = Compact ? 52 : LargeViewport ? 60 : 72, iconSize = Compact ? 28 : LargeViewport ? 32 : 40;
             HeaderIcon(top, "设置", "settings", W - Gap - iconW * 2 - (Compact ? 10 : 24), iconW, iconSize, () => OpenSettings(), ActiveSection() == "settings");
             HeaderIcon(top, "退出", "exit", W - Gap - iconW, iconW, iconSize, () => Navigate("exit"), false);
@@ -702,10 +780,58 @@ namespace MDPro3.UI.Client
             if (page == "cpu" || page == "ai" || page == "spectator") return "modes";
             return page;
         }
-        internal void ShowStatus(string message)
+        private void ResetClientStatus()
         {
-            status = message; statusUntil = Time.unscaledTime + 8; if (statusText != null) statusText.text = message;
-            Debug.Log("[FightClient] " + message);
+            status = "准备就绪"; statusUntil = 0; statusIsError = false;
+            RefreshFooterStatus();
+        }
+        private void RefreshFooterStatus()
+        {
+            if (statusText == null || statusInspectButton == null) return;
+            bool available = statusUntil != 0;
+            statusText.text = status; statusText.color = statusIsError ? FightUI.Danger : FightUI.Muted;
+            statusInspectButton.interactable = available;
+            FightUI.Hint(statusInspectButton.gameObject, available ? "查看完整操作提示" : "");
+            FightUI.Hint(statusText.gameObject, available ? status + "\n单击查看完整提示" : "");
+            if (statusIcon != null) { statusIcon.Kind = statusIsError ? "alert" : "diamond"; statusIcon.color = statusIsError ? FightUI.Danger : FightUI.Gold; }
+            if (statusInspectArrow != null) { statusInspectArrow.gameObject.SetActive(available); statusInspectArrow.color = statusText.color; }
+            var underline = statusInspectButton.transform.Find("Action underline");
+            if (underline != null)
+            {
+                var rect = underline.GetComponent<RectTransform>();
+                rect.sizeDelta = new Vector2(Mathf.Min(statusText.rectTransform.rect.width, statusText.GetPreferredValues(status, float.PositiveInfinity, float.PositiveInfinity).x), 1);
+                underline.GetComponent<Image>().color = statusText.color;
+            }
+        }
+        internal void ShowStatus(string message) => ShowStatus(message, false);
+        internal void ShowStatus(string message, bool error)
+        {
+            status = string.IsNullOrWhiteSpace(message) ? error ? "操作未完成，请重试。" : "准备就绪" : message;
+            statusIsError = error;
+            statusUntil = error ? -1 : Time.unscaledTime + Mathf.Clamp(5 + status.Length * .15f, 8, 20);
+            RefreshFooterStatus();
+            Debug.Log("[FightClient] " + status);
+        }
+        private void ShowClientStatusDetails()
+        {
+            if (statusUntil == 0) return;
+            string message = status; bool error = statusIsError;
+            float width = Mathf.Min(920, W - 48), height = Mathf.Min(560, H - 48);
+            var box = ShowDialog(error ? "操作未完成" : "操作提示", width, height);
+            var text = FightUI.Text(box, message, 28, 88, width - 74, 120, 20, error ? FightUI.Danger : FightUI.Foreground);
+            text.text = message; text.richText = false; text.enableWordWrapping = true; text.overflowMode = TextOverflowModes.Overflow;
+            text.lineSpacing = 4; text.paragraphSpacing = 6; text.name = "Complete operation message";
+            float preferred = text.GetPreferredValues(message, width - 74, float.PositiveInfinity).y + 4;
+            var reading = FightUI.Scroll(box, 28, 88, width - 56, height - 202, preferred);
+            text.rectTransform.SetParent(reading, false);
+            FightUI.Place(text.rectTransform, 0, 0, width - 74, preferred);
+            var copied = FightUI.Text(box, "", 28, height - 105, width - 56, 28, 15, FightUI.CyanText);
+            FightUI.Line(box, 28, height - 116, width - 56);
+            FightUI.Button(box, "复制提示", width - 362, height - 66, 144, 48, () =>
+            {
+                GUIUtility.systemCopyBuffer = message; copied.text = "提示已复制";
+            });
+            FightUI.Button(box, "返回页面", width - 196, height - 66, 168, 48, CloseDialog, true);
         }
         internal RectTransform ShowDialog(string title, float width = 620, float height = 360, bool refresh = false)
         {
@@ -719,6 +845,9 @@ namespace MDPro3.UI.Client
             clientModalBox = box; clientModalSize = new Vector2(width, height);
             box.gameObject.AddComponent<FightPageReveal>();
             var heading = FightUI.Text(box, title, 28, 22, width - 96, 42, 27, FightUI.Active); heading.characterSpacing = 1;
+            heading.text = title; heading.enableWordWrapping = false; heading.enableAutoSizing = true;
+            heading.fontSizeMin = 22; heading.fontSizeMax = 27; heading.maxVisibleLines = 1;
+            FightUI.Hint(heading.gameObject, title);
             FightUI.Line(box, 28, 67, width - 56, FightUI.Border);
             var close = FightUI.Button(box, "×", width - 64, 18, 40, 40, CloseDialog);
             close.GetComponent<Image>().color = Color.clear; close.GetComponent<Outline>().enabled = false;
@@ -758,19 +887,43 @@ namespace MDPro3.UI.Client
         internal void Confirm(string title, string message, Action accepted)
         {
             var box = ShowDialog(title, 620, 280);
-            FightUI.Text(box, message, 28, 88, 560, 94, 20);
-            FightUI.Button(box, "取消", 260, 208, 144, 48, CloseDialog);
-            FightUI.Button(box, "确认", 424, 208, 168, 48, () => { CloseDialog(); Try(accepted); }, true);
+            float width = box.rect.width, readingWidth = width - 56;
+            var body = FightUI.Text(box, message, 28, 88, readingWidth, 94, 20);
+            body.enableWordWrapping = true;
+            float preferred = body.GetPreferredValues(message, readingWidth, float.PositiveInfinity).y + 2;
+            float readingHeight = Mathf.Min(Mathf.Max(94, preferred), H - 234);
+            float height = readingHeight + 186, actionsY = height - 72;
+            FightUI.Place(box, (W - width) / 2, (H - height) / 2, width, height);
+            clientModalSize = new Vector2(width, height);
+            if (preferred > readingHeight)
+            {
+                var reading = FightUI.Scroll(box, 28, 88, readingWidth, readingHeight, preferred);
+                body.rectTransform.SetParent(reading, false);
+                readingWidth -= 22;
+                preferred = body.GetPreferredValues(message, readingWidth, float.PositiveInfinity).y + 2;
+                reading.sizeDelta = new Vector2(reading.rect.width, preferred);
+                FightUI.Place(body.rectTransform, 0, 0, readingWidth, preferred);
+            }
+            else FightUI.Place(body.rectTransform, 28, 88, readingWidth, readingHeight);
+            FightUI.Button(box, "取消", width - 360, actionsY, 144, 48, CloseDialog);
+            string verb = new[] { "删除", "清除", "清空", "重置", "覆盖" }.FirstOrDefault(action => title.StartsWith(action, StringComparison.Ordinal));
+            var confirm = FightUI.Button(box, verb == null ? "确认" : "确认" + verb, width - 196, actionsY, 168, 48,
+                () => { CloseDialog(); Try(accepted); }, verb == null);
+            if (verb != null) FightUI.StyleDestructiveButton(confirm);
         }
-        private void Try(Action action) { try { action?.Invoke(); } catch (Exception e) { ShowStatus(e.Message); Debug.LogWarning("[FightClient] " + e); } }
+        private void Try(Action action) { try { action?.Invoke(); } catch (Exception e) { ShowStatus(e.Message, true); Debug.LogWarning("[FightClient] " + e); } }
         private void PageTitle(string title)
         {
-            var heading = FightUI.Text(Body, title, 0, 2, BodyWidth * .6f, 48, Compact ? 30 : 36, FightUI.Active); heading.fontStyle = FontStyles.Bold; heading.characterSpacing = 1.2f;
+            var heading = FightUI.HeroTitle(Body, title, 0, 2, BodyWidth * .6f, 48, Compact ? 30 : 36);
+            heading.characterSpacing = .8f;
         }
         private void StartCore(Action start)
         {
             coreSourcePage = page;
-            CloseDialog(); CancelSettingsTest(); CleanupCollectionPreview(); Try(start);
+            CloseDialog(); CancelSettingsTest(); CleanupCollectionPreview();
+            bool started = false;
+            Try(() => { start?.Invoke(); started = true; });
+            if (!started && Program.instance.currentServant != Program.instance.ocgcore) return;
             if (Program.instance.currentServant == Program.instance.ocgcore) { RestoreNativeUiRoots(); HideInactiveLegacyServantUIs(); clientCanvas.enabled = false; wasCore = true; }
             else ShowStatus("正在启动…");
         }

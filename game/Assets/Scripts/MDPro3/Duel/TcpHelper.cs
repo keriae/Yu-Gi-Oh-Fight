@@ -34,6 +34,7 @@ namespace MDPro3
         private static readonly object connectionGate = new object();
         private static volatile int connectionGeneration;
         private static volatile bool intentionalDisconnect;
+        internal static int ConnectionGeneration => connectionGeneration;
 
         public static string joinedAddress;
         public static string joinedPort;
@@ -232,12 +233,10 @@ namespace MDPro3
                                     Program.instance.room.StocMessage_ErrorMsg(r);
                                     break;
                                 case StocMessage.SelectHand:
-                                    if(!RoomServant.FromHandTest)
-                                        Program.instance.room.StocMessage_SelectHand(r);
+                                    Program.instance.room.StocMessage_SelectHand(r);
                                     break;
                                 case StocMessage.SelectTp:
-                                    if(!RoomServant.FromHandTest)
-                                        Program.instance.room.StocMessage_SelectTp(r);
+                                    Program.instance.room.StocMessage_SelectTp(r);
                                     break;
                                 case StocMessage.HandResult:
                                     Program.instance.room.StocMessage_HandResult(r);

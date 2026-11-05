@@ -31,8 +31,9 @@ namespace MDPro3.UI.Client
         private readonly Dictionary<int, float> filterScrollPositions = new Dictionary<int, float>();
         private readonly HashSet<int> invalidFilterRangeIndices = new HashSet<int>();
         private readonly string[] filterRangeLabels = { "等级 / 阶级 / LINK", "攻击力", "守备力", "灵摆刻度", "卡片 GP", "发行年份" };
+        private readonly string[] filterGroupLabels = { "卡片类型", "属性", "魔法与陷阱", "种族", "怪兽能力", "禁限状态", "卡池", "效果标签", "稀有度", "召唤动画", "动态卡图", "扩展卡面", "连接箭头" };
         private TextMeshProUGUI filterCountText, filterErrorText;
-        private Button filterPackButton;
+        private Button filterPackButton, filterApplyButton, filterSummaryButton;
         private readonly TextMeshProUGUI[] filterCategoryCountTexts = new TextMeshProUGUI[6];
         private HandTestSettings clientHandTestDraft;
         private string clientHandTestHand, clientHandTestLp;
@@ -83,17 +84,22 @@ namespace MDPro3.UI.Client
             var actions = FightUI.Panel(box, 16, height - 144, width - 32, 128, FightUI.PanelColor, false);
             FightUI.Line(actions, 0, 0, width - 32, FightUI.GoldBorder);
             float side = Compact ? 176 : 200, contentX = side + 40, contentWidth = width - contentX - 28;
+            var categoryDivider = FightUI.Panel(box, side + 28, 84, 1, height - 244, FightUI.Border, false, "Filter category divider");
+            categoryDivider.GetComponent<Image>().raycastTarget = false;
             string[] titles = { "类型", "属性与种族", "数值范围", "效果标签", "禁限与卡池", "外观与演出" };
             for (int i = 0; i < titles.Length; i++)
             {
                 int category = i; bool selected = filterCategory == i;
                 var row = FightUI.Panel(box, 24, 84 + i * 58, side, 48, selected ? FightUI.Raised : Color.clear, true, titles[i]);
-                row.GetComponent<Outline>().enabled = false;
-                if (selected) FightUI.Panel(row, 0, 8, 2, 32, FightUI.Active, false);
+                row.GetComponent<Outline>().enabled = selected;
+                row.GetComponent<Outline>().effectColor = FightUI.GoldBorder;
                 FightUI.Text(row, titles[i], 14, 0, side - 54, 48, 18, selected ? FightUI.Active : FightUI.Muted, TextAlignmentOptions.MidlineLeft);
                 int count = FilterCategoryCount(i);
+                var countBadge = FightUI.Panel(row, side - 36, 12, 28, 24, FightUI.ActionFill, false, "Condition count badge");
+                countBadge.GetComponent<Image>().raycastTarget = false; countBadge.gameObject.SetActive(count > 0);
                 filterCategoryCountTexts[i] = FightUI.Text(row, count > 0 ? count.ToString() : "", side - 34, 0, 24, 48, 15, FightUI.Gold, TextAlignmentOptions.MidlineRight);
                 var button = row.gameObject.AddComponent<Button>(); button.targetGraphic = row.GetComponent<Image>();
+                FightUI.FocusKey(button, "filter-category:" + category);
                 var frame = row.GetComponentInChildren<FightFrame>(); frame.ButtonFrame = true;
                 row.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
                 button.onClick.AddListener(() => { filterCategory = category; RenderEditorFilters(); });
@@ -101,10 +107,9 @@ namespace MDPro3.UI.Client
             filterContent = FightUI.Scroll(box, contentX, 84, contentWidth, height - 244, 1600, out filterScroll);
             float y = 8; TMP_InputField firstInvalidRange = null;
             int[][] groups = { new[] { 0, 2, 4 }, new[] { 1, 3, 12 }, Array.Empty<int>(), new[] { 7 }, new[] { 5, 6 }, new[] { 8, 9, 10, 11 } };
-            string[] groupTitles = { "卡片类型", "属性", "魔法与陷阱", "种族", "怪兽能力", "禁限状态", "卡池", "效果标签", "稀有度", "召唤动画", "动态卡图", "扩展卡面", "连接箭头" };
             foreach (int group in groups[filterCategory])
             {
-                ModuleDivider(filterContent, groupTitles[group], 8, y, contentWidth - 16, 20); y += 52;
+                ModuleDivider(filterContent, filterGroupLabels[group], 8, y, contentWidth - 16, 20); y += 52;
                 var options = clientFilterOptions.Where(o => o.Group == group).ToList();
                 if (group == 0)
                 {
@@ -170,20 +175,28 @@ namespace MDPro3.UI.Client
                             if (validMinimum && validMaximum && (noMinimum || noMaximum || lower <= upper))
                             { invalidFilterRangeIndices.Remove(index); invalidFilterRangeIndices.Remove(index + 1); }
                         }
-                        else invalidFilterRangeIndices.Remove(fieldIndex);
+                        else
+                        {
+                            int validValue;
+                            if (string.IsNullOrWhiteSpace(value) || int.TryParse(value, out validValue) && validValue >= (fieldIndex >= 2 && fieldIndex <= 5 ? -2 : 0))
+                                invalidFilterRangeIndices.Remove(fieldIndex);
+                        }
                         if (minimum != null) minimum.GetComponent<Outline>().effectColor = invalidFilterRangeIndices.Contains(index) ? FightUI.Danger : FightUI.Border;
                         if (maximum != null) maximum.GetComponent<Outline>().effectColor = invalidFilterRangeIndices.Contains(index + 1) ? FightUI.Danger : FightUI.Border;
                         if (rangeError != null) rangeError.text = invalidFilterRangeIndices.Contains(index) || invalidFilterRangeIndices.Contains(index + 1) ? rangeMessage : "";
                         if (invalidFilterRangeIndices.Count == 0)
                         {
                             filterError = null;
-                            if (filterErrorText != null) { filterErrorText.text = "选择条件后应用到卡池，当前搜索会保留。"; filterErrorText.color = FightUI.Muted; }
                         }
                         UpdateFilterCount();
                     };
                     minimum = FightUI.Input(filterContent, filterRanges[index], "最低 · 不限", x, rowY + 42, fieldWidth, 48, v => update(index, v));
+                    FightUI.FocusKey(minimum, "filter-range:" + index);
+                    FightUI.Hint(minimum.gameObject, filterRangeLabels[i] + "最低值；留空表示不限");
                     FightUI.Text(filterContent, "—", x + fieldWidth + 2, rowY + 42, 38, 48, 18, FightUI.Muted, TextAlignmentOptions.Center);
                     maximum = FightUI.Input(filterContent, filterRanges[index + 1], "最高 · 不限", x + fieldWidth + 42, rowY + 42, fieldWidth, 48, v => update(index + 1, v));
+                    FightUI.FocusKey(maximum, "filter-range:" + (index + 1));
+                    FightUI.Hint(maximum.gameObject, filterRangeLabels[i] + "最高值；留空表示不限");
                     if (invalidFilterRangeIndices.Contains(index)) { minimum.GetComponent<Outline>().effectColor = FightUI.Danger; if (firstInvalidRange == null) firstInvalidRange = minimum; }
                     if (invalidFilterRangeIndices.Contains(index + 1)) { maximum.GetComponent<Outline>().effectColor = FightUI.Danger; if (firstInvalidRange == null) firstInvalidRange = maximum; }
                     rangeError = FightUI.Text(filterContent, invalidFilterRangeIndices.Contains(index) || invalidFilterRangeIndices.Contains(index + 1) ? filterError : "", x, rowY + 94, rangeWidth, 24, 14, FightUI.Danger);
@@ -198,11 +211,16 @@ namespace MDPro3.UI.Client
                 FightUI.Hint(filterPackButton.gameObject, string.IsNullOrEmpty(filterPack) ? "所有卡包" : filterPack); y += 68;
             }
             filterContent.sizeDelta = new Vector2(contentWidth, Mathf.Max(y + 8, height - 244));
-            filterCountText = FightUI.Text(box, "", contentX, height - 132, contentWidth, 28, 16, FightUI.Muted);
-            filterErrorText = FightUI.Text(box, filterError ?? "", contentX, height - 102, contentWidth, 26, 15, FightUI.Danger);
-            FightUI.TextAction(box, "重置筛选", 24, height - 72, side, 48, () => { filterMasks = new long[13]; filterRanges = Enumerable.Repeat("", 12).ToArray(); filterPack = ""; filterError = null; invalidFilterRangeIndices.Clear(); RenderEditorFilters(); });
-            FightUI.Button(box, "取消", width - 344, height - 72, 140, 48, CloseDialog);
-            FightUI.Button(box, "应用筛选", width - 188, height - 72, 160, 48, ApplyEditorFilters, true);
+            filterCountText = FightUI.Text(box, "", contentX, height - 132, contentWidth - 156, 28, 16, FightUI.Muted);
+            filterSummaryButton = FightUI.FocusKey(FightUI.TextAction(box, "查看全部条件  →", width - 184, height - 134, 156, 30, OpenFilterSummary), "filter:summary");
+            FightUI.Hint(filterSummaryButton.gameObject, "逐条阅读全部筛选条件，保留当前草稿与分类位置");
+            filterErrorText = FightUI.Text(box, string.IsNullOrEmpty(filterError) ? "" : FilterErrorSummary(), contentX, height - 102, contentWidth, 26, 15,
+                string.IsNullOrEmpty(filterError) ? FightUI.Muted : FightUI.Danger);
+            filterErrorText.enableWordWrapping = false; filterErrorText.overflowMode = TextOverflowModes.Ellipsis;
+            FightUI.FocusKey(FightUI.TextAction(box, "重置筛选", 24, height - 72, side, 48, () => { filterMasks = new long[13]; filterRanges = Enumerable.Repeat("", 12).ToArray(); filterPack = ""; filterError = null; invalidFilterRangeIndices.Clear(); RenderEditorFilters(); }), "filter:reset");
+            var cancel = FightUI.FocusKey(FightUI.Button(box, "取消", width - 344, height - 72, 140, 48, CloseDialog), "filter:cancel");
+            FightUI.Hint(cancel.gameObject, "放弃本次筛选草稿；已应用条件、搜索词和构筑保持不变");
+            filterApplyButton = FightUI.FocusKey(FightUI.Button(box, "应用筛选", width - 188, height - 72, 160, 48, ApplyEditorFilters, true), "filter:apply");
             Canvas.ForceUpdateCanvases();
             filterScroll.verticalNormalizedPosition = filterScrollPositions.TryGetValue(filterCategory, out var savedScroll) ? savedScroll : 1;
             renderedFilterCategory = filterCategory;
@@ -231,8 +249,10 @@ namespace MDPro3.UI.Client
             arrow.rectTransform.pivot = new Vector2(.5f, .5f);
             arrow.rectTransform.anchoredPosition = new Vector2(32, -20);
             arrow.rectTransform.localEulerAngles = new Vector3(0, 0, angle);
+            if (selected) FightUI.Icon(panel, "check", 48, 6, 10, 10, FightUI.Active);
             FightUI.Text(panel, label, 4, 38, 56, 24, 14, selected ? FightUI.Active : FightUI.Muted, TextAlignmentOptions.Center);
             var button = panel.gameObject.AddComponent<Button>(); button.targetGraphic = panel.GetComponent<Image>();
+            FightUI.FocusKey(button, "filter-option:12:" + code);
             button.onClick.AddListener(() => { filterMasks[12] ^= code; RenderEditorFilters(); });
             var frame = panel.GetComponentInChildren<FightFrame>(); frame.ButtonFrame = true; panel.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
             FightUI.Hint(panel.gameObject, "匹配连接箭头：" + label);
@@ -249,20 +269,143 @@ namespace MDPro3.UI.Client
             if (selected) FightUI.Icon(checkbox, "check", 3, 3, 12, 12, FightUI.Active);
             FightUI.Text(panel, label, 38, 0, width - 46, 46, 17, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.MidlineLeft);
             var button = panel.gameObject.AddComponent<Button>(); button.targetGraphic = panel.GetComponent<Image>();
+            FightUI.FocusKey(button, "filter-option:" + group + ":" + code);
             var frame = panel.GetComponentInChildren<FightFrame>(); frame.ButtonFrame = true;
             panel.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
+            FightUI.Hint(panel.gameObject, label);
             button.onClick.AddListener(() => { filterMasks[group] ^= code; RenderEditorFilters(); });
         }
         private int FilterConditionCount() => clientFilterOptions.Count(o => (filterMasks[o.Group] & o.Code) != 0)
             + filterRanges.Count(v => !string.IsNullOrWhiteSpace(v)) + (string.IsNullOrEmpty(filterPack) ? 0 : 1);
+
+        private bool FilterDraftHasChanges()
+        {
+            var applied = CardCollectionView.filters;
+            for (int i = 0; i < filterMasks.Length; i++)
+                if (filterMasks[i] != (applied.Count > i ? applied[i] : 0)) return true;
+            for (int i = 0; i < filterRanges.Length; i++)
+            {
+                long draft = -233;
+                if (!string.IsNullOrWhiteSpace(filterRanges[i]))
+                {
+                    if (!int.TryParse(filterRanges[i], out var parsed) || parsed < (i >= 2 && i <= 5 ? -2 : 0)) return true;
+                    draft = parsed;
+                }
+                if (draft != (applied.Count > i + 13 ? applied[i + 13] : -233)) return true;
+            }
+            return !string.Equals(filterPack, CardCollectionView.packName ?? "", StringComparison.Ordinal);
+        }
+
+        private string FilterErrorSummary()
+        {
+            if (filterError == "范围起点不能大于终点。" && invalidFilterRangeIndices.Count > 0)
+                return filterRangeLabels[invalidFilterRangeIndices.OrderBy(index => index).First() / 2] + "：" + filterError;
+            return filterError ?? "";
+        }
+
+        private bool FilterDraftNeedsCorrection()
+        {
+            for (int i = 0; i < filterRanges.Length; i += 2)
+            {
+                int lower = 0, upper = 0, minimum = i >= 2 && i <= 4 ? -2 : 0;
+                bool noLower = string.IsNullOrWhiteSpace(filterRanges[i]), noUpper = string.IsNullOrWhiteSpace(filterRanges[i + 1]);
+                if (!noLower && (!int.TryParse(filterRanges[i], out lower) || lower < minimum)) return true;
+                if (!noUpper && (!int.TryParse(filterRanges[i + 1], out upper) || upper < minimum)) return true;
+                if (!noLower && !noUpper && lower > upper) return true;
+            }
+            return false;
+        }
+
+        private List<string> FilterSelectionParts()
+        {
+            var parts = new List<string>();
+            for (int group = 0; group < filterMasks.Length; group++)
+            {
+                var selected = clientFilterOptions.Where(option => option.Group == group && (filterMasks[group] & option.Code) != 0)
+                    .Select(option => option.Label).Distinct().ToArray();
+                if (selected.Length > 0) parts.Add(filterGroupLabels[group] + "：" + string.Join("、", selected));
+            }
+            for (int i = 0; i < filterRangeLabels.Length; i++)
+            {
+                string lower = filterRanges[i * 2]?.Trim(), upper = filterRanges[i * 2 + 1]?.Trim();
+                bool hasLower = !string.IsNullOrEmpty(lower), hasUpper = !string.IsNullOrEmpty(upper);
+                if (!hasLower && !hasUpper) continue;
+                if ((i == 1 || i == 2) && lower == "-2") lower = "-2（?）";
+                if ((i == 1 || i == 2) && upper == "-2") upper = "-2（?）";
+                parts.Add(filterRangeLabels[i] + "：" + (hasLower && hasUpper ? lower == upper ? lower : lower + "–" + upper : hasLower ? "≥ " + lower : "≤ " + upper));
+            }
+            if (!string.IsNullOrEmpty(filterPack)) parts.Add("卡包：" + filterPack);
+            return parts;
+        }
+
+        private string FilterSelectionSummary()
+        {
+            var parts = FilterSelectionParts();
+            return parts.Count > 0 ? string.Join("；", parts) : "未选择条件 · 搜索关键词会保留。";
+        }
+
+        private void OpenFilterSummary()
+        {
+            CacheFilterScroll();
+            float width = Mathf.Min(820, W - 48), height = Mathf.Min(660, H - 48);
+            var box = ShowDialog("复核筛选条件", width, height, true);
+            bool invalid = FilterDraftNeedsCorrection(), pending = FilterDraftHasChanges();
+            FightUI.Text(box, (invalid ? "待修正" : pending ? "待应用" : "当前筛选") + " · " + FilterConditionCount() + " 项条件",
+                28, 84, width - 56, 30, 18, invalid ? FightUI.Danger : FightUI.Gold);
+            FightUI.Text(box, "返回修改会保留草稿；取消会保留已应用条件与搜索词。", 28, 122, width - 56, 28, 16, FightUI.Muted);
+            FightUI.Line(box, 28, 158, width - 56, FightUI.Border);
+            var content = FightUI.Scroll(box, 24, 174, width - 48, height - 268, height - 268, out var scroll);
+            scroll.name = "Filter complete summary";
+            var parts = FilterSelectionParts();
+            if (parts.Count == 0) parts.Add("未选择条件 · 搜索关键词会保留。");
+            if (!string.IsNullOrEmpty(filterError)) parts.Insert(0, FilterErrorSummary());
+            float y = 6;
+            foreach (var part in parts)
+            {
+                var label = FightUI.Text(content, part, 12, y, width - 94, 100, 18, part == FilterErrorSummary() ? FightUI.Danger : FightUI.Foreground);
+                label.lineSpacing = 5; label.paragraphSpacing = 8; label.overflowMode = TextOverflowModes.Overflow;
+                float rowHeight = Mathf.Max(32, label.GetPreferredValues(part, width - 94, float.PositiveInfinity).y + 12);
+                label.rectTransform.sizeDelta = new Vector2(width - 94, rowHeight);
+                FightUI.Line(content, 12, y + rowHeight + 8, width - 94, FightUI.Border);
+                y += rowHeight + 28;
+            }
+            content.sizeDelta = new Vector2(width - 48, Mathf.Max(height - 268, y + 8));
+            FightUI.Line(box, 28, height - 80, width - 56, FightUI.GoldBorder);
+            FightUI.FocusKey(FightUI.Button(box, "取消筛选", 28, height - 64, 144, 44, CloseDialog), "filter-summary:cancel");
+            FightUI.FocusKey(FightUI.Button(box, "返回修改", width - 356, height - 64, 144, 44, () =>
+            {
+                RenderEditorFilters();
+                filterSummaryButton.Select();
+            }), "filter-summary:return");
+            FightUI.FocusKey(FightUI.Button(box, "应用筛选", width - 196, height - 64, 168, 44, ApplyEditorFilters, true), "filter-summary:apply");
+        }
+
         private void UpdateFilterCount()
         {
-            if (filterCountText != null) filterCountText.text = "已启用 " + FilterConditionCount() + " 项条件 · 应用后保留当前搜索";
+            if (filterCountText != null)
+            {
+                int count = FilterConditionCount();
+                bool pending = FilterDraftHasChanges();
+                bool invalid = FilterDraftNeedsCorrection();
+                filterCountText.text = (invalid ? "待修正" : pending ? "待应用" : "当前筛选") + " · " + count + " 项条件";
+                filterCountText.color = invalid ? FightUI.Danger : count > 0 || pending ? FightUI.Gold : FightUI.Muted;
+                string summary = FilterSelectionSummary();
+                FightUI.Hint(filterCountText.gameObject, summary + "\n修改后点击“应用筛选”；搜索关键词会保留。");
+                if (filterApplyButton != null) FightUI.Hint(filterApplyButton.gameObject, "应用以下条件，保留搜索关键词：\n" + summary);
+                if (filterErrorText != null)
+                {
+                    filterErrorText.text = !string.IsNullOrEmpty(filterError) ? FilterErrorSummary() : summary;
+                    filterErrorText.color = !string.IsNullOrEmpty(filterError) ? FightUI.Danger : FightUI.Muted;
+                    FightUI.Hint(filterErrorText.gameObject, summary + "\n修改后点击“应用筛选”；搜索关键词会保留。");
+                }
+            }
             for (int i = 0; i < filterCategoryCountTexts.Length; i++)
                 if (filterCategoryCountTexts[i] != null)
                 {
                     int count = FilterCategoryCount(i);
                     filterCategoryCountTexts[i].text = count > 0 ? count.ToString() : "";
+                    var badge = filterCategoryCountTexts[i].transform.parent.Find("Condition count badge");
+                    if (badge != null) badge.gameObject.SetActive(count > 0);
                 }
         }
         private void ChooseFilterPack()
@@ -270,14 +413,73 @@ namespace MDPro3.UI.Client
             CacheFilterScroll();
             var width = Mathf.Min(900, W - 48); var height = Mathf.Min(680, H - 48);
             var box = ShowDialog("选择卡包", width, height); var packs = new[] { "" }.Concat(PacksManager.packs.Select(p => p.fullName)).Distinct().ToArray();
-            var c = FightUI.Scroll(box, 24, 84, width - 48, height - 164, packs.Length * 58);
-            for (int i = 0; i < packs.Length; i++)
+            float viewportHeight = height - 252;
+            var matchedText = FightUI.Text(box, "", 24, 136, width - 48, 26, 15, FightUI.Muted);
+            var c = FightUI.Scroll(box, 24, 172, width - 48, viewportHeight, packs.Length * 58, out var packScroll);
+            TMP_InputField searchInput = null;
+            Button clearSearch = null;
+            Action clearPackSearch = () =>
             {
-                string pack = packs[i];
-                var button = FightUI.Button(c, pack.Length == 0 ? "所有卡包" : pack, 8, i * 58, width - 64, 48, () => { filterPack = pack; ReturnFromFilterPack(); });
-                FightUI.Hint(button.gameObject, pack.Length == 0 ? "所有卡包" : pack);
-            }
+                searchInput.text = "";
+                searchInput.Select(); searchInput.ActivateInputField(); searchInput.caretPosition = 0;
+            };
+            Action<string> renderPacks = keyword =>
+            {
+                FightUI.Clear(c);
+                if (clearSearch != null) clearSearch.interactable = keyword.Length > 0;
+                var terms = keyword.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                var matches = packs.Where(pack => terms.All(term => (pack.Length == 0 ? "所有卡包" : pack).IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)).ToArray();
+                matchedText.text = matches.Length + " 个匹配 / 全部 " + packs.Length + " 个卡包";
+                float y = 0, selectedTop = -1, selectedHeight = 0;
+                for (int i = 0; i < matches.Length; i++)
+                {
+                    string pack = matches[i];
+                    bool selected = pack == filterPack;
+                    var button = FightUI.Button(c, pack.Length == 0 ? "所有卡包" : pack, 8, y, width - 64, 48, () => { filterPack = pack; ReturnFromFilterPack(); }, selected);
+                    FightUI.FocusKey(button, "filter-pack-choice:" + pack);
+                    var caption = button.GetComponentInChildren<TextMeshProUGUI>();
+                    caption.fontSize = 18; caption.lineSpacing = 4;
+                    caption.enableWordWrapping = true; caption.overflowMode = TextOverflowModes.Overflow;
+                    float captionWidth = width - 124;
+                    float rowHeight = Mathf.Max(48, caption.GetPreferredValues(caption.text, captionWidth, float.PositiveInfinity).y + 18);
+                    FightUI.Place(button.GetComponent<RectTransform>(), 8, y, width - 64, rowHeight);
+                    FightUI.Place(caption.rectTransform, 42, 8, captionWidth, rowHeight - 16);
+                    caption.alignment = TextAlignmentOptions.MidlineLeft;
+                    if (selected)
+                    {
+                        selectedTop = y; selectedHeight = rowHeight;
+                        FightUI.Icon(button.transform, "check", 16, (rowHeight - 14) / 2, 14, 14, FightUI.Active);
+                    }
+                    FightUI.Hint(button.gameObject, pack.Length == 0 ? "所有卡包" : pack);
+                    y += rowHeight + 10;
+                }
+                if (matches.Length == 0)
+                {
+                    FightUI.Text(c, "没有找到匹配的卡包，请调整关键词。", 16, 24, width - 80, 52, 18, FightUI.Muted);
+                    FightUI.FocusKey(FightUI.Button(c, "清空关键词", 16, 92, 180, 44, clearPackSearch), "filter-pack:empty-clear-search");
+                    y = 148;
+                }
+                float contentHeight = Mathf.Max(viewportHeight, y);
+                c.sizeDelta = new Vector2(width - 48, contentHeight);
+                Canvas.ForceUpdateCanvases(); packScroll.StopMovement();
+                float scrollRange = Mathf.Max(0, contentHeight - viewportHeight);
+                float selectedOffset = Mathf.Max(0, selectedTop - (viewportHeight - selectedHeight) / 2);
+                packScroll.verticalNormalizedPosition = selectedTop >= 0 && scrollRange > 0 ? 1 - Mathf.Clamp01(selectedOffset / scrollRange) : 1;
+            };
+            searchInput = FightUI.Input(box, "", "搜索卡包名称", 24, 84, width - 48, 44, renderPacks);
+            FightUI.FocusKey(searchInput, "filter-pack:search");
+            FightUI.Place(searchInput.textViewport, 10, 5, width - 110, 34);
+            foreach (var label in searchInput.textViewport.GetComponentsInChildren<TextMeshProUGUI>())
+                FightUI.Place(label.rectTransform, 0, 0, width - 110, 34);
+            clearSearch = FightUI.FocusKey(FightUI.Button(box, "清空搜索", width - 70, 84, 44, 44, clearPackSearch, false, false), "filter-pack:clear-search");
+            clearSearch.GetComponent<Image>().color = Color.clear; clearSearch.GetComponent<Outline>().enabled = false;
+            clearSearch.GetComponentInChildren<TextMeshProUGUI>().gameObject.SetActive(false);
+            FightUI.Icon(clearSearch.transform, "close", 14, 14, 16, 16, FightUI.Muted);
+            FightUI.Hint(clearSearch.gameObject, "清空关键词，保留当前卡包草稿并继续输入");
+            FightUI.Hint(searchInput.gameObject, "按卡包名称搜索；多个关键词需同时匹配");
+            renderPacks("");
             FightUI.Button(box, "返回筛选", width - 188, height - 64, 160, 44, ReturnFromFilterPack);
+            searchInput.Select(); searchInput.ActivateInputField();
         }
         private void ReturnFromFilterPack()
         {

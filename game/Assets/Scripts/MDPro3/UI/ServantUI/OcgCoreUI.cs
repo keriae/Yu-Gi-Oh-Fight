@@ -194,6 +194,12 @@ namespace MDPro3.UI.ServantUI
             OnInputDebug?.Invoke(input);
         }
 
+        public override void Initialize(Servant.Servant servant)
+        {
+            base.Initialize(servant);
+            MDPro3.UI.Client.FightDuelHudSkin.Attach(this);
+        }
+
         public override void Show(bool cover)
         {
             ShowEvent();

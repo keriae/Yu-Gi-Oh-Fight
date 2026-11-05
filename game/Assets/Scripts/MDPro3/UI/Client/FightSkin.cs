@@ -14,6 +14,33 @@ namespace MDPro3.UI.Client
         private static Sprite surface, buttonSurface, actionSurface, ambient;
         private static TMP_FontAsset titleFont;
         private static bool triedTitleFont;
+        private static bool triedSymbolFont;
+        private static TMP_FontAsset symbolFont;
+        internal static void EnsureSymbolFallback(TMP_FontAsset font)
+        {
+            if (font == null) return;
+            if (!triedSymbolFont)
+            {
+                triedSymbolFont = true;
+                try
+                {
+                    const string appleSymbols = "/System/Library/Fonts/Apple Symbols.ttf";
+                    symbolFont = File.Exists(appleSymbols)
+                        ? TMP_FontAsset.CreateFontAsset(appleSymbols, 0, 72, 9, GlyphRenderMode.SDFAA, 512, 512)
+                        : TMP_FontAsset.CreateFontAsset("Segoe UI Symbol", "Regular", 72);
+                    if (symbolFont == null) symbolFont = TMP_FontAsset.CreateFontAsset("DejaVu Sans", "Book", 72);
+                    if (symbolFont != null)
+                    {
+                        symbolFont.name = "Fight literal symbol fallback";
+                        symbolFont.TryAddCharacters("▾☑");
+                    }
+                }
+                catch (Exception) { symbolFont = null; }
+            }
+            if (symbolFont == null || font == symbolFont) return;
+            if (font.fallbackFontAssetTable == null) font.fallbackFontAssetTable = new System.Collections.Generic.List<TMP_FontAsset>();
+            if (!font.fallbackFontAssetTable.Contains(symbolFont)) font.fallbackFontAssetTable.Add(symbolFont);
+        }
         internal static Sprite Surface => surface != null ? surface : surface = MakeSurface(0);
         internal static Sprite ButtonSurface => buttonSurface != null ? buttonSurface : buttonSurface = MakeSurface(1);
         internal static Sprite ActionSurface => actionSurface != null ? actionSurface : actionSurface = MakeSurface(2);
@@ -41,7 +68,7 @@ namespace MDPro3.UI.Client
         }
         private static Sprite MakeSurface(int kind)
         {
-            const int size = 48, cut = 7;
+            const int size = 96, cut = 7;
             var texture = new Texture2D(size, size, TextureFormat.RGBA32, false);
             texture.name = "Fight scalable surface " + kind;
             texture.wrapMode = TextureWrapMode.Clamp; texture.filterMode = FilterMode.Bilinear;
@@ -52,9 +79,13 @@ namespace MDPro3.UI.Client
                     var edge = UnityEngine.Mathf.Min(UnityEngine.Mathf.Min(x + y, x + size - 1 - y), UnityEngine.Mathf.Min(size - 1 - x + y, size * 2 - 2 - x - y));
                     var alpha = UnityEngine.Mathf.Clamp01(edge - cut + 1);
                     var t = y / (float)(size - 1);
-                    var shade = kind == 0 ? UnityEngine.Mathf.Lerp(.84f, 1.08f, t)
-                        : kind == 1 ? UnityEngine.Mathf.Lerp(.74f, 1.12f, t)
-                        : .58f + .53f * UnityEngine.Mathf.Pow(UnityEngine.Mathf.Abs(t - .48f) * 2, 2) + .2f * t;
+                    // Dark lacquer with a restrained upper light. The centre
+                    // stays quiet behind text; the chamfer carries the detail.
+                    float grain = ((x * 37 + y * 61) % 23 - 11) * .0009f;
+                    var shade = kind == 0 ? UnityEngine.Mathf.Lerp(.88f, 1.055f, t)
+                        : kind == 1 ? UnityEngine.Mathf.Lerp(.76f, 1.14f, t)
+                        : .81f + .26f * t + .07f * UnityEngine.Mathf.Pow(t, 8);
+                    shade += grain;
                     pixels[y * size + x] = new Color(shade, shade, shade, alpha);
                 }
             texture.SetPixels(pixels); texture.Apply(false, true);
@@ -94,17 +125,16 @@ namespace MDPro3.UI.Client
     internal sealed class FightFrame : MaskableGraphic
     {
         private Outline source;
-        private Image surface;
         private Color lastColor;
         private bool lastEnabled, hover, focused;
         private float highlight, lastHighlight;
         internal bool Primary, ButtonFrame, InputFrame;
-        internal void Bind(Outline outline, Image image)
+        internal void Bind(Outline outline)
         {
             // Original controls can own a LayoutGroup. Decorative overlays
             // must not consume a row or be collapsed by that layout.
             var layout = GetComponent<LayoutElement>() ?? gameObject.AddComponent<LayoutElement>(); layout.ignoreLayout = true;
-            source = outline; surface = image; raycastTarget = false; SetVerticesDirty();
+            source = outline; raycastTarget = false; SetVerticesDirty();
         }
         internal void Feedback(bool pointer, bool focus)
         {
@@ -145,7 +175,17 @@ namespace MDPro3.UI.Client
                     var glow = c; glow.a *= .035f * (4 - i);
                     Polygon(vh, Corners(r, cut + i, -i), 1.2f, glow);
                 }
-            Polygon(vh, points, Primary ? 1.5f : 1, c);
+            // Separate the lower shadow from the light caught by the top rim.
+            // This gives frames physical depth without thick ornamental boxes.
+            var shadow = new Color(0, 0, 0, ButtonFrame ? .38f : .5f);
+            Polygon(vh, Corners(r, cut + 1, -1), 1, shadow);
+            for (int i = 0; i < points.Length; i++)
+            {
+                var next = points[(i + 1) % points.Length];
+                float elevation = Mathf.InverseLerp(r.yMin, r.yMax, (points[i].y + next.y) * .5f);
+                var metal = Color.Lerp(c * new Color(.62f, .65f, .69f, 1), c, elevation);
+                Segment(vh, points[i], next, Primary ? 1.5f : 1, metal);
+            }
             var inner = c; inner.a *= Primary ? .27f : .15f;
             Polygon(vh, Corners(r, UnityEngine.Mathf.Max(2, cut - 2), 3), 1, inner);
             if (focused)
@@ -209,7 +249,7 @@ namespace MDPro3.UI.Client
                 outline.effectColor = FightUI.Border;
                 var root = FightUI.Node(input.transform, "Input focus frame", 0, 0, 0, 0); FightUI.Stretch(root);
                 frame = root.gameObject.AddComponent<FightFrame>();
-                frame.Bind(outline, input.targetGraphic as Image);
+                frame.Bind(outline);
             }
             frame.InputFrame = frame.ButtonFrame = true;
             Synchronize();
@@ -231,16 +271,33 @@ namespace MDPro3.UI.Client
     internal sealed class FightButtonFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
         private FightFrame frame; private bool pointer, focus;
+        private Button control;
+        private TMP_Text caption;
+        private bool available = true;
+        internal bool ManageCaptionOpacity = true;
         internal void Bind(FightFrame border)
         {
             frame = border;
+            control = GetComponent<Button>();
+            caption = GetComponentInChildren<TMP_Text>(true);
             focus = EventSystem.current != null && EventSystem.current.currentSelectedGameObject == gameObject;
-            frame?.Feedback(pointer, focus);
+            Refresh();
         }
-        public void OnPointerEnter(PointerEventData e) { pointer = true; frame?.Feedback(pointer, focus); }
-        public void OnPointerExit(PointerEventData e) { pointer = false; frame?.Feedback(pointer, focus); }
-        public void OnSelect(BaseEventData e) { focus = true; frame?.Feedback(pointer, focus); }
-        public void OnDeselect(BaseEventData e) { focus = false; frame?.Feedback(pointer, focus); }
+        private void LateUpdate()
+        {
+            bool next = control == null || control.IsInteractable();
+            if (next != available) Refresh();
+        }
+        private void Refresh()
+        {
+            available = control == null || control.IsInteractable();
+            frame?.Feedback(pointer && available, focus && available);
+            if (caption != null && ManageCaptionOpacity) caption.canvasRenderer.SetAlpha(available ? 1 : .48f);
+        }
+        public void OnPointerEnter(PointerEventData e) { pointer = true; Refresh(); }
+        public void OnPointerExit(PointerEventData e) { pointer = false; Refresh(); }
+        public void OnSelect(BaseEventData e) { focus = true; Refresh(); }
+        public void OnDeselect(BaseEventData e) { focus = false; Refresh(); }
         private void OnDisable() { pointer = focus = false; frame?.Feedback(false, false); }
     }
     internal sealed class FightTextActionFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
@@ -471,6 +528,11 @@ namespace MDPro3.UI.Client
                 line(new Vector2(-.3f, .3f), new Vector2(.3f, -.3f), 1.7f);
                 line(new Vector2(.3f, .3f), new Vector2(-.3f, -.3f), 1.7f);
             }
+            else if (Kind == "check")
+            {
+                line(new Vector2(-.32f, 0), new Vector2(-.08f, -.24f), 1.8f);
+                line(new Vector2(-.08f, -.24f), new Vector2(.35f, .30f), 1.8f);
+            }
             else if (Kind == "deck")
             {
                 FightFrame.Polygon(vh, new[] { center + new Vector2(-.24f, .28f) * scale, center + new Vector2(.29f, .28f) * scale,
@@ -568,6 +630,13 @@ namespace MDPro3.UI.Client
                 line(new Vector2(.4f, .24f), new Vector2(.27f, .11f), 1.5f);
                 line(new Vector2(.27f, -.11f), new Vector2(.4f, -.24f), 1.5f);
                 line(new Vector2(.4f, -.24f), new Vector2(.27f, -.37f), 1.5f);
+            }
+            else if (Kind == "alert")
+            {
+                FightFrame.Polygon(vh, new[] { center + new Vector2(0, .43f) * scale,
+                    center + new Vector2(.43f, -.34f) * scale, center + new Vector2(-.43f, -.34f) * scale }, 1.5f, color);
+                line(new Vector2(0, .17f), new Vector2(0, -.08f), 1.8f);
+                line(new Vector2(0, -.21f), new Vector2(0, -.24f), 2.1f);
             }
             else if (Kind == "replay")
             {

@@ -22,6 +22,8 @@ namespace MDPro3.UI.Client
         }
         private List<ClientDeck> deckItems;
         private RectTransform deckGrid, deckPreview;
+        private TextMeshProUGUI deckResultsText;
+        private TMP_InputField deckSearchInput;
         private string deckGroup = "全部";
         private bool pickerPersonalOnly;
         private DeckLibraryEntry detailEntry;
@@ -31,6 +33,9 @@ namespace MDPro3.UI.Client
         private float deckGridWidth, deckGridHeight;
         private RectTransform detailInspector;
         private int detailInspectedCode;
+        private string detailReadingDeckPath;
+        private readonly Dictionary<int, float> detailCardReadingPositions = new Dictionary<int, float>();
+        private readonly Dictionary<int, float> cardReadingPositions = new Dictionary<int, float>();
         private readonly HashSet<string> deckTagGroups = new HashSet<string>();
         private readonly List<Tuple<int, Outline>> detailCardFrames = new List<Tuple<int, Outline>>();
         private readonly List<Tuple<ClientDeck, RectTransform>> deckBrowseFrames = new List<Tuple<ClientDeck, RectTransform>>();
@@ -59,13 +64,16 @@ namespace MDPro3.UI.Client
         {
             bool active = deckGroup == group;
             var row = FightUI.Panel(parent, 4, y, width, 48, active ? FightUI.Raised : Color.clear, true, group);
-            row.GetComponent<Outline>().enabled = false;
-            if (active) FightUI.Panel(row, 0, 8, 2, 32, FightUI.Active, false);
-            FightUI.Text(row, group == "全部" ? "全部卡组" : group, 14, 0, width - 56, 48, Compact ? 17 : 19,
+            var groupLabel = FightUI.Text(row, group == "全部" ? "全部卡组" : group, 14, 0, width - 56, 48, Compact ? 17 : 19,
                 active ? FightUI.Active : FightUI.Muted, TextAlignmentOptions.MidlineLeft);
+            groupLabel.enableWordWrapping = false; groupLabel.enableAutoSizing = true;
+            groupLabel.fontSizeMin = 15; groupLabel.fontSizeMax = Compact ? 17 : 19;
             FightUI.Text(row, count.ToString(), width - 40, 0, 28, 48, 15,
                 active ? FightUI.Gold : FightUI.Muted, TextAlignmentOptions.MidlineRight);
             var button = row.gameObject.AddComponent<Button>(); button.targetGraphic = row.GetComponent<Image>();
+            SetLibrarySelection(button, active);
+            row.GetComponent<Outline>().enabled = active;
+            if (!active) button.targetGraphic.color = Color.clear;
             var frame = row.GetComponentInChildren<FightFrame>(); frame.ButtonFrame = true;
             row.gameObject.AddComponent<FightButtonFeedback>().Bind(frame);
             FightUI.Hint(row.gameObject, group == "全部" ? "全部卡组" : group);
@@ -74,14 +82,15 @@ namespace MDPro3.UI.Client
 
         private void DeckCountStrip(Transform parent, Deck deck, float x, float y, float width, float height = 56)
         {
-            string[] labels = { "主卡组", "额外", "副卡组" };
+            string[] labels = { "主卡组", "额外卡组", "副卡组" };
             int[] values = { deck.Main.Count, deck.Extra.Count, deck.Side.Count };
             float cellWidth = width / 3;
             for (int i = 0; i < 3; i++)
             {
                 if (i > 0) FightUI.Panel(parent, x + i * cellWidth, y + 8, 1, height - 16, FightUI.Border, false);
-                FightUI.Text(parent, values[i].ToString(), x + i * cellWidth + 4, y, cellWidth - 8, 30, 24,
+                var number = FightUI.Text(parent, values[i].ToString(), x + i * cellWidth + 4, y, cellWidth - 8, 30, 24,
                     FightUI.Foreground, TextAlignmentOptions.Center);
+                number.fontStyle = FontStyles.Bold;
                 FightUI.Text(parent, labels[i], x + i * cellWidth + 4, y + 32, cellWidth - 8, 24, 14,
                     FightUI.Muted, TextAlignmentOptions.Center);
             }
@@ -117,20 +126,32 @@ namespace MDPro3.UI.Client
             else if (picker)
                 deckItems = ResponsesDeckLibrary.Load(Program.PATH_DECK).Choices.Select(c => new ClientDeck { Name = c.Name, Path = c.Path, Group = c.Name.StartsWith("我的") ? "我的" : c.Name.StartsWith("经典") ? "经典" : "竞技", Recommendation = recommendations.FirstOrDefault(e => e.SourcePath == c.Path) }).ToList();
             else deckItems = recommendations.Where(e => e.Page == (page == "competitive" ? DeckLibraryPage.Competitive : DeckLibraryPage.Classic)).Select(e => new ClientDeck { Name = e.Name, Path = e.SourcePath, Group = e.IsCurated ? "精选构筑" : "教学构筑", Recommendation = e }).ToList();
-            PageTitle(picker ? "选择卡组 · " + pickerSlot : mine ? "我的卡组" : page == "competitive" ? "推荐 · 竞技构筑" : "推荐 · 经典构筑");
+            if (picker) PageTitle("选择卡组 · " + pickerSlot);
             if (!picker)
             {
-                DeckTab(Body, "我的", BodyWidth - 440, 0, 112, mine, () => Navigate("decks"));
-                DeckTab(Body, "推荐 · 经典", BodyWidth - 312, 0, 148, page == "recommended", () => Navigate("recommended"));
-                DeckTab(Body, "推荐 · 竞技", BodyWidth - 148, 0, 148, page == "competitive", () => Navigate("competitive"));
+                DeckTab(Body, "我的", 0, 0, 112, mine, () => Navigate("decks"));
+                DeckTab(Body, "推荐 · 经典", 128, 0, 148, page == "recommended", () => Navigate("recommended"));
+                DeckTab(Body, "推荐 · 竞技", 292, 0, 148, page == "competitive", () => Navigate("competitive"));
             }
             float groupsW = Compact ? 150 : 200, previewW = Compact ? 294 : 360, gridX = groupsW + Gap;
             deckGridWidth = BodyWidth - groupsW - previewW - Gap * 2; deckGridHeight = BodyHeight - 154;
+            deckResultsText = FightUI.Text(Body, "", gridX, 57, deckGridWidth, 28, 15, FightUI.Muted);
+            deckResultsText.raycastTarget = false;
             Button clearSearch = null;
             var searchField = FightUI.Input(Body, search, mine ? "搜索我的卡组" : "搜索主题、版本或构筑标签", gridX, 94, deckGridWidth, 48,
                 v => { search = v; if (clearSearch != null) clearSearch.interactable = v.Length > 0; RenderDeckGrid(); });
-            searchField.textViewport.offsetMax = new Vector2(searchField.textViewport.offsetMax.x - 40, searchField.textViewport.offsetMax.y);
-            clearSearch = FightUI.Button(Body, "清空搜索", gridX + deckGridWidth - 44, 96, 40, 44, () => searchField.text = "", false, search.Length > 0);
+            deckSearchInput = searchField;
+            FightUI.Icon(searchField.transform, "search", 14, 14, 20, 20, FightUI.Muted);
+            FightUI.Place(searchField.textViewport, 44, 5, deckGridWidth - 96, 38);
+            foreach (var label in searchField.textViewport.GetComponentsInChildren<TextMeshProUGUI>())
+                FightUI.Place(label.rectTransform, 0, 0, deckGridWidth - 96, 38);
+            FightUI.FocusKey(searchField, "deck-browse:search");
+            clearSearch = FightUI.Button(Body, "清空搜索", gridX + deckGridWidth - 44, 96, 40, 44, () =>
+            {
+                ClearDeckBrowseSearch();
+            }, false, search.Length > 0);
+            FightUI.FocusKey(clearSearch, "deck-browse:clear-search");
+            FightUI.Hint(clearSearch.gameObject, "清空关键词，保留当前分组并继续输入");
             clearSearch.GetComponent<Image>().color = Color.clear; clearSearch.GetComponent<Outline>().enabled = false;
             clearSearch.GetComponentInChildren<TextMeshProUGUI>().gameObject.SetActive(false);
             FightUI.Icon(clearSearch.transform, "close", 12, 14, 16, 16, FightUI.Muted);
@@ -169,6 +190,27 @@ namespace MDPro3.UI.Client
             deckGridColumns = Compact ? 3 : LargeViewport ? 6 : 4;
             RenderDeckGrid();
         }
+
+        private bool DeckMatchesSearch(ClientDeck deck, string[] terms)
+            => deck.Recommendation != null ? DeckLibrary.Matches(deck.Recommendation, search)
+                : terms.All(term => deck.Name.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0);
+
+        private void ClearDeckBrowseSearch()
+        {
+            if (deckSearchInput == null) return;
+            deckSearchInput.text = "";
+            deckSearchInput.Select(); deckSearchInput.ActivateInputField(); deckSearchInput.caretPosition = 0;
+        }
+
+        private void SearchAllDeckGroups()
+        {
+            deckGroup = "全部"; Rebuild();
+            if (deckSearchInput == null) return;
+            // Continue the retained query instead of replacing it on first focus.
+            deckSearchInput.onFocusSelectAll = false;
+            deckSearchInput.Select(); deckSearchInput.ActivateInputField(); deckSearchInput.caretPosition = deckSearchInput.text.Length;
+        }
+
         private void RenderDeckGrid(bool retainScroll = false)
         {
             if (deckGrid == null) return;
@@ -176,7 +218,15 @@ namespace MDPro3.UI.Client
             float scrollPosition = retainScroll && oldScroll != null ? oldScroll.verticalNormalizedPosition : 1;
             FightUI.Clear(deckGrid); deckBrowseFrames.Clear();
             var terms = search.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-            var items = deckItems.Where(d => DeckMatchesGroup(d, deckGroup) && (d.Recommendation != null ? DeckLibrary.Matches(d.Recommendation, search) : terms.All(t => d.Name.IndexOf(t, StringComparison.OrdinalIgnoreCase) >= 0))).ToList();
+            var items = deckItems.Where(d => DeckMatchesGroup(d, deckGroup) && DeckMatchesSearch(d, terms)).ToList();
+            if (deckResultsText != null)
+            {
+                deckResultsText.text = items.Count + " 套构筑" + (items.Count != deckItems.Count ? " / 共 " + deckItems.Count + " 套" : "")
+                    + (deckGroup != "全部" ? "  ·  " + deckGroup : "");
+                deckResultsText.enableWordWrapping = false;
+                deckResultsText.overflowMode = TextOverflowModes.Ellipsis;
+                FightUI.Hint(deckResultsText.gameObject, deckResultsText.text + (terms.Length > 0 ? "\n搜索：" + string.Join(" · ", terms) : ""));
+            }
             if (page != "picker" && items.Count > 0 && !items.Any(d => d.Path == selectedPath))
             {
                 var currentPath = Program.PATH_DECK + Config.GetConfigDeckName() + ".ydk";
@@ -188,18 +238,42 @@ namespace MDPro3.UI.Client
             if (items.Count == 0)
             {
                 bool emptyLibrary = page == "decks" && deckItems.Count == 0;
+                bool emptyPersonalPicker = page == "picker" && pickerPersonalOnly && deckItems.Count == 0;
                 float middle = Mathf.Max(20, (deckGridHeight - 300) / 2);
                 var illustration = FightUI.Asset(scroll, "decks.png", (deckGridWidth - 220) / 2, middle, 220, 108);
                 illustration.color = new Color(.65f, .65f, .65f, .8f);
-                FightUI.Text(scroll, emptyLibrary ? "你的第一套构筑，从这里开始" : "没有找到匹配的构筑", 20, middle + 128, deckGridWidth - 40, 40, Compact ? 23 : 27, FightUI.Foreground, TextAlignmentOptions.Center);
-                FightUI.Text(scroll, emptyLibrary ? "从推荐模板开始，或自由创建你的卡组。" : "调整关键词或切换分组，再试一次。", 20, middle + 178, deckGridWidth - 40, 40, 17, FightUI.Muted, TextAlignmentOptions.Center);
+                FightUI.Text(scroll, emptyLibrary ? "你的第一套构筑，从这里开始" : emptyPersonalPicker ? "还没有可选择的个人卡组" : "没有找到匹配的构筑", 20, middle + 128, deckGridWidth - 40, 40, Compact ? 23 : 27, FightUI.Foreground, TextAlignmentOptions.Center);
+                var explanation = FightUI.Text(scroll, emptyLibrary ? "从推荐模板开始，或自由创建你的卡组。" : emptyPersonalPicker ? "先创建或导入个人卡组，再返回此处选择。" : "调整关键词或切换分组，再试一次。", 20, middle + 178, deckGridWidth - 40, 40, 17, FightUI.Muted, TextAlignmentOptions.Center);
                 float actionWidth = Mathf.Min(180, (deckGridWidth - 48) / 2);
-                if (emptyLibrary)
+                if (emptyLibrary || emptyPersonalPicker)
                 {
                     FightUI.Button(scroll, "创建卡组", (deckGridWidth - actionWidth * 2 - 16) / 2, middle + 232, actionWidth, 48, NewDeckDialog, true);
-                    FightUI.Button(scroll, "浏览推荐", (deckGridWidth + 16) / 2, middle + 232, actionWidth, 48, () => Navigate("recommended"));
+                    FightUI.Button(scroll, emptyPersonalPicker ? "返回" : "浏览推荐", (deckGridWidth + 16) / 2, middle + 232, actionWidth, 48, () => Navigate(emptyPersonalPicker ? pickerOrigin : "recommended"));
                 }
-                else FightUI.Button(scroll, "清除搜索与分组", (deckGridWidth - 210) / 2, middle + 232, 210, 48, () => { search = ""; deckGroup = "全部"; Rebuild(); });
+                else
+                {
+                    int elsewhere = deckGroup == "全部" ? 0 : deckItems.Count(d => DeckMatchesSearch(d, terms));
+                    explanation.text = elsewhere > 0 ? "全部卡组中还有 " + elsewhere + " 套符合当前搜索。"
+                        : terms.Length > 0 && deckGroup != "全部" ? "清空关键词后，继续查看「" + deckGroup + "」。"
+                        : terms.Length > 0 ? "清空关键词后，继续查找构筑。" : "这个分组还没有构筑，可以查看全部卡组。";
+                    bool clearKeyword = terms.Length > 0;
+                    int actionCount = (clearKeyword ? 1 : 0) + (elsewhere > 0 || !clearKeyword ? 1 : 0);
+                    float recoveryWidth = Mathf.Min(210, (deckGridWidth - 48 - (actionCount - 1) * 16) / actionCount);
+                    float recoveryX = (deckGridWidth - actionCount * recoveryWidth - (actionCount - 1) * 16) / 2;
+                    if (clearKeyword)
+                    {
+                        var clear = FightUI.Button(scroll, "清空关键词", recoveryX, middle + 232, recoveryWidth, 48, ClearDeckBrowseSearch, true);
+                        FightUI.FocusKey(clear, "deck-browse:empty-clear-search");
+                        FightUI.Hint(clear.gameObject, "清空搜索，保留当前分组并继续输入");
+                        recoveryX += recoveryWidth + 16;
+                    }
+                    if (elsewhere > 0 || !clearKeyword)
+                    {
+                        var all = FightUI.Button(scroll, clearKeyword ? "在全部卡组中查找" : "查看全部卡组", recoveryX, middle + 232, recoveryWidth, 48, SearchAllDeckGroups, !clearKeyword);
+                        FightUI.FocusKey(all, "deck-browse:empty-all-groups");
+                        FightUI.Hint(all.gameObject, "切换到全部卡组，保留当前搜索词");
+                    }
+                }
             }
             for (int i = 0; i < items.Count; i++)
             {
@@ -212,6 +286,15 @@ namespace MDPro3.UI.Client
                 {
                     var deck = new Deck(d.Path);
                     FightUI.Art(card, d.Recommendation?.CoverCard ?? DeckLibrary.CoverFor(deck), 5, 5, cellW - 10, coverHeight);
+                    for (int band = 0; band < 4; band++)
+                    {
+                        var shade = FightUI.Panel(card, 5, coverHeight - 27 + band * 8, cellW - 10, 8,
+                            new Color(.02f, .04f, .06f, .08f + band * .09f), false, "Cover shade");
+                        shade.GetComponent<Image>().raycastTarget = false;
+                    }
+                    FightUI.Line(card, 5, coverHeight + 6, cellW - 10, FightUI.Border);
+                    var indicator = FightUI.Icon(card, "diamond", cellW - 25, coverHeight - 16, 12, 12, FightUI.Active);
+                    indicator.name = "Preview indicator"; indicator.gameObject.SetActive(selected);
                     bool current = SameDeckPath(Program.PATH_DECK + Config.GetConfigDeckName() + ".ydk", d.Path);
                     if (d.Recommendation != null)
                     {
@@ -224,6 +307,7 @@ namespace MDPro3.UI.Client
                         FightUI.Text(badge, "当前使用", 0, 0, 72, 24, 13, FightUI.Active, TextAlignmentOptions.Center);
                     }
                     var title = FightUI.Text(card, d.Name, 12, coverHeight + 17, cellW - 24, 66, Compact ? 21 : 23, FightUI.Foreground);
+                    title.name = "Deck tile title"; title.fontStyle = FontStyles.Bold;
                     title.enableWordWrapping = true; title.enableAutoSizing = true;
                     title.fontSizeMin = Compact ? 18 : 20; title.fontSizeMax = Compact ? 21 : 23;
                     FightUI.Hint(card.gameObject, d.Name);
@@ -257,6 +341,8 @@ namespace MDPro3.UI.Client
                 bool selected = item.Item1.Path == selectedPath;
                 item.Item2.GetComponent<Image>().color = selected ? FightUI.Raised : FightUI.PanelColor;
                 item.Item2.GetComponent<Outline>().effectColor = selected ? FightUI.Active : FightUI.Border;
+                var indicator = item.Item2.Find("Preview indicator");
+                if (indicator != null) indicator.gameObject.SetActive(selected);
             }
             RenderDeckPreview(deck);
         }
@@ -267,9 +353,11 @@ namespace MDPro3.UI.Client
             ModuleDivider(deckPreview, "构筑预览", 18, 16, w - 36, 20);
             if (d == null)
             {
-                float emptyTop = Mathf.Max(76, ((page == "picker" ? h - 96 : h) - 170) / 2);
+                float emptyTop = Mathf.Max(76, ((page == "picker" ? h - 96 : h) - 218) / 2);
                 FightUI.Icon(deckPreview, "deck", (w - 48) / 2, emptyTop, 48, 48, FightUI.GoldBorder);
-                FightUI.Text(deckPreview, "选择一套卡组", 20, emptyTop + 72, w - 40, 44, 23, FightUI.Foreground, TextAlignmentOptions.Center);
+                bool emptyLibrary = (page == "decks" || page == "picker" && pickerPersonalOnly) && deckItems.Count == 0;
+                string emptyTitle = deckBrowseFrames.Count == 0 ? emptyLibrary ? "尚未创建卡组" : "暂无可预览构筑" : "选择一套卡组";
+                FightUI.Text(deckPreview, emptyTitle, 20, emptyTop + 72, w - 40, 44, 23, FightUI.Foreground, TextAlignmentOptions.Center);
                 if (page == "picker")
                 {
                     FightUI.Button(deckPreview, "返回", 18, h - 64, w - 36, 48, () => Navigate(pickerOrigin));
@@ -279,7 +367,8 @@ namespace MDPro3.UI.Client
             Try(() =>
             {
                 var deck = new Deck(d.Path);
-                float actionsY = page != "picker" && d.Recommendation != null ? h - 16 : h - 138;
+                bool templatePreview = page != "picker" && d.Recommendation != null;
+                float actionsY = templatePreview ? h - 82 : h - 138;
                 FightUI.Line(deckPreview, 18, actionsY, w - 36, FightUI.GoldBorder);
                 float countsY = actionsY - 72;
                 DeckCountStrip(deckPreview, deck, 18, countsY + 4, w - 36);
@@ -302,6 +391,7 @@ namespace MDPro3.UI.Client
                 {
                     ModuleDivider(c, "构筑思路", 10, y, w - 36, 18);
                     var description = FightUI.Text(c, d.Recommendation.Description, 10, y + 48, w - 36, 180, 17, FightUI.Muted);
+                    description.lineSpacing = 5; description.paragraphSpacing = 8;
                     description.overflowMode = TextOverflowModes.Overflow;
                     float descriptionHeight = Mathf.Max(68, description.GetPreferredValues(description.text, w - 36, 0).y + 12);
                     description.rectTransform.sizeDelta = new Vector2(w - 36, descriptionHeight);
@@ -315,8 +405,17 @@ namespace MDPro3.UI.Client
                 c.sizeDelta = new Vector2(w - 16, y + 12);
                 if (page == "picker")
                 {
-                    FightUI.Button(deckPreview, "返回", 18, h - 120, w - 36, 44, () => Navigate(pickerOrigin));
-                    FightUI.Button(deckPreview, "查看完整构筑", 18, h - 64, w - 36, 48, () => OpenDeckDetail(d));
+                    float secondaryWidth = (w - 44) / 2;
+                    FightUI.Button(deckPreview, "返回", 18, h - 120, secondaryWidth, 44, () => Navigate(pickerOrigin));
+                    var inspect = FightUI.Button(deckPreview, "查看完整构筑", 26 + secondaryWidth, h - 120, secondaryWidth, 44, () => OpenDeckDetail(d));
+                    var caption = inspect.GetComponentInChildren<TextMeshProUGUI>();
+                    caption.enableAutoSizing = true; caption.fontSizeMin = 15; caption.fontSizeMax = 19;
+                    FightUI.Hint(inspect.gameObject, "查看完整构筑");
+                    FightUI.Button(deckPreview, "选择这套卡组", 18, h - 64, w - 36, 48, () => CommitPickedDeck(d.Path), true);
+                }
+                else if (templatePreview)
+                {
+                    FightUI.Button(deckPreview, "查看完整构筑  →", 18, h - 64, w - 36, 48, () => OpenDeckDetail(d), true);
                 }
                 else if (d.Recommendation == null)
                 {
@@ -355,6 +454,8 @@ namespace MDPro3.UI.Client
             string path = detailEntry?.SourcePath ?? personalDetailPath;
             if (string.IsNullOrEmpty(path) || !File.Exists(path)) { Navigate(detailOrigin); return; }
             string name = detailEntry?.Name ?? PersonalName(path);
+            bool sameReadingDeck = SameDeckPath(path, detailReadingDeckPath);
+            if (!sameReadingDeck) { detailCardReadingPositions.Clear(); detailReadingDeckPath = path; }
             PageTitle(name);
             var deck = new Deck(path);
             int cover = detailEntry?.CoverCard ?? DeckLibrary.CoverFor(deck);
@@ -365,7 +466,9 @@ namespace MDPro3.UI.Client
             detailCardFrames.Clear();
             var cards = FightUI.Scroll(Body, inspectorWidth + Gap, top, cardsWidth, contentHeight, 1200);
             DrawDeckCards(cards, deck, cardsWidth, RenderDeckDetailInspector, true);
-            int initialCard = deck.Main.Contains(cover) || deck.Extra.Contains(cover) ? cover : deck.Main.FirstOrDefault();
+            var allCodes = deck.Main.Concat(deck.Extra).Concat(deck.Side);
+            int initialCard = sameReadingDeck && allCodes.Contains(detailInspectedCode) ? detailInspectedCode
+                : allCodes.Contains(cover) ? cover : allCodes.FirstOrDefault();
             RenderDeckDetailInspector(initialCard);
             var summaryPanel = FightUI.Panel(Body, BodyWidth - summaryWidth, top, summaryWidth, contentHeight, FightUI.PanelColor, false);
             float coverHeight = Compact ? 112 : 168;
@@ -385,6 +488,7 @@ namespace MDPro3.UI.Client
                 ModuleDivider(summary, "构筑思路", 16, y, summaryWidth - 32, 21); y += 52;
                 string description = detailEntry.Description;
                 var descriptionText = FightUI.Text(summary, description, 16, y, summaryWidth - 32, 360, 18, FightUI.Foreground);
+                descriptionText.lineSpacing = 5; descriptionText.paragraphSpacing = 10;
                 descriptionText.overflowMode = TextOverflowModes.Overflow;
                 float descriptionHeight = descriptionText.GetPreferredValues(description, summaryWidth - 32, float.PositiveInfinity).y + 12;
                 descriptionText.rectTransform.sizeDelta = new Vector2(summaryWidth - 32, descriptionHeight); y += descriptionHeight + 24;
@@ -445,9 +549,14 @@ namespace MDPro3.UI.Client
             float width = detailInspector.rect.width, height = detailInspector.rect.height;
             if (code <= 0)
             {
-                FightUI.Text(detailInspector, "暂无卡片", 16, 24, width - 32, 70, 18, FightUI.Muted); return;
+                float emptyTop = Mathf.Max(24, (height - 224) / 2);
+                FightUI.Icon(detailInspector, "deck", (width - 40) / 2, emptyTop, 40, 40, FightUI.GoldBorder);
+                FightUI.Text(detailInspector, "构筑暂无卡片", 16, emptyTop + 64, width - 32, 40, 20, FightUI.Foreground, TextAlignmentOptions.Center);
+                FightUI.Text(detailInspector, detailEntry == null ? "通过编辑卡组加入卡片，\n即可在这里查看卡文。" : "这套构筑中没有\n可供查看的卡片。", 16, emptyTop + 120, width - 32, 80, 16, FightUI.Muted, TextAlignmentOptions.Center);
+                return;
             }
-            var inspector = FightUI.Scroll(detailInspector, 0, 0, width, height, height);
+            float readingHeight = height - 62;
+            var inspector = FightUI.Scroll(detailInspector, 0, 0, width, readingHeight, readingHeight, out var readingScroll);
             var card = CardsManager.Get(code);
             var name = FightUI.Text(inspector, card.Name, 16, 14, width - 32, 100, Compact ? 21 : 25, FightUI.Foreground);
             float oneLineWidth = name.GetPreferredValues(card.Name, float.PositiveInfinity, float.PositiveInfinity).x;
@@ -471,11 +580,19 @@ namespace MDPro3.UI.Client
             float parametersHeight = parameterText.GetPreferredValues(parameters, width - 32, float.PositiveInfinity).y + 10;
             parameterText.rectTransform.sizeDelta = new Vector2(width - 32, parametersHeight); y += parametersHeight + 8;
             FightUI.Line(inspector, 16, y - 4, width - 32);
+            FightUI.Text(inspector, "卡片效果", 16, y + 4, width - 32, 28, 15, FightUI.Gold); y += 40;
             var text = FightUI.Text(inspector, card.Desc, 16, y, width - 38, 800, Compact ? 16 : 18, FightUI.Foreground);
+            text.lineSpacing = 5; text.paragraphSpacing = 8;
             text.overflowMode = TextOverflowModes.Overflow;
             float textHeight = text.GetPreferredValues(card.Desc, width - 38, float.PositiveInfinity).y + 12;
             text.rectTransform.sizeDelta = new Vector2(width - 38, textHeight);
-            inspector.sizeDelta = new Vector2(width, Mathf.Max(y + textHeight + 16, height));
+            inspector.sizeDelta = new Vector2(width, Mathf.Max(y + textHeight + 16, readingHeight));
+            FightUI.Line(detailInspector, 12, height - 60, width - 24, FightUI.GoldBorder);
+            var read = FightUI.FocusKey(FightUI.Button(detailInspector, "阅读完整卡文", 12, height - 48, width - 24, 40, () => ShowCard(code)), "deck-detail:read-card");
+            FightUI.Hint(read.gameObject, "放大查看当前卡片；每张卡片保留独立的阅读位置");
+            Canvas.ForceUpdateCanvases();
+            readingScroll.verticalNormalizedPosition = detailCardReadingPositions.TryGetValue(code, out var position) ? position : 1;
+            readingScroll.onValueChanged.AddListener(_ => detailCardReadingPositions[code] = Mathf.Clamp01(readingScroll.verticalNormalizedPosition));
         }
 
         private void DrawDeckCards(RectTransform parent, Deck deck, float width, Action<int> inspected = null, bool groupCopies = false)
@@ -514,19 +631,49 @@ namespace MDPro3.UI.Client
         }
         private void ShowCard(int code)
         {
-            var card = CardsManager.Get(code); var box = ShowDialog(card.Name, 660, 570);
-            FightUI.Art(box, code, 28, 90, 220, 320, true);
-            var c = FightUI.Scroll(box, 274, 90, 354, 438, 438);
+            var card = CardsManager.Get(code);
+            float width = Mathf.Min(820, W - 48), height = Mathf.Min(700, H - 48);
+            var box = ShowDialog("卡片详情", width, height);
+            var name = FightUI.Text(box, card.Name, 28, 84, width - 56, 100, 24, FightUI.Foreground);
+            name.overflowMode = TextOverflowModes.Overflow; name.lineSpacing = 4;
+            float nameHeight = name.GetPreferredValues(card.Name, width - 56, float.PositiveInfinity).y + 8;
+            name.rectTransform.sizeDelta = new Vector2(width - 56, nameHeight);
+            float top = 84 + nameHeight + 16, footer = height - 72, contentHeight = Mathf.Max(120, footer - top - 42);
+            FightUI.Line(box, 28, top - 8, width - 56, FightUI.GoldBorder);
+            float factsWidth = Compact ? 204 : 228, effectX = factsWidth + 52, effectWidth = width - effectX - 28;
+            var factsContent = FightUI.Scroll(box, 28, top, factsWidth, contentHeight, contentHeight);
+            float artWidth = Mathf.Min(factsWidth - 16, Mathf.Max(92, contentHeight - 146) / 1.46f), artHeight = artWidth * 1.46f;
+            FightUI.Art(factsContent, code, (factsWidth - artWidth) / 2, 0, artWidth, artHeight, true);
             string type = card.HasType(CardType.Monster) ? card.GetAttributeString() + "  " + card.GetTypeForUI() : card.GetTypeForUI();
-            var facts = FightUI.Text(c, type + "\n" + EditorCardParameters(card), 12, 0, 322, 130, 17, FightUI.Gold);
-            float factsHeight = facts.GetPreferredValues(facts.text, 322, float.PositiveInfinity).y + 20;
-            facts.rectTransform.sizeDelta = new Vector2(322, factsHeight);
-            FightUI.Line(c, 12, factsHeight, 322);
-            var text = FightUI.Text(c, card.Desc, 12, factsHeight + 20, 322, 790, 18, FightUI.Foreground);
+            var facts = FightUI.Text(factsContent, type + "\n" + EditorCardParameters(card), 4, artHeight + 18, factsWidth - 20, 130, 17, FightUI.Gold);
+            facts.lineSpacing = 5; facts.overflowMode = TextOverflowModes.Overflow;
+            float factsHeight = facts.GetPreferredValues(facts.text, factsWidth - 20, float.PositiveInfinity).y + 12;
+            facts.rectTransform.sizeDelta = new Vector2(factsWidth - 20, factsHeight);
+            factsContent.sizeDelta = new Vector2(factsWidth, Mathf.Max(contentHeight, artHeight + 34 + factsHeight));
+            FightUI.Text(box, "卡片效果", effectX, top, effectWidth, 30, 17, FightUI.Gold);
+            var c = FightUI.Scroll(box, effectX, top + 38, effectWidth, contentHeight - 38, contentHeight - 38, out var scroll);
+            scroll.name = "Card detail reading";
+            var text = FightUI.Text(c, card.Desc, 0, 2, effectWidth - 22, 790, 20, FightUI.Foreground);
+            text.lineSpacing = 7; text.paragraphSpacing = 10;
             text.overflowMode = TextOverflowModes.Overflow;
-            float textHeight = text.GetPreferredValues(card.Desc, 322, float.PositiveInfinity).y + 12;
-            text.rectTransform.sizeDelta = new Vector2(322, textHeight);
-            c.sizeDelta = new Vector2(354, Mathf.Max(438, factsHeight + 32 + textHeight));
+            float textHeight = text.GetPreferredValues(card.Desc, effectWidth - 22, float.PositiveInfinity).y + 12;
+            text.rectTransform.sizeDelta = new Vector2(effectWidth - 22, textHeight);
+            c.sizeDelta = new Vector2(effectWidth, Mathf.Max(contentHeight - 38, textHeight + 8));
+            var progress = FightUI.Text(box, "", effectX, footer - 34, effectWidth, 28, 15, FightUI.Muted);
+            progress.raycastTarget = false;
+            Action updateReading = () =>
+            {
+                bool overflow = scroll.content.rect.height > scroll.viewport.rect.height + 1;
+                progress.text = !overflow ? "卡文已完整显示" : scroll.verticalNormalizedPosition <= .005f ? "已读到卡文末尾" : "向下滚动阅读卡文";
+                progress.color = !overflow || scroll.verticalNormalizedPosition <= .005f ? FightUI.Gold : FightUI.Muted;
+            };
+            FightUI.Line(box, 28, footer - 8, width - 56, FightUI.Border);
+            FightUI.Text(box, "只读查看 · 每张卡片保留阅读位置", 28, footer + 4, width - 236, 44, 15, FightUI.Muted);
+            FightUI.FocusKey(FightUI.Button(box, "返回", width - 188, footer + 4, 160, 44, CloseDialog), "card-detail:return");
+            Canvas.ForceUpdateCanvases();
+            scroll.verticalNormalizedPosition = cardReadingPositions.TryGetValue(code, out var saved) ? saved : 1;
+            scroll.onValueChanged.AddListener(_ => { cardReadingPositions[code] = Mathf.Clamp01(scroll.verticalNormalizedPosition); updateReading(); });
+            updateReading();
         }
         private void CheckName(string name)
         {
@@ -618,7 +765,11 @@ namespace MDPro3.UI.Client
         private void DeckActions(ClientDeck d)
         {
             var box = ShowDialog("卡组操作 · " + d.Name, 620, 530); int row = 0;
-            Action<string, Action> add = (label, action) => { FightUI.Button(box, label, 28, 86 + row++ * 56, 564, 48, () => { CloseDialog(); Try(action); }); };
+            Action<string, Action> add = (label, action) =>
+            {
+                var actionButton = FightUI.Button(box, label, 28, 86 + row++ * 56, 564, 48, () => { CloseDialog(); Try(action); });
+                if (label.StartsWith("删除", StringComparison.Ordinal)) FightUI.StyleDestructiveButton(actionButton);
+            };
             add("重命名", () => Prompt("重命名卡组", "新名称", Path.GetFileNameWithoutExtension(d.Path), name => { CheckName(name); MoveDeck(d.Path, Path.Combine(Path.GetDirectoryName(d.Path), name + ".ydk")); Rebuild(); }));
             add("复制独立副本", () => { var name = DeckLibrary.CreateEditableCopy(File.ReadAllBytes(d.Path), d.Name.Replace("/", " · ")); selectedPath = Path.GetFullPath(Program.PATH_DECK + name + ".ydk"); Rebuild(); ShowStatus("已复制：" + name); });
             add("移动到分组", () => ChooseGroup(d, false));
@@ -634,12 +785,16 @@ namespace MDPro3.UI.Client
             var list = FightUI.Scroll(box, 24, 86, 570, Mathf.Min(410, groups.Count * 56), groups.Count * 56);
             for (int i = 0; i < groups.Count; i++)
             {
-                var group = groups[i]; FightUI.Button(list, group, 4, i * 56, 554, 48, () => Try(() =>
+                var group = groups[i];
+                var destinationDirectory = Path.GetFullPath(Path.Combine(Program.PATH_DECK, group == "默认分组" ? "" : group)).TrimEnd(Path.DirectorySeparatorChar);
+                bool currentGroup = string.Equals(Path.GetDirectoryName(Path.GetFullPath(d.Path)), destinationDirectory, StringComparison.OrdinalIgnoreCase);
+                var choice = FightUI.Button(list, group + (currentGroup ? " · 当前分组" : ""), 4, i * 56, 554, 48, () => Try(() =>
                 {
                     var target = Path.Combine(Program.PATH_DECK, group == "默认分组" ? "" : group, Path.GetFileName(d.Path));
                     if (File.Exists(target)) throw new IOException("目标分组已有同名文件。");
                     if (copy) File.Copy(d.Path, target); else MoveDeck(d.Path, target); CloseDialog(); Rebuild();
-                }));
+                }), false, !currentGroup);
+                FightUI.Hint(choice.gameObject, group + (currentGroup ? "\n卡组已在此分组中" : ""));
             }
         }
         private void MoveDeck(string source, string target)
@@ -694,12 +849,13 @@ namespace MDPro3.UI.Client
                 deckGroup = name; Rebuild();
             }));
             var decks = Directory.GetFiles(directory, "*.ydk");
-            FightUI.Button(box, "删除分组…", 28, 216, 564, 48, () => Confirm("删除分组", "删除分组“" + group + "”及其中 " + decks.Length + " 套卡组？", () =>
+            var deleteGroup = FightUI.Button(box, "删除分组…", 28, 216, 564, 48, () => Confirm("删除分组", "删除分组“" + group + "”及其中 " + decks.Length + " 套卡组？", () =>
             {
                 foreach (var file in decks) { File.Delete(file); UpdateDeckReferences(file, null); }
                 if (!Directory.EnumerateFileSystemEntries(directory).Any()) Directory.Delete(directory);
                 deckGroup = "全部"; Rebuild(); ShowStatus("已删除分组中的卡组；其它文件保持原样。");
             }));
+            FightUI.StyleDestructiveButton(deleteGroup);
         }
     }
 }

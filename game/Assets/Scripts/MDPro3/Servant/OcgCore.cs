@@ -707,6 +707,7 @@ namespace MDPro3.Servant
 
         public MessageDispatcher messageDispatcher = new();
         private int messageLoopVersion;
+        internal int MessageLoopVersion => messageLoopVersion;
 
         public void AddPackage(Package p)
         {

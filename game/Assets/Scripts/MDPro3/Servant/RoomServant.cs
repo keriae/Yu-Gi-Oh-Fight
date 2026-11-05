@@ -418,9 +418,9 @@ namespace MDPro3.Servant
 
         public void StocMessage_SelectHand(BinaryReader r)
         {
-            // Keep the server's opening protocol, with automatic independent
-            // samples and automatic rerolls. Present only its final turn order.
-            TcpHelper.CtosMessage_HandResult(Random.Range(1, 4));
+            // The hand-test bot uses 1; answer the server's request with 2 so
+            // the player keeps the first turn. Other duels sample independently.
+            TcpHelper.CtosMessage_HandResult(FromHandTest ? 2 : Random.Range(1, 4));
         }
 
         public void StocMessage_SelectTp(BinaryReader r)

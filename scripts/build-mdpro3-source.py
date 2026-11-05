@@ -10,6 +10,7 @@ import subprocess
 import tarfile
 import zipfile
 import importlib.util
+import argparse
 
 from source_build_state import build_transaction, validate_generation
 from client_ui_assets import content_hashes as client_ui_hashes
@@ -48,7 +49,7 @@ def preflight() -> None:
                          + "\nRestore publisher files with python3 scripts/acquire-mdpro3-resources.py.")
 
 
-def compile_generation(output: Path) -> None:
+def compile_generation(output: Path, ui_proof: bool = False) -> None:
     manifest_path = output / "manifest.json"
     preflight()
     ui_hashes = client_ui_hashes(ROOT / "content/client-ui")
@@ -134,9 +135,10 @@ def compile_generation(output: Path) -> None:
         if before != target.read_bytes():
             adjustments.append({"path": relative, "source_sha256": hashes[relative], "compiled_input_sha256": digest(target),
                                 "reason": "UTF-8/BOM normalization; exclude editor-only CreateAssetMenu declarations and unused imports"})
+    defines = DEFINES + (["FIGHT_UI_PROOF"] if ui_proof else [])
     response = ["-nostdlib+", "-target:library", "-unsafe+", "-langversion:9.0", "-nullable:disable",
                 "-optimize+", "-deterministic+", "-debug:portable", '-out:"' + str(output / "Assembly-CSharp.dll") + '"',
-                '-pathmap:"' + str(output) + '=/mdpro3/build/mdpro3-source,' + str(ROOT) + '=/mdpro3"', "-define:" + ";".join(DEFINES), "-warn:0"]
+                '-pathmap:"' + str(output) + '=/mdpro3/build/mdpro3-source,' + str(ROOT) + '=/mdpro3"', "-define:" + ";".join(defines), "-warn:0"]
     response += ['-reference:"' + str(path) + '"' for path in sorted(references.glob("*.dll"))
                  if path.name != "Assembly-CSharp.dll"]
     response += ['"' + str(path) + '"' for path in inputs]
@@ -164,7 +166,8 @@ def compile_generation(output: Path) -> None:
                 "publisher_manifest_sha256": publisher_sha, "source_commit": provenance["commit"],
                 "publisher_version": provenance["tag"], "source_files": hashes, "source_file_count": len(hashes),
                 "source_archive_manifest_sha256": digest(source_manifest), "shipping_dependencies": dependencies,
-                "compiler_defines": DEFINES, "compiler_input_adjustments": adjustments,
+                "compiler_defines": defines, "build_profile": "ui-proof" if ui_proof else "release",
+                "compiler_input_adjustments": adjustments,
                 "reference_supplements_sha256": digest(references / "reference-prep.json"),
                 "compatibility_report_sha256": digest(compatibility_path), "compatibility_report": "compatibility.json",
                 "deck_academy_content": academy_hashes, "client_ui_content": ui_hashes,
@@ -172,15 +175,18 @@ def compile_generation(output: Path) -> None:
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
 
 
-def build_source() -> Path:
-    return build_transaction(ROOT, compile_generation)
+def build_source(ui_proof: bool = False) -> Path:
+    return build_transaction(ROOT, lambda output: compile_generation(output, ui_proof))
 
 
 def main() -> None:
-    snapshot = build_source()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--ui-proof", action="store_true", help="Include native UI acceptance code; never package this profile")
+    args = parser.parse_args()
+    snapshot = build_source(args.ui_proof)
     manifest = validate_generation(snapshot)
     print(json.dumps({"ok": True, "source_file_count": manifest["source_file_count"],
-                      "assembly_sha256": manifest["assembly_sha256"], "generation": str(snapshot)}))
+                      "assembly_sha256": manifest["assembly_sha256"], "build_profile": manifest["build_profile"], "generation": str(snapshot)}))
 
 
 if __name__ == "__main__":

@@ -36,6 +36,7 @@ namespace MDPro3.UI.Client
         private readonly Dictionary<string, TMP_InputField> settingsInputs = new Dictionary<string, TMP_InputField>();
         private readonly Dictionary<string, TextMeshProUGUI> settingsErrorLabels = new Dictionary<string, TextMeshProUGUI>();
         private readonly Dictionary<string, RectTransform> settingsFieldAnchors = new Dictionary<string, RectTransform>();
+        private readonly Dictionary<string, TextMeshProUGUI> settingsCategoryChanges = new Dictionary<string, TextMeshProUGUI>();
         private readonly List<AiConfigField> aiHeaders = new List<AiConfigField>();
         private readonly HashSet<AiConfigField> visibleHeaders = new HashSet<AiConfigField>();
         private readonly Dictionary<AiConfigField, int> aiHeaderIds = new Dictionary<AiConfigField, int>();
@@ -49,6 +50,9 @@ namespace MDPro3.UI.Client
         private CancellationTokenSource settingsTest;
         private TextMeshProUGUI settingsDirtyLabel;
         private TextMeshProUGUI settingsAiTestLabel;
+        private TextMeshProUGUI settingsDataStatusLabel;
+        private string settingsSaveError, settingsDataStatus;
+        private bool settingsDataStatusFailed;
         private float settingsScrollPosition = 1;
         private ScrollRect settingsScroll;
         internal bool SettingsDirty => settingsValues.Any(pair => !settingsOriginal.TryGetValue(pair.Key, out var previous) || pair.Value != previous)
@@ -144,7 +148,7 @@ namespace MDPro3.UI.Client
         }
         private void LoadSettingsDraft()
         {
-            settingsValues.Clear(); settingsOriginal.Clear(); settingsErrors.Clear(); aiLoadError = null;
+            settingsValues.Clear(); settingsOriginal.Clear(); settingsErrors.Clear(); aiLoadError = null; settingsSaveError = null;
             foreach (var field in clientSettings) settingsValues[field.Key] = settingsOriginal[field.Key] = Config.Have(field.Key) ? Config.Get(field.Key, field.Default) : field.Default;
             settingsValues["LocalDuelPort"] = settingsOriginal["LocalDuelPort"] = Config.Have("LocalDuelPort") ? Config.Get("LocalDuelPort", SoloSelector.port) : SoloSelector.port;
             try { aiSettingsDraft = ResponsesAiConfigStore.Load(); }
@@ -168,11 +172,13 @@ namespace MDPro3.UI.Client
         }
         private void SettingsChanged(string key, string value)
         {
+            settingsSaveError = null;
             settingsValues[key] = value; settingsErrors.Remove(key); UpdateSettingsDirtyLabel();
             ClearSettingsFieldError(key);
         }
         private void AiSettingsChanged(string key = null)
         {
+            settingsSaveError = null;
             CancelSettingsTest(); aiTestStatus = "尚未测试（请求配置已修改）";
             if (settingsAiTestLabel != null) { settingsAiTestLabel.text = aiTestStatus; settingsAiTestLabel.color = FightUI.Muted; }
             var cleared = key == null ? settingsErrors.Keys.Where(IsAiSettingsKey).ToArray() : new[] { key, "ai" };
@@ -228,16 +234,49 @@ namespace MDPro3.UI.Client
         }
         private void UpdateSettingsDirtyLabel()
         {
+            foreach (var category in settingsCategoryChanges)
+            {
+                if (category.Value == null) continue;
+                int changes = SettingsCategoryChangeCount(category.Key);
+                category.Value.text = changes == 0 ? "" : category.Key == "ai" ? "●" : changes.ToString(CultureInfo.InvariantCulture);
+                category.Value.gameObject.SetActive(changes > 0);
+            }
             if (settingsDirtyLabel == null) return;
-            settingsDirtyLabel.text = SettingsDirty ? "● 有未保存的修改" : "";
-            settingsDirtyLabel.color = SettingsDirty ? FightUI.Gold : FightUI.Muted;
+            int errors = settingsErrors.Keys.Concat(settingsValues.Where(pair => pair.Value.StartsWith("invalid:", StringComparison.Ordinal)).Select(pair => pair.Key)).Distinct().Count();
+            settingsDirtyLabel.text = settingsSaveError != null ? "保存失败 · 请重试"
+                : errors > 0 ? errors + " 项待修正" + (SettingsDirty ? " · 未保存" : "")
+                : SettingsDirty ? "● 有未保存的修改" : "已保存";
+            settingsDirtyLabel.color = settingsSaveError != null || errors > 0 ? FightUI.Danger : SettingsDirty ? FightUI.Gold : FightUI.Muted;
+            FightUI.Hint(settingsDirtyLabel.gameObject, settingsSaveError ?? (errors > 0 ? "修正字段中的提示后，可再次保存。" : SettingsDirty ? "保存会应用所有分类中尚未保存的修改。" : "当前设置与已保存配置一致。"));
+            if (settingsLayoutCancel != null && settingsLayoutCancel.GetComponent<Button>() is Button cancel)
+                cancel.interactable = settingsOrigin != null || SettingsDirty;
+            if (settingsLayoutSave != null && settingsLayoutSave.GetComponent<Button>() is Button save)
+            {
+                save.interactable = settingsTest == null && (SettingsDirty || settingsOrigin != null || settingsSaveError != null);
+                var caption = save.GetComponentInChildren<TextMeshProUGUI>();
+                if (caption != null) caption.text = settingsSaveError != null
+                    ? settingsOrigin == null ? "重试保存" : "重试保存并返回"
+                    : settingsOrigin == null ? "保存设置" : "保存并返回对战";
+                FightUI.Hint(save.gameObject, settingsSaveError == null ? "保存所有分类中尚未保存的修改。"
+                    : "使用已保留的设置草稿再次保存。" + settingsSaveError);
+            }
+        }
+
+        private int SettingsCategoryChangeCount(string category)
+        {
+            if (category == "ai") return aiSettingsDraft != null && AiDraftSignature() != aiSettingsOriginal ? 1 : 0;
+            return clientSettings.Count(field => field.Category == category && settingsValues.TryGetValue(field.Key, out var value)
+                && settingsOriginal.TryGetValue(field.Key, out var original) && value != original)
+                + (category == "general" && settingsValues.TryGetValue("LocalDuelPort", out var port)
+                    && settingsOriginal.TryGetValue("LocalDuelPort", out var savedPort) && port != savedPort ? 1 : 0);
         }
 
         internal void RenderSettings()
         {
             if (clientSettings.Count == 0) BuildClientSettings();
             if (settingsValues.Count == 0) LoadSettingsDraft();
-            FightUI.Clear(Body); settingsInputs.Clear(); settingsErrorLabels.Clear(); settingsFieldAnchors.Clear();
+            FightUI.Clear(Body); settingsInputs.Clear(); settingsErrorLabels.Clear(); settingsFieldAnchors.Clear(); settingsCategoryChanges.Clear();
+            settingsDataStatusLabel = null; settingsLayoutCancel = settingsLayoutSave = null;
             settingsLayoutAiLeft = settingsLayoutAiRight = null;
             float sidebar = SettingsSidebarWidth, inset = SettingsWorkspaceInset, headingHeight = SettingsHeadingHeight;
             var formWidth = SettingsFormWidth(BodyWidth - sidebar, settingsCategory == "ai" && aiAdvanced);
@@ -260,12 +299,20 @@ namespace MDPro3.UI.Client
                 var selected = settingsCategory == category;
                 var button = FightUI.Button(rail, titles[i], 12, headingHeight + 12 + i * 56, sidebar - 24, 46,
                     () => { settingsCategory = category; settingsScrollPosition = 1; RenderSettings(); }, false, settingsTest == null);
-                button.GetComponent<Outline>().enabled = false;
-                button.GetComponent<Image>().color = selected ? FightUI.Raised : Color.clear;
+                FightUI.FocusKey(button, "settings:category:" + category);
+                var outline = button.GetComponent<Outline>();
+                outline.enabled = selected; outline.effectColor = FightUI.GoldBorder;
+                button.GetComponent<Image>().color = selected ? new Color(.14f, .18f, .21f, .82f) : Color.clear;
                 var label = button.GetComponentInChildren<TextMeshProUGUI>(); label.alignment = TextAlignmentOptions.MidlineLeft; label.color = selected ? FightUI.Active : FightUI.Muted;
                 label.fontSize = 18;
-                FightUI.Place(label.rectTransform, 18, 0, sidebar - 60, 46);
-                if (selected) FightUI.Panel(button.transform, 0, 10, 2, 26, FightUI.Gold, false);
+                label.fontStyle = selected ? FontStyles.Bold : FontStyles.Normal;
+                label.enableWordWrapping = false; label.enableAutoSizing = true; label.fontSizeMin = 16; label.fontSizeMax = 18;
+                FightUI.Place(label.rectTransform, 20, 0, sidebar - 86, 46);
+                var changes = FightUI.Text(button.transform, "", sidebar - 58, 0, 26, 46, 14, FightUI.Gold, TextAlignmentOptions.MidlineRight);
+                changes.name = "Settings category changes " + category;
+                changes.raycastTarget = false;
+                settingsCategoryChanges[category] = changes;
+                FightUI.Hint(changes.gameObject, category == "ai" ? "AI 服务配置尚未保存。" : "该分类有未保存的修改；数字为修改项数。");
             }
             var title = titles[Mathf.Max(0, Array.IndexOf(categories, settingsCategory))];
             var innerWidth = Mathf.Min(settingsCategory == "ai" && aiAdvanced ? float.PositiveInfinity : settingsCategory == "ai" ? 920 : 880, formWidth - inset * 2 - 24);
@@ -300,9 +347,12 @@ namespace MDPro3.UI.Client
                 }
                 foreach (var field in clientSettings.Where(field => field.Category == settingsCategory && (settingsCategory != "duel" || !field.Key.StartsWith("Duel") && !field.Key.StartsWith("Watch") && !field.Key.StartsWith("Replay") || field.Key.StartsWith(settingsCondition))))
                 {
-                    string section = field.Key == "Language" ? "语言与阅读" : field.Key == "Confirm" ? "操作与表现"
-                        : field.Key == "ScreenMode" ? "显示与画质" : field.Key == "BgmVol" ? "声音"
-                        : field.Key == settingsCondition + "Voice" ? "对局演出" : field.Key == settingsCondition + "AutoInfo" ? "信息与响应"
+                    string section = field.Key == "Language" ? "语言与阅读" : field.Key == "Confirm" ? "操作方式"
+                        : field.Key == "CardStyle" ? "卡牌表现" : field.Key == "BGMbyMySide" ? "场地与背景"
+                        : field.Key == "ScreenMode" ? "显示模式" : field.Key == "Scale" ? "画质与渲染"
+                        : field.Key == "FPS" ? "帧率" : field.Key == "BgmVol" ? "声音"
+                        : field.Key == settingsCondition + "Voice" ? "对局演出" : field.Key == settingsCondition + "AutoInfo" ? "卡片信息"
+                        : field.Key == settingsCondition + "PlayerMessage" ? "消息显示" : field.Key == settingsCondition + "AutoAcc" ? "播放速度"
                         : field.Key == Config.LABEL_TIMING ? "全局操作" : null;
                     if (section != null) { SettingsSection(content, innerWidth, section, ref y); }
                     RenderSettingField(content, innerWidth, field, ref y);
@@ -311,7 +361,7 @@ namespace MDPro3.UI.Client
                 {
                     FightUI.Button(content, "管理默认卡组", 0, y, 240, 48, () => Navigate("decks")); y += 68;
                     SettingsSection(content, innerWidth, "高级启动参数", ref y);
-                    RenderSettingsInput(content, innerWidth, "LocalDuelPort", "本地决斗端口", settingsValues["LocalDuelPort"], "1–65535", ref y, value => SettingsChanged("LocalDuelPort", value));
+                    RenderSettingsPort(content, innerWidth, ref y);
                 }
             }
             content.sizeDelta = new Vector2(readerWidth, Mathf.Max(y + 24, viewportHeight));
@@ -319,7 +369,16 @@ namespace MDPro3.UI.Client
             settingsScroll.onValueChanged.AddListener(_ => settingsScrollPosition = settingsScroll.verticalNormalizedPosition);
             if (settingsCategory == "about" || settingsCategory == "data")
                 settingsLayoutReset = null;
-            else settingsLayoutReset = FightUI.Button(actions, "恢复本页默认", readerInset, 16, 170, 48, RestoreSettingsDefaults, false, settingsTest == null).GetComponent<RectTransform>();
+            else
+            {
+                string resetLabel = settingsCategory == "duel" ? "恢复当前情境默认"
+                    : settingsCategory == "ai" ? aiAdvanced ? "恢复高级默认" : "恢复连接默认" : "恢复本页默认";
+                var reset = FightUI.Button(actions, resetLabel, readerInset, 16, SettingsResetWidth, 48, RestoreSettingsDefaults, false, settingsTest == null);
+                reset.name = "恢复本页默认";
+                FightUI.Hint(reset.gameObject, settingsCategory == "duel" ? "只恢复当前对战、观战或回放情境的设置；保存后生效。"
+                    : settingsCategory == "ai" ? "只恢复当前连接或高级分页中的参数；保存后生效。" : "只恢复当前分类中的设置；保存后生效。");
+                settingsLayoutReset = reset.GetComponent<RectTransform>();
+            }
             var cancelLabel = settingsOrigin == null ? "取消修改" : "返回对战准备";
             var saveLabel = settingsOrigin == null ? "保存设置" : "保存并返回对战";
             settingsLayoutCancel = FightUI.Button(actions, cancelLabel, readerInset + readerWidth - 400, 16, 180, 48, () =>
@@ -331,7 +390,19 @@ namespace MDPro3.UI.Client
             {
                 if (!SaveSettings()) return;
                 if (settingsOrigin != null) Navigate(settingsOrigin); else RenderSettings();
-            }, true, settingsTest == null && settingsCategory != "about").GetComponent<RectTransform>();
+            }, true, settingsTest == null).GetComponent<RectTransform>();
+            FightUI.Hint(settingsLayoutSave.gameObject, "保存所有分类中尚未保存的修改。");
+            FightUI.Hint(settingsLayoutCancel.gameObject, settingsOrigin == null ? "放弃所有分类中尚未保存的修改，恢复已保存设置。" : "返回对战准备；未保存时可选择继续编辑、放弃或保存。");
+            if (settingsCategory == "data")
+            {
+                settingsDataStatusLabel = SettingsWrappedText(actions, settingsDataStatus ?? "文件操作立即执行；扩展开关需保存。", readerInset, 16,
+                    Mathf.Max(150, readerWidth - 480), 48, 15, settingsDataStatusFailed ? FightUI.Danger : FightUI.Muted);
+                settingsDataStatusLabel.maxVisibleLines = 2;
+                settingsDataStatusLabel.overflowMode = TextOverflowModes.Ellipsis;
+                settingsDataStatusLabel.rectTransform.sizeDelta = new Vector2(Mathf.Max(150, readerWidth - 480), 48);
+                FightUI.Hint(settingsDataStatusLabel.gameObject, settingsDataStatus ?? "导入、导出、打开目录与清除立即执行。只有本地扩展支持开关需要保存设置。");
+            }
+            UpdateSettingsDirtyLabel();
             var workspaceFrame = workspace.Find("Metal frame");
             if (workspaceFrame != null) workspaceFrame.SetAsLastSibling();
             CaptureSettingsViewportLayout(content);
@@ -339,12 +410,16 @@ namespace MDPro3.UI.Client
         private void SettingsSection(Transform parent, float width, string label, ref float y)
         {
             if (y > 16) y += 18;
-            var t = FightUI.Text(parent, label, 0, y, width, 30, 18, FightUI.Gold); t.fontStyle = FontStyles.Bold;
-            FightUI.Line(parent, 0, y + 34, width, new Color(.2f, .28f, .33f, .42f)); y += 48;
+            var t = FightUI.Text(parent, label, 18, y, width - 18, 30, 18, FightUI.Gold);
+            t.fontStyle = FontStyles.Bold; t.characterSpacing = .8f;
+            FightUI.Icon(parent, "diamond", 0, y + 8, 7, 7, FightUI.Gold);
+            float ruleX = Mathf.Min(width, t.preferredWidth + 38);
+            FightUI.Line(parent, ruleX, y + 13, Mathf.Max(0, width - ruleX), new Color(.2f, .28f, .33f, .42f)); y += 48;
         }
         private void RenderSettingField(Transform parent, float width, ClientSetting field, ref float y)
         {
             var value = settingsValues[field.Key];
+            bool inlineNumberError = false;
             float labelWidth = Mathf.Min(240, width * .27f), controlX = labelWidth + 16, controlWidth = width - controlX;
             if (field.Boolean)
             {
@@ -362,7 +437,7 @@ namespace MDPro3.UI.Client
             }
             else if (field.Values != null)
             {
-                var label = SettingsFieldLabel(parent, field.Label, 0, y + 3, labelWidth, 48);
+                var label = SettingsFieldLabel(parent, field.Label, 0, y + 2, labelWidth, 46);
                 var index = Array.IndexOf(field.Values, value); var display = index < 0 ? value : field.Labels[index];
                 var choice = FightUI.Button(parent, display, controlX, y + 2, controlWidth, 46, () => SettingsChoose(field.Label, field.Values, field.Labels, next =>
                 {
@@ -375,15 +450,16 @@ namespace MDPro3.UI.Client
             }
             else
             {
-                var label = SettingsFieldLabel(parent, field.Label, 0, y + 3, labelWidth, 48);
+                var label = SettingsFieldLabel(parent, field.Label, 0, y + 2, labelWidth, 44);
                 var number = ParseStoredFloat(value); var display = value.StartsWith("invalid:", StringComparison.Ordinal) ? value.Substring(8) : number.ToString("0.###", CultureInfo.InvariantCulture);
                 if (field.Min == field.Max) display = "关闭";
                 Slider slider = null; TMP_InputField input = null;
                 var hint = SettingsWrappedText(parent, SettingsNumberHint(field, number), controlX, y + 50, controlWidth, 26, 15, FightUI.Muted);
+                hint.name = "Setting feedback " + field.Key;
                 if (field.Min < field.Max)
                 {
                     float errorHeight = new[] { float.NaN, field.Max + 1, field.Key == "FPS" ? 1 : field.Min - 1 }
-                        .Max(sample => hint.GetPreferredValues(SettingsNumberError(field, sample) ?? "", controlWidth, float.PositiveInfinity).y + 2);
+                        .Max(sample => hint.GetPreferredValues(SettingsNumberFeedback(field, sample, SettingsNumberError(field, sample)), controlWidth, float.PositiveInfinity).y + 2);
                     hint.rectTransform.sizeDelta = new Vector2(controlWidth, Mathf.Max(hint.rectTransform.sizeDelta.y, errorHeight));
                 }
                 var valueRow = FightUI.Node(parent, "Setting value " + field.Key, controlX, y + 2, controlWidth, 44);
@@ -396,10 +472,11 @@ namespace MDPro3.UI.Client
                         SettingsChanged(field.Key, ((int)(next * 1000)).ToString(CultureInfo.InvariantCulture));
                         if (slider != null) slider.SetValueWithoutNotify(field.Key == "FPS" && next == 0 ? 29 : next);
                     }
-                    else { settingsValues[field.Key] = "invalid:" + text; settingsErrors.Remove(field.Key); ClearSettingsFieldError(field.Key); UpdateSettingsDirtyLabel(); }
-                    hint.text = issue ?? SettingsNumberHint(field, next); hint.color = issue == null ? FightUI.Muted : FightUI.Danger;
+                    else { settingsSaveError = null; settingsValues[field.Key] = "invalid:" + text; settingsErrors.Remove(field.Key); ClearSettingsFieldError(field.Key); UpdateSettingsDirtyLabel(); }
+                    hint.text = SettingsNumberFeedback(field, next, issue); hint.color = issue == null ? FightUI.Muted : FightUI.Danger;
                     if (input != null) input.GetComponent<Outline>().effectColor = issue == null ? FightUI.Border : FightUI.Danger;
                 }); input.richText = false; input.textComponent.richText = false; settingsInputs[field.Key] = input;
+                input.keyboardType = field.Whole ? TouchScreenKeyboardType.NumberPad : TouchScreenKeyboardType.NumbersAndPunctuation;
                 input.interactable = field.Min < field.Max;
                 FightUI.Hint(input.gameObject, SettingsNumberRangeHint(field));
                 settingsFieldAnchors[field.Key] = input.GetComponent<RectTransform>();
@@ -409,12 +486,14 @@ namespace MDPro3.UI.Client
                     SettingsChanged(field.Key, ((int)(changed * 1000)).ToString(CultureInfo.InvariantCulture));
                     input.SetTextWithoutNotify(changed.ToString("0.###", CultureInfo.InvariantCulture));
                     hint.text = SettingsNumberHint(field, changed); hint.color = FightUI.Muted;
+                    input.GetComponent<Outline>().effectColor = FightUI.Border;
                 }, 110);
                 FightUI.Hint(slider.gameObject, SettingsNumberRangeHint(field));
-                if (value.StartsWith("invalid:", StringComparison.Ordinal)) { hint.text = SettingsNumberDraftError(field, value) ?? "请输入有效数值"; hint.color = FightUI.Danger; input.GetComponent<Outline>().effectColor = FightUI.Danger; }
+                if (value.StartsWith("invalid:", StringComparison.Ordinal)) { hint.text = SettingsNumberFeedback(field, number, SettingsNumberDraftError(field, value) ?? "请输入有效数值"); hint.color = FightUI.Danger; input.GetComponent<Outline>().effectColor = FightUI.Danger; inlineNumberError = true; }
                 y += Mathf.Max(Mathf.Max(80, label.rectTransform.sizeDelta.y + 18), 50 + hint.rectTransform.sizeDelta.y + 8);
             }
-            RenderSettingsError(parent, width, field.Key, ref y); FightUI.Line(parent, 0, y + 2, width, new Color(.2f, .28f, .33f, .20f)); y += 8;
+            if (!inlineNumberError) RenderSettingsError(parent, width, field.Key, ref y);
+            FightUI.Line(parent, 0, y + 2, width, new Color(.2f, .28f, .33f, .20f)); y += 8;
         }
         private TextMeshProUGUI SettingsFieldLabel(Transform parent, string value, float x, float y, float width, float height)
         {
@@ -430,6 +509,7 @@ namespace MDPro3.UI.Client
         private void StyleSettingsChoice(Button choice, float width, float height)
         {
             choice.GetComponent<Outline>().effectColor = FightUI.Border;
+            choice.GetComponent<Image>().color = FightUI.Hex("0B1923");
             var caption = choice.GetComponentInChildren<TextMeshProUGUI>(); caption.alignment = TextAlignmentOptions.MidlineLeft; caption.color = FightUI.Foreground;
             FightUI.Place(caption.rectTransform, 14, 0, width - 48, height);
             FightUI.Hint(caption.gameObject, caption.text);
@@ -469,9 +549,13 @@ namespace MDPro3.UI.Client
         {
             if (field.Key == "FAA") return "当前引擎关闭 MSAA，此项不可调整。";
             if (field.Key == "FPS") return "输入 0 为无限制，或 30–" + field.Max.ToString(CultureInfo.InvariantCulture) + " 之间的整数。";
+            if (field.Key.EndsWith("Vol", StringComparison.Ordinal)) return "范围 0–1；0 为静音，1 为 100% 音量。";
+            if (field.Key == "Scale") return "范围 " + field.Min.ToString(CultureInfo.InvariantCulture) + "–" + field.Max.ToString(CultureInfo.InvariantCulture) + "；1 为 100% 渲染比例。";
             return "范围 " + field.Min.ToString(CultureInfo.InvariantCulture) + "–" + field.Max.ToString(CultureInfo.InvariantCulture)
-                + (field.Whole ? "，仅限整数。" : "。");
+                + (field.Key.EndsWith("Acc", StringComparison.Ordinal) ? " 倍。" : field.Whole ? "，仅限整数。" : "。");
         }
+        private static string SettingsNumberFeedback(ClientSetting field, float number, string issue) => issue == null
+            ? SettingsNumberHint(field, number) : issue + "\n" + SettingsNumberRangeHint(field);
         private Slider CreateClientSettingsSlider(Transform parent, float width, float y, ClientSetting field, float value, Action<float> changed, float x = 0)
         {
             var area = FightUI.Node(parent, "Slider " + field.Key, x, y, width, 40);
@@ -479,17 +563,49 @@ namespace MDPro3.UI.Client
             var fill = FightUI.Panel(track, 0, 0, width, 3, FightUI.Gold, false);
             fill.sizeDelta = Vector2.zero; fill.anchoredPosition = Vector2.zero;
             var handles = FightUI.Node(area, "Handle area", 8, 0, width - 16, 40);
-            var handle = FightUI.Panel(handles, 0, 10, 16, 20, FightUI.Active, false);
-            handle.pivot = new Vector2(.5f, .5f); handle.sizeDelta = new Vector2(16, -20); handle.anchoredPosition = Vector2.zero;
+            var handle = FightUI.Panel(handles, 0, 13, 14, 14, FightUI.Active, false);
+            handle.GetComponent<Image>().sprite = FightSkin.Surface; handle.GetComponent<Image>().type = Image.Type.Sliced;
+            handle.pivot = new Vector2(.5f, .5f); handle.sizeDelta = new Vector2(14, -26); handle.anchoredPosition = Vector2.zero;
             var slider = area.gameObject.AddComponent<Slider>();
             slider.fillRect = fill; slider.handleRect = handle; slider.targetGraphic = handle.GetComponent<Image>();
             slider.direction = Slider.Direction.LeftToRight; slider.minValue = field.Key == "FPS" ? 29 : field.Min;
             slider.maxValue = field.Max; slider.wholeNumbers = field.Whole;
             slider.value = float.IsNaN(value) ? slider.minValue : field.Key == "FPS" && value == 0 ? 29 : value;
             slider.interactable = slider.minValue < slider.maxValue;
+            var colors = slider.colors; colors.highlightedColor = FightUI.CyanText; colors.selectedColor = FightUI.CyanText;
+            colors.pressedColor = FightUI.Cyan; colors.fadeDuration = .12f; slider.colors = colors;
             slider.onValueChanged.AddListener(valueChanged => changed(valueChanged)); return slider;
         }
         private static float ParseStoredFloat(string value) => int.TryParse(value, out var number) ? number / 1000f : float.NaN;
+        private void RenderSettingsPort(Transform parent, float width, ref float y)
+        {
+            float labelWidth = Mathf.Min(240, width * .27f), controlX = labelWidth + 16, controlWidth = width - controlX;
+            var label = SettingsFieldLabel(parent, "本地决斗端口", 0, y + 2, labelWidth, 44);
+            TMP_InputField input = null;
+            var hint = SettingsWrappedText(parent, "端口范围 1–65535；保存后生效。", controlX, y + 50, controlWidth, 26, 15, FightUI.Muted);
+            hint.name = "Local duel port feedback";
+            hint.rectTransform.sizeDelta = new Vector2(controlWidth, Mathf.Max(hint.rectTransform.sizeDelta.y,
+                hint.GetPreferredValues("请输入 1–65535 之间的整数端口。\n端口范围 1–65535；保存后生效。", controlWidth, float.PositiveInfinity).y + 4));
+            Action<string> updateFeedback = value =>
+            {
+                string issue = SettingsPortError(value);
+                if (issue == null) settingsErrors.Remove("LocalDuelPort"); else settingsErrors["LocalDuelPort"] = issue;
+                hint.text = issue == null ? "端口范围 1–65535；保存后生效。" : issue + "\n端口范围 1–65535；保存后生效。";
+                hint.color = issue == null ? FightUI.Muted : FightUI.Danger;
+                if (input != null) input.GetComponent<Outline>().effectColor = issue == null ? FightUI.Border : FightUI.Danger;
+                UpdateSettingsDirtyLabel();
+            };
+            input = FightUI.FocusKey(FightUI.Input(parent, settingsValues["LocalDuelPort"], "1–65535", controlX, y + 2, controlWidth, 44,
+                value => { SettingsChanged("LocalDuelPort", value); updateFeedback(value); }), "settings:LocalDuelPort");
+            settingsInputs["LocalDuelPort"] = input; settingsFieldAnchors["LocalDuelPort"] = input.GetComponent<RectTransform>();
+            input.keyboardType = TouchScreenKeyboardType.NumberPad;
+            FightUI.Hint(input.gameObject, "本地决斗端口范围 1–65535，保存后生效。");
+            updateFeedback(settingsValues["LocalDuelPort"]);
+            y += Mathf.Max(label.rectTransform.sizeDelta.y + 18, 50 + hint.rectTransform.sizeDelta.y + 8);
+            FightUI.Line(parent, 0, y + 2, width, new Color(.2f, .28f, .33f, .20f)); y += 16;
+        }
+        private static string SettingsPortError(string value) => int.TryParse(value, out var port) && port >= 1 && port <= 65535
+            ? null : "请输入 1–65535 之间的整数端口。";
         private void RenderSettingsInput(Transform parent, float width, string key, string label, string value, string hint, ref float y, Action<string> changed, bool password = false, bool multiline = false, float height = 48, bool showHint = true)
         {
             FightUI.Text(parent, label, 0, y, width, 28, 19); y += 30;
@@ -497,6 +613,8 @@ namespace MDPro3.UI.Client
             input.richText = false; input.isRichTextEditingAllowed = false; input.textComponent.richText = false;
             if (input.placeholder is TMP_Text placeholder) placeholder.richText = false;
             settingsInputs[key] = input; y += height + 8;
+            if (key == "baseUrl") input.keyboardType = TouchScreenKeyboardType.URL;
+            else if (key == "model") input.keyboardType = TouchScreenKeyboardType.ASCIICapable;
             settingsFieldAnchors[key] = input.GetComponent<RectTransform>();
             FightUI.Hint(input.gameObject, hint);
             if (settingsErrors.ContainsKey(key)) input.GetComponent<Outline>().effectColor = FightUI.Danger;
@@ -528,29 +646,70 @@ namespace MDPro3.UI.Client
             var modal = ShowDialog(title, 560, height);
             float listTop = searchable ? 136 : 72, viewportHeight = height - listTop - 68;
             var content = FightUI.Scroll(modal, 24, listTop, 512, viewportHeight, values.Length * 52, out var scroll);
+            var result = FightUI.Text(modal, "", 24, height - 58, 328, 44, 15, FightUI.Muted, TextAlignmentOptions.MidlineLeft);
+            result.enableWordWrapping = false; result.overflowMode = TextOverflowModes.Ellipsis;
+            TMP_InputField search = null;
+            Button clear = null;
+            Action clearSearch = () =>
+            {
+                if (search == null) return;
+                search.text = ""; search.Select(); search.ActivateInputField();
+            };
             Action<string> renderOptions = query =>
             {
+                if (clear != null) clear.gameObject.SetActive(!string.IsNullOrEmpty(query));
                 FightUI.Clear(content);
                 var indices = Enumerable.Range(0, values.Length).Where(index => string.IsNullOrWhiteSpace(query)
                     || (labels[index] ?? "").IndexOf(query.Trim(), StringComparison.OrdinalIgnoreCase) >= 0
                     || (values[index] ?? "").IndexOf(query.Trim(), StringComparison.OrdinalIgnoreCase) >= 0).ToArray();
-                int selectedIndex = -1;
+                float selectedTop = -1, rowTop = 0;
                 for (int row = 0; row < indices.Length; row++)
                 {
                     int index = indices[row]; var value = values[index]; bool selected = value == current;
-                    var button = FightUI.FocusKey(FightUI.Button(content, labels[index], 8, row * 52, 496, 44, () => { CloseDialog(); chosen(value); }), "settings:choice:" + title + ":" + value);
-                    button.GetComponent<Outline>().enabled = false; button.GetComponent<Image>().color = selected ? FightUI.Raised : row % 2 == 0 ? new Color(.04f, .075f, .10f, .55f) : Color.clear;
+                    var button = FightUI.FocusKey(FightUI.Button(content, labels[index], 8, rowTop, 496, 44, () => { CloseDialog(); chosen(value); }), "settings:choice:" + title + ":" + value);
+                    button.GetComponent<Outline>().enabled = selected;
+                    button.GetComponent<Outline>().effectColor = FightUI.GoldBorder;
+                    button.GetComponent<Image>().color = selected ? FightUI.Raised : row % 2 == 0 ? new Color(.04f, .075f, .10f, .55f) : Color.clear;
+                    bool supportedMode = title != "显示模式" || value == "1" || !DeviceInfo.OnMobile()
+                        && (value != "0" || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor);
+                    button.interactable = supportedMode;
+                    FightUI.Hint(button.gameObject, !supportedMode ? value == "0" ? "独占全屏仅适用于 Windows 桌面。" : "此显示模式仅适用于桌面设备。"
+                        : "选择「" + labels[index] + "」加入设置草稿；保存设置后应用。");
                     var text = button.GetComponentInChildren<TextMeshProUGUI>(); text.alignment = TextAlignmentOptions.MidlineLeft; text.color = selected ? FightUI.Active : FightUI.Foreground;
-                    FightUI.Place(text.rectTransform, 16, 0, 422, 44);
-                    if (selected) { selectedIndex = row; FightUI.Panel(button.transform, 0, 10, 2, 24, FightUI.Gold, false); FightUI.Text(button.transform, "✓", 452, 0, 28, 44, 20, FightUI.Active, TextAlignmentOptions.Center); }
+                    text.enableAutoSizing = false; text.enableWordWrapping = true;
+                    float rowHeight = Mathf.Max(44, text.GetPreferredValues(text.text, 422, float.PositiveInfinity).y + 12);
+                    FightUI.Place(button.GetComponent<RectTransform>(), 8, rowTop, 496, rowHeight);
+                    FightUI.Place(text.rectTransform, 16, 6, 422, rowHeight - 12);
+                    if (selected) { selectedTop = rowTop; FightUI.Text(button.transform, "✓", 452, 0, 28, rowHeight, 20, FightUI.Active, TextAlignmentOptions.Center); }
                     FightUI.Hint(text.gameObject, labels[index]);
+                    rowTop += rowHeight + 8;
                 }
-                if (indices.Length == 0) FightUI.Text(content, "没有匹配项，请尝试其他关键词。", 16, 12, 480, 64, 18, FightUI.Muted, TextAlignmentOptions.Center);
-                content.sizeDelta = new Vector2(512, Mathf.Max(viewportHeight, Mathf.Max(1, indices.Length) * 52));
-                scroll.verticalNormalizedPosition = selectedIndex >= 0 && string.IsNullOrEmpty(query)
-                    ? Mathf.Clamp01(1 - Mathf.Max(0, selectedIndex * 52 - 52) / Mathf.Max(1, content.sizeDelta.y - viewportHeight)) : 1;
+                if (indices.Length == 0)
+                {
+                    FightUI.Text(content, "没有匹配项，请尝试其他关键词。", 16, 12, 480, 64, 18, FightUI.Muted, TextAlignmentOptions.Center);
+                    if (searchable) FightUI.FocusKey(FightUI.Button(content, "清除搜索", 164, 88, 184, 44, clearSearch), "settings:search:empty-clear");
+                    rowTop = 144;
+                }
+                result.text = string.IsNullOrWhiteSpace(query) ? values.Length + " 个选项" : indices.Length + " / " + values.Length + " 个匹配项";
+                int currentIndex = Array.IndexOf(values, current);
+                if (currentIndex >= 0) result.text += " · 当前选择：" + labels[currentIndex];
+                FightUI.Hint(result.gameObject, result.text);
+                content.sizeDelta = new Vector2(512, Mathf.Max(viewportHeight, rowTop));
+                scroll.verticalNormalizedPosition = selectedTop >= 0 && string.IsNullOrEmpty(query)
+                    ? Mathf.Clamp01(1 - Mathf.Max(0, selectedTop - 52) / Mathf.Max(1, content.sizeDelta.y - viewportHeight)) : 1;
             };
-            if (searchable) FightUI.Input(modal, "", "搜索名称或当前值", 24, 74, 512, 46, renderOptions);
+            if (searchable)
+            {
+                search = FightUI.Input(modal, "", "搜索名称或当前值", 24, 74, 512, 46, renderOptions);
+                FightUI.Icon(search.transform, "search", 12, 14, 18, 18, FightUI.Muted);
+                FightUI.Place(search.textViewport, 40, 5, 424, 36);
+                FightUI.Place(search.textComponent.rectTransform, 0, 0, 424, 36);
+                if (search.placeholder != null) FightUI.Place(search.placeholder.rectTransform, 0, 0, 424, 36);
+                clear = FightUI.FocusKey(FightUI.Button(search.transform, "", 476, 9, 28, 28, clearSearch), "settings:search:clear");
+                clear.name = "Clear settings choice search";
+                FightUI.Icon(clear.transform, "close", 7, 7, 14, 14, FightUI.Muted);
+                FightUI.Hint(clear.gameObject, "清除搜索，显示全部选项");
+            }
             renderOptions("");
             FightUI.Button(modal, "取消", 368, height - 58, 160, 44, CloseDialog);
         }
@@ -560,7 +719,7 @@ namespace MDPro3.UI.Client
             FightUI.Tab(parent, (!aiAdvanced ? "◆ " : "") + "连接", !aiAdvanced, 0, y, 160, 44, () => { aiAdvanced = false; settingsScrollPosition = 1; RenderSettings(); }, settingsTest == null);
             FightUI.Tab(parent, (aiAdvanced ? "◆ " : "") + "高级", aiAdvanced, 172, y, 160, 44, () => { aiAdvanced = true; settingsScrollPosition = 1; RenderSettings(); }, settingsTest == null);
             FightUI.Line(parent, 0, y + 52, width, FightUI.Border); y += 76;
-            if (aiLoadError != null) { FightUI.Text(parent, aiLoadError, 0, y, width, 60, 17, FightUI.Danger); y += 72; }
+            if (aiLoadError != null) y += SettingsWrappedText(parent, aiLoadError, 0, y, width, 60, 17, FightUI.Danger).rectTransform.sizeDelta.y + 12;
             if (!aiAdvanced)
             {
                 float connectionWidth = Mathf.Min(width, 920);
@@ -583,8 +742,9 @@ namespace MDPro3.UI.Client
             {
                 bool stacked = Compact || width < 1050;
                 float columnWidth = stacked ? width : (width - AiSettingsPaneGap) / 2, paneY = y;
-                var left = FightUI.Node(parent, "AI request settings", 0, paneY, columnWidth, 430);
-                var right = FightUI.Node(parent, "AI extra settings", stacked ? 0 : columnWidth + AiSettingsPaneGap, paneY, columnWidth, 430);
+                var left = FightUI.Panel(parent, 0, paneY, columnWidth, 430, new Color(.043f, .073f, .094f, .65f), false, "AI request settings");
+                var right = FightUI.Panel(parent, stacked ? 0 : columnWidth + AiSettingsPaneGap, paneY, columnWidth, 430, new Color(.043f, .073f, .094f, .65f), false, "AI extra settings");
+                left.GetComponent<Image>().raycastTarget = right.GetComponent<Image>().raycastTarget = false;
                 settingsLayoutAiLeft = left; settingsLayoutAiRight = right;
                 float inner = columnWidth - 32, ly = 14;
                 ModuleDivider(left, "推理与预算", 16, ly, inner, 22); ly += 62;
@@ -596,7 +756,7 @@ namespace MDPro3.UI.Client
                 var effort = FightUI.FocusKey(FightUI.Button(reasoningRow, effortIndex < 0 ? aiSettingsDraft.ReasoningEffort : labels[effortIndex], controlX, 0, controlWidth, AiSettingsFieldHeight,
                     () => SettingsChoose("思考强度", efforts, labels, value => { aiSettingsDraft.ReasoningEffort = value; AiSettingsChanged("reasoning"); RenderSettings(); }, aiSettingsDraft.ReasoningEffort ?? "")), "settings:ai:reasoning");
                 StyleSettingsChoice(effort, controlWidth, AiSettingsFieldHeight); settingsFieldAnchors["reasoning"] = effort.GetComponent<RectTransform>(); ly += AiSettingsRowHeight;
-                RenderSettingsError(left, inner, "reasoning", ref ly, 16);
+                RenderSettingsError(left, inner - controlX, "reasoning", ref ly, 16 + controlX);
                 AiBudgetField(left, inner, "timeout", "请求超时", "秒", aiTimeout, ref ly, value => { aiTimeout = value; AiSettingsChanged("timeout"); });
                 AiBudgetField(left, inner, "output", "输出上限", "tokens", aiOutput, ref ly, value => { aiOutput = value; AiSettingsChanged("output"); });
                 AiBudgetField(left, inner, "budget", "上下文预算", "tokens", aiBudget, ref ly, value => { aiBudget = value; AiSettingsChanged("budget"); });
@@ -651,6 +811,7 @@ namespace MDPro3.UI.Client
                 y = paneY + (stacked ? left.rect.height + AiSettingsPaneGap + rightHeight : Mathf.Max(left.rect.height, rightHeight)) + 24;
             }
             y += SettingsWrappedText(parent, "测试检查 Responses 与结构化输出协议；修改在下一场生效。", 0, y, width, 42, 16, FightUI.Muted).rectTransform.sizeDelta.y + 6;
+            FightUI.Line(parent, 0, y - 8, width, FightUI.Border);
             var testButton = FightUI.Button(parent, settingsTest == null ? "测试连接" : "取消测试", 0, y, 180, 44, TestSettingsConnection);
             var testColor = aiTestStatus.StartsWith("测试通过", StringComparison.Ordinal) ? FightUI.Gold
                 : aiTestStatus.StartsWith("尚未测试", StringComparison.Ordinal) || aiTestStatus.StartsWith("正在测试", StringComparison.Ordinal) || aiTestStatus == "连接测试已取消" ? FightUI.Muted : FightUI.Danger;
@@ -677,11 +838,14 @@ namespace MDPro3.UI.Client
         {
             var row = AiSettingsFieldRow(parent, width, key, label, y);
             float controlX = AiSettingsLabelWidth(width) + 20, controlWidth = AiSettingsControlWidth(width);
-            var input = FightUI.FocusKey(FightUI.Input(row, value, label, controlX, 0, controlWidth, AiSettingsFieldHeight, changed), "settings:ai:" + key);
+            string range = key == "timeout" ? "5–600" : key == "output" ? "128–128000" : "8192–2000000";
+            var input = FightUI.FocusKey(FightUI.Input(row, value, range, controlX, 0, controlWidth, AiSettingsFieldHeight, changed), "settings:ai:" + key);
+            input.keyboardType = TouchScreenKeyboardType.NumberPad;
+            FightUI.Hint(input.gameObject, label + "范围 " + range + " " + unit + "，仅限整数。" + (key == "budget" ? "须为输出预留至少 1024 tokens。" : ""));
             FightUI.Text(row, unit, controlX + controlWidth + 12, 0, 80, AiSettingsFieldHeight, 15, FightUI.Muted, TextAlignmentOptions.MidlineLeft);
             settingsInputs[key] = input; y += AiSettingsRowHeight;
             settingsFieldAnchors[key] = input.GetComponent<RectTransform>();
-            RenderSettingsError(parent, width, key, ref y, 16);
+            RenderSettingsError(parent, width - controlX, key, ref y, 16 + controlX);
         }
 
         private ResponsesAiConfig ReadAiSettings()
@@ -796,13 +960,14 @@ namespace MDPro3.UI.Client
                 string applyError = null;
                 try { ApplyClientSettings(modified, port); }
                 catch (Exception error) { applyError = error.Message; Debug.LogWarning("Fight settings apply: " + error); }
-                settingsErrors.Clear(); UpdateSettingsDirtyLabel();
+                settingsSaveError = null; settingsErrors.Clear(); UpdateSettingsDirtyLabel();
                 ShowStatus(applyError == null ? "设置已保存。" : "设置已保存，部分项目未立即生效：" + applyError); return true;
             }
             catch (Exception error)
             {
                 foreach (var key in modified) Config.Set(key, settingsOriginal[key]);
-                ShowStatus("保存失败：" + error.Message); return false;
+                settingsSaveError = "保存失败：" + error.Message; UpdateSettingsDirtyLabel();
+                ShowStatus(settingsSaveError); return false;
             }
         }
         private void ApplyClientSettings(string[] modified, int port)
@@ -886,7 +1051,9 @@ namespace MDPro3.UI.Client
             }
             else foreach (var field in clientSettings.Where(field => field.Category == settingsCategory && (settingsCategory != "duel" || field.Key.StartsWith(settingsCondition, StringComparison.Ordinal)))) SettingsChanged(field.Key, field.Default);
             if (settingsCategory == "general") SettingsChanged("LocalDuelPort", "7911");
-            RenderSettings(); ShowStatus(settingsCategory == "duel" ? "已恢复当前情境默认，保存后生效。" : "已恢复本页默认，保存后生效。");
+            RenderSettings();
+            string restored = settingsCategory == "duel" ? "当前情境" : settingsCategory == "ai" ? (aiAdvanced ? "高级参数" : "连接参数") : "本页";
+            ShowStatus("已恢复" + restored + "默认，保存后生效。");
         }
 
         private void RenderDataSettings(Transform parent, float width, ref float y)
@@ -909,13 +1076,13 @@ namespace MDPro3.UI.Client
         }
         private void RenderDataAction(Transform parent, float width, string title, string description, string label, Action action, bool enabled, ref float y)
         {
-            var panel = FightUI.Node(parent, title + " setting", 0, y, width, 96);
-            var heading = SettingsFieldLabel(panel, title, 0, 4, width - 180, 34);
+            var panel = FightUI.Panel(parent, 0, y, width, 96, new Color(.055f, .09f, .115f, .65f), false, title + " setting");
+            var heading = SettingsFieldLabel(panel, title, 14, 10, width - 194, 34);
             float descriptionY = Mathf.Max(42, heading.rectTransform.sizeDelta.y + 10);
-            var detail = SettingsWrappedText(panel, description, 0, descriptionY, width - 180, 30, 15, FightUI.Muted);
+            var detail = SettingsWrappedText(panel, description, 14, descriptionY, width - 194, 30, 15, FightUI.Muted);
             float rowHeight = Mathf.Max(96, descriptionY + detail.rectTransform.sizeDelta.y + 16);
             panel.sizeDelta = new Vector2(width, rowHeight);
-            var button = FightUI.Button(panel, label, width - 140, (rowHeight - 48) / 2, 140, 48, action, false, enabled);
+            var button = FightUI.Button(panel, label, width - 154, (rowHeight - 48) / 2, 140, 48, action, false, enabled);
             if (label == "清除")
             {
                 button.GetComponent<Outline>().effectColor = FightUI.Danger;
@@ -936,10 +1103,21 @@ namespace MDPro3.UI.Client
                     foreach (var file in files) if (File.Exists(file)) File.Delete(file);
                     if (path == Program.PATH_VIDEO_ART) ResourceManager.ClearCardVideos();
                     if (expansions) Program.instance.InitializeForDataChange();
-                    ShowStatus(label + "已清除。");
+                    ReportSettingsDataStatus(label + "已清除。");
                 }
-                catch (Exception error) { ShowStatus("清除失败：" + error.Message); }
+                catch (Exception error) { ReportSettingsDataStatus("清除失败：" + error.Message, true); }
             });
+        }
+        private void ReportSettingsDataStatus(string message, bool failed = false)
+        {
+            settingsDataStatus = message; settingsDataStatusFailed = failed;
+            if (settingsDataStatusLabel != null)
+            {
+                settingsDataStatusLabel.text = message;
+                settingsDataStatusLabel.color = failed ? FightUI.Danger : FightUI.Muted;
+                FightUI.Hint(settingsDataStatusLabel.gameObject, message);
+            }
+            ShowStatus(message);
         }
         private void ImportClientFiles(bool background)
         {
@@ -986,7 +1164,7 @@ namespace MDPro3.UI.Client
                 catch (Exception error) { errors.Add(Path.GetFileName(source) + "：" + error.Message); }
             }
             if (data) { FileManager.Dispose(); Program.instance.InitializeForDataChange(); }
-            ShowStatus(background && errors.Count == 0 ? "自定义背景图片已导入。" : "已复制导入 " + copied + " 个文件。" + (errors.Count == 0 ? "" : " " + string.Join("；", errors)));
+            ReportSettingsDataStatus(background && errors.Count == 0 ? "自定义背景图片已导入。" : "已复制导入 " + copied + " 个文件。" + (errors.Count == 0 ? "" : " " + string.Join("；", errors)), errors.Count > 0);
         }
         private static string UniqueClientPath(string directory, string name)
         {
@@ -997,7 +1175,7 @@ namespace MDPro3.UI.Client
         private void ExportClientFiles(string directory, string label)
         {
             var files = Directory.Exists(directory) ? Directory.GetFiles(directory, "*", SearchOption.AllDirectories) : Array.Empty<string>();
-            if (files.Length == 0) { ShowStatus("没有可导出的" + label + "。"); return; }
+            if (files.Length == 0) { ReportSettingsDataStatus("没有可导出的" + label + "。"); return; }
 #if UNITY_EDITOR || (!UNITY_ANDROID && !UNITY_IOS)
             StandaloneFileBrowser.OpenFolderPanelAsync("选择导出目录", "", false, paths =>
             {
@@ -1007,17 +1185,18 @@ namespace MDPro3.UI.Client
                     var target = UniqueClientPath(paths[0], "Yu-Gi-Oh Fight " + label + " " + DateTime.Now.ToString("yyyyMMdd-HHmmss")); Directory.CreateDirectory(target);
                     var root = Path.GetFullPath(directory).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
                     foreach (var source in files) { var destination = Path.Combine(target, Path.GetFullPath(source).Substring(root.Length)); Directory.CreateDirectory(Path.GetDirectoryName(destination)); File.Copy(source, destination, false); }
-                    ShowStatus("已导出 " + files.Length + " 个文件到 " + target);
+                    ReportSettingsDataStatus("已导出 " + files.Length + " 个文件到 " + target);
                 }
-                catch (Exception error) { ShowStatus("导出失败：" + error.Message); }
+                catch (Exception error) { ReportSettingsDataStatus("导出失败：" + error.Message, true); }
             });
 #else
-            NativeFilePicker.ExportMultipleFiles(files, success => ShowStatus(success ? label + "已复制导出。" : "导出已取消或失败。"));
+            NativeFilePicker.ExportMultipleFiles(files, success => ReportSettingsDataStatus(success ? label + "已复制导出。" : "导出已取消或失败。", !success));
 #endif
         }
         private void RenderAboutSettings(Transform parent, float width, ref float y)
         {
-            var banner = FightUI.Node(parent, "Client identity", 0, y, width, 170);
+            var banner = FightUI.Panel(parent, 0, y, width, 170, FightUI.Hex("0B1923"), false, "Client identity");
+            FightUI.Line(banner, 16, 169, width - 32, FightUI.GoldBorder);
             FightUI.Asset(banner, "brand.png", 0, 16, 224, 132, false);
             FightUI.Text(banner, "Yu-Gi-Oh! Fight", 252, 32, width - 280, 44, 28, FightUI.Gold);
             FightUI.Text(banner, "客户端 0.1.0", 254, 82, width - 280, 28, 18, FightUI.Foreground);
@@ -1042,6 +1221,7 @@ namespace MDPro3.UI.Client
         {
             SettingsSection(parent, width, title, ref y);
             var paragraph = FightUI.Text(parent, text, 0, y, width, 160, 19, FightUI.Foreground);
+            paragraph.lineSpacing = 6;
             float height = paragraph.GetPreferredValues(text, width, 1000).y + 10;
             paragraph.rectTransform.sizeDelta = new Vector2(width, height);
             y += height + 16;

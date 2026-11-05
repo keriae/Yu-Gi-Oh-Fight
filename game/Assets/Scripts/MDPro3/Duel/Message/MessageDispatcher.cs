@@ -22,13 +22,20 @@ namespace MDPro3.Duel
 
         public async UniTask Process(Package p)
         {
+            var core = Program.instance == null ? null : Program.instance.ocgcore;
+            var loopVersion = core == null ? -1 : core.MessageLoopVersion;
+            bool CurrentLoop() => core != null && core.showing && core.MessageLoopVersion == loopVersion;
+            if (!CurrentLoop()) return;
+
             if (p.Function != (int)GameMessage.Retry)
                 lastPackage = p;
 
             playerResponed = false;
 
             await log.Process(p);
+            if (!CurrentLoop()) return;
             await voice.Process(p);
+            if (!CurrentLoop()) return;
             await duel.Process(p);
         }
 

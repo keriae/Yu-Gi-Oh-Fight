@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using MDPro3.AI;
 using MDPro3.Duel.YGOSharp;
 using MDPro3.Servant;
@@ -10,6 +11,7 @@ using MDPro3.Utility;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YgomSystem.ElementSystem;
 
 namespace MDPro3.UI.Client
 {
@@ -22,16 +24,19 @@ namespace MDPro3.UI.Client
         private RectTransform editorViewHost, editorCollectionHost, editorDetailHost;
         private TextMeshProUGUI editorTitleText, editorStateText, editorCountsText, editorSummaryText;
         private Button editorSaveButton;
+        private Button editorSectionJumpButton;
         private readonly List<Button> editorToolbarButtons = new List<Button>();
         private RectTransform editorDivider, editorActionHost, editorHeaderInput, editorHeaderArea, editorHeaderNameGroup;
         private Rect editorHeaderInputBounds;
         private float editorActionNativeHeight;
         private EditorWidget editorDeckWidget, editorPoolWidget;
         private EditorInspector editorInspector;
+        private readonly Dictionary<int, float> editorCardReadingPositions = new Dictionary<int, float>();
         private FightCardPoolCache editorImageCache;
         private readonly List<EditorTypography> editorTypography = new List<EditorTypography>();
         private readonly Dictionary<ScrollRect, EditorScrollAnchor> editorScrollAnchors = new Dictionary<ScrollRect, EditorScrollAnchor>();
         private readonly Dictionary<SelectionButton_CardInDeck, EditorCardGeometry> editorCardGeometry = new Dictionary<SelectionButton_CardInDeck, EditorCardGeometry>();
+        private FightCardSlotFocus editorCardFocusFrame;
         private bool editorOverwriteAllowed;
         private bool editorAwaitingMount;
         private bool editorAwaitingOverwrite;
@@ -41,10 +46,18 @@ namespace MDPro3.UI.Client
         private readonly List<EditorDeckSection> editorDeckSections = new List<EditorDeckSection>();
         private readonly List<EditorTab> editorTabs = new List<EditorTab>();
         private readonly List<EditorGraphic> editorGraphics = new List<EditorGraphic>();
+        private readonly Dictionary<Graphic, EditorGraphicStyle> editorGraphicStyles = new Dictionary<Graphic, EditorGraphicStyle>();
+        private readonly Dictionary<Selectable, EditorControlStyle> editorControlStyles = new Dictionary<Selectable, EditorControlStyle>();
+        private readonly List<Component> editorSkinComponents = new List<Component>();
+        private readonly Dictionary<Selectable, TextMeshProUGUI> editorPoolToolLabels = new Dictionary<Selectable, TextMeshProUGUI>();
+        private SelectionButton editorPoolSearchCommand;
+        private TextMeshProUGUI editorPoolSearchCount;
         private readonly List<EditorBehaviour> editorBehaviours = new List<EditorBehaviour>();
         private readonly List<GameObject> editorAdditions = new List<GameObject>();
         private int editorLayoutSignature = -1;
         private SelectionButton editorHeaderTutorial;
+        private const string EditorInteractionHint = "左键查看 · 卡池右键添加 · 构筑右键移除 · 中键增加 · 拖动调整";
+        private string EditorInteractionCaption => Compact ? "左键查看 · 右键添加 / 移除 · 中键增加 · 拖动排序" : EditorInteractionHint;
 
         internal bool EditorDirty => clientEditorUI != null && clientEditorUI.DeckView != null && clientEditorUI.DeckView.GetDirty();
 
@@ -66,6 +79,7 @@ namespace MDPro3.UI.Client
                     return;
                 }
                 ReleaseEditor();
+                editorCardReadingPositions.Clear();
                 editorRelativeName = personalRelativeName;
                 editorLoadedPath = path;
                 editorOverwriteAllowed = false;
@@ -106,10 +120,10 @@ namespace MDPro3.UI.Client
             FightUI.Hint(editorTitleText.gameObject, editorRelativeName ?? "卡组编辑器");
             editorStateText = FightUI.Text(Body, "正在加载构筑…", 0, 43, BodyWidth - actionWidth, 24, 16, FightUI.Muted);
             var bx = BodyWidth - actionWidth;
-            editorToolbarButtons.Add(FightUI.Button(Body, "展开教程", bx, 8, buttonWidth, 44, OpenEditorTutorial)); bx += buttonWidth + actionGap;
-            editorToolbarButtons.Add(FightUI.Button(Body, "禁限卡表", bx, 8, buttonWidth, 44, () => clientEditorUI?.OnRegulation())); bx += buttonWidth + actionGap;
-            editorToolbarButtons.Add(FightUI.Button(Body, "手牌测试", bx, 8, buttonWidth, 44, () => clientEditorUI?.OnHandTest())); bx += buttonWidth + actionGap;
-            editorToolbarButtons.Add(FightUI.Button(Body, "更多", bx, 8, buttonWidth, 44, OpenEditorMore)); bx += buttonWidth + actionGap;
+            editorToolbarButtons.Add(FightUI.Button(Body, "展开教程", bx, 8, buttonWidth, 44, OpenEditorTutorial, false, false)); bx += buttonWidth + actionGap;
+            editorToolbarButtons.Add(FightUI.Button(Body, "禁限卡表", bx, 8, buttonWidth, 44, () => clientEditorUI?.OnRegulation(), false, false)); bx += buttonWidth + actionGap;
+            editorToolbarButtons.Add(FightUI.Button(Body, "手牌测试", bx, 8, buttonWidth, 44, () => clientEditorUI?.OnHandTest(), false, false)); bx += buttonWidth + actionGap;
+            editorToolbarButtons.Add(FightUI.Button(Body, "更多", bx, 8, buttonWidth, 44, OpenEditorMore, false, false)); bx += buttonWidth + actionGap;
             editorSaveButton = FightUI.Button(Body, "保存卡组", bx, 8, saveWidth, 44, () => SaveEditor(), true, false);
 
             var top = Compact ? 76f : 88f;
@@ -131,9 +145,15 @@ namespace MDPro3.UI.Client
             editorDetailHost.gameObject.AddComponent<RectMask2D>();
             editorViewHost.gameObject.AddComponent<RectMask2D>();
             editorCollectionHost.gameObject.AddComponent<RectMask2D>();
-            editorCountsText = FightUI.Text(Body, "左键查看 · 卡池右键添加 · 构筑右键移除 · 中键增加 · 拖动调整", 0,
-                BodyHeight - 30, BodyWidth - 280, 28, 15, FightUI.Muted);
+            editorCountsText = FightUI.Text(Body, EditorInteractionCaption, 0,
+                BodyHeight - 30, BodyWidth - 370, 28, 15, FightUI.Muted);
+            editorCountsText.enableWordWrapping = false;
+            FightUI.Hint(editorCountsText.gameObject, EditorInteractionHint);
             editorSummaryText = FightUI.Text(Body, "正在读取卡组…", BodyWidth - 270, BodyHeight - 30, 270, 28, 16, FightUI.Gold, TextAlignmentOptions.MidlineRight);
+            editorSectionJumpButton = FightUI.TextAction(Body, "定位 ▾", BodyWidth - 356, BodyHeight - 32, 76, 30, OpenEditorSectionJump, false);
+            editorSectionJumpButton.GetComponentInChildren<TextMeshProUGUI>().fontSize = 16;
+            FightUI.FocusKey(editorSectionJumpButton, "editor:section-jump");
+            FightUI.Hint(editorSectionJumpButton.gameObject, "定位主卡、额外或副卡区域，不改变构筑");
             editorAwaitingMount = true;
             TryMountEditor();
         }
@@ -171,11 +191,13 @@ namespace MDPro3.UI.Client
             RestoreEditorScroll(editorInspector?.Scroll);
             clientEditorUI?.CardCollectionView?.superScrollView?.SynchronizeViewport();
             foreach (var input in inputs) input.Restore();
+#if FIGHT_UI_PROOF
             if (Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1")
                 Debug.Log("[FightEditorReflow] " + oldWidth + "x" + oldHeight + " -> " + W + "x" + H
                     + " deckScale=" + (editorDeckWidget != null ? editorDeckWidget.Rect.localScale.x : 0)
                     + " poolScale=" + (editorPoolWidget != null ? editorPoolWidget.Rect.localScale.x : 0)
                     + " columns=" + string.Join(",", editorDeckSections.Select(section => section.Grid.constraintCount)));
+#endif
         }
 
         private void LayoutEditorShell()
@@ -212,8 +234,10 @@ namespace MDPro3.UI.Client
             FightUI.Place(editorDetailHost, 0, top, detailWidth, viewHeight);
             FightUI.Place(editorViewHost, detailWidth + Gap, top, deckWidth, viewHeight);
             FightUI.Place(editorCollectionHost, detailWidth + Gap + deckWidth + Gap, top, collectionWidth, viewHeight);
-            FightUI.Place(editorCountsText.rectTransform, 0, BodyHeight - 30, BodyWidth - 280, 28);
+            FightUI.Place(editorCountsText.rectTransform, 0, BodyHeight - 30, BodyWidth - 370, 28);
+            editorCountsText.text = EditorInteractionCaption;
             FightUI.Place(editorSummaryText.rectTransform, BodyWidth - 270, BodyHeight - 30, 270, 28);
+            if (editorSectionJumpButton != null) FightUI.Place(editorSectionJumpButton.GetComponent<RectTransform>(), BodyWidth - 356, BodyHeight - 32, 76, 30);
         }
 
         private void RememberEditorScroll(ScrollRect scroll)
@@ -243,23 +267,46 @@ namespace MDPro3.UI.Client
             if (editorAwaitingMount) TryMountEditor();
             if (clientEditorUI == null || editorStateText == null) return;
             var view = clientEditorUI.DeckView;
+            RefreshEditorCardFocus();
             if (editorTitleText != null)
             {
                 editorTitleText.text = "我的 / " + (editorRelativeName ?? "卡组编辑器");
                 FightUI.Hint(editorTitleText.gameObject, editorRelativeName ?? "卡组编辑器");
             }
             if (editorSaveButton != null) editorSaveButton.interactable = view.deckLoaded;
+            if (editorSectionJumpButton != null)
+            {
+                editorSectionJumpButton.interactable = view.deckLoaded;
+                editorSectionJumpButton.GetComponentInChildren<TextMeshProUGUI>().color = view.deckLoaded ? FightUI.Gold : FightUI.Muted;
+            }
+            foreach (var toolbarButton in editorToolbarButtons)
+                if (toolbarButton != null) toolbarButton.interactable = view.deckLoaded;
             if (editorHeaderTutorial != null && editorHeaderTutorial.GetButtonText() == "展开教程")
                 editorHeaderTutorial.gameObject.SetActive(false);
             LayoutEditorDeckSections();
             foreach (var tab in editorTabs) tab.Refresh();
+            foreach (var label in editorPoolToolLabels)
+                if (label.Key != null && label.Value != null)
+                {
+                    bool enabled = label.Key.IsInteractable();
+                    label.Value.color = enabled ? FightUI.Gold : FightUI.Muted;
+                    label.Value.canvasRenderer.SetAlpha(enabled ? 1 : .48f);
+                }
+            if (editorPoolSearchCommand != null && editorPoolSearchCount != null)
+            {
+                int resultCount = clientEditorUI.CardCollectionView.superScrollView?.items.Count ?? 0;
+                editorPoolSearchCount.text = resultCount + " 张";
+                AttachEditorToolHint(editorPoolSearchCommand.GetSelectable().gameObject, "重新搜索当前卡池 · 当前 " + resultCount + " 张结果");
+            }
             editorStateText.text = !view.deckLoaded ? "正在加载构筑…" :
                 (view.GetDirty() ? "◆ 未保存" : "已保存") + "    禁限表 " + DeckEditor.Banlist.Name;
             editorStateText.color = view.GetDirty() ? FightUI.Gold : FightUI.Muted;
+            FightUI.Hint(editorStateText.gameObject, editorStateText.text);
             if (editorSummaryText != null)
                 editorSummaryText.text = view.deckLoaded ? "主 " + view.mainCount + "  ·  额外 " + view.extraCount + "  ·  副 " + view.sideCount : "正在读取卡组…";
             var inspected = clientEditorUI.CardDetailView != null ? clientEditorUI.CardDetailView.Card : null;
             if (inspected != null && inspected.Id != editorInspectedCode) RenderEditorInspector(inspected);
+            RefreshEditorInspectorCopies();
         }
 
         private void TryMountEditor()
@@ -280,6 +327,7 @@ namespace MDPro3.UI.Client
             MountEditorHeader(ui.DeckView);
             MountEditorDeckSections(ui.DeckView);
             MountEditorTabs(ui.CardCollectionView);
+            LabelEditorPoolTools(ui.CardCollectionView);
             editorImageCache = new FightCardPoolCache();
             ui.CardCollectionView.ClientImageCache = editorImageCache;
             foreach (var image in ui.CardCollectionView.GetComponentsInChildren<CardRawImageHandler>(true))
@@ -383,11 +431,15 @@ namespace MDPro3.UI.Client
                 Mathf.Max(0, before.y - extent.y), Mathf.Max(0, extent.yMax - before.yMax));
             if (frame != rect) editorMounts.Add(new EditorMount(frame));
             var scale = Mathf.Min(1, (host.rect.width - 16) / nativeWidth);
+#if FIGHT_UI_PROOF
             DumpEditorRects(rect, "before", frame, scale);
+#endif
             rect.SetParent(host, false);
             ReflowEditorWidget(widget, expand);
             SkinEditorWidget(rect, scale);
+#if FIGHT_UI_PROOF
             DumpEditorRects(rect, "mounted", frame, scale);
+#endif
             return widget;
         }
 
@@ -457,22 +509,6 @@ namespace MDPro3.UI.Client
                 top = Mathf.Min(top, bounds.y); bottom = Mathf.Max(bottom, bounds.yMax);
             }
             return new Rect(frame.x, top, nativeWidth, Mathf.Max(1, bottom - top));
-        }
-
-        private static void DumpEditorRects(RectTransform wrapper, string phase, RectTransform column, float scale)
-        {
-            if (Environment.GetEnvironmentVariable("FIGHT_UI_TEST") != "1") return;
-            Debug.Log("[FightEditorRects] " + phase + " " + wrapper.name + " column=" + column.name
-                + " frame=" + EditorBounds(wrapper, column) + " scale=" + scale + " wrapper=" + wrapper.rect);
-            foreach (var r in wrapper.GetComponentsInChildren<RectTransform>(true))
-            {
-                var depth = 0; for (var p = r.parent; p != null && p != wrapper; p = p.parent) depth++;
-                if (depth > 2 || r.name == "Text" || r.GetComponentInParent<SelectionButton_CardInDeck>() != null
-                    || r.GetComponentInParent<SelectionButton_CardInCollection>() != null) continue;
-                Debug.Log("[FightEditorRects] " + phase + " " + r.name + " bounds=" + EditorBounds(wrapper, r)
-                    + " anchors=" + r.anchorMin + "/" + r.anchorMax + " size=" + r.sizeDelta + " pos=" + r.anchoredPosition
-                    + " scale=" + r.localScale + " drivers=" + string.Join(",", r.GetComponents<Component>().Where(c => c != null).Select(c => c.GetType().Name)));
-            }
         }
 
         private void MountEditorDeckSections(DeckView view)
@@ -601,11 +637,13 @@ namespace MDPro3.UI.Client
             }
             content.sizeDelta = new Vector2(width, Mathf.Max(height, y - 8));
             content.anchoredPosition = new Vector2(0, Mathf.Clamp(content.anchoredPosition.y, 0, Mathf.Max(0, content.rect.height - height)));
+#if FIGHT_UI_PROOF
             if (view.deckLoaded && Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1")
                 Debug.Log("[FightEditorLayout] viewport=" + viewport.rect + " content=" + content.rect
                     + " sections=" + string.Join(" > ", editorDeckSections.Select(s => s.Root.name + ":y=" + (-s.Root.anchoredPosition.y)
                         + ",height=" + s.Root.rect.height + ",rows=" + Mathf.CeilToInt((float)view.GetDeckLocationCount(s.Location) / s.Grid.constraintCount)
                         + ",parent=" + s.Root.parent.name)));
+#endif
         }
 
         private void MountEditorTabs(CardCollectionView collection)
@@ -635,7 +673,10 @@ namespace MDPro3.UI.Client
                 button.onClick.AddListener(() => { if (native != null) native.SetToggleOn(); else collection.ShowArea(area); });
                 var text = FightUI.Text(panel, labels[i], 0, 0, width, tabArea.rect.height, Mathf.Max(22, 17 / scale), FightUI.Muted, TextAlignmentOptions.Center);
                 FightUI.Stretch(text.rectTransform); text.raycastTarget = false;
-                var tab = new EditorTab(collection, area, panel.GetComponent<Image>(), panel.GetComponent<Outline>(), text);
+                var selectedLine = FightUI.Panel(panel, 12, tabArea.rect.height - 2, width - 24, 1, FightUI.Gold, false, "Selected tab line");
+                selectedLine.GetComponent<Image>().raycastTarget = false;
+                var selectedMark = FightUI.Icon(panel, "diamond", width / 2 - 4, tabArea.rect.height - 7, 8, 8, FightUI.Active).rectTransform;
+                var tab = new EditorTab(collection, area, panel.GetComponent<Image>(), panel.GetComponent<Outline>(), text, selectedLine, selectedMark);
                 editorTabs.Add(tab); tab.Refresh();
             }
         }
@@ -643,7 +684,11 @@ namespace MDPro3.UI.Client
         private void RenderEditorInspector(Card card)
         {
             if (editorDetailHost == null) return;
-            if (editorInspector?.Scroll != null) editorScrollAnchors.Remove(editorInspector.Scroll);
+            if (editorInspector?.Scroll != null)
+            {
+                editorCardReadingPositions[editorInspector.Card.Id] = Mathf.Clamp01(editorInspector.Scroll.verticalNormalizedPosition);
+                editorScrollAnchors.Remove(editorInspector.Scroll);
+            }
             FightUI.Clear(editorDetailHost);
             editorInspectedCode = card != null ? card.Id : 0;
             var width = editorDetailHost.rect.width; var height = editorDetailHost.rect.height;
@@ -653,6 +698,7 @@ namespace MDPro3.UI.Client
                 editorInspector.EmptyIcon = FightUI.Icon(editorDetailHost, "deck", (width - 48) / 2, 48, 48, 48, FightUI.GoldBorder).GetComponent<RectTransform>();
                 editorInspector.Heading = FightUI.Text(editorDetailHost, "选择一张卡片", 16, 120, width - 32, 36, 20, FightUI.Foreground, TextAlignmentOptions.Center);
                 editorInspector.Description = FightUI.Text(editorDetailHost, "点击构筑或卡池中的卡片\n查看卡文与加入 / 移除操作", 16, 168, width - 32, 96, 17, FightUI.Muted, TextAlignmentOptions.Center);
+                LayoutEditorInspector();
                 return;
             }
             var inspector = FightUI.Scroll(editorDetailHost, 12, 0, width - 24, 120, 120, out var scroll);
@@ -670,7 +716,14 @@ namespace MDPro3.UI.Client
             FightUI.CardButton(art, () => UIManager.ShowCardInfoDetail(card));
             editorInspector.Art = art.transform.parent as RectTransform;
             foreach (RectTransform child in editorInspector.Art) FightUI.Stretch(child);
-            editorInspector.EffectHeading = FightUI.Text(editorDetailHost, "卡片效果", 12, 0, width - 24, 30, 16, FightUI.Gold);
+            editorInspector.EffectHeading = FightUI.Text(editorDetailHost, "完整卡文 ↗", 12, 0, width - 24, 30, 16, FightUI.Gold);
+            editorInspector.EffectHeading.raycastTarget = true;
+            var read = editorInspector.EffectHeading.gameObject.AddComponent<Button>(); read.targetGraphic = editorInspector.EffectHeading;
+            FightUI.FocusKey(read, "editor:read-card");
+            read.onClick.AddListener(() => ShowCard(card.Id));
+            FightUI.Hint(read.gameObject, "放大阅读当前卡片；返回后保留构筑与卡池的状态");
+            editorInspector.Copies = FightUI.Text(editorDetailHost, "", width - 102, 0, 90, 30, 14, FightUI.Muted, TextAlignmentOptions.MidlineRight);
+            editorInspector.Copies.raycastTarget = false;
             editorInspector.EffectDivider = FightUI.Panel(editorDetailHost, 12, 0, width - 24, 1, FightUI.Border, false, "Effect divider");
             editorInspector.Description = FightUI.Text(inspector, card.Desc, 0, 0, width - 44, 500, Compact ? 17 : 19, FightUI.Foreground);
             editorInspector.Description.lineSpacing = 7;
@@ -682,7 +735,78 @@ namespace MDPro3.UI.Client
             FightUI.Hint(editorInspector.Add.gameObject, "加入构筑");
             FightUI.Hint(editorInspector.Remove.gameObject, "从构筑移除");
             editorInspector.More = FightUI.Button(editorDetailHost, "更多", 116, 0, width - 128, 40, () => OpenEditorCardMore(card));
+            editorInspector.Add.GetComponentInChildren<TextMeshProUGUI>().text = "加入";
+            editorInspector.Remove.GetComponentInChildren<TextMeshProUGUI>().text = "移除";
+            RefreshEditorInspectorCopies();
             LayoutEditorInspector();
+            Canvas.ForceUpdateCanvases();
+            scroll.verticalNormalizedPosition = editorCardReadingPositions.TryGetValue(card.Id, out var readingPosition) ? readingPosition : 1;
+            scroll.onValueChanged.AddListener(_ => editorCardReadingPositions[card.Id] = Mathf.Clamp01(scroll.verticalNormalizedPosition));
+        }
+
+        private void RefreshEditorInspectorCopies()
+        {
+            var item = editorInspector; var view = clientEditorUI?.DeckView;
+            if (item?.Card == null || item.Copies == null || view == null || !view.deckLoaded) return;
+            int copies = view.GetCardCount(item.Card.Id);
+            if (copies == item.CopyCount) return;
+            item.CopyCount = copies;
+            item.Copies.text = copies > 0 ? "同名 ×" + copies : "未加入构筑";
+            item.Copies.color = copies > 0 ? FightUI.Gold : FightUI.Muted;
+            item.Remove.interactable = copies > 0;
+            FightUI.Hint(item.Remove.gameObject, copies > 0 ? "从构筑中移除一张当前卡片" : "构筑中暂无这张卡片");
+        }
+
+        private SelectionButton_CardInDeck FindEditorDeckCard(Card card)
+        {
+            var cards = clientEditorUI?.DeckView?.cards;
+            if (card == null || cards == null) return null;
+            var exact = cards.FirstOrDefault(item => item?.Card != null && item.Card.Id == card.Id);
+            if (exact != null) return exact;
+            int nameCode = card.Alias == 0 ? card.Id : card.Alias;
+            return cards.FirstOrDefault(item => item?.Card != null && (item.Card.Id == nameCode || item.Card.Alias == nameCode));
+        }
+
+        private void RefreshEditorCardFocus()
+        {
+            var selected = UnityEngine.EventSystems.EventSystem.current?.currentSelectedGameObject;
+            var slot = modal == null && selected != null && selected.activeInHierarchy
+                ? selected.GetComponentInParent<SelectionButton_CardInDeck>() : null;
+            var art = slot != null && slot.deckView == clientEditorUI.DeckView
+                ? slot.GetComponentInChildren<CardRawImageHandler>()?.RawImage : null;
+            if (art == null)
+            {
+                if (editorCardFocusFrame != null) editorCardFocusFrame.gameObject.SetActive(false);
+                return;
+            }
+            if (editorCardFocusFrame == null)
+            {
+                var overlay = FightUI.Node(art.transform, "Focused construction card", 0, 0, 0, 0);
+                FightUI.Stretch(overlay);
+                editorCardFocusFrame = overlay.gameObject.AddComponent<FightCardSlotFocus>();
+                overlay.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+                editorAdditions.Add(overlay.gameObject);
+            }
+            else if (editorCardFocusFrame.transform.parent != art.transform)
+            {
+                editorCardFocusFrame.transform.SetParent(art.transform, false);
+                FightUI.Stretch(editorCardFocusFrame.rectTransform);
+            }
+            editorCardFocusFrame.gameObject.SetActive(true);
+            editorCardFocusFrame.transform.SetAsLastSibling();
+        }
+
+        private void LocateEditorDeckCard(Card card)
+        {
+            var target = FindEditorDeckCard(card);
+            if (target == null) { ShowStatus("当前构筑中没有这张卡片。"); return; }
+            CloseDialog();
+            Canvas.ForceUpdateCanvases();
+            var control = target.GetSelectable();
+            control.Select(); RevealClientControl(control);
+            string location = target.location == DeckView.DeckLocation.MainDeck ? "主卡组"
+                : target.location == DeckView.DeckLocation.ExtraDeck ? "额外卡组" : "副卡组";
+            ShowStatus("已定位到" + location + "：" + target.Card.Name);
         }
 
         private void LayoutEditorInspector()
@@ -692,9 +816,10 @@ namespace MDPro3.UI.Client
             var width = editorDetailHost.rect.width; var height = editorDetailHost.rect.height;
             if (item.Card == null)
             {
-                FightUI.Place(item.EmptyIcon, (width - 48) / 2, 48, 48, 48);
-                FightUI.Place(item.Heading.rectTransform, 16, 120, width - 32, 36);
-                FightUI.Place(item.Description.rectTransform, 16, 168, width - 32, 96);
+                float emptyTop = Mathf.Max(32, (height - 236) / 2);
+                FightUI.Place(item.EmptyIcon, (width - 48) / 2, emptyTop, 48, 48);
+                FightUI.Place(item.Heading.rectTransform, 16, emptyTop + 72, width - 32, 40);
+                FightUI.Place(item.Description.rectTransform, 16, emptyTop + 124, width - 32, 96);
                 return;
             }
             item.Heading.fontSizeMin = Compact ? 17 : 21; item.Heading.fontSizeMax = Compact ? 20 : 25;
@@ -716,7 +841,8 @@ namespace MDPro3.UI.Client
             FightUI.Place(item.Parameters.rectTransform, 12, y, width - 24, parametersHeight); y += parametersHeight;
             y += 8;
             FightUI.Place(item.EffectDivider, 12, y, width - 24, 1); y += 10;
-            FightUI.Place(item.EffectHeading.rectTransform, 12, y, width - 24, 26); y += 34;
+            FightUI.Place(item.EffectHeading.rectTransform, 12, y, Mathf.Max(64, width - 126), 26);
+            FightUI.Place(item.Copies.rectTransform, width - 102, y, 90, 26); y += 34;
             var scrollHeight = Mathf.Max(48, height - 72 - y);
             var scrollWidth = width - 24;
             FightUI.Place(item.Scroll.GetComponent<RectTransform>(), 12, y, scrollWidth, scrollHeight);
@@ -732,9 +858,15 @@ namespace MDPro3.UI.Client
             item.Content.anchoredPosition = new Vector2(0, Mathf.Clamp(item.Content.anchoredPosition.y, 0, Mathf.Max(0, item.Content.rect.height - scrollHeight)));
             var controlsY = height - 50;
             FightUI.Place(item.ControlsDivider, 12, controlsY - 8, width - 24, 1);
-            FightUI.Place(item.Add.GetComponent<RectTransform>(), 12, controlsY, 44, 40);
-            FightUI.Place(item.Remove.GetComponent<RectTransform>(), 64, controlsY, 44, 40);
-            FightUI.Place(item.More.GetComponent<RectTransform>(), 116, controlsY, width - 128, 40);
+            var actionWidth = (width - 40) / 3;
+            var actions = new[] { item.Add, item.Remove, item.More };
+            for (int i = 0; i < actions.Length; i++)
+            {
+                FightUI.Place(actions[i].GetComponent<RectTransform>(), 12 + i * (actionWidth + 8), controlsY, actionWidth, 40);
+                var caption = actions[i].GetComponentInChildren<TextMeshProUGUI>();
+                caption.fontSize = Compact ? 16 : 18;
+                FightUI.Place(caption.rectTransform, 4, 0, actionWidth - 8, 40);
+            }
         }
 
         private static string EditorCardParameters(Card card)
@@ -764,18 +896,32 @@ namespace MDPro3.UI.Client
 
         private void SkinEditorWidget(Transform widget, float scale)
         {
-            bool IsCardVisual(Component component) => component.GetComponentInParent<SelectionButton_CardInDeck>() != null
-                || component.GetComponentInParent<SelectionButton_CardInCollection>() != null;
+            // Include inactive ancestors: the shipping card templates are hidden
+            // during mounting, and later clones must retain their masks/materials.
+            bool IsCardVisual(Component component)
+            {
+                // Walk explicitly: the shipping Unity references expose only
+                // the active-parent overload, which misses hidden templates.
+                for (var parent = component.transform; parent != null; parent = parent.parent)
+                    if (parent.GetComponent<SelectionButton_CardInDeck>() != null
+                        || parent.GetComponent<SelectionButton_CardInCollection>() != null
+                        || parent.GetComponent<CardRawImageHandler>() != null) return true;
+                return false;
+            }
             void Tint(Graphic graphic, Color color)
             {
-                graphic.color = color;
-                var container = graphic.GetComponent<YgomSystem.UI.ColorContainerGraphic>();
-                if (container != null) container.baseColor = color;
+                if (!editorGraphicStyles.TryGetValue(graphic, out var style))
+                    editorGraphicStyles.Add(graphic, style = new EditorGraphicStyle(graphic));
+                style.Tint(color);
             }
             foreach (var text in widget.GetComponentsInChildren<TextMeshProUGUI>(true))
             {
                 if (IsCardVisual(text)) continue;
-                Tint(text, text.GetComponentInParent<Selectable>() != null ? FightUI.Gold : FightUI.Foreground);
+                var input = text.GetComponentInParent<TMP_InputField>();
+                bool placeholder = input != null && input.placeholder == text;
+                Tint(text, placeholder ? FightUI.Muted : input != null ? FightUI.Foreground
+                    : text.GetComponentInParent<Selectable>() != null ? FightUI.Gold : FightUI.Foreground);
+                if (placeholder) text.fontStyle = FontStyles.Normal;
                 if (!editorTypography.Any(item => item.Text == text)) editorTypography.Add(new EditorTypography(text));
             }
             foreach (var image in widget.GetComponentsInChildren<Image>(true))
@@ -785,8 +931,15 @@ namespace MDPro3.UI.Client
                 if (name.Contains("card") || name.Contains("attribute") || name.Contains("rarity")
                     || name.Contains("icondeck") || name.Contains("limit") || name.Contains("point")) continue;
                 var control = image.GetComponentInParent<Selectable>();
-                bool ordinaryControl = control != null && (control is Button || control is TMP_InputField)
+                bool ordinaryControl = control != null && (control is Button || control is TMP_InputField
+                    || control.GetComponent<SelectionButton>() != null)
                     && !control.name.ToLowerInvariant().Contains("noitem");
+                if (name == "mask" || name == "caret") continue;
+                if (!editorGraphicStyles.ContainsKey(image)) editorGraphicStyles.Add(image, new EditorGraphicStyle(image));
+                // Native controls keep their selection and click handlers. Their
+                // bevel/cursor artwork is replaced by the client focus frame.
+                if (ordinaryControl && (name == "out" || name == "corner" || name == "cursor" || name.Contains("hover")))
+                { editorGraphicStyles[image].Hide(); continue; }
                 bool surface = name.Contains("background") || name.Contains("plate") || name.Contains("window")
                     || name == "bg" || name == "base" || name.Contains("frame")
                     || ordinaryControl && control.targetGraphic == image;
@@ -804,32 +957,107 @@ namespace MDPro3.UI.Client
                 }
                 if (surface)
                 {
-                    image.sprite = ordinaryControl ? FightSkin.ButtonSurface : FightSkin.Surface;
-                    image.type = Image.Type.Sliced; image.material = null;
+                    editorGraphicStyles[image].ReplaceSurface(ordinaryControl ? FightSkin.ButtonSurface : FightSkin.Surface);
+                    image.material = null;
                     Tint(image, FightUI.Raised);
                     if (ordinaryControl && control.transform.Find("Fight control frame") == null)
                     {
                         var border = control.gameObject.AddComponent<FightOutline>();
+                        editorSkinComponents.Add(border);
                         border.effectColor = FightUI.GoldBorder; border.effectDistance = new Vector2(1, -1);
                         var frame = FightUI.Node(control.transform, "Fight control frame", 0, 0, 0, 0);
                         FightUI.Stretch(frame);
                         var metal = frame.gameObject.AddComponent<FightFrame>();
-                        metal.ButtonFrame = true; metal.Bind(border, image);
+                        metal.ButtonFrame = true; metal.Bind(border);
+                        editorAdditions.Add(frame.gameObject);
                     }
                 }
             }
             foreach (var control in widget.GetComponentsInChildren<Selectable>(true))
             {
                 if (IsCardVisual(control)) continue;
+                if (!editorControlStyles.ContainsKey(control)) editorControlStyles.Add(control, new EditorControlStyle(control));
                 var frame = control.transform.Find("Fight control frame")?.GetComponent<FightFrame>();
                 if (frame != null)
-                    (control.GetComponent<FightButtonFeedback>() ?? control.gameObject.AddComponent<FightButtonFeedback>()).Bind(frame);
+                {
+                    var feedback = control.GetComponents<FightButtonFeedback>().FirstOrDefault(item => item.enabled);
+                    if (feedback == null) { feedback = control.gameObject.AddComponent<FightButtonFeedback>(); editorSkinComponents.Add(feedback); }
+                    feedback.Bind(frame);
+                }
                 if (control is TMP_InputField input)
                 {
                     FightUI.ConfigurePlainTextInput(input);
                 }
             }
             LayoutEditorTypography(widget, scale);
+        }
+
+        private void LabelEditorPoolTools(CardCollectionView collection)
+        {
+            var tools = new[] { "FilterToggle", "SortButton", "ClearButton", "SearchButton" };
+            var labels = new[] { "筛选", "排序", "清空", "" };
+            var hints = new[] { "筛选卡池中的卡片", "调整卡池排序", "清除搜索、筛选条件与卡包范围", "重新搜索当前卡池 · 数字为结果数量" };
+            var toolManager = collection.GetComponent<ElementObjectManager>()?.GetElement<ElementObjectManager>("FilterAndSortArea");
+            if (toolManager == null) return;
+            for (int i = 0; i < tools.Length; i++)
+            {
+                var native = toolManager.GetElement<SelectionButton>(tools[i]);
+                var control = native?.GetSelectable();
+                if (control == null) continue;
+                var rect = control.GetComponent<RectTransform>();
+                var icon = i < 3 ? native.GetComponent<ElementObjectManager>()?.GetElement<Image>("Icon") : null;
+                DisableEditorLayoutDrivers(rect);
+                foreach (var image in control.GetComponentsInChildren<Image>(true))
+                {
+                    if (image == icon) continue;
+                    if (!editorGraphicStyles.ContainsKey(image)) editorGraphicStyles.Add(image, new EditorGraphicStyle(image));
+                    editorGraphicStyles[image].Hide();
+                }
+                foreach (var text in control.GetComponentsInChildren<TextMeshProUGUI>(true))
+                { editorGraphics.Add(new EditorGraphic(text)); text.enabled = false; }
+                var surface = FightUI.Panel(control.transform, 0, 0, rect.rect.width, rect.rect.height, FightUI.Raised, true, "Fight tool surface");
+                surface.GetComponent<Image>().sprite = FightSkin.ButtonSurface;
+                surface.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+                FightUI.Stretch(surface); surface.SetAsFirstSibling();
+                var frame = surface.GetComponentInChildren<FightFrame>(); frame.ButtonFrame = true;
+                var feedback = control.GetComponents<FightButtonFeedback>().FirstOrDefault(item => item.enabled);
+                if (feedback == null) { feedback = control.gameObject.AddComponent<FightButtonFeedback>(); editorSkinComponents.Add(feedback); }
+                feedback.Bind(frame);
+                editorAdditions.Add(surface.gameObject);
+                if (icon != null)
+                {
+                    editorMounts.Add(new EditorMount(icon.rectTransform));
+                    icon.rectTransform.SetParent(control.transform, false);
+                    FightUI.Place(icon.rectTransform, 16, (rect.rect.height - 28) / 2, 28, 28);
+                }
+                var caption = FightUI.Text(control.transform, i == 3 ? (collection.superScrollView?.items.Count ?? 0) + " 张" : labels[i], icon != null ? 54 : 10, 0,
+                    rect.rect.width - (icon != null ? 64 : 20), rect.rect.height, Mathf.Max(22, 16 / collection.transform.localScale.x),
+                    FightUI.Gold, icon != null ? TextAlignmentOptions.MidlineLeft : TextAlignmentOptions.Center);
+                caption.raycastTarget = false;
+                if (i == 3)
+                {
+                    caption.enableAutoSizing = true; caption.enableWordWrapping = false;
+                    caption.fontSizeMin = 20; caption.fontSizeMax = caption.fontSize;
+                }
+                caption.gameObject.AddComponent<LayoutElement>().ignoreLayout = true;
+                editorAdditions.Add(caption.gameObject);
+                editorTypography.Add(new EditorTypography(caption));
+                editorPoolToolLabels.Add(control, caption);
+                if (i == 3) { editorPoolSearchCommand = native; editorPoolSearchCount = caption; }
+                AttachEditorToolHint(control.gameObject, hints[i]);
+            }
+        }
+
+        private void AttachEditorToolHint(GameObject target, string hint)
+        {
+            var existing = target.GetComponents<FightTooltip>().FirstOrDefault(item => item.enabled);
+            if (existing != null)
+            {
+                if (editorSkinComponents.Contains(existing)) existing.Hint = hint;
+                return;
+            }
+            var tooltip = target.AddComponent<FightTooltip>(); tooltip.Hint = hint;
+            editorSkinComponents.Add(tooltip);
         }
 
         private void LayoutEditorTypography(Transform widget, float scale)
@@ -884,13 +1112,14 @@ namespace MDPro3.UI.Client
                     var box = ShowDialog("覆盖同名卡组", 620, 280);
                     FightUI.Text(box, "“" + relative + "”已经存在。保存将替换这套个人卡组的文件。", 28, 88, 560, 94, 20);
                     FightUI.Button(box, "取消", 260, 208, 144, 48, CloseDialog);
-                    FightUI.Button(box, "覆盖并保存", 424, 208, 168, 48, () =>
+                    var overwrite = FightUI.Button(box, "覆盖并保存", 424, 208, 168, 48, () =>
                     {
                         editorAwaitingOverwrite = false;
                         CloseDialog();
                         editorOverwriteAllowed = true;
                         SaveEditor();
-                    }, true);
+                    });
+                    FightUI.StyleDestructiveButton(overwrite);
                     editorAwaitingOverwrite = true;
                     return false;
                 }
@@ -977,6 +1206,8 @@ namespace MDPro3.UI.Client
                 }
                 foreach (var section in editorDeckSections) section.Restore();
                 foreach (var graphic in editorGraphics) graphic.Restore();
+                foreach (var style in editorGraphicStyles.Values) style.Restore();
+                foreach (var style in editorControlStyles.Values) style.Restore();
                 foreach (var typography in editorTypography) typography.Restore();
                 foreach (var geometry in editorCardGeometry.Values) geometry.Apply(1);
                 for (var i = editorMounts.Count - 1; i >= 0; i--) editorMounts[i].Restore();
@@ -990,9 +1221,20 @@ namespace MDPro3.UI.Client
                 // are hidden immediately so another mount in this frame is safe.
                 foreach (var addition in editorAdditions)
                     if (addition != null) { addition.SetActive(false); UnityEngine.Object.Destroy(addition); }
+                foreach (var component in editorSkinComponents)
+                    if (component != null)
+                    {
+                        if (component is Behaviour behaviour) behaviour.enabled = false;
+                        UnityEngine.Object.Destroy(component);
+                    }
                 editorDeckSections.Clear(); editorTabs.Clear(); editorGraphics.Clear(); editorBehaviours.Clear(); editorAdditions.Clear();
+                editorGraphicStyles.Clear(); editorControlStyles.Clear(); editorSkinComponents.Clear();
+                editorPoolToolLabels.Clear();
+                editorPoolSearchCommand = null; editorPoolSearchCount = null;
+                editorSectionJumpButton = null;
                 editorToolbarButtons.Clear(); editorTypography.Clear(); editorScrollAnchors.Clear();
                 editorCardGeometry.Clear();
+                editorCardFocusFrame = null;
                 editorLayoutSignature = -1;
                 editorHeaderTutorial = null;
                 editorDeckWidget = editorPoolWidget = null; editorInspector = null;
@@ -1018,9 +1260,10 @@ namespace MDPro3.UI.Client
         private sealed class EditorInspector
         {
             internal Card Card;
+            internal int CopyCount = -1;
             internal ScrollRect Scroll;
             internal RectTransform Content, Art, ArtDivider, ControlsDivider, EmptyIcon, EffectDivider;
-            internal TextMeshProUGUI Heading, Type, Parameters, Description, EffectHeading;
+            internal TextMeshProUGUI Heading, Type, Parameters, Description, EffectHeading, Copies;
             internal Button Add, Remove, More;
         }
 
@@ -1048,9 +1291,12 @@ namespace MDPro3.UI.Client
             internal void Remember(ScrollRect scroll)
             {
                 var current = scroll.verticalNormalizedPosition;
+                var viewport = scroll.viewport != null ? scroll.viewport : scroll.GetComponent<RectTransform>();
+                bool scrollable = scroll.content != null && scroll.content.rect.height > viewport.rect.height + .5f;
                 // A taller viewport may temporarily fit the whole content. Keep
                 // the previous position until the user actually scrolls again.
-                if (!known || Mathf.Abs(current - applied) > .001f) requested = Mathf.Clamp01(current);
+                if (!known) requested = scrollable ? Mathf.Clamp01(current) : 1;
+                else if (scrollable && Mathf.Abs(current - applied) > .001f) requested = Mathf.Clamp01(current);
                 known = true;
             }
             internal void Restore(ScrollRect scroll)
@@ -1217,8 +1463,10 @@ namespace MDPro3.UI.Client
             private readonly Image image;
             private readonly Outline outline;
             private readonly TextMeshProUGUI text;
-            internal EditorTab(CardCollectionView control, CardCollectionView.Area selectedArea, Image fill, Outline border, TextMeshProUGUI label)
-            { collection = control; area = selectedArea; image = fill; outline = border; text = label; }
+            private readonly RectTransform selectedLine, selectedMark;
+            internal EditorTab(CardCollectionView control, CardCollectionView.Area selectedArea, Image fill, Outline border, TextMeshProUGUI label,
+                RectTransform line, RectTransform mark)
+            { collection = control; area = selectedArea; image = fill; outline = border; text = label; selectedLine = line; selectedMark = mark; }
             internal void Refresh()
             {
                 if (collection == null || image == null) return;
@@ -1226,6 +1474,7 @@ namespace MDPro3.UI.Client
                 image.color = selected ? FightUI.Raised : FightUI.PanelColor;
                 outline.effectColor = selected ? FightUI.GoldBorder : FightUI.Border;
                 text.color = selected ? FightUI.Active : FightUI.Muted;
+                selectedLine.gameObject.SetActive(selected); selectedMark.gameObject.SetActive(selected);
             }
             internal void Reflow()
             {
@@ -1236,6 +1485,88 @@ namespace MDPro3.UI.Client
                 var index = area == CardCollectionView.Area.Collection ? 0 : area == CardCollectionView.Area.Bookmark ? 1 : 2;
                 FightUI.Place(panel, index * width, 0, width, host.rect.height);
                 text.fontSize = Mathf.Max(22, 17 / collection.transform.localScale.x);
+                FightUI.Place(selectedLine, 12, host.rect.height - 2, width - 24, 1);
+                FightUI.Place(selectedMark, width / 2 - 4, host.rect.height - 7, 8, 8);
+            }
+        }
+
+        private sealed class EditorControlStyle
+        {
+            private readonly Selectable control;
+            private readonly ColorBlock colors;
+            private readonly Selectable.Transition transition;
+            internal EditorControlStyle(Selectable value)
+            {
+                control = value; colors = value.colors; transition = value.transition;
+                var next = colors; next.normalColor = Color.white; next.highlightedColor = new Color(1.2f, 1.2f, 1.2f, 1);
+                next.selectedColor = new Color(1.1f, 1.1f, 1.1f, 1); next.pressedColor = FightUI.Hex("819CA8");
+                next.disabledColor = new Color(.48f, .48f, .48f, .72f); next.fadeDuration = .14f;
+                value.colors = next; value.transition = Selectable.Transition.ColorTint;
+            }
+            internal void Restore() { if (control != null) { control.colors = colors; control.transition = transition; } }
+        }
+
+        private sealed class EditorGraphicStyle
+        {
+            // SelectionButton invokes these containers directly, including when
+            // disabled. Configure their serialized palette instead of disabling
+            // the component or repainting over native events every frame.
+            private static readonly string[] PaletteNames = { "colorUnselected", "colorSelected", "colorButtonDown", "colorButtonEnter", "colorButtonInactive",
+                "colorModeUnselected", "colorModeSelected", "colorModeButtonDown", "colorModeButtonEnter", "colorModeButtonInactive",
+                "intensityUnselected", "intensitySelected", "intensityButtonDown", "intensityButtonEnter", "intensityButtonInactive" };
+            private static readonly FieldInfo[] PaletteFields = PaletteNames.Select(name => typeof(YgomSystem.UI.ColorContainer)
+                .GetField(name, BindingFlags.Instance | BindingFlags.NonPublic)).ToArray();
+            private readonly Graphic graphic;
+            private readonly Color color, baseColor;
+            private readonly Material material;
+            private readonly bool enabled;
+            private readonly Sprite sprite;
+            private readonly Image.Type imageType;
+            private readonly FontStyles fontStyle;
+            private readonly YgomSystem.UI.ColorContainerGraphic container;
+            private readonly object[] palette;
+            private bool replacedSurface, hidden;
+            internal EditorGraphicStyle(Graphic value)
+            {
+                graphic = value; color = value.color; material = value.material; enabled = value.enabled;
+                if (value is Image image) { sprite = image.sprite; imageType = image.type; }
+                if (value is TextMeshProUGUI text) fontStyle = text.fontStyle;
+                container = value.GetComponent<YgomSystem.UI.ColorContainerGraphic>();
+                if (container != null)
+                {
+                    baseColor = container.baseColor;
+                    palette = PaletteFields.Select(field => field?.GetValue(container)).ToArray();
+                }
+            }
+            internal void Tint(Color value)
+            {
+                graphic.color = value;
+                if (container == null) return;
+                // GetColor* already multiplies baseColor. A neutral base keeps
+                // Multiple mode from squaring the target color on every event.
+                container.baseColor = Color.white;
+                var factors = new[] { value, value * new Color(1.1f, 1.1f, 1.1f, 1), FightUI.Hex("819CA8"),
+                    new Color(1.22f, 1.22f, 1.22f, 1), new Color(.48f, .48f, .48f, .72f) };
+                for (int i = 0; i < PaletteFields.Length; i++)
+                    PaletteFields[i]?.SetValue(container, i < 5 ? (object)factors[i]
+                        : i < 10 ? YgomSystem.UI.ColorContainer.ColorMode.Multiple : (object)1f);
+            }
+            internal void Hide() { graphic.enabled = false; hidden = true; }
+            internal void ReplaceSurface(Sprite value)
+            {
+                if (!(graphic is Image image)) return;
+                image.sprite = value; image.type = Image.Type.Sliced; replacedSurface = true;
+            }
+            internal void Restore()
+            {
+                if (graphic == null) return;
+                graphic.color = color; graphic.material = material;
+                if (hidden) graphic.enabled = enabled;
+                if (replacedSurface && graphic is Image image) { image.sprite = sprite; image.type = imageType; }
+                if (graphic is TextMeshProUGUI text) text.fontStyle = fontStyle;
+                if (container == null) return;
+                container.baseColor = baseColor;
+                for (int i = 0; i < PaletteFields.Length; i++) PaletteFields[i]?.SetValue(container, palette[i]);
             }
         }
 

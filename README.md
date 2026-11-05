@@ -1,6 +1,6 @@
 # Yu-Gi-Oh! Fight
 
-基于 `../masterduel` 的本地游戏重构。新版菜单、卡组和设置界面按 `docs/ui-design/` 的视觉系统重新实现；对局、固定起手练习、展开演示、回放和合法操作弹窗继续使用原 MDPro3 实现。设计图用于风格参考，实际卡库、教程和对局数据来自原项目。
+基于 `../masterduel` 的本地游戏重构。菜单、卡组、学院、回放、收藏和设置使用统一的暗蓝、古金与青蓝视觉系统；对局内卡文、控制按钮、教学指导和 AI 状态栏也提供配套精修。对局规则、场地、真实卡图与原生操作继续使用 MDPro3 实现。设计图用于风格参考，实际卡库、教程和对局数据来自原项目。
 
 ## 构建与启动
 
@@ -16,6 +16,8 @@ python3 build.py --open
 应用输出为 `dist/Yu-Gi-Oh! Fight.app`。只编译 C# 用 `python3 build.py --code-only`。完整构建保留原发行 SHA-256、程序集兼容检查、原生规则和真实 Mono 加载验证，最后签名并原子发布应用。
 
 已有成功构建时，可在编译后运行 `python3 scripts/update-mdpro3-code.py` 更新应用中的程序集并重新签名。该命令校验源码、资源和旧应用清单；修改资源、启动器或原生服务后应执行完整构建。
+
+原生 UI 验收使用 `python3 build.py --code-only --ui-proof`，测试代码集中在 `Client/Validation/`。普通构建排除验收入口与布局调试代码，更新器拒绝验收程序集。最终验收、交付核对和中间产物清理命令见 [最终交付记录](docs/CLIENT_UX_REFINEMENT.md)。最终应用为 `dist/Yu-Gi-Oh! Fight.app`，直接启动即可；压缩分享是可选操作，大型运行时和构建产物不提交 Git。
 
 ## 存档与迁移
 
@@ -36,6 +38,6 @@ python3 scripts/import-legacy-state.py --apply
 - `scripts/`、`tools/`、`native/`、`Sources/`：继承的源码编译、原生服务、检查及 macOS 启动器。
 - `vendor/MDPro3-release-source/`：固定上游源码归档和引用包；大型发行运行时、工具链、构建缓存不提交 Git。
 
-当前项目以 `docs/ui-design/PAGE_INDEX.md` 和 `PRESERVED_UI.md` 为页面范围依据。新增界面及进入、返回流程的实机验证与底层构建验证分别记录；继承原项目的检查不等于新版所有页面和规则组合都已验证。详见 [迁移说明](docs/MIGRATION.md)、[验证记录](docs/VERIFICATION.md)、[逐页精修审查](docs/UI_POLISH_AUDIT.md) 与 [第三方来源](THIRD_PARTY_NOTICES.md)。
+页面清单见 `docs/ui-design/PAGE_INDEX.md`，本轮跨页面与对局辅助界面的视觉、交互增量见 [客户端 UX/UI 精修](docs/CLIENT_UX_REFINEMENT.md)。新增界面及进入、返回流程的实机验证与底层构建验证分别记录；继承原项目的检查不等于新版所有页面和规则组合都已验证。详见 [迁移说明](docs/MIGRATION.md)、[验证记录](docs/VERIFICATION.md)、[逐页精修审查](docs/UI_POLISH_AUDIT.md) 与 [第三方来源](THIRD_PARTY_NOTICES.md)。
 
 运行 `python3 -m unittest discover -s tests -v` 检查存档导入、资源绑定、并发构建和 AI 配置槽位隔离。这些函数测试在临时目录运行，不替代 Unity 新界面的实机检查。

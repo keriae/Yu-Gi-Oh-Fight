@@ -156,7 +156,9 @@ namespace MDPro3.UI.Client
             }
             else brand.enabled = false;
             FitBrand();
+#if FIGHT_UI_PROOF
             auditEnabled = Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1";
+#endif
             auditDirectory = Environment.GetEnvironmentVariable("FIGHT_PROOF_DIR") ?? Directory.GetCurrentDirectory();
             Canvas.willRenderCanvases += BeforeRender;
             if (auditEnabled)
@@ -274,7 +276,9 @@ namespace MDPro3.UI.Client
                 // this exact frame can replace the cover without an empty frame.
                 cover.enabled = false; GetComponent<GraphicRaycaster>().enabled = false;
                 handedOff = true; HandoffFrame = Time.frameCount;
+#if FIGHT_UI_PROOF
                 Debug.Log("[FightPresentation] startup handoff frame=" + HandoffFrame + " client=" + (client != null));
+#endif
             }
             finally { synchronizing = false; }
         }

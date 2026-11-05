@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Text;
 using UnityEngine;
 using MDPro3.Utility;
 
@@ -172,6 +173,40 @@ namespace MDPro3
             {
                 Program.noAccess = true;
                 Debug.Log(e);
+            }
+        }
+
+        // Commit a form's changed fields together. A failed write must leave
+        // both the saved file and the live configuration at their old values.
+        internal static void SaveValues(IEnumerable<KeyValuePair<string, string>> values)
+        {
+            if (string.IsNullOrEmpty(path)) throw new IOException("配置文件尚未初始化。");
+            var staged = new List<OneString>(translations.Count);
+            foreach (var entry in translations)
+                staged.Add(new OneString { original = entry.original, translated = entry.translated });
+            foreach (var pair in values)
+            {
+                bool found = false;
+                foreach (var entry in staged)
+                    if (entry.original == pair.Key) { entry.translated = pair.Value; found = true; }
+                if (!found) staged.Add(new OneString { original = pair.Key, translated = pair.Value });
+            }
+            var content = new StringBuilder();
+            foreach (var entry in staged)
+                content.Append(entry.original).Append(SEPARATOR).Append(entry.translated).Append(Program.STRING_LINE_BREAK);
+            string temporary = path + ".fight-save-" + Guid.NewGuid().ToString("N");
+            try
+            {
+                File.WriteAllText(temporary, content.ToString());
+                if (File.Exists(path)) File.Replace(temporary, path, null);
+                else File.Move(temporary, path);
+                translations.Clear(); translations.AddRange(staged);
+            }
+            finally
+            {
+                try { if (File.Exists(temporary)) File.Delete(temporary); }
+                catch (IOException) { }
+                catch (UnauthorizedAccessException) { }
             }
         }
 

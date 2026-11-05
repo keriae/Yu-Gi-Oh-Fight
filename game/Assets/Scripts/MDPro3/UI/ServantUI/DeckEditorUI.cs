@@ -1201,6 +1201,11 @@ namespace MDPro3.UI.ServantUI
 
         internal bool StartClientHandTest(HandTestSettings settings) => TryStartHandTest(settings);
 
+        private int handTestLaunchGeneration;
+        private bool handTestLaunching;
+        internal string HandTestLaunchPhase { get; private set; } = "idle";
+        internal int HandTestHostStartCount { get; private set; }
+
         private void OnYdke()
         {
             UIManager.ShowPopupYdke(OnImportYdke, OnExportYdke);
@@ -1230,6 +1235,11 @@ namespace MDPro3.UI.ServantUI
 
         private bool TryStartHandTest(HandTestSettings settings)
         {
+            if (handTestLaunching)
+            {
+                MessageManager.Toast(InterString.Get("手牌测试正在启动，请稍候。"));
+                return false;
+            }
             if (!DeckView.deckLoaded)
                 return false;
             if (condition == Condition.ChangeSide)
@@ -1239,50 +1249,145 @@ namespace MDPro3.UI.ServantUI
                 MessageManager.Toast(InterString.Get("请先保存卡组"));
                 return false;
             }
+            if (!TcpHelper.canJoin || TcpHelper.tcpClient != null)
+            {
+                MessageManager.Toast(InterString.Get("已有对战连接，请先退出当前对战。"));
+                return false;
+            }
 
-            _ = HandTestAsync(settings);
+            var deck = DeckView.FromObjectDeckToCodedDeck();
+            var launchSettings = settings != null ? settings.Clone() : HandTestSettings.Load();
+            launchSettings.Clamp();
+            handTestLaunching = true;
+            HandTestLaunchPhase = "connecting";
+            _ = HandTestAsync(launchSettings, deck, ++handTestLaunchGeneration, TcpHelper.ConnectionGeneration);
             return true;
         }
 
-        private async UniTask HandTestAsync(HandTestSettings settings)
+        private bool OwnsHandTestConnection(int generation, int connection,
+            System.Net.Sockets.TcpClient transport)
+            => generation == handTestLaunchGeneration && connection == TcpHelper.ConnectionGeneration
+                && RoomServant.FromHandTest && !RoomServant.FromSolo && !RoomServant.FromLocalHost
+                && (transport == null || TcpHelper.tcpClient == null || ReferenceEquals(transport, TcpHelper.tcpClient));
+
+        private async UniTask HandTestAsync(HandTestSettings settings, Deck deck, int generation, int priorConnection)
         {
-            var launchSettings = settings != null ? settings.Clone() : HandTestSettings.Load();
-            launchSettings.Clamp();
-
-            int port = 7911;
-            while (!TcpHelper.IsPortAvailable(port))
+            int connection = -1, port = 7911;
+            bool serverStarted = false, enteredCore = false;
+            System.Net.Sockets.TcpClient localClient = null;
+            try
             {
-                port++;
-                if (port == 65536)
-                    port = 1;
+                // Finish the launching UI action before asynchronous status or
+                // errors arrive. Network progress below follows native state.
+                await UniTask.Yield();
+                if (generation != handTestLaunchGeneration || this == null
+                    || Program.instance.currentServant != Program.instance.deckEditor
+                    || priorConnection != TcpHelper.ConnectionGeneration || !TcpHelper.canJoin || TcpHelper.tcpClient != null)
+                { HandTestLaunchPhase = "cancelled"; return; }
+                while (!TcpHelper.IsPortAvailable(port))
+                {
+                    port++;
+                    if (port == 65536) port = 1;
+                    if (port == 7911) throw new InvalidOperationException("没有可用的本地对战端口。");
+                }
+
+                connection = TcpHelper.ConnectionGeneration;
+                RoomServant.FromSolo = false;
+                RoomServant.FromLocalHost = false;
+                RoomServant.FromHandTest = true;
+                RoomServant.SelfType = -1; RoomServant.IsHost = false;
+                YgoServer.StartServer(settings.BuildServerArgs(port));
+                serverStarted = true;
+                UIManager.UIBlackIn(0.3f);
+                OcgCore.handler = Program.instance.room.Handler;
+                bool linking = TcpHelper.LinkStart("127.0.0.1", Config.Get("DuelPlayerName0", Config.EMPTY_STRING),
+                    port.ToString(), string.Empty, true, null);
+                connection = TcpHelper.ConnectionGeneration;
+                if (!linking) throw new InvalidOperationException("已有对战连接，请先退出当前对战。");
+
+                string expectedPort = port.ToString();
+                float deadline = Time.realtimeSinceStartup + 30;
+                bool readySent = false, botStarted = false, startSent = false;
+                while (Time.realtimeSinceStartup < deadline)
+                {
+                    if (!OwnsHandTestConnection(generation, connection, localClient))
+                    {
+                        if (generation == handTestLaunchGeneration) HandTestLaunchPhase = "cancelled";
+                        return;
+                    }
+                    if (Program.instance.currentServant == Program.instance.ocgcore)
+                    {
+                        enteredCore = startSent && OcgCore.condition == OcgCore.Condition.Duel
+                            && TcpHelper.joinedAddress == "127.0.0.1" && TcpHelper.joinedPort == expectedPort;
+                        HandTestLaunchPhase = enteredCore ? "duel" : "cancelled"; return;
+                    }
+                    if (this == null || Program.instance.currentServant != Program.instance.deckEditor)
+                    { HandTestLaunchPhase = "cancelled"; return; }
+                    if (!YgoServer.ServerRunning() || TcpHelper.onDisConnected)
+                        throw new InvalidOperationException("手牌测试连接已中断，请重试。");
+
+                    var transport = TcpHelper.tcpClient;
+                    bool joined = transport != null && transport.Connected && TcpHelper.joinedAddress == "127.0.0.1"
+                        && TcpHelper.joinedPort == expectedPort;
+                    if (joined)
+                    {
+                        if (localClient == null) localClient = transport;
+                        if (RoomServant.SelfType == 0 && RoomServant.IsHost && RoomServant.players[0] != null)
+                        {
+                            if (!botStarted)
+                            {
+                                // The real host seat also proves the server is
+                                // listening before WindBot's single connection.
+                                Program.instance.solo.StartAIForHandTest(port);
+                                botStarted = true; HandTestLaunchPhase = "waiting for opponent";
+                            }
+                            if (!readySent)
+                            {
+                                TcpHelper.CtosMessage_UpdateDeck(deck);
+                                TcpHelper.CtosMessage_HsReady(); readySent = true;
+                            }
+                            if (!startSent && RoomServant.players[1] != null
+                                && RoomServant.players[0].ready && RoomServant.players[1].ready)
+                            {
+                                TcpHelper.CtosMessage_HsStart(); startSent = true;
+                                HandTestHostStartCount++; HandTestLaunchPhase = "starting duel";
+                            }
+                        }
+                    }
+                    await UniTask.Yield();
+                }
+                throw new TimeoutException("手牌测试启动超时，请重试。");
             }
-
-            string args = launchSettings.BuildServerArgs(port);
-
-            RoomServant.FromSolo = false;
-            RoomServant.FromLocalHost = false;
-            RoomServant.FromHandTest = true;
-            YgoServer.StartServer(args);
-
-            UIManager.UIBlackIn(0.3f);
-            await UniTask.WaitForSeconds(0.3f);
-
-            OcgCore.handler = Program.instance.room.Handler;
-
-            Program.instance.solo.StartAIForHandTest(port);
-            await UniTask.Delay(100);
-            bool joined = false;
-            TcpHelper.LinkStart("127.0.0.1", Config.Get("DuelPlayerName0", Config.EMPTY_STRING), port.ToString(), string.Empty, true, () => joined = true);
-            await UniTask.WaitUntil(() => joined);
-
-            var deck = DeckView.FromObjectDeckToCodedDeck();
-            TcpHelper.CtosMessage_UpdateDeck(deck);
-            TcpHelper.CtosMessage_HsReady();
-            await UniTask.Delay(50);
-            TcpHelper.CtosMessage_HandResult(2);
-            await UniTask.Delay(50);
-            TcpHelper.CtosMessage_TpResult(true);
-
+            catch (Exception error)
+            {
+                if (generation == handTestLaunchGeneration)
+                {
+                    HandTestLaunchPhase = "failed";
+                    MessageManager.Cast(error.Message);
+                }
+            }
+            finally
+            {
+                // A departed launch cannot retire the transport of a later
+                // duel, even if both launches reuse the same local port.
+                try
+                {
+                    if (!enteredCore && OwnsHandTestConnection(generation, connection, localClient))
+                    {
+                        try { if (serverStarted) YgoServer.StopServer(); }
+                        finally
+                        {
+                            if (serverStarted) TcpHelper.DisconnectIntentional();
+                            RoomServant.FromHandTest = false;
+                            if (serverStarted) UIManager.UIBlackOut(0.3f);
+                        }
+                    }
+                }
+                finally
+                {
+                    if (generation == handTestLaunchGeneration) handTestLaunching = false;
+                }
+            }
         }
 
         internal void OnClearDeck()

@@ -108,6 +108,7 @@ def current_sources() -> dict:
 
 
 def source_and_resources(snapshot: Path, manifest: dict, client: Path) -> None:
+    require("FIGHT_UI_PROOF" not in manifest.get("compiler_defines", []), "UI proof builds cannot be packaged; compile the release profile first")
     require(validate_generation(snapshot) == manifest, "Compiled source generation changed")
     require(current_sources() == manifest["source_files"], "Compile the current game sources before updating")
     managed = client / MANAGED

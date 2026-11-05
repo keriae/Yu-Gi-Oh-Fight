@@ -96,7 +96,7 @@ namespace MDPro3.UI.Client
                         // outlines continue to refer to the original input.
                         state.Frame = existingInputFrame;
                     }
-                    state.Frame.Bind(state.InputOutline, state.Surface);
+                    state.Frame.Bind(state.InputOutline);
                     state.Frame.InputFrame = state.Frame.ButtonFrame = true;
                     if (control is TMP_InputField field) FightUI.ConfigurePlainTextInput(field);
                     else FightUI.ConfigureInputFeedback(control);
@@ -120,6 +120,7 @@ namespace MDPro3.UI.Client
                     state.Frame.Primary = state.Primary;
                     state.Frame.ButtonFrame = true;
                     state.Feedback = control.GetComponent<FightButtonFeedback>() ?? control.gameObject.AddComponent<FightButtonFeedback>();
+                    state.Feedback.ManageCaptionOpacity = false;
                     state.Feedback.Bind(state.Frame);
                 }
             }
@@ -146,7 +147,7 @@ namespace MDPro3.UI.Client
             if (createFrame)
             {
                 var border = FightUI.Node(rect, "Fight native frame", 0, 0, 0, 0); FightUI.Stretch(border);
-                frame = border.gameObject.AddComponent<FightFrame>(); frame.ButtonFrame = control; frame.Bind(outline, image);
+                frame = border.gameObject.AddComponent<FightFrame>(); frame.ButtonFrame = control; frame.Bind(outline);
             }
             decorations.Add(rect.gameObject);
             return image;
@@ -254,7 +255,8 @@ namespace MDPro3.UI.Client
                 var selection = text.GetComponentInParent<MDPro3.UI.Popup.SelectionToggle_PopupSelectionItem>();
                 if (selection != null && selection.color == "r") color = FightUI.Danger;
                 else if (selection != null && (selection.color == "b" || selection.color == "g")) color = FightUI.CyanText;
-                SetTint(text, color); text.canvasRenderer.SetColor(Color.white);
+                SetTint(text, color);
+                text.canvasRenderer.SetColor(new Color(1, 1, 1, control != null && !control.IsInteractable() ? .55f : 1));
             }
         }
 

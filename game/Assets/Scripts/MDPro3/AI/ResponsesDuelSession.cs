@@ -376,6 +376,15 @@ namespace MDPro3.AI
             throw new InvalidOperationException("没有可用的本地对战端口。");
         }
 
+        public static string DeckPreparationIssue(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path)) return "尚未选择卡组。";
+            try { LoadDeck(path); return null; }
+            catch (Exception error) when (error is IOException || error is UnauthorizedAccessException
+                || error is ArgumentException || error is InvalidOperationException)
+            { return error.Message; }
+        }
+
         private static GameDeck LoadDeck(string path)
         {
             if (!File.Exists(path)) path = Path.Combine(Program.PATH_DECK, path.EndsWith(".ydk", StringComparison.OrdinalIgnoreCase) ? path : path + ".ydk");

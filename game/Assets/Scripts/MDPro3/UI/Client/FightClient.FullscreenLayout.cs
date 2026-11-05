@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MDPro3.UI.Client
 {
@@ -34,9 +35,16 @@ namespace MDPro3.UI.Client
             else if (page == "settings") ReflowSettingsViewport(beforeWidth, beforeHeight);
             else if (page == "collection" || page == "animations" || page == "appearance") ReflowLibraryViewport(beforeWidth, beforeHeight);
             else ReflowRetainedPage(beforeWidth, beforeHeight);
-            if (clientHeader != null) { clientHeader.gameObject.SetActive(false); Destroy(clientHeader.gameObject); }
-            if (clientFooter != null) { clientFooter.gameObject.SetActive(false); Destroy(clientFooter.gameObject); }
+            string dialogOriginKey = dialogOriginFocus != null ? dialogOriginFocus.GetComponent<FightFocusKey>()?.Key : null;
+            if (clientHeader != null) { RememberFocusForRefresh(clientHeader); clientHeader.gameObject.SetActive(false); Destroy(clientHeader.gameObject); }
+            if (clientFooter != null) { RememberFocusForRefresh(clientFooter); clientFooter.gameObject.SetActive(false); Destroy(clientFooter.gameObject); }
             DrawHeader(); DrawFooter();
+            if (!string.IsNullOrEmpty(dialogOriginKey) && (dialogOriginFocus == null || !dialogOriginFocus.activeInHierarchy))
+            {
+                var origin = root.GetComponentsInChildren<FightFocusKey>().FirstOrDefault(key => key.Key == dialogOriginKey
+                    && key.GetComponent<Selectable>() != null && key.GetComponent<Selectable>().IsInteractable());
+                if (origin != null) dialogOriginFocus = origin.gameObject;
+            }
             if (modal != null)
             {
                 FightUI.Place(modal, 0, 0, W, H);
@@ -50,8 +58,10 @@ namespace MDPro3.UI.Client
                 modal.SetAsLastSibling();
             }
             Canvas.ForceUpdateCanvases();
+#if FIGHT_UI_PROOF
             Debug.Log("[FightClientFullscreen] nativeOrEngine=" + UsesFullscreenLayout + " engine=" + Screen.fullScreen
                 + " display=" + Screen.width + "x" + Screen.height + " layout=" + W + "x" + H + " page=" + page);
+#endif
         }
 
         private void ReflowRetainedPage(float previousWidth, float previousHeight)

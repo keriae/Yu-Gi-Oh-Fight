@@ -52,6 +52,8 @@ namespace MDPro3.Duel
 
         public virtual async UniTask Process(Package p)
         {
+            var core = Program.instance == null ? null : Core;
+            var loopVersion = core == null ? -1 : core.MessageLoopVersion;
             try
             {
                 var reader = p.Data.reader;
@@ -367,10 +369,16 @@ namespace MDPro3.Duel
                         break;
                 }
             }
+            catch (OperationCanceledException) when (core == null || !core.showing || core.MessageLoopVersion != loopVersion)
+            {
+                // Exit and a replacement message loop cancel the departed
+                // duel's animation tasks as part of normal teardown.
+                return;
+            }
             catch (Exception e)
             {
                 Debug.LogException(e);
-                throw e;
+                throw;
             }
         }
 
