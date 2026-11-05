@@ -25,3 +25,11 @@ vendor/MDPro3-mac-metadata/*
 !vendor/MDPro3-mac-metadata/resource-phases.json
 !vendor/MDPro3-mac-metadata/baseline-paths.json
 !vendor/MDPro3-mac-metadata/baseline-decks.json
+
+# Local verification scripts and fixtures are intentionally excluded from releases.
+tests/
+scripts/test-*.py
+scripts/ui_test_fixture.py
+game/Assets/Scripts/MDPro3/UI/Client/Validation/
+game/Assets/Scripts/MDPro3/AI/*Proof.cs*
+game/Assets/Scripts/MDPro3/Utility/*Proof.cs*
