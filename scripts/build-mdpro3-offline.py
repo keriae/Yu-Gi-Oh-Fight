@@ -10,6 +10,7 @@ import json
 import os
 from pathlib import Path
 import plistlib
+import re
 import shutil
 import subprocess
 import sys
@@ -118,7 +119,20 @@ def application_lock(support: Path):
             fcntl.flock(lock, fcntl.LOCK_UN)
 
 
+def check_swift_toolchain() -> None:
+    message = "The macOS launcher requires a Swift 6 or later compiler, such as Xcode 16+ Command Line Tools; check xcrun swiftc --version"
+    try:
+        result = subprocess.run(["xcrun", "swiftc", "--version"], capture_output=True,
+                                text=True, check=True, timeout=15)
+    except (OSError, subprocess.SubprocessError) as error:
+        raise ValueError(message) from error
+    version = re.search(r"\bSwift version (\d+)", result.stdout + result.stderr, re.IGNORECASE)
+    if version is None or int(version[1]) < int(LAUNCHER_SWIFT_VERSION):
+        raise ValueError(message)
+
+
 def main() -> None:
+    check_swift_toolchain()
     (ROOT / "artifacts").mkdir(parents=True, exist_ok=True)
     destination = ROOT / "dist" / (NAME + ".app")
     support = Path.home() / "Library/Application Support" / NAME

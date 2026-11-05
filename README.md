@@ -29,14 +29,14 @@ AI duels use a user-configured Responses-compatible service and may incur that p
 
 The current distribution target is **macOS 13 or later**. The packaged app includes its runtime; players do not need Unity Editor or .NET.
 
-For a source build, install Python 3 and Xcode Command Line Tools, then run:
+For a source build on macOS, install **Python 3.12+**, a **Swift 6+ compiler** (such as Xcode 16+ Command Line Tools), and **zstd** (`brew install zstd` if using Homebrew). Make sure `python3` and `xcrun swiftc --version` select those versions, then run:
 
 ```sh
 python3 prepare-dependencies.py
 python3 build.py --open
 ```
 
-The app is generated at `dist/Yu-Gi-Oh! Fight.app`. Dependency downloads are pinned and verified. See [the build guide](docs/BUILDING.md) for reusing an existing runtime, code updates, and optional archives. Other platforms are not validated by this project.
+The app is generated at `dist/Yu-Gi-Oh! Fight.app`. Dependency downloads are pinned and verified. If preparation is interrupted, rerun the same command to resume; existing files are verified and missing or damaged files are repaired. See [the build guide](docs/BUILDING.md) for reusing an existing runtime, code updates, and optional archives. Other platforms are not validated by this project.
 
 Your decks, replays, settings, and remembered AI credentials live in `~/Library/Application Support/Yu-Gi-Oh! Fight/`. They are separate from the repository and the app bundle. To preview importing an older MDPro3 Offline save, run `python3 scripts/import-legacy-state.py`; add `--apply` to copy missing files while preserving existing saves. Credentials are excluded from imports unless explicitly requested.
 
@@ -82,14 +82,14 @@ AI 对战需要自行配置兼容 Responses 的服务，费用由对应服务收
 
 ### 构建与存档
 
-当前支持 **macOS 13+**，安装包自带运行时，运行无需 Unity Editor 或 .NET。源码构建需要 Python 3 与 Xcode Command Line Tools：
+应用运行支持 **macOS 13+**，安装包自带运行时，运行无需 Unity Editor 或 .NET。在 macOS 上构建源码需要 **Python 3.12+**、**Swift 6+ 编译器**（例如 Xcode 16+ Command Line Tools）与 **zstd**（使用 Homebrew 时可运行 `brew install zstd`）。确认 `python3` 和 `xcrun swiftc --version` 指向所需版本，再执行：
 
 ```sh
 python3 prepare-dependencies.py
 python3 build.py --open
 ```
 
-输出为 `dist/Yu-Gi-Oh! Fight.app`。完整步骤、依赖复用与更新说明见[构建文档](docs/BUILDING.md)。本项目尚未验证其他平台。
+输出为 `dist/Yu-Gi-Oh! Fight.app`。准备过程中断后，重新执行相同命令即可续传；已有文件会经过校验，缺失或损坏的文件会自动修复。完整步骤、依赖复用与更新说明见[构建文档](docs/BUILDING.md)。本项目尚未验证其他平台。
 
 运行数据保存在 `~/Library/Application Support/Yu-Gi-Oh! Fight/`，不会进入仓库或安装包。旧版存档可用 `python3 scripts/import-legacy-state.py` 预览导入；加 `--apply` 仅复制缺失文件，保留现有数据，默认不导入密钥。
 

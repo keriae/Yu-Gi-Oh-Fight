@@ -25,18 +25,36 @@ namespace MDPro3.UI.Client
             if (!Showing || UIManager.InputBlocker != this || EventSystem.current == null) return;
             var scope = dialog != null ? dialog : window;
             var current = EventSystem.current.currentSelectedGameObject;
-            if (current == null || scope == null) { focusedControl = null; return; }
-            if (!current.transform.IsChildOf(scope))
+            if (scope == null) { focusedControl = null; return; }
+            var currentControl = current == null ? null : current.GetComponent<Selectable>();
+            bool inScope = current != null && current.transform.IsChildOf(scope);
+            bool navigable = NavigableControl(currentControl, scope);
+            // Pointer clicks on non-selectable content can clear Unity's
+            // selection. Remember its last control without reactivating a
+            // text field or snapping the scroll while the pointer is in use.
+            // Scrollbar dragging also selects a control, but should preserve
+            // the last navigable row for subsequent keyboard/controller input.
+            if ((current == null || inScope && !navigable) && !NavigationRequested()) return;
+            if (!inScope || !navigable)
             {
                 var retained = focusedControl == null ? null : focusedControl.GetComponent<Selectable>();
-                Focus(retained != null && retained.IsActive() && retained.transform.IsChildOf(scope) ? retained : FocusControls().FirstOrDefault());
+                Focus(NavigableControl(retained, scope) ? retained : FocusControls().FirstOrDefault());
             }
             else if (current != focusedControl)
             {
                 focusedControl = current;
-                var control = current.GetComponent<Selectable>();
-                if (control != null) FightUI.RevealControl(control);
+                FightUI.RevealControl(currentControl);
             }
+        }
+        private static bool NavigableControl(Selectable control, Transform scope) => control != null && !(control is Scrollbar)
+            && control.IsActive() && control.IsInteractable() && control.transform.IsChildOf(scope);
+        private static bool NavigationRequested()
+        {
+            if (UserInput.MoveInput.sqrMagnitude > .0001f || UserInput.WasSubmitPressed) return true;
+            var keyboard = UnityEngine.InputSystem.Keyboard.current;
+            return keyboard != null && (keyboard.upArrowKey.wasPressedThisFrame || keyboard.downArrowKey.wasPressedThisFrame
+                || keyboard.leftArrowKey.wasPressedThisFrame || keyboard.rightArrowKey.wasPressedThisFrame
+                || keyboard.enterKey.wasPressedThisFrame || keyboard.numpadEnterKey.wasPressedThisFrame);
         }
         // Explicit links keep directional input inside the topmost dialog.
         // Horizontal slider input remains available for adjusting its value.

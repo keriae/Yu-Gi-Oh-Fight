@@ -114,10 +114,10 @@ namespace MDPro3.UI.Client
             var saveWidth = Compact ? 128f : 168f;
             var actionGap = Compact ? 10f : Gap;
             var actionWidth = buttonWidth * 4 + saveWidth + actionGap * 4;
-            editorTitleText = FightUI.Text(Body, "我的 / " + (editorRelativeName ?? "卡组编辑器"), 0, 4,
+            editorTitleText = FightUI.Text(Body, "我的 / " + (editorRelativeName == null ? "卡组编辑器" : FightText.Keep(editorRelativeName)), 0, 4,
                 Mathf.Max(120, BodyWidth - actionWidth - 16), 36, Compact ? 25 : 32, FightUI.Gold);
             editorTitleText.enableAutoSizing = true; editorTitleText.fontSizeMin = Compact ? 22 : 28; editorTitleText.fontSizeMax = Compact ? 25 : 32;
-            FightUI.Hint(editorTitleText.gameObject, editorRelativeName ?? "卡组编辑器");
+            FightUI.Hint(editorTitleText.gameObject, editorRelativeName == null ? "卡组编辑器" : FightText.Keep(editorRelativeName));
             editorStateText = FightUI.Text(Body, "正在加载构筑…", 0, 43, BodyWidth - actionWidth, 24, 16, FightUI.Muted);
             var bx = BodyWidth - actionWidth;
             editorToolbarButtons.Add(FightUI.Button(Body, "展开教程", bx, 8, buttonWidth, 44, OpenEditorTutorial, false, false)); bx += buttonWidth + actionGap;
@@ -150,7 +150,7 @@ namespace MDPro3.UI.Client
             editorCountsText.enableWordWrapping = false;
             FightUI.Hint(editorCountsText.gameObject, EditorInteractionHint);
             editorSummaryText = FightUI.Text(Body, "正在读取卡组…", BodyWidth - 270, BodyHeight - 30, 270, 28, 16, FightUI.Gold, TextAlignmentOptions.MidlineRight);
-            editorSectionJumpButton = FightUI.TextAction(Body, "定位 ▾", BodyWidth - 356, BodyHeight - 32, 76, 30, OpenEditorSectionJump, false);
+            editorSectionJumpButton = FightUI.TextAction(Body, "定位", BodyWidth - 356, BodyHeight - 32, 76, 30, OpenEditorSectionJump, false);
             editorSectionJumpButton.GetComponentInChildren<TextMeshProUGUI>().fontSize = 16;
             FightUI.FocusKey(editorSectionJumpButton, "editor:section-jump");
             FightUI.Hint(editorSectionJumpButton.gameObject, "定位主卡、额外或副卡区域，不改变构筑");
@@ -270,8 +270,8 @@ namespace MDPro3.UI.Client
             RefreshEditorCardFocus();
             if (editorTitleText != null)
             {
-                editorTitleText.text = "我的 / " + (editorRelativeName ?? "卡组编辑器");
-                FightUI.Hint(editorTitleText.gameObject, editorRelativeName ?? "卡组编辑器");
+                editorTitleText.text = "我的 / " + (editorRelativeName == null ? "卡组编辑器" : FightText.Keep(editorRelativeName));
+                FightUI.Hint(editorTitleText.gameObject, editorRelativeName == null ? "卡组编辑器" : FightText.Keep(editorRelativeName));
             }
             if (editorSaveButton != null) editorSaveButton.interactable = view.deckLoaded;
             if (editorSectionJumpButton != null)

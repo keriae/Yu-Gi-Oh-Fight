@@ -111,7 +111,15 @@ namespace MDPro3.UI.Client
                 }
             return list;
         }
-        private string PersonalName(string path) => Path.GetFullPath(path).Substring(Path.GetFullPath(Program.PATH_DECK).TrimEnd(Path.DirectorySeparatorChar).Length + 1).Replace(".ydk", "");
+        private string PersonalName(string path) => Path.ChangeExtension(Path.GetFullPath(path)
+            .Substring(Path.GetFullPath(Program.PATH_DECK).TrimEnd(Path.DirectorySeparatorChar).Length + 1), null);
+        private static string PersonalDeckGroupCaption(string path)
+        {
+            string directory = Path.GetDirectoryName(Path.GetFullPath(path));
+            bool rootGroup = string.Equals(directory, Path.GetFullPath(Program.PATH_DECK)
+                .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar), StringComparison.OrdinalIgnoreCase);
+            return rootGroup ? "默认分组" : FightText.Keep(Path.GetFileName(directory));
+        }
         private List<ClientDeck> PickerDecks()
         {
             // Personal decks are files, including separately named copies of the same
@@ -197,7 +205,7 @@ namespace MDPro3.UI.Client
             {
                 FightUI.Line(groups, 14, firstGroupActionY - 18, groupsW - 28);
                 FightUI.Button(groups, "+ 新建卡组", 10, firstGroupActionY, groupsW - 20, 44, NewDeckDialog, true);
-                FightUI.TextAction(groups, "+ 新建分组", 16, BodyHeight - 208, groupsW - 32, 40, () => Prompt("新建分组", "分组名称", "", name => { CheckName(name); Directory.CreateDirectory(Path.Combine(Program.PATH_DECK, name)); Rebuild(); }));
+                FightUI.TextAction(groups, "+ 新建分组", 16, BodyHeight - 208, groupsW - 32, 40, () => Prompt("新建分组", "分组名称", "", name => { CheckGroupName(name); Directory.CreateDirectory(Path.Combine(Program.PATH_DECK, name)); Rebuild(); }));
                 FightUI.TextAction(groups, "管理分组", 16, BodyHeight - 160, groupsW - 32, 40, ManageGroup, deckGroup != "全部" && deckGroup != "默认分组");
             }
             deckGrid = FightUI.Node(Body, "Deck Grid", gridX, 124, deckGridWidth, deckGridHeight);
@@ -321,7 +329,8 @@ namespace MDPro3.UI.Client
                     title.enableWordWrapping = true; title.enableAutoSizing = true;
                     title.fontSizeMin = Compact ? 18 : 20; title.fontSizeMax = Compact ? 21 : 23;
                     FightUI.RawHint(card.gameObject, d.Recommendation != null ? FightText.Get(d.Name) : d.Name);
-                    FightUI.Text(card, d.Recommendation?.Variant ?? d.Group, 12, coverHeight + 86, cellW - 24, 22, 14, FightUI.Muted);
+                    FightUI.Text(card, d.Recommendation != null ? d.Recommendation.Variant ?? d.Group
+                        : PersonalDeckGroupCaption(d.Path), 12, coverHeight + 86, cellW - 24, 22, 14, FightUI.Muted);
                     FightUI.Line(card, 12, coverHeight + 111, cellW - 24, FightUI.Border);
                     FightUI.Text(card, "主 " + deck.Main.Count + "   额外 " + deck.Extra.Count + "   副 " + deck.Side.Count,
                         12, coverHeight + 118, cellW - 24, 24, 14, FightUI.Muted);
@@ -393,7 +402,8 @@ namespace MDPro3.UI.Client
                 title.rectTransform.sizeDelta = new Vector2(w - 36, titleHeight);
                 FightUI.RawHint(title.gameObject, d.Recommendation != null ? FightText.Get(d.Name) : d.Name);
                 float y = artHeight + (Compact ? 14 : 18) + titleHeight;
-                FightUI.Text(c, d.Recommendation != null ? "推荐模板 · 只读" : "我的卡组 · " + d.Group, 10, y, w - 36, 24, 15, FightUI.Muted);
+                FightUI.Text(c, d.Recommendation != null ? "推荐模板 · 只读" : "我的卡组 · "
+                    + PersonalDeckGroupCaption(d.Path), 10, y, w - 36, 24, 15, FightUI.Muted);
                 y += Compact ? 28 : 44;
                 // Keep a section heading whole at the initial viewport edge, including long names.
                 if (y < previewHeight && y + 40 > previewHeight) y = previewHeight + 12;
@@ -490,8 +500,7 @@ namespace MDPro3.UI.Client
             var summary = FightUI.Scroll(summaryPanel, 0, summaryTop, summaryWidth, contentHeight - summaryTop - 8, 650);
             float y = 8;
             string source = detailEntry != null ? "推荐 · " + (detailEntry.Page == DeckLibraryPage.Classic ? "经典" : "竞技") + " · 只读模板"
-                : "我的卡组 · " + (Path.GetDirectoryName(Path.GetFullPath(path)) == Path.GetFullPath(Program.PATH_DECK).TrimEnd(Path.DirectorySeparatorChar)
-                    ? "默认分组" : Path.GetFileName(Path.GetDirectoryName(path)));
+                : "我的卡组 · " + PersonalDeckGroupCaption(path);
             FightUI.Text(summary, source, 16, y, summaryWidth - 32, 30, 15, FightUI.Muted); y += 46;
             if (!string.IsNullOrWhiteSpace(detailEntry?.Description))
             {
@@ -676,6 +685,12 @@ namespace MDPro3.UI.Client
         {
             if (string.IsNullOrWhiteSpace(name) || name == "." || name == ".." || name.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0 || name.Contains("/") || name.Contains("\\")) throw new ArgumentException("请填写有效名称，不包含路径分隔符。");
         }
+        private void CheckGroupName(string name)
+        {
+            CheckName(name);
+            if (name == "全部" || name == "我的" || name == "默认分组")
+                throw new ArgumentException("此名称用于系统分组，请使用其它分组名称。");
+        }
         private void Prompt(string title, string label, string value, Action<string> accepted)
         {
             var box = ShowDialog(title, 620, 338); string text = value;
@@ -745,7 +760,7 @@ namespace MDPro3.UI.Client
                         else throw new ArgumentException("剪贴板没有可识别的 YDK 或 YDKE 构筑。");
                     }
                     Directory.CreateDirectory(Path.GetDirectoryName(path)); File.WriteAllText(path, deck.GetYDK()); CloseDialog(); OpenEditor(relative);
-                    if (page == "editor" && editorRelativeName == relative) ShowStatus((import ? "已导入个人卡组：" : "已创建个人卡组：") + relative);
+                    if (page == "editor" && editorRelativeName == relative) ShowStatus((import ? "已导入个人卡组：" : "已创建个人卡组：") + FightText.Keep(relative));
                 }
                 catch (Exception failure)
                 {
@@ -835,14 +850,14 @@ namespace MDPro3.UI.Client
             var box = ShowDialog("管理分组 · " + FightText.Keep(group), 620, 360);
             FightUI.Button(box, "重命名分组", 28, 88, 564, 48, () => Prompt("重命名分组", "新名称", group, name =>
             {
-                CheckName(name); var target = Path.Combine(Program.PATH_DECK, name); if (Directory.Exists(target)) throw new IOException("该分组已经存在。");
+                CheckGroupName(name); var target = Path.Combine(Program.PATH_DECK, name); if (Directory.Exists(target)) throw new IOException("该分组已经存在。");
                 var files = Directory.GetFiles(directory, "*.ydk"); Directory.Move(directory, target);
                 foreach (var file in files) UpdateDeckReferences(file, Path.Combine(target, Path.GetFileName(file)));
                 deckGroup = name; Rebuild();
             }));
             FightUI.Button(box, "复制分组", 28, 152, 564, 48, () => Prompt("复制分组", "新分组名称", group + " 副本", name =>
             {
-                CheckName(name); var target = Path.Combine(Program.PATH_DECK, name); if (Directory.Exists(target)) throw new IOException("该分组已经存在。");
+                CheckGroupName(name); var target = Path.Combine(Program.PATH_DECK, name); if (Directory.Exists(target)) throw new IOException("该分组已经存在。");
                 Directory.CreateDirectory(target); foreach (var file in Directory.GetFiles(directory, "*.ydk")) File.Copy(file, Path.Combine(target, Path.GetFileName(file)), false);
                 deckGroup = name; Rebuild();
             }));

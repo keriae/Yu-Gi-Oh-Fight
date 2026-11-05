@@ -146,6 +146,7 @@ def main():
     spec = importlib.util.spec_from_file_location("mac_acquire", ROOT / "scripts/acquire-mdpro3-mac.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
+    module.check_extraction_dependencies()
     module.validate_checksum_manifest(CHECKSUMS.read_bytes())
     expected = {}
     for line in CHECKSUMS.read_text().splitlines():

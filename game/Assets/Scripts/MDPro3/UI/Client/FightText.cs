@@ -23,8 +23,17 @@ namespace MDPro3.UI.Client
             internal readonly PhraseNode Fragments = new PhraseNode();
             internal Catalog(Dictionary<string, string> entries)
             {
-                Entries = entries;
+                Entries = new Dictionary<string, string>(entries);
+                // Older catalogs contain the dropdown glyph in exact keys.
+                // Get normalizes it for fonts without that glyph; keep those
+                // phrases reachable instead of translating their fragments.
                 foreach (var entry in entries)
+                {
+                    string normalized = NormalizeSymbols(entry.Key);
+                    if (normalized != entry.Key && !Entries.ContainsKey(normalized))
+                        Entries[normalized] = entry.Value.Replace("▾", "·").Replace("☑", "✓");
+                }
+                foreach (var entry in Entries)
                 {
                     // Single-character words are only translated as full labels.
                     // Embedded punctuation/numbers and unknown text stay intact.
@@ -64,7 +73,7 @@ namespace MDPro3.UI.Client
             }
             // Normalize UI symbols only after removing protected user/card
             // names, so their literal arrows and checkboxes remain intact.
-            source = source.Replace("▾", "· 选择").Replace("☑", "✓");
+            source = NormalizeSymbols(source);
             string language = Language.GetConfig();
             if (language == Language.SimplifiedChinese || language == "zh-SC") return source;
             if (cachedLanguage != language) { cachedLanguage = language; cache.Clear(); }
@@ -80,6 +89,7 @@ namespace MDPro3.UI.Client
             return Remember(source, TranslateFragments(source, catalog.Fragments));
         }
         internal static string Keep(string value) => "\uFFF9" + (value ?? "") + "\uFFFB";
+        private static string NormalizeSymbols(string value) => value.Replace("▾", "· 选择").Replace("☑", "✓");
         private static string Remember(string source, string value)
         {
             if (cache.Count > 4096) cache.Clear();

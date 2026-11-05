@@ -1,9 +1,17 @@
 # Building and maintaining the macOS client
 
-The supported build host is macOS 13 or later with Xcode Command Line Tools
-and Python 3. The launcher is universal (`arm64` and `x86_64`); the game runtime
-is the verified upstream MDPro3 macOS release. A Unity Editor installation is
-not required for this source build.
+Build on macOS with Python 3.12 or later, a Swift 6 or later compiler (such as
+Xcode 16+ Command Line Tools), and zstd. The build host must support the selected
+toolchain. The application itself targets macOS 13 or later, with a universal
+launcher (`arm64` and `x86_64`) and the verified upstream MDPro3 macOS runtime.
+A Unity Editor installation is not required.
+
+Check `python3 --version` and `xcrun swiftc --version` before starting. Install
+zstd through your package manager (`brew install zstd` for Homebrew). Downloads
+use an installed libzstd when available, otherwise the `zstd` command on PATH
+or at either standard Apple Silicon/Intel Homebrew location. Preparation checks
+safe archive extraction before requesting publisher packages, and a complete
+build checks the Swift compiler before compilation or staging.
 
 ```sh
 python3 prepare-dependencies.py
@@ -11,12 +19,22 @@ python3 build.py --open
 ```
 
 Dependency preparation downloads the pinned toolchain and publisher resource
-inventory. To reuse an existing checkout without modifying it:
+inventory. Rerun the same preparation command after an interruption to resume.
+Existing resource files are verified, and missing or damaged files are repaired;
+this also applies to an incomplete imported runtime. `--check` verifies without
+downloading or repairing files. Download progress and diagnostic reports remain
+local and are ignored by Git.
+
+To reuse an existing checkout without modifying it:
 
 ```sh
 python3 prepare-dependencies.py --from /path/to/existing/checkout
 python3 prepare-dependencies.py --check
 ```
+
+Interrupted dependency copies are recovered on the next `--from` run. A copy
+lock prevents another preparation process from replacing active staging files;
+its local lock file is retained so retries share the same lock.
 
 The application is written to `dist/Yu-Gi-Oh! Fight.app`. Toolchains, publisher
 runtime downloads, intermediate generations, applications and diagnostic
@@ -62,10 +80,20 @@ rights remain subject to [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
 
 ## 中文说明
 
-使用 macOS 13+、Xcode Command Line Tools 和 Python 3 构建。执行上方依赖准备与
-构建命令即可生成应用，无需安装 Unity Editor。运行数据存放在独立的用户目录，
+在支持所选工具链的 macOS 上使用 Python 3.12+、Swift 6+ 编译器（例如 Xcode 16+
+Command Line Tools）与 zstd 构建。先检查 `python3 --version` 和
+`xcrun swiftc --version`；Homebrew 用户可执行 `brew install zstd`。
+应用本身支持 macOS 13+。执行上方依赖准备与构建命令即可生成应用，无需安装
+Unity Editor。运行数据存放在独立的用户目录，
 不进入仓库或安装包。构建工具验证固定发行资源、源码兼容性、卡组学院录像、
 Mono 加载、双架构原生文件选择器和应用签名；本地验收脚本与产物不提交 Git。
+
+依赖准备中断后，重复相同命令即可续传；缺失或损坏的文件会自动修复，包括从
+其他目录导入的不完整运行时。`--check` 只验证，不下载或修复；下载进度与
+诊断报告仅保留在本地，不提交 Git。
+
+`--from` 拷贝中断后也可直接重试；进程锁保护正在拷贝的临时目录，锁文件保留
+在本地供重试共用。发行包下载前检查安全解包依赖，完整构建在编译前检查 Swift 版本。
 
 仅修改 C# 代码时可先 `--code-only`，再执行代码更新脚本。资源或启动器修改需
 完整构建；原生桥接修改同样需要完整构建。更新与构建前请关闭游戏。归档命令只生成本地 ZIP，不执行上传。

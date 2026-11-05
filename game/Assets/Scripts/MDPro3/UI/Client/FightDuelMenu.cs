@@ -144,11 +144,12 @@ namespace MDPro3.UI.Client
             shade.gameObject.AddComponent<Button>().onClick.AddListener(() => Close());
             window = FightUI.Panel(root, 80, 50, Width, Height, FightUI.PanelColor, true, "Duel auxiliary menu");
             FightUI.Text(window, "YU-GI-OH! FIGHT", 28, 15, 300, 20, 12, FightUI.Muted).characterSpacing = 2;
-            string title = page == "settings" ? "对局设置" : page == "effects" ? "已附加效果" : "当前卡组";
-            FightUI.HeroTitle(window, title, 28, 36, 660, 44, 30);
-            string mode = OcgCore.condition == OcgCore.Condition.Replay ? "回放" : OcgCore.condition == OcgCore.Condition.Watch ? "观战" : "对战";
-            FightUI.Text(window, mode, Width - 360, 44, 140, 32, 16, FightUI.Muted, TextAlignmentOptions.MidlineRight);
-            var close = FightUI.FocusKey(FightUI.Button(window, "返回对局", Width - 196, 32, 168, 44, () => Close()), "duel:close");
+            string settingsLabel = ContextText("对局设置", "回放设置", "观战设置");
+            string title = page == "settings" ? settingsLabel : page == "effects" ? "已附加效果" : "当前卡组";
+            FightUI.HeroTitle(window, title, 28, 36, 660, 44, 30).name = "Duel menu title";
+            string mode = ContextText("对战模式", "回放模式", "观战模式");
+            FightUI.Text(window, mode, Width - 360, 44, 140, 32, 16, FightUI.Muted, TextAlignmentOptions.MidlineRight).name = "Duel menu mode";
+            var close = FightUI.FocusKey(FightUI.Button(window, ContextText("返回对局", "返回回放", "返回观战"), Width - 196, 32, 168, 44, () => Close()), "duel:close");
             FightUI.Line(window, 28, 94, Width - 56, FightUI.Border);
             body = FightUI.Node(window, "Duel menu body", 28, 112, Width - 56, Height - 186);
             if (page == "settings") RenderSettings();
@@ -156,7 +157,7 @@ namespace MDPro3.UI.Client
             else RenderDeck();
             FightUI.Line(window, 28, Height - 60, Width - 56, FightUI.Border);
             FightUI.Text(window, page == "settings" ? "更改即时生效，关闭时保存。" : "点击卡片查看完整信息。", 28, Height - 44, Width - 300, 28, 14, FightUI.Muted);
-            if (page != "settings") FightUI.Button(window, "对局设置", Width - 188, Height - 48, 160, 36, () => Open("settings"));
+            if (page != "settings") FightUI.FocusKey(FightUI.Button(window, settingsLabel, Width - 188, Height - 48, 160, 36, () => Open("settings")), "duel:settings");
             if (EventSystem.current != null)
             {
                 var retained = string.IsNullOrEmpty(focusedKey) ? null : window.GetComponentsInChildren<Selectable>()
@@ -165,6 +166,8 @@ namespace MDPro3.UI.Client
             }
             RefreshNavigation();
         }
+        private static string ContextText(string duel, string replay, string spectating) => OcgCore.condition == OcgCore.Condition.Replay
+            ? replay : OcgCore.condition == OcgCore.Condition.Watch ? spectating : duel;
         private void RenderSettings()
         {
             const float railWidth = 204, readerX = 228, readerWidth = 836;
@@ -410,8 +413,11 @@ namespace MDPro3.UI.Client
         {
             string title = retry ? "重新开始对局" : OcgCore.condition == OcgCore.Condition.Duel ? "结束对局" : OcgCore.condition == OcgCore.Condition.Replay ? "退出回放" : "退出观战";
             var panel = ShowDialog(title, 260);
-            FightUI.Text(panel, retry ? "当前对局将结束，并按本次设置重新开始。" : OcgCore.condition == OcgCore.Condition.Duel ? "确定结束当前对局吗？正在进行的对局会按投降处理。" : "确定退出并返回回放或对战准备页面吗？", 24, 90, 580, 70, 18, FightUI.Foreground);
-            FightUI.Button(panel, "继续对局", 24, 184, 270, 48, CloseDialog);
+            string message = retry ? "当前对局将结束，并按本次设置重新开始。"
+                : ContextText("确定结束当前对局吗？正在进行的对局会按投降处理。", "确定退出当前回放吗？", "确定退出当前观战吗？");
+            FightUI.Text(panel, message, 24, 90, 580, 70, 18, FightUI.Foreground).name = "Duel exit message";
+            string continueLabel = ContextText("继续对局", "继续回放", "继续观战");
+            FightUI.Button(panel, continueLabel, 24, 184, 270, 48, CloseDialog);
             var confirm = FightUI.FocusKey(FightUI.Button(panel, retry ? "确认重新开始" : "确认退出", 310, 184, 294, 48, () =>
             {
                 Close();

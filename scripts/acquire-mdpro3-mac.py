@@ -14,6 +14,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import ssl
 import tarfile
@@ -52,6 +53,7 @@ VERIFICATION_NAME = f"{PREFIX}.verification.json" if APP_FIRST else "verificatio
 CHECKSUMS_SHA256 = "28361cbef68e3d825e2cd675421057976c61cda1870fcdffe64797d9c1782a3b"
 CHECKSUMS_FILE_COUNT = 48347
 ZSTD_READER = None
+ZSTD_COMMAND = None
 if os.environ.get("MDPRO3_NATIVE_ZSTD", "1") == "1":
     helper = ROOT / "tools/zstd_stream.py"
     if helper.is_file():
@@ -394,6 +396,27 @@ def acquire(entry):
     raise RuntimeError(f"Could not acquire {label}: {last_error}")
 
 
+def find_zstd():
+    command = shutil.which("zstd")
+    if command:
+        return command
+    for path in ("/opt/homebrew/bin/zstd", "/usr/local/bin/zstd"):
+        if Path(path).is_file() and os.access(path, os.X_OK):
+            return path
+    return None
+
+
+def check_extraction_dependencies():
+    """Fail before publisher downloads when safe extraction is unavailable."""
+    global ZSTD_COMMAND
+    if not hasattr(tarfile, "data_filter"):
+        raise RuntimeError("Publisher archive extraction requires Python 3.12 or later with tarfile.data_filter")
+    if ZSTD_READER is None:
+        ZSTD_COMMAND = find_zstd()
+        if ZSTD_COMMAND is None:
+            raise RuntimeError("Publisher archives require zstd. Install it (for example, brew install zstd) and add it to PATH")
+
+
 @contextlib.contextmanager
 def open_verified_zstd(path):
     """Decode an already publisher-verified archive and check every frame."""
@@ -401,7 +424,9 @@ def open_verified_zstd(path):
         with ZSTD_READER.open_zstd_stream(path) as stream:
             yield stream
         return
-    process = subprocess.Popen(["/opt/homebrew/bin/zstd", "--decompress", "--stdout", str(path)], stdout=subprocess.PIPE)
+    if ZSTD_COMMAND is None:
+        check_extraction_dependencies()
+    process = subprocess.Popen([ZSTD_COMMAND, "--decompress", "--stdout", str(path)], stdout=subprocess.PIPE)
     try:
         yield process.stdout
         process.stdout.close()
@@ -488,6 +513,7 @@ def extract(entry, path):
 
 def main():
     global MANIFEST, RANGE_POOL
+    check_extraction_dependencies()
     for folder in (METADATA, PACKAGES, DESTINATION):
         folder.mkdir(parents=True, exist_ok=True)
     xml = (METADATA / f"{PREFIX}.metalink.xml") if APP_FIRST else fetch_metadata("metalink.xml", BASE + "metalinks/" + SUFFIX)

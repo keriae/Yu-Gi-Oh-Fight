@@ -242,7 +242,7 @@ namespace MDPro3.UI.Client
                 int code = hand[i];
                 var image = FightUI.Art(content, code, 12 + i * (cw + 6), handY + 12, cw, cw * 1.45f, true);
                 FightUI.CardButton(image, () => ShowCard(code));
-                FightUI.Hint(image.gameObject, DeckAcademy.CardName(code));
+                FightUI.RawHint(image.gameObject, DeckAcademy.CardName(code));
             }
             content.sizeDelta = new Vector2(contentW, Mathf.Max(h - 132, handY + cw * 1.45f + 36));
             CompleteLibraryRefresh(readingScroll, academyPreviewScroll);
@@ -565,7 +565,7 @@ namespace MDPro3.UI.Client
                 FightUI.PreviewOnFocus(row, () => PreviewPuzzle(p));
                 var icon = FightUI.Icon(row.transform, "swords", 20, 24, 30, 30, selected ? FightUI.Active : FightUI.GoldBorder);
                 var title = LibraryWrappedText(row.transform, Path.GetFileNameWithoutExtension(p), 70, 8, fileList.rect.width - 120, 38, 23, selected ? FightUI.Active : FightUI.Foreground, localize: false);
-                FightUI.Text(row.transform, Path.GetFileName(Path.GetDirectoryName(p)), 70, 49, fileList.rect.width - 120, 26, 15, FightUI.Muted);
+                FightUI.RawText(row.transform, Path.GetFileName(Path.GetDirectoryName(p)), 70, 49, fileList.rect.width - 120, 26, 15, FightUI.Muted);
                 var arrow = FightUI.Icon(row.transform, "arrow", fileList.rect.width - 38, 30, 20, 20, selected ? FightUI.Active : FightUI.GoldBorder);
                 puzzlePreviewItems.Add(CreateLibraryPreviewItem(row, p, title, null, icon, arrow));
             }
@@ -590,13 +590,14 @@ namespace MDPro3.UI.Client
             var copy = FightUI.Scroll(filePreview, 8, artH + 12, w - 16, copyH, copyH);
             string puzzleName = selectedPuzzle != null ? Path.GetFileNameWithoutExtension(selectedPuzzle)
                 : libraryFiles.Count == 0 ? "尚未添加残局" : !string.IsNullOrWhiteSpace(search) ? "暂无残局预览" : "选择一个残局";
-            var previewName = LibraryWrappedText(copy, puzzleName, 16, 14, w - 48, 96, 28, FightUI.Active);
-            FightUI.Hint(previewName.gameObject, puzzleName);
+            var previewName = LibraryWrappedText(copy, puzzleName, 16, 14, w - 48, 96, 28, FightUI.Active, localize: selectedPuzzle == null);
+            if (selectedPuzzle == null) FightUI.Hint(previewName.gameObject, puzzleName);
+            else FightUI.RawHint(previewName.gameObject, puzzleName);
             float detailY = 14 + previewName.rectTransform.sizeDelta.y + 24;
             if (selectedPuzzle != null)
             {
                 FightUI.Text(copy, "资源来源", 16, detailY, w - 48, 24, 14, FightUI.Muted);
-                var source = LibraryWrappedText(copy, Path.GetFileName(Path.GetDirectoryName(selectedPuzzle)), 16, detailY + 30, w - 48, 80, 18, FightUI.Foreground);
+                var source = LibraryWrappedText(copy, Path.GetFileName(Path.GetDirectoryName(selectedPuzzle)), 16, detailY + 30, w - 48, 80, 18, FightUI.Foreground, localize: false);
                 copy.sizeDelta = new Vector2(w - 16, Mathf.Max(copyH, detailY + 30 + source.rectTransform.sizeDelta.y + 24));
             }
             else
@@ -635,7 +636,7 @@ namespace MDPro3.UI.Client
             }
             FightUI.Line(information, 16, sourceY - 12, infoW - 48, FightUI.Border);
             FightUI.Text(information, "资源来源", 16, sourceY, infoW - 48, 24, 15, FightUI.Muted);
-            var sourceName = LibraryWrappedText(information, Path.GetFileName(Path.GetDirectoryName(selectedPuzzle)), 16, sourceY + 32, infoW - 48, 80, 19, FightUI.Foreground);
+            var sourceName = LibraryWrappedText(information, Path.GetFileName(Path.GetDirectoryName(selectedPuzzle)), 16, sourceY + 32, infoW - 48, 80, 19, FightUI.Foreground, localize: false);
             information.sizeDelta = new Vector2(infoW - 16, Mathf.Max(panelH - 16, sourceY + 32 + sourceName.rectTransform.sizeDelta.y + 24));
             string readingKey = Path.GetFullPath(selectedPuzzle);
             if (!puzzleReadingPositions.TryGetValue(readingKey, out var memory))
@@ -774,7 +775,7 @@ namespace MDPro3.UI.Client
             FightUI.Hint(date.gameObject, "文件最后修改时间");
             LibraryTag(meta, Path.GetExtension(replayPath).TrimStart('.').ToUpperInvariant(), w - 136, dateY - 1, 96);
             string directory = Path.GetDirectoryName(ReplayName(replayPath));
-            var source = LibraryWrappedText(meta, "来源目录 · " + (string.IsNullOrEmpty(directory) ? "回放目录" : directory.Replace('\\', '/')),
+            var source = LibraryWrappedText(meta, "来源目录 · " + (string.IsNullOrEmpty(directory) ? "回放目录" : FightText.Keep(directory.Replace('\\', '/'))),
                 8, dateY + 30, w - 48, float.PositiveInfinity, 14, FightUI.Muted);
             source.name = "Replay source directory";
             float sectionY = dateY + 30 + source.rectTransform.sizeDelta.y + 12, metaY = sectionY + 18;
