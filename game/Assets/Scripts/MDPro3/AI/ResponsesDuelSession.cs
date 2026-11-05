@@ -31,6 +31,11 @@ namespace MDPro3.AI
             public readonly ConcurrentQueue<Package> ViewerMessages = new();
             public readonly HashSet<string> Results = new();
             public ResponsesAiConfig Config;
+            public ResponsesAiConfig ConfigA;
+            public AiDuelistProfile ProfileA, ProfileB;
+            public OnlineAppearanceData ExpectedAppearanceA, ExpectedAppearanceB;
+            public bool HasAppearanceA, HasAppearanceB;
+            public volatile bool AppearanceAckA, AppearanceAckB;
             public GameDeck PlayerDeck;
             public string DeckA, DeckB, TempDirectory;
             public int Port;
@@ -58,6 +63,9 @@ namespace MDPro3.AI
         private static ResponsesDuelOverlay overlay;
         public static bool IsActive => current != null;
         public static bool UsesAiAPerspective => current?.AiVsAi == true;
+        public static bool ProfileAppearancesConfirmed => current != null
+            && (current.ProfileA == null || current.HasAppearanceA && current.AppearanceAckA)
+            && (current.ProfileB == null || current.HasAppearanceB && current.AppearanceAckB);
         public static string Status { get; private set; } = string.Empty;
         public static string FailureReason { get; private set; } = string.Empty;
         public static int NativeWinReason { get; private set; } = -1;
@@ -68,8 +76,23 @@ namespace MDPro3.AI
         public static event Action<string, int> DuelEnded;
 
         public static void Start(ResponsesAiConfig config, bool aiVsAi, string deckA, string deckB)
+            => StartCore(config, config, null, null, aiVsAi, deckA, deckB, null);
+
+        public static void Start(AiDuelistProfile profileA, AiDuelistProfile profileB, bool aiVsAi, string deckA, string deckB,
+            ResponsesDuelOptions options = null)
         {
-            config.Validate();
+            if (profileB?.Config == null || (aiVsAi && profileA?.Config == null))
+                throw new AiConfigurationException("请先选择出战的 AI 分身。");
+            StartCore(aiVsAi ? profileA.Config : profileB.Config, profileB.Config,
+                aiVsAi ? profileA : null, profileB, aiVsAi, deckA, deckB, options);
+        }
+
+        private static void StartCore(ResponsesAiConfig configA, ResponsesAiConfig configB,
+            AiDuelistProfile profileA, AiDuelistProfile profileB, bool aiVsAi, string deckA, string deckB, ResponsesDuelOptions options)
+        {
+            options = options?.Clone() ?? new ResponsesDuelOptions();
+            options.Validate();
+            configA.Validate(); configB.Validate();
             var first = LoadDeck(deckA);
             var second = LoadDeck(deckB);
             if (Program.instance == null || !TcpHelper.canJoin)
@@ -79,7 +102,8 @@ namespace MDPro3.AI
             Program.instance.ocgcore.CloseConnection();
             var session = new Session
             {
-                Config = config.Clone(), AiVsAi = aiVsAi, PlayerDeck = first,
+                Config = configB.Clone(), ConfigA = configA.Clone(), ProfileA = profileA?.Clone(), ProfileB = profileB?.Clone(),
+                AiVsAi = aiVsAi, PlayerDeck = first,
                 Port = FindPort(), TempDirectory = Path.Combine(Path.GetTempPath(), "mdpro3-ai-" + Guid.NewGuid().ToString("N"))
             };
             Directory.CreateDirectory(session.TempDirectory);
@@ -99,9 +123,9 @@ namespace MDPro3.AI
             RoomServant.NeedSide = false;
             Program.instance.room.duelEnded = false;
             SoloSelector.port = session.Port.ToString();
-            // Single duel, current master rule, full OCG/TCG card pool, 40–60 cards.
+            // Single duel, selected master rule, full OCG/TCG card pool, 40–60 cards.
             // No turn clock: model latency must not lose the duel automatically.
-            YgoServer.StartServer(session.Port + " -1 5 0 F F F 8000 5 1 0 0");
+            YgoServer.StartServer(options.ToServerArguments(session.Port));
             current = session;
             var bootstrap = new Thread(() =>
             {
@@ -132,7 +156,7 @@ namespace MDPro3.AI
             // loopback on macOS. Binding a probe is not a reliable ready check.
             yield return new WaitForSecondsRealtime(0.25f);
             if (current != session || session.Failure != null || session.Cancellation.IsCancellationRequested) yield break;
-            var host = StartBot(session, session.AiVsAi ? "AI A" : "AI", session.AiVsAi ? session.DeckA : session.DeckB);
+            var host = StartBot(session, session.AiVsAi);
             deadline = DateTime.UtcNow.AddSeconds(15);
             while (current == session && session.Failure == null && !host.ResponsesJoined)
             {
@@ -150,21 +174,33 @@ namespace MDPro3.AI
                 yield return null;
             }
             if (current != session || session.Failure != null) yield break;
-            if (session.AiVsAi) StartBot(session, "AI B", session.DeckB);
+            if (session.AiVsAi) StartBot(session, false);
             session.AllowStart = true;
             session.Messages.Enqueue(session.AiVsAi ? "双方 AI 已连接，正在开始对战…" : "AI 已连接，正在开始对战…");
         }
 
-        private static GameClient StartBot(Session session, string name, string path)
+        private static GameClient StartBot(Session session, bool first)
         {
+            var profile = first ? session.ProfileA : session.ProfileB;
+            var config = first ? session.ConfigA : session.Config;
+            string path = first ? session.DeckA : session.DeckB;
+            string name = ProfileBotName(session, first);
+            string appearance = null;
+            if (profile != null)
+            {
+                appearance = ProfileAppearanceMessage(profile, out var expected);
+                if (first) { session.ExpectedAppearanceA = expected; session.HasAppearanceA = true; }
+                else { session.ExpectedAppearanceB = expected; session.HasAppearanceB = true; }
+            }
             var client = new GameClient(new WindBot.WindBotInfo
             {
                 Name = name, DeckFile = path, Host = "127.0.0.1", Port = session.Port,
                 Version = (int)Config.ClientVersion, Chat = false, Dialog = "default"
             })
             {
-                ResponsesConfig = session.Config.Clone(), ResponsesCancellation = session.Cancellation.Token,
-                ResponsesCanStart = () => session.AllowStart,
+                ResponsesConfig = config.Clone(), ResponsesCancellation = session.Cancellation.Token,
+                ResponsesCanStart = () => session.AllowStart && (!session.HasAppearanceA || session.AppearanceAckA)
+                    && (!session.HasAppearanceB || session.AppearanceAckB),
                 ResponsesStatus = text => session.Messages.Enqueue(name + " · " + text),
                 ResponsesDecision = (kind, action) =>
                 {
@@ -174,7 +210,7 @@ namespace MDPro3.AI
                 },
                 ResponsesDuelEnded = result => RecordResult(session, name, result)
             };
-            if (session.AiVsAi && name == "AI A")
+            if (session.AiVsAi && first)
                 client.ResponsesGameMessage = (function, reader) =>
                 {
                     var package = ResponsesSpectatorFeed.Capture(function, reader);
@@ -186,8 +222,16 @@ namespace MDPro3.AI
                 try
                 {
                     client.Start();
+                    bool appearanceSent = false;
                     while (!session.Cancellation.IsCancellationRequested && client.Connection.IsConnected)
                     {
+                        // Send from the socket's owning worker, after the viewer can receive it.
+                        // The host waits for the viewer's acknowledgements before sending Start.
+                        if (!appearanceSent && session.AllowStart && client.ResponsesJoined)
+                        {
+                            if (appearance != null) client.Chat(appearance);
+                            appearanceSent = true;
+                        }
                         client.Tick();
                         session.Cancellation.Token.WaitHandle.WaitOne(25);
                     }
@@ -202,6 +246,43 @@ namespace MDPro3.AI
             session.Workers.Add(thread);
             thread.Start();
             return client;
+        }
+
+        private static string ProfileBotName(Session session, bool first)
+        {
+            var profile = first ? session.ProfileA : session.ProfileB;
+            if (profile == null) return first ? "AI A" : session.AiVsAi ? "AI B" : "AI";
+            var other = first ? session.ProfileB : session.ProfileA;
+            return AiDuelistNames.ForSide(profile.Name, session.AiVsAi ? other?.Name : null, first);
+        }
+
+        private static string ProfileAppearanceMessage(AiDuelistProfile profile, out OnlineAppearanceData expected)
+        {
+            var defaults = AiDuelistProfile.NewAppearance();
+            var keys = new[] { "Case", "Protector", "Field", "Grave", "Stand", "Mate", "Face", "Frame" };
+            string message = ZeroWidthIntsCodec.Encode(keys.Select(key => profile.Appearance != null
+                && profile.Appearance.TryGetValue(key, out string raw) && int.TryParse(raw, out int code) ? code : int.Parse(defaults[key])).ToArray());
+            OnlineAppearanceSync.TryParse(message, out expected);
+            // Resolve random/unsupported codes once, so the receiver confirms the same concrete appearance.
+            return ZeroWidthIntsCodec.Encode(new[] { expected.Case, expected.Protector, expected.Field, expected.Grave,
+                expected.Stand, expected.Mate, expected.Face, expected.Frame });
+        }
+
+        public static string NameForSide(int side, string fallback)
+        {
+            var session = current;
+            var profile = side == 0 ? session?.AiVsAi == true ? session.ProfileA : null : session?.ProfileB;
+            return profile == null ? fallback : ProfileBotName(session, side == 0);
+        }
+
+        /// <summary>Resolve local duelist presentation without changing the player's global settings.</summary>
+        public static string AppearanceForSide(int side, string key, string fallback)
+        {
+            var session = current;
+            var profile = side == 0 ? session?.AiVsAi == true ? session.ProfileA : null : session?.ProfileB;
+            if (profile?.Appearance == null || !profile.Appearance.TryGetValue(key, out string value)
+                || string.IsNullOrEmpty(value) || value == "0") return fallback;
+            return value;
         }
 
         /// <returns>True when this session supplied the viewer's appearance/deck.</returns>
@@ -285,6 +366,14 @@ namespace MDPro3.AI
             var session = current;
             if (session != null)
             {
+                // Only Unity's main thread reads RoomServant's received metadata dictionary.
+                // Cross-socket send ordering cannot prove that the spectator has received both cosmetics.
+                if (session.HasAppearanceA && !session.AppearanceAckA
+                    && RoomServant.TryGetOnlineAppearanceForPlayer(0, out var appearanceA)
+                    && appearanceA.Equals(session.ExpectedAppearanceA)) session.AppearanceAckA = true;
+                if (session.HasAppearanceB && !session.AppearanceAckB
+                    && RoomServant.TryGetOnlineAppearanceForPlayer(session.AiVsAi ? 1 : 0, out var appearanceB)
+                    && appearanceB.Equals(session.ExpectedAppearanceB)) session.AppearanceAckB = true;
                 while (session.ViewerMessages.TryDequeue(out var package))
                     Program.instance.room.ReceiveGameMessage(package);
                 string latest = null;

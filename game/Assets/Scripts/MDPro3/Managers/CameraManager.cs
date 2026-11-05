@@ -335,9 +335,29 @@ namespace MDPro3
 
         #region Black Transition
 
+        private static Sequence blackTransition;
+
+        public static void ResetDuelBlack()
+        {
+            blackTransition?.Kill();
+            blackTransition = null;
+            var backdrop = Program.instance?.camera_?.black;
+            if (backdrop == null) return;
+            var color = backdrop.color;
+            color.a = 0f;
+            backdrop.color = color;
+        }
+
+        private static Sequence BeginBlackTransition()
+        {
+            blackTransition?.Kill();
+            blackTransition = DOTween.Sequence();
+            return blackTransition;
+        }
+
         public static void BlackInOut(float delay, float inTime, float time, float outTime)
         {
-            var sequence = DOTween.Sequence();
+            var sequence = BeginBlackTransition();
             sequence.AppendInterval(delay);
             sequence.Append(Program.instance.camera_.black.DOFade(0.75f, inTime));
             sequence.AppendInterval(time);
@@ -346,14 +366,14 @@ namespace MDPro3
 
         public static void BlackIn(float delay, float inTime)
         {
-            var sequence = DOTween.Sequence();
+            var sequence = BeginBlackTransition();
             sequence.AppendInterval(delay);
             sequence.Append(Program.instance.camera_.black.DOFade(0.75f, inTime));
         }
 
         public static void BlackOut(float delay, float outTime)
         {
-            var sequence = DOTween.Sequence();
+            var sequence = BeginBlackTransition();
             sequence.AppendInterval(delay);
             sequence.Append(Program.instance.camera_.black.DOFade(0f, outTime));
         }

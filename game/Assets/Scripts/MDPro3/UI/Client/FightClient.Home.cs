@@ -24,10 +24,23 @@ namespace MDPro3.UI.Client
         {
             bool large = W >= 2400;
             float side = Compact ? 340 : 504;
-            float main = W - side - Gap * 2;
-            float homeH = H - Footer - BodyTop, mainH = homeH - Gap;
-            float heroH = Mathf.Min(Compact ? 330 : large ? 620 : 520, mainH * .68f);
-            var hero = FightUI.Panel(Body, 0, 0, main, heroH, FightUI.Background, true, "Blue-Eyes feature");
+            float main = BodyWidth - side - Gap;
+            float homeH = BodyHeight, mainH = homeH;
+            float cardW = (main - Gap * 2) / 3, captionHeight = Compact ? 78 : 94;
+            float naturalCardH = cardW * (9f / 16f) + captionHeight + 1;
+            if (UsesFullscreenLayout) naturalCardH = Mathf.Min(naturalCardH, homeH * .45f);
+            float heroH = UsesFullscreenLayout ? Mathf.Min(large ? 780 : Compact ? 330 : 600,
+                Mathf.Min(main / (2736f / 1040f), mainH - Gap * 3 - naturalCardH))
+                : Mathf.Min(Compact ? 330 : large ? 620 : 520, mainH * .68f);
+            // Spend taller fullscreen space on the two content rows, keeping
+            // the feature panorama and exploration covers landscape. Asset()
+            // crops texture coordinates uniformly instead of stretching art.
+            float cardH = UsesFullscreenLayout ? Mathf.Max(naturalCardH,
+                Mathf.Min(mainH - heroH - Gap * 3, cardW * .75f + captionHeight + 1)) : Mathf.Max(150, Mathf.Min(mainH - heroH - Gap,
+                Mathf.Min(large ? 480 : 300, cardW * .56f + captionHeight)));
+            float homeY = UsesFullscreenLayout ? Mathf.Min(Gap * 2, Mathf.Max(0, (homeH - heroH - Gap - cardH) * .5f)) : 0;
+            if (UsesFullscreenLayout) homeH = heroH + Gap + cardH;
+            var hero = FightUI.Panel(Body, 0, homeY, main, heroH, FightUI.Background, true, "Blue-Eyes feature");
             // Preserve the dragon's face and silhouette when the feature becomes
             // wider. The artwork's dark left edge joins the text surface instead
             // of cropping the top and bottom of a stretched panorama.
@@ -48,10 +61,7 @@ namespace MDPro3.UI.Client
             var inspect = FightUI.TextAction(hero, "查看构筑", pad + (Compact ? 220 : 280), actionY, Compact ? 160 : 200, Compact ? 56 : 64,
                 () => { detailEntry = featureDeck; detailOrigin = "home"; Navigate("deck-detail"); }, featureDeck != null);
             FightUI.Hint(inspect.gameObject, featureDeck != null ? "查看完整卡组与展开说明" : "当前教学构筑资源不可用");
-            float cardY = heroH + Gap, cardW = (main - Gap * 2) / 3;
-            float captionHeight = Compact ? 78 : 94;
-            float cardH = Mathf.Max(150, Mathf.Min(mainH - cardY,
-                Mathf.Min(large ? 480 : 300, cardW * .56f + captionHeight)));
+            float cardY = homeY + heroH + Gap;
             string[] titles = { "卡组学院", "推荐卡组", "残局挑战" };
             string[] descriptions = { "固定起手 · 逐步展开", "经典主题 · 竞技构筑", "固定场面 · 破解胜局" };
             string[] route = { "academy", "recommended", "puzzles" }, assets = { "academy.png", "decks.png", "puzzle.png" };
@@ -73,7 +83,7 @@ namespace MDPro3.UI.Client
                 BindHomeCard(card, () => Navigate(route[j]));
                 FightUI.Hint(card.gameObject, descriptions[i]);
             }
-            var right = FightUI.Panel(Body, main + Gap, 0, side, homeH, FightUI.PanelColor, false, "Personal sidebar");
+            var right = FightUI.Panel(Body, main + Gap, homeY, side, homeH, FightUI.PanelColor, false, "Personal sidebar");
             FightUI.Panel(right, 0, 0, 1, homeH, FightUI.Border, false, "Sidebar divider");
             var content = FightUI.Scroll(right, 0, 0, side, homeH, homeH);
             float p = Compact ? 16 : 32, inner = side - p * 2;
@@ -171,19 +181,35 @@ namespace MDPro3.UI.Client
             var picture = FightUI.Node(node, "Profile portrait", 1, 1, size - 2, size - 2).gameObject.AddComponent<Image>();
             picture.color = Color.white; picture.raycastTarget = false; picture.preserveAspect = true;
             var face = player == 0 ? Appearance.duelFace0 : Appearance.duelFace1;
-            if (face != null) picture.sprite = face; else LoadHomePortrait(picture, player);
+            if (face != null) picture.sprite = face;
             var edge = FightUI.Node(parent, "Avatar ring", x, y, size, size).gameObject.AddComponent<Image>();
             edge.sprite = homeCircleRing; edge.color = FightUI.Gold; edge.raycastTarget = false;
+            var frame = FightUI.Node(parent, "Player profile frame", x, y, size, size).gameObject.AddComponent<Image>();
+            frame.color = Color.clear; frame.preserveAspect = true; frame.raycastTarget = false;
+            LoadHomeAppearance(picture, frame, edge, shape, clip, player);
         }
-        private async void LoadHomePortrait(Image picture, int player)
+        private async void LoadHomeAppearance(Image picture, Image frame, Image fallbackRing, Image fallbackShape, Mask clip, int player)
         {
             try
             {
                 string fallback = Program.items.faces.Count > 0 ? Program.items.faces[0].id.ToString() : "1010001";
                 var sprite = await Program.items.LoadConcreteItemIconAsync(Config.Get("DuelFace" + player, fallback), Items.ItemType.Face, player);
                 if (picture != null && sprite != null) picture.sprite = sprite;
+                string fallbackFrame = Program.items.frames.Count > 0 ? Program.items.frames[0].id.ToString() : "1030001";
+                string frameCode = Config.Get("DuelFrame" + player, fallbackFrame);
+                if (frameCode == Items.CODE_RANDOM.ToString() && !string.IsNullOrEmpty(Items.lastRandomFrameID))
+                    frameCode = Items.lastRandomFrameID;
+                if (frameCode == "0") return;
+                var border = await Program.items.LoadConcreteItemIconAsync(frameCode, Items.ItemType.Frame, player);
+                if (frame == null || border == null) return;
+                // Selected frames use their own outline; the generic circular
+                // fallback must not clip square portraits or cover that frame.
+                frame.sprite = border; frame.color = Color.white;
+                if (clip != null) clip.enabled = false;
+                if (fallbackShape != null) fallbackShape.enabled = false;
+                if (fallbackRing != null) fallbackRing.enabled = false;
             }
-            catch (Exception error) { Debug.LogWarning("[FightClient] portrait: " + error.Message); }
+            catch (Exception error) { Debug.LogWarning("[FightClient] player appearance: " + error.Message); }
         }
         private void HomeShortcut(Transform parent, string label, float x, float y, float w, float h, Action action)
         {
@@ -205,9 +231,12 @@ namespace MDPro3.UI.Client
             float gap = Compact ? 18 : 32, cw = Mathf.Min(large ? 760 : 448, (BodyWidth - gap * 2) / 3);
             float startX = (BodyWidth - cw * 3 - gap * 2) / 2;
             float workspaceWidth = cw * 3 + gap * 2;
-            float h = Mathf.Min(large ? 800 : 580, BodyHeight - 204);
-            float y = large ? Mathf.Max(84, (BodyHeight - h - 100) / 2 - 32) : Compact ? 74 : 84;
-            if (large) AlignHomeWorkspaceHeading(startX, workspaceWidth);
+            float y = Compact ? 74 : 84;
+            float h = UsesFullscreenLayout ? Mathf.Min(720, Mathf.Min(cw * .75f + 92, BodyHeight - y - 96))
+                : Mathf.Min(large ? 800 : 580, BodyHeight - 204);
+            float workspaceY = UsesFullscreenLayout ? Mathf.Max(0, (BodyHeight - y - h - 96) * .5f) : 0;
+            y += workspaceY;
+            if (large || UsesFullscreenLayout) AlignHomeWorkspaceHeading(startX, workspaceWidth, workspaceY);
             string[] titles = { "人机对战", "AI 对战", "匹配对战" };
             string[] artwork = { "hero.png", "academy.png", "decks.png" };
             for (int i = 0; i < 3; i++)
@@ -238,192 +267,98 @@ namespace MDPro3.UI.Client
                 }
             }
             float actionX = large ? startX : 0;
-            float actionY = large ? y + h + 40 : BodyHeight - 64;
+            float actionY = UsesFullscreenLayout || large ? y + h + 40 : BodyHeight - 64;
             FightUI.TextAction(Body, "返回首页", actionX, actionY, 140, 56, () => Navigate("home"));
+        }
+        private sealed class BattleSetupLayout
+        {
+            internal float WorkspaceX, WorkspaceWidth, ToolbarY, ActionY, Outer, SurfaceWidth, Center, CardY, CardH, CardW, LaunchSize;
+        }
+        private BattleSetupLayout GetBattleSetupLayout()
+        {
+            bool large = W >= 2400;
+            float workspace = large ? Mathf.Min(1900, BodyWidth) : BodyWidth, workspaceX = (BodyWidth - workspace) / 2;
+            float outer = large ? workspaceX : Compact ? 0 : 40, surface = large ? workspace : BodyWidth - outer * 2;
+            float center = Compact ? 184 : 244, cardY = Compact ? 76 : 84;
+            float cardW = (surface - center) / 2;
+            float cardH = Mathf.Max(256, BodyHeight - cardY - (Compact ? 80 : 96));
+            float workspaceY = 0;
+            if (UsesFullscreenLayout)
+            {
+                float coverW = cardW - (Compact ? 40 : 56), headerH = Compact ? 78 : 112, actionsH = Compact ? 74 : 92;
+                cardH = Mathf.Min(cardH, Mathf.Min(780, coverW * .75f + headerH + actionsH));
+                workspaceY = Mathf.Max(0, (BodyHeight - cardY - cardH - 84) * .5f);
+                cardY += workspaceY;
+            }
+            else if (large) cardH = Mathf.Min(cardH, 866);
+            return new BattleSetupLayout { WorkspaceX = workspaceX, WorkspaceWidth = workspace, ToolbarY = workspaceY + 8,
+                ActionY = UsesFullscreenLayout || large ? cardY + cardH + 28 : BodyHeight - 64, Outer = outer, SurfaceWidth = surface,
+                Center = center, CardY = cardY, CardH = cardH, CardW = cardW, LaunchSize = Compact ? 160 : large ? 218 : 206 };
+        }
+        private void DrawBattleModeTabs(float x, float y = 8)
+        {
+            float width = Compact ? 160 : 208;
+            FightUI.Tab(Body, "人机对战", page == "cpu", x, y, width, 44, () => Navigate("cpu"));
+            FightUI.Tab(Body, "玩家 vs AI", page == "ai", x + width + 8, y, width, 44, () => Navigate("ai"));
+            FightUI.Tab(Body, "AI vs AI", page == "spectator", x + (width + 8) * 2, y, width, 44, () => Navigate("spectator"));
         }
         private void RenderCpu()
         {
-            bool large = W >= 2400;
-            PageTitle("人机对战准备");
-            float listW = Compact ? 272 : 448, setupW = Compact ? 330 : large ? 480 : 400;
-            float workspaceWidth = large ? Mathf.Min(2040, BodyWidth) : BodyWidth, workspaceX = (BodyWidth - workspaceWidth) / 2;
-            float centerX = workspaceX + listW + Gap, centerW = workspaceWidth - listW - setupW - Gap * 2, setupX = workspaceX + workspaceWidth - setupW;
-            float height = large ? Mathf.Min(920, BodyHeight - 180) : BodyHeight - (Compact ? 162 : 180);
-            float top = large ? Mathf.Max(96, (BodyHeight - height - 88) / 2) : Compact ? 88 : 96;
-            float actionY = large ? top + height + 32 : BodyHeight - 62;
-            if (large) AlignHomeWorkspaceHeading(workspaceX, workspaceWidth);
+            var g = GetBattleSetupLayout();
+            DrawBattleModeTabs(g.WorkspaceX, g.ToolbarY);
+            DrawBattleOptionsEntry(g.WorkspaceX + g.WorkspaceWidth - 168, g.ToolbarY, false);
+            string playerPath = string.IsNullOrEmpty(cpuDeck) ? "" : Program.PATH_DECK + cpuDeck + Program.EXPANSION_YDK;
+            Deck player = null;
+            try { if (File.Exists(playerPath)) player = new Deck(playerPath); } catch (Exception) { }
+            bool playerLegal = player != null && (cpuNoCheck || player.Check(BanlistManager.currentBanList, true, true) == 0);
+            string playerIssue = player == null ? "请选择玩家卡组。" : playerLegal ? null : "玩家卡组不符合当前构筑规则。";
+            DrawBattleDeck(g.Outer, g.CardY, g.CardW, g.CardH, "玩家", playerPath,
+                path => { cpuDeck = PersonalName(path); SetCurrent(path); }, playerIssue, personalDeck: true);
             var bots = SoloSelector.bots;
-            var roster = FightUI.Panel(Body, workspaceX, top, listW, height);
-            FightUI.Text(roster, "电脑对手", 20, 15, listW - 112, 36, Compact ? 22 : 26, FightUI.Gold);
-            var rosterCount = FightUI.Text(roster, bots.Count + " 位", listW - 90, 19, 68, 30, 16, FightUI.Muted, TextAlignmentOptions.MidlineRight);
-            FightUI.OrnamentLine(roster, 20, 57, listW - 40);
-            float rowH = Compact ? 76 : 88;
-            var summary = FightUI.Text(roster, "", 20, 108, listW - 40, 24, Compact ? 13 : 15, FightUI.Muted);
-            var list = FightUI.Scroll(roster, 8, 138, listW - 16, height - 146, height - 146, out var rosterScroll);
-            Button clearSearch = null;
-            TMP_InputField search = null;
-            Action refreshRoster = () =>
-            {
-                string query = (cpuOpponentSearch ?? "").Trim();
-                var matches = Enumerable.Range(0, bots.Count).Where(index => string.IsNullOrEmpty(query)
-                    || (bots[index].name ?? "").IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0
-                    || (bots[index].desc ?? "").IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToArray();
-                FightUI.Clear(list);
-                rosterCount.text = string.IsNullOrEmpty(query) ? bots.Count + " 位" : matches.Length + " / " + bots.Count;
-                summary.text = string.IsNullOrEmpty(query) ? "选择对手，查看玩法说明" : matches.Contains(selectedBot)
-                    ? "找到 " + matches.Length + " 位对手" : "找到 " + matches.Length + " 位 · 当前选择保留";
-                FightUI.Hint(summary.gameObject, summary.text);
-                if (clearSearch != null) clearSearch.gameObject.SetActive(!string.IsNullOrEmpty(cpuOpponentSearch));
-                for (int i = 0; i < matches.Length; i++)
-                {
-                    int j = matches[i]; var bot = bots[j];
-                    var row = FightUI.Panel(list, 4, i * rowH + 3, listW - 24, rowH - 6,
-                        j == selectedBot ? FightUI.Raised : FightUI.PanelColor, true, bot.name);
-                    float thumb = Compact ? 48 : 58;
-                    if (bot.main0 > 0) FightUI.Art(row, bot.main0, 12, 10, thumb, thumb);
-                    var botName = FightUI.Text(row, bot.name, thumb + 26, 8, listW - thumb - 78, 32,
-                        Compact ? 18 : 21, j == selectedBot ? FightUI.Active : FightUI.Foreground);
-                    FightUI.Hint(botName.gameObject, bot.name);
-                    FightUI.Text(row, (bot.desc ?? "").Split('\n').FirstOrDefault(), thumb + 26, 39,
-                        listW - thumb - 66, 25, Compact ? 15 : 16, FightUI.Muted);
-                    BindHomeCard(row, () => { selectedBot = j; Rebuild(); });
-                    SetLibrarySelection(row.GetComponent<Button>(), j == selectedBot);
-                    FightUI.FocusKey(row.GetComponent<Button>(), "cpu:opponent:" + j);
-                    FightUI.Hint(row.gameObject, bot.name + " · 选择此电脑对手");
-                }
-                if (matches.Length == 0 && bots.Count > 0)
-                {
-                    var empty = HomeWrappedText(list, "没有匹配的电脑对手", 18, 24, listW - 52, 32, 18, FightUI.Foreground);
-                    float emptyBottom = 24 + empty.rectTransform.rect.height;
-                    HomeWrappedText(list, "试试主题名或说明中的关键词。当前对手和对局规则已保留。", 18, emptyBottom + 10, listW - 52, 52, 15, FightUI.Muted);
-                    FightUI.TextAction(list, "清空搜索", 18, emptyBottom + 80, listW - 52, 40, () =>
-                    {
-                        search.text = ""; search.Select(); search.ActivateInputField(); search.caretPosition = search.text.Length;
-                    });
-                }
-                list.sizeDelta = new Vector2(listW - 16, Mathf.Max(height - 146, matches.Length * rowH));
-                rosterScroll.StopMovement(); rosterScroll.verticalNormalizedPosition = 1;
-            };
-            search = FightUI.FocusKey(FightUI.Input(roster, cpuOpponentSearch, "搜索名称或说明", 20, 66, listW - 86, 38,
-                value => { cpuOpponentSearch = value; refreshRoster(); }), "cpu:opponent-search");
-            FightUI.Hint(search.gameObject, "按名称或玩法说明查找电脑对手，不改变当前选择。");
-            clearSearch = FightUI.Button(roster, "", listW - 58, 66, 38, 38, () =>
-            {
-                search.text = ""; search.Select(); search.ActivateInputField(); search.caretPosition = search.text.Length;
-            });
-            FightUI.Icon(clearSearch.transform, "close", 9, 9, 20, 20, FightUI.Gold);
-            FightUI.FocusKey(clearSearch, "cpu:opponent-search-clear");
-            FightUI.Hint(clearSearch.gameObject, "清空对手搜索");
-            refreshRoster();
             if (bots.Count == 0)
             {
-                FightUI.Icon(Body, "duel", centerX + (centerW - 56) / 2, top + 60, 56, 56, FightUI.GoldBorder);
-                FightUI.Text(Body, "暂时没有可用的电脑对手", centerX, top + 148, centerW, 48, 24, FightUI.Muted, TextAlignmentOptions.Center);
-                FightUI.TextAction(Body, "返回模式", workspaceX, actionY, 140, 56, () => Navigate("modes"));
-                return;
+                DrawBattleDeck(g.Outer + g.CardW + g.Center, g.CardY, g.CardW, g.CardH, "电脑", "", _ => { },
+                    chooseProfile: OpenCpuOpponentPicker, identityName: "暂无人机模式", deckAction: OpenCpuOpponentPicker, fallbackArt: 0, inspectDeck: false);
             }
-            selectedBot = Mathf.Clamp(selectedBot, 0, bots.Count - 1); var selected = bots[selectedBot];
-            var opponentFrame = FightUI.Panel(Body, centerX, top, centerW, height, FightUI.PanelColor, true, "Opponent briefing");
-            opponentFrame.GetComponent<Outline>().effectColor = FightUI.Border;
-            var opponent = FightUI.Scroll(opponentFrame, 1, 1, centerW - 2, height - 2, height - 2);
-            float artH = Mathf.Min(Compact ? 208 : large ? 420 : 370, height * .54f);
-            FocusDragonArtwork(FightUI.Asset(opponent, "hero.png", 0, 0, centerW - 2, artH));
-            HomeShade(opponent, 0, artH - 72, centerW - 2, 72, FightUI.PanelColor);
-            FightUI.OrnamentLine(opponent, 24, artH + 12, centerW - 50);
-            float selectedThumb = Compact ? 48 : 62;
-            if (selected.main0 > 0) FightUI.Art(opponent, selected.main0, 24, artH + 32, selectedThumb, selectedThumb);
-            float summaryX = 40 + selectedThumb;
-            var opponentName = HomeDeckTitle(opponent, selected.name, summaryX, artH + 30, centerW - summaryX - 24,
-                42, Compact ? 24 : 30, FightUI.Gold, true);
-            float roleY = Mathf.Max(artH + 69, artH + 34 + opponentName.rectTransform.sizeDelta.y);
-            float descriptionY = roleY + 16;
-            var description = FightUI.Text(opponent, selected.desc, 24, descriptionY, centerW - 50,
-                Mathf.Max(70, height - descriptionY - 24), Compact ? 17 : 20);
-            description.enableWordWrapping = true;
-            description.lineSpacing = 7;
-            float textH = description.GetPreferredValues(selected.desc ?? "", centerW - 50, 2000).y;
-            description.rectTransform.sizeDelta = new Vector2(centerW - 50, Mathf.Max(70, textH));
-            opponent.sizeDelta = new Vector2(centerW - 2, Mathf.Max(height - 2, descriptionY + textH + 28));
-            var setup = FightUI.Panel(Body, setupX, top, setupW, height, FightUI.PanelColor, true, "Player preparation");
-            setup.GetComponent<Outline>().effectColor = FightUI.Border;
-            var c = FightUI.Scroll(setup, 1, 1, setupW - 2, height - 2, height - 2);
-            float padding = Compact ? 20 : 24, inner = setupW - padding * 2 - 2;
-            FightUI.Text(c, "我的卡组", padding, 14, inner, 32, Compact ? 22 : 26, FightUI.Gold);
-            FightUI.OrnamentLine(c, padding, 52, inner);
-            string playerDeckPath = Program.PATH_DECK + cpuDeck + Program.EXPANSION_YDK;
-            bool playerDeckExists = !string.IsNullOrEmpty(cpuDeck) && File.Exists(playerDeckPath);
-            float preview = Compact ? 68 : 104, deckTop = 68, nameX = padding + preview + 16;
-            Deck playerDeck = playerDeckExists ? new Deck(playerDeckPath) : null;
-            if (playerDeckExists) FightUI.Art(c, DeckLibrary.CoverFor(playerDeck), padding, deckTop, preview, preview);
-            else HomeDeckBack(c, padding, deckTop, preview, preview);
-            var deckName = HomeDeckTitle(c, playerDeckExists ? cpuDeck : "尚未选择构筑", nameX, deckTop - 2,
-                setupW - nameX - padding - 2, Compact ? 48 : 68, Compact ? 18 : 23, FightUI.Foreground);
-            float deckActionY = deckTop + Mathf.Max(Compact ? 41 : 70, deckName.rectTransform.sizeDelta.y + (Compact ? 4 : 8));
-            FightUI.TextAction(c, playerDeckExists ? "更换卡组  →" : "选择卡组  →", nameX, deckActionY,
-                setupW - nameX - padding - 2, Compact ? 30 : 36,
-                () => PickDeck("玩家卡组", "cpu", path => { cpuDeck = PersonalName(path); SetCurrent(path); }, true));
-            float ruleY = Mathf.Max(Compact ? 146 : 210, deckActionY + (Compact ? 38 : 52));
-            bool needsComputerDeck = selected.command != null && selected.command.Contains("Lucky");
-            bool customDeckExists = !string.IsNullOrEmpty(cpuCustomDeck) && File.Exists(Program.PATH_DECK + cpuCustomDeck + Program.EXPANSION_YDK);
-            if (needsComputerDeck)
+            selectedBot = Mathf.Clamp(selectedBot, 0, Mathf.Max(0, bots.Count - 1));
+            var selected = bots.Count > 0 ? bots[selectedBot] : null;
+            bool custom = selected?.command != null && selected.command.Contains("Lucky");
+            string opponentPath = custom ? string.IsNullOrEmpty(cpuCustomDeck) ? "" : Program.PATH_DECK + cpuCustomDeck + Program.EXPANSION_YDK : CpuOpponentDeckPath(selected);
+            string opponentIssue = null;
+            if (custom)
             {
-                var computerDeck = FightUI.FocusKey(FightUI.Button(c, "电脑卡组：" + (string.IsNullOrEmpty(cpuCustomDeck) ? "尚未选择" : cpuCustomDeck), padding, ruleY, inner, 48,
-                    () => PickDeck("电脑卡组", "cpu", path => cpuCustomDeck = PersonalName(path), true)), "cpu:computer-deck");
-                var caption = computerDeck.GetComponentInChildren<TextMeshProUGUI>();
-                caption.enableWordWrapping = true; caption.maxVisibleLines = 2;
-                float labelHeight = Mathf.Max(48, Mathf.Min(caption.GetPreferredValues("电脑卡组", float.PositiveInfinity, float.PositiveInfinity).y * 2 + 4,
-                    caption.GetPreferredValues(caption.text, inner - 20, float.PositiveInfinity).y + 2));
-                computerDeck.GetComponent<RectTransform>().sizeDelta = new Vector2(inner, labelHeight);
-                caption.rectTransform.sizeDelta = new Vector2(inner - 20, labelHeight);
-                FightUI.Hint(computerDeck.gameObject, string.IsNullOrEmpty(cpuCustomDeck) ? "此电脑对手需要选择自定义卡组。" : cpuCustomDeck);
-                ruleY += labelHeight + 14;
+                if (string.IsNullOrEmpty(opponentPath) || !File.Exists(opponentPath)) opponentIssue = "请为自选卡组模式选择电脑卡组。";
+                else try
+                {
+                    var deck = new Deck(opponentPath);
+                    if (deck.Main.Count == 0 || deck.Main.Count > 60 || deck.Extra.Count > 15 || deck.Side.Count > 15)
+                        opponentIssue = "电脑卡组超过支持的卡数范围。";
+                }
+                catch (Exception) { opponentIssue = "电脑卡组读取失败。"; }
             }
-            FightUI.Line(c, padding, ruleY, inner);
-            FightUI.Text(c, "对局规则", padding, ruleY + 12, inner, 32, Compact ? 21 : 24, FightUI.Gold);
-            float numberW = (inner - 16) / 3;
-            bool customDeckMissing = needsComputerDeck && !customDeckExists;
-            bool playerDeckLegal = playerDeckExists && (cpuNoCheck || playerDeck.Check(BanlistManager.currentBanList, true, true) == 0);
-            TextMeshProUGUI readiness = null; Button start = null;
-            Action updateReadiness = () =>
+            if (selected != null)
+                DrawBattleDeck(g.Outer + g.CardW + g.Center, g.CardY, g.CardW, g.CardH, "电脑", opponentPath,
+                    path => cpuCustomDeck = PersonalName(path), opponentIssue, chooseProfile: OpenCpuOpponentPicker,
+                    identityName: selected.name, fallbackArt: custom ? 0 : selected.main0,
+                    fallbackCaption: custom ? null : CpuOpponentDetails(selected), deckAction: custom ? null : OpenCpuOpponentPicker,
+                    personalDeck: custom, inspectDeck: !string.IsNullOrEmpty(opponentPath));
+            bool ready = selected != null && playerLegal && opponentIssue == null && invalidCpuFields.Count == 0;
+            float versusX = g.Outer + g.CardW + (g.Center - g.LaunchSize) / 2, versusY = g.CardY + (g.CardH - g.LaunchSize) / 2;
+            DrawDuelLaunch(Body, versusX, versusY, g.LaunchSize, () => Try(() =>
             {
-                string issue = !playerDeckExists ? "请先选择玩家卡组" : customDeckMissing ? string.IsNullOrEmpty(cpuCustomDeck) ? "请先为电脑选择自定义卡组" : "电脑卡组文件缺失，请重新选择" : !playerDeckLegal ? "玩家构筑不符合当前规则，请检查卡数与禁限卡" : invalidCpuFields.Count > 0 ? "请修正标红的对局规则" : "";
-                bool ready = playerDeckLegal && !customDeckMissing && invalidCpuFields.Count == 0;
-                if (readiness != null)
-                {
-                    readiness.text = ready ? "已准备 · " + (cpuNoCheck ? "跳过构筑检查" : "构筑符合当前规则") : issue;
-                    readiness.color = ready ? FightUI.CyanText : FightUI.Danger;
-                }
-                if (start != null)
-                {
-                    start.interactable = ready;
-                    FightUI.Hint(start.gameObject, ready ? "使用当前卡组与规则，进入本地电脑对局。" : issue);
-                }
-            };
-            Number(c, "生命值", cpuLp, padding, ruleY + 54, numberW, 1, int.MaxValue, v => cpuLp = v, updateReadiness);
-            Number(c, "起手", cpuHand, padding + numberW + 8, ruleY + 54, numberW, 0, 40, v => cpuHand = v, updateReadiness);
-            Number(c, "每回合抽卡", cpuDraw, padding + (numberW + 8) * 2, ruleY + 54, numberW, 0, 40, v => cpuDraw = v, updateReadiness);
-            float switchesY = ruleY + 148, switchH = Compact ? 34 : 44, switchGap = Compact ? 3 : 6;
-            FightUI.SwitchRow(c, "不检查构筑", cpuNoCheck, padding, switchesY, inner, switchH,
-                () => { cpuNoCheck = !cpuNoCheck; Rebuild(); });
-            FightUI.SwitchRow(c, "不洗牌", cpuNoShuffle, padding, switchesY + switchH + switchGap, inner, switchH,
-                () => { cpuNoShuffle = !cpuNoShuffle; Rebuild(); });
-            c.sizeDelta = new Vector2(setupW - 2, Mathf.Max(height - 2, switchesY + switchH * 2 + switchGap + 14));
-            readiness = FightUI.Text(Body, "", workspaceX + 168, actionY + 4, workspaceWidth - 480, 40, 17, FightUI.Muted);
-            FightUI.TextAction(Body, "返回模式", workspaceX, actionY, 140, 56, () => Navigate("modes"));
-            start = FightUI.Button(Body, "开始对战  →", workspaceX + workspaceWidth - 256, actionY, 256, 56, () => Try(() =>
-            {
-                if (invalidCpuFields.Count > 0) throw new InvalidOperationException("请输入有效整数：" + string.Join("、", invalidCpuFields));
-                if (string.IsNullOrEmpty(cpuDeck) || !File.Exists(Program.PATH_DECK + cpuDeck + ".ydk")) throw new InvalidOperationException("请先选择玩家卡组。");
-                if (needsComputerDeck && (string.IsNullOrEmpty(cpuCustomDeck) || !File.Exists(Program.PATH_DECK + cpuCustomDeck + Program.EXPANSION_YDK))) throw new InvalidOperationException("请先为电脑选择有效的自定义卡组。");
-                if (!cpuNoCheck && new Deck(Program.PATH_DECK + cpuDeck + ".ydk").Check(BanlistManager.currentBanList, true, true) != 0) throw new InvalidOperationException("玩家构筑不符合当前规则，请检查卡数和禁限卡。");
-                if (cpuLp < 1 || cpuHand < 0 || cpuHand > 40 || cpuDraw < 0 || cpuDraw > 40) throw new InvalidOperationException("请填写有效的对局规则。");
+                if (!ready) return;
+                if (!File.Exists(playerPath)) throw new InvalidOperationException("玩家卡组文件不存在。");
+                if (custom && !File.Exists(opponentPath)) throw new InvalidOperationException("电脑卡组文件不存在。");
                 Config.SetConfigDeck(cpuDeck); Config.Save();
-                int port = int.TryParse(Config.Get("LocalDuelPort", SoloSelector.port), out var portNumber) ? portNumber : 7911;
-                ShowStatus("正在连接本地电脑对手…");
+                int port = int.TryParse(Config.Get("LocalDuelPort", SoloSelector.port), out var number) ? number : 7911;
                 coreSourcePage = page;
                 Program.instance.solo.StartClientDuel(selectedBot, cpuCustomDeck, port, cpuLp, cpuHand, cpuDraw, false, cpuNoCheck, cpuNoShuffle);
-            }), true);
-            updateReadiness();
+            }), ready, "进入人机对战", playerIssue ?? opponentIssue ?? "没有可用的人机模式。");
+            float actionY = g.ActionY;
+            FightUI.TextAction(Body, "返回模式", g.WorkspaceX, actionY, 140, 56, () => Navigate("modes"));
+            if (!ready)
+                FightUI.FocusKey(FightUI.TextAction(Body, "查看准备问题", g.WorkspaceX + g.WorkspaceWidth - 208, actionY + 8, 208, 44,
+                    () => ShowStatus(playerIssue ?? opponentIssue ?? "请选择人机模式。", true)), "battle:preparation-review");
         }
         private void Number(Transform parent, string label, int value, float x, float y, float width, int minimum, int maximum, Action<int> changed, Action validationChanged)
         {
@@ -449,68 +384,122 @@ namespace MDPro3.UI.Client
         }
         private void RenderAI()
         {
-            bool large = W >= 2400;
-            bool spectate = page == "spectator";
+            bool large = W >= 2400, spectate = page == "spectator";
             battle.AiVsAi = spectate;
-            float workspaceWidth = large ? Mathf.Min(1900, BodyWidth) : BodyWidth;
-            float workspaceX = (BodyWidth - workspaceWidth) / 2;
-            float tabsY = 8, tabW = Compact ? 176 : 232;
-            FightUI.Tab(Body, "玩家 vs AI", !spectate, workspaceX, tabsY, tabW, 44, () => Navigate("ai"));
-            FightUI.Tab(Body, "AI vs AI", spectate, workspaceX + tabW + 8, tabsY, tabW, 44, () => Navigate("spectator"));
-            var saved = ReadBattleService(out string reason, out bool unreadable);
-            float serviceW = Compact ? 490 : 640, serviceX = workspaceX + workspaceWidth - serviceW;
-            var service = FightUI.Panel(Body, serviceX, 4, serviceW, 56, FightUI.PanelColor, false, "AI service status");
-            FightUI.Panel(service, 0, 10, 2, 36, reason == null ? FightUI.GoldBorder : FightUI.Danger, false);
-            FightUI.Icon(service, "diamond", 18, 16, 18, 18, reason == null ? FightUI.Gold : FightUI.Danger);
-            string serviceStatus = unreadable ? "读取失败" : GetAiServiceStatus(saved);
-            var serviceCaption = FightUI.Text(service, "AI 服务 · " + serviceStatus, 48, 9, serviceW - 240, 36,
-                Compact ? 20 : 23, reason == null ? FightUI.Gold : FightUI.Danger);
-            FightUI.Hint(serviceCaption.gameObject, reason == null
-                ? "模型：" + saved.Model + "\n连接状态：" + serviceStatus
-                : "配置未就绪：" + reason);
-            FightUI.TextAction(service, "管理 AI 服务  →", serviceW - 198, 8, 184, 40, () => OpenSettings("ai", page));
-            float outer = large ? workspaceX : Compact ? 0 : 56, center = Compact ? 80 : large ? 128 : 144;
-            float cardY = Compact ? 76 : 84, cardH = Mathf.Max(256, BodyHeight - cardY - (Compact ? 128 : 152));
-            if (large) cardH = Mathf.Min(cardH, 866);
-            float surfaceWidth = large ? workspaceWidth : BodyWidth - outer * 2;
-            float cw = (surfaceWidth - center) / 2;
+            var g = GetBattleSetupLayout();
+            float workspaceWidth = g.WorkspaceWidth, workspaceX = g.WorkspaceX;
+            DrawBattleModeTabs(workspaceX, g.ToolbarY);
+            FightUI.FocusKey(FightUI.TextAction(Body, "管理 AI 分身  →", workspaceX + workspaceWidth - 408, g.ToolbarY, 216, 44,
+                () => OpenAiProfileSettings(battle.ProfileB, page)), "battle:manage-profiles");
+            DrawBattleOptionsEntry(workspaceX + workspaceWidth - 168, g.ToolbarY, true);
+            var profiles = ReadBattleProfiles(out string loadIssue);
+            var profileA = ResolveBattleProfile(profiles, battle.ProfileA);
+            var profileB = ResolveBattleProfile(profiles, battle.ProfileB);
+            if (profileA != null && string.IsNullOrEmpty(battle.ProfileA)) battle.ProfileA = profileA.Id;
+            if (profileB != null && string.IsNullOrEmpty(battle.ProfileB)) battle.ProfileB = profileB.Id;
+            string serviceA = spectate ? BattleProfileIssue(profileA) : null, serviceB = BattleProfileIssue(profileB);
+            string reason = loadIssue ?? (serviceA != null ? (profileA?.Name ?? "AI") + "：" + serviceA
+                : serviceB != null ? (profileB?.Name ?? "AI") + "：" + serviceB : null);
+            float outer = g.Outer, center = g.Center, cardY = g.CardY, cardH = g.CardH, surfaceWidth = g.SurfaceWidth, cw = g.CardW;
             string issueA = ResponsesDuelSession.DeckPreparationIssue(battle.DeckA), issueB = ResponsesDuelSession.DeckPreparationIssue(battle.DeckB);
-            DrawBattleDeck(outer, cardY, cw, cardH, spectate ? "AI A · 下方视角" : "玩家", battle.DeckA, selected => battle.DeckA = selected, issueA);
-            DrawBattleDeck(outer + cw + center, cardY, cw, cardH, spectate ? "AI B" : "AI 对手", battle.DeckB, selected => battle.DeckB = selected, issueB);
-            float versusX = outer + cw + 8, versusW = center - 16, versusY = cardY + cardH * .40f;
-            FightUI.OrnamentLine(Body, versusX + versusW * .5f - 7, versusY - 26, 14);
-            FightUI.HeroTitle(Body, "VS", versusX, versusY, versusW, 82, Compact ? 38 : 56).alignment = TextAlignmentOptions.Center;
-            FightUI.Icon(Body, "diamond", versusX + versusW * .5f - 5, versusY + 82, 10, 10, FightUI.GoldBorder);
-            float ruleY = cardY + cardH + Gap, ruleH = Compact ? 36 : 44;
-            var rules = FightUI.Panel(Body, outer, ruleY, surfaceWidth, ruleH, FightUI.PanelColor, false, "Duel rules summary");
-            FightUI.Line(rules, 0, 0, surfaceWidth);
-            FightUI.Icon(rules, spectate ? "replay" : "duel", Compact ? 16 : 24, (ruleH - 22) / 2, 22, 22, FightUI.GoldBorder);
-            FightUI.Text(rules, spectate ? "AI A 在下方 · 可见 A 手牌 · 对手未公开信息保持隐藏" : "单局 · 主卡 40–60 · 额外/副卡 ≤15 · 同名 ≤3 · 全卡池 · 无禁限表", 50, 0,
-                surfaceWidth - 74, ruleH, Compact ? 16 : 19, FightUI.Muted, TextAlignmentOptions.Center);
-            float actionY = large ? ruleY + ruleH + 36 : BodyHeight - 64;
-            FightUI.TextAction(Body, "返回模式", workspaceX, actionY, 140, 56, () => Navigate("modes"));
-            bool validA = issueA == null, validB = issueB == null;
-            bool ready = reason == null && validA && validB;
-            bool fileA = !string.IsNullOrEmpty(battle.DeckA) && File.Exists(battle.DeckA), fileB = !string.IsNullOrEmpty(battle.DeckB) && File.Exists(battle.DeckB);
-            string startReason = reason != null ? unreadable ? "AI 配置读取失败" : "请先配置 AI 服务" : !validA && !validB ? "双方构筑待准备" : !validA
-                ? (spectate ? "AI A" : "玩家") + (fileA ? "构筑待修正" : "卡组待选择")
-                : !validB ? (spectate ? "AI B" : "AI 对手") + (fileB ? "构筑待修正" : "卡组待选择") : "";
-            FightUI.Text(Body, ready ? "双方卡组已就绪 · AI 配置就绪" : startReason, workspaceX + 168, actionY + 8,
-                workspaceWidth - 480 - (ready ? 0 : 188), 44, 17, ready ? FightUI.CyanText : FightUI.Danger);
-            if (!ready) FightUI.FocusKey(FightUI.TextAction(Body, "查看准备问题  →", workspaceX + workspaceWidth - 496, actionY + 8, 176, 44,
-                () => OpenBattlePreparation(reason, issueA, issueB, spectate)), "battle:preparation-review");
-            var begin = FightUI.Button(Body, spectate ? "开始观战  →" : "开始对战  →", workspaceX + workspaceWidth - 256, actionY, 256, 56, () => Try(() =>
+            DrawBattleDeck(outer, cardY, cw, cardH, spectate ? "AI A · 下方视角" : "玩家", battle.DeckA,
+                selected => battle.DeckA = selected, issueA, spectate ? profileA : null, spectate ? (Action)(() => OpenBattleProfilePicker(true)) : null);
+            DrawBattleDeck(outer + cw + center, cardY, cw, cardH, spectate ? "AI B" : "AI 对手", battle.DeckB,
+                selected => battle.DeckB = selected, issueB, profileB, () => OpenBattleProfilePicker(false));
+            bool ready = reason == null && issueA == null && issueB == null;
+            float size = g.LaunchSize;
+            float versusX = outer + cw + (center - size) / 2, versusY = cardY + (cardH - size) * .5f;
+            FightUI.OrnamentLine(Body, versusX + size * .5f - 16, versusY - 32, 32);
+            DrawDuelLaunch(Body, versusX, versusY, size, () => Try(() =>
             {
-                var effective = ResponsesAiConfigStore.Load(); effective.Validate();
-                ResponsesAiConfigStore.SaveChoices(battle.DeckA, battle.DeckB, spectate);
-                ShowStatus(spectate ? "正在启动 AI 观战…" : "正在启动 AI 对战…");
-                coreSourcePage = page;
-                ResponsesDuelSession.Start(effective, spectate, battle.DeckA, battle.DeckB);
+                var effectiveA = spectate ? AiDuelistProfileStore.Get(battle.ProfileA) : null;
+                var effectiveB = AiDuelistProfileStore.Get(battle.ProfileB);
+                if (effectiveB == null || spectate && effectiveA == null) throw new AiConfigurationException("请选择有效的 AI 分身。");
+                ResponsesAiConfigStore.SaveChoices(battle.DeckA, battle.DeckB, spectate, battle.ProfileA, battle.ProfileB);
+                ShowStatus(spectate ? "正在启动 AI 观战…" : "正在启动 AI 对战…"); coreSourcePage = page;
+                ResponsesDuelSession.Start(effectiveA, effectiveB, spectate, battle.DeckA, battle.DeckB, ReadAiBattleOptions());
                 Program.instance.ocgcore.returnServant = Program.instance.menu;
-            }), true, ready);
-            FightUI.FocusKey(begin, "battle:begin");
-            FightUI.Hint(begin.gameObject, !ready ? startReason + "；当前卡组选择会保留。"
-                : spectate ? "启动双方 AI，以下方 AI A 的可见信息观看。" : "使用当前双方卡组，启动玩家与 AI 的对局。");
+            }), ready, spectate ? "进入 AI 观战" : "进入 AI 对战", reason ?? issueA ?? issueB);
+            float actionY = g.ActionY;
+            FightUI.TextAction(Body, "返回模式", workspaceX, actionY, 140, 56, () => Navigate("modes"));
+            if (!ready) FightUI.FocusKey(FightUI.TextAction(Body, "查看准备问题  →", workspaceX + workspaceWidth - 208, actionY + 8, 208, 44,
+                () => OpenBattlePreparation(reason, issueA, issueB, spectate)), "battle:preparation-review");
+        }
+        private static System.Collections.Generic.List<AiDuelistProfile> ReadBattleProfiles(out string issue)
+        {
+            try { issue = null; return AiDuelistProfileStore.LoadAll(); }
+            catch (AiConfigurationException error) { issue = error.Message; return new System.Collections.Generic.List<AiDuelistProfile>(); }
+        }
+        private static AiDuelistProfile ResolveBattleProfile(System.Collections.Generic.List<AiDuelistProfile> profiles, string id)
+            => string.IsNullOrEmpty(id) ? profiles.FirstOrDefault() : profiles.FirstOrDefault(profile => profile.Id == id);
+        private static string BattleProfileIssue(AiDuelistProfile profile)
+        {
+            if (profile == null) return "尚未选择 AI 分身。";
+            try { profile.Config.Validate(); return null; }
+            catch (AiConfigurationException error) { return error.Message; }
+        }
+        private void OpenBattleProfilePicker(bool sideA)
+        {
+            var profiles = ReadBattleProfiles(out string issue);
+            float width = Mathf.Min(820, W - 48), height = Mathf.Min(720, H - 48);
+            var box = ShowDialog("选择 AI 分身", width, height);
+            float viewportHeight = height - 172;
+            var content = FightUI.Scroll(box, 24, 144, width - 48, viewportHeight, viewportHeight, out var scroll);
+            string selected = sideA ? battle.ProfileA : battle.ProfileB;
+            float rowH = 108;
+            Action<string> draw = query =>
+            {
+                FightUI.Clear(content);
+                var matches = profiles.Where(profile => CollectionMatches(profile.Name, query, profile.Config.Model)).ToArray();
+                for (int i = 0; i < matches.Length; i++)
+                {
+                    var profile = matches[i];
+                    var row = FightUI.Panel(content, 8, 8 + i * rowH, width - 78, rowH - 10,
+                        profile.Id == selected ? FightUI.Raised : FightUI.PanelColor, true, "AI 分身 · " + profile.Name);
+                    DrawBattleProfileAvatar(row, profile, 16, 16, 62);
+                    var name = FightUI.Text(row, profile.Name, 96, 12, width - 242, 36, 23, profile.Id == selected ? FightUI.Gold : FightUI.Foreground);
+                    name.richText = false; name.raycastTarget = false;
+                    var model = FightUI.Text(row, profile.Config.Model, 96, 54, width - 242, 30, 16,
+                        FightUI.Muted); model.richText = false; model.raycastTarget = false;
+                    FightUI.Icon(row, profile.Id == selected ? "check" : "arrow", width - 124, 36, 24, 24, FightUI.Gold);
+                    BindHomeCard(row, () => Try(() =>
+                    {
+                        ResponsesAiConfigStore.SaveChoices(battle.DeckA, battle.DeckB, battle.AiVsAi,
+                            sideA ? profile.Id : battle.ProfileA, sideA ? battle.ProfileB : profile.Id);
+                        if (sideA) battle.ProfileA = profile.Id; else battle.ProfileB = profile.Id;
+                        CloseDialog(); Rebuild();
+                    }));
+                    FightUI.FocusKey(row.GetComponent<Button>(), "battle:profile-option:" + profile.Id);
+                    FightUI.Hint(row.gameObject, "选择 " + profile.Name + " · " + profile.Config.Model);
+                }
+                content.sizeDelta = new Vector2(width - 48, Mathf.Max(viewportHeight, matches.Length * rowH + 16));
+                scroll.StopMovement(); scroll.verticalNormalizedPosition = 1;
+                if (matches.Length == 0) FightUI.Text(content, profiles.Count == 0 ? issue ?? "暂无 AI 分身" : "没有匹配的分身",
+                    20, 28, width - 100, 100, 21, FightUI.Muted);
+            };
+            FightUI.FocusKey(FightUI.Input(box, "", "搜索分身名称或模型", 28, 84, width - 288, 44, draw), "battle:profile-search");
+            FightUI.FocusKey(FightUI.TextAction(box, "+ 创建 / 编辑分身", width - 244, 84, 216, 44,
+                () => { CloseDialog(); OpenAiProfileSettings(selected, page); }), "battle:profile-editor");
+            draw("");
+        }
+        private async void DrawBattleProfileAvatar(Transform parent, AiDuelistProfile profile, float x, float y, float size)
+        {
+            var portrait = FightUI.Node(parent, "AI profile portrait", x, y, size, size).gameObject.AddComponent<Image>();
+            portrait.color = Color.white; portrait.preserveAspect = true; portrait.raycastTarget = false;
+            var frame = FightUI.Node(parent, "AI profile frame", x, y, size, size).gameObject.AddComponent<Image>();
+            frame.color = Color.clear; frame.preserveAspect = true; frame.raycastTarget = false;
+            try
+            {
+                string id = profile != null && profile.Appearance.TryGetValue("Face", out var face) && face != "0" ? face : "1010001";
+                var sprite = await Program.items.LoadConcreteItemIconAsync(id, Items.ItemType.Face, 1);
+                if (portrait != null) portrait.sprite = sprite;
+                if (profile != null && profile.Appearance.TryGetValue("Frame", out var border) && border != "0")
+                {
+                    var edge = await Program.items.LoadConcreteItemIconAsync(border, Items.ItemType.Frame, 1);
+                    if (frame != null && edge != null) { frame.sprite = edge; frame.color = Color.white; }
+                }
+            }
+            catch (Exception error) { Debug.LogWarning("[FightClient] AI profile portrait: " + error.Message); }
         }
         private static ResponsesAiConfig ReadBattleService(out string issue, out bool unreadable)
         {
@@ -527,8 +516,8 @@ namespace MDPro3.UI.Client
         {
             float width = Mathf.Min(780, W - 48), height = Mathf.Min(650, H - 48);
             var box = ShowDialog("对战准备检查", width, height);
-            FightUI.Text(box, "逐项查看准备状态 · 返回与修改会保留双方卡组选择", 28, 84, width - 56, 30, 17, FightUI.Muted);
-            var content = FightUI.Scroll(box, 24, 130, width - 48, height - 224, height - 224, out var scroll);
+            float viewportHeight = height - 124;
+            var content = FightUI.Scroll(box, 24, 96, width - 48, viewportHeight, viewportHeight, out var scroll);
             scroll.name = "Battle preparation details";
             float y = 8;
             Action<string, string, string, Action> row = (title, issue, key, fix) =>
@@ -536,7 +525,7 @@ namespace MDPro3.UI.Client
                 FightUI.Text(content, title + " · " + (issue == null ? "已就绪" : "待修正"), 8, y, width - 82, 32, 20,
                     issue == null ? FightUI.CyanText : FightUI.Danger);
                 y += 42;
-                string detail = issue ?? (key == "service" ? "AI 服务配置有效；连接状态见准备页。" : "符合当前 AI 对战构筑规则。");
+                string detail = issue ?? (key == "service" ? "所选 AI 分身的配置有效；可在设置中测试连接。" : "符合当前 AI 对战构筑规则。");
                 var text = FightUI.Text(content, detail, 8, y, width - 84, 80, 18, FightUI.Foreground);
                 text.name = "Battle preparation issue " + key;
                 text.text = detail; text.richText = false; text.lineSpacing = 4; text.overflowMode = TextOverflowModes.Overflow;
@@ -544,22 +533,24 @@ namespace MDPro3.UI.Client
                 text.rectTransform.sizeDelta = new Vector2(width - 84, textHeight); y += textHeight + 8;
                 if (issue != null)
                 {
-                    FightUI.FocusKey(FightUI.TextAction(content, key == "service" ? "管理 AI 服务  →" : "更换" + title + "卡组  →", 8, y, width - 84, 38, fix),
+                    FightUI.FocusKey(FightUI.TextAction(content, key == "service" ? "管理 AI 分身  →" : "更换" + title + "卡组  →", 8, y, width - 84, 38, fix),
                         "battle:preparation-fix:" + key);
                     y += 50;
                 }
                 FightUI.Line(content, 8, y, width - 84, FightUI.Border); y += 22;
             };
-            row("AI 服务", serviceIssue, "service", () => { CloseDialog(); OpenSettings("ai", page); });
-            row(spectate ? "AI A" : "玩家", issueA, "a", () => { CloseDialog(); PickDeck(spectate ? "AI A · 下方视角" : "玩家", page, path => battle.DeckA = path); });
-            row(spectate ? "AI B" : "AI 对手", issueB, "b", () => { CloseDialog(); PickDeck(spectate ? "AI B" : "AI 对手", page, path => battle.DeckB = path); });
-            content.sizeDelta = new Vector2(width - 48, Mathf.Max(height - 224, y + 8));
-            FightUI.Text(box, "主卡 40–60 · 额外/副卡 ≤15 · 同名最多 3 张", 28, height - 82, width - 56, 28, 15, FightUI.Muted);
-            var back = FightUI.FocusKey(FightUI.Button(box, "返回准备页", width - 208, height - 56, 180, 40, CloseDialog, true), "battle:preparation-return");
-            back.Select();
+            var profiles = ReadBattleProfiles(out _);
+            var profileA = ResolveBattleProfile(profiles, battle.ProfileA);
+            var profileB = ResolveBattleProfile(profiles, battle.ProfileB);
+            string sideAName = spectate ? profileA?.Name ?? "AI" : Config.Get("DuelPlayerName0", "决斗者");
+            string sideBName = profileB?.Name ?? "AI";
+            row("AI 分身", serviceIssue, "service", () => { CloseDialog(); OpenAiProfileSettings(spectate && BattleProfileIssue(profileA) != null ? battle.ProfileA : battle.ProfileB, page); });
+            row(sideAName, issueA, "a", () => { CloseDialog(); PickDeck(sideAName, page, path => battle.DeckA = path); });
+            row(sideBName, issueB, "b", () => { CloseDialog(); PickDeck(sideBName, page, path => battle.DeckB = path); });
+            content.sizeDelta = new Vector2(width - 48, Mathf.Max(viewportHeight, y + 8));
         }
 
-        private void AlignHomeWorkspaceHeading(float x, float width)
+        private void AlignHomeWorkspaceHeading(float x, float width, float verticalOffset = 0)
         {
             // Called immediately after PageTitle, while only its heading exists
             // as a direct text child of the page.
@@ -568,13 +559,13 @@ namespace MDPro3.UI.Client
                 var text = child.GetComponent<TextMeshProUGUI>();
                 if (text == null) continue;
                 var rect = text.rectTransform;
-                FightUI.Place(rect, x, -rect.anchoredPosition.y, Mathf.Min(rect.rect.width, width), rect.rect.height);
+                FightUI.Place(rect, x, -rect.anchoredPosition.y + verticalOffset, Mathf.Min(rect.rect.width, width), rect.rect.height);
             }
         }
-        private void DrawBattleDeck(float x, float y, float w, float h, string title, string path, Action<string> chosen, string issue = null)
+        private void DrawBattleDeck(float x, float y, float w, float h, string title, string path, Action<string> chosen, string issue = null, AiDuelistProfile profile = null, Action chooseProfile = null, string identityName = null, int fallbackArt = 0, string fallbackCaption = null, Action deckAction = null, bool personalDeck = false, bool inspectDeck = true)
         {
             var panel = FightUI.Panel(Body, x, y, w, h, FightUI.PanelColor, true, title + " deck");
-            bool opponent = title == "AI B" || title == "AI 对手";
+            bool opponent = title == "AI B" || title == "AI 对手" || title == "电脑";
             bool exists = !string.IsNullOrEmpty(path) && File.Exists(path);
             Deck preview = null;
             if (exists)
@@ -584,17 +575,38 @@ namespace MDPro3.UI.Client
                 { issue = issue ?? error.Message; }
             }
             float pad = Compact ? 20 : 28, avatar = Compact ? 44 : 64, headerY = Compact ? 14 : 20;
-            HomeAvatar(panel, pad, headerY, avatar, opponent ? 1 : 0);
-            FightUI.Text(panel, title, pad + avatar + 16, headerY - 2, w - pad * 2 - avatar - 16,
-                40, Compact ? 22 : 28, FightUI.Foreground);
             float headerBottom = headerY + avatar;
-            if (!title.StartsWith("AI"))
+            if (chooseProfile != null)
             {
-                string player = Config.Get("DuelPlayerName0", "决斗者");
-                if (string.IsNullOrWhiteSpace(player)) player = "决斗者";
+                var identity = FightUI.Panel(panel, pad - 6, headerY - 6, w - pad * 2 + 12, avatar + 12, Color.clear, false, "AI 分身选择");
+                if (identityName != null)
+                {
+                    if (fallbackArt > 0) FightUI.Art(identity, fallbackArt, 6, 6, avatar, avatar);
+                    else HomeAvatar(identity, 6, 6, avatar, 1);
+                }
+                else DrawBattleProfileAvatar(identity, profile, 6, 6, avatar);
+                float textX = avatar + 20;
+                var name = FightUI.Text(identity, identityName ?? profile?.Name ?? "选择 AI 分身", textX, 0, identity.rect.width - textX - 32,
+                    Compact ? 32 : 40, Compact ? 21 : 27, FightUI.Foreground); name.richText = false; name.raycastTarget = false;
+                name.name = "Battle duelist name";
+                var role = FightUI.Text(identity, identityName != null ? "电脑" : "AI", textX, Compact ? 30 : 42,
+                    identity.rect.width - textX - 32, 28, Compact ? 14 : 16, FightUI.Muted);
+                role.name = "Battle duelist type"; role.raycastTarget = false;
+                FightUI.Icon(identity, "arrow", identity.rect.width - 26, avatar * .4f, 18, 18, FightUI.Gold);
+                BindHomeCard(identity, chooseProfile);
+                FightUI.FocusKey(identity.GetComponent<Button>(), "battle:profile:" + (opponent ? "b" : "a"));
+                FightUI.Hint(identity.gameObject, identityName != null ? "选择人机模式" : "更换 AI 分身" + (profile != null ? "\n模型：" + profile.Config.Model : ""));
+            }
+            else
+            {
+                HomeAvatar(panel, pad, headerY, avatar, 0);
+                string player = Config.Get("DuelPlayerName0", "决斗者"); if (string.IsNullOrWhiteSpace(player)) player = "决斗者";
+                var playerName = FightUI.Text(panel, player, pad + avatar + 16, headerY - 2,
+                    w - pad * 2 - avatar - 16, 40, Compact ? 22 : 28, FightUI.Foreground);
+                playerName.name = "Battle duelist name"; playerName.richText = false;
                 float roleY = headerY + (Compact ? 30 : 44);
-                var playerRole = HomeDeckTitle(panel, player, pad + avatar + 16, roleY,
-                    w - pad * 2 - avatar - 20, 26, Compact ? 16 : 17, FightUI.Muted);
+                var playerRole = HomeDeckTitle(panel, "玩家", pad + avatar + 16, roleY, w - pad * 2 - avatar - 20, 26, Compact ? 16 : 17, FightUI.Muted);
+                playerRole.name = "Battle duelist type";
                 headerBottom = Mathf.Max(headerBottom, roleY + playerRole.rectTransform.sizeDelta.y);
             }
             float artY = Mathf.Max(Compact ? 78 : 112, headerBottom + 12), artH = Mathf.Max(96, h - artY - (Compact ? 74 : 92)), artW = w - pad * 2;
@@ -610,11 +622,23 @@ namespace MDPro3.UI.Client
                 HomeShade(artFrame, 1, Mathf.Max(0, artH - (Compact ? 128 : 164)), artW - 2,
                     Mathf.Min(artH - 2, Compact ? 128 : 164), FightUI.Background);
                 float nameY = artH - (Compact ? 108 : 144);
-                var name = HomeDeckTitle(artFrame, Path.GetFileNameWithoutExtension(path), 20, nameY,
+                var name = HomeDeckTitle(artFrame, identityName != null ? Path.GetFileNameWithoutExtension(path).Replace("AI_", "") : Path.GetFileNameWithoutExtension(path), 20, nameY,
                     artW - 40, Compact ? 72 : 102, Compact ? 22 : 30, FightUI.Foreground, true);
                 var counts = FightUI.Text(artFrame, "主卡组 " + deck.Main.Count + "   ·   额外 " + deck.Extra.Count + "   ·   副卡 " + deck.Side.Count,
                     20, artH - (Compact ? 30 : 44), artW - 40, 26, Compact ? 15 : 18, issue == null ? FightUI.Gold : FightUI.Danger);
                 FightUI.Hint(counts.gameObject, issue ?? "构筑符合当前 AI 对战规则。");
+            }
+            else if (fallbackArt > 0 || fallbackCaption != null)
+            {
+                if (fallbackArt > 0) FightUI.Art(artFrame, fallbackArt, 1, 1, artW - 2, artH - 2);
+                else FocusDragonArtwork(FightUI.Asset(artFrame, "hero.png", 1, 1, artW - 2, artH - 2));
+                if (!string.IsNullOrWhiteSpace(fallbackCaption))
+                {
+                    string detail = fallbackCaption.Split('\n').FirstOrDefault();
+                    HomeShade(artFrame, 1, Mathf.Max(0, artH - 88), artW - 2, 88, FightUI.Background);
+                    var caption = FightUI.Text(artFrame, detail, 20, artH - 64, artW - 40, 52, Compact ? 17 : 20, FightUI.Foreground);
+                    caption.richText = false; FightUI.Hint(caption.gameObject, fallbackCaption);
+                }
             }
             else
             {
@@ -622,18 +646,16 @@ namespace MDPro3.UI.Client
                 float captionH = Compact ? 34 : 44;
                 float emptyTop = Mathf.Max(0, (artH - backH - captionH - 12) * .5f);
                 HomeDeckBack(artFrame, (artW - backW) * .5f, emptyTop, backW, backH);
-                var empty = FightUI.Text(artFrame, exists ? "卡组读取失败，请更换" : "选择卡组，准备出战", 16, emptyTop + backH + 12, artW - 32,
+                var empty = FightUI.Text(artFrame, exists ? "卡组读取失败" : "选择卡组", 16, emptyTop + backH + 12, artW - 32,
                     captionH, Compact ? 19 : 25, exists ? FightUI.Danger : FightUI.Muted, TextAlignmentOptions.Center);
                 if (exists) FightUI.Hint(empty.gameObject, issue);
             }
-            float actionsY = h - (Compact ? 52 : 64), actionH = Compact ? 38 : 46;
-            float chooseW = Compact ? 178 : 224;
-            var choose = FightUI.Button(panel, "选择卡组  →", pad, actionsY, chooseW, actionH, () => PickDeck(title, page, chosen), !exists);
-            choose.GetComponentInChildren<TextMeshProUGUI>().text = exists ? "更换卡组  →" : "选择卡组  →";
-            FightUI.FocusKey(choose, "battle:choose:" + title);
-            FightUI.Hint(choose.gameObject, exists ? "更换此方卡组，不影响另一方的选择。" : "为" + title + "选择一套卡组。");
-            FightUI.TextAction(panel, "查看构筑", pad + chooseW + 24, actionsY, w - pad * 2 - chooseW - 24,
-                actionH, () => ShowBattleDeck(path), preview != null);
+            string pickerName = identityName ?? profile?.Name ?? (chooseProfile != null ? "AI" : Config.Get("DuelPlayerName0", "决斗者"));
+            BindHomeCard(artFrame, deckAction ?? (() => PickDeck(pickerName, page, chosen, personalDeck)));
+            FightUI.FocusKey(artFrame.GetComponent<Button>(), "battle:choose:" + title);
+            FightUI.Hint(artFrame.gameObject, deckAction != null ? "选择人机模式" : exists ? "更换卡组" : "选择卡组");
+            float actionsY = h - (Compact ? 48 : 60), actionH = Compact ? 36 : 44;
+            if (inspectDeck) FightUI.TextAction(panel, "查看构筑", w - pad - 116, actionsY, 116, actionH, () => ShowBattleDeck(path), preview != null);
         }
         private static void FocusDragonArtwork(RawImage artwork)
         {

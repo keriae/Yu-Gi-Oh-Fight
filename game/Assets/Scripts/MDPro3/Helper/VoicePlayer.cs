@@ -41,7 +41,7 @@ namespace MDPro3.Duel
         public static void LoadData()
         {
             var condition = OcgCore.condition;
-            var chara = Config.Get(condition + "Character0", defaultCharacter);
+            var chara = AI.ResponsesDuelSession.AppearanceForSide(0, "Character", Config.Get(condition + "Character0", defaultCharacter));
             var language = Utility.Language.GetConfig();
 
             if (language != loadedLanguage || heroString != chara)
@@ -58,7 +58,7 @@ namespace MDPro3.Duel
                 heroLines = JsonConvert.DeserializeObject<LinesData>(txt);
             }
 
-            chara = Config.Get(condition + "Character1", defaultCharacter);
+            chara = AI.ResponsesDuelSession.AppearanceForSide(1, "Character", Config.Get(condition + "Character1", defaultCharacter));
             if (language != loadedLanguage || rivalString != chara)
             {
                 var originalChara = CharacterSelector.characters.GetCharacterOriginalId(chara);

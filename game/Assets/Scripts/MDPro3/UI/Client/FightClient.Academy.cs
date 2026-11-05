@@ -36,7 +36,6 @@ namespace MDPro3.UI.Client
         private string academyCategory = "全部", selectedPuzzle, selectedReplay;
         private RectTransform academyGrid, academyPreview, fileList, filePreview;
         private DeckAcademyDeck academySelection;
-        private TextMeshProUGUI academyCount, fileCount;
         private TMP_InputField academyDirectorySearch;
         private bool replayLoading, replaySortTime = true;
         private string replayLoadError;
@@ -143,8 +142,7 @@ namespace MDPro3.UI.Client
                 LibraryTab(Body, cat, cat == academyCategory, x + i * width, 0, width - 4,
                     () => { academyCategory = cat; Rebuild(); });
             }
-            academyCount = FightUI.Text(Body, "", 2, 52, gridW - 16, 24, 14, FightUI.Muted);
-            academyGrid = FightUI.Node(Body, "Academy Grid", 0, 84, gridW, BodyHeight - 84);
+            academyGrid = FightUI.Node(Body, "Academy Grid", 0, 64, gridW, BodyHeight - 64);
             academyPreview = FightUI.Panel(Body, gridW + Gap, 56, previewW, BodyHeight - 56, FightUI.PanelColor, false, "Learning preview");
             RenderAcademyGrid();
         }
@@ -156,7 +154,6 @@ namespace MDPro3.UI.Client
             FightUI.Clear(academyGrid);
             academyPreviewItems.Clear();
             var items = academy.decks.Where(d => DeckAcademy.Matches(d, query, academyCategory == "全部" ? "" : academyCategory, query.Length == 0 ? null : AcademyLessonCardNames(d))).ToList();
-            if (academyCount != null) academyCount.text = LibraryCount(items.Count, academy.decks.Count, "套教学");
             if (academySelection == null || !items.Contains(academySelection)) academySelection = items.FirstOrDefault();
             int cols = Compact ? 3 : LargeViewport ? 6 : 4;
             const float cardGap = 16;
@@ -167,7 +164,7 @@ namespace MDPro3.UI.Client
             if (items.Count == 0)
             {
                 LibraryEmpty(c, academy.decks.Count == 0 ? "尚未添加教学" : "没有符合条件的教程",
-                    academy.decks.Count == 0 ? "添加教学内容后，即可在这里学习起手与展开路线。" : "试试其他主题，或清除筛选条件。",
+                    "",
                     gridW, academyGrid.rect.height, "diamond", academy.decks.Count == 0 ? (Action)null
                         : () => ClearAcademyDirectorySearch(true), "清除筛选  →");
             }
@@ -209,7 +206,7 @@ namespace MDPro3.UI.Client
         {
             if (academyPreview == null) return;
             FightUI.Clear(academyPreview); float w = academyPreview.rect.width, h = academyPreview.rect.height;
-            if (academySelection == null) { LibraryEmpty(academyPreview, "暂无教学预览", "调整左侧筛选，找到教学后即可查看起手与学习路线。", w, h, "diamond"); return; }
+            if (academySelection == null) { LibraryEmpty(academyPreview, "暂无教学预览", "", w, h, "diamond"); return; }
             var entry = academySelection; var deck = DeckAcademy.Template(entry);
             float contentW = w - 16, artH = Compact ? Mathf.Min(88, (contentW - 10) * .75f) : (contentW - 10) * .75f;
             BeginLibraryRefresh(academyPreviewScroll, entry.id ?? entry.name);
@@ -237,11 +234,6 @@ namespace MDPro3.UI.Client
             {
                 // Keep the fixed-hand heading and complete card faces together.
                 // A thin strip of cropped cards is not a useful first-screen preview.
-                float hintY = goalY + 38 + goalText.rectTransform.sizeDelta.y + 16;
-                var hint = LibraryWrappedText(content, "向下滚动查看固定起手", 12, hintY, contentW - 24,
-                    float.PositiveInfinity, 14, FightUI.Muted);
-                hint.name = "Academy hand reading hint";
-                if (hintY + hint.rectTransform.sizeDelta.y > viewportHeight - 12) hint.gameObject.SetActive(false);
                 handY = viewportHeight + 48;
             }
             ModuleDivider(content, hand.Length == 5 ? "固定五张起手" : hand.Length + " 张固定起手", 12, handY - 30, contentW - 24, 19);
@@ -332,7 +324,7 @@ namespace MDPro3.UI.Client
             {
                 var step = tutorial.steps[tutorialStep];
                 float cardsY = TutorialHeading(c, step.title, contentW - 48, tutorialStep + 1, count);
-                var stageCards = FightUI.Text(c, "涉及 " + (step.card_codes?.Length ?? 0) + " 张卡片 · 点击卡面或卡名查看详情", 24, cardsY, contentW - 64, 32, 14, FightUI.Muted);
+                var stageCards = FightUI.Text(c, "涉及 " + (step.card_codes?.Length ?? 0) + " 张卡片", 24, cardsY, contentW - 64, 32, 14, FightUI.Muted);
                 stageCards.name = "Tutorial stage cards";
                 cardsY += 36;
                 proseY = DrawTutorialCards(c, step.card_codes ?? new int[0], cardsY, contentW - 16) + 18;
@@ -485,11 +477,10 @@ namespace MDPro3.UI.Client
             row.sizeDelta = new Vector2(row.sizeDelta.x, readingHeight);
             scroll.GetComponent<RectTransform>().sizeDelta = new Vector2(width - 48, readingHeight + (overflow ? 16 : 0));
             scroll.viewport.sizeDelta = new Vector2(width - 48, readingHeight);
-            parent.sizeDelta = new Vector2(parent.sizeDelta.x, Mathf.Max(parent.sizeDelta.y, y + readingHeight + (overflow ? 70 : 24)));
+            parent.sizeDelta = new Vector2(parent.sizeDelta.x, Mathf.Max(parent.sizeDelta.y, y + readingHeight + 24));
             if (!overflow) return y + readingHeight;
             TutorialCardScrollbar(scroll, width - 48, readingHeight + 2);
-            FightUI.Text(parent, "滚动查看更多", 24, y + readingHeight + 22, width - 48, 22, 14, FightUI.Muted);
-            return y + readingHeight + 46;
+            return y + readingHeight + 20;
         }
         private static void TutorialCardScrollbar(UnityEngine.UI.ScrollRect scroll, float width, float y)
         {
@@ -512,8 +503,7 @@ namespace MDPro3.UI.Client
             PageTitle("残局挑战");
             libraryFiles = Directory.Exists(Program.PATH_PUZZLE) ? Directory.GetFiles(Program.PATH_PUZZLE, "*.lua", SearchOption.AllDirectories).Where(p => !p.Replace("\\", "/").Contains("/Academy/")).OrderBy(Path.GetFileName).ToList() : new List<string>();
             AcademyDirectorySearchField("搜索残局名称", BodyWidth * .58f, 48, DrawPuzzleFiles);
-            fileCount = FightUI.Text(Body, "", 2, 152, BodyWidth * .6f - 16, 24, 14, FightUI.Muted);
-            fileList = FightUI.Node(Body, "Puzzles", 0, 184, BodyWidth * .6f, BodyHeight - 184);
+            fileList = FightUI.Node(Body, "Puzzles", 0, 160, BodyWidth * .6f, BodyHeight - 160);
             filePreview = FightUI.Panel(Body, BodyWidth * .6f + Gap, 96, BodyWidth * .4f - Gap, BodyHeight - 96); DrawPuzzleFiles();
         }
         private void DrawPuzzleFiles()
@@ -523,11 +513,10 @@ namespace MDPro3.UI.Client
             FightUI.Clear(fileList);
             puzzlePreviewItems.Clear();
             var items = libraryFiles.Where(p => Path.GetFileNameWithoutExtension(p).IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-            if (fileCount != null) fileCount.text = LibraryCount(items.Count, libraryFiles.Count, "个残局");
             if (selectedPuzzle != null && !items.Contains(selectedPuzzle)) selectedPuzzle = null;
             var c = FightUI.Scroll(fileList, 0, 0, fileList.rect.width, fileList.rect.height, items.Count * 92, out var scroll);
             scroll.name = "Puzzle directory navigation";
-            if (items.Count == 0) LibraryEmpty(c, libraryFiles.Count == 0 ? "尚未添加残局" : "没有符合条件的残局", libraryFiles.Count == 0 ? "添加本地残局后，即可在这里选择挑战。" : "试试其他名称，或清除搜索条件。", fileList.rect.width, fileList.rect.height, "swords", libraryFiles.Count == 0 ? (Action)null : () => ClearAcademyDirectorySearch());
+            if (items.Count == 0) LibraryEmpty(c, libraryFiles.Count == 0 ? "尚未添加残局" : "没有符合条件的残局", "", fileList.rect.width, fileList.rect.height, "swords", libraryFiles.Count == 0 ? (Action)null : () => ClearAcademyDirectorySearch());
             for (int i = 0; i < items.Count; i++)
             {
                 var p = items[i]; bool selected = selectedPuzzle == p;
@@ -568,17 +557,11 @@ namespace MDPro3.UI.Client
             {
                 FightUI.Text(copy, "资源来源", 16, detailY, w - 48, 24, 14, FightUI.Muted);
                 var source = LibraryWrappedText(copy, Path.GetFileName(Path.GetDirectoryName(selectedPuzzle)), 16, detailY + 30, w - 48, 80, 18, FightUI.Foreground);
-                float guidanceY = detailY + 30 + source.rectTransform.sizeDelta.y + 26;
-                FightUI.Line(copy, 16, guidanceY, w - 48, FightUI.Border);
-                var guidance = LibraryWrappedText(copy, "固定场面挑战。开始后加载题目，退出后可返回继续选择。", 16, guidanceY + 18, w - 48, 160, 17, FightUI.Muted);
-                copy.sizeDelta = new Vector2(w - 16, Mathf.Max(copyH, guidanceY + 18 + guidance.rectTransform.sizeDelta.y + 24));
+                copy.sizeDelta = new Vector2(w - 16, Mathf.Max(copyH, detailY + 30 + source.rectTransform.sizeDelta.y + 24));
             }
             else
             {
-                string detail = libraryFiles.Count == 0 ? "添加本地残局后，即可在这里查看挑战信息。"
-                    : !string.IsNullOrWhiteSpace(search) ? "调整搜索条件，找到残局后即可查看挑战信息。" : "选中左侧目录中的残局，查看挑战信息。";
-                var empty = LibraryWrappedText(copy, detail, 16, detailY, w - 48, 96, 17, FightUI.Muted);
-                copy.sizeDelta = new Vector2(w - 16, Mathf.Max(copyH, detailY + empty.rectTransform.sizeDelta.y + 20));
+                copy.sizeDelta = new Vector2(w - 16, copyH);
             }
             if (h >= 400)
             {
@@ -613,11 +596,7 @@ namespace MDPro3.UI.Client
             FightUI.Line(information, 16, sourceY - 12, infoW - 48, FightUI.Border);
             FightUI.Text(information, "资源来源", 16, sourceY, infoW - 48, 24, 15, FightUI.Muted);
             var sourceName = LibraryWrappedText(information, Path.GetFileName(Path.GetDirectoryName(selectedPuzzle)), 16, sourceY + 32, infoW - 48, 80, 19, FightUI.Foreground);
-            float guidanceY = sourceY + 32 + sourceName.rectTransform.sizeDelta.y + 34;
-            FightUI.Line(information, 16, guidanceY - 12, infoW - 48, FightUI.Border);
-            FightUI.Text(information, "挑战方式", 16, guidanceY, infoW - 48, 24, 15, FightUI.Muted);
-            var guidance = LibraryWrappedText(information, "开始后载入所选残局的固定场面。退出挑战后可返回此页。", 16, guidanceY + 32, infoW - 48, 120, 18, FightUI.Foreground);
-            information.sizeDelta = new Vector2(infoW - 16, Mathf.Max(panelH - 16, guidanceY + 32 + guidance.rectTransform.sizeDelta.y + 24));
+            information.sizeDelta = new Vector2(infoW - 16, Mathf.Max(panelH - 16, sourceY + 32 + sourceName.rectTransform.sizeDelta.y + 24));
             string readingKey = Path.GetFullPath(selectedPuzzle);
             if (!puzzleReadingPositions.TryGetValue(readingKey, out var memory))
                 puzzleReadingPositions[readingKey] = memory = new LibraryScrollMemory();
@@ -646,9 +625,7 @@ namespace MDPro3.UI.Client
             libraryFiles = Directory.Exists(Program.PATH_REPLAY) ? Directory.GetFiles(Program.PATH_REPLAY, "*", SearchOption.AllDirectories).Where(p => p.EndsWith(".yrp3d") || p.EndsWith(".yrp")).ToList() : new List<string>();
             libraryFiles = replaySortTime ? libraryFiles.OrderByDescending(File.GetLastWriteTime).ToList() : libraryFiles.OrderBy(Path.GetFileName).ToList();
             AcademyDirectorySearchField("搜索回放名称", BodyWidth * .56f, 48, DrawReplayFiles, 0);
-            fileCount = FightUI.Text(Body, "", 2, 56, BodyWidth * .57f - 16, 24, 14, FightUI.Muted);
-            FightUI.Text(Body, "点击录像直接播放", BodyWidth * .26f, 56, BodyWidth * .31f - 18, 24, 14, FightUI.Muted, TextAlignmentOptions.Right);
-            fileList = FightUI.Node(Body, "Replays", 0, 88, BodyWidth * .57f, BodyHeight - 88);
+            fileList = FightUI.Node(Body, "Replays", 0, 64, BodyWidth * .57f, BodyHeight - 64);
             filePreview = FightUI.Panel(Body, BodyWidth * .57f + Gap, 56, BodyWidth * .43f - Gap, BodyHeight - 56); DrawReplayFiles();
             if (Program.instance.replay.servantUI == null && !replayLoading && replayLoadError == null) StartCoroutine(LoadReplayUI());
         }
@@ -679,16 +656,15 @@ namespace MDPro3.UI.Client
             string query = search.Trim();
             BeginLibraryRefresh(replayScroll, query + "\t" + replaySortTime);
             FightUI.Clear(fileList); var items = libraryFiles.Where(p => Path.GetFileNameWithoutExtension(p).IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-            if (fileCount != null) fileCount.text = LibraryCount(items.Count, libraryFiles.Count, "段录像");
             replayPreviewItems.Clear();
             if (selectedReplay != null && !items.Contains(selectedReplay)) selectedReplay = null;
             var c = FightUI.Scroll(fileList, 0, 0, fileList.rect.width, fileList.rect.height, items.Count * 96 + 36, out var scroll);
             scroll.name = "Replay directory navigation";
-            if (items.Count == 0) LibraryEmpty(c, libraryFiles.Count == 0 ? "暂无回放" : "没有符合条件的回放", libraryFiles.Count == 0 ? "完成一场决斗后可保存录像。" : "试试其他名称，或清除搜索条件。", fileList.rect.width, fileList.rect.height, "replay", libraryFiles.Count == 0 ? (Action)null : () => ClearAcademyDirectorySearch());
+            if (items.Count == 0) LibraryEmpty(c, libraryFiles.Count == 0 ? "暂无回放" : "没有符合条件的回放", "", fileList.rect.width, fileList.rect.height, "replay", libraryFiles.Count == 0 ? (Action)null : () => ClearAcademyDirectorySearch());
             else { FightUI.Text(c, "回放名称", 68, 2, fileList.rect.width - 180, 28, 15, FightUI.Muted); FightUI.Text(c, "格式", fileList.rect.width - 94, 2, 76, 28, 15, FightUI.Muted, TextAlignmentOptions.Center); }
             for (int i = 0; i < items.Count; i++)
             {
-                var p = items[i]; var row = LibrarySelection(c, 1, i * 96 + 36, fileList.rect.width - 6, 84, selectedReplay == p, () => { PreviewReplay(p); selectedReplay = p; PlayClientReplay(false); });
+                var p = items[i]; var row = LibrarySelection(c, 1, i * 96 + 36, fileList.rect.width - 6, 84, selectedReplay == p, () => PreviewReplay(p));
                 FightUI.FocusKey(row, "replays:file:" + Path.GetFullPath(p));
                 FightUI.PreviewOnFocus(row, () => PreviewReplay(p));
                 var icon = FightUI.Icon(row.transform, "replay", 20, 24, 28, 28, selectedReplay == p ? FightUI.Active : FightUI.GoldBorder);
@@ -736,10 +712,8 @@ namespace MDPro3.UI.Client
             FightUI.Clear(filePreview); float w = filePreview.rect.width, h = filePreview.rect.height;
             if (selectedReplay == null || !File.Exists(selectedReplay))
             {
-                string emptyTitle = libraryFiles.Count == 0 ? "暂无录像预览" : !string.IsNullOrWhiteSpace(search) ? "暂无匹配录像预览" : "选择一段录像";
-                string emptyDetail = libraryFiles.Count == 0 ? "完成决斗并保存录像后，可在这里播放和复盘。"
-                    : !string.IsNullOrWhiteSpace(search) ? "调整搜索条件，找到录像后即可预览和播放。" : "选中目录中的录像查看信息。";
-                LibraryEmpty(filePreview, emptyTitle, emptyDetail, w, h, "replay"); return;
+                string emptyTitle = libraryFiles.Count == 0 ? "暂无录像预览" : !string.IsNullOrWhiteSpace(search) ? "暂无匹配录像预览" : "尚未选中录像";
+                LibraryEmpty(filePreview, emptyTitle, "", w, h, "replay"); return;
             }
             string replayPath = selectedReplay;
             ReadClientReplay(replayPath, out var parsed, out bool playable, out bool godAvailable, out string replayError);
@@ -748,11 +722,6 @@ namespace MDPro3.UI.Client
             bool retryLoading = Program.instance.replay.servantUI == null && replayLoadError != null;
             ModuleDivider(filePreview, reading ? "正在读取录像" : retryLoading ? "录像加载未完成" : !playable ? "录像不可播放"
                 : parsed?.playerData != null ? "双方构筑" : "录像内容", 24, 22, w - 48, 20);
-            var ready = FightUI.Text(filePreview, reading ? "读取中" : retryLoading ? "加载失败" : playable ? godAvailable ? "双视角就绪" : "标准播放" : "不可播放", w - 148, 24, 124, 28, 14,
-                reading ? FightUI.Muted : playable ? FightUI.Cyan : FightUI.Danger, TextAlignmentOptions.Right);
-            ready.name = "Replay readiness";
-            FightUI.Hint(ready.gameObject, playable ? godAvailable ? "录像已就绪，可播放或使用上帝视角。"
-                : "已读取决斗记录，可使用标准回放。" : replayError ?? "此录像暂时无法播放。");
             BeginLibraryRefresh(replayPreviewScroll, replayPath);
             float readingHeight = Mathf.Max(48, actionsY - 84);
             var meta = FightUI.Scroll(filePreview, 16, 70, w - 32, readingHeight, readingHeight, out var previewScroll);
@@ -884,8 +853,6 @@ namespace MDPro3.UI.Client
                     if (icon != null) icon.color = selected ? FightUI.Active : FightUI.GoldBorder;
             }
         }
-        private static string LibraryCount(int shown, int total, string unit)
-            => shown == total ? total + " " + unit : shown + " / " + total + " " + unit;
         private static void LibraryTag(Transform parent, string label, float x, float y, float width)
         {
             var tag = FightUI.Panel(parent, x, y, width, 28, FightUI.Hex("07121DE8"), false, "Library metadata");
@@ -950,12 +917,12 @@ namespace MDPro3.UI.Client
                 {
                     float actionHeight = Mathf.Min(40, Mathf.Max(28, height - titleHeight - 18));
                     float compactActionY = Mathf.Max(6 + titleHeight + 6, height - actionHeight - 6);
-                    if (compactActionY - compactDetailY >= 20)
+                    if (!string.IsNullOrEmpty(detail) && compactActionY - compactDetailY >= 20)
                         FightUI.Text(parent, detail, 12, compactDetailY, width - 24, compactActionY - compactDetailY - 2, 14, FightUI.Muted, TextAlignmentOptions.Center);
                     float actionWidth = Mathf.Min(168, width - 24);
                     FightUI.TextAction(parent, clearCaption, (width - actionWidth) / 2, compactActionY, actionWidth, actionHeight, clear);
                 }
-                else if (height - compactDetailY >= 20)
+                else if (!string.IsNullOrEmpty(detail) && height - compactDetailY >= 20)
                     FightUI.Text(parent, detail, 12, compactDetailY, width - 24, height - compactDetailY - 6, 14, FightUI.Muted, TextAlignmentOptions.Center);
                 return;
             }
@@ -964,9 +931,9 @@ namespace MDPro3.UI.Client
             FightUI.Icon(parent, icon, (width - iconSize) / 2, shortPanel ? 6 : cy - 28, iconSize, iconSize, FightUI.GoldBorder);
             FightUI.Text(parent, title, 24, shortPanel ? 42 : cy + 46, width - 48, shortPanel ? 32 : 44, shortPanel ? 21 : 25, FightUI.Foreground, TextAlignmentOptions.Center);
             float detailY = shortPanel ? 82 : cy + 106;
-            float actionY = Mathf.Min(height - 44, shortPanel ? 130 : cy + 204);
+            float actionY = Mathf.Min(height - 44, string.IsNullOrEmpty(detail) ? shortPanel ? 98 : cy + 112 : shortPanel ? 130 : cy + 204);
             float detailH = clear == null ? Mathf.Min(80, height - detailY - 12) : Mathf.Min(80, actionY - detailY - 8);
-            if (detailH >= 24) FightUI.Text(parent, detail, 32, detailY, width - 64, detailH, height < 176 ? 15 : 16, FightUI.Muted, TextAlignmentOptions.Center);
+            if (!string.IsNullOrEmpty(detail) && detailH >= 24) FightUI.Text(parent, detail, 32, detailY, width - 64, detailH, height < 176 ? 15 : 16, FightUI.Muted, TextAlignmentOptions.Center);
             if (clear != null && height >= 140) FightUI.TextAction(parent, clearCaption, (width - 168) / 2, actionY, 168, 40, clear);
         }
         private RectTransform TutorialStepRow(Transform parent, string label, string number, bool selected, float y, float width, Action action)

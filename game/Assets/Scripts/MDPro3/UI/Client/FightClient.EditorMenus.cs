@@ -17,7 +17,7 @@ namespace MDPro3.UI.Client
                 Mathf.Max(measure.GetPreferredValues(leftTitle, width - 74, float.PositiveInfinity).y,
                     measure.GetPreferredValues(rightTitle, width - 74, float.PositiveInfinity).y) + 2);
             measure.fontSize = 14;
-            float subtitleHeight = Mathf.Max(24,
+            float subtitleHeight = string.IsNullOrEmpty(leftSubtitle) && string.IsNullOrEmpty(rightSubtitle) ? 0 : Mathf.Max(24,
                 Mathf.Max(measure.GetPreferredValues(leftSubtitle, width - 74, float.PositiveInfinity).y,
                     measure.GetPreferredValues(rightSubtitle, width - 74, float.PositiveInfinity).y) + 2);
             Destroy(measure.gameObject);
@@ -36,21 +36,25 @@ namespace MDPro3.UI.Client
             button.GetComponentInChildren<TextMeshProUGUI>().gameObject.SetActive(false);
             var color = !enabled ? FightUI.Muted : destructive ? FightUI.Danger : FightUI.Gold;
             var symbol = FightUI.Icon(button.transform, icon, 16, (height - 28) / 2, 28, 28, color);
-            var label = FightUI.Text(button.transform, title, 58, 8, width - 74, metrics.x, 20,
+            var label = FightUI.Text(button.transform, title, 58, metrics.y > 0 ? 8 : (height - metrics.x) / 2, width - 74, metrics.x, 20,
                 !enabled ? FightUI.Muted : destructive ? color : FightUI.Foreground, TextAlignmentOptions.MidlineLeft);
             label.raycastTarget = false;
-            var explanation = FightUI.Text(button.transform, subtitle, 58, 10 + metrics.x, width - 74, metrics.y, 14, FightUI.Muted, TextAlignmentOptions.MidlineLeft);
-            explanation.enableWordWrapping = true;
-            explanation.raycastTarget = false;
+            TextMeshProUGUI explanation = null;
+            if (!string.IsNullOrEmpty(subtitle))
+            {
+                explanation = FightUI.Text(button.transform, subtitle, 58, 10 + metrics.x, width - 74, metrics.y, 14, FightUI.Muted, TextAlignmentOptions.MidlineLeft);
+                explanation.enableWordWrapping = true;
+                explanation.raycastTarget = false;
+            }
             if (!enabled)
             {
                 symbol.canvasRenderer.SetAlpha(.48f);
                 label.canvasRenderer.SetAlpha(.7f);
                 // The unavailable reason is still useful reading content.
-                explanation.canvasRenderer.SetAlpha(1f);
+                if (explanation != null) explanation.canvasRenderer.SetAlpha(1f);
             }
             if (destructive) FightUI.StyleDestructiveButton(button);
-            FightUI.Hint(button.gameObject, subtitle);
+            if (!string.IsNullOrEmpty(subtitle)) FightUI.Hint(button.gameObject, subtitle);
         }
 
         private void OpenEditorSectionJump()
@@ -94,25 +98,24 @@ namespace MDPro3.UI.Client
             string clearSubtitle = cardCount > 0 ? "移除全部 " + cardCount + " 张卡片" : "当前构筑已经为空";
             var rows = new[]
             {
-                MeasureEditorMenuRow(box, w, "展开教程", "查阅教学构筑与练习", "手牌测试设置", "设置起手张数与测试方式"),
-                MeasureEditorMenuRow(box, w, "YDKE 导入 / 导出", "通过文本交换完整构筑", "分享卡组", "打开分享页并复制链接"),
-                MeasureEditorMenuRow(box, w, "复制卡组", "创建副本，保存后写入个人卡库", "打乱顺序", "随机排列当前构筑中的卡片"),
+                MeasureEditorMenuRow(box, w, "展开教程", "", "手牌测试设置", ""),
+                MeasureEditorMenuRow(box, w, "YDKE 导入 / 导出", "", "分享卡组", ""),
+                MeasureEditorMenuRow(box, w, "复制卡组", "", "打乱顺序", ""),
                 MeasureEditorMenuRow(box, w, "重置修改", resetSubtitle, "清空构筑", clearSubtitle)
             };
             float secondY = 88 + EditorMenuItemHeight(rows[0]) + 12;
             float thirdY = secondY + EditorMenuItemHeight(rows[1]) + 12;
-            float dividerY = thirdY + EditorMenuItemHeight(rows[2]) + 20, destructiveY = dividerY + 44;
+            float dividerY = thirdY + EditorMenuItemHeight(rows[2]) + 20, destructiveY = dividerY + 16;
             float height = destructiveY + EditorMenuItemHeight(rows[3]) + 12;
             FightUI.Place(box, (W - box.rect.width) / 2, (H - height) / 2, box.rect.width, height);
             clientModalSize = new Vector2(box.rect.width, height);
-            EditorMenuItem(box, "展开教程", "查阅教学构筑与练习", "book", 28, 88, w, OpenEditorTutorial, measured: rows[0]);
-            EditorMenuItem(box, "手牌测试设置", "设置起手张数与测试方式", "play", 44 + w, 88, w, OpenClientHandTest, measured: rows[0]);
-            EditorMenuItem(box, "YDKE 导入 / 导出", "通过文本交换完整构筑", "deck", 28, secondY, w, OpenEditorYdke, measured: rows[1]);
-            EditorMenuItem(box, "分享卡组", "打开分享页并复制链接", "share", 44 + w, secondY, w, ui.OnShare, measured: rows[1]);
-            EditorMenuItem(box, "复制卡组", "创建副本，保存后写入个人卡库", "deck", 28, thirdY, w, ui.OnCopy, measured: rows[2]);
-            EditorMenuItem(box, "打乱顺序", "随机排列当前构筑中的卡片", "shuffle", 44 + w, thirdY, w, ui.OnRandom, measured: rows[2]);
+            EditorMenuItem(box, "展开教程", "", "book", 28, 88, w, OpenEditorTutorial, measured: rows[0]);
+            EditorMenuItem(box, "手牌测试设置", "", "play", 44 + w, 88, w, OpenClientHandTest, measured: rows[0]);
+            EditorMenuItem(box, "YDKE 导入 / 导出", "", "deck", 28, secondY, w, OpenEditorYdke, measured: rows[1]);
+            EditorMenuItem(box, "分享卡组", "", "share", 44 + w, secondY, w, ui.OnShare, measured: rows[1]);
+            EditorMenuItem(box, "复制卡组", "", "deck", 28, thirdY, w, ui.OnCopy, measured: rows[2]);
+            EditorMenuItem(box, "打乱顺序", "", "shuffle", 44 + w, thirdY, w, ui.OnRandom, measured: rows[2]);
             FightUI.Line(box, 28, dividerY, box.rect.width - 56, FightUI.Border);
-            FightUI.Text(box, dirty ? "修改当前构筑 · 有未保存的修改" : "修改当前构筑 · 保存后更新文件", 28, dividerY + 9, box.rect.width - 56, 24, 14, FightUI.Muted);
             EditorMenuItem(box, "重置修改", resetSubtitle, "refresh", 28, destructiveY, w,
                 () => Confirm("重置当前修改", "将恢复打开时的构筑，尚未保存的修改会被放弃。", ui.OnReset), true, dirty, rows[3]);
             EditorMenuItem(box, "清空构筑", clearSubtitle, "close", 44 + w, destructiveY, w,
@@ -126,7 +129,7 @@ namespace MDPro3.UI.Client
             var exported = YdkeConverter.DeckToYdke(deck);
             FightUI.Text(box, "当前构筑 · 主卡 " + deck.Main.Count + " · 额外 " + deck.Extra.Count + " · 副卡 " + deck.Side.Count,
                 28, 88, box.rect.width - 56, 28, 17, FightUI.Gold);
-            var inputLabel = FightUI.Text(box, "YDKE 文本", 28, 122, 280, 22, 15, FightUI.Muted);
+            FightUI.Text(box, "YDKE 文本", 28, 122, 280, 22, 15, FightUI.Muted);
             var input = FightUI.Input(box, exported, "ydke://…", 28, 148, 704, 170, null, false, true);
             FightUI.FocusKey(input, "editor-ydke:input");
             var error = FightUI.Text(box, "导入会替换当前构筑，文件在保存后更新。", 28, 327, 704, 30, 16, FightUI.Muted);
@@ -134,7 +137,6 @@ namespace MDPro3.UI.Client
             input.onValueChanged.AddListener(value =>
             {
                 error.text = "导入会替换当前构筑，文件在保存后更新。"; error.color = FightUI.Muted;
-                inputLabel.text = "YDKE 文本"; inputLabel.color = FightUI.Muted;
                 input.GetComponent<UnityEngine.UI.Outline>().effectColor = FightUI.Border;
                 if (importButton != null) importButton.interactable = !string.IsNullOrWhiteSpace(value);
             });
@@ -144,11 +146,11 @@ namespace MDPro3.UI.Client
                 input.Select(); input.ActivateInputField(); input.caretPosition = input.text.Length;
             });
             FightUI.Button(box, "取消", 28, 370, 144, 44, CloseDialog);
-            var copyButton = FightUI.Button(box, "复制当前构筑", 320, 370, 188, 44, () =>
+            Button copyButton = null;
+            copyButton = FightUI.Button(box, "复制当前构筑", 320, 370, 188, 44, () =>
             {
                 GUIUtility.systemCopyBuffer = exported;
-                inputLabel.text = "YDKE 文本 · 已复制当前构筑"; inputLabel.color = FightUI.Gold;
-                ShowStatus("已复制当前构筑的 YDKE 文本。");
+                copyButton.GetComponentInChildren<TextMeshProUGUI>().text = "已复制";
             });
             FightUI.Hint(copyButton.gameObject, "复制编辑器中的当前构筑，包含尚未保存的修改");
             importButton = FightUI.Button(box, "导入构筑", 524, 370, 208, 44, () =>
@@ -185,19 +187,19 @@ namespace MDPro3.UI.Client
             var w = (box.rect.width - 72) / 2;
             bool canRemove = copies > 0;
             var bookmarked = CardRarity.CardBookmarked(card.Id);
-            string removeSubtitle = canRemove ? "从构筑中移除一张" : "构筑中暂无这张卡片", bookmarkTitle = bookmarked ? "取消收藏" : "收藏卡片";
-            var firstRow = MeasureEditorMenuRow(box, w, "加入构筑", "增加一张当前卡片", "移除卡片", removeSubtitle);
-            var secondRow = MeasureEditorMenuRow(box, w, "关联卡片", "在右侧卡池查看相关卡片", bookmarkTitle, "管理个人常用卡片");
+            string removeSubtitle = canRemove ? "" : "构筑中暂无这张卡片", bookmarkTitle = bookmarked ? "取消收藏" : "收藏卡片";
+            var firstRow = MeasureEditorMenuRow(box, w, "加入构筑", "", "移除卡片", removeSubtitle);
+            var secondRow = MeasureEditorMenuRow(box, w, "关联卡片", "", bookmarkTitle, "");
             float secondY = 144 + offset + EditorMenuItemHeight(firstRow) + 12;
             float dividerY = secondY + EditorMenuItemHeight(secondRow) + 24;
-            float height = dividerY + 204;
+            float height = dividerY + 132;
             FightUI.Place(box, (W - box.rect.width) / 2, (H - height) / 2, box.rect.width, height);
             clientModalSize = new Vector2(box.rect.width, height);
-            EditorMenuItem(box, "加入构筑", "增加一张当前卡片", "deck", 28, 144 + offset, w, () => ui.AddCard(card), measured: firstRow);
+            EditorMenuItem(box, "加入构筑", "", "deck", 28, 144 + offset, w, () => ui.AddCard(card), measured: firstRow);
             EditorMenuItem(box, "移除卡片", removeSubtitle, "close", 44 + w, 144 + offset, w,
                 () => ui.RemoveCard(card), enabled: canRemove, measured: firstRow);
-            EditorMenuItem(box, "关联卡片", "在右侧卡池查看相关卡片", "search", 28, secondY, w, () => ui.ShowRelatedCard(card), measured: secondRow);
-            EditorMenuItem(box, bookmarkTitle, "管理个人常用卡片", "bookmark", 44 + w, secondY, w,
+            EditorMenuItem(box, "关联卡片", "", "search", 28, secondY, w, () => ui.ShowRelatedCard(card), measured: secondRow);
+            EditorMenuItem(box, bookmarkTitle, "", "bookmark", 44 + w, secondY, w,
                 () => { if (bookmarked) ui.UnbookmarkCard(card.Id); else ui.BookmarkCard(card.Id); }, measured: secondRow);
             FightUI.Line(box, 28, dividerY, box.rect.width - 56);
             FightUI.Text(box, "卡面样式", 28, dividerY + 16, 604, 30, 17, FightUI.Gold);
@@ -222,7 +224,6 @@ namespace MDPro3.UI.Client
                 }
                 FightUI.Hint(rarityButton.gameObject, (selected ? "当前卡面样式：" : "设为卡面样式：") + labels[i]);
             }
-            FightUI.Text(box, "卡面样式与收藏会自动保存", 28, dividerY + 142, 604, 24, 15, FightUI.Muted);
         }
     }
 }

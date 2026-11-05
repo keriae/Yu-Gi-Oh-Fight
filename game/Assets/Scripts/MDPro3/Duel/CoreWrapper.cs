@@ -386,6 +386,11 @@ namespace Percy
         }
     }
 
+    public sealed class ReplayConversionException : InvalidOperationException
+    {
+        public ReplayConversionException(string message) : base(message) { }
+    }
+
     public class Ygopro
     {
         public static string HintInGame = "PercyAI Pro2Team 1033.D";
@@ -801,6 +806,7 @@ namespace Percy
                     Move(1);
                     break;
                 case GameMessage.ShuffleHand:
+                case GameMessage.ShuffleExtra:
                     Move(1);
                     Move(Move(1) * 4);
                     break;
@@ -1065,6 +1071,7 @@ namespace Percy
                 case GameMessage.ShuffleSetCard:
                 case GameMessage.ShuffleDeck:
                 case GameMessage.ShuffleHand:
+                case GameMessage.ShuffleExtra:
                 case GameMessage.ReverseDeck:
                 case GameMessage.DeckTop:
                 case GameMessage.Summoned:
@@ -1247,114 +1254,119 @@ namespace Percy
         public byte[] GetYRP3dBuffer(YRP yrp)
         {
             var tempS = sendToPlayer;
-            sendToPlayer = SendToYrp;
             var stream = new MemoryStream();
             yrp3dbuilder = new BinaryWriter(stream);
-            sendToPlayer(yrp.GetNamePacket());
-            Dll.end_duel(duel);
-
-            if (yrp.ID == 0x32707279) // REPLAY_ID_YRP2
-            {
-                duel = Dll.create_duel_v2(yrp.SeedsV2);
-                OcgCore.CurrentReplayUseYRP2 = true;
-            }
-            else
-            {
-                var mtrnd = new MersenneTwister(yrp.Seed);
-                duel = Dll.create_duel(mtrnd.genrand_Int32());
-                OcgCore.CurrentReplayUseYRP2 = false;
-            }
-
-            godMode = true;
-            isFirst = true;
-            Dll.set_player_info(duel, 0, yrp.StartLp, yrp.StartHand, yrp.DrawCount);
-            Dll.set_player_info(duel, 1, yrp.StartLp, yrp.StartHand, yrp.DrawCount);
-            if (yrp.playerData.Count == 4)
-            {
-                foreach (var item in yrp.playerData[0].main)
-                    Dll.new_card(duel, (uint)item, 0, 0, (byte)CardLocation.Deck, 0,
-                        (byte)CardPosition.FaceDownDefence);
-                foreach (var item in yrp.playerData[0].extra)
-                    Dll.new_card(duel, (uint)item, 0, 0, (byte)CardLocation.Extra, 0,
-                        (byte)CardPosition.FaceDownDefence);
-                foreach (var item in yrp.playerData[1].main)
-                    Dll.new_tag_card(duel, (uint)item, 0, (byte)CardLocation.Deck);
-                foreach (var item in yrp.playerData[1].extra)
-                    Dll.new_tag_card(duel, (uint)item, 0, (byte)CardLocation.Extra);
-
-                foreach (var item in yrp.playerData[2].main)
-                    Dll.new_card(duel, (uint)item, 1, 1, (byte)CardLocation.Deck, 0,
-                        (byte)CardPosition.FaceDownDefence);
-                foreach (var item in yrp.playerData[2].extra)
-                    Dll.new_card(duel, (uint)item, 1, 1, (byte)CardLocation.Extra, 0,
-                        (byte)CardPosition.FaceDownDefence);
-                foreach (var item in yrp.playerData[3].main)
-                    Dll.new_tag_card(duel, (uint)item, 1, (byte)CardLocation.Deck);
-                foreach (var item in yrp.playerData[3].extra)
-                    Dll.new_tag_card(duel, (uint)item, 1, (byte)CardLocation.Extra);
-            }
-            else
-            {
-                foreach (var item in yrp.playerData[0].main)
-                    Dll.new_card(duel, (uint)item, 0, 0, (byte)CardLocation.Deck, 0,
-                        (byte)CardPosition.FaceDownDefence);
-                foreach (var item in yrp.playerData[0].extra)
-                    Dll.new_card(duel, (uint)item, 0, 0, (byte)CardLocation.Extra, 0,
-                        (byte)CardPosition.FaceDownDefence);
-
-                foreach (var item in yrp.playerData[1].main)
-                    Dll.new_card(duel, (uint)item, 1, 1, (byte)CardLocation.Deck, 0,
-                        (byte)CardPosition.FaceDownDefence);
-                foreach (var item in yrp.playerData[1].extra)
-                    Dll.new_card(duel, (uint)item, 1, 1, (byte)CardLocation.Extra, 0,
-                        (byte)CardPosition.FaceDownDefence);
-            }
-
-            var master = new BinaryMaster();
-            master.writer.Write((char)GameMessage.Start);
-            master.writer.Write((byte)0);
-            master.writer.Write((byte)(yrp.opt >> 16));
-            master.writer.Write(yrp.StartLp);
-            master.writer.Write(yrp.StartLp);
-            master.writer.Write((ushort)Dll.query_field_count(duel, 0, 0x1));
-            master.writer.Write((ushort)Dll.query_field_count(duel, 0, 0x40));
-            master.writer.Write((ushort)Dll.query_field_count(duel, 1, 0x1));
-            master.writer.Write((ushort)Dll.query_field_count(duel, 1, 0x40));
-            sendToPlayer(master.Get());
-            Dll.start_duel(duel, yrp.opt);
-            Refresh();
-            end = false;
-            err = false;
             try
             {
+                sendToPlayer = SendToYrp;
+                sendToPlayer(yrp.GetNamePacket());
+                Dll.end_duel(duel);
+
+                if (yrp.ID == 0x32707279) // REPLAY_ID_YRP2
+                {
+                    duel = Dll.create_duel_v2(yrp.SeedsV2);
+                    OcgCore.CurrentReplayUseYRP2 = true;
+                }
+                else
+                {
+                    var mtrnd = new MersenneTwister(yrp.Seed);
+                    duel = Dll.create_duel(mtrnd.genrand_Int32());
+                    OcgCore.CurrentReplayUseYRP2 = false;
+                }
+
+                godMode = true;
+                isFirst = true;
+                Dll.set_player_info(duel, 0, yrp.StartLp, yrp.StartHand, yrp.DrawCount);
+                Dll.set_player_info(duel, 1, yrp.StartLp, yrp.StartHand, yrp.DrawCount);
+                if (yrp.playerData.Count == 4)
+                {
+                    foreach (var item in yrp.playerData[0].main)
+                        Dll.new_card(duel, (uint)item, 0, 0, (byte)CardLocation.Deck, 0,
+                            (byte)CardPosition.FaceDownDefence);
+                    foreach (var item in yrp.playerData[0].extra)
+                        Dll.new_card(duel, (uint)item, 0, 0, (byte)CardLocation.Extra, 0,
+                            (byte)CardPosition.FaceDownDefence);
+                    foreach (var item in yrp.playerData[1].main)
+                        Dll.new_tag_card(duel, (uint)item, 0, (byte)CardLocation.Deck);
+                    foreach (var item in yrp.playerData[1].extra)
+                        Dll.new_tag_card(duel, (uint)item, 0, (byte)CardLocation.Extra);
+
+                    foreach (var item in yrp.playerData[2].main)
+                        Dll.new_card(duel, (uint)item, 1, 1, (byte)CardLocation.Deck, 0,
+                            (byte)CardPosition.FaceDownDefence);
+                    foreach (var item in yrp.playerData[2].extra)
+                        Dll.new_card(duel, (uint)item, 1, 1, (byte)CardLocation.Extra, 0,
+                            (byte)CardPosition.FaceDownDefence);
+                    foreach (var item in yrp.playerData[3].main)
+                        Dll.new_tag_card(duel, (uint)item, 1, (byte)CardLocation.Deck);
+                    foreach (var item in yrp.playerData[3].extra)
+                        Dll.new_tag_card(duel, (uint)item, 1, (byte)CardLocation.Extra);
+                }
+                else
+                {
+                    foreach (var item in yrp.playerData[0].main)
+                        Dll.new_card(duel, (uint)item, 0, 0, (byte)CardLocation.Deck, 0,
+                            (byte)CardPosition.FaceDownDefence);
+                    foreach (var item in yrp.playerData[0].extra)
+                        Dll.new_card(duel, (uint)item, 0, 0, (byte)CardLocation.Extra, 0,
+                            (byte)CardPosition.FaceDownDefence);
+
+                    foreach (var item in yrp.playerData[1].main)
+                        Dll.new_card(duel, (uint)item, 1, 1, (byte)CardLocation.Deck, 0,
+                            (byte)CardPosition.FaceDownDefence);
+                    foreach (var item in yrp.playerData[1].extra)
+                        Dll.new_card(duel, (uint)item, 1, 1, (byte)CardLocation.Extra, 0,
+                            (byte)CardPosition.FaceDownDefence);
+                }
+
+                var master = new BinaryMaster();
+                master.writer.Write((char)GameMessage.Start);
+                master.writer.Write((byte)0);
+                master.writer.Write((byte)(yrp.opt >> 16));
+                master.writer.Write(yrp.StartLp);
+                master.writer.Write(yrp.StartLp);
+                master.writer.Write((ushort)Dll.query_field_count(duel, 0, 0x1));
+                master.writer.Write((ushort)Dll.query_field_count(duel, 0, 0x40));
+                master.writer.Write((ushort)Dll.query_field_count(duel, 1, 0x1));
+                master.writer.Write((ushort)Dll.query_field_count(duel, 1, 0x40));
+                sendToPlayer(master.Get());
+                Dll.start_duel(duel, yrp.opt);
+                Refresh();
+                end = false;
+                err = false;
+                int responseIndex = 0;
                 while (true)
                 {
-                    //log("process");
                     Process();
-                    if (yrp.gameData.Count == 0) break;
-                    if (yrp.gameData[0].Length > 64) break;
+                    if (err)
+                        throw new ReplayConversionException("录像重新模拟时，核心拒绝了第 " + responseIndex + " 个已录制操作。");
+                    if (end || responseIndex >= yrp.gameData.Count) break;
+                    var response = yrp.gameData[responseIndex++];
+                    if (response.Length > 64)
+                        throw new ReplayConversionException("录像中的操作数据超过核心支持的长度。");
                     var buf = Marshal.AllocHGlobal(64);
-                    Marshal.Copy(yrp.gameData[0], 0, buf, yrp.gameData[0].Length);
-                    Dll.set_responseb(duel, buf);
-                    Marshal.FreeHGlobal(buf);
-                    DebugLog("Push:  " + BitConverter.ToString(yrp.gameData[0]));
-                    yrp.gameData.RemoveAt(0);
-                    if (end) break;
+                    try
+                    {
+                        var padded = new byte[64];
+                        response.CopyTo(padded, 0);
+                        Marshal.Copy(padded, 0, buf, padded.Length);
+                        Dll.set_responseb(duel, buf);
+                    }
+                    finally { Marshal.FreeHGlobal(buf); }
+                    DebugLog("Push:  " + BitConverter.ToString(response));
+                }
+                return stream.ToArray();
+            }
+            finally
+            {
+                try { Dispose(); }
+                finally
+                {
+                    sendToPlayer = tempS;
+                    try { yrp3dbuilder.Close(); }
+                    finally { stream.Close(); }
                 }
             }
-            catch (Exception)
-            {
-            }
-
-            if (err)
-                if (cast != null)
-                    cast("Error Occurred.");
-
-            Dispose();
-            sendToPlayer = tempS;
-            yrp3dbuilder.Close();
-            stream.Close();
-            return stream.ToArray();
         }
 
     }

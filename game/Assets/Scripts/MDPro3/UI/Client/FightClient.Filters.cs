@@ -341,7 +341,7 @@ namespace MDPro3.UI.Client
         private string FilterSelectionSummary()
         {
             var parts = FilterSelectionParts();
-            return parts.Count > 0 ? string.Join("；", parts) : "未选择条件 · 搜索关键词会保留。";
+            return parts.Count > 0 ? string.Join("；", parts) : "未选择条件";
         }
 
         private void OpenFilterSummary()
@@ -352,12 +352,11 @@ namespace MDPro3.UI.Client
             bool invalid = FilterDraftNeedsCorrection(), pending = FilterDraftHasChanges();
             FightUI.Text(box, (invalid ? "待修正" : pending ? "待应用" : "当前筛选") + " · " + FilterConditionCount() + " 项条件",
                 28, 84, width - 56, 30, 18, invalid ? FightUI.Danger : FightUI.Gold);
-            FightUI.Text(box, "返回修改会保留草稿；取消会保留已应用条件与搜索词。", 28, 122, width - 56, 28, 16, FightUI.Muted);
-            FightUI.Line(box, 28, 158, width - 56, FightUI.Border);
-            var content = FightUI.Scroll(box, 24, 174, width - 48, height - 268, height - 268, out var scroll);
+            FightUI.Line(box, 28, 122, width - 56, FightUI.Border);
+            var content = FightUI.Scroll(box, 24, 138, width - 48, height - 232, height - 232, out var scroll);
             scroll.name = "Filter complete summary";
             var parts = FilterSelectionParts();
-            if (parts.Count == 0) parts.Add("未选择条件 · 搜索关键词会保留。");
+            if (parts.Count == 0) parts.Add("未选择条件");
             if (!string.IsNullOrEmpty(filterError)) parts.Insert(0, FilterErrorSummary());
             float y = 6;
             foreach (var part in parts)
@@ -369,7 +368,7 @@ namespace MDPro3.UI.Client
                 FightUI.Line(content, 12, y + rowHeight + 8, width - 94, FightUI.Border);
                 y += rowHeight + 28;
             }
-            content.sizeDelta = new Vector2(width - 48, Mathf.Max(height - 268, y + 8));
+            content.sizeDelta = new Vector2(width - 48, Mathf.Max(height - 232, y + 8));
             FightUI.Line(box, 28, height - 80, width - 56, FightUI.GoldBorder);
             FightUI.FocusKey(FightUI.Button(box, "取消筛选", 28, height - 64, 144, 44, CloseDialog), "filter-summary:cancel");
             FightUI.FocusKey(FightUI.Button(box, "返回修改", width - 356, height - 64, 144, 44, () =>
@@ -413,9 +412,8 @@ namespace MDPro3.UI.Client
             CacheFilterScroll();
             var width = Mathf.Min(900, W - 48); var height = Mathf.Min(680, H - 48);
             var box = ShowDialog("选择卡包", width, height); var packs = new[] { "" }.Concat(PacksManager.packs.Select(p => p.fullName)).Distinct().ToArray();
-            float viewportHeight = height - 252;
-            var matchedText = FightUI.Text(box, "", 24, 136, width - 48, 26, 15, FightUI.Muted);
-            var c = FightUI.Scroll(box, 24, 172, width - 48, viewportHeight, packs.Length * 58, out var packScroll);
+            float viewportHeight = height - 224;
+            var c = FightUI.Scroll(box, 24, 144, width - 48, viewportHeight, packs.Length * 58, out var packScroll);
             TMP_InputField searchInput = null;
             Button clearSearch = null;
             Action clearPackSearch = () =>
@@ -429,7 +427,6 @@ namespace MDPro3.UI.Client
                 if (clearSearch != null) clearSearch.interactable = keyword.Length > 0;
                 var terms = keyword.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
                 var matches = packs.Where(pack => terms.All(term => (pack.Length == 0 ? "所有卡包" : pack).IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)).ToArray();
-                matchedText.text = matches.Length + " 个匹配 / 全部 " + packs.Length + " 个卡包";
                 float y = 0, selectedTop = -1, selectedHeight = 0;
                 for (int i = 0; i < matches.Length; i++)
                 {
@@ -455,7 +452,7 @@ namespace MDPro3.UI.Client
                 }
                 if (matches.Length == 0)
                 {
-                    FightUI.Text(c, "没有找到匹配的卡包，请调整关键词。", 16, 24, width - 80, 52, 18, FightUI.Muted);
+                    FightUI.Text(c, "没有匹配的卡包", 16, 24, width - 80, 52, 18, FightUI.Muted);
                     FightUI.FocusKey(FightUI.Button(c, "清空关键词", 16, 92, 180, 44, clearPackSearch), "filter-pack:empty-clear-search");
                     y = 148;
                 }
@@ -520,11 +517,11 @@ namespace MDPro3.UI.Client
             if (clientEditorUI == null || !clientEditorUI.DeckView.deckLoaded) { ShowStatus("卡组仍在加载，请稍后再试。"); return; }
             if (EditorDirty)
             {
-                var box = ShowDialog("测试前处理未保存修改", 640, 290);
-                FightUI.Text(box, "保存当前构筑后开始，或放弃修改并测试已保存构筑。", 28, 80, 580, 70, 20);
-                FightUI.Button(box, "取消", 28, 208, 160, 48, CloseDialog);
-                FightUI.Button(box, "放弃修改", 208, 208, 160, 48, () => { DiscardEditor(); OpenClientHandTest(); });
-                FightUI.Button(box, "保存并继续", 388, 208, 224, 48, () => SaveEditorThen(OpenClientHandTest), true); return;
+                var box = ShowDialog("当前卡组尚未保存", 640, 192);
+                FightUI.Button(box, "取消", 28, 112, 160, 48, CloseDialog);
+                var discard = FightUI.Button(box, "放弃修改", 208, 112, 160, 48, () => { DiscardEditor(); OpenClientHandTest(); });
+                FightUI.StyleDestructiveButton(discard);
+                FightUI.Button(box, "保存并测试", 388, 112, 224, 48, () => SaveEditorThen(OpenClientHandTest), true); return;
             }
             clientHandTestDraft = HandTestSettings.Load(); clientHandTestHand = clientHandTestDraft.StartingHand.ToString(); clientHandTestLp = clientHandTestDraft.LifePoints.ToString();
             RenderClientHandTest();

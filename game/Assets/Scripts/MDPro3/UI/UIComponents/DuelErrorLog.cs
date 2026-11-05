@@ -26,6 +26,14 @@ namespace MDPro3.UI
             cg.blocksRaycasts = false;
         }
 
+        public void Clear()
+        {
+            Hide();
+            lastMessage = string.Empty;
+            text.text = string.Empty;
+            ScrollRect.DOKill();
+        }
+
         public void Show(string log)
         {
             log = $"[OcgCore Message]: {log}";

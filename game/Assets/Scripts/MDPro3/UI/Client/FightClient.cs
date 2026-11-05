@@ -38,6 +38,7 @@ namespace MDPro3.UI.Client
         private float Footer => Compact ? 32 : LargeViewport ? 36 : 48;
         private float BodyTop => page == "home" ? Header + (Compact ? 11 : 16) : Header + Gap;
         private Canvas clientCanvas;
+        private CanvasGroup clientInteraction;
         private Canvas nativePopupCanvas;
         private readonly List<NativeUiRootMount> nativeUiRoots = new List<NativeUiRootMount>();
         private readonly Dictionary<Selectable, NativeInputMount> nativeInputs = new Dictionary<Selectable, NativeInputMount>();
@@ -52,7 +53,7 @@ namespace MDPro3.UI.Client
             internal RectTransform Dialog;
         }
         private RefreshFocus refreshingFocus;
-        private TextMeshProUGUI statusText, fpsText, contextKeys;
+        private TextMeshProUGUI statusText, fpsText;
         private string page = "home", status = "准备就绪";
         private string renderedPage;
         private sealed class ClientNavigationState
@@ -67,7 +68,8 @@ namespace MDPro3.UI.Client
         private FightIcon statusIcon, statusInspectArrow;
         private int oldWidth, oldHeight;
         private bool oldFullscreen;
-        private bool wasCore, initialized, synchronizingPresentation, presentationStopping;
+        private bool wasCore, corePresented, initialized, synchronizingPresentation, presentationStopping;
+        private int corePresentationVersion;
         private string coreSourcePage;
         private int navigationFrame = -1;
         private DeckAcademyCatalog academy;
@@ -97,6 +99,8 @@ namespace MDPro3.UI.Client
             && clientCanvas.gameObject.activeInHierarchy && Body != null && Body.gameObject.activeInHierarchy
             && Body.GetComponent<CanvasGroup>() != null && Body.GetComponent<CanvasGroup>().alpha >= .999f;
         internal bool ClientCanvasVisible => clientCanvas != null && clientCanvas.enabled && clientCanvas.gameObject.activeInHierarchy;
+        internal bool CoreFramePresented => wasCore && corePresented;
+        internal int CorePresentationVersion => corePresentationVersion;
         internal string PresentedPage => renderedPage;
         internal bool HasOpaqueWindowBackdrop => clientCanvas != null && clientCanvas.transform.Find("Window backdrop") is RectTransform backdrop
             && backdrop.gameObject.activeInHierarchy && backdrop.GetComponent<Image>() != null
@@ -122,9 +126,10 @@ namespace MDPro3.UI.Client
                 var choices = ResponsesDeckLibrary.Load(Program.PATH_DECK);
                 battle.DeckA = choices.ResolveSelection(battle.DeckA) ?? choices.FindCurrentDeck(Config.GetConfigDeckName()) ?? "";
                 battle.DeckB = choices.ResolveSelection(battle.DeckB) ?? "";
-                var obj = new GameObject("Yu-Gi-Oh! Fight Client", typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
+                var obj = new GameObject("Yu-Gi-Oh! Fight Client", typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster), typeof(CanvasGroup));
                 var canvasRoot = obj.GetComponent<RectTransform>(); obj.transform.SetParent(transform, false);
                 clientCanvas = obj.GetComponent<Canvas>(); clientCanvas.renderMode = RenderMode.ScreenSpaceOverlay; clientCanvas.sortingOrder = 100;
+                clientInteraction = obj.GetComponent<CanvasGroup>();
                 var scale = obj.GetComponent<CanvasScaler>(); scale.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
                 var backdrop = FightUI.Panel(canvasRoot, 0, 0, Screen.width, Screen.height, FightUI.Background, false, "Window backdrop");
                 FightUI.Stretch(backdrop); backdrop.GetComponent<Image>().raycastTarget = true;
@@ -149,7 +154,19 @@ namespace MDPro3.UI.Client
             if (!initialized || presentationStopping) return;
             SynchronizePresentation();
             bool core = Program.instance.currentServant == Program.instance.ocgcore;
-            if (core) return;
+            // Read the action directly: this component can update before
+            // UserInput has copied this frame's button state.
+            bool cancelPressed = UserInput.PlayerInput != null
+                ? UserInput.PlayerInput.actions["Cancel"].WasPressedThisFrame() : UserInput.WasCancelPressed;
+            if (core)
+            {
+                if (!corePresented && navigationFrame != Time.frameCount && cancelPressed)
+                {
+                    navigationFrame = Time.frameCount;
+                    Program.instance.ocgcore.OnExit();
+                }
+                return;
+            }
             if (Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame
                 && (modal != null || !NativeUiInteractionActive()))
                 AdvanceClientFocus(Keyboard.current.shiftKey.isPressed);
@@ -159,10 +176,10 @@ namespace MDPro3.UI.Client
                 fpsText.gameObject.SetActive(Config.GetBool("ShowFPS", true));
                 if (Program.instance.ui_.fps.text != null) fpsText.text = Program.instance.ui_.fps.text.text;
             }
-            RefreshContextKeys();
             if (oldWidth != Screen.width || oldHeight != Screen.height || oldFullscreen != UsesFullscreenLayout)
             {
                 if (oldFullscreen != UsesFullscreenLayout) QueueFullscreenReflow(UsesFullscreenLayout);
+                else if (UsesFullscreenLayout) QueueFullscreenReflow(false);
                 oldWidth = Screen.width; oldHeight = Screen.height; oldFullscreen = UsesFullscreenLayout;
                 lastPhysicalResize = Time.unscaledTime;
                 FitClientViewport();
@@ -175,10 +192,6 @@ namespace MDPro3.UI.Client
                 && !ViewportInteractionActive()) Rebuild();
             if (page == "editor") TickEditor();
             if (statusUntil > 0 && Time.unscaledTime > statusUntil) ResetClientStatus();
-            // Read the action directly: this component is added at runtime and
-            // can update before UserInput has copied this frame's button state.
-            bool cancelPressed = UserInput.PlayerInput != null
-                ? UserInput.PlayerInput.actions["Cancel"].WasPressedThisFrame() : UserInput.WasCancelPressed;
             if (navigationFrame != Time.frameCount && cancelPressed && !UserInput.InputFieldActivating())
             {
                 if (modal != null) CloseDialog();
@@ -206,10 +219,35 @@ namespace MDPro3.UI.Client
             try
             {
                 bool core = Program.instance.currentServant == Program.instance.ocgcore;
-                if (core) { RestoreNativeUiRoots(); HideInactiveLegacyServantUIs(); }
-                else LiftLegacyPopups();
-                clientCanvas.enabled = !core;
-                if (core && !wasCore) { if (coreSourcePage == null) coreSourcePage = page; CancelSettingsTest(); CleanupCollectionPreview(); CloseDialog(); }
+                if (core)
+                {
+                    if (!wasCore)
+                    {
+                        UIManager.CancelDuelTransition();
+                        corePresented = false; ++corePresentationVersion;
+                        if (coreSourcePage == null) coreSourcePage = page;
+                        CancelSettingsTest(); CleanupCollectionPreview(); CloseDialog();
+                        if (EventSystem.current != null) EventSystem.current.SetSelectedGameObject(null);
+                    }
+                    RestoreNativeUiRoots(); HideInactiveLegacyServantUIs();
+                    // Servant ownership changes before its addressable assets,
+                    // field and HUD exist. Keep the opaque preparation surface
+                    // until those real objects can replace it in this frame.
+                    // Latch that handoff: later in-duel HUD changes must never
+                    // bring the preparation page back over the field.
+                    if (!corePresented && FightStartupPresentation.NativeFrameReady(Program.instance.ocgcore))
+                        corePresented = true;
+                    clientCanvas.enabled = !corePresented;
+                    clientInteraction.interactable = false;
+                    clientInteraction.blocksRaycasts = true;
+                }
+                else
+                {
+                    corePresented = false;
+                    clientCanvas.enabled = true;
+                    clientInteraction.interactable = true;
+                    LiftLegacyPopups();
+                }
                 if (!core && wasCore)
                 {
                     if (coreSourcePage != null && page != coreSourcePage)
@@ -219,7 +257,7 @@ namespace MDPro3.UI.Client
                     }
                     coreSourcePage = null;
                     if (page != "editor") Program.instance.ShiftToServant(Program.instance.menu);
-                    Rebuild(); ShowStatus("已返回 · 准备就绪");
+                    Rebuild(); ResetClientStatus();
                 }
                 wasCore = core;
             }
@@ -230,12 +268,20 @@ namespace MDPro3.UI.Client
         // flag. The drawable then covers the entire current display instead.
         private bool UsesFullscreenLayout => Screen.fullScreen || Screen.currentResolution.width > 0 && Screen.currentResolution.height > 0
             && Screen.width >= Screen.currentResolution.width - 8 && Screen.height >= Screen.currentResolution.height - 8;
-        private float PreferredViewportWidth => PreferredCompactViewport ? 1280
+        private float PreferredTemplateWidth => PreferredCompactViewport ? 1280
             : UsesFullscreenLayout && Mathf.Min(Screen.width, Screen.height * (16f / 9f)) >= 2400 ? 2560 : 1920;
+        private float PreferredViewportWidth => UsesFullscreenLayout
+            ? Mathf.Max(PreferredTemplateWidth, PreferredTemplateWidth * (9f / 16f) * Mathf.Max(1, Screen.width) / Mathf.Max(1, Screen.height))
+            : PreferredTemplateWidth;
+        private float PreferredViewportHeight => UsesFullscreenLayout
+            ? PreferredViewportWidth * Mathf.Max(1, Screen.height) / Mathf.Max(1, Screen.width)
+            : PreferredViewportWidth * (9f / 16f);
         private void SelectViewportTemplate()
         {
             designWidth = PreferredViewportWidth;
-            designHeight = designWidth * (9f / 16f);
+            // Fill the fullscreen drawable at the selected control density.
+            // The separate native popup viewport retains its 1920x1080 fit.
+            designHeight = PreferredViewportHeight;
         }
         private static void FitDesignViewport(RectTransform viewport, float width, float height)
         {
@@ -314,6 +360,11 @@ namespace MDPro3.UI.Client
         }
         internal static void HideInactiveLegacyServantUIs()
         {
+            // MainMenu's wallpaper is outside its servant UI and otherwise
+            // fades for several frames after the switch. Async menu setup can
+            // also activate it again, so enforce this before every render.
+            if (Program.instance.ui_ != null && Program.instance.ui_.wallpaper != null)
+                Program.instance.ui_.wallpaper.gameObject.SetActive(false);
             foreach (var servant in Program.instance.GetComponentsInChildren<MDPro3.Servant.Servant>(true))
             {
                 if (servant == Program.instance.ocgcore || servant == Program.instance.currentSubServant || servant.servantUI == null) continue;
@@ -601,12 +652,11 @@ namespace MDPro3.UI.Client
         }
         private void Unsaved(string next, bool editor)
         {
-            var panel = ShowDialog("尚有未保存的修改", 640, 290);
-            FightUI.Text(panel, "保存后继续，或放弃本次修改。取消会保留全部输入。", 28, 80, 580, 64, 20);
-            FightUI.Button(panel, "取消", 28, 208, 160, 48, CloseDialog);
-            var discard = FightUI.Button(panel, "放弃修改", 208, 208, 160, 48, () => { if (editor) DiscardEditor(); else DiscardSettings(); NavigateNow(next); });
+            var panel = ShowDialog("尚有未保存的修改", 640, 192);
+            FightUI.Button(panel, "取消", 28, 112, 160, 48, CloseDialog);
+            var discard = FightUI.Button(panel, "放弃修改", 208, 112, 160, 48, () => { if (editor) DiscardEditor(); else DiscardSettings(); NavigateNow(next); });
             FightUI.StyleDestructiveButton(discard);
-            FightUI.Button(panel, "保存并继续", 388, 208, 224, 48, () =>
+            FightUI.Button(panel, "保存并继续", 388, 112, 224, 48, () =>
             {
                 if (editor) SaveEditorThen(() => NavigateNow(next));
                 else { CloseDialog(); if (SaveSettings()) NavigateNow(next); }
@@ -686,7 +736,7 @@ namespace MDPro3.UI.Client
             clientFooter = foot;
             FightUI.Line(foot, 0, 0, W, FightUI.Border);
             statusIcon = FightUI.Icon(foot, "diamond", Gap + 4, (Footer - (Compact ? 18 : 22)) / 2, Compact ? 18 : 22, Compact ? 18 : 22);
-            float statusX = Gap + (Compact ? 32 : 40), statusWidth = W - Gap - 440 - statusX - 12;
+            float statusX = Gap + (Compact ? 32 : 40), statusWidth = W - Gap - 160 - statusX - 16;
             statusInspectButton = FightUI.TextAction(foot, "状态提示", statusX, 0, statusWidth, Footer, ShowClientStatusDetails, false);
             FightUI.FocusKey(statusInspectButton, "client:status-details");
             var statusColors = statusInspectButton.colors;
@@ -699,19 +749,7 @@ namespace MDPro3.UI.Client
             FightUI.Place(statusText.rectTransform, 0, 0, statusWidth - 26, Footer);
             statusInspectArrow = FightUI.Icon(statusInspectButton.transform, "arrow", statusWidth - 20, (Footer - 14) / 2, 14, 14, FightUI.Muted);
             RefreshFooterStatus();
-            contextKeys = FightUI.Text(foot, "", W - Gap - 440, 0, 264, Footer,
-                Compact ? 13 : 15, FightUI.Muted, TextAlignmentOptions.MidlineRight);
-            contextKeys.raycastTarget = false;
-            RefreshContextKeys();
             fpsText = FightUI.Text(foot, "", W - Gap - 160, 0, 160, Footer, Compact ? 16 : 18, FightUI.Muted, TextAlignmentOptions.MidlineRight);
-        }
-        private void RefreshContextKeys()
-        {
-            if (contextKeys == null) return;
-            bool editing = EventSystem.current != null && UserInput.InputFieldActivating();
-            var value = editing ? "正在输入  ·  Esc 结束编辑"
-                : "Tab 切换焦点  ·  Esc " + (modal != null || NativeUiInteractionActive() ? "关闭" : page == "home" ? "退出" : "返回");
-            if (contextKeys.text != value) contextKeys.text = value;
         }
         private void DrawHeader()
         {
@@ -789,11 +827,11 @@ namespace MDPro3.UI.Client
         {
             if (statusText == null || statusInspectButton == null) return;
             bool available = statusUntil != 0;
-            statusText.text = status; statusText.color = statusIsError ? FightUI.Danger : FightUI.Muted;
+            statusText.text = available ? status : ""; statusText.color = statusIsError ? FightUI.Danger : FightUI.Muted;
             statusInspectButton.interactable = available;
             FightUI.Hint(statusInspectButton.gameObject, available ? "查看完整操作提示" : "");
             FightUI.Hint(statusText.gameObject, available ? status + "\n单击查看完整提示" : "");
-            if (statusIcon != null) { statusIcon.Kind = statusIsError ? "alert" : "diamond"; statusIcon.color = statusIsError ? FightUI.Danger : FightUI.Gold; }
+            if (statusIcon != null) { statusIcon.gameObject.SetActive(available); statusIcon.Kind = statusIsError ? "alert" : "diamond"; statusIcon.color = statusIsError ? FightUI.Danger : FightUI.Gold; }
             if (statusInspectArrow != null) { statusInspectArrow.gameObject.SetActive(available); statusInspectArrow.color = statusText.color; }
             var underline = statusInspectButton.transform.Find("Action underline");
             if (underline != null)
@@ -822,16 +860,16 @@ namespace MDPro3.UI.Client
             text.text = message; text.richText = false; text.enableWordWrapping = true; text.overflowMode = TextOverflowModes.Overflow;
             text.lineSpacing = 4; text.paragraphSpacing = 6; text.name = "Complete operation message";
             float preferred = text.GetPreferredValues(message, width - 74, float.PositiveInfinity).y + 4;
-            var reading = FightUI.Scroll(box, 28, 88, width - 56, height - 202, preferred);
+            var reading = FightUI.Scroll(box, 28, 88, width - 56, height - 170, preferred);
             text.rectTransform.SetParent(reading, false);
             FightUI.Place(text.rectTransform, 0, 0, width - 74, preferred);
-            var copied = FightUI.Text(box, "", 28, height - 105, width - 56, 28, 15, FightUI.CyanText);
-            FightUI.Line(box, 28, height - 116, width - 56);
-            FightUI.Button(box, "复制提示", width - 362, height - 66, 144, 48, () =>
+            FightUI.Line(box, 28, height - 74, width - 56);
+            Button copy = null;
+            copy = FightUI.Button(box, "复制提示", width - 196, height - 66, 168, 48, () =>
             {
-                GUIUtility.systemCopyBuffer = message; copied.text = "提示已复制";
+                GUIUtility.systemCopyBuffer = message;
+                copy.GetComponentInChildren<TextMeshProUGUI>().text = "已复制";
             });
-            FightUI.Button(box, "返回页面", width - 196, height - 66, 168, 48, CloseDialog, true);
         }
         internal RectTransform ShowDialog(string title, float width = 620, float height = 360, bool refresh = false)
         {
@@ -923,8 +961,8 @@ namespace MDPro3.UI.Client
             CloseDialog(); CancelSettingsTest(); CleanupCollectionPreview();
             bool started = false;
             Try(() => { start?.Invoke(); started = true; });
-            if (!started && Program.instance.currentServant != Program.instance.ocgcore) return;
-            if (Program.instance.currentServant == Program.instance.ocgcore) { RestoreNativeUiRoots(); HideInactiveLegacyServantUIs(); clientCanvas.enabled = false; wasCore = true; }
+            if (!started && Program.instance.currentServant != Program.instance.ocgcore) { coreSourcePage = null; return; }
+            if (Program.instance.currentServant == Program.instance.ocgcore) SynchronizePresentation();
             else ShowStatus("正在启动…");
         }
         private void OnDestroy() { CancelSettingsTest(); CleanupCollectionPreview(); ReleaseEditor(); RestoreNativeUiRoots(); if (Instance == this) Instance = null; }

@@ -521,6 +521,7 @@ namespace MDPro3
         #region UI Tools
 
         private static GameObject duelTransition;
+        private static readonly List<GameObject> duelTransitionTails = new();
 
         public static void UIBlackIn(float time)
         {
@@ -532,13 +533,38 @@ namespace MDPro3
             }
         }
 
+        public static void CancelDuelTransition()
+        {
+            // A new entry can retire an exit before its delayed cleanup runs.
+            // Remove that exit's rendering immediately, without playing its tail.
+            var retired = duelTransition;
+            duelTransition = null;
+            StopTransition(retired);
+            foreach (var tail in duelTransitionTails) StopTransition(tail);
+            duelTransitionTails.Clear();
+
+            static void StopTransition(GameObject transition)
+            {
+                if (transition == null) return;
+                transition.SetActive(false);
+                var director = transition.GetComponent<PlayableDirector>();
+                if (director != null) director.Stop();
+                Destroy(transition);
+            }
+        }
+
         public static void UIBlackOut(float time)
         {
             if(duelTransition != null)
             {
-                duelTransition.GetComponent<LoopTrackManager>().StopLoop();
-                Destroy(duelTransition, 1f);
+                var retiring = duelTransition;
                 duelTransition = null;
+                retiring.GetComponent<LoopTrackManager>().StopLoop();
+                // Keep ownership through the tail so a new entry can stop it
+                // before Unity's delayed destruction runs.
+                duelTransitionTails.RemoveAll(tail => tail == null);
+                duelTransitionTails.Add(retiring);
+                Destroy(retiring, 1f);
             }
         }
 

@@ -31,7 +31,7 @@ namespace MDPro3.UI.Client
         private RenderTexture collectionTexture;
         private Mate collectionMate;
         private RawImage collectionSurface;
-        private TextMeshProUGUI collectionLoading, mateResultText, animationResultText, appearanceResultText;
+        private TextMeshProUGUI collectionLoading, appearanceCatalogTitle;
         private Button collectionUseMateButton, collectionLeftButton, collectionRightButton, appearanceMateButton;
         private readonly Dictionary<Button, int> collectionBrowseIds = new Dictionary<Button, int>();
         private int collectionPendingMateTap, collectionPendingCutinPlay;
@@ -55,6 +55,9 @@ namespace MDPro3.UI.Client
         }
         private bool LibraryLargeViewport => W >= 2400;
         private int collectionGeneration, collectionPlayGeneration;
+        private int collectionDirectoryGeneration;
+        private bool collectionDirectoryBuilding;
+        private readonly Dictionary<Items.ItemType, List<Items.Item>> collectionAvailableItems = new Dictionary<Items.ItemType, List<Items.Item>>();
         private bool collectionPreviewLoaded, collectionPreviewError, collectionProtectorReady, collectionProtectorError;
         private bool collectionPreviewNeedsProtector;
         private float collectionLoadStarted;
@@ -113,6 +116,7 @@ namespace MDPro3.UI.Client
             && collectionTexture != null && collectionTexture.IsCreated()
             && (!collectionPreviewNeedsProtector || collectionProtectorReady)
             && (page != "appearance" || CollectionVisibleProtectorIconsReady) && CollectionVisibleResourceIconsReady;
+        internal bool CollectionCatalogReady => !collectionDirectoryBuilding;
         internal bool CollectionVisibleResourceIconsReady => !collectionPendingIcons.Any(image => image != null && CollectionIconVisible(image.rectTransform));
         internal bool CollectionPreviewFailed => collectionPreviewError || collectionProtectorError;
 #if FIGHT_UI_PROOF
@@ -138,6 +142,39 @@ namespace MDPro3.UI.Client
         private void CollectionTab(Transform parent, string label, string route, float x, float y, float width)
         {
             LibraryTab(parent, label, page == route, x, y, width, () => Navigate(route));
+        }
+        private async void PopulateCollectionDirectory(RectTransform content, int count, Action<int> create, Action complete)
+        {
+            int generation = collectionGeneration, request = ++collectionDirectoryGeneration;
+            collectionDirectoryBuilding = count > 0;
+            // Build the new page and its navigation controls before a large catalog.
+            // A complete installed animation catalog has nearly 500 entries.
+            await UniTask.NextFrame();
+            int index = 0;
+            while (index < count && content != null && CollectionIconRequestCurrent(generation) && request == collectionDirectoryGeneration)
+            {
+                float deadline = Time.realtimeSinceStartup + .003f;
+                int added = 0;
+                do { create(index++); added++; }
+                while (index < count && added < 8 && Time.realtimeSinceStartup < deadline);
+                if (index < count) await UniTask.NextFrame();
+            }
+            if (content == null || !CollectionIconRequestCurrent(generation) || request != collectionDirectoryGeneration) return;
+            collectionDirectoryBuilding = false;
+            complete();
+        }
+        private void CompleteCollectionDirectory(ScrollRect scroll, LibraryScrollMemory memory, float width, float height)
+        {
+            if (scroll == null) return;
+            float position = memory.Position;
+            // Record new nodes once, then apply the live size if a resize happened
+            // while the directory was being filled.
+            CaptureLibraryNodeLayouts();
+            if (libraryLeftPanel != null) { width = libraryLeftPanel.rect.width; height = libraryLeftPanel.rect.height; }
+            ReflowLibraryDirectory(scroll, width, height);
+            Canvas.ForceUpdateCanvases();
+            scroll.verticalNormalizedPosition = position;
+            memory.Position = position;
         }
         private TMP_InputField CollectionSearchField(Transform parent, string value, string placeholder, float x, float y, float width, float height, Action<string> changed)
         {
@@ -201,9 +238,9 @@ namespace MDPro3.UI.Client
         {
             float size = CharacterCardCaptionSize(viewportHeight);
             // Use the live CJK font's two-line box rather than assuming two glyph heights.
-            float measured = appearanceResultText == null ? size * 2.5f
-                : appearanceResultText.GetPreferredValues("国\n国", float.PositiveInfinity, float.PositiveInfinity).y
-                    * size / appearanceResultText.fontSize;
+            float measured = appearanceCatalogTitle == null ? size * 2.5f
+                : appearanceCatalogTitle.GetPreferredValues("国\n国", float.PositiveInfinity, float.PositiveInfinity).y
+                    * size / appearanceCatalogTitle.fontSize;
             return Mathf.Max(viewportHeight < 180 ? 52 : 60, measured + 12);
         }
         private float CharacterCardPortraitHeight(float cellWidth, float viewportHeight, float captionHeight)
@@ -240,7 +277,7 @@ namespace MDPro3.UI.Client
             }
             else
             {
-                float reserve = appearanceCategory == "Case" ? 118 : appearanceCategory == "Wallpaper" || appearanceCategory == "Character" ? 72 : 24;
+                float reserve = appearanceCategory == "Case" ? 64 : 24;
                 stageH = Mathf.Min(680, Mathf.Min(Mathf.Max(64, height - y - reserve), stageW * .82f));
             }
             return new Rect((width - stageW) / 2, y, stageW, stageH);
@@ -412,6 +449,8 @@ namespace MDPro3.UI.Client
         }
         private void ReflowLibraryDirectory(ScrollRect directory, float width, float panelHeight)
         {
+            // Keep the full scroll range while entries are arriving in batches.
+            if (collectionDirectoryBuilding) return;
             var cards = directory.content.GetComponentsInChildren<Button>().Where(button => button.name == "Library selection" && button.transform.parent == directory.content).ToArray();
             if (cards.Length == 0) { ReflowLibraryEmpty(directory.content, width - 16, directory.viewport.rect.height); return; }
             if (page == "animations")
@@ -518,19 +557,22 @@ namespace MDPro3.UI.Client
             bool shortPanel = height < 240;
             float cy = shortPanel ? 18 : Mathf.Min(152, Mathf.Max(58, height * .28f)), iconSize = shortPanel ? 28 : 48;
             var texts = content.GetComponentsInChildren<TextMeshProUGUI>().Where(text => text.transform.parent == content).ToArray();
+            bool hasDetail = texts.Length > 1;
+            float actionY = Mathf.Min(height - 44, hasDetail ? shortPanel ? 130 : cy + 204 : shortPanel ? 98 : cy + 112);
             foreach (RectTransform child in content)
             {
                 if (child.GetComponent<FightIcon>() != null) FightUI.Place(child, (width - iconSize) / 2, shortPanel ? 6 : cy - 28, iconSize, iconSize);
                 if (child.GetComponent<Button>() != null)
                 {
-                    FightUI.Place(child, (width - 168) / 2, Mathf.Min(height - 44, shortPanel ? 130 : cy + 204), 168, 40);
+                    FightUI.Place(child, (width - 168) / 2, actionY, 168, 40);
                     ReflowLibraryControl(child);
                 }
             }
-            if (texts.Length < 2) return;
+            if (texts.Length == 0) return;
             texts[0].fontSize = shortPanel ? 21 : 25;
             FightUI.Place(texts[0].rectTransform, 24, shortPanel ? 42 : cy + 46, width - 48, shortPanel ? 32 : 44);
-            float detailY = shortPanel ? 82 : cy + 106, actionY = Mathf.Min(height - 44, shortPanel ? 130 : cy + 204);
+            if (!hasDetail) return;
+            float detailY = shortPanel ? 82 : cy + 106;
             bool hasAction = content.GetComponentsInChildren<Button>().Any(button => button.transform.parent == content);
             float detailH = hasAction ? Mathf.Clamp(actionY - detailY - 8, 24, 80) : shortPanel ? Mathf.Max(28, height - 90) : 80;
             FightUI.Place(texts[1].rectTransform, 32, detailY, width - 64, detailH);
@@ -582,7 +624,7 @@ namespace MDPro3.UI.Client
                 width - (appearanceCategory == "Mate" ? 124 : 32), appearanceCategory == "Mate" ? 34 : 52);
             if (libraryPreviewAction != null)
             {
-                FightUI.Place(libraryPreviewAction, 16, actionY + 60, width - 32, 36);
+                FightUI.Place(libraryPreviewAction, 16, actionY, width - 32, 36);
                 ReflowLibraryControl(libraryPreviewAction);
             }
         }
@@ -608,9 +650,8 @@ namespace MDPro3.UI.Client
             float leftW = LibraryBrowseWidth("collection"), rightX = leftW + Gap, rightW = BodyWidth - rightX, panelH = BodyHeight - y;
             var left = FightUI.Panel(Body, 0, y, leftW, panelH, FightUI.PanelColor, false);
             libraryLeftPanel = left;
-            var heading = FightUI.Text(left, "伙伴目录", 16, 10, leftW - 168, 32, 21, FightUI.Foreground);
+            var heading = FightUI.Text(left, "伙伴目录", 16, 10, leftW - 32, 32, 21, FightUI.Foreground);
             heading.fontStyle = FontStyles.Bold; CollectionCatalogDivider(left, leftW);
-            mateResultText = FightUI.Text(left, available.Count + " 个伙伴", leftW - 152, 13, 132, 28, 14, FightUI.Muted, TextAlignmentOptions.Right);
             CollectionSearchField(left, collectionSearch, "搜索伙伴名称或编号", 16, 56, leftW - 32, 42, v => { collectionSearch = v; DrawMateGrid(available, libraryLeftPanel.rect.width, libraryLeftPanel.rect.height); });
             collectionList = FightUI.Node(left, "Mate catalog", 0, 110, leftW, panelH - 110);
             DrawMateGrid(available, leftW, panelH);
@@ -645,13 +686,12 @@ namespace MDPro3.UI.Client
             FightUI.Clear(collectionList); collectionBrowseIds.Clear();
             var items = available.Where(i => CollectionMatches(CollectionDisplayName(i), collectionSearch, i.id.ToString())).ToList();
             collectionPreviewFilteredOut = collectionMateId != 0 && !items.Any(item => item.id == collectionMateId);
-            if (mateResultText != null) mateResultText.text = string.IsNullOrWhiteSpace(collectionSearch) ? items.Count + " 个伙伴" : items.Count + " / " + available.Count + " 个伙伴";
             int columns = LibraryGridColumns(width, 12);
             float cellW = (width - 32 - (columns - 1) * 12) / columns, cellH = cellW + 60;
             var content = FightUI.Scroll(collectionList, 8, 0, width - 16, panelHeight - 118, Mathf.Ceil(items.Count / (float)columns) * (cellH + 12) + 16, out var scroll);
             scroll.name = "Mate directory navigation";
-            if (items.Count == 0) LibraryEmpty(content, available.Count == 0 ? "尚未安装伙伴资源" : "没有匹配的伙伴", available.Count == 0 ? "安装伙伴资源后，可在这里浏览与互动。" : "试试其他名称或编号，或清除搜索。", width - 16, panelHeight - 118, "diamond", available.Count == 0 ? (Action)null : ClearCollectionSearch);
-            for (int i = 0; i < items.Count; i++)
+            if (items.Count == 0) LibraryEmpty(content, available.Count == 0 ? "尚未安装伙伴资源" : "没有匹配的伙伴", "", width - 16, panelHeight - 118, "diamond", available.Count == 0 ? (Action)null : ClearCollectionSearch);
+            PopulateCollectionDirectory(content, items.Count, i =>
             {
                 var item = items[i]; float x = 8 + i % columns * (cellW + 12), y = 8 + i / columns * (cellH + 12);
                 var b = LibrarySelection(content, x, y, cellW, cellH, item.id == collectionMateId, () =>
@@ -667,8 +707,7 @@ namespace MDPro3.UI.Client
                 string displayName = CollectionDisplayName(item);
                 var name = LibraryWrappedText(b.transform, displayName, 7, cellW, cellW - 14, 52, 17, item.id == collectionMateId ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center);
                 FightUI.Hint(name.gameObject, displayName);
-            }
-            ReflowLibraryDirectory(scroll, width, panelHeight);
+            }, () => CompleteCollectionDirectory(scroll, mateScroll, width, panelHeight));
             RefreshCollectionPreviewContext();
             CompleteLibraryRefresh(scroll, mateScroll);
             CaptureLibraryNodeLayouts();
@@ -688,7 +727,6 @@ namespace MDPro3.UI.Client
                 foreach (var text in button.GetComponentsInChildren<TextMeshProUGUI>())
                     if (text.GetComponent<FightTooltip>() != null) text.color = selected ? FightUI.Active : FightUI.Foreground;
             }
-            CaptureLibraryNodeLayouts();
         }
         private void PreviewCollectionMate(Items.Item item)
         {
@@ -749,9 +787,8 @@ namespace MDPro3.UI.Client
             float leftW = LibraryBrowseWidth("animations"), rightX = leftW + Gap, rightW = BodyWidth - rightX;
             var left = FightUI.Panel(Body, 0, y, leftW, BodyHeight - y, FightUI.PanelColor, false);
             libraryLeftPanel = left;
-            var heading = FightUI.Text(left, "召唤动画", 16, 14, leftW - 144, 32, 21, FightUI.Foreground);
+            var heading = FightUI.Text(left, "召唤动画", 16, 14, leftW - 32, 32, 21, FightUI.Foreground);
             heading.fontStyle = FontStyles.Bold; CollectionCatalogDivider(left, leftW);
-            animationResultText = FightUI.Text(left, collectionCutins.Count + " 个", leftW - 132, 16, 112, 28, 14, FightUI.Muted, TextAlignmentOptions.Right);
             CollectionSearchField(left, animationSearch, "搜索卡名或编号", 16, 56, leftW - 32, 42, v => { animationSearch = v; DrawAnimationList(libraryLeftPanel.rect.width, libraryLeftPanel.rect.height); });
             collectionList = FightUI.Node(left, "Animation catalog", 0, 110, leftW, BodyHeight - y - 110);
             DrawAnimationList(leftW, BodyHeight - y);
@@ -793,13 +830,13 @@ namespace MDPro3.UI.Client
             FightUI.Clear(collectionList); collectionBrowseIds.Clear();
             var cards = collectionCutins.Where(c => CollectionMatches(c.Name, animationSearch, c.Id.ToString())).ToList();
             collectionPreviewFilteredOut = collectionCutinId != 0 && !cards.Any(card => card.Id == collectionCutinId);
-            if (animationResultText != null) animationResultText.text = string.IsNullOrWhiteSpace(animationSearch) ? cards.Count + " 个" : cards.Count + " / " + collectionCutins.Count;
             var content = FightUI.Scroll(collectionList, 8, 0, width - 16, panelHeight - 118, cards.Count * 92 + 16, out var scroll);
             scroll.name = "Animation directory navigation";
-            if (cards.Count == 0) LibraryEmpty(content, collectionCutins.Count == 0 ? "尚未安装召唤动画" : "没有匹配的动画", collectionCutins.Count == 0 ? "安装召唤动画资源后，可在这里预览与播放。" : "试试其他卡名或编号，或清除搜索。", width - 16, panelHeight - 118, "replay", collectionCutins.Count == 0 ? (Action)null : ClearCollectionSearch);
-            for (int i = 0; i < cards.Count; i++)
+            if (cards.Count == 0) LibraryEmpty(content, collectionCutins.Count == 0 ? "尚未安装召唤动画" : "没有匹配的动画", "", width - 16, panelHeight - 118, "replay", collectionCutins.Count == 0 ? (Action)null : ClearCollectionSearch);
+            float rowY = 8;
+            PopulateCollectionDirectory(content, cards.Count, i =>
             {
-                var card = cards[i]; var b = LibrarySelection(content, 8, 8 + i * 92, width - 32, 82, card.Id == collectionCutinId, () =>
+                var card = cards[i]; var b = LibrarySelection(content, 8, rowY, width - 32, 82, card.Id == collectionCutinId, () =>
                 {
                     PreviewCollectionAnimation(card);
                     collectionPendingCutinPlay = card.Id;
@@ -813,8 +850,14 @@ namespace MDPro3.UI.Client
                 FightUI.Hint(name.gameObject, card.Name);
                 FightUI.Text(b.transform, "卡片编号 " + card.Id, 80, 50, width - 152, 22, 13, FightUI.Muted, TextAlignmentOptions.MidlineLeft).name = "Animation resource id";
                 FightUI.Icon(b.transform, "play", width - 60, 28, 20, 24, card.Id == collectionCutinId ? FightUI.Gold : FightUI.Muted);
-            }
-            ReflowLibraryDirectory(scroll, width, panelHeight);
+                float titleH = Mathf.Max(40, name.GetPreferredValues(name.text, width - 152, float.PositiveInfinity).y + 4);
+                float rowH = Mathf.Max(82, titleH + 42);
+                FightUI.Place(b.GetComponent<RectTransform>(), 8, rowY, width - 32, rowH);
+                FightUI.Place(name.rectTransform, 80, 7, width - 152, titleH);
+                FightUI.Place(b.transform.Find("Animation resource id") as RectTransform, 80, titleH + 10, width - 152, 22);
+                FightUI.Place(b.transform.Find("Icon play") as RectTransform, width - 60, (rowH - 24) / 2, 20, 24);
+                rowY += rowH + 10;
+            }, () => CompleteCollectionDirectory(scroll, animationScroll, width, panelHeight));
             RefreshCollectionPreviewContext();
             CompleteLibraryRefresh(scroll, animationScroll);
             CaptureLibraryNodeLayouts();
@@ -850,6 +893,8 @@ namespace MDPro3.UI.Client
             GameObject model = null;
             try
             {
+                await UniTask.NextFrame();
+                if (!CollectionRequestCurrent(generation) || request != collectionPlayGeneration) return;
                 // Instantiate under an inactive parent so ScreenEffect cannot change the live duel cameras.
                 var prefab = collectionNativeCutins.Contains(id) ? await ABLoader.LoadMonsterCutinAsync(id, true, false)
                     : await ABLoader.LoadFromFileAsync("MonsterCutin2/" + id, true, false);
@@ -1075,21 +1120,22 @@ namespace MDPro3.UI.Client
             if (condition == appearanceCondition && player == appearancePlayer) return;
             Action change = () => { appearanceCondition = condition; appearancePlayer = player; appearanceDraft = null; appearanceSync = false; appearanceSearch = ""; Rebuild(); };
             if (!AppearanceDirty) { change(); return; }
-            AppearanceUnsavedDialog(change, "切换情境或玩家前，请处理当前修改。");
+            AppearanceUnsavedDialog(change);
         }
         internal bool TryLeaveAppearance(string next)
         {
             if (page != "appearance" || next == "appearance" || !AppearanceDirty) return true;
-            AppearanceUnsavedDialog(() => NavigateNow(next), "离开前，请处理当前外观修改。"); return false;
+            AppearanceUnsavedDialog(() => NavigateNow(next)); return false;
         }
-        private void AppearanceUnsavedDialog(Action continued, string text)
+        private void AppearanceUnsavedDialog(Action continued)
         {
-            var box = ShowDialog("外观尚未应用", 650, 290);
-            var scope = FightUI.Text(box, text + "\n应用范围：" + AppearanceChangeScope(), 28, 84, 590, 112, 18);
+            var box = ShowDialog("外观尚未应用", 650, 250);
+            var scope = FightUI.Text(box, "应用范围：" + AppearanceChangeScope(), 28, 84, 590, 72, 18);
             scope.enableWordWrapping = true;
-            FightUI.Button(box, "继续编辑", 28, 210, 164, 48, CloseDialog);
-            FightUI.Button(box, "放弃修改", 208, 210, 164, 48, () => { DiscardAppearance(); CloseDialog(); continued(); });
-            FightUI.Button(box, "应用并继续", 388, 210, 234, 48, () => { if (SaveAppearance()) { CloseDialog(); continued(); } }, true);
+            FightUI.Button(box, "继续编辑", 28, 172, 164, 48, CloseDialog);
+            var discard = FightUI.Button(box, "放弃修改", 208, 172, 164, 48, () => { DiscardAppearance(); CloseDialog(); continued(); });
+            FightUI.StyleDestructiveButton(discard);
+            FightUI.Button(box, "应用并继续", 388, 172, 234, 48, () => { if (SaveAppearance()) { CloseDialog(); continued(); } }, true);
         }
         internal void DiscardAppearance() { appearanceDraft = null; appearanceSync = false; EnsureAppearanceDraft(); }
         private void ShowAppearanceChanges()
@@ -1097,13 +1143,11 @@ namespace MDPro3.UI.Client
             if (!AppearanceDirty) return;
             float width = Mathf.Min(760, W - 48), height = Mathf.Min(600, H - 48), inner = width - 56;
             var box = ShowDialog("本次外观修改", width, height);
-            var intro = FightUI.Text(box, appearanceSync
-                ? "已应用 → 待应用；同步项目的原值取当前情境，其他情境同项将使用待应用值。"
-                : "已应用 → 待应用；只保存以下修改的项目。", 28, 80, inner, 56, 17, FightUI.Muted);
+            var intro = FightUI.Text(box, "应用范围：" + AppearanceChangeScope(), 28, 80, inner, 56, 17, FightUI.Muted);
             intro.enableWordWrapping = true;
             float introHeight = Mathf.Max(40, intro.GetPreferredValues(intro.text, inner, float.PositiveInfinity).y + 4);
             intro.rectTransform.sizeDelta = new Vector2(inner, introHeight);
-            float listTop = 80 + introHeight + 12, listHeight = height - listTop - 76;
+            float listTop = 80 + introHeight + 12, listHeight = height - listTop - 28;
             var content = FightUI.Scroll(box, 28, listTop, inner, listHeight, listHeight, out var scroll);
             scroll.name = "Appearance change review navigation";
             float y = 0;
@@ -1121,7 +1165,6 @@ namespace MDPro3.UI.Client
                 RenderAppearanceChange(content, inner, "Override", "覆盖卡组外观", appearanceDraft.OriginalOverride ? "开启" : "关闭",
                     appearanceDraft.Override ? "开启" : "关闭", "全局覆盖卡组外观", ref y);
             content.sizeDelta = new Vector2(inner, Mathf.Max(listHeight, y));
-            FightUI.FocusKey(FightUI.Button(box, "返回编辑", width - 196, height - 62, 168, 46, CloseDialog), "collection:appearance:review:return");
         }
         private string AppearanceSlotChangeScope() => (appearanceSync ? "对战、观战、回放"
             : AppearanceConditionNames[Array.IndexOf(AppearanceConditions, appearanceCondition)]) + " · 玩家 " + (appearancePlayer + 1);
@@ -1238,16 +1281,16 @@ namespace MDPro3.UI.Client
         private void RenderAppearanceOptions(RectTransform middle, float width, float height)
         {
             string label = AppearanceCategoryNames[Array.IndexOf(AppearanceCategories, appearanceCategory)];
-            var heading = FightUI.Text(middle, label, 16, 14, width - 152, 34, 24, FightUI.Gold);
+            var heading = FightUI.Text(middle, label, 16, 14, width - 240, 34, 24, FightUI.Gold);
+            appearanceCatalogTitle = heading;
             heading.name = "Appearance catalog title";
             heading.fontStyle = FontStyles.Bold; CollectionCatalogDivider(middle, width);
-            appearanceResultText = FightUI.Text(middle, "", width - 132, 18, 112, 28, 14, FightUI.Muted, TextAlignmentOptions.Right);
-            appearanceRestoreButton = FightUI.FocusKey(FightUI.Button(middle, "还原此项", width - 344, 14, 96, 32,
+            appearanceRestoreButton = FightUI.FocusKey(FightUI.Button(middle, "还原此项", width - 224, 14, 96, 32,
                 RestoreCurrentAppearance, false, AppearanceCategoryDirty(appearanceCategory)), "collection:appearance:restore-current");
             FightUI.Hint(appearanceRestoreButton.gameObject, appearanceCategory == "Character"
                 ? "只还原当前情境、玩家的已应用角色和该情境的语音开关，保留其他外观修改。"
                 : "只还原当前类别的已应用设置，保留其他外观修改。");
-            appearanceLocateButton = appearanceCategory == "PlayerName" ? null : FightUI.FocusKey(FightUI.Button(middle, "定位选择", width - 236, 14, 96, 32,
+            appearanceLocateButton = appearanceCategory == "PlayerName" ? null : FightUI.FocusKey(FightUI.Button(middle, "定位选择", width - 116, 14, 96, 32,
                 LocateCurrentAppearance), "collection:appearance:locate-current");
             if (appearanceLocateButton != null) FightUI.Hint(appearanceLocateButton.gameObject, "回到当前预览对应的目录条目；清除筛选并将它滚动到可见位置。");
             ReflowAppearanceCatalogActions(width);
@@ -1275,15 +1318,14 @@ namespace MDPro3.UI.Client
             if (appearanceCategory == "Grave" || appearanceCategory == "Stand") options.Add(new Items.Item { id = Items.CODE_SAME, name = "与场地一致", description = "使用当前场地对应的外观。" });
             options.AddRange(available);
             var items = options.Where(i => CollectionMatches(CollectionDisplayName(i), appearanceSearch, i.id.ToString())).ToList();
-            if (appearanceResultText != null) appearanceResultText.text = string.IsNullOrWhiteSpace(appearanceSearch) ? items.Count + " 个选项" : items.Count + " / " + options.Count;
             int columns = LibraryGridColumns(width, 10);
             float cellW = (width - 32 - (columns - 1) * 10) / columns;
             float artH = Mathf.Min(appearanceCategory == "Protector" ? cellW * 1.43f : cellW, Mathf.Max(84, height - 190));
             float cellH = artH + 60;
             var content = FightUI.Scroll(collectionList, 8, 0, width - 16, height - 118, Mathf.Ceil(items.Count / (float)columns) * (cellH + 12) + 16, out var scroll);
             scroll.name = "Appearance resource navigation";
-            if (items.Count == 0) LibraryEmpty(content, options.Count == 0 ? "尚未安装此类素材" : "没有匹配的素材", options.Count == 0 ? "安装此类外观资源后，可在这里选择与预览。" : "试试其他名称或编号，或清除搜索。", width - 16, height - 118, "diamond", options.Count == 0 ? (Action)null : ClearCollectionSearch);
-            for (int i = 0; i < items.Count; i++)
+            if (items.Count == 0) LibraryEmpty(content, options.Count == 0 ? "尚未安装此类素材" : "没有匹配的素材", "", width - 16, height - 118, "diamond", options.Count == 0 ? (Action)null : ClearCollectionSearch);
+            PopulateCollectionDirectory(content, items.Count, i =>
             {
                 var item = items[i]; bool selected = appearanceCategory == "Case" ? item.id == appearanceCase : item.id.ToString() == appearanceDraft.Values[appearanceCategory];
                 var b = LibrarySelection(content, 8 + i % columns * (cellW + 10), 8 + i / columns * (cellH + 12), cellW, cellH, selected,
@@ -1297,8 +1339,7 @@ namespace MDPro3.UI.Client
                 var name = LibraryWrappedText(b.transform, displayName, 5, artH, cellW - 10, 52, 16, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center);
                 FightUI.Hint(name.gameObject, displayName);
                 AddAppearanceResourceState(b, appearanceCategory, item.id.ToString(), selected, cellW);
-            }
-            ReflowLibraryDirectory(scroll, width, height);
+            }, () => CompleteCollectionDirectory(scroll, appearanceScroll, width, height));
             CompleteLibraryRefresh(scroll, appearanceScroll);
             CaptureLibraryNodeLayouts();
         }
@@ -1306,20 +1347,20 @@ namespace MDPro3.UI.Client
         private void ReflowAppearanceCatalogActions(float width)
         {
             var heading = libraryLeftPanel == null ? null : libraryLeftPanel.Find("Appearance catalog title") as RectTransform;
-            if (heading != null) FightUI.Place(heading, 16, 14, width - 368, 34);
+            if (heading != null) FightUI.Place(heading, 16, 14, width - 240, 34);
             if (appearanceRestoreButton != null)
             {
-                FightUI.Place(appearanceRestoreButton.GetComponent<RectTransform>(), width - 344, 14, 96, 32);
+                FightUI.Place(appearanceRestoreButton.GetComponent<RectTransform>(), width - 224, 14, 96, 32);
                 ReflowLibraryControl(appearanceRestoreButton.GetComponent<RectTransform>());
             }
             if (appearanceLocateButton != null)
             {
-                FightUI.Place(appearanceLocateButton.GetComponent<RectTransform>(), width - 236, 14, 96, 32);
+                FightUI.Place(appearanceLocateButton.GetComponent<RectTransform>(), width - 116, 14, 96, 32);
                 ReflowLibraryControl(appearanceLocateButton.GetComponent<RectTransform>());
             }
         }
 
-        private void LocateCurrentAppearance()
+        private async void LocateCurrentAppearance()
         {
             if (page != "appearance" || collectionList == null || libraryLeftPanel == null) return;
             appearanceSearch = "";
@@ -1331,6 +1372,10 @@ namespace MDPro3.UI.Client
             }
             if (appearanceCategory == "Character") DrawCharacterGrid(libraryLeftPanel.rect.width, libraryLeftPanel.rect.height);
             else DrawAppearanceGrid(libraryLeftPanel.rect.width, libraryLeftPanel.rect.height);
+            int generation = collectionGeneration, request = collectionDirectoryGeneration;
+            while (collectionDirectoryBuilding && CollectionIconRequestCurrent(generation) && request == collectionDirectoryGeneration)
+                await UniTask.NextFrame();
+            if (!CollectionIconRequestCurrent(generation) || request != collectionDirectoryGeneration) return;
             if (appearanceSelectedResource == null)
             {
                 ShowStatus("当前选择未安装到目录，可选择其他素材。");
@@ -1380,10 +1425,11 @@ namespace MDPro3.UI.Client
             float actionY = stage.yMax + 14;
             if (appearanceCategory == "Mate") appearanceMateButton = FightUI.Button(right, "互动", stage.xMax - 92, actionY, 92, 34,
                 () => { if (collectionMate != null) collectionMate.Play(Mate.MateAction.Tap); }, false, false);
-            string detail = appearanceCategory == "Case" ? "卡盒随卡组保存，此处预览。" : appearanceCategory == "Wallpaper" ? "全局菜单壁纸" : appearanceCategory == "Character" ? "角色按当前槽位保存；语音作用于当前情境。"
-                : appearanceCategory == "Mate" && appearanceDraft.Values["Mate"] == "0" ? "当前未显示伙伴" : null;
-            if (detail != null) libraryPreviewDetail = FightUI.Text(right, detail, 16, actionY, width - (appearanceCategory == "Mate" ? 124 : 32), appearanceCategory == "Mate" ? 34 : 52, 16, FightUI.Muted);
-            if (appearanceCategory == "Case") libraryPreviewAction = FightUI.Button(right, "卡组管理", 16, actionY + 60, width - 32, 36, () => Navigate("decks")).GetComponent<RectTransform>();
+            if (appearanceCategory == "Case")
+            {
+                libraryPreviewAction = FightUI.Button(right, "卡组管理", 16, actionY, width - 32, 36, () => Navigate("decks")).GetComponent<RectTransform>();
+                FightUI.Hint(libraryPreviewAction.gameObject, "卡盒随卡组保存；前往卡组管理修改。");
+            }
         }
         private Items.Item SelectedAppearanceItem()
         {
@@ -1416,6 +1462,8 @@ namespace MDPro3.UI.Client
             GameObject field = null;
             try
             {
+                await UniTask.NextFrame();
+                if (!CollectionRequestCurrent(generation)) return;
                 string fieldPath = ConcreteAppearancePath("Field");
                 if (!File.Exists(Program.root + "MasterDuel/" + fieldPath + "_near")) { CollectionPreviewStatus("场地资源尚未安装", true); return; }
                 field = await ABLoader.LoadFromFileAsync("MasterDuel/" + fieldPath + "_near", true, true);
@@ -1525,7 +1573,6 @@ namespace MDPro3.UI.Client
             if (data == null) { FightUI.Text(collectionList, "角色资源正在加载，请稍后重试。", 16, 20, width - 32, 64, 18, FightUI.Muted); return; }
             var available = Enumerable.Range(0, 10).SelectMany(i => data.GetSeriesCharacters(i.ToString("00"))).Where(c => !c.notReady && CollectionSpriteExists("sn" + c.id)).ToList();
             var characters = available.Where(c => CollectionMatches(data.GetName(c.id), appearanceSearch, c.id)).ToList();
-            if (appearanceResultText != null) appearanceResultText.text = string.IsNullOrWhiteSpace(appearanceSearch) ? characters.Count + " 个角色" : characters.Count + " / " + available.Count;
             int columns = LibraryGridColumns(width, 10);
             float top = LibraryListTop, cellW = (width - 32 - (columns - 1) * 10) / columns;
             float viewportH = height - top - 8, captionH = CharacterCardCaptionHeight(viewportH);
@@ -1533,8 +1580,8 @@ namespace MDPro3.UI.Client
             float captionSize = CharacterCardCaptionSize(viewportH);
             var content = FightUI.Scroll(collectionList, 8, 0, width - 16, height - top - 8, Mathf.Ceil(characters.Count / (float)columns) * (cellH + 12) + 16, out var scroll);
             scroll.name = "Character resource navigation";
-            if (characters.Count == 0) LibraryEmpty(content, available.Count == 0 ? "尚未安装角色资源" : "没有匹配的角色", available.Count == 0 ? "安装角色资源后，可在这里选择角色与试听语音。" : "试试其他名称或编号，或清除搜索。", width - 16, height - top - 8, "diamond", available.Count == 0 ? (Action)null : ClearCollectionSearch);
-            for (int i = 0; i < characters.Count; i++)
+            if (characters.Count == 0) LibraryEmpty(content, available.Count == 0 ? "尚未安装角色资源" : "没有匹配的角色", "", width - 16, height - top - 8, "diamond", available.Count == 0 ? (Action)null : ClearCollectionSearch);
+            PopulateCollectionDirectory(content, characters.Count, i =>
             {
                 var character = characters[i]; bool selected = character.id == appearanceDraft.Values["Character"];
                 var button = LibrarySelection(content, 8 + i % columns * (cellW + 10), 8 + i / columns * (cellH + 12), cellW, cellH, selected, () => { appearanceDraft.Values["Character"] = character.id; Rebuild(); });
@@ -1546,8 +1593,7 @@ namespace MDPro3.UI.Client
                 var name = LibraryWrappedText(button.transform, originalName, 5, portraitH, cellW - 10, captionH - 8, captionSize, selected ? FightUI.Active : FightUI.Foreground, TextAlignmentOptions.Center);
                 FightUI.Hint(name.gameObject, originalName);
                 AddAppearanceResourceState(button, "Character", character.id, selected, cellW);
-            }
-            ReflowLibraryDirectory(scroll, width, height);
+            }, () => CompleteCollectionDirectory(scroll, characterScroll, width, height));
             CompleteLibraryRefresh(scroll, characterScroll);
             CaptureLibraryNodeLayouts();
         }
@@ -1671,7 +1717,7 @@ namespace MDPro3.UI.Client
             try
             {
                 if (!CollectionRequestCurrent(generation) || request.HasValue && request.Value != collectionPlayGeneration) return null;
-                return await ABLoader.LoadMateAsync(id);
+                return await ABLoader.LoadMateAsync(id, true);
             }
             finally { collectionMateLoader.Release(); }
         }
@@ -1681,6 +1727,8 @@ namespace MDPro3.UI.Client
             Mate mate = null;
             try
             {
+                await UniTask.NextFrame();
+                if (!CollectionRequestCurrent(generation) || request != collectionPlayGeneration) return;
                 mate = await LoadCollectionMateResource(id, generation, request);
                 if (!CollectionRequestCurrent(generation) || request != collectionPlayGeneration) { if (mate != null) Destroy(mate.gameObject); return; }
                 if (mate == null) throw new InvalidOperationException("伙伴资源无法加载");
@@ -1835,6 +1883,7 @@ namespace MDPro3.UI.Client
         private void ClearCollectionModel() { if (collectionModel != null) { collectionModel.SetActive(false); Destroy(collectionModel); } collectionModel = null; collectionMate = null; collectionMateFraming = collectionMateFramingPreparing = false; collectionEnvironmentRenderers.Clear(); collectionKnownTransforms.RemoveWhere(t => t == null); }
         internal void CleanupCollectionPreview()
         {
+            collectionDirectoryGeneration++; collectionDirectoryBuilding = false;
             collectionGeneration++; collectionPlayGeneration++; collectionPlaying = false; collectionPreviewFilteredOut = false;
             collectionVoiceRequest++; collectionVoiceLoading = false; collectionVoiceError = collectionVoicePath = null; collectionVoiceButton = null;
             collectionSearchInput = null;
@@ -1855,7 +1904,7 @@ namespace MDPro3.UI.Client
             libraryNodeLayouts.Clear(); libraryReflowScrollPositions.Clear();
             appearanceApplyButton = appearanceDiscardButton = appearanceReviewButton = appearanceSyncButton = appearanceOverrideButton = collectionUseMateButton = collectionLeftButton = collectionRightButton = appearanceMateButton = null; appearanceDirtyLabel = null;
             appearanceScopeBar = appearanceApplyBar = null; appearanceScopeButtons.Clear(); appearanceCategoryIndicators.Clear();
-            mateResultText = animationResultText = appearanceResultText = null; collectionPendingIcons.Clear();
+            appearanceCatalogTitle = null; collectionPendingIcons.Clear();
             if (collectionTexture != null) { collectionTexture.Release(); Destroy(collectionTexture); collectionTexture = null; }
             foreach (var handle in collectionSpriteHandles) if (handle.IsValid()) Addressables.Release(handle); collectionSpriteHandles.Clear();
             collectionProtectorIcons.Clear();
@@ -1868,7 +1917,7 @@ namespace MDPro3.UI.Client
             if (collectionStage == null) return;
             if (collectionVoiceLoading && Time.unscaledTime - collectionVoiceLoadStarted > 28)
             {
-                collectionVoiceRequest++; collectionVoiceLoading = false; collectionVoiceError = "语音加载超时 · 可点击重试试听";
+                collectionVoiceRequest++; collectionVoiceLoading = false; collectionVoiceError = "语音加载超时";
                 ShowStatus(collectionVoiceError);
             }
             RefreshCollectionVoiceAction();
@@ -1932,11 +1981,8 @@ namespace MDPro3.UI.Client
             }
             if (libraryDescription == null) return;
             string description = animation
-                ? collectionCutinId == 0 ? "安装资源后可预览与播放" : "卡片编号 " + collectionCutinId + (playing ? " · 正在播放" : "")
-                    + "\n" + (collectionPreviewFilteredOut ? "当前预览未匹配；清除搜索可返回目录" : "点击目录播放；自动播放会循环当前动画")
-                : collectionMateId == 0 ? "安装资源后可预览与互动" : collectionPreviewFilteredOut
-                    ? "当前预览未匹配 · 伙伴编号 " + collectionMateId + "\n清除搜索可返回目录；仍可选用当前伙伴"
-                    : "伙伴编号 " + collectionMateId + " · 点击伙伴互动\n选用后在外观页确认范围并应用";
+                ? collectionCutinId == 0 ? "" : "卡片编号 " + collectionCutinId
+                : collectionMateId == 0 ? "" : "伙伴编号 " + collectionMateId;
             if (libraryDescription.text != description) libraryDescription.text = description;
             FightUI.Hint(libraryDescription.gameObject, description.Replace('\n', '。'));
         }
@@ -2140,8 +2186,13 @@ namespace MDPro3.UI.Client
         private static bool CollectionSpriteExists(string address) => Addressables.ResourceLocators.Any(locator => locator.Locate(address, typeof(Sprite), out var locations) && locations.Count > 0);
         private List<Items.Item> AvailableCollectionItems(Items.ItemType type)
         {
+            if (collectionAvailableItems.TryGetValue(type, out var cached)) return cached;
             var list = CollectionItems(type);
-            return list == null ? new List<Items.Item>() : list.Where(i => !i.notReady && i.id > 9999 && CollectionItemAvailable(i, type)).ToList();
+            // Resources are installed at startup. Category switches and draft
+            // changes should reuse that inventory instead of probing every file.
+            var available = list == null ? new List<Items.Item>() : list.Where(i => !i.notReady && i.id > 9999 && CollectionItemAvailable(i, type)).ToList();
+            collectionAvailableItems[type] = available;
+            return available;
         }
         private static bool CollectionItemAvailable(Items.Item item, Items.ItemType type)
         {

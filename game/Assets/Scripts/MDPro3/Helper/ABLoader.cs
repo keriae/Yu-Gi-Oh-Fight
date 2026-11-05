@@ -100,7 +100,9 @@ namespace MDPro3
 
                 if (returnValue == null)
                 {
-                    var assets = ab.LoadAllAssets();
+                    var allAssets = ab.LoadAllAssetsAsync();
+                    await allAssets;
+                    var assets = allAssets.allAssets;
                     foreach (UnityEngine.Object asset in assets)
                     {
                         if (!typeof(GameObject).IsInstanceOfType(asset))
@@ -228,6 +230,21 @@ namespace MDPro3
         public static async UniTask<GameObject> LoadFromFolderAsync<T>(string path, bool cache, bool instantiate
             , Action<GameObject , List<UnityEngine.Object>> processEvent = null ) where T : Component
         {
+            SemaphoreSlim gate;
+            lock (bundleLoadLocks)
+            {
+                string key = "folder:" + path;
+                if (!bundleLoadLocks.TryGetValue(key, out gate))
+                    bundleLoadLocks[key] = gate = new SemaphoreSlim(1, 1);
+            }
+            await gate.WaitAsync();
+            try { return await LoadFromFolderAsyncLocked<T>(path, cache, instantiate, processEvent); }
+            finally { gate.Release(); }
+        }
+
+        private static async UniTask<GameObject> LoadFromFolderAsyncLocked<T>(string path, bool cache, bool instantiate
+            , Action<GameObject, List<UnityEngine.Object>> processEvent) where T : Component
+        {
             if (cachedABFolder.TryGetValue(path, out var returnValue))
             {
                 if (instantiate)
@@ -251,7 +268,8 @@ namespace MDPro3
             {
                 try
                 {
-                    bundles.Add(await AssetBundle.LoadFromFileAsync(files[i].FullName));
+                    var loaded = await AssetBundle.LoadFromFileAsync(files[i].FullName);
+                    if (loaded != null) bundles.Add(loaded);
                 }
                 catch (Exception ex)
                 {
@@ -263,8 +281,9 @@ namespace MDPro3
             var allAssets = new List<UnityEngine.Object>();
             foreach (AssetBundle bundle in bundles)
             {
-                var assets = bundle.LoadAllAssets();
-                allAssets.AddRange(assets.ToList());
+                var request = bundle.LoadAllAssetsAsync();
+                await request;
+                allAssets.AddRange(request.allAssets);
             }
 
             var allPrefabs = new List<GameObject>();
@@ -458,7 +477,28 @@ namespace MDPro3
             }
         }
 
+        private static Shader metalFrameEffectShader;
+        private const string MetalFrameEffectCode = "1031002";
+
         public static async UniTask<Material> LoadFrameMaterial(string code)
+        {
+            // The newer Canvas-target Shader02 in some frame bundles renders
+            // an error surface on Metal. The shipped Sprite-target Shader02
+            // has the same frame/effect properties and renders in this player.
+            if (SystemInfo.graphicsDeviceType == GraphicsDeviceType.Metal && metalFrameEffectShader == null)
+            {
+                var compatible = await LoadFrameMaterialCore(MetalFrameEffectCode);
+                if (compatible != null)
+                {
+                    if (compatible.shader != null && compatible.shader.isSupported)
+                        metalFrameEffectShader = compatible.shader;
+                    UnityEngine.Object.Destroy(compatible);
+                }
+            }
+            return await LoadFrameMaterialCore(code);
+        }
+
+        private static async UniTask<Material> LoadFrameMaterialCore(string code)
         {
             if (code == Items.CODE_RANDOM.ToString())
                 code = Items.lastRandomFrameID;
@@ -481,6 +521,9 @@ namespace MDPro3
                     if (material == null)
                         return null;
 
+                    if (SystemInfo.graphicsDeviceType == GraphicsDeviceType.Metal && metalFrameEffectShader != null
+                        && material.shader != null && material.shader.name == "Shader Graph EX/ProfileIconShader02")
+                        material.shader = metalFrameEffectShader;
                     TextureManager.ChangeProfileFrameMaterialWrapMode(material);
 
                     if (cachedFrameMat.TryGetValue(code, out cachedMaterial) && cachedMaterial != null)
@@ -517,6 +560,9 @@ namespace MDPro3
         }
 
         public static async UniTask<Mate> LoadMateAsync(int code)
+            => await LoadMateAsync(code, false);
+
+        public static async UniTask<Mate> LoadMateAsync(int code, bool cache)
         {
             Items.Item item = new();
             foreach (var mate in Program.items.mates)
@@ -534,7 +580,9 @@ namespace MDPro3
             if (type == Mate.MateType.CrossDuel)
             {
                 var ab = await AssetBundle.LoadFromFileAsync(Program.root + "CrossDuel/" + code + ".bundle");
-                var all = ab.LoadAllAssets();
+                var request = ab.LoadAllAssetsAsync();
+                await request;
+                var all = request.allAssets;
                 ab.Unload(false);
                 foreach (var asset in all)
                 {
@@ -581,9 +629,9 @@ namespace MDPro3
 
                 GameObject mateGo;
                 if (matePath.EndsWith("_Folder"))
-                    mateGo = await LoadFromFolderAsync<CharacterCollision>("MasterDuel/" + matePath.Replace("_Folder", string.Empty), false, true);
+                    mateGo = await LoadFromFolderAsync<CharacterCollision>("MasterDuel/" + matePath.Replace("_Folder", string.Empty), cache, true);
                 else
-                    mateGo = await LoadFromFileAsync("MasterDuel/" + matePath, false, true);
+                    mateGo = await LoadFromFileAsync("MasterDuel/" + matePath, cache, true);
                 returnValue = mateGo.AddComponent<Mate>();
             }
             returnValue.type = type;

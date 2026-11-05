@@ -26,7 +26,7 @@ namespace MDPro3.UI.Client
             if (!preservePage) { Rebuild(); return; }
             float beforeWidth = W, beforeHeight = H;
             designWidth = UsesFullscreenLayout ? PreferredViewportWidth : windowedDesignWidth;
-            designHeight = UsesFullscreenLayout ? designWidth * (9f / 16f) : windowedDesignHeight;
+            designHeight = UsesFullscreenLayout ? PreferredViewportHeight : windowedDesignHeight;
             FitClientViewport();
             if (Mathf.Approximately(beforeWidth, W) && Mathf.Approximately(beforeHeight, H)) return;
             FightUI.Place(Body, Gap, BodyTop, BodyWidth, BodyHeight);

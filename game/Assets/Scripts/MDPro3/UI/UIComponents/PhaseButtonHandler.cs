@@ -154,7 +154,9 @@ namespace MDPro3.UI
 
         public static void CloseHint()
         {
-            manager.GetElement("HintEffect").SetActive(false);
+            if (manager == null) return;
+            var hint = manager.GetElement("HintEffect");
+            if (hint != null) hint.SetActive(false);
         }
     }
 }

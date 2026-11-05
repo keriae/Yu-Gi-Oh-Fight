@@ -215,10 +215,16 @@ namespace MDPro3.Servant
             if (aiCode < 0 || aiCode >= bots.Count) throw new ArgumentOutOfRangeException(nameof(aiCode));
             if (duelPort < 1 || duelPort > 65535) throw new ArgumentException("本地端口应在 1～65535 之间。");
             var command = bots[aiCode].command;
-            if (command.Contains("Lucky") && !string.IsNullOrEmpty(customDeck))
+            if (command.Contains("Lucky"))
             {
-                if (!File.Exists(Program.PATH_DECK + customDeck + Program.EXPANSION_YDK)) throw new FileNotFoundException("电脑卡组不存在。");
-                command += " DeckFile=\"" + customDeck + "\"";
+                if (string.IsNullOrWhiteSpace(customDeck)) throw new ArgumentException("请先选择电脑卡组。");
+                var customPath = Path.GetFullPath(Program.PATH_DECK + customDeck + Program.EXPANSION_YDK);
+                if (!File.Exists(customPath)) throw new FileNotFoundException("电脑卡组不存在。");
+                if (customPath.Contains("\"")) throw new ArgumentException("电脑卡组文件名不能包含引号。");
+                var custom = new Deck(customPath);
+                if (custom.Main.Count == 0 || custom.Main.Count > 60 || custom.Extra.Count > 15 || custom.Side.Count > 15)
+                    throw new ArgumentException("电脑卡组超过支持的卡数范围。");
+                command += " DeckFile=\"" + customPath + "\"";
             }
             var match = Regex.Match(command, "Random=(\\w+)");
             if (match.Success) command = GetRandomBot(match.Groups[1].Value);

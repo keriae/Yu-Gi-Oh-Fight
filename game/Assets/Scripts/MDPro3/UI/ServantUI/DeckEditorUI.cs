@@ -1298,7 +1298,7 @@ namespace MDPro3.UI.ServantUI
                 RoomServant.SelfType = -1; RoomServant.IsHost = false;
                 YgoServer.StartServer(settings.BuildServerArgs(port));
                 serverStarted = true;
-                UIManager.UIBlackIn(0.3f);
+                UIManager.ShowBlackBack(1f, 0f);
                 OcgCore.handler = Program.instance.room.Handler;
                 bool linking = TcpHelper.LinkStart("127.0.0.1", Config.Get("DuelPlayerName0", Config.EMPTY_STRING),
                     port.ToString(), string.Empty, true, null);
@@ -1379,7 +1379,7 @@ namespace MDPro3.UI.ServantUI
                         {
                             if (serverStarted) TcpHelper.DisconnectIntentional();
                             RoomServant.FromHandTest = false;
-                            if (serverStarted) UIManager.UIBlackOut(0.3f);
+                            if (serverStarted) UIManager.HideBlackBack(0f);
                         }
                     }
                 }

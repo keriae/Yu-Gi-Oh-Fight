@@ -71,11 +71,11 @@ namespace MDPro3.UI.Client
                     throw new FileNotFoundException("找不到这套个人卡组。");
                 if (Program.instance.currentServant == Program.instance.deckEditor && EditorDirty)
                 {
-                    var box = ShowDialog("当前卡组尚未保存", 640, 290);
-                    FightUI.Text(box, "打开另一套卡组前，请保存或放弃当前修改。", 28, 82, 580, 64, 20);
-                    FightUI.Button(box, "取消", 28, 208, 160, 48, CloseDialog);
-                    FightUI.Button(box, "放弃修改", 208, 208, 160, 48, () => { DiscardEditor(); OpenEditor(personalRelativeName); });
-                    FightUI.Button(box, "保存并打开", 388, 208, 224, 48, () => SaveEditorThen(() => OpenEditor(personalRelativeName)), true);
+                    var box = ShowDialog("当前卡组尚未保存", 640, 192);
+                    FightUI.Button(box, "取消", 28, 112, 160, 48, CloseDialog);
+                    var discard = FightUI.Button(box, "放弃修改", 208, 112, 160, 48, () => { DiscardEditor(); OpenEditor(personalRelativeName); });
+                    FightUI.StyleDestructiveButton(discard);
+                    FightUI.Button(box, "保存并打开", 388, 112, 224, 48, () => SaveEditorThen(() => OpenEditor(personalRelativeName)), true);
                     return;
                 }
                 ReleaseEditor();
@@ -343,7 +343,7 @@ namespace MDPro3.UI.Client
                 }
                 else RenderEditorInspector(null);
             }
-            else FightUI.Text(editorDetailHost, "点击卡片查看完整卡文", 16, 20, editorDetailHost.rect.width - 32, 64, 18, FightUI.Muted);
+            else FightUI.Text(editorDetailHost, "卡片详情暂不可用", 16, 20, editorDetailHost.rect.width - 32, 64, 18, FightUI.Muted);
 
             if (action != null)
             {
@@ -696,8 +696,7 @@ namespace MDPro3.UI.Client
             if (card == null)
             {
                 editorInspector.EmptyIcon = FightUI.Icon(editorDetailHost, "deck", (width - 48) / 2, 48, 48, 48, FightUI.GoldBorder).GetComponent<RectTransform>();
-                editorInspector.Heading = FightUI.Text(editorDetailHost, "选择一张卡片", 16, 120, width - 32, 36, 20, FightUI.Foreground, TextAlignmentOptions.Center);
-                editorInspector.Description = FightUI.Text(editorDetailHost, "点击构筑或卡池中的卡片\n查看卡文与加入 / 移除操作", 16, 168, width - 32, 96, 17, FightUI.Muted, TextAlignmentOptions.Center);
+                editorInspector.Heading = FightUI.Text(editorDetailHost, "尚未选中卡片", 16, 120, width - 32, 36, 20, FightUI.Foreground, TextAlignmentOptions.Center);
                 LayoutEditorInspector();
                 return;
             }
@@ -816,10 +815,9 @@ namespace MDPro3.UI.Client
             var width = editorDetailHost.rect.width; var height = editorDetailHost.rect.height;
             if (item.Card == null)
             {
-                float emptyTop = Mathf.Max(32, (height - 236) / 2);
+                float emptyTop = Mathf.Max(32, (height - 112) / 2);
                 FightUI.Place(item.EmptyIcon, (width - 48) / 2, emptyTop, 48, 48);
                 FightUI.Place(item.Heading.rectTransform, 16, emptyTop + 72, width - 32, 40);
-                FightUI.Place(item.Description.rectTransform, 16, emptyTop + 124, width - 32, 96);
                 return;
             }
             item.Heading.fontSizeMin = Compact ? 17 : 21; item.Heading.fontSizeMax = Compact ? 20 : 25;

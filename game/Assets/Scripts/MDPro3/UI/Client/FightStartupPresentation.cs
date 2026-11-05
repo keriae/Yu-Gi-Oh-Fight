@@ -15,15 +15,16 @@ using UnityEngine.UI;
 namespace MDPro3.UI.Client
 {
     // Created by Program.Awake, before any async resource or legacy UI loading.
-    // Startup and final shutdown share one persistent opaque cover. Between
-    // those boundaries it synchronizes presentation without covering the duel.
+    // Startup and final shutdown share one persistent opaque cover. The client
+    // retains its own preparation surface until the real duel is ready.
     internal sealed class FightStartupPresentation : MonoBehaviour
     {
         internal sealed class FrameSample
         {
-            public int frame, renderedFrame;
+            public int frame, renderedFrame, corePresentationVersion;
             public string stage, lifecycle, servant, page;
             public bool covered, coverTopmost, clientVisible, opaqueClient, clientReady, core, protectedFrame;
+            public bool nativeReady, corePresented, camera2DRendering, cameraMainRendering, legacyWallpaperActive, exposedLegacyBackground;
             public string[] externalOverlays, nativePopups, legacyServantUIs;
         }
 
@@ -38,6 +39,14 @@ namespace MDPro3.UI.Client
         internal bool ClientImageCaptured { get; private set; }
         internal bool StartupPixelsOpaque { get; private set; }
         internal bool StartupBrandRendered { get; private set; }
+        internal bool CoreEntryFramesProtected => Samples.Where(sample => sample.core)
+            .All(sample => sample.protectedFrame && !sample.exposedLegacyBackground);
+        internal bool CoreHandoffsReady => Samples.Where(sample => sample.core)
+            .GroupBy(sample => sample.corePresentationVersion).All(entry =>
+            {
+                var firstField = entry.FirstOrDefault(sample => !sample.covered && !sample.clientVisible);
+                return firstField == null || firstField.nativeReady;
+            });
 
         private Canvas cover;
         private RawImage brand;
@@ -157,9 +166,13 @@ namespace MDPro3.UI.Client
             else brand.enabled = false;
             FitBrand();
 #if FIGHT_UI_PROOF
-            auditEnabled = Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1";
+            auditEnabled = Environment.GetEnvironmentVariable("FIGHT_UI_TEST") == "1"
+                || !string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("MDPRO3_AI_SPECTATOR_PROOF"));
 #endif
             auditDirectory = Environment.GetEnvironmentVariable("FIGHT_PROOF_DIR") ?? Directory.GetCurrentDirectory();
+            var spectatorProof = Environment.GetEnvironmentVariable("MDPRO3_AI_SPECTATOR_PROOF");
+            if (Environment.GetEnvironmentVariable("FIGHT_PROOF_DIR") == null && !string.IsNullOrWhiteSpace(spectatorProof))
+                auditDirectory = Path.GetDirectoryName(Path.GetFullPath(spectatorProof));
             Canvas.willRenderCanvases += BeforeRender;
             if (auditEnabled)
             {
@@ -223,6 +236,10 @@ namespace MDPro3.UI.Client
             {
                 // OcgCore does not clear Servant.inTransition. Its real asset/HUD
                 // readiness determines the direct-launch handoff instead.
+                var program = Program.instance;
+                if (program == null || !core.showing || program.currentServant != core || program.ui_ == null || program.camera_ == null
+                    || program.camera_.cameraMain == null || !program.camera_.cameraMain.isActiveAndEnabled
+                    || program.camera_.camera2D != null && program.camera_.camera2D.isActiveAndEnabled) return false;
                 var ui = core.GetUI<OcgCoreUI>();
                 return core.DuelBGManager != null && core.DuelBGManager.loaded && ui != null && ui.CG.alpha >= .95f
                     && ui.Buttons.activeInHierarchy && core.DuelBGManager.field0Manager != null
@@ -291,6 +308,13 @@ namespace MDPro3.UI.Client
             var client = FightClient.Instance;
             bool core = program != null && program.currentServant == program.ocgcore;
             bool covered = cover != null && cover.enabled && gameObject.activeInHierarchy;
+            bool nativeReady = core && NativeFrameReady(program.ocgcore);
+            bool camera2DRendering = program != null && program.camera_ != null && program.camera_.camera2D != null
+                && program.camera_.camera2D.isActiveAndEnabled;
+            bool cameraMainRendering = program != null && program.camera_ != null && program.camera_.cameraMain != null
+                && program.camera_.cameraMain.isActiveAndEnabled;
+            bool wallpaperActive = program != null && program.ui_ != null && program.ui_.wallpaper != null
+                && program.ui_.wallpaper.gameObject.activeInHierarchy;
             var external = UnityEngine.Object.FindObjectsOfType<Canvas>()
                 .Where(canvas => canvas.enabled && canvas.gameObject.activeInHierarchy && canvas.isRootCanvas
                     && canvas.renderMode == RenderMode.ScreenSpaceOverlay && canvas != cover
@@ -299,6 +323,7 @@ namespace MDPro3.UI.Client
                 .ToArray();
             bool topmost = covered && external.All(canvas => canvas.sortingOrder < cover.sortingOrder);
             bool opaqueClient = client != null && client.ClientCanvasVisible && client.HasOpaqueWindowBackdrop;
+            bool exposedLegacyBackground = core && !topmost && !opaqueClient && (camera2DRendering || wallpaperActive);
             var visibleExternal = external.Where(canvas => canvas.sortingOrder >= 100).Select(canvas => canvas.name + ":" + canvas.sortingOrder).ToArray();
             var popups = program == null || program.ui_ == null || program.ui_.popup == null ? Array.Empty<string>()
                 : program.ui_.popup.GetComponentsInChildren<MDPro3.UI.Popup.Popup>()
@@ -315,7 +340,12 @@ namespace MDPro3.UI.Client
                 page = client == null ? null : client.PresentedPage, covered = covered, coverTopmost = topmost,
                 clientVisible = client != null && client.ClientCanvasVisible, opaqueClient = opaqueClient,
                 clientReady = client != null && client.StartupFrameReady, core = core,
-                protectedFrame = covered ? topmost : core ? (client == null || !client.ClientCanvasVisible) && legacy.Length == 0
+                corePresentationVersion = client == null ? 0 : client.CorePresentationVersion,
+                corePresented = client == null ? handedOff && core : client.CoreFramePresented,
+                nativeReady = nativeReady, camera2DRendering = camera2DRendering, cameraMainRendering = cameraMainRendering,
+                legacyWallpaperActive = wallpaperActive, exposedLegacyBackground = exposedLegacyBackground,
+                protectedFrame = covered ? topmost : core ? legacy.Length == 0 && (opaqueClient && visibleExternal.Length == 0
+                    || (client == null || !client.ClientCanvasVisible) && cameraMainRendering && !exposedLegacyBackground)
                     : opaqueClient && visibleExternal.Length == 0,
                 externalOverlays = visibleExternal, nativePopups = popups, legacyServantUIs = legacy
             };
@@ -386,6 +416,9 @@ namespace MDPro3.UI.Client
                 failed = failed, failureMessage = failureMessage,
                 startupImageCaptured = StartupImageCaptured, clientImageCaptured = ClientImageCaptured,
                 startupPixelsOpaque = StartupPixelsOpaque, startupBrandRendered = StartupBrandRendered,
+                coreEntryFrames = Samples.Count(sample => sample.core), coreEntryFramesProtected = CoreEntryFramesProtected,
+                coreHandoffsReady = CoreHandoffsReady,
+                exposedLegacyBackgroundFrames = Samples.Count(sample => sample.exposedLegacyBackground),
                 frames = Samples
             }, Formatting.Indented));
         }

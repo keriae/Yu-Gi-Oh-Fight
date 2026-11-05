@@ -379,9 +379,6 @@ namespace MDPro3.UI.Popup
                 text.AppendLine("固定起手（5 张）").AppendLine(DeckAcademy.CardNames(selectedDeck.starter_hand)).AppendLine();
                 if (selectedDeck.starter_cards != null && selectedDeck.starter_cards.Length > 0)
                     text.AppendLine("核心启动卡").AppendLine(DeckAcademy.CardNames(selectedDeck.starter_cards)).AppendLine();
-                text.AppendLine(helpOnly
-                    ? "可用上一步、下一步查看完整展开。\n关闭本窗口后可继续使用侧边分步指导。"
-                    : "点击“下一步”查看核心展开，或进入“固定起手练习”亲自操作。\n本教程使用当前游戏内的卡片和规则。若需查看较长内容，可滚动说明区域。");
             }
             else if (page < selectedDeck.steps.Length)
             {

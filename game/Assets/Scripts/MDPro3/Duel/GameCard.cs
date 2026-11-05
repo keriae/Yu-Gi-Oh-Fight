@@ -3805,7 +3805,8 @@ namespace MDPro3
             {
                 if (chain.i == i)
                 {
-                    chain.chainSpot.OnChainResolveBegin();
+                    if (chain.chainSpot != null)
+                        chain.chainSpot.OnChainResolveBegin();
                     break;
                 }
             }
@@ -3817,8 +3818,11 @@ namespace MDPro3
             {
                 if (chain.i == i)
                 {
-                    chain.chainSpot.OnChainResolveEnd();
-                    Destroy(chain.chainSpot.gameObject, 1f);
+                    if (chain.chainSpot != null)
+                    {
+                        chain.chainSpot.OnChainResolveEnd();
+                        Destroy(chain.chainSpot.gameObject, 1f);
+                    }
                     chains.Remove(chain);
                     break;
                 }
@@ -3828,7 +3832,8 @@ namespace MDPro3
         public void RemoveAllChain()
         {
             foreach (var chain in chains)
-                Destroy(chain.chainSpot.gameObject, 1f);
+                if (chain.chainSpot != null)
+                    Destroy(chain.chainSpot.gameObject, 1f);
             chains.Clear();
         }
 

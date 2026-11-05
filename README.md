@@ -19,6 +19,12 @@ python3 build.py --open
 
 原生 UI 验收使用 `python3 build.py --code-only --ui-proof`，测试代码集中在 `Client/Validation/`。普通构建排除验收入口与布局调试代码，更新器拒绝验收程序集。最终验收、交付核对和中间产物清理命令见 [最终交付记录](docs/CLIENT_UX_REFINEMENT.md)。最终应用为 `dist/Yu-Gi-Oh! Fight.app`，直接启动即可；压缩分享是可选操作，大型运行时和构建产物不提交 Git。
 
+## AI 分身与对战准备
+
+在「设置 → AI 分身」中新建多个决斗者，分别配置模型、服务、密钥和外观；已有分身可复制后独立修改。外观包含头像、头像框、卡套、场地、伙伴、角色、墓地、底座与卡盒。切换分身时会保护未保存的修改。旧版共享 AI 配置会作为默认分身保留。
+
+AI 对战准备页点击头像或名称选择分身，点击卡组封面选择构筑，点击中央 VS 进入对战。AI 对 AI 的双方使用各自的 AI 配置和外观。电脑对战也使用中央 VS 与直接卡组选择。新增功能及验证记录见 [AI 分身与 VS 入口](docs/AI_DUELIST_PROFILES.md)。
+
 ## 存档与迁移
 
 新版使用 `~/Library/Application Support/Yu-Gi-Oh! Fight/`，不会自动改动旧版 `MDPro3 Offline` 存档。旧卡组、录像、残局、自定义图片和常用设置可显式导入：

@@ -131,11 +131,26 @@ namespace MDPro3.UI.ServantUI
                     PushCollection(collections);
                 }
             }
+            catch (ReplayConversionException e)
+            {
+                Debug.LogWarning("[Replay] " + e.Message);
+                if (yrp3d)
+                {
+                    var recorded = TcpHelper.ReadPackagesInRecord(fileName);
+                    if (recorded.Exists(packet => packet.Function == (int)GameMessage.Start
+                        || packet.Function == (int)GameMessage.ReloadField))
+                    {
+                        OcgCore.CurrentReplayGodView = false;
+                        PushCollection(recorded);
+                        MessageManager.Cast("此录像无法重建上帝视角，已按原记录播放。");
+                        return;
+                    }
+                }
+                MessageManager.Cast("此旧录像无法重新模拟，请使用原始 YRP3D 录像播放。");
+            }
             catch(Exception e)
             {
-#if UNITY_EDITOR
-                Debug.LogError(e);
-#endif
+                Debug.LogWarning("[Replay] " + e.Message);
                 MessageManager.Cast(InterString.Get("回放没有录制完整。"));
             }
         }

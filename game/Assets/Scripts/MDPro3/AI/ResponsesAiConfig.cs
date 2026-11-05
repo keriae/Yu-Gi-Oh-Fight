@@ -31,6 +31,8 @@ namespace MDPro3.AI
         public string DeckA { get; set; } = string.Empty;
         public string DeckB { get; set; } = string.Empty;
         public bool AiVsAi { get; set; }
+        public string ProfileA { get; set; } = string.Empty;
+        public string ProfileB { get; set; } = string.Empty;
 
         public ResponsesAiConfig Clone() => (ResponsesAiConfig)MemberwiseClone();
 
@@ -153,12 +155,17 @@ namespace MDPro3.AI
                 merged.DeckA = latest.DeckA;
                 merged.DeckB = latest.DeckB;
                 merged.AiVsAi = latest.AiVsAi;
+                merged.ProfileA = latest.ProfileA;
+                merged.ProfileB = latest.ProfileB;
                 Save(merged);
             }
         }
 
         /// <summary>Persist only duel choices, including while the service is unconfigured.</summary>
         public static void SaveChoices(string deckA, string deckB, bool aiVsAi)
+            => SaveChoices(deckA, deckB, aiVsAi, null, null);
+
+        public static void SaveChoices(string deckA, string deckB, bool aiVsAi, string profileA, string profileB)
         {
             lock (Gate)
             {
@@ -166,6 +173,8 @@ namespace MDPro3.AI
                 latest.DeckA = deckA ?? string.Empty;
                 latest.DeckB = deckB ?? string.Empty;
                 latest.AiVsAi = aiVsAi;
+                if (profileA != null) latest.ProfileA = profileA;
+                if (profileB != null) latest.ProfileB = profileB;
                 try
                 {
                     Directory.CreateDirectory(Path.GetDirectoryName(SettingsPath));
@@ -207,7 +216,7 @@ namespace MDPro3.AI
             }
         }
 
-        private static void AtomicWrite(string path, string value, bool secret)
+        internal static void AtomicWrite(string path, string value, bool secret)
         {
             var temporary = path + "." + Guid.NewGuid().ToString("N") + ".tmp";
             try
@@ -227,11 +236,11 @@ namespace MDPro3.AI
 
         [DllImport("libc", SetLastError = true)] private static extern int chmod(string path, uint mode);
         private static bool Unix => Path.DirectorySeparatorChar == '/';
-        private static void Restrict(string path)
+        internal static void Restrict(string path)
         {
             if (Unix && chmod(Path.GetFullPath(path), 384) != 0) throw new IOException("Cannot restrict credentials");
         }
-        private static void RestrictDirectory(string path)
+        internal static void RestrictDirectory(string path)
         {
             if (Unix && chmod(Path.GetFullPath(path), 448) != 0) throw new IOException("Cannot restrict credentials directory");
         }

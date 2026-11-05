@@ -14,6 +14,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Playables;
+using UnityEngine.Rendering;
 using UnityEngine.Timeline;
 using YgomGame.Bg;
 using YgomSystem.Effect;
@@ -41,6 +42,15 @@ namespace MDPro3.Duel
         public bool loaded;
         private int deckPresentationGeneration;
         private bool deckPresentationActive;
+        private int entryLoadGeneration;
+        private bool entryLoadActive;
+
+        internal int EntryLoadGeneration => entryLoadGeneration;
+        internal bool EntryLoading => entryLoadActive;
+        private bool IsEntryLoadCurrent(int generation, OcgCore core)
+            => entryLoadActive && generation == entryLoadGeneration && core != null && core.showing
+                && Program.instance != null && Program.instance.ocgcore == core
+                && Program.instance.currentServant == core;
 
         internal int DeckPresentationGeneration => deckPresentationGeneration;
         internal bool IsDeckPresentationCurrent(int generation)
@@ -53,6 +63,8 @@ namespace MDPro3.Duel
         {
             ++deckPresentationGeneration;
             deckPresentationActive = false;
+            ++entryLoadGeneration;
+            entryLoadActive = false;
         }
 
         private float field0TapTime;
@@ -137,6 +149,21 @@ namespace MDPro3.Duel
         public async UniTask LoadAssetsAsync()
         {
             RetireDeckPresentation();
+            var loadCore = Core;
+            int loadGeneration = entryLoadGeneration;
+            entryLoadActive = true;
+            bool CurrentLoad() => IsEntryLoadCurrent(loadGeneration, loadCore);
+            bool AcceptLoadedObject(GameObject asset, bool ownedRoot = false)
+            {
+                if (!CurrentLoad())
+                {
+                    if (asset != null) { asset.SetActive(false); UnityEngine.Object.Destroy(asset); }
+                    return false;
+                }
+                if (ownedRoot && asset != null) allGameObjects.Add(asset);
+                return true;
+            }
+            if (!CurrentLoad()) { entryLoadActive = false; return; }
             loaded = false;
             ResetPremiumMateStates();
 
@@ -151,14 +178,22 @@ namespace MDPro3.Duel
             var hasSide1Appearance = RoomServant.TryGetOnlineAppearanceForSide(1, out var side1Appearance);
             var overrideDeckAppearance = Config.GetBool("OverrideDeckAppearance", false);
 
-            UIManager.UIBlackIn(Core.TransitionTime);
-            await UniTask.WaitForSeconds(Core.TransitionTime);
-            await UniTask.WaitUntil(() => Appearance.loaded);
+            // Resource loading uses a plain cover, with no entering-duel timeline.
+            UIManager.CancelDuelTransition();
+            CameraManager.ResetDuelBlack();
+            UIManager.ShowBlackBack(1f, 0f);
+            await UniTask.WaitUntil(() => !CurrentLoad() || Appearance.loaded);
+            if (!CurrentLoad()) return;
             if(inPuzzle || condition != Condition.Duel)
+            {
                 await Program.instance.appearance.LoadSettingAssets();
+                if (!CurrentLoad()) return;
+            }
             await ABLoader.CacheMasterDuelBundles();
-            Program.instance.ocgcore.LoadDuelButton();
-            await Program.instance.ocgcore.GetUI<OcgCoreUI>().LoadExtraUI();
+            if (!CurrentLoad()) return;
+            loadCore.LoadDuelButton();
+            await loadCore.GetUI<OcgCoreUI>().LoadExtraUI();
+            if (!CurrentLoad()) return;
 
             CameraManager.ShiftTo3D();
             UIManager.HideExitButton(0);
@@ -170,23 +205,31 @@ namespace MDPro3.Duel
                 attackLine = ABLoader.LoadMasterDuelGameObject("fxp_atk_select_arrow_001");
                 attackLine.SetActive(false);
                 await UniTask.Yield();
+                if (!CurrentLoad()) return;
             }
             if (targetLine == null)
             {
                 targetLine = ABLoader.LoadMasterDuelGameObject("fxp_target_arrow_001");
                 targetLine.SetActive(false);
                 await UniTask.Yield();
+                if (!CurrentLoad()) return;
             }
             if (equipLine == null)
             {
                 equipLine = ABLoader.LoadMasterDuelGameObject("fxp_equip_arrow_001");
                 equipLine.SetActive(false);
                 await UniTask.Yield();
+                if (!CurrentLoad()) return;
             }
             if (fieldSummonRightInfo == null)
             {
                 var handle = Addressables.InstantiateAsync("Prefab/FieldSummonRightInfo.prefab");
                 await handle;
+                if (!CurrentLoad())
+                {
+                    if (handle.Result != null) { handle.Result.SetActive(false); Addressables.ReleaseInstance(handle.Result); }
+                    return;
+                }
                 fieldSummonRightInfo = handle.Result;
                 fieldSummonRightInfo.SetActive(false);
                 fieldSummonRightInfo.transform.SetParent(Program.instance.container_3D);
@@ -203,6 +246,7 @@ namespace MDPro3.Duel
                 path = Program.items.GetAssetPath(deck.Field.ToString(), Items.ItemType.Mat);
             path = "MasterDuel/" + path;
             var field0 = await ABLoader.LoadFromFileAsync(path + "_near", false, true);
+            if (!AcceptLoadedObject(field0, true)) return;
             field0.transform.SetParent(Program.instance.container_3D, false);
             field0Manager = field0.GetComponent<BgEffectManager>();
 
@@ -213,6 +257,7 @@ namespace MDPro3.Duel
             var field1 = await ABLoader.LoadFromFileAsync("MasterDuel/" +
                 Program.items.GetAssetPath(field1Config, Items.ItemType.Mat, 1) + "_far"
                 , false, true);
+            if (!AcceptLoadedObject(field1, true)) return;
             field1.transform.SetParent(Program.instance.container_3D, false);
             field1Manager = field1.GetComponent<BgEffectManager>();
 
@@ -230,9 +275,6 @@ namespace MDPro3.Duel
             Transform pos_Avatar_near = field0.transform.GetChildByName("POS_Avatar_near");
             Transform pos_Avatar_far = field1.transform.GetChildByName("POS_Avatar_far");
 
-            allGameObjects.Add(field0);
-            allGameObjects.Add(field1);
-
             #endregion
 
             #region Grave
@@ -247,8 +289,10 @@ namespace MDPro3.Duel
             path = "MasterDuel/" + path;
 
             var grave0 = await ABLoader.LoadFromFileAsync(path + "_near", false, true);
+            if (!AcceptLoadedObject(grave0)) return;
             grave0.transform.SetParent(pos_Grave_near, false);
             grave0Manager = grave0.GetComponent<BgEffectManager>();
+            InitializeGraveMaterialParameters(grave0);
 
             var grave1Config = Config.Get(condition.ToString() + "Grave1",
                 Program.items.graves[0].id.ToString());
@@ -257,8 +301,10 @@ namespace MDPro3.Duel
             var grave1 = await ABLoader.LoadFromFileAsync("MasterDuel/" +
                 Program.items.GetAssetPath(grave1Config, Items.ItemType.Grave, 1) + "_far"
                 , false, true);
+            if (!AcceptLoadedObject(grave1)) return;
             grave1.transform.SetParent(pos_Grave_far, false);
             grave1Manager = grave1.GetComponent<BgEffectManager>();
+            InitializeGraveMaterialParameters(grave1);
 
             Tools.PlayAnimation(grave0.transform, "StartToPhase1");
             Tools.PlayAnimation(grave1.transform, "StartToPhase1");
@@ -285,6 +331,7 @@ namespace MDPro3.Duel
                     path = Program.items.GetAssetPath(deck.Stand.ToString(), Items.ItemType.Stand);
                 path = "MasterDuel/" + path;
                 var stand0 = await ABLoader.LoadFromFileAsync(path + "_near", false, true);
+                if (!AcceptLoadedObject(stand0)) return;
                 stand0.transform.SetParent(pos_AvatarStand_near, false);
 
                 pos_Avatar_near = stand0.transform.GetChildByName("POS_Avatar_near");
@@ -300,6 +347,7 @@ namespace MDPro3.Duel
                 var stand1 = await ABLoader.LoadFromFileAsync("MasterDuel/" +
                 Program.items.GetAssetPath(standConfig, Items.ItemType.Stand, 1) + "_far"
                 , false, true);
+                if (!AcceptLoadedObject(stand1)) return;
                 stand1.transform.SetParent(pos_AvatarStand_far, false);
 
                 pos_Avatar_far = stand1.transform.GetChildByName("POS_Avatar_far");
@@ -317,12 +365,14 @@ namespace MDPro3.Duel
             int mateCode = int.Parse(mateConfig);
             if (deck != null && !overrideDeckAppearance)
                 mateCode = deck.Mate;
-            await LoadMateForSideAsync(0, mateCode, pos_Avatar_near);
+            await LoadMateForSideAsync(0, mateCode, pos_Avatar_near, CurrentLoad);
+            if (!CurrentLoad()) return;
 
             mateConfig = Config.Get(condition.ToString() + "Mate1", Program.items.mates[0].id.ToString());
             if (hasSide1Appearance)
                 mateConfig = side1Appearance.Mate.ToString();
-            await LoadMateForSideAsync(1, int.Parse(mateConfig), pos_Avatar_far);
+            await LoadMateForSideAsync(1, int.Parse(mateConfig), pos_Avatar_far, CurrentLoad);
+            if (!CurrentLoad()) return;
 
             #endregion
 
@@ -338,20 +388,24 @@ namespace MDPro3.Duel
 
             #region PhaseButton
 
+            GameObject loadedPhaseButton;
             if (MatIsSpecial(field1.name))
             {
-                phaseButton = await ABLoader.LoadFromFileAsync("MasterDuel/BG/Timer/PhaseButton_013", true, true);
-                phaseButton.GetComponent<Animator>().SetTrigger("Start");
-                Tools.PlayAnimation(phaseButton.transform, "StartToPhase1");
+                loadedPhaseButton = await ABLoader.LoadFromFileAsync("MasterDuel/BG/Timer/PhaseButton_013", true, true);
+                if (!AcceptLoadedObject(loadedPhaseButton, true)) return;
+                loadedPhaseButton.GetComponent<Animator>().SetTrigger("Start");
+                Tools.PlayAnimation(loadedPhaseButton.transform, "StartToPhase1");
             }
             else
             {
-                phaseButton = ABLoader.LoadMasterDuelGameObject("PhaseButton_c001");
+                loadedPhaseButton = ABLoader.LoadMasterDuelGameObject("PhaseButton_c001");
+                allGameObjects.Add(loadedPhaseButton);
                 await UniTask.Yield();
+                if (!CurrentLoad()) return;
             }
 
+            phaseButton = loadedPhaseButton;
             phaseButton.transform.SetParent(Program.instance.container_3D, false);
-            allGameObjects.Add(phaseButton);
             phaseButton.AddComponent<PhaseButtonHandler>();
 
             #endregion
@@ -362,11 +416,16 @@ namespace MDPro3.Duel
             {
                 GameObject timer;
                 if (MatIsSpecial(field1.name))
+                {
                     timer = await ABLoader.LoadFromFileAsync("MasterDuel/BG/Timer/Timer_013", true, true);
+                    if (!AcceptLoadedObject(timer, true)) return;
+                }
                 else
                 {
                     timer = ABLoader.LoadMasterDuelGameObject("Timer_c001");
+                    allGameObjects.Add(timer);
                     await UniTask.Yield();
+                    if (!CurrentLoad()) return;
                 }
 
                 timerHandler = timer.AddComponent<TimerHandler>();
@@ -374,16 +433,17 @@ namespace MDPro3.Duel
                 timerHandler.SetTimeLimit(timeLimit);
                 timerHandler.SetTime(OcgCore.isFirst ? 0 : 1, timeLimit);
                 timerHandler.Pause();
-                allGameObjects.Add(timer);
             }
 
             #endregion
 
             #region Playable Guide
 
-            playableGuide = Create<PlayableGuide>();
-            playableGuide.Load(field0.name, field1.name);
-            await UniTask.WaitUntil(() => playableGuide.loaded);
+            var entryGuide = Create<PlayableGuide>();
+            playableGuide = entryGuide;
+            entryGuide.Load(field0.name, field1.name);
+            await UniTask.WaitUntil(() => !CurrentLoad() || entryGuide == null || entryGuide.loaded);
+            if (!CurrentLoad()) return;
 
             if (DeviceInfo.OnAndroid())
                 playableGuide.SetHeight(0.6f);
@@ -394,7 +454,10 @@ namespace MDPro3.Duel
 
             var deckMat = Appearance.duelProtector0;
             if (deck != null && !overrideDeckAppearance)
+            {
                 deckMat = await ABLoader.LoadProtectorMaterial(deck.Protector.ToString(), Application.exitCancellationToken);
+                if (!CurrentLoad()) return;
+            }
 
             if (condition == Condition.Duel)
                 myProtector = deckMat;
@@ -404,6 +467,7 @@ namespace MDPro3.Duel
                 if (hasSide0Appearance)
                 {
                     var mat = await ABLoader.LoadProtectorMaterial(side0Appearance.Protector.ToString(), Application.exitCancellationToken);
+                    if (!CurrentLoad()) return;
                     if (mat != null)
                         myProtector = mat;
                 }
@@ -417,6 +481,7 @@ namespace MDPro3.Duel
                 if (hasSide1Appearance)
                 {
                     var mat = await ABLoader.LoadProtectorMaterial(side1Appearance.Protector.ToString(), Application.exitCancellationToken);
+                    if (!CurrentLoad()) return;
                     if (mat != null)
                         opProtector = mat;
                 }
@@ -427,6 +492,7 @@ namespace MDPro3.Duel
                 if (hasSide1Appearance)
                 {
                     var mat = await ABLoader.LoadProtectorMaterial(side1Appearance.Protector.ToString(), Application.exitCancellationToken);
+                    if (!CurrentLoad()) return;
                     if (mat != null)
                         opProtector = mat;
                 }
@@ -445,9 +511,8 @@ namespace MDPro3.Duel
             opExtra = UnityEngine.Object.Instantiate(deckModel).GetComponent<ElementObjectManager>();
             InitializeDeckModel(opExtra, 1, CardLocation.Extra);
 
-            // ProcessMessage disposes the preceding presentation after asset
-            // loading starts. Activate this generation only once its four new
-            // native models have actually been installed.
+            // The entry load owns a separate generation. Expose the deck
+            // presentation only once its four native models are installed.
             ++deckPresentationGeneration;
             deckPresentationActive = true;
 
@@ -499,6 +564,7 @@ namespace MDPro3.Duel
             #region Quit Load
 
             await processor.PreloadPlayerNames();
+            if (!CurrentLoad()) return;
             if (Core.NeedVoice())
             {
                 Core.GetUI<OcgCoreUI>().CG.alpha = 1;
@@ -508,8 +574,6 @@ namespace MDPro3.Duel
 
             UIManager.ShowFPSLeft();
             UIManager.HideBlackBack(0f);
-            UIManager.UIBlackOut(Core.TransitionTime);
-            await UniTask.WaitForSeconds(Core.TransitionTime);
 
             backgroundFieldInitialize = false;
             BackgroundFieldInitialize();
@@ -521,7 +585,62 @@ namespace MDPro3.Duel
 
             #endregion
 
+            InitializeFieldMaterialParameters(field0);
+            InitializeFieldMaterialParameters(field1);
             loaded = true;
+            entryLoadActive = false;
+        }
+
+        private static void InitializeFieldMaterialParameters(GameObject field)
+        {
+            if (field == null || SystemInfo.graphicsDeviceType != GraphicsDeviceType.Metal) return;
+            int shadowDistance = Shader.PropertyToID("_ShadowSoftDistance");
+            foreach (var renderer in field.GetComponentsInChildren<Renderer>(true))
+            {
+                // Existing artist or animation overrides already use this
+                // submission path; leave their renderer and slot blocks intact.
+                if (renderer.HasPropertyBlock()) continue;
+                var materials = renderer.sharedMaterials;
+                for (int index = 0; index < materials.Length; index++)
+                {
+                    var material = materials[index];
+                    if (material == null || material.shader == null
+                        || !material.shader.name.StartsWith("Shader Graphs/UnlitRecieveShadow", StringComparison.Ordinal)
+                        || !material.HasProperty(shadowDistance)) continue;
+                    // Older bundled field graphs can enter Metal with stale
+                    // per-material constants. Submit the authored value once
+                    // through the renderer without changing the shared asset.
+                    var block = new MaterialPropertyBlock();
+                    block.SetFloat(shadowDistance, material.GetFloat(shadowDistance));
+                    renderer.SetPropertyBlock(block, index);
+                }
+            }
+        }
+
+        private static void InitializeGraveMaterialParameters(GameObject grave)
+        {
+            if (grave == null || SystemInfo.graphicsDeviceType != GraphicsDeviceType.Metal) return;
+            int cardIntensity = Shader.PropertyToID("_IntensityGraveCardExist");
+            foreach (var renderer in grave.GetComponentsInChildren<Renderer>(true))
+            {
+                // A pre-existing block already uses per-object submission.
+                if (renderer.HasPropertyBlock()) continue;
+                var materials = renderer.sharedMaterials;
+                for (int index = 0; index < materials.Length; index++)
+                {
+                    var material = materials[index];
+                    if (material == null || material.shader == null
+                        || material.shader.name != "Shader Graphs/GraveCommon01"
+                        || !material.HasProperty(cardIntensity)) continue;
+                    // This bundled graph can lose its per-object light data in
+                    // Metal SRP batches, leaving the stone black. Submitting one
+                    // static authored value preserves its texture, animation,
+                    // and count-driven glow while using the per-object path.
+                    var block = new MaterialPropertyBlock();
+                    block.SetFloat(cardIntensity, material.GetFloat(cardIntensity));
+                    renderer.SetPropertyBlock(block, index);
+                }
+            }
         }
 
         public async UniTask ExitDuelAsync()
@@ -529,8 +648,8 @@ namespace MDPro3.Duel
             RetireDeckPresentation();
             int exitGeneration = deckPresentationGeneration;
             var exitCore = Core;
+            var exitUI = exitCore.GetUI<OcgCoreUI>();
             loaded = false;
-            ClearResponse();
             // Retire the departed protocol before the preparation page can
             // start another duel and append its packets to the shared queues.
             NoMoreWait = true;
@@ -538,16 +657,17 @@ namespace MDPro3.Duel
             allPackages.Clear();
             pause = false;
             nextMoveAction = null;
+            ClearResponse();
             CameraManager.BlackOut(0f, 0.3f);
 
             UIManager.UIBlackIn(Core.TransitionTime);
-            Core.GetUI<OcgCoreUI>().CloseHint();
+            if (exitUI != null) exitUI.CloseHint();
             HideAttackLine();
             HideDuelFinalBlowText();
             await UniTask.WaitForSeconds(Core.TransitionTime);
             if (exitGeneration != deckPresentationGeneration || Program.instance == null
                 || exitCore == null || Program.instance.ocgcore != exitCore) return;
-            Core.servantUI.ShutDown();
+            if (exitCore.servantUI != null) exitCore.servantUI.ShutDown();
 
             AudioManager.ResetSESource();
             mycardDuel = false;
@@ -560,8 +680,11 @@ namespace MDPro3.Duel
             cards.Clear();
             Core.cachedCharaFaces.Clear();
             CameraManager.ShiftTo2D();
-            Core.GetUI<OcgCoreUI>().Buttons.SetActive(false);
-            Core.GetUI<OcgCoreUI>().DuelLog.ClearLog();
+            if (exitUI != null)
+            {
+                if (exitUI.Buttons != null) exitUI.Buttons.SetActive(false);
+                if (exitUI.DuelLog != null) exitUI.DuelLog.ClearLog();
+            }
             Program.instance.ui_.chatPanel.Hide();
             await UniTask.WaitForSeconds(0.3f);
             if (exitGeneration != deckPresentationGeneration || Program.instance == null
@@ -611,24 +734,6 @@ namespace MDPro3.Duel
         {
             if (!TryCaptureDeckPresentation(out var presentation)) return;
             if (!await ShowAllDeckModelsAsync(presentation) || !IsDeckPresentationCurrent(presentation)) return;
-
-            Core.GetUI<OcgCoreUI>().CG.alpha = 1;
-            Core.GetUI<OcgCoreUI>().CG.blocksRaycasts = true;
-            Core.GetUI<OcgCoreUI>().Buttons.SetActive(true);
-            AudioManager.PlayBgmNormal(Config.GetBool("BGMbyMySide", true) ? field0Manager.name : field1Manager.name);
-        }
-
-        public async UniTask ShowDecksWithDuelStartTextAsync()
-        {
-            if (!TryCaptureDeckPresentation(out var presentation)) return;
-            if (!await ShowAllDeckModelsAsync(presentation) || !IsDeckPresentationCurrent(presentation)) return;
-
-            var effect = ABLoader.LoadMasterDuelGameObject("DuelTextStart");
-            allGameObjects.Add(effect);
-            var director = effect.GetComponent<PlayableDirector>();
-            try { await director.WaitAsync(); }
-            finally { if (effect != null) UnityEngine.Object.Destroy(effect); }
-            if (!IsDeckPresentationCurrent(presentation)) return;
 
             Core.GetUI<OcgCoreUI>().CG.alpha = 1;
             Core.GetUI<OcgCoreUI>().CG.blocksRaycasts = true;
@@ -884,8 +989,9 @@ namespace MDPro3.Duel
             }
         }
 
-        private async UniTask LoadMateForSideAsync(int side, int mateCode, Transform anchor)
+        private async UniTask LoadMateForSideAsync(int side, int mateCode, Transform anchor, Func<bool> stillCurrent)
         {
+            if (!stillCurrent()) return;
             SetPremiumMateState(side, null);
             SetMateForSide(side, null);
 
@@ -904,6 +1010,13 @@ namespace MDPro3.Duel
                 foreach (var formId in formIds)
                 {
                     var formMate = await ABLoader.LoadMateAsync(formId);
+                    if (!stillCurrent())
+                    {
+                        if (formMate != null) { formMate.gameObject.SetActive(false); UnityEngine.Object.Destroy(formMate.gameObject); }
+                        foreach (var form in loadedForms.Values)
+                            if (form != null) { form.gameObject.SetActive(false); UnityEngine.Object.Destroy(form.gameObject); }
+                        return;
+                    }
                     if (formMate == null)
                         continue;
 
@@ -951,6 +1064,11 @@ namespace MDPro3.Duel
             }
 
             var mate = await ABLoader.LoadMateAsync(normalizedMateCode);
+            if (!stillCurrent())
+            {
+                if (mate != null) { mate.gameObject.SetActive(false); UnityEngine.Object.Destroy(mate.gameObject); }
+                return;
+            }
             if (mate == null)
                 return;
 
@@ -2062,7 +2180,8 @@ namespace MDPro3.Duel
 
         public void PlayGraveEffect(GPS p, bool isIn)
         {
-            if(grave0Manager == null || grave1Manager == null)
+            int generation = deckPresentationGeneration;
+            if (!IsDeckPresentationCurrent(generation) || grave0Manager == null || grave1Manager == null)
                 return;
 
             ElementObjectManager manager;
@@ -2106,15 +2225,26 @@ namespace MDPro3.Duel
                     audio = "SE_EXCLUSION_GOOUT";
                 }
             }
-            DOTween.To(v => { }, 0, 0, effect.delay).OnComplete(() =>
+            bool CanPlay(BgEffectSetting queuedEffect) => IsDeckPresentationCurrent(generation)
+                && manager != null && queuedEffect != null && queuedEffect.particle != null;
+            if (effect != null && effect.particle != null)
             {
-                effect.particle.Play();
-                AudioManager.PlaySE(audio);
-            });
-            DOTween.To(v => { }, 0, 0, effectEnd.delay).OnComplete(() =>
+                DOTween.To(v => { }, 0, 0, effect.delay).OnComplete(() =>
+                {
+                    // Delays can outlive the field or even enter another duel.
+                    if (!CanPlay(effect)) return;
+                    effect.particle.Play();
+                    AudioManager.PlaySE(audio);
+                });
+            }
+            if (effectEnd != null && effectEnd.particle != null)
             {
-                effectEnd.particle.Play();
-            });
+                DOTween.To(v => { }, 0, 0, effectEnd.delay).OnComplete(() =>
+                {
+                    if (!CanPlay(effectEnd)) return;
+                    effectEnd.particle.Play();
+                });
+            }
         }
 
         public void ShowBgHint()
@@ -2295,9 +2425,10 @@ namespace MDPro3.Duel
         {
             foreach (var place in places)
                 place.StopResponse();
-            btnConfirm.Hide();
-            btnCancel.Hide();
-            Core.GetUI<OcgCoreUI>().CloseHint();
+            if (btnConfirm != null) btnConfirm.Hide();
+            if (btnCancel != null) btnCancel.Hide();
+            var ui = Core.GetUI<OcgCoreUI>();
+            if (ui != null) ui.CloseHint();
         }
 
         public void Dispose()
@@ -2321,6 +2452,17 @@ namespace MDPro3.Duel
             myExtra = null;
             opDeck = null;
             opExtra = null;
+            field0Manager = null;
+            field1Manager = null;
+            grave0Manager = null;
+            grave1Manager = null;
+            stand0Manager = null;
+            stand1Manager = null;
+            phaseButton = null;
+            timerHandler = null;
+            playableGuide = null;
+            places.Clear();
+            graves.Clear();
         }
 
         public async UniTask ShowDuelResultText(string text)
@@ -3370,19 +3512,23 @@ namespace MDPro3.Duel
             if (TryCaptureDeckPresentation(out var presentation)) await ShowAllDeckModelsAsync(presentation);
         }
 
-        private async UniTask<bool> ShowAllDeckModelsAsync(DeckPresentation presentation)
+        private UniTask<bool> ShowAllDeckModelsAsync(DeckPresentation presentation)
         {
-            if (!IsDeckPresentationCurrent(presentation)) return false;
-            foreach (var model in presentation.Models) model.gameObject.SetActive(true);
-            var director = presentation.Models[0].GetComponent<PlayableDirector>();
-            await director.WaitAsync();
-            if (!IsDeckPresentationCurrent(presentation)) return false;
+            if (!IsDeckPresentationCurrent(presentation)) return UniTask.FromResult(false);
             for (int i = 0; i < presentation.Models.Length; i++)
             {
+                var director = presentation.Models[i].GetComponent<PlayableDirector>();
+                if (director != null)
+                {
+                    director.playOnAwake = false;
+                    director.Stop();
+                    director.enabled = false;
+                }
+                presentation.Models[i].gameObject.SetActive(true);
                 presentation.Offsets[i].SetActive(false);
                 presentation.ShuffleTops[i].SetActive(true);
             }
-            return true;
+            return UniTask.FromResult(true);
         }
 
         public void ShowTargetLines(Vector3 start, List<GameCard> targets)
@@ -3889,13 +4035,18 @@ namespace MDPro3.Duel
 
         public void SetBgTimeScale(float timeScale)
         {
-            Tools.SetAnimatorTimescale(field0Manager.transform, timeScale);
-            Tools.SetAnimatorTimescale(field1Manager.transform, timeScale);
-            Tools.SetAnimatorTimescale(phaseButton.transform, timeScale);
-            if (timerHandler != null)
-                Tools.SetAnimatorTimescale(timerHandler.transform, timeScale);
-            Tools.SetParticleSystemSimulationSpeed(field0Manager.transform, timeScale);
-            Tools.SetParticleSystemSimulationSpeed(field1Manager.transform, timeScale);
+            if (field0Manager != null)
+            {
+                Tools.SetAnimatorTimescale(field0Manager.transform, timeScale);
+                Tools.SetParticleSystemSimulationSpeed(field0Manager.transform, timeScale);
+            }
+            if (field1Manager != null)
+            {
+                Tools.SetAnimatorTimescale(field1Manager.transform, timeScale);
+                Tools.SetParticleSystemSimulationSpeed(field1Manager.transform, timeScale);
+            }
+            if (phaseButton != null) Tools.SetAnimatorTimescale(phaseButton.transform, timeScale);
+            if (timerHandler != null) Tools.SetAnimatorTimescale(timerHandler.transform, timeScale);
         }
 
         public void SetTimeLimit(int player, int time)

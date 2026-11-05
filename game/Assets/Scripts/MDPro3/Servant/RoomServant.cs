@@ -223,8 +223,8 @@ namespace MDPro3.Servant
             {
                 if (SelfType == 7)
                 {
-                    OcgCore.name_0 = AI.ResponsesDuelSession.UsesAiAPerspective ? "AI A" : GetPlayerName(0);
-                    OcgCore.name_1 = AI.ResponsesDuelSession.UsesAiAPerspective ? "AI B" : GetPlayerName(1);
+                    OcgCore.name_0 = AI.ResponsesDuelSession.UsesAiAPerspective ? AI.ResponsesDuelSession.NameForSide(0, "AI A") : GetPlayerName(0);
+                    OcgCore.name_1 = AI.ResponsesDuelSession.UsesAiAPerspective ? AI.ResponsesDuelSession.NameForSide(1, "AI B") : GetPlayerName(1);
                 }
                 else
                 {

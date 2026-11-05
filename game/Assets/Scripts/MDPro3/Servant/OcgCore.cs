@@ -265,8 +265,9 @@ namespace MDPro3.Servant
             ui.CG.alpha = 0f;
             ui.CG.blocksRaycasts = false;
 
-            _ = messageDispatcher.duel.duelBGManager.LoadAssetsAsync();
+            // Dispose the preceding duel before starting this entry's asset generation.
             _ = ProcessMessage();
+            _ = messageDispatcher.duel.duelBGManager.LoadAssetsAsync();
 
             returnAction = null;
         }
@@ -274,6 +275,7 @@ namespace MDPro3.Servant
         protected override void ApplyHideArrangement(int preDepth)
         {
             messageLoopVersion++;
+            GetUI<OcgCoreUI>()?.DuelErrorLog.Clear();
             _ = messageDispatcher.duel.duelBGManager.ExitDuelAsync();
         }
 
@@ -290,7 +292,7 @@ namespace MDPro3.Servant
             base.OnExit();
             CloseConnection();
             CurrentReplayGodView = false;
-            GetUI<OcgCoreUI>().OnNor();
+            GetUI<OcgCoreUI>()?.OnNor();
             sideChangedDeck = null;
         }
 
@@ -792,8 +794,12 @@ namespace MDPro3.Servant
         
         private async UniTask ShowErrorMessageAsync(string error)
         {
-            await UniTask.WaitWhile(() => servantUI == null);
-            UniTask.ReturnToMainThread();
+            var errorLoopVersion = messageLoopVersion;
+            await UniTask.SwitchToMainThread();
+            bool CurrentErrorLoop() => this != null && showing && errorLoopVersion == messageLoopVersion;
+            await UniTask.WaitWhile(() => CurrentErrorLoop() && servantUI == null);
+            if (!CurrentErrorLoop())
+                return;
             GetUI<OcgCoreUI>().DuelErrorLog.Show(error);
         }
 
@@ -1707,6 +1713,11 @@ namespace MDPro3.Servant
                     GetUI<OcgCoreUI>().AvatarPlayer1.material = Appearance.watchFrameMat1Tag;
                     SetFaceWhenCharaOff(Appearance.watchFace1Tag, 1);
                 }
+                if (AI.ResponsesDuelSession.UsesAiAPerspective)
+                {
+                    _ = ApplyAiSpectatorFaceAsync(0);
+                    _ = ApplyAiSpectatorFaceAsync(1);
+                }
             }
             else if (condition == Condition.Replay)
             {
@@ -1776,6 +1787,28 @@ namespace MDPro3.Servant
                 GetUI<OcgCoreUI>().AvatarPlayer1.material = frameMaterial;
             if (faceSprite != null)
                 SetFaceWhenCharaOff(faceSprite, 1);
+        }
+
+        private async UniTask ApplyAiSpectatorFaceAsync(int side)
+        {
+            if (condition != Condition.Watch || !AI.ResponsesDuelSession.UsesAiAPerspective
+                || !RoomServant.TryGetOnlineAppearanceForPlayer(side, out var appearance)) return;
+            string profileName = side == 0 ? name_0 : name_1;
+            var frameCode = appearance.Frame.ToString();
+            var frameSprite = await Program.items.LoadConcreteItemIconAsync(frameCode, Items.ItemType.Frame, side);
+            var frameMaterial = appearance.Frame == Items.CODE_DIY
+                ? Appearance.matForFace == null ? null : new Material(Appearance.matForFace)
+                : await ABLoader.LoadFrameMaterial(frameCode);
+            if (frameMaterial != null && frameSprite != null)
+                frameMaterial.SetTexture("_ProfileFrameTex", frameSprite.texture);
+            var faceSprite = await Program.items.LoadConcreteItemIconAsync(appearance.Face.ToString(), Items.ItemType.Face, side);
+            if (!showing || condition != Condition.Watch || !AI.ResponsesDuelSession.UsesAiAPerspective
+                || profileName != (side == 0 ? name_0 : name_1)
+                || !RoomServant.TryGetOnlineAppearanceForPlayer(side, out var latest)
+                || latest.Face != appearance.Face || latest.Frame != appearance.Frame) return;
+            var avatar = side == 0 ? GetUI<OcgCoreUI>().AvatarPlayer0 : GetUI<OcgCoreUI>().AvatarPlayer1;
+            if (frameMaterial != null) avatar.material = frameMaterial;
+            if (faceSprite != null) SetFaceWhenCharaOff(faceSprite, side);
         }
 
         private async UniTask SetMyCardFace()

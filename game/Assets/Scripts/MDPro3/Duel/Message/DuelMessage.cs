@@ -240,11 +240,13 @@ namespace MDPro3.Duel
             duelBGManager.RefreshBgState();
             Core.SetLP(0, 0, true);
 
-            await UniTask.WaitForSeconds(Core.TransitionTime);
+            await duelBGManager.ShowDecksAsync();
+            if (!duelBGManager.IsDeckPresentationCurrent(presentationGeneration)) return;
+            // Render the ready board before the coin. When it lands, the next
+            // protocol packet can draw the opening hand without another intro.
+            await UniTask.Yield();
             if (!duelBGManager.IsDeckPresentationCurrent(presentationGeneration)) return;
             await PresentOpeningCoin(presentationGeneration);
-            if (!duelBGManager.IsDeckPresentationCurrent(presentationGeneration)) return;
-            await duelBGManager.ShowDecksWithDuelStartTextAsync();
         }
 
         private async UniTask PresentOpeningCoin(int presentationGeneration)
@@ -423,6 +425,9 @@ namespace MDPro3.Duel
 
             await PreloadUpdateCardMessages();
             if (!duelBGManager.IsDeckPresentationCurrent(presentationGeneration)) return;
+            await duelBGManager.ShowDecksAsync();
+            await UniTask.Yield();
+            if (!duelBGManager.IsDeckPresentationCurrent(presentationGeneration)) return;
             if (inPuzzle && MDPro3.Utility.DeckAcademy.HasActivePractice)
             {
                 // Lessons are scripted opening positions. Show their actual
@@ -430,7 +435,6 @@ namespace MDPro3.Duel
                 await PresentOpeningCoin(presentationGeneration);
                 if (!duelBGManager.IsDeckPresentationCurrent(presentationGeneration)) return;
             }
-            await duelBGManager.ShowDecksAsync();
             if (!duelBGManager.IsDeckPresentationCurrent(presentationGeneration)) return;
             Program.instance.camera_.LogAcademyReplayRenderDiagnosticsSnapshot("ReloadField-after");
         }

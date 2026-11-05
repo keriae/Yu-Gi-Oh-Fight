@@ -151,17 +151,11 @@ namespace MDPro3.UI.Client
             settingsValues.Clear(); settingsOriginal.Clear(); settingsErrors.Clear(); aiLoadError = null; settingsSaveError = null;
             foreach (var field in clientSettings) settingsValues[field.Key] = settingsOriginal[field.Key] = Config.Have(field.Key) ? Config.Get(field.Key, field.Default) : field.Default;
             settingsValues["LocalDuelPort"] = settingsOriginal["LocalDuelPort"] = Config.Have("LocalDuelPort") ? Config.Get("LocalDuelPort", SoloSelector.port) : SoloSelector.port;
-            try { aiSettingsDraft = ResponsesAiConfigStore.Load(); }
-            catch (AiConfigurationException error) { aiSettingsDraft = new ResponsesAiConfig(); aiLoadError = error.Message; }
-            aiTimeout = aiSettingsDraft.TimeoutSeconds.ToString(); aiOutput = aiSettingsDraft.MaxOutputTokens.ToString(); aiBudget = aiSettingsDraft.PromptBudgetTokens.ToString();
-            aiHeaders.Clear(); visibleHeaders.Clear(); aiHeaderIds.Clear();
-            try { aiHeaders.AddRange(AiConfigForm.ReadHeaders(aiSettingsDraft.ExtraHeadersJson)); }
-            catch (AiConfigurationException error) { settingsErrors["headers"] = error.Message; }
-            aiSettingsOriginal = AiDraftSignature(); aiTestStatus = "尚未测试";
+            LoadAiProfilesDraft();
         }
         private string AiDraftSignature() => aiSettingsDraft == null ? "" : string.Join("\n", aiSettingsDraft.BaseUrl, aiSettingsDraft.ApiKey, aiSettingsDraft.Model,
             aiSettingsDraft.RememberApiKey, aiSettingsDraft.ReasoningEffort, aiTimeout, aiOutput, aiBudget, aiSettingsDraft.ExtraBodyJson,
-            string.Join("\n", aiHeaders.Select(field => field.Name + "\0" + field.Value)));
+            string.Join("\n", aiHeaders.Select(field => field.Name + "\0" + field.Value)), AiProfileDraftSignature());
         private static string AiRequestSignature(ResponsesAiConfig config) => string.Join("\n", config.BaseUrl, config.ApiKey, config.Model,
             config.ReasoningEffort, config.TimeoutSeconds, config.MaxOutputTokens, config.PromptBudgetTokens, config.ExtraHeadersJson, config.ExtraBodyJson);
         internal string GetAiServiceStatus(ResponsesAiConfig saved)
@@ -180,7 +174,7 @@ namespace MDPro3.UI.Client
         {
             settingsSaveError = null;
             CancelSettingsTest(); aiTestStatus = "尚未测试（请求配置已修改）";
-            if (settingsAiTestLabel != null) { settingsAiTestLabel.text = aiTestStatus; settingsAiTestLabel.color = FightUI.Muted; }
+            if (settingsAiTestLabel != null) { settingsAiTestLabel.text = ""; settingsAiTestLabel.color = FightUI.Muted; }
             var cleared = key == null ? settingsErrors.Keys.Where(IsAiSettingsKey).ToArray() : new[] { key, "ai" };
             foreach (var errorKey in cleared) { settingsErrors.Remove(errorKey); ClearSettingsFieldError(errorKey); }
             if (key != null && (key == "headers" || key.StartsWith("header:", StringComparison.Ordinal)))
@@ -201,7 +195,7 @@ namespace MDPro3.UI.Client
             }
             UpdateSettingsDirtyLabel();
         }
-        private static bool IsAiSettingsKey(string key) => new[] { "baseUrl", "apiKey", "model", "reasoning", "timeout", "output", "budget", "headers", "body", "ai" }.Contains(key)
+        private static bool IsAiSettingsKey(string key) => new[] { "baseUrl", "apiKey", "model", "reasoning", "timeout", "output", "budget", "headers", "body", "ai", "profileName" }.Contains(key)
             || key.StartsWith("header:", StringComparison.Ordinal);
         private string AiHeaderKey(AiConfigField field, string part)
         {
@@ -292,7 +286,7 @@ namespace MDPro3.UI.Client
             settingsLayoutMainDivider = FightUI.Panel(workspace, sidebar, 0, 1, BodyHeight, FightUI.Border, false, "Settings content divider");
             settingsLayoutMainDivider.GetComponent<Image>().raycastTarget = false;
             var categories = new[] { "general", "graphics", "duel", "ai", "data", "about" };
-            var titles = new[] { "通用", "画面与声音", "对局与演出", "AI 服务", "数据与资源", "关于" };
+            var titles = new[] { "通用", "画面与声音", "对局与演出", "AI 分身", "数据与资源", "关于" };
             for (var i = 0; i < categories.Length; i++)
             {
                 var category = categories[i];
@@ -312,7 +306,7 @@ namespace MDPro3.UI.Client
                 changes.name = "Settings category changes " + category;
                 changes.raycastTarget = false;
                 settingsCategoryChanges[category] = changes;
-                FightUI.Hint(changes.gameObject, category == "ai" ? "AI 服务配置尚未保存。" : "该分类有未保存的修改；数字为修改项数。");
+                FightUI.Hint(changes.gameObject, category == "ai" ? "当前 AI 分身的修改尚未保存。" : "该分类有未保存的修改；数字为修改项数。");
             }
             var title = titles[Mathf.Max(0, Array.IndexOf(categories, settingsCategory))];
             var innerWidth = Mathf.Min(settingsCategory == "ai" && aiAdvanced ? float.PositiveInfinity : settingsCategory == "ai" ? 920 : 880, formWidth - inset * 2 - 24);
@@ -332,7 +326,7 @@ namespace MDPro3.UI.Client
             var content = FightUI.Scroll(workspace, readerX, headingHeight + 12, readerWidth, viewportHeight, 2600, out settingsScroll);
             settingsScroll.GetComponent<Image>().color = Color.clear;
             float y = 8;
-            if (settingsCategory == "ai") RenderAiSettings(content, innerWidth, ref y);
+            if (settingsCategory == "ai") RenderAiProfileSettings(content, innerWidth, ref y);
             else if (settingsCategory == "data") RenderDataSettings(content, innerWidth, ref y);
             else if (settingsCategory == "about") RenderAboutSettings(content, innerWidth, ref y);
             else
@@ -342,7 +336,6 @@ namespace MDPro3.UI.Client
                     var conditions = new[] { "Duel", "Watch", "Replay" }; var labels = new[] { "对战", "观战", "回放" };
                     for (var i = 0; i < 3; i++) { var condition = conditions[i]; FightUI.Tab(content, (condition == settingsCondition ? "◆ " : "") + labels[i], condition == settingsCondition, i * 152, y, 144, 44, () => { settingsCondition = condition; settingsScrollPosition = 1; RenderSettings(); }); }
                     y += 60;
-                    y += SettingsWrappedText(content, "情境项分别保存；下方全局操作适用于所有情境。", 0, y, innerWidth, 32, 17, FightUI.Muted).rectTransform.sizeDelta.y + 16;
                     FightUI.Button(content, "收藏 · 外观与角色", 0, y, 240, 48, () => Navigate("appearance")); y += 68;
                 }
                 foreach (var field in clientSettings.Where(field => field.Category == settingsCategory && (settingsCategory != "duel" || !field.Key.StartsWith("Duel") && !field.Key.StartsWith("Watch") && !field.Key.StartsWith("Replay") || field.Key.StartsWith(settingsCondition))))
@@ -372,11 +365,11 @@ namespace MDPro3.UI.Client
             else
             {
                 string resetLabel = settingsCategory == "duel" ? "恢复当前情境默认"
-                    : settingsCategory == "ai" ? aiAdvanced ? "恢复高级默认" : "恢复连接默认" : "恢复本页默认";
-                var reset = FightUI.Button(actions, resetLabel, readerInset, 16, SettingsResetWidth, 48, RestoreSettingsDefaults, false, settingsTest == null);
+                    : settingsCategory == "ai" ? aiAppearance ? "恢复外观默认" : aiAdvanced ? "恢复高级默认" : "恢复连接默认" : "恢复本页默认";
+                var reset = FightUI.Button(actions, resetLabel, readerInset, 16, SettingsResetWidth, 48, RestoreSettingsDefaults, false, settingsTest == null && (settingsCategory != "ai" || aiProfileDraft != null));
                 reset.name = "恢复本页默认";
                 FightUI.Hint(reset.gameObject, settingsCategory == "duel" ? "只恢复当前对战、观战或回放情境的设置；保存后生效。"
-                    : settingsCategory == "ai" ? "只恢复当前连接或高级分页中的参数；保存后生效。" : "只恢复当前分类中的设置；保存后生效。");
+                    : settingsCategory == "ai" ? "只恢复当前分身、当前分页中的设置；保存后生效。" : "只恢复当前分类中的设置；保存后生效。");
                 settingsLayoutReset = reset.GetComponent<RectTransform>();
             }
             var cancelLabel = settingsOrigin == null ? "取消修改" : "返回对战准备";
@@ -395,7 +388,7 @@ namespace MDPro3.UI.Client
             FightUI.Hint(settingsLayoutCancel.gameObject, settingsOrigin == null ? "放弃所有分类中尚未保存的修改，恢复已保存设置。" : "返回对战准备；未保存时可选择继续编辑、放弃或保存。");
             if (settingsCategory == "data")
             {
-                settingsDataStatusLabel = SettingsWrappedText(actions, settingsDataStatus ?? "文件操作立即执行；扩展开关需保存。", readerInset, 16,
+                settingsDataStatusLabel = SettingsWrappedText(actions, settingsDataStatus ?? "", readerInset, 16,
                     Mathf.Max(150, readerWidth - 480), 48, 15, settingsDataStatusFailed ? FightUI.Danger : FightUI.Muted);
                 settingsDataStatusLabel.maxVisibleLines = 2;
                 settingsDataStatusLabel.overflowMode = TextOverflowModes.Ellipsis;
@@ -582,15 +575,15 @@ namespace MDPro3.UI.Client
             float labelWidth = Mathf.Min(240, width * .27f), controlX = labelWidth + 16, controlWidth = width - controlX;
             var label = SettingsFieldLabel(parent, "本地决斗端口", 0, y + 2, labelWidth, 44);
             TMP_InputField input = null;
-            var hint = SettingsWrappedText(parent, "端口范围 1–65535；保存后生效。", controlX, y + 50, controlWidth, 26, 15, FightUI.Muted);
+            var hint = SettingsWrappedText(parent, "端口范围 1–65535", controlX, y + 50, controlWidth, 26, 15, FightUI.Muted);
             hint.name = "Local duel port feedback";
             hint.rectTransform.sizeDelta = new Vector2(controlWidth, Mathf.Max(hint.rectTransform.sizeDelta.y,
-                hint.GetPreferredValues("请输入 1–65535 之间的整数端口。\n端口范围 1–65535；保存后生效。", controlWidth, float.PositiveInfinity).y + 4));
+                hint.GetPreferredValues("请输入 1–65535 之间的整数端口。", controlWidth, float.PositiveInfinity).y + 4));
             Action<string> updateFeedback = value =>
             {
                 string issue = SettingsPortError(value);
                 if (issue == null) settingsErrors.Remove("LocalDuelPort"); else settingsErrors["LocalDuelPort"] = issue;
-                hint.text = issue == null ? "端口范围 1–65535；保存后生效。" : issue + "\n端口范围 1–65535；保存后生效。";
+                hint.text = issue == null ? "端口范围 1–65535" : issue;
                 hint.color = issue == null ? FightUI.Muted : FightUI.Danger;
                 if (input != null) input.GetComponent<Outline>().effectColor = issue == null ? FightUI.Border : FightUI.Danger;
                 UpdateSettingsDirtyLabel();
@@ -644,10 +637,8 @@ namespace MDPro3.UI.Client
             bool searchable = values.Length > 8;
             float height = Mathf.Min(600, 140 + (searchable ? 64 : 0) + Mathf.Max(1, values.Length) * 52);
             var modal = ShowDialog(title, 560, height);
-            float listTop = searchable ? 136 : 72, viewportHeight = height - listTop - 68;
+            float listTop = searchable ? 136 : 72, viewportHeight = height - listTop - 28;
             var content = FightUI.Scroll(modal, 24, listTop, 512, viewportHeight, values.Length * 52, out var scroll);
-            var result = FightUI.Text(modal, "", 24, height - 58, 328, 44, 15, FightUI.Muted, TextAlignmentOptions.MidlineLeft);
-            result.enableWordWrapping = false; result.overflowMode = TextOverflowModes.Ellipsis;
             TMP_InputField search = null;
             Button clear = null;
             Action clearSearch = () =>
@@ -686,14 +677,10 @@ namespace MDPro3.UI.Client
                 }
                 if (indices.Length == 0)
                 {
-                    FightUI.Text(content, "没有匹配项，请尝试其他关键词。", 16, 12, 480, 64, 18, FightUI.Muted, TextAlignmentOptions.Center);
+                    FightUI.Text(content, "没有匹配项", 16, 12, 480, 64, 18, FightUI.Muted, TextAlignmentOptions.Center);
                     if (searchable) FightUI.FocusKey(FightUI.Button(content, "清除搜索", 164, 88, 184, 44, clearSearch), "settings:search:empty-clear");
                     rowTop = 144;
                 }
-                result.text = string.IsNullOrWhiteSpace(query) ? values.Length + " 个选项" : indices.Length + " / " + values.Length + " 个匹配项";
-                int currentIndex = Array.IndexOf(values, current);
-                if (currentIndex >= 0) result.text += " · 当前选择：" + labels[currentIndex];
-                FightUI.Hint(result.gameObject, result.text);
                 content.sizeDelta = new Vector2(512, Mathf.Max(viewportHeight, rowTop));
                 scroll.verticalNormalizedPosition = selectedTop >= 0 && string.IsNullOrEmpty(query)
                     ? Mathf.Clamp01(1 - Mathf.Max(0, selectedTop - 52) / Mathf.Max(1, content.sizeDelta.y - viewportHeight)) : 1;
@@ -711,14 +698,10 @@ namespace MDPro3.UI.Client
                 FightUI.Hint(clear.gameObject, "清除搜索，显示全部选项");
             }
             renderOptions("");
-            FightUI.Button(modal, "取消", 368, height - 58, 160, 44, CloseDialog);
         }
 
         private void RenderAiSettings(Transform parent, float width, ref float y)
         {
-            FightUI.Tab(parent, (!aiAdvanced ? "◆ " : "") + "连接", !aiAdvanced, 0, y, 160, 44, () => { aiAdvanced = false; settingsScrollPosition = 1; RenderSettings(); }, settingsTest == null);
-            FightUI.Tab(parent, (aiAdvanced ? "◆ " : "") + "高级", aiAdvanced, 172, y, 160, 44, () => { aiAdvanced = true; settingsScrollPosition = 1; RenderSettings(); }, settingsTest == null);
-            FightUI.Line(parent, 0, y + 52, width, FightUI.Border); y += 76;
             if (aiLoadError != null) y += SettingsWrappedText(parent, aiLoadError, 0, y, width, 60, 17, FightUI.Danger).rectTransform.sizeDelta.y + 12;
             if (!aiAdvanced)
             {
@@ -726,7 +709,6 @@ namespace MDPro3.UI.Client
                 var panel = FightUI.Node(parent, "AI connection settings", 0, y, connectionWidth, 570);
                 var form = FightUI.Node(panel, "Connection Fields", 0, 0, connectionWidth, 540);
                 float fw = connectionWidth, fy = 0;
-                SettingsSection(form, fw, "连接参数", ref fy);
                 RenderSettingsInput(form, fw, "baseUrl", "服务地址", aiSettingsDraft.BaseUrl, "支持根地址、/v1 或完整 /responses 地址", ref fy, value => { aiSettingsDraft.BaseUrl = value; AiSettingsChanged("baseUrl"); });
                 RenderSettingsInput(form, fw - 100, "apiKey", "API Key", aiSettingsDraft.ApiKey, "密钥仅用于请求认证", ref fy, value => { aiSettingsDraft.ApiKey = value; AiSettingsChanged("apiKey"); }, !aiKeyVisible, showHint: false);
                 var keyInput = settingsInputs["apiKey"];
@@ -735,7 +717,7 @@ namespace MDPro3.UI.Client
                 FightUI.Line(form, 0, fy, fw, FightUI.GoldBorder); fy += 16;
                 var remember = FightUI.SwitchRow(form, "记住密钥和额外请求配置", aiSettingsDraft.RememberApiKey, 0, fy, fw, 48, () => { aiSettingsDraft.RememberApiKey = !aiSettingsDraft.RememberApiKey; UpdateSettingsDirtyLabel(); RenderSettings(); });
                 fy += 60;
-                fy += SettingsWrappedText(form, "关闭时仅保留本次运行；保存关闭记忆会移除已存凭据。", 0, fy, fw, 48, 16, FightUI.Muted).rectTransform.sizeDelta.y + 10;
+                FightUI.Hint(remember.gameObject, "关闭时仅保留本次运行；保存关闭记忆会移除已存凭据。");
                 panel.sizeDelta = new Vector2(connectionWidth, fy + 32); y += fy + 48;
             }
             else
@@ -760,7 +742,6 @@ namespace MDPro3.UI.Client
                 AiBudgetField(left, inner, "timeout", "请求超时", "秒", aiTimeout, ref ly, value => { aiTimeout = value; AiSettingsChanged("timeout"); });
                 AiBudgetField(left, inner, "output", "输出上限", "tokens", aiOutput, ref ly, value => { aiOutput = value; AiSettingsChanged("output"); });
                 AiBudgetField(left, inner, "budget", "上下文预算", "tokens", aiBudget, ref ly, value => { aiBudget = value; AiSettingsChanged("budget"); });
-                ly += SettingsWrappedText(left, "上下文预算须高于实际输出，并预留至少 1024 tokens。", 16, ly + 4, inner, 42, 16, FightUI.Muted).rectTransform.sizeDelta.y + 20;
                 left.sizeDelta = new Vector2(columnWidth, ly + 16);
 
                 float ry = 14;
@@ -803,21 +784,21 @@ namespace MDPro3.UI.Client
                 FightUI.Hint(bodyInput.gameObject, jsonHint);
                 if (settingsErrors.ContainsKey("body")) bodyInput.GetComponent<Outline>().effectColor = FightUI.Danger;
                 jy += AiSettingsJsonHeight + 12;
-                jy += SettingsWrappedText(json, jsonHint, 0, jy, inner, 42, 16, FightUI.Muted).rectTransform.sizeDelta.y + 12;
                 RenderSettingsError(json, inner, "body", ref jy);
                 json.sizeDelta = new Vector2(inner, jy);
                 float rightHeight = ry + jy + 16;
                 FightUI.Place(right, stacked ? 0 : columnWidth + AiSettingsPaneGap, stacked ? paneY + left.rect.height + AiSettingsPaneGap : paneY, columnWidth, rightHeight);
                 y = paneY + (stacked ? left.rect.height + AiSettingsPaneGap + rightHeight : Mathf.Max(left.rect.height, rightHeight)) + 24;
             }
-            y += SettingsWrappedText(parent, "测试检查 Responses 与结构化输出协议；修改在下一场生效。", 0, y, width, 42, 16, FightUI.Muted).rectTransform.sizeDelta.y + 6;
             FightUI.Line(parent, 0, y - 8, width, FightUI.Border);
             var testButton = FightUI.Button(parent, settingsTest == null ? "测试连接" : "取消测试", 0, y, 180, 44, TestSettingsConnection);
+            FightUI.Hint(testButton.gameObject, "测试检查 Responses 与结构化输出协议。配置在下一场对局生效。");
             var testColor = aiTestStatus.StartsWith("测试通过", StringComparison.Ordinal) ? FightUI.Gold
                 : aiTestStatus.StartsWith("尚未测试", StringComparison.Ordinal) || aiTestStatus.StartsWith("正在测试", StringComparison.Ordinal) || aiTestStatus == "连接测试已取消" ? FightUI.Muted : FightUI.Danger;
-            settingsAiTestLabel = FightUI.Text(parent, aiTestStatus, 200, y + 4, width - 200, 48, 17, testColor);
+            string visibleAiTestStatus = aiTestStatus.StartsWith("尚未测试", StringComparison.Ordinal) ? "" : aiTestStatus;
+            settingsAiTestLabel = FightUI.Text(parent, visibleAiTestStatus, 200, y + 4, width - 200, 48, 17, testColor);
             settingsAiTestLabel.enableWordWrapping = true;
-            float statusHeight = Mathf.Max(48, Mathf.Min(160, settingsAiTestLabel.GetPreferredValues(aiTestStatus, width - 200, float.PositiveInfinity).y + 4));
+            float statusHeight = Mathf.Max(48, Mathf.Min(160, settingsAiTestLabel.GetPreferredValues(visibleAiTestStatus, width - 200, float.PositiveInfinity).y + 4));
             settingsAiTestLabel.rectTransform.sizeDelta = new Vector2(width - 200, statusHeight); FightUI.Hint(settingsAiTestLabel.gameObject, aiTestStatus); y += statusHeight + 18;
             RenderSettingsError(parent, width, "ai", ref y);
             if (settingsTest != null)
@@ -848,10 +829,12 @@ namespace MDPro3.UI.Client
             RenderSettingsError(parent, width - controlX, key, ref y, 16 + controlX);
         }
 
-        private ResponsesAiConfig ReadAiSettings()
+        private ResponsesAiConfig ReadAiSettings(bool requireConnection = true)
         {
-            settingsErrors.Clear();
+            foreach (var key in settingsErrors.Keys.Where(IsAiSettingsKey).ToArray()) settingsErrors.Remove(key);
             var next = aiSettingsDraft.Clone();
+            if (aiProfileDraft != null && (string.IsNullOrWhiteSpace(aiProfileDraft.Name) || aiProfileDraft.Name.Trim().Length > 64 || aiProfileDraft.Name.Any(char.IsControl)))
+                settingsErrors["profileName"] = "请输入 1–64 字的分身名称，不能包含换行。";
             if (!int.TryParse(aiTimeout, NumberStyles.Integer, CultureInfo.InvariantCulture, out var timeout) || timeout < 5 || timeout > 600) settingsErrors["timeout"] = "请输入 5–600 之间的整数秒数。"; else next.TimeoutSeconds = timeout;
             if (!int.TryParse(aiOutput, NumberStyles.Integer, CultureInfo.InvariantCulture, out var output) || output < 128 || output > 128000) settingsErrors["output"] = "请输入 128–128000 之间的整数。"; else next.MaxOutputTokens = output;
             if (!int.TryParse(aiBudget, NumberStyles.Integer, CultureInfo.InvariantCulture, out var budget) || budget < 8192 || budget > 2000000) settingsErrors["budget"] = "请输入 8192–2000000 之间的整数。"; else next.PromptBudgetTokens = budget;
@@ -862,21 +845,28 @@ namespace MDPro3.UI.Client
             try { next.Body(); } catch (AiConfigurationException error) { settingsErrors["body"] = error.Message; }
             if (string.IsNullOrWhiteSpace(next.Model) || next.Model.Length > 256 || next.Model.Any(char.IsControl)) settingsErrors["model"] = "请填写有效模型名称。";
             if (next.ApiKey != null && (next.ApiKey.Length > 16384 || next.ApiKey.Any(char.IsControl))) settingsErrors["apiKey"] = "密钥格式无效。";
-            if (settingsErrors.Count == 0)
+            if (!settingsErrors.Keys.Any(IsAiSettingsKey))
             {
-                try { next.Validate(); }
+                try
+                {
+                    var validation = next.Clone();
+                    if (!requireConnection && string.IsNullOrWhiteSpace(validation.ApiKey) && !validation.Headers().Properties().Any(p => p.Name.Equals("Authorization", StringComparison.OrdinalIgnoreCase)))
+                        validation.ApiKey = "unconfigured-profile-validation";
+                    validation.Validate();
+                }
                 catch (AiConfigurationException error)
                 {
                     var key = error.Message.Contains("上下文") ? "budget" : error.Message.Contains("密钥") ? "apiKey" : error.Message.Contains("思考") ? "reasoning" : "body";
                     settingsErrors[key] = error.Message;
                 }
             }
-            if (settingsErrors.Count != 0) { FocusSettingsError(); return null; }
+            if (settingsErrors.Keys.Any(IsAiSettingsKey)) { FocusSettingsError(); return null; }
             return next;
         }
         private void FocusSettingsError()
         {
-            var key = settingsErrors.Keys.First(); settingsCategory = "ai";
+            var key = settingsErrors.Keys.First(IsAiSettingsKey); settingsCategory = "ai";
+            aiAppearance = false;
             aiAdvanced = key == "timeout" || key == "output" || key == "budget" || key == "body" || key == "headers" || key == "reasoning" || key.StartsWith("header:", StringComparison.Ordinal);
             settingsScrollPosition = 1; RenderSettings();
             FocusRenderedSettingsField(key);
@@ -908,6 +898,7 @@ namespace MDPro3.UI.Client
                     if (JObject.Parse(output)["connected"]?.Value<bool>() != true) throw new AiRequestException("服务未返回有效的结构化测试结果。");
                     aiTestStatus = "测试通过 · " + config.Model;
                     testedAiRequest = AiRequestSignature(config); testedAiServiceStatus = "上次测试可用";
+                    RememberAiProfileTest(config, testedAiServiceStatus, aiTestStatus);
                 }
             }
             catch (OperationCanceledException) { if (this != null && version == settingsTestVersion) aiTestStatus = "连接测试已取消"; }
@@ -917,6 +908,7 @@ namespace MDPro3.UI.Client
                 {
                     aiTestStatus = error is AiRequestException || error is AiConfigurationException ? error.Message : "服务未返回有效的测试结果。";
                     testedAiRequest = AiRequestSignature(config); testedAiServiceStatus = "连接异常";
+                    RememberAiProfileTest(config, testedAiServiceStatus, aiTestStatus);
                 }
             }
             finally
@@ -946,10 +938,10 @@ namespace MDPro3.UI.Client
             if (!int.TryParse(settingsValues["LocalDuelPort"], out var port) || port < 1 || port > 65535)
             { settingsCategory = "general"; settingsErrors["LocalDuelPort"] = "端口必须为 1–65535。"; settingsScrollPosition = 1; RenderSettings(); FocusRenderedSettingsField("LocalDuelPort"); ShowStatus(settingsErrors["LocalDuelPort"]); return false; }
             ResponsesAiConfig aiNext = null;
-            if (aiSettingsDraft != null && AiDraftSignature() != aiSettingsOriginal) { aiNext = ReadAiSettings(); if (aiNext == null) return false; }
+            if (aiSettingsDraft != null && AiDraftSignature() != aiSettingsOriginal) { aiNext = ReadAiSettings(false); if (aiNext == null) return false; }
             try
             {
-                if (aiNext != null) { ResponsesAiConfigStore.SaveService(aiNext); aiSettingsDraft = aiNext; aiSettingsOriginal = AiDraftSignature(); aiLoadError = null; }
+                if (aiNext != null) CommitAiProfileDraft(aiNext);
                 foreach (var key in modified) Config.Set(key, settingsValues[key]);
                 Config.Save();
                 var configPath = typeof(Config).GetField("path", BindingFlags.Static | BindingFlags.NonPublic)?.GetValue(null) as string;
@@ -1036,7 +1028,13 @@ namespace MDPro3.UI.Client
             {
                 var defaults = new ResponsesAiConfig();
                 string[] keys;
-                if (aiAdvanced)
+                if (aiAppearance)
+                {
+                    var appearanceDefaults = new AiDuelistProfile().Appearance;
+                    foreach (var category in AiProfileAppearanceCategories) aiProfileDraft.Appearance[category] = appearanceDefaults[category];
+                    keys = new string[0]; UpdateSettingsDirtyLabel();
+                }
+                else if (aiAdvanced)
                 {
                     aiTimeout = defaults.TimeoutSeconds.ToString(); aiOutput = defaults.MaxOutputTokens.ToString(); aiBudget = defaults.PromptBudgetTokens.ToString();
                     aiSettingsDraft.ReasoningEffort = defaults.ReasoningEffort; aiHeaders.Clear(); visibleHeaders.Clear(); aiHeaderIds.Clear(); aiSettingsDraft.ExtraBodyJson = "{}";
@@ -1052,8 +1050,8 @@ namespace MDPro3.UI.Client
             else foreach (var field in clientSettings.Where(field => field.Category == settingsCategory && (settingsCategory != "duel" || field.Key.StartsWith(settingsCondition, StringComparison.Ordinal)))) SettingsChanged(field.Key, field.Default);
             if (settingsCategory == "general") SettingsChanged("LocalDuelPort", "7911");
             RenderSettings();
-            string restored = settingsCategory == "duel" ? "当前情境" : settingsCategory == "ai" ? (aiAdvanced ? "高级参数" : "连接参数") : "本页";
-            ShowStatus("已恢复" + restored + "默认，保存后生效。");
+            string restored = settingsCategory == "duel" ? "当前情境" : settingsCategory == "ai" ? (aiAppearance ? "分身外观" : aiAdvanced ? "高级参数" : "连接参数") : "本页";
+            ShowStatus("已恢复" + restored + "默认 · 未保存。");
         }
 
         private void RenderDataSettings(Transform parent, float width, ref float y)
@@ -1209,12 +1207,13 @@ namespace MDPro3.UI.Client
             {
                 var path = FindClientSourceNotice();
                 if (path == null) { ShowStatus("来源声明见客户端安装目录中的文档。"); return; }
-                var modal = ShowDialog("来源声明", 900, 650); var content = FightUI.Scroll(modal, 24, 72, 852, 502, 2600);
+                var modal = ShowDialog("来源声明", 900, 650);
+                float readingHeight = modal.rect.height - 100;
+                var content = FightUI.Scroll(modal, 24, 72, 852, readingHeight, 2600);
                 var notice = FightUI.Text(content, File.ReadAllText(path), 12, 12, 820, 2550, 18);
                 notice.enableWordWrapping = true;
                 float noticeHeight = notice.GetPreferredValues(notice.text, 820, float.PositiveInfinity).y + 8;
-                notice.rectTransform.sizeDelta = new Vector2(820, noticeHeight); content.sizeDelta = new Vector2(852, Mathf.Max(502, noticeHeight + 24));
-                FightUI.Button(modal, "关闭", 700, 586, 160, 44, CloseDialog);
+                notice.rectTransform.sizeDelta = new Vector2(820, noticeHeight); content.sizeDelta = new Vector2(852, Mathf.Max(readingHeight, noticeHeight + 24));
             }); y += 72;
         }
         private void AboutParagraph(Transform parent, float width, string title, string text, ref float y)
