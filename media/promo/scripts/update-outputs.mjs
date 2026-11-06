@@ -34,6 +34,7 @@ for (const name of ['launch-trailer.mp4', 'launch-trailer.srt', 'preview.jpg'])
 for (const language of ['en', 'zh']) {
   for (const name of [
     `launch-trailer-${language}.mp4`,
+    `launch-trailer-${language}.gif`,
     `launch-trailer-${language}.srt`,
     `preview-${language}.jpg`,
   ]) {

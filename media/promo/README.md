@@ -20,7 +20,7 @@ The `LaunchTrailerEN` and `LaunchTrailerZH` compositions export to
 `docs/media/launch-trailer-en.mp4` and `docs/media/launch-trailer-zh.mp4`.
 `npm run render:en` or `npm run render:zh` renders only one language.
 `npm run outputs` regenerates the separate subtitle files and records final
-output hashes after both videos and `preview-en.jpg` / `preview-zh.jpg` exist.
+output hashes after both videos, GIFs, and `preview-en.jpg` / `preview-zh.jpg` exist.
 
 The repository homepage embeds separate full-length English and Chinese GIFs.
 Each runs for 90 seconds at 720×405 and 10 fps, with a 256-color palette,
@@ -44,10 +44,13 @@ files and intentionally ignored by Git. Public output is in the repository-root
 [docs/media](../../docs/media/) directory; redistribute gameplay media subject
 to the project's [third-party notices](../../THIRD_PARTY_NOTICES.md).
 
-The capture canvas is 1920×1200. Captures with bottom black padding are framed
-from the top for the 1920×1080 trailer. `ScreenScene` uses the selected language
-for both recording and subtitle. Each scene has one bottom row containing its
-chapter label and a single-language caption, measured within the safe width.
+The capture canvas is 1920×1200. The complete game page is fitted proportionally
+and centered above a separate footer in the 1920×1080 trailer. Only recorded
+bottom black padding identified by `content_height_pixels` is omitted; game
+content is never cropped or enlarged. `ScreenScene` uses the selected language
+for both recording and subtitle. Each scene has one centered bottom row
+containing its chapter label and a single-language caption, measured within
+the safe width. This footer sits below the game page and covers no controls.
 The homepage remains visible without a central title overlay. The closing card
 uses the actual project logo, the complete repository URL, and a single-language
 unofficial, non-commercial notice.

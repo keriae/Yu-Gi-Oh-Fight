@@ -13,6 +13,7 @@ import { measureText } from '@remotion/layout-utils';
 import { chineseFont, font, latinFont, palette } from '../style';
 import { usePromoFonts } from '../fonts';
 import { chapterText, localizedRecording, usePromoLanguage } from '../language';
+import footage from '../../footage.json';
 
 export type ScreenSceneProps = {
   src: string;
@@ -20,9 +21,6 @@ export type ScreenSceneProps = {
   chapter: string;
   english: string;
   chinese: string;
-  zoom?: number;
-  top?: number;
-  left?: number;
 };
 
 export const ScreenScene: React.FC<ScreenSceneProps> = ({
@@ -31,9 +29,6 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
   chapter,
   english,
   chinese,
-  zoom = 1,
-  top = -60,
-  left = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -41,6 +36,18 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
   const fontsLoaded = usePromoFonts();
   if (!fontsLoaded) return null;
   const recording = localizedRecording(src, start, language);
+  const capture = footage.files.find((file) => file.file === recording.src);
+  const sourceWidth = capture?.canvas_pixels[0] ?? 1920;
+  const sourceHeight = capture?.canvas_pixels[1] ?? 1200;
+  // Only discard recorded black padding identified in the capture manifest.
+  // Fit the entire game page above the separate caption footer.
+  const contentHeight =
+    capture && 'content_height_pixels' in capture
+      ? (capture.content_height_pixels ?? sourceHeight)
+      : sourceHeight;
+  const scale = Math.min(1840 / sourceWidth, 924 / contentHeight);
+  const pageWidth = sourceWidth * scale;
+  const pageHeight = contentHeight * scale;
   const caption = language === 'en' ? english : chinese;
   const captionFont = language === 'en' ? latinFont : chineseFont;
   const chapterLabel = chapterText(chapter, language);
@@ -71,35 +78,46 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
         fontSynthesis: 'none',
       }}
     >
-      <Video
-        src={staticFile('footage/' + recording.src)}
-        trimBefore={recording.start * fps}
+      <div
+        data-promo-page={language}
         style={{
           position: 'absolute',
-          width: 1920 * zoom,
-          height: 1200 * zoom,
-          left,
-          top: language === 'en' && top === -60 ? 0 : top,
+          width: pageWidth,
+          height: pageHeight,
+          left: (1920 - pageWidth) / 2,
+          top: 24 + (924 - pageHeight) / 2,
+          overflow: 'hidden',
         }}
-        objectFit="cover"
-        volume={(f) =>
-          interpolate(
-            f,
-            [0, 8, durationInFrames - 10, durationInFrames - 1],
-            [0.1, 0.65, 0.65, 0.1],
-            { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' },
-          )
-        }
-      />
+      >
+        <Video
+          src={staticFile('footage/' + recording.src)}
+          trimBefore={recording.start * fps}
+          style={{
+            position: 'absolute',
+            width: pageWidth,
+            height: sourceHeight * scale,
+            left: 0,
+            top: 0,
+          }}
+          objectFit="cover"
+          volume={(f) =>
+            interpolate(
+              f,
+              [0, 8, durationInFrames - 10, durationInFrames - 1],
+              [0.1, 0.65, 0.65, 0.1],
+              { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' },
+            )
+          }
+        />
+      </div>
       <div
         style={{
           position: 'absolute',
           bottom: 0,
-          height: 124,
+          height: 116,
           left: 0,
           right: 0,
-          background:
-            'linear-gradient(0deg, #030b12fa 0%, #030b12e8 54%, #030b1200 100%)',
+          backgroundColor: palette.background,
         }}
       />
       <div
@@ -108,9 +126,10 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
           position: 'absolute',
           left: 94,
           right: 94,
-          bottom: 36,
+          bottom: 32,
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
           gap: 28,
           whiteSpace: 'nowrap',
           opacity: interpolate(frame, [6, 20], [0, 1], {

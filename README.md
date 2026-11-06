@@ -8,11 +8,11 @@ An unofficial, non-commercial desktop dueling client with a cohesive interface, 
 
 [English](#yu-gi-oh-fight) · [简体中文](#中文) · [Build from source](docs/BUILDING.md) · [Copyright & credits](THIRD_PARTY_NOTICES.md)
 
-</div>
-
 [![Yu-Gi-Oh! Fight — complete 90-second English trailer](docs/media/launch-trailer-en.gif)](docs/media/launch-trailer-en.mp4)
 
 **[Watch the English trailer with game audio](docs/media/launch-trailer-en.mp4)** · **[Watch a complete recorded duel](docs/media/full-duel.mp4)**
+
+</div>
 
 ## Play your way
 
@@ -67,15 +67,19 @@ The project is not affiliated with or endorsed by Konami. Yu-Gi-Oh! names, cards
 
 ## 中文
 
+<div align="center">
+
 [![Yu-Gi-Oh! Fight — 完整 90 秒中文宣传片](docs/media/launch-trailer-zh.gif)](docs/media/launch-trailer-zh.mp4)
+
+**[观看带游戏声音的中文宣传片](docs/media/launch-trailer-zh.mp4)** · **[观看完整对战录屏](docs/media/full-duel.mp4)**
+
+</div>
 
 **构筑自己的卡组，练习起手展开，与 AI 决斗者对战。**
 
 Yu-Gi-Oh! Fight 是非官方、非商业桌面决斗客户端，提供统一界面、引导练习、可自定义的 AI 决斗者与真实对战回放。
 
 首页、卡组、学院、回放、收藏、设置以及对战菜单统一采用暗蓝、古金与青蓝视觉，保留真实卡图、原生规则和对战演出。
-
-**[观看带游戏声音的中文宣传片](docs/media/launch-trailer-zh.mp4)** · **[观看完整对战录屏](docs/media/full-duel.mp4)**
 
 ### 主要功能
 

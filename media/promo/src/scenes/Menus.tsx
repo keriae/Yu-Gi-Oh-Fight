@@ -27,7 +27,6 @@ export const Menus = () => {
           <ScreenScene
             src="menus-zh.mp4"
             start={18}
-            top={0}
             chapter="05 / DUEL"
             english="Stay focused. Every detail, within reach."
             chinese="设置、日志与卡片详情，融入统一的对战体验"
@@ -44,9 +43,6 @@ export const Menus = () => {
           <ScreenScene
             src="menus-zh.mp4"
             start={48}
-            zoom={1.5}
-            left={-960}
-            top={-140}
             chapter="05 / DUEL"
             english="Stay focused. Every detail, within reach."
             chinese="设置、日志与卡片详情，融入统一的对战体验"
@@ -63,7 +59,6 @@ export const Menus = () => {
           <ScreenScene
             src="menus-zh.mp4"
             start={62}
-            top={0}
             chapter="05 / DUEL"
             english="Stay focused. Every detail, within reach."
             chinese="设置、日志与卡片详情，融入统一的对战体验"

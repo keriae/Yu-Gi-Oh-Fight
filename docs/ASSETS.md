@@ -36,7 +36,8 @@ under the SIL Open Font License 1.1. Original notices, the pinned upstream
 revision, source and output hashes, renamed families, and subset details
 are retained in [`media/promo/public/fonts/`](../media/promo/public/fonts/).
 The display title has a gold engraved treatment; English and Chinese
-captions are measured and placed on one line. The fonts are media-authoring
+captions are measured and centered on one line below the complete game page.
+The fonts are media-authoring
 assets, separate from the game's publisher fonts.
 
 ## 中文说明

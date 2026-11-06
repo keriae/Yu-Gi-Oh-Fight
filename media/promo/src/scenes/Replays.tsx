@@ -11,7 +11,6 @@ export const Replays = () => (
       <ScreenScene
         src="full-replay-zh.mp4"
         start={12}
-        top={0}
         chapter="06 / REVIEW"
         english="Replay the duel. Discover the next idea."
         chinese="回看真实对局，发现下一种可能"
@@ -28,7 +27,6 @@ export const Replays = () => (
       <ScreenScene
         src="full-replay-zh.mp4"
         start={92}
-        top={0}
         chapter="06 / REVIEW"
         english="Replay the duel. Discover the next idea."
         chinese="回看真实对局，发现下一种可能"

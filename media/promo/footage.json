@@ -12,7 +12,7 @@
     "codec": "AAC"
   },
   "raw_recordings_ignored": true,
-  "framing": "Source canvases are 1920×1200. New English, home, menu and replay captures have bottom black padding; ordinary English scenes and the final home/menu/replay scenes are aligned to the top. Deck-editor and duel-log scenes use close views. The separate full-duel crops only bottom padding to 1920×1092.",
+  "framing": "Every complete game page is fitted proportionally and centered in a 1840×924 area above a separate caption footer. Only recorded bottom black padding explicitly identified by content_height_pixels is omitted; no gameplay content is cropped or zoomed. The separate full-duel still crops only bottom padding to 1920×1092.",
   "audio_edit": "Original clip audio retained with short fades; captured menu theme also plays under paused menu shots and the closing card. Each language uses audio from its selected real recording.",
   "full_duel": {
     "source": "full-replay-zh.mp4",
@@ -328,8 +328,8 @@
     },
     "launch-trailer-en.mp4": {
       "repository_path": "docs/media/launch-trailer-en.mp4",
-      "size_bytes": 17449260,
-      "sha256": "27bb302a0359333a54ac72ba9a6470ff44750acf8b96c5506e17ffebc8c331ec"
+      "size_bytes": 14704781,
+      "sha256": "b7dcdbee3d109774adbe829805f9b0f95bca9fa0bc8ab851dcce7d2f5660116d"
     },
     "launch-trailer-en.srt": {
       "repository_path": "docs/media/launch-trailer-en.srt",
@@ -338,13 +338,13 @@
     },
     "preview-en.jpg": {
       "repository_path": "docs/media/preview-en.jpg",
-      "size_bytes": 385716,
-      "sha256": "c3b53621404dec98eaf8c2442aaaf8609149237fe95c5c54c365ede307fb5b95"
+      "size_bytes": 366669,
+      "sha256": "67d2b3608a9bbac83200a9001a59310f6e9ab7598e47bd6c620af9635d12031b"
     },
     "launch-trailer-zh.mp4": {
       "repository_path": "docs/media/launch-trailer-zh.mp4",
-      "size_bytes": 17077651,
-      "sha256": "f0d83af148f3680c4f5804921336e2b258e15769e47c77005ee4c8574a70374f"
+      "size_bytes": 13846775,
+      "sha256": "f7a9e296652ea546c651ed2cf4c357bc93edcf3e86ec17be7c399764ed8974b7"
     },
     "launch-trailer-zh.srt": {
       "repository_path": "docs/media/launch-trailer-zh.srt",
@@ -353,8 +353,18 @@
     },
     "preview-zh.jpg": {
       "repository_path": "docs/media/preview-zh.jpg",
-      "size_bytes": 373954,
-      "sha256": "f0d31e11fa20009fcfb2d6daa9522d49c7303110c392c513d44315eb336bdd2c"
+      "size_bytes": 254529,
+      "sha256": "e8bc122468b5a26047d8e2e8727b79dfb6d270158048613f7e5d72c9ab9caea5"
+    },
+    "launch-trailer-en.gif": {
+      "repository_path": "docs/media/launch-trailer-en.gif",
+      "size_bytes": 15721007,
+      "sha256": "3cce6153a9514e699cb6f4f2934c43058863e28bdb71f7dcbf65cfa60c0a73f3"
+    },
+    "launch-trailer-zh.gif": {
+      "repository_path": "docs/media/launch-trailer-zh.gif",
+      "size_bytes": 14848184,
+      "sha256": "130343a653cc851f3f081f65cf8aebec20dad62d1611c7d51673a022865209c0"
     }
   },
   "typography": {
@@ -363,7 +373,7 @@
       "Fight Promo Serif SC"
     ],
     "caption_weight": 600,
-    "caption_layout": "One row per scene containing the chapter label and the selected language caption",
+    "caption_layout": "One centered row per scene containing the chapter label and selected language caption, in a separate footer below the complete game page",
     "font_provenance": "media/promo/public/fonts/provenance.json",
     "title_asset": "media/promo/public/brand.png"
   },

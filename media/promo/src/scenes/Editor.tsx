@@ -4,8 +4,6 @@ export const Editor = () => (
   <ScreenScene
     src="features-zh.mp4"
     start={83}
-    zoom={1.45}
-    top={-400}
     chapter="02 / BUILD"
     english="Inspect cards. Refine your next opening."
     chinese="阅读卡文，打磨每一张卡的选择"
