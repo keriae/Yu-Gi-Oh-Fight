@@ -472,9 +472,19 @@ namespace MDPro3.Utility
                 var result = await ResourceManager.GetCardIllustAsync(code, token);
                 if(result == null)
                 {
-                    result = await ResourceManager.GetCardImageAsync(code, token);
-                    if(result != null)
-                        result = CropCardToArt(result, code);
+                    var picture = await ResourceManager.GetCardImageAsync(code, token);
+                    if (picture != null)
+                    {
+                        try { result = CropCardToArt(picture, code); }
+                        finally
+                        {
+                            if (!ReferenceEquals(result, picture)
+                                && (TextureManager.container == null
+                                    || picture != TextureManager.container.unknownCard.texture
+                                        && picture != TextureManager.container.unknownArt.texture))
+                                UnityEngine.Object.Destroy(picture);
+                        }
+                    }
                 }
 
                 lastCardFoundArt = !(result == null);

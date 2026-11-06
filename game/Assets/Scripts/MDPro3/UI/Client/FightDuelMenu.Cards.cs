@@ -122,6 +122,7 @@ namespace MDPro3.UI.Client
             FightUI.CardButton(image, ShowLargeCard);
             cardMetadataScroll = RenderCardMetadata(reader, card, 144, 88, w - 164, 112, 16, false);
             cardMetadataScroll.verticalNormalizedPosition = metadataPosition;
+            AddCardReadingControl(cardMetadataScroll, "duel:read:metadata");
             FightUI.Button(reader, "完整卡片信息", 144, 212, w - 164, 40, ShowCardDialog);
             var description = FightUI.Scroll(reader, 18, 270, w - 36, h - 288, 600, out cardReaderScroll);
             var text = FightUI.RawText(description, card.GetDescription(), 8, 0, w - 68, 600, 17, FightUI.Foreground);
@@ -129,6 +130,7 @@ namespace MDPro3.UI.Client
             float descriptionHeight = Mathf.Max(h - 288, text.GetPreferredValues(text.text, w - 68, float.PositiveInfinity).y + 18);
             description.sizeDelta = new Vector2(w - 36, descriptionHeight); text.rectTransform.sizeDelta = new Vector2(w - 68, descriptionHeight);
             cardReaderScroll.verticalNormalizedPosition = position;
+            AddCardReadingControl(cardReaderScroll, "duel:read:description");
         }
         private void ShowCardDialog()
         {
@@ -137,14 +139,16 @@ namespace MDPro3.UI.Client
             title.enableWordWrapping = true; title.enableAutoSizing = true; title.fontSizeMin = 18; title.fontSizeMax = 23;
             var image = FightUI.Art(panel, selectedCard, 24, 150, 160, 232, true);
             FightUI.CardButton(image, ShowLargeCard);
-            RenderCardMetadata(panel, card, 208, 150, 396, 132, 17, true);
+            var metadata = RenderCardMetadata(panel, card, 208, 150, 396, 132, 17, true);
+            AddCardReadingControl(metadata, "duel:read:full-metadata");
             FightUI.Button(panel, "放大卡图", 208, 296, 188, 44, ShowLargeCard);
             FightUI.Button(panel, "保存卡图", 412, 296, 192, 44, () => SaveCardImage(image));
-            var content = FightUI.Scroll(panel, 20, 398, 588, 174, 800);
+            var content = FightUI.Scroll(panel, 20, 398, 588, 174, 800, out var descriptionScroll);
             var description = FightUI.RawText(content, card.GetDescription(), 8, 0, 560, 800, 18, FightUI.Foreground);
             description.overflowMode = TextOverflowModes.Overflow; description.lineSpacing = 4;
             float textHeight = Mathf.Max(174, description.GetPreferredValues(description.text, 560, float.PositiveInfinity).y + 18);
             content.sizeDelta = new Vector2(588, textHeight); description.rectTransform.sizeDelta = new Vector2(560, textHeight);
+            AddCardReadingControl(descriptionScroll, "duel:read:full-description");
             RefreshNavigation();
         }
         private static string CardMetadata(Card card, bool includeId)

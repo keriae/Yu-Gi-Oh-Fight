@@ -661,16 +661,17 @@ namespace MDPro3.UI.Client
             };
             Action<string> renderOptions = query =>
             {
+                bool localizeLabel = title != "界面语言" && title != "卡片语言";
                 if (clear != null) clear.gameObject.SetActive(!string.IsNullOrEmpty(query));
                 FightUI.Clear(content);
                 var indices = Enumerable.Range(0, values.Length).Where(index => string.IsNullOrWhiteSpace(query)
                     || (labels[index] ?? "").IndexOf(query.Trim(), StringComparison.OrdinalIgnoreCase) >= 0
+                    || (localizeLabel ? FightText.Get(labels[index]) : labels[index] ?? "").IndexOf(query.Trim(), StringComparison.OrdinalIgnoreCase) >= 0
                     || (values[index] ?? "").IndexOf(query.Trim(), StringComparison.OrdinalIgnoreCase) >= 0).ToArray();
                 float selectedTop = -1, rowTop = 0;
                 for (int row = 0; row < indices.Length; row++)
                 {
                     int index = indices[row]; var value = values[index]; bool selected = value == current;
-                    bool localizeLabel = title != "界面语言" && title != "卡片语言";
                     var button = FightUI.FocusKey(FightUI.Button(content, labels[index], 8, rowTop, 496, 44, () => { CloseDialog(); chosen(value); }, localize: localizeLabel), "settings:choice:" + title + ":" + value);
                     button.GetComponent<Outline>().enabled = selected;
                     button.GetComponent<Outline>().effectColor = FightUI.GoldBorder;

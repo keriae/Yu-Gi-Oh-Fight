@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine.AddressableAssets;
 using UnityEngine;
+using MDPro3.Utility;
 
 namespace MDPro3
 {
@@ -139,7 +140,7 @@ namespace MDPro3
 
         public void ChangeLanguage(string language)
         {
-            this.language = language;
+            this.language = Language.GetMasterDuelLanguage(language);
 
         }
 

@@ -35,6 +35,7 @@ namespace MDPro3.UI.Popup
         private ScrollRect libraryScroll;
         private UIScrollToSelection libraryAutoScroll;
         private TextMeshProUGUI libraryCount;
+        private TextMeshProUGUI libraryLabel;
         private GameObject noResults;
         private TMP_InputField searchInput;
         private string category;
@@ -52,7 +53,7 @@ namespace MDPro3.UI.Popup
 
         protected override void InitializeSelections()
         {
-            args = new List<string> { helpOnly ? "展开教程" : "卡组学院 / 展开教程" };
+            args = new List<string> { FightText.Get(helpOnly ? "展开教程" : "卡组学院 / 展开教程") };
             base.InitializeSelections();
             selectedDeck = initialDeck ?? catalog.decks[0];
             if (helpOnly)
@@ -94,9 +95,11 @@ namespace MDPro3.UI.Popup
             var choices = Layout("Decks", body, false, 260f, 470f);
             choices.GetComponent<LayoutElement>().flexibleWidth = 0f;
             choices.GetComponent<VerticalLayoutGroup>().spacing = 7f;
-            var libraryLabel = CreateLabel("LibraryLabel", choices, "当前游戏卡池", 24f, 32f);
+            libraryLabel = CreateLabel("LibraryLabel", choices, "当前游戏卡池", 24f, 32f);
             libraryLabel.enableWordWrapping = false;
-            libraryLabel.overflowMode = TextOverflowModes.Ellipsis;
+            libraryLabel.enableAutoSizing = true;
+            libraryLabel.fontSizeMin = 18f; libraryLabel.fontSizeMax = 24f;
+            libraryLabel.overflowMode = TextOverflowModes.Overflow;
             BuildLibrary(choices, template);
             if (helpOnly)
                 CreateLabel("PracticeHelp", choices, DeckAcademy.HasActiveReplay
@@ -215,6 +218,7 @@ namespace MDPro3.UI.Popup
                 var captured = entry;
                 deckEntries.Add(entry);
                 deckButtons.Add(CreateButton(template, entriesRoot, entry.name, () => SelectDeck(captured), 42f));
+                FightUI.Hint(deckButtons[deckButtons.Count - 1].gameObject, entry.name);
                 if (!helpOnly)
                 {
                     var deck = DeckAcademy.Template(entry);
@@ -408,6 +412,9 @@ namespace MDPro3.UI.Popup
             if (helpOnly)
                 DeckAcademy.SetGuidePage(page);
             Canvas.ForceUpdateCanvases();
+            FitHeadingHeight(pageTitle, 42f);
+            FitHeadingHeight(libraryLabel, 32f);
+            Canvas.ForceUpdateCanvases();
             scroll.verticalNormalizedPosition = 1f;
             previousButton.GetComponent<Selectable>().interactable = page >= 0;
             nextButton.GetComponent<Selectable>().interactable = page < selectedDeck.steps.Length;
@@ -416,7 +423,16 @@ namespace MDPro3.UI.Popup
             if (replayButton != null)
                 replayButton.gameObject.SetActive(DeckAcademy.CanReplay(selectedDeck));
             for (var index = 0; index < deckButtons.Count; index++)
-                deckButtons[index].SetButtonText((deckEntries[index] == selectedDeck ? "▶ " : string.Empty) + deckEntries[index].name);
+                deckButtons[index].SetButtonText(FightText.Get((deckEntries[index] == selectedDeck ? "▶ " : string.Empty) + deckEntries[index].name));
+        }
+
+        private static void FitHeadingHeight(TextMeshProUGUI label, float minimum)
+        {
+            label.ForceMeshUpdate();
+            float height = Mathf.Max(minimum,
+                label.GetPreferredValues(label.text, Mathf.Max(1f, label.rectTransform.rect.width), float.PositiveInfinity).y + 2f);
+            var element = label.GetComponent<LayoutElement>();
+            element.minHeight = element.preferredHeight = height;
         }
 
         private void LeaveWith(Action<DeckAcademyDeck> action)

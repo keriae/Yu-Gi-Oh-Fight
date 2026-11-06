@@ -5,6 +5,7 @@ using MDPro3.UI;
 using MDPro3.UI.ServantUI;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MDPro3.Duel
@@ -48,6 +49,7 @@ namespace MDPro3.Duel
         {
             cg.alpha = 0f;
             cg.blocksRaycasts = false;
+            cg.interactable = false;
             scrollRect.verticalScrollbar.onValueChanged.AddListener(Refresh);
             scrollRect.GetComponent<DoWhenOnDrag>().action = () => { draged = true; };
             bg.gameObject.SetActive(false);
@@ -60,14 +62,17 @@ namespace MDPro3.Duel
             draged = false;
             AudioManager.PlaySE("SE_LOG_OPEN");
             MoveBaseRectX(ShowX, transitionTime);
-            cg.DOFade(1f, transitionTime);
+            DOTweenLifecycle.KillTarget(cg);
+            cg.DOFade(1f, transitionTime).SetUpdate(true);
             cg.blocksRaycasts = true;
+            cg.interactable = true;
             SnapToLatest();
             if (UsingMobileLayout)
             {
                 bg.gameObject.SetActive(true);
+                DOTweenLifecycle.KillTarget(bg);
                 bg.color = Color.clear;
-                bg.DOFade(0.5f, transitionTime);
+                bg.DOFade(0.5f, transitionTime).SetUpdate(true);
             }
         }
 
@@ -75,19 +80,35 @@ namespace MDPro3.Duel
         {
             showing = false;
             cg.blocksRaycasts = false;
+            cg.interactable = false;
+            RestoreVisibleSelection();
             draged = false;
             MoveBaseRectX(HideX, transitionTime);
-            cg.DOFade(0f, transitionTime);
+            DOTweenLifecycle.KillTarget(cg);
+            cg.DOFade(0f, transitionTime).SetUpdate(true);
             if (!mute)
                 AudioManager.PlaySE("SE_LOG_CLOSE");
             if (UsingMobileLayout)
             {
-                bg.DOFade(0f, transitionTime).OnComplete(() =>
+                DOTweenLifecycle.KillTarget(bg);
+                bg.DOFade(0f, transitionTime).SetUpdate(true).OnComplete(() =>
                 {
                     bg.gameObject.SetActive(false);
                     cg.blocksRaycasts = false;
                 });
             }
+        }
+
+        private void RestoreVisibleSelection()
+        {
+            var events = EventSystem.current;
+            var selected = events == null ? null : events.currentSelectedGameObject;
+            if (selected == null || !selected.transform.IsChildOf(baseRect)) return;
+            var core = Program.instance == null ? null : Program.instance.ocgcore;
+            var ui = core == null ? null : core.GetUI<OcgCoreUI>();
+            var opener = UIManager.InputBlocker == null && ui != null ? ui.ButtonLog : null;
+            events.SetSelectedGameObject(opener != null && opener.IsActive() && opener.IsInteractable()
+                ? opener.gameObject : null);
         }
 
         private void MoveBaseRectX(float x, float duration)
@@ -100,6 +121,8 @@ namespace MDPro3.Duel
         {
             DOTweenLifecycle.Kill(baseTween);
             DOTweenLifecycle.KillTarget(baseRect);
+            DOTweenLifecycle.KillTarget(cg);
+            DOTweenLifecycle.KillTarget(bg);
         }
 
         public void AddLog(GameObject item, bool indent = false, bool chainIndent = true)
