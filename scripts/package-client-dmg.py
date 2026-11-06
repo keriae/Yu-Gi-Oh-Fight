@@ -97,8 +97,11 @@ def main() -> None:
         helpers.verify_signature(copied_app)
         (folder / "Applications").symlink_to("/Applications")
         staged_image = stage / output.name
+        # HFS+ rewrites Unicode filenames to NFD, invalidating the resource seal
+        # for the shipped Japanese deck filenames. APFS preserves their bytes
+        # and is available on every supported macOS version.
         command = ["hdiutil", "create", "-srcfolder", str(folder), "-volname", "Yu-Gi-Oh! Fight",
-                   "-fs", "HFS+", "-format", args.format, "-nospotlight", str(staged_image)]
+                   "-fs", "APFS", "-format", args.format, "-nospotlight", str(staged_image)]
         if args.format == "UDZO":
             command[2:2] = ["-imagekey", "zlib-level=9"]
         run(*command)
@@ -112,7 +115,7 @@ def main() -> None:
         os.replace(staged_image, output)
     record = {"ok": True, "kind": "macos-client-disk-image", "application": str(app),
               "disk_image": str(output), "disk_image_sha256": image_sha, "disk_image_bytes": image_bytes,
-              "format": args.format, "filesystem": "HFS+", "image_checksum_verified": True,
+              "format": args.format, "filesystem": "APFS", "image_checksum_verified": True,
               "mounted_signature_verified": True, "applications_link_verified": True,
               "critical_members": expected, "checksums": str(checksums),
               "github_single_asset_limit_bytes": GITHUB_ASSET_LIMIT,
