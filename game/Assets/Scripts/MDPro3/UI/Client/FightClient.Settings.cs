@@ -679,7 +679,7 @@ namespace MDPro3.UI.Client
                         && (value != "0" || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor);
                     button.interactable = supportedMode;
                     FightUI.Hint(button.gameObject, !supportedMode ? value == "0" ? "独占全屏仅适用于 Windows 桌面。" : "此显示模式仅适用于桌面设备。"
-                        : "选择「" + labels[index] + "」加入设置草稿；保存设置后应用。");
+                        : "选择「" + (localizeLabel ? labels[index] : FightText.Keep(labels[index])) + "」加入设置草稿；保存设置后应用。");
                     var text = button.GetComponentInChildren<TextMeshProUGUI>(); text.alignment = TextAlignmentOptions.MidlineLeft; text.color = selected ? FightUI.Active : FightUI.Foreground;
                     text.enableAutoSizing = false; text.enableWordWrapping = true;
                     float rowHeight = Mathf.Max(44, text.GetPreferredValues(text.text, 422, float.PositiveInfinity).y + 12);

@@ -523,7 +523,7 @@ namespace MDPro3.UI.Client
             Hide();
             var text = GetComponent<TextMeshProUGUI>();
             if (text != null && (text.GetComponentInParent<TMP_InputField>() != null
-                || string.IsNullOrEmpty(Hint) && !text.isTextOverflowing)) return;
+                || string.IsNullOrEmpty(Hint) && !text.isTextOverflowing && !text.isTextTruncated)) return;
             if (string.IsNullOrEmpty(Hint ?? (text != null ? text.text : null))) return;
             pointerPosition = pointer.position; eventCamera = pointer.enterEventCamera; delayed = StartCoroutine(ShowAfterDelay());
         }

@@ -138,7 +138,13 @@ namespace MDPro3.UI.Client
             if (!Showing) return;
             bool ownsInput = UIManager.InputBlocker == this;
             CloseDialog();
-            Config.Save(); canvas.enabled = false;
+            try { Config.SaveValues(new KeyValuePair<string, string>[0]); }
+            catch (Exception error)
+            {
+                Debug.LogWarning("[FightDuelMenu] settings save: " + error.GetType().Name);
+                MessageManager.Cast(FightText.Get("设置未保存。请检查存档目录权限。"));
+            }
+            canvas.enabled = false;
             if (ownsInput) UIManager.InputBlocker = previousBlocker;
             if (ownsInput && EventSystem.current != null)
                 EventSystem.current.SetSelectedGameObject(previousSelection != null && previousSelection.activeInHierarchy ? previousSelection : null);
@@ -317,9 +323,10 @@ namespace MDPro3.UI.Client
         private void Choice(Transform parent, string key, string label, string defaultValue, string[] values, string[] labels, ref float y)
         {
             string current = Config.Get(key, defaultValue); int index = Array.IndexOf(values, current);
+            bool localizeLabel = key != "Language" && key != "CardLanguage";
             FightUI.Text(parent, label, 16, y, 248, 44, 18, FightUI.Foreground, TextAlignmentOptions.MidlineLeft);
             var button = FightUI.FocusKey(FightUI.Button(parent, index >= 0 ? labels[index] : current, 278, y, 526, 44,
-                () => Choose(label, values, labels, current, next => { Set(key, next); Render(); })), "duel:setting:" + key);
+                () => Choose(label, values, labels, current, next => { Set(key, next); Render(); }, localizeLabel: localizeLabel), localize: localizeLabel), "duel:setting:" + key);
             button.GetComponentInChildren<TextMeshProUGUI>().alignment = TextAlignmentOptions.MidlineLeft;
             FightUI.Icon(button.transform, "chevron", 498, 16, 12, 12, FightUI.Gold);
             if (key == "ScreenMode") button.onClick.RemoveAllListeners();
@@ -406,7 +413,7 @@ namespace MDPro3.UI.Client
             focusedControl = null;
             RefreshNavigation();
         }
-        private void Choose(string title, string[] values, string[] labels, string current, Action<string> chosen, Func<string, bool> available = null)
+        private void Choose(string title, string[] values, string[] labels, string current, Action<string> chosen, Func<string, bool> available = null, bool localizeLabel = true)
         {
             var panel = ShowDialog(title, Mathf.Min(560, 104 + values.Length * 54));
             float listHeight = panel.rect.height - 96;
@@ -415,7 +422,7 @@ namespace MDPro3.UI.Client
             for (int i = 0; i < values.Length; i++)
             {
                 string value = values[i]; bool active = value == current;
-                var button = FightUI.FocusKey(FightUI.Button(content, labels[i], 4, i * 54, 566, 46, () => { CloseDialog(); chosen(value); }, active, available == null || available(value)), "duel:choice:" + value);
+                var button = FightUI.FocusKey(FightUI.Button(content, labels[i], 4, i * 54, 566, 46, () => { CloseDialog(); chosen(value); }, active, available == null || available(value), localize: localizeLabel), "duel:choice:" + value);
                 var text = button.GetComponentInChildren<TextMeshProUGUI>(); text.alignment = TextAlignmentOptions.MidlineLeft;
                 if (active) FightUI.Text(button.transform, "✓", 528, 0, 28, 46, 20, FightUI.Active, TextAlignmentOptions.Center);
                 if (active && button.IsInteractable()) selected = button;

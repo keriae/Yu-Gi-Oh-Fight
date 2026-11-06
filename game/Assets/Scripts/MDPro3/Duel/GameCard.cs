@@ -149,6 +149,7 @@ namespace MDPro3
         private void Awake()
         {
             OcgCoreUI.OnInputDebug += DebugHighlights;
+            SystemEvent.OnLanguageChange += ReloadForLanguageChange;
             SystemEvent.OnVideoCardConfigChange += ReloadFaceWhenConfigChange;
         }
 
@@ -166,7 +167,7 @@ namespace MDPro3
             {
                 if (currentCardTexture != null && currentCardCode != 0)
                 {
-                    CardImageLoader.ReleaseCard(currentCardCode);
+                    CardImageLoader.ReleaseCard(currentCardCode, !(currentCardTexture is RenderTexture));
                     currentCardTexture = null;
                     currentCardCode = 0;
                 }
@@ -179,7 +180,18 @@ namespace MDPro3
             Destroy(tempMat);
             Destroy(this);
             OcgCoreUI.OnInputDebug -= DebugHighlights;
+            SystemEvent.OnLanguageChange -= ReloadForLanguageChange;
             SystemEvent.OnVideoCardConfigChange -= ReloadFaceWhenConfigChange;
+        }
+
+        private void OnDestroy()
+        {
+            SystemEvent.OnLanguageChange -= ReloadForLanguageChange;
+            SystemEvent.OnVideoCardConfigChange -= ReloadFaceWhenConfigChange;
+            OcgCoreUI.OnInputDebug -= DebugHighlights;
+            cts?.Cancel();
+            cts?.Dispose();
+            cts = null;
         }
 
         internal void RetireAnimations()
@@ -484,7 +496,7 @@ namespace MDPro3
 
         private CancellationTokenSource cts;
 
-        private void SetFace()
+        private void SetFace(float? retainedFaceFade = null)
         {
             if(cts != null)
             {
@@ -493,21 +505,51 @@ namespace MDPro3
             }
 
             cts = new CancellationTokenSource();
-            _ = SetFaceAsync(cts.Token);
+            _ = SetFaceAsync(cts.Token, retainedFaceFade);
         }
 
         private bool isRenderTexture;
+        private int languageReloadFrame = -1;
+
+        private void ReloadForLanguageChange()
+        {
+            if (this == null || !enabled) return;
+            languageReloadFrame = Time.frameCount;
+            CardsManager.RefreshLocalizedText(data);
+            CardsManager.RefreshLocalizedText(lastValidData);
+            cts?.Cancel();
+            cts?.Dispose();
+            cts = null;
+            // ChangeLanguage already invalidated the shared cache. Forget its
+            // old ownership before acquiring a texture from the new catalog.
+            currentCardTexture = null;
+            currentCardCode = 0;
+            if (model == null || data.Id <= 0) return;
+            var face = manager.GetElement<Transform>("CardModel").GetChild(1).GetComponent<Renderer>();
+            SetFace(face.material.GetFloat("_isFade"));
+        }
 
         private void ReloadFaceWhenConfigChange()
         {
+            if (languageReloadFrame == Time.frameCount) return;
             var config = Config.GetBool("VideoCard", true);
-            if (config && ResourceManager.CardHasVideo(data.Id))
-                SetFace();
-            else if(!config && isRenderTexture)
-                SetFace();
+            if (!ResourceManager.CardHasVideo(data.Id) && (config || !isRenderTexture)) return;
+            // The video cache was retired before this event. Its old
+            // ownership must not release a coexisting static texture.
+            if (!config && isRenderTexture)
+            {
+                currentCardTexture = null;
+                currentCardCode = 0;
+                isRenderTexture = false;
+            }
+            float? faceFade = null;
+            if (model != null)
+                faceFade = manager.GetElement<Transform>("CardModel").GetChild(1).GetComponent<Renderer>()
+                    .material.GetFloat("_isFade");
+            SetFace(faceFade);
         }
 
-        private async UniTask SetFaceAsync(CancellationToken cancellationToken)
+        private async UniTask SetFaceAsync(CancellationToken cancellationToken, float? retainedFaceFade = null)
         {
             Texture oldTexture = null;
             int oldCode = 0;
@@ -520,7 +562,7 @@ namespace MDPro3
             }
             if (oldTexture != null && oldCode != 0)
             {
-                CardImageLoader.ReleaseCard(oldCode);
+                CardImageLoader.ReleaseCard(oldCode, !(oldTexture is RenderTexture));
             }
 
             if (model == null)
@@ -537,6 +579,8 @@ namespace MDPro3
             normalMat.SetTexture("_LoadingTex", loadingTex);
             normalMat.SetFloat("_LoadingBlend", 1f);
             cardFace.material = normalMat;
+            if (retainedFaceFade.HasValue)
+                cardFace.material.SetFloat("_isFade", retainedFaceFade.Value);
 
             if(tempMat != null)
             {
@@ -550,25 +594,30 @@ namespace MDPro3
                 texture = await CardImageLoader.LoadCardAsync(cardCode, true, cancellationToken);
                 isRenderTexture = texture is RenderTexture;
 
-                if (this == null || model == null || data.Id != cardCode)
+                if (this == null || model == null || data.Id != cardCode || cancellationToken.IsCancellationRequested)
                 {
                     if (texture != null)
-                        CardImageLoader.ReleaseCard(cardCode);
+                        CardImageLoader.ReleaseCard(cardCode, !(texture is RenderTexture));
                     return;
                 }
 
                 var rarity = CardRarity.GetRarity(data.Id);
                 if(rarity != CardRarity.Rarity.Normal)
                 {
+                    // Duel visibility can change while localized art loads.
+                    // Transfer the live state when replacing its material.
+                    float faceFade = retainedFaceFade.HasValue ? cardFace.material.GetFloat("_isFade") : 0f;
                     tempMat = MaterialLoader.GetCardMaterial(data.Id, true);
                     cardFace.material = tempMat;
+                    if (retainedFaceFade.HasValue)
+                        cardFace.material.SetFloat("_isFade", faceFade);
                     cardFace.material.renderQueue = 3000;
                     cardFace.material.SetTexture("_LoadingTex", loadingTex);
                     cardFace.material.SetFloat("_LoadingBlend", 1f);
                 }
 
                 cardFace.material.mainTexture = texture;
-                SetDisabled();
+                SetDisabled(retainedFaceFade.HasValue);
                 lock (this)
                 {
                     currentCardTexture = texture;
@@ -579,13 +628,13 @@ namespace MDPro3
             catch (OperationCanceledException)
             {
                 if (texture != null)
-                    CardImageLoader.ReleaseCard(cardCode);
+                    CardImageLoader.ReleaseCard(cardCode, !(texture is RenderTexture));
                 throw;
             }
             catch (Exception)
             {
                 if (texture != null)
-                    CardImageLoader.ReleaseCard(cardCode);
+                    CardImageLoader.ReleaseCard(cardCode, !(texture is RenderTexture));
                 throw;
             }
         }
@@ -3583,15 +3632,18 @@ namespace MDPro3
                 sr.sortingLayerName = "Default";
         }
 
-        private void SetDisabled()
+        private void SetDisabled(bool retainDuelState = false)
         {
             if (model == null)
                 return;
             var cardFace = manager.GetElement<Transform>("CardModel").GetChild(1).GetComponent<Renderer>();
-            if ((p.location & (uint)CardLocation.Onfield) == 0)
-                m_disabled = false;
-            if ((p.position & (uint)CardPosition.FaceDown) > 0)
-                m_disabled = false;
+            if (!retainDuelState)
+            {
+                if ((p.location & (uint)CardLocation.Onfield) == 0)
+                    m_disabled = false;
+                if ((p.position & (uint)CardPosition.FaceDown) > 0)
+                    m_disabled = false;
+            }
 
             if (Disabled)
             {

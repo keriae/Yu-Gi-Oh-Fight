@@ -16,17 +16,18 @@ namespace MDPro3.UI.Client
         private List<int> viewedCards = new();
         private int selectedCard, selectedIndex, deckMainCount, deckExtraCount;
         private bool saving;
-        private ScrollRect cardReaderScroll;
+        private ScrollRect cardReaderScroll, cardMetadataScroll;
         private int readingCard;
-        private float readingPosition = 1;
+        private float readingPosition = 1, metadataReadingPosition = 1;
 
         private void CaptureCardReading()
         {
             if (cardReaderScroll != null) readingPosition = cardReaderScroll.verticalNormalizedPosition;
+            if (cardMetadataScroll != null) metadataReadingPosition = cardMetadataScroll.verticalNormalizedPosition;
         }
         private void ResetCardReading()
         {
-            cardReaderScroll = null; readingCard = 0; readingPosition = 1;
+            cardReaderScroll = cardMetadataScroll = null; readingCard = 0; readingPosition = metadataReadingPosition = 1;
         }
 
         private void OpenDeck()
@@ -108,7 +109,9 @@ namespace MDPro3.UI.Client
         private void RenderCardReader(Transform parent, float x, float y, float w, float h)
         {
             float position = readingCard == selectedCard ? readingPosition : 1;
-            readingCard = selectedCard; readingPosition = position; cardReaderScroll = null;
+            float metadataPosition = readingCard == selectedCard ? metadataReadingPosition : 1;
+            readingCard = selectedCard; readingPosition = position; metadataReadingPosition = metadataPosition;
+            cardReaderScroll = cardMetadataScroll = null;
             var reader = FightUI.Panel(parent, x, y, w, h, new Color(.019f, .042f, .057f, .7f), true, "Duel card reader");
             if (selectedCard <= 0)
             { FightUI.Text(reader, "选择一张卡片查看详情", 20, 136, w - 40, 80, 20, FightUI.Muted, TextAlignmentOptions.Center); return; }
@@ -117,8 +120,8 @@ namespace MDPro3.UI.Client
             title.enableWordWrapping = true; title.enableAutoSizing = true; title.fontSizeMin = 18; title.fontSizeMax = 23;
             var image = FightUI.Art(reader, selectedCard, 20, 88, 106, 154, true);
             FightUI.CardButton(image, ShowLargeCard);
-            var meta = FightUI.RawText(reader, card.GetTypeForUI() + "\n" + card.GetSetNameWithBracket() + (card.HasType(CardType.Monster) ? "\nATK " + card.GetAttackString() + " / DEF " + card.GetDefenseString() : ""), 144, 88, w - 164, 126, 16, FightUI.Muted);
-            meta.enableAutoSizing = true; meta.fontSizeMin = 13; meta.fontSizeMax = 16;
+            cardMetadataScroll = RenderCardMetadata(reader, card, 144, 88, w - 164, 112, 16, false);
+            cardMetadataScroll.verticalNormalizedPosition = metadataPosition;
             FightUI.Button(reader, "完整卡片信息", 144, 212, w - 164, 40, ShowCardDialog);
             var description = FightUI.Scroll(reader, 18, 270, w - 36, h - 288, 600, out cardReaderScroll);
             var text = FightUI.RawText(description, card.GetDescription(), 8, 0, w - 68, 600, 17, FightUI.Foreground);
@@ -134,8 +137,7 @@ namespace MDPro3.UI.Client
             title.enableWordWrapping = true; title.enableAutoSizing = true; title.fontSizeMin = 18; title.fontSizeMax = 23;
             var image = FightUI.Art(panel, selectedCard, 24, 150, 160, 232, true);
             FightUI.CardButton(image, ShowLargeCard);
-            var metadata = FightUI.RawText(panel, card.GetTypeForUI() + "\n" + card.GetSetNameWithBracket() + (card.HasType(CardType.Monster) ? "\nATK " + card.GetAttackString() + " / DEF " + card.GetDefenseString() : "") + "\n" + selectedCard, 208, 150, 396, 132, 17, FightUI.Muted);
-            metadata.enableAutoSizing = true; metadata.fontSizeMin = 13; metadata.fontSizeMax = 17;
+            RenderCardMetadata(panel, card, 208, 150, 396, 132, 17, true);
             FightUI.Button(panel, "放大卡图", 208, 296, 188, 44, ShowLargeCard);
             FightUI.Button(panel, "保存卡图", 412, 296, 192, 44, () => SaveCardImage(image));
             var content = FightUI.Scroll(panel, 20, 398, 588, 174, 800);
@@ -144,6 +146,45 @@ namespace MDPro3.UI.Client
             float textHeight = Mathf.Max(174, description.GetPreferredValues(description.text, 560, float.PositiveInfinity).y + 18);
             content.sizeDelta = new Vector2(588, textHeight); description.rectTransform.sizeDelta = new Vector2(560, textHeight);
             RefreshNavigation();
+        }
+        private static string CardMetadata(Card card, bool includeId)
+        {
+            string type = card.GetTypeForUI();
+            var lines = new List<string>();
+            if (card.HasType(CardType.Monster))
+            {
+                lines.Add(card.GetAttributeString() + "  " + type);
+                var levelType = card.GetLevelType();
+                string level = levelType == Card.LevelType.Link ? "LINK-" + card.GetLinkCount()
+                    : FightText.Get(levelType == Card.LevelType.Rank ? "阶级 " : "等级 ") + card.Level;
+                lines.Add(level + "  ·  ATK " + card.GetAttackString()
+                    + (levelType == Card.LevelType.Link ? "" : " / DEF " + card.GetDefenseString()));
+                if (card.HasType(CardType.Pendulum)) lines.Add(FightText.Get("灵摆刻度") + " " + card.LScale + " / " + card.RScale);
+            }
+            else
+            {
+                string subType = card.GetSpellTrapType();
+                lines.Add(string.IsNullOrEmpty(subType) ? type : type + "  " + subType);
+            }
+            string sets = card.GetSetNameWithBracket();
+            if (!string.IsNullOrEmpty(sets)) lines.Add(sets);
+            if (includeId) lines.Add(CardDescription.GetDisplayedCardIdWithBracket(card));
+            return string.Join("\n", lines);
+        }
+        private static ScrollRect RenderCardMetadata(Transform parent, Card card, float x, float y, float width, float height, float size, bool includeId)
+        {
+            var content = FightUI.Scroll(parent, x, y, width, height, height, out var metadataScroll);
+            metadataScroll.name = "Duel card metadata";
+            metadataScroll.GetComponent<Image>().color = Color.clear;
+            var text = FightUI.RawText(content, CardMetadata(card, includeId), 4, 0, width - 24, height, size, FightUI.Muted);
+            text.name = "Duel card metadata text";
+            text.enableWordWrapping = true; text.overflowMode = TextOverflowModes.Overflow; text.lineSpacing = 2;
+            text.ForceMeshUpdate();
+            float contentHeight = Mathf.Max(height, text.GetPreferredValues(text.text, width - 24, float.PositiveInfinity).y + 10);
+            content.sizeDelta = new Vector2(width, contentHeight);
+            text.rectTransform.sizeDelta = new Vector2(width - 24, contentHeight);
+            metadataScroll.verticalNormalizedPosition = 1;
+            return metadataScroll;
         }
         private void ShowLargeCard()
         {

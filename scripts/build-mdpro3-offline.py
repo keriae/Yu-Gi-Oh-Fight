@@ -16,7 +16,7 @@ import subprocess
 import sys
 import tempfile
 
-from source_build_state import atomic_exchange, validate_generation
+from source_build_state import atomic_exchange, validate_generation, validate_source_inputs
 from native_server_host import HOST_PATH, compile_host, verify_host
 from native_file_browser import (LIBRARY_PATH as FILE_BROWSER_PATH, MANAGED_LINK as FILE_BROWSER_LINK,
                                  LINK_TARGET as FILE_BROWSER_LINK_TARGET, compile_file_browser, verify_file_browser)
@@ -34,6 +34,11 @@ RELEASE_DOCUMENTS = (
     "README.md", "THIRD_PARTY_NOTICES.md", "COPYRIGHT.md", "docs/BUILDING.md", "docs/ASSETS.md", "native/README.md",
     "docs/media/preview.jpg", "docs/media/launch-trailer.mp4", "docs/media/launch-trailer.srt",
     "docs/media/full-duel.mp4",
+)
+RELEASE_LICENSES = (
+    ("vendor/Mono-LICENSE.txt", "Mono-LICENSE.txt"),
+    ("content/ai/tokenizers/LICENSE.tiktoken", "LICENSE.tiktoken"),
+    ("native/StandaloneFileBrowser/LICENSE.txt", "StandaloneFileBrowser-LICENSE.txt"),
 )
 
 
@@ -71,9 +76,8 @@ def package_documents(resources: Path) -> None:
         shutil.copy2(ROOT / relative, target)
     licenses = resources / "licenses"
     licenses.mkdir(exist_ok=True)
-    for source in (ROOT / "vendor/Mono-LICENSE.txt", ROOT / "content/ai/tokenizers/LICENSE.tiktoken"):
-        shutil.copy2(source, licenses / source.name)
-    shutil.copy2(ROOT / "native/StandaloneFileBrowser/LICENSE.txt", licenses / "StandaloneFileBrowser-LICENSE.txt")
+    for relative, name in RELEASE_LICENSES:
+        shutil.copy2(ROOT / relative, licenses / name)
 
 
 def copy_client(source: Path, destination: Path) -> None:
@@ -139,8 +143,53 @@ def check_swift_toolchain() -> None:
         raise ValueError(message)
 
 
+def validate_release_inputs(app: Path, snapshot: Path, manifest: dict, host: dict, file_browser: dict, launcher: dict) -> None:
+    """Check editable build inputs again immediately before publication."""
+    if manifest.get("build_profile") != "release" or "FIGHT_UI_PROOF" in manifest.get("compiler_defines", []):
+        raise ValueError("Only the release profile may be published; rerun python3 build.py.")
+    validate_source_inputs(ROOT, manifest.get("source_files"))
+    resources = app / "Contents/Resources"
+    client = resources / "Client"
+    try:
+        if validate_generation(snapshot) != manifest or json.loads((resources / "Source-Build.json").read_text()) != manifest:
+            raise ValueError("Compiled source evidence changed during packaging; rerun python3 build.py.")
+        spec = importlib.util.spec_from_file_location("final_academy_inventory", Path(__file__).with_name("seed-deck-academy.py"))
+        academy = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(academy)
+        for source, packaged, expected, inventory in (
+                (ROOT / "content/client-ui", client / "Data/ClientUI", manifest.get("client_ui_content"), client_ui_hashes),
+                (ROOT / "content/deck-academy", client / "Data/DeckAcademy", manifest.get("deck_academy_content"), academy.content_hashes)):
+            if inventory(source) != expected or inventory(packaged) != expected:
+                raise ValueError("Client content changed during packaging; rerun python3 build.py.")
+        for relative in RELEASE_DOCUMENTS:
+            if file_digest(ROOT / relative) != file_digest(resources / relative):
+                raise ValueError("Release documentation changed during packaging; rerun python3 build.py: " + relative)
+        for relative, name in RELEASE_LICENSES:
+            if file_digest(ROOT / relative) != file_digest(resources / "licenses" / name):
+                raise ValueError("Release license changed during packaging; rerun python3 build.py: " + relative)
+        if launcher_build_record() != launcher or json.loads((resources / "Launcher-Build.json").read_text()) != launcher:
+            raise ValueError("Launcher inputs changed during packaging; rerun python3 build.py.")
+        try:
+            verify_host(client, host)
+            verify_file_browser(client, file_browser)
+        except ValueError as error:
+            raise ValueError("Native build inputs changed during packaging; rerun python3 build.py.") from error
+    except (OSError, KeyError, subprocess.SubprocessError) as error:
+        raise ValueError("Release inputs changed or became unavailable during packaging; rerun python3 build.py.") from error
+
+
+def publish_application(app: Path, destination: Path, snapshot: Path, manifest: dict, host: dict, file_browser: dict, launcher: dict) -> None:
+    validate_release_inputs(app, snapshot, manifest, host, file_browser, launcher)
+    if destination.exists():
+        # Keep the prior application until all editable inputs pass verification.
+        atomic_exchange(app, destination)
+    else:
+        os.rename(app, destination)
+
+
 def main() -> None:
     check_swift_toolchain()
+    launcher_record = launcher_build_record()
     (ROOT / "artifacts").mkdir(parents=True, exist_ok=True)
     destination = ROOT / "dist" / (NAME + ".app")
     support = Path.home() / "Library/Application Support" / NAME
@@ -221,7 +270,7 @@ def main() -> None:
             }, sort_keys=False))
             shutil.copy2(manifest_path, resources / "Source-Build.json")
             shutil.copy2(snapshot / "compatibility.json", resources / "compatibility.json")
-            (resources / "Launcher-Build.json").write_text(json.dumps(launcher_build_record(), indent=2) + "\n")
+            (resources / "Launcher-Build.json").write_text(json.dumps(launcher_record, indent=2) + "\n")
             package_documents(resources)
             # The copied native bundle's resource signature is stale after replacing
             # its assembly and Info.plist. Sign before dyld loads its Mono runtime.
@@ -266,12 +315,7 @@ def main() -> None:
             # The final change inventory is part of the outer application's signed resources.
             run("codesign", "--force", "--sign", "-", "--timestamp=none", app)
             run("codesign", "--verify", "--deep", "--strict", app)
-            if destination.exists():
-                # The previous app is moved into the stage by the same atomic
-                # exchange. A failed exchange leaves the installed app intact.
-                atomic_exchange(app, destination)
-            else:
-                os.rename(app, destination)
+            publish_application(app, destination, snapshot, manifest, host_metadata, file_browser_metadata, launcher_record)
     report = {"ok": True, "application": str(destination), "source_compiled": True,
               "assembly_sha256": manifest["assembly_sha256"], "publisher_version": "1.4.7-2", "state_folder": str(support),
               "native_server_host": host_metadata, "native_file_browser": file_browser_metadata}

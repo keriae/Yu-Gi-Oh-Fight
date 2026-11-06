@@ -65,6 +65,13 @@ server host, the universal native file selector and the final macOS code
 signature. Packaging publishes the new
 application atomically. Close the game before replacing its application.
 
+Source edits made during compilation or packaging require a fresh build. The
+compiler rechecks its C# file inventory, and publication rechecks the current
+sources, client content, documentation, licenses and native/launcher inputs.
+Input changes detected in a source build keep the prior source pointer;
+changes detected before application publication keep the prior application
+rather than installing a stale build.
+
 After a code-only change, an existing application can be updated with
 `python3 scripts/update-mdpro3-code.py`. It refuses stale source inputs,
 changed resources, native bridges or launcher changes; these require a complete build.
@@ -114,3 +121,8 @@ Mono 加载、双架构原生文件选择器和应用签名；本地验收脚本
 
 仅修改 C# 代码时可先 `--code-only`，再执行代码更新脚本。资源或启动器修改需
 完整构建；原生桥接修改同样需要完整构建。更新与构建前请关闭游戏。归档命令只生成本地 ZIP，不执行上传。
+
+构建期间修改源码或资源时需要重新构建。编译与发布前会重新核对 C# 文件清单，
+应用发布前也核对客户端内容、文档、许可证及原生组件和启动器输入；源码构建
+检测到输入变化时保留原有源码指针，应用发布前检测到变化时保留原有应用，
+避免安装过时版本。

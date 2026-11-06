@@ -50,7 +50,15 @@ namespace MDPro3.UI
 
         private void Awake()
         {
+            SystemEvent.OnLanguageChange += OnLanguageChange;
             SystemEvent.OnVideoCardConfigChange += OnVideoCardConfigChange;
+        }
+
+        private void OnEnable()
+        {
+            if (clientPool != null || card == null || card.Id <= 0 || m_Refreshed) return;
+            CancelCurrentLoad();
+            _ = LoadCardPicAsync();
         }
 
         protected void OnDestroy()
@@ -60,6 +68,7 @@ namespace MDPro3.UI
             Destroy(tempMat);
             ReleaseCard();
 
+            SystemEvent.OnLanguageChange -= OnLanguageChange;
             SystemEvent.OnVideoCardConfigChange -= OnVideoCardConfigChange;
         }
 
@@ -365,12 +374,41 @@ namespace MDPro3.UI
 
         private void OnVideoCardConfigChange()
         {
-            if (clientPool != null || card == null) return;
+            if (languageReloadFrame == Time.frameCount || clientPool != null || card == null) return;
             var config = Config.GetBool("VideoCard", true);
             if (config && ResourceManager.CardHasVideo(card.Id))
                 _ = ReloadAsync();
-            else if (!config && isRenderTexture)
-                _ = ReloadAsync();
+            else if (!config && (isRenderTexture || ResourceManager.CardHasVideo(card.Id)))
+            {
+                CancelCurrentLoad();
+                if (isRenderTexture)
+                {
+                    // CheckArtVideoConfig already cleared this video entry.
+                    loadedCardId = 0;
+                    loadedStatic = false;
+                    isRenderTexture = false;
+                    RawImage.texture = null;
+                }
+                m_Refreshed = false;
+                if (isActiveAndEnabled) _ = LoadCardPicAsync();
+            }
+        }
+
+        private int languageReloadFrame = -1;
+        private void OnLanguageChange()
+        {
+            if (card == null || card.Id <= 0) return;
+            CardsManager.RefreshLocalizedText(card);
+            if (clientPool != null) return;
+            languageReloadFrame = Time.frameCount;
+            CancelCurrentLoad();
+            // The old cache was cleared before this event. Releasing its ID
+            // now could subtract a reference from a newly loaded texture.
+            loadedCardId = 0;
+            loadedStatic = false;
+            RawImage.texture = null;
+            m_Refreshed = false;
+            if (isActiveAndEnabled) _ = LoadCardPicAsync();
         }
 
         private async UniTask ReloadAsync()

@@ -629,7 +629,9 @@ namespace MDPro3.Duel.YGOSharp
             }
             else if (language == Language.TraditionalChinese)
             {
-                beforePendulum = 0;
+                // Newer databases include a Pendulum heading before its effect.
+                // Keep titleless Traditional Chinese descriptions compatible.
+                beforePendulum = lines[0].Trim() == "【靈擺效果】" ? 1 : 0;
             }
 
             for (int i = beforePendulum; i < lines.Length; i++)

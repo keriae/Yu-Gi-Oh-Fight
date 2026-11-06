@@ -8,6 +8,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import shutil
 import sys
 import tempfile
 import uuid
@@ -46,6 +47,17 @@ def game_source_paths(root: Path, validation: bool = False) -> list[Path]:
         if validation or not local_validation:
             sources.append(path)
     return sorted(sources)
+
+
+def validate_source_inputs(root: Path, expected: dict, validation: bool = False) -> None:
+    """Reject edits, additions and removals after compiler inputs were copied."""
+    try:
+        actual = {path.relative_to(root / "game").as_posix(): digest(path)
+                  for path in game_source_paths(root, validation)}
+    except OSError as error:
+        raise ValueError("C# sources changed or became unreadable during the build; rerun the build.") from error
+    if not isinstance(expected, dict) or actual != expected:
+        raise ValueError("C# sources changed during the build; rerun the build.")
 
 
 def validate_generation(generation: Path) -> dict:
@@ -91,6 +103,8 @@ def atomic_exchange(first: Path, second: Path) -> None:
 
 
 def _publish(root: Path, generation: Path) -> None:
+    manifest = json.loads((generation / "manifest.json").read_text())
+    validate_source_inputs(root, manifest.get("source_files"), manifest.get("build_profile") == "ui-proof")
     build = root / "build"
     output = build / "mdpro3-source"
     temporary = build / (".mdpro3-source-pointer-" + uuid.uuid4().hex)
@@ -122,17 +136,27 @@ def build_transaction(root: Path, compile_generation) -> Path:
         with tempfile.TemporaryDirectory(prefix=".pending-", dir=generations) as work:
             staged = Path(work)
             compile_generation(staged)
-            validate_generation(staged)
+            manifest = validate_generation(staged)
+            validate_source_inputs(root, manifest.get("source_files"), manifest.get("build_profile") == "ui-proof")
             for name in ("Assembly-CSharp.dll", "Assembly-CSharp.pdb", "manifest.json", "compatibility.json"):
                 path = staged / name
                 if path.is_file():
                     with path.open("rb") as stream:
                         os.fsync(stream.fileno())
             _sync_directory(staged)
+            validate_source_inputs(root, manifest.get("source_files"), manifest.get("build_profile") == "ui-proof")
             final = generations / ("generation-" + uuid.uuid4().hex)
             os.rename(staged, final)
             _sync_directory(generations)
-            _publish(root, final)
+            try:
+                _publish(root, final)
+            except BaseException:
+                output = root / "build/mdpro3-source"
+                # A failed input check never published this owned generation.
+                # Preserve it if a later error occurred after the atomic swap.
+                if not output.is_symlink() or output.resolve() != final:
+                    shutil.rmtree(final)
+                raise
             return final.resolve(strict=True)
 
 

@@ -101,6 +101,17 @@ namespace MDPro3.Duel.YGOSharp
             }
         }
 
+        internal static void RefreshLocalizedText(Card card)
+        {
+            if (card == null || card.Id <= 0 || !_cards.TryGetValue(card.Id, out var localized)) return;
+            // Duel queries own the numeric state. A catalog change refreshes
+            // reading text without replacing modified stats or card identity.
+            card.Name = localized.Name;
+            card.Desc = localized.Desc;
+            card.Str = (string[])localized.Str.Clone();
+            card.strSetName = StringHelper.GetSetName(card.Setcode);
+        }
+
         internal static Card GetCard(int id)
         {
             if (_cards.ContainsKey(id))

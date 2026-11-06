@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YgomSystem.ElementSystem;
 using YgomSystem.UI;
 
 namespace MDPro3.UI
@@ -19,6 +20,7 @@ namespace MDPro3.UI
         private TextMeshProUGUI chapterTitle;
         private TextMeshProUGUI modeStatus;
         private TextMeshProUGUI readingStatus;
+        private TextMeshProUGUI guideHeading;
         private TextMeshProUGUI stepCounter;
         private TextMeshProUGUI instructions;
         private TextMeshProUGUI cardsHeading;
@@ -27,6 +29,7 @@ namespace MDPro3.UI
         private SelectionButton collapseButton;
         private SelectionButton previousButton;
         private SelectionButton nextButton;
+        private SelectionButton fullGuideButton;
         private SelectionButton playbackButton;
         private SelectionButton singleStepButton;
         private SelectionButton followButton;
@@ -69,10 +72,13 @@ namespace MDPro3.UI
             gameObject.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
             var header = Row("GuideHeader", transform, 34f);
-            var heading = Label("GuideHeading", header, "分步指导", 20f, 34f);
-            heading.color = FightUI.Gold; heading.fontStyle = FontStyles.Bold;
-            heading.alignment = TextAlignmentOptions.MidlineLeft;
-            heading.GetComponent<LayoutElement>().flexibleWidth = 1f;
+            guideHeading = Label("GuideHeading", header, "分步指导", 20f, 34f);
+            guideHeading.color = FightUI.Gold; guideHeading.fontStyle = FontStyles.Bold;
+            guideHeading.alignment = TextAlignmentOptions.MidlineLeft;
+            guideHeading.enableWordWrapping = false;
+            guideHeading.enableAutoSizing = true;
+            guideHeading.fontSizeMax = 20f; guideHeading.fontSizeMin = 16f;
+            guideHeading.GetComponent<LayoutElement>().flexibleWidth = 1f;
             stepCounter = Label("GuideStepCount", header, "", 13f, 34f);
             stepCounter.alignment = TextAlignmentOptions.Center; stepCounter.color = FightUI.Muted;
             stepCounter.GetComponent<LayoutElement>().minWidth = stepCounter.GetComponent<LayoutElement>().preferredWidth = 72f;
@@ -104,7 +110,7 @@ namespace MDPro3.UI
             var pages = Row("GuidePages", body.transform, 36f);
             previousButton = GuideButton(buttonTemplate, pages, "上一步", () => ChangePage(-1), 36f);
             nextButton = GuideButton(buttonTemplate, pages, "下一步", () => ChangePage(1), 36f);
-            GuideButton(buttonTemplate, pages, "完整教程", OpenFullTutorial, 36f);
+            fullGuideButton = GuideButton(buttonTemplate, pages, "完整教程", OpenFullTutorial, 36f);
 
             var playback = Row("GuideReplay", body.transform, 36f);
             replayControls = playback.gameObject;
@@ -168,6 +174,12 @@ namespace MDPro3.UI
                 cardsText.gameObject.SetActive(!string.IsNullOrWhiteSpace(cardsText.text));
             }
             UpdateReadingStatus();
+            // Native cloned captions are only translated at creation. Reapply
+            // their original keys when the interface language changes in a duel.
+            previousButton.SetButtonText(FightText.Get("上一步"));
+            nextButton.SetButtonText(FightText.Get("下一步"));
+            fullGuideButton.SetButtonText(FightText.Get("完整教程"));
+            singleStepButton.SetButtonText(FightText.Get("单步播放"));
             ResizeDock(replay);
             Canvas.ForceUpdateCanvases();
             RestoreReadingPosition(page);
@@ -256,6 +268,17 @@ namespace MDPro3.UI
                 Mathf.Clamp(availableHeight - fixedHeight, 80f, 230f);
             body.SetActive(!collapsed && !constrained);
             collapseButton.SetButtonText(FightText.Get(constrained ? "教程" : collapsed ? "展开" : "收起"));
+            // Reserve the measured counter and caption widths; the heading
+            // takes the remaining space and can scale between 16 and 20 points.
+            var countLayout = stepCounter.GetComponent<LayoutElement>();
+            countLayout.minWidth = countLayout.preferredWidth = Mathf.Max(48f,
+                stepCounter.GetPreferredValues(stepCounter.text, float.PositiveInfinity, float.PositiveInfinity).x + 8f);
+            var collapseCaption = collapseButton.GetComponent<ElementObjectManager>().GetElement<TextMeshProUGUI>("ButtonText");
+            collapseCaption.fontSize = collapseCaption.fontSizeMax;
+            var collapseLayout = collapseButton.GetComponent<LayoutElement>();
+            collapseLayout.minWidth = collapseLayout.preferredWidth = Mathf.Max(52f,
+                collapseCaption.GetPreferredValues(collapseCaption.text, float.PositiveInfinity, float.PositiveInfinity).x
+                + collapseCaption.rectTransform.offsetMin.x - collapseCaption.rectTransform.offsetMax.x + 2f);
             lastParentSize = size;
         }
 

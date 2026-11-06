@@ -64,8 +64,24 @@ namespace MDPro3.UI.Client
             text.fontSizeMax = text.fontSize;
             text.fontSizeMin = Mathf.Min(text.fontSize, 22);
             text.enableAutoSizing = true;
+            text.raycastTarget = false;
+            if (text.transform.Find("Fight player name hover") == null)
+            {
+                // The opponent LP group deliberately rejects raycasts. A
+                // transparent child receives hover without changing the name's fade.
+                var hover = FightUI.Node(text.transform, "Fight player name hover", 0, 0, 1, 1);
+                FightUI.Stretch(hover);
+                var surface = hover.gameObject.AddComponent<Image>();
+                surface.color = Color.clear;
+                surface.canvasRenderer.cullTransparentMesh = false;
+                var hoverGroup = hover.gameObject.AddComponent<CanvasGroup>();
+                hoverGroup.ignoreParentGroups = true;
+                hoverGroup.blocksRaycasts = true;
+                hover.gameObject.AddComponent<FightDuelNameRaycastFilter>();
+            }
             // Empty Hint deliberately uses the current displayed name on hover.
-            if (text.GetComponent<FightTooltip>() == null) text.gameObject.AddComponent<FightTooltip>();
+            var tooltip = text.GetComponent<FightTooltip>() ?? text.gameObject.AddComponent<FightTooltip>();
+            tooltip.LocalizeHint = false;
         }
 
         private static void StyleDescription(CardDescription description)
@@ -116,6 +132,15 @@ namespace MDPro3.UI.Client
                 scrollbar.colors = colours;
             }
         }
+    }
+
+    internal sealed class FightDuelNameRaycastFilter : MonoBehaviour, ICanvasRaycastFilter
+    {
+        private TextMeshProUGUI text;
+        private void Awake() { text = transform.parent.GetComponent<TextMeshProUGUI>(); }
+        public bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
+            => text != null && text.isActiveAndEnabled
+                && text.color.a * text.canvasRenderer.GetInheritedAlpha() > .001f;
     }
 
     internal sealed class FightDuelControlFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,

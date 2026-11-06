@@ -12,7 +12,7 @@ import zipfile
 import importlib.util
 import argparse
 
-from source_build_state import build_transaction, game_source_paths, validate_generation
+from source_build_state import build_transaction, game_source_paths, validate_generation, validate_source_inputs
 from client_ui_assets import content_hashes as client_ui_hashes
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -135,6 +135,7 @@ def compile_generation(output: Path, ui_proof: bool = False) -> None:
         if before != target.read_bytes():
             adjustments.append({"path": relative, "source_sha256": hashes[relative], "compiled_input_sha256": digest(target),
                                 "reason": "UTF-8/BOM normalization; exclude editor-only CreateAssetMenu declarations and unused imports"})
+    validate_source_inputs(ROOT, hashes, validation=ui_proof)
     defines = DEFINES + (["FIGHT_UI_PROOF"] if ui_proof else [])
     response = ["-nostdlib+", "-target:library", "-unsafe+", "-langversion:9.0", "-nullable:disable",
                 "-optimize+", "-deterministic+", "-debug:portable", '-out:"' + str(output / "Assembly-CSharp.dll") + '"',
@@ -160,6 +161,7 @@ def compile_generation(output: Path, ui_proof: bool = False) -> None:
         raise ValueError("Deck academy content changed during source compilation; rebuild first.")
     if client_ui_hashes(ROOT / "content/client-ui") != ui_hashes:
         raise ValueError("Client UI content changed during source compilation; rebuild first.")
+    validate_source_inputs(ROOT, hashes, validation=ui_proof)
     manifest = {"ok": True, "source_compiled": True, "compatibility_verified": compatibility["ok"],
                 "prompt_tokenizer_sha256": tokenizer_sha, "prompt_tokenizer_encoding": "o200k_base",
                 "assembly_sha256": digest(output / "Assembly-CSharp.dll"), "pdb_sha256": digest(output / "Assembly-CSharp.pdb"),

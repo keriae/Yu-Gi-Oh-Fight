@@ -269,8 +269,11 @@ namespace MDPro3
             return path;
         }
 
-        public async UniTask<Texture> GetVideoCardAsync(int code)
+        public UniTask<Texture> GetVideoCardAsync(int code) => GetVideoCardAsync(code, default);
+
+        public async UniTask<Texture> GetVideoCardAsync(int code, CancellationToken token)
         {
+            token.ThrowIfCancellationRequested();
             if (!CardHasVideoArt(code))
                 return null;
 
@@ -319,7 +322,7 @@ namespace MDPro3
                 videoPlayer.gameObject.SetActive(true);
                 videoPlayer.url = GetVideoURL(code);
                 videoPlayer.Prepare();
-                await UniTask.WaitUntil(() => videoPlayer.isPrepared);
+                await UniTask.WaitUntil(() => videoPlayer.isPrepared, cancellationToken: token);
 
                 videoRenderTexture = Instantiate(sourceRenderTexture);
                 renderTexture = videoRenderTexture;
