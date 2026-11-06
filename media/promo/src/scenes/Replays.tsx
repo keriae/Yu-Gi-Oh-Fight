@@ -15,7 +15,6 @@ export const Replays = () => (
         chapter="06 / REVIEW"
         english="Replay the duel. Discover the next idea."
         chinese="回看真实对局，发现下一种可能"
-        detail="Pause · Speed · Card inspection"
       />
     </TransitionSeries.Sequence>
     <TransitionSeries.Transition
@@ -33,7 +32,6 @@ export const Replays = () => (
         chapter="06 / REVIEW"
         english="Replay the duel. Discover the next idea."
         chinese="回看真实对局，发现下一种可能"
-        detail="Pause · Speed · Card inspection"
       />
     </TransitionSeries.Sequence>
   </TransitionSeries>

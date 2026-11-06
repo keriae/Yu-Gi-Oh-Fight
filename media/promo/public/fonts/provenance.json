@@ -858,7 +858,7 @@
     }
   ],
   "caption_measurements": {
-    "method": "Sum final static-font hmtx advances and one letter-spacing interval per printable codepoint; no browser rendering or kerning shaping. This keeps a small conservative trailing-spacing allowance.",
+    "method": "Final static-font hmtx advances plus one letter-spacing interval per printable codepoint; conservative estimate without browser kerning. ScreenScene measures the loaded font again with @remotion/layout-utils and fits the selected caption to its safe width.",
     "english": {
       "family": "Fight Promo Serif Latin",
       "weight": 600,
@@ -868,123 +868,95 @@
     "chinese": {
       "family": "Fight Promo Serif SC",
       "weight": 600,
-      "font_size_px": 30,
-      "letter_spacing_px": 0.6
+      "font_size_px": 44,
+      "letter_spacing_px": 0.3
     },
-    "language_gap_px": 28,
-    "caption_available_width_px": 1732,
+    "chapter_width_px": 188,
+    "chapter_caption_gap_px": 28,
+    "row_available_width_px": 1732,
+    "caption_available_width_px": 1516,
+    "layout": "Separate language versions; chapter and caption share one row",
     "measurements": [
       {
         "cue": 1,
         "english_width_px": 852.78,
-        "chinese_width_px": 336.6,
-        "combined_width_px": 1217.38,
-        "remaining_width_px": 514.62
+        "chinese_width_px": 487.3,
+        "english_remaining_width_px": 663.22,
+        "chinese_remaining_width_px": 1028.7
       },
       {
         "cue": 2,
         "english_width_px": 1016.48,
-        "chinese_width_px": 367.2,
-        "combined_width_px": 1411.68,
-        "remaining_width_px": 320.32
+        "chinese_width_px": 531.6,
+        "english_remaining_width_px": 499.52,
+        "chinese_remaining_width_px": 984.4
       },
       {
         "cue": 3,
         "english_width_px": 995.14,
-        "chinese_width_px": 428.4,
-        "combined_width_px": 1451.54,
-        "remaining_width_px": 280.46
+        "chinese_width_px": 620.2,
+        "english_remaining_width_px": 520.86,
+        "chinese_remaining_width_px": 895.8
       },
       {
         "cue": 4,
         "english_width_px": 991.62,
-        "chinese_width_px": 503.13,
-        "combined_width_px": 1522.75,
-        "remaining_width_px": 209.25
+        "chinese_width_px": 727.48,
+        "english_remaining_width_px": 524.38,
+        "chinese_remaining_width_px": 788.52
       },
       {
         "cue": 5,
         "english_width_px": 782.86,
-        "chinese_width_px": 367.2,
-        "combined_width_px": 1178.06,
-        "remaining_width_px": 553.94
+        "chinese_width_px": 531.6,
+        "english_remaining_width_px": 733.14,
+        "chinese_remaining_width_px": 984.4
       },
       {
         "cue": 6,
         "english_width_px": 655.85,
-        "chinese_width_px": 397.8,
-        "combined_width_px": 1081.65,
-        "remaining_width_px": 650.35
+        "chinese_width_px": 575.9,
+        "english_remaining_width_px": 860.15,
+        "chinese_remaining_width_px": 940.1
       },
       {
         "cue": 7,
         "english_width_px": 950.26,
-        "chinese_width_px": 541.74,
-        "combined_width_px": 1520.0,
-        "remaining_width_px": 212.0
+        "chinese_width_px": 782.95,
+        "english_remaining_width_px": 565.74,
+        "chinese_remaining_width_px": 733.05
       },
       {
         "cue": 8,
         "english_width_px": 1049.77,
-        "chinese_width_px": 415.44,
-        "combined_width_px": 1493.21,
-        "remaining_width_px": 238.79
+        "chinese_width_px": 598.29,
+        "english_remaining_width_px": 466.23,
+        "chinese_remaining_width_px": 917.71
       },
       {
         "cue": 9,
         "english_width_px": 896.09,
-        "chinese_width_px": 489.6,
-        "combined_width_px": 1413.69,
-        "remaining_width_px": 318.31
+        "chinese_width_px": 708.8,
+        "english_remaining_width_px": 619.91,
+        "chinese_remaining_width_px": 807.2
       },
       {
         "cue": 10,
         "english_width_px": 995.52,
-        "chinese_width_px": 612.0,
-        "combined_width_px": 1635.52,
-        "remaining_width_px": 96.48
+        "chinese_width_px": 886.0,
+        "english_remaining_width_px": 520.48,
+        "chinese_remaining_width_px": 630.0
       },
       {
         "cue": 11,
         "english_width_px": 972.17,
-        "chinese_width_px": 428.4,
-        "combined_width_px": 1428.57,
-        "remaining_width_px": 303.43
-      },
-      {
-        "cue": 12,
-        "english_width_px": 883.42,
-        "chinese_width_px": 336.6,
-        "combined_width_px": 1248.02,
-        "remaining_width_px": 483.98
+        "chinese_width_px": 620.2,
+        "english_remaining_width_px": 543.83,
+        "chinese_remaining_width_px": 895.8
       }
     ],
-    "longest_cue": {
-      "cue": 10,
-      "english_width_px": 995.52,
-      "chinese_width_px": 612.0,
-      "combined_width_px": 1635.52,
-      "remaining_width_px": 96.48
-    },
-    "closing_rights_layout": {
-      "english_font_size_px": 20,
-      "chinese_font_size_px": 20,
-      "letter_spacing_px": 0,
-      "flex_gap_px": 22,
-      "separator_font_size_px": 16,
-      "combined_width_px": 1529.97,
-      "measurement_method": "Conservative font hmtx advances; matches the final Closing JSX sizes and two flex gaps",
-      "available_width_px": 1820,
-      "english_text": "Unofficial, non-commercial fan project. Not affiliated with or endorsed by Konami.",
-      "chinese_text": "非官方、非商业爱好者项目，与科乐美无关联，未获其背书。",
-      "noncommercial_positioning": true,
-      "browser_measurement": {
-        "method": "@remotion/layout-utils measureText with both self-hosted static fonts loaded",
-        "combined_width_px": 1521.27,
-        "safe_width_px": 1732,
-        "fonts_loaded": true
-      }
-    }
+    "chapter_text_fit_width_px": 168,
+    "chapter_fit_method": "ScreenScene measures each chapter label in its loaded language font and proportionally reduces font size and letter spacing to fit the label width."
   },
   "publish_files": [
     "FightPromoDisplay-700.woff2",
@@ -997,6 +969,8 @@
   ],
   "notes": [
     "Display and body weights are explicitly 700 and 600. The fonts retain their original OFL terms and rights records, with distinct derivative family names.",
-    "Sources, hashes, codepoint selection, toolchain versions and FontTools transformation settings are recorded here."
+    "Sources, hashes, codepoint selection, toolchain versions and FontTools transformation settings are recorded here.",
+    "The localized revision uses the Latin and SC body fonts at 600, and the actual project logo in place of the display-font title. The original display derivative and its license remain documented.",
+    "Subset text_inputs record the original source corpus. Reproduction uses the explicit unicode_codepoints list, which preserves the exact existing subset even after scene source edits."
   ]
 }

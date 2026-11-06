@@ -9,6 +9,5 @@ export const Editor = () => (
     chapter="02 / BUILD"
     english="Inspect cards. Refine your next opening."
     chinese="阅读卡文，打磨每一张卡的选择"
-    detail="Main · Extra · Side"
   />
 );

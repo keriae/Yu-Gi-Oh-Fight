@@ -1,7 +1,7 @@
 {
   "name": "yu-gi-oh-fight-promo",
   "version": "1.0.0",
-  "description": "Gameplay trailer with recorded game audio",
+  "description": "Separate English and Chinese gameplay trailers with recorded game audio",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=24"
@@ -27,8 +27,11 @@
   },
   "scripts": {
     "preview": "remotion studio --no-open",
-    "render": "remotion render src/index.ts LaunchTrailer ../../docs/media/launch-trailer.mp4 --codec h264 --crf 24",
-    "lint": "eslint src && tsc"
+    "render": "npm run render:en && npm run render:zh && node scripts/update-outputs.mjs",
+    "lint": "eslint src && tsc",
+    "render:en": "remotion render src/index.ts LaunchTrailerEN ../../docs/media/launch-trailer-en.mp4 --codec h264 --crf 24",
+    "render:zh": "remotion render src/index.ts LaunchTrailerZH ../../docs/media/launch-trailer-zh.mp4 --codec h264 --crf 24",
+    "outputs": "node scripts/update-outputs.mjs"
   },
   "allowScripts": {
     "esbuild": false

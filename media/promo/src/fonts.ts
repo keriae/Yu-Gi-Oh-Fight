@@ -5,11 +5,6 @@ import { useEffect, useState } from 'react';
 
 const ready = Promise.all([
   loadFont({
-    family: 'Fight Promo Display',
-    url: staticFile('fonts/FightPromoDisplay-700.woff2'),
-    weight: '700',
-  }),
-  loadFont({
     family: 'Fight Promo Serif Latin',
     url: staticFile('fonts/FightPromoSerifLatin-600.woff2'),
     weight: '600',

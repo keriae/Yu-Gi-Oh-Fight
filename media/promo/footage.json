@@ -12,8 +12,8 @@
     "codec": "AAC"
   },
   "raw_recordings_ignored": true,
-  "framing": "Original captures fill 1920×1200. Final home/menu/replay captures have bottom black padding; the trailer uses top-aligned framing, and full-duel crops only that padding to 1920×1092. The editor and duel log use close views.",
-  "audio_edit": "Original clip audio is retained with short fades. A captured menu theme also plays under paused menu shots and the closing card.",
+  "framing": "Source canvases are 1920×1200. New English, home, menu and replay captures have bottom black padding; ordinary English scenes and the final home/menu/replay scenes are aligned to the top. Deck-editor and duel-log scenes use close views. The separate full-duel crops only bottom padding to 1920×1092.",
+  "audio_edit": "Original clip audio retained with short fades; captured menu theme also plays under paused menu shots and the closing card. Each language uses audio from its selected real recording.",
   "full_duel": {
     "source": "full-replay-zh.mp4",
     "from_seconds": 26,
@@ -123,7 +123,7 @@
     {
       "file": "full-replay-zh.mp4",
       "sha256": "d35ee914a85a9a6ba6e961edce7b870c371e4de5ab73aa78c51dc3caa01facc8",
-      "role": "Saved replay library, real duel actions and complete replay from opening to victory",
+      "role": "Real duel actions and complete replay from opening to victory. Original replay-library shot is excluded; new clean library captures are used instead.",
       "duration_seconds": 173.845,
       "canvas_pixels": [
         1920,
@@ -131,46 +131,246 @@
       ],
       "average_fps": 26.676,
       "content_height_pixels": 1092
+    },
+    {
+      "file": "home-zh.mp4",
+      "sha256": "98da89df85b8c05bb1a6da9b650bae65f1519d051b7f1648ae9bbc1553e008b1",
+      "role": "Final Chinese homepage without a central title overlay",
+      "duration_seconds": 12.183333,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 29.266,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "replay-library-zh.mp4",
+      "sha256": "85e51ef6028ba5bdb60b40f9028bd6061376cd838df4f064f9763c186bde91b2",
+      "role": "Final Chinese replay library after test recordings were removed",
+      "duration_seconds": 7.183333,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 29.095,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "decks-en.mp4",
+      "sha256": "e2913517df63baa94e55c25f22a1641bab0078f6926837fc29028981dde46d28",
+      "role": "English personal deck library",
+      "duration_seconds": 14.288333,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 25.483,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "editor-en.mp4",
+      "sha256": "3c8a283b45c04be8139c1ea6ae623e4f57c4acf2c82b3b6a6290969bd3318d1f",
+      "role": "English deck editor and card details",
+      "duration_seconds": 16.341667,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 25.26,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "academy-en.mp4",
+      "sha256": "42b1f19506648831a632c90f1e3b8c935d1c83ae889906ca3be4c677574ff07a",
+      "role": "English academy deck library",
+      "duration_seconds": 16.091667,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 25.285,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "tutorial-en.mp4",
+      "sha256": "8f4e92e4c0a2a1d2abef4689cba281149b0698c7267c20fad36ed97e11a70a6a",
+      "role": "English tutorial opening hand and overview",
+      "duration_seconds": 9.268333,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 25.895,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "tutorial-step-en.mp4",
+      "sha256": "a15deb6257096f69ebb41df9e86b7b5cb957f1433787c2f799d0efda43a63da3",
+      "role": "English individual combo step",
+      "duration_seconds": 9.31,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 25.671,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "player-vs-ai-en.mp4",
+      "sha256": "514c1a1fbccc63ff3310268bdebc73b23da610f3a3904f77b1bd5a198c189140",
+      "role": "English player-versus-AI preparation",
+      "duration_seconds": 12.186667,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 26.041,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "ai-vs-ai-en.mp4",
+      "sha256": "ba94697c03244024617264d64a4dc17e1f2bb7dfe2a4eb0b16691a334ac463d8",
+      "role": "English AI-versus-AI preparation",
+      "duration_seconds": 12.195,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 25.584,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "replay-library-en.mp4",
+      "sha256": "9b8202d4922de50715e2cb89225194f10968efd9fd18011640c84267fb4868e3",
+      "role": "Final English replay library after test recordings were removed",
+      "duration_seconds": 8.248333,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 26.723,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "duel-en.mp4",
+      "sha256": "5b49d011eff0ac0b5d5be3957497d7baa8a42613d3fd57150d16a8fa594a9e0b",
+      "role": "Real duel action with the English interface",
+      "duration_seconds": 32.18,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 26.25,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "menu-settings-en.mp4",
+      "sha256": "965a7a39bb45469b6c2a1796dc93456fdd53f68f850027a3a18c520c08696daf",
+      "role": "English duel sound settings",
+      "duration_seconds": 8.266667,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 25.524,
+      "content_height_pixels": 1092
+    },
+    {
+      "file": "replay-playback-en.mp4",
+      "sha256": "e18d78a54233912fc3ecd5a3c5ccbeb17017e0dcb8a0656ee694d0e51ddde680",
+      "role": "Real recorded duel playback with the English interface",
+      "duration_seconds": 10.018899,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 26.25,
+      "content_height_pixels": 1094,
+      "derived_from": {
+        "source": "duel-en.mp4",
+        "from_seconds": 22,
+        "to_seconds": 32,
+        "video": "H.264 re-encoded at CRF 18 for an accurate cut",
+        "audio": "Original AAC stream copied"
+      }
+    },
+    {
+      "file": "menu-log-en.mp4",
+      "sha256": "9295e4192fab5671d7f946639225e7556789c301a682ce7b11c68a7760b2f353",
+      "role": "English attack and damage log",
+      "duration_seconds": 8.30525,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 24.468,
+      "content_height_pixels": 1093
+    },
+    {
+      "file": "menu-card-en.mp4",
+      "sha256": "04269993845ae90a0db704647c2b41c68541f3e44309f81c9f355deda903f841",
+      "role": "English full card details",
+      "duration_seconds": 8.208333,
+      "canvas_pixels": [
+        1920,
+        1200
+      ],
+      "average_fps": 26.071,
+      "content_height_pixels": 1092
     }
   ],
   "outputs": {
-    "launch-trailer.mp4": {
-      "repository_path": "docs/media/launch-trailer.mp4",
-      "size_bytes": 17829092,
-      "sha256": "b173ee5d9b282977d2281f8afd81be50ed1f221ba52fd007d5412e3fecd90d34"
-    },
     "full-duel.mp4": {
       "repository_path": "docs/media/full-duel.mp4",
       "size_bytes": 73393027,
       "sha256": "de10d5cc25e820541a674635a2781b2fcb5f23d43b3c317cdbff842d14883e37"
     },
-    "preview.jpg": {
-      "repository_path": "docs/media/preview.jpg",
-      "size_bytes": 292194,
-      "sha256": "4a60458104685543b99c224eefe29cc0d5b4ba408254941539350a1daa76d1b9"
+    "launch-trailer-en.mp4": {
+      "repository_path": "docs/media/launch-trailer-en.mp4",
+      "size_bytes": 17449260,
+      "sha256": "27bb302a0359333a54ac72ba9a6470ff44750acf8b96c5506e17ffebc8c331ec"
     },
-    "launch-trailer.srt": {
-      "repository_path": "docs/media/launch-trailer.srt",
-      "size_bytes": 1413,
-      "sha256": "5c889cc6b289e0405ef84f61b40202ffdd9c67ed9f75287160dbd2a768c6f7c7"
+    "launch-trailer-en.srt": {
+      "repository_path": "docs/media/launch-trailer-en.srt",
+      "size_bytes": 862,
+      "sha256": "62e355b228a78b7e04ec99772aa65da5d70fba783660ef861e59460a594e694e"
+    },
+    "preview-en.jpg": {
+      "repository_path": "docs/media/preview-en.jpg",
+      "size_bytes": 385716,
+      "sha256": "c3b53621404dec98eaf8c2442aaaf8609149237fe95c5c54c365ede307fb5b95"
+    },
+    "launch-trailer-zh.mp4": {
+      "repository_path": "docs/media/launch-trailer-zh.mp4",
+      "size_bytes": 17077651,
+      "sha256": "f0d83af148f3680c4f5804921336e2b258e15769e47c77005ee4c8574a70374f"
+    },
+    "launch-trailer-zh.srt": {
+      "repository_path": "docs/media/launch-trailer-zh.srt",
+      "size_bytes": 923,
+      "sha256": "9372c11cfb6367d52bd64d782178f6df122797bb0015da953b15a043d9e04ca8"
+    },
+    "preview-zh.jpg": {
+      "repository_path": "docs/media/preview-zh.jpg",
+      "size_bytes": 373954,
+      "sha256": "f0d31e11fa20009fcfb2d6daa9522d49c7303110c392c513d44315eb336bdd2c"
     }
   },
   "typography": {
-    "title_family": "Fight Promo Display",
-    "title_weight": 700,
     "caption_families": [
       "Fight Promo Serif Latin",
       "Fight Promo Serif SC"
     ],
     "caption_weight": 600,
-    "caption_layout": "Single baseline and single line; English followed by Simplified Chinese",
-    "font_provenance": "media/promo/public/fonts/provenance.json"
+    "caption_layout": "One row per scene containing the chapter label and the selected language caption",
+    "font_provenance": "media/promo/public/fonts/provenance.json",
+    "title_asset": "media/promo/public/brand.png"
   },
-  "mastered_audio_reuse": {
-    "source_revision": "a81f51236ae3502ccd35e35f520cab2df0cb2900",
-    "source_path": "docs/media/launch-trailer.mp4",
-    "source_sha256": "bc7f162077958f3d8f5cb73b325da1a478d3eb02aa5a996d25915ee9a5066fd2",
-    "aac_sha256": "33a1c82f5b9fa5e4402932d5b99ffa3da3234877801a112f6881e50ddf705084",
-    "method": "Original mastered AAC stream copied without re-encoding for the non-commercial notice revision"
-  }
+  "languages": {
+    "en": "English interface, English chapter labels and captions",
+    "zh": "Simplified Chinese interface, chapter labels and captions"
+  },
+  "replay_library_cleanup": "Temporary test replays were removed before recapturing the Chinese and English replay libraries. Only genuine duel recordings and official academy demonstrations are shown.",
+  "replay_playback_en": "Derived from 22–32 seconds of the same real English duel recording used by the duel chapter; original AAC audio stream copied."
 }

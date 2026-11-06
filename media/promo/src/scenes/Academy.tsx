@@ -7,6 +7,5 @@ export const Academy = () => (
     chapter="03 / LEARN"
     english="52 academy decks. One opening at a time."
     chinese="52 套学院卡组，从一次起手开始学习"
-    detail="Guides · Exercises · Puzzles"
   />
 );

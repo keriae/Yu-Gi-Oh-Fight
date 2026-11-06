@@ -1,6 +1,7 @@
 // Copyright © 2026 keriae. See COPYRIGHT.md for scope and third-party rights.
 import {
   AbsoluteFill,
+  CanvasImage,
   Interactive,
   interpolate,
   staticFile,
@@ -9,9 +10,12 @@ import {
 import { Audio } from '@remotion/media';
 import { chineseFont, font, latinFont, palette } from '../style';
 import { usePromoFonts } from '../fonts';
-import { TitleLockup } from '../TitleLockup';
+import { menuThemeRecording, usePromoLanguage } from '../language';
+
 export const Closing = () => {
   const frame = useCurrentFrame();
+  const language = usePromoLanguage();
+  const theme = menuThemeRecording(language);
   const fontsLoaded = usePromoFonts();
   if (!fontsLoaded) return null;
   return (
@@ -26,8 +30,8 @@ export const Closing = () => {
       }}
     >
       <Audio
-        src={staticFile('footage/features-zh.mp4')}
-        trimBefore={18 * 30}
+        src={staticFile('footage/' + theme.src)}
+        trimBefore={theme.start * 30}
         volume={(f) =>
           interpolate(f, [0, 15, 120, 179], [0, 0.4, 0.4, 0], {
             extrapolateLeft: 'clamp',
@@ -42,88 +46,46 @@ export const Closing = () => {
           border: '1px solid #d2bb8438',
         }}
       />
-      <div
+      <CanvasImage
+        src={staticFile('brand.png')}
         style={{
-          position: 'absolute',
-          width: 1100,
-          height: 1,
-          top: 350,
-          background:
-            'linear-gradient(90deg,transparent,#79d8e6b0,transparent)',
-        }}
-      />
-      <Interactive.Div
-        name="Closing title"
-        style={{
-          textAlign: 'center',
+          width: 1080,
+          height: (1080 * 718) / 1708,
+          marginTop: -100,
           opacity: interpolate(frame, [0, 15], [0, 1], {
             extrapolateRight: 'clamp',
           }),
         }}
-      >
-        <TitleLockup size={118} />
-      </Interactive.Div>
-      <Interactive.Div
-        name="Closing tagline"
-        style={{
-          fontFamily: latinFont,
-          fontWeight: 600,
-          fontSize: 32,
-          letterSpacing: 3,
-          color: palette.cyan,
-          marginTop: 32,
-        }}
-      >
-        BUILD. LEARN. DUEL. REPLAY.
-      </Interactive.Div>
+      />
       <Interactive.Div
         name="Project link"
         style={{
           fontFamily: latinFont,
-          fontSize: 30,
+          fontSize: 32,
           fontWeight: 600,
           color: palette.gold,
-          marginTop: 60,
-        }}
-      >
-        github.com/keriae
-      </Interactive.Div>
-      <div
-        style={{
-          fontFamily: chineseFont,
-          fontSize: 25,
-          fontWeight: 600,
-          color: palette.muted,
-          marginTop: 25,
+          marginTop: 64,
           whiteSpace: 'nowrap',
         }}
       >
-        Complete duel recording included · 完整对战录屏见项目文档
-      </div>
-      <div
+        https://github.com/keriae/Yu-Gi-Oh-Fight
+      </Interactive.Div>
+      <Interactive.Div
+        name="Project notice"
         style={{
           position: 'absolute',
           bottom: 82,
-          display: 'flex',
-          alignItems: 'baseline',
-          justifyContent: 'center',
-          gap: 22,
+          fontFamily: language === 'en' ? latinFont : chineseFont,
+          fontSize: 24,
           whiteSpace: 'nowrap',
           color: palette.muted,
           fontWeight: 600,
         }}
       >
-        <div style={{ fontFamily: latinFont, fontSize: 20 }}>
-          Unofficial, non-commercial fan project. Not affiliated with or
-          endorsed by Konami.
-        </div>
-        <span aria-hidden style={{ color: palette.gold }}>
-          ·
-        </span>
-        <div style={{ fontFamily: chineseFont, fontSize: 20 }}>
-          非官方、非商业爱好者项目，与科乐美无关联，未获其背书。
-        </div>
-      </div>
+        {language === 'en'
+          ? 'Unofficial, non-commercial fan project.'
+          : '非官方、非商业爱好者项目。'}
+      </Interactive.Div>
     </AbsoluteFill>
   );
 };

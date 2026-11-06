@@ -10,9 +10,9 @@ An unofficial, non-commercial desktop dueling client with a cohesive interface, 
 
 </div>
 
-[![Yu-Gi-Oh! Fight — gameplay preview](docs/media/preview.jpg)](docs/media/launch-trailer.mp4)
+[![Yu-Gi-Oh! Fight — gameplay preview](docs/media/preview-en.jpg)](docs/media/launch-trailer-en.mp4)
 
-**[Watch the trailer with game audio](docs/media/launch-trailer.mp4)** · **[Watch a complete recorded duel](docs/media/full-duel.mp4)**
+**[English trailer](docs/media/launch-trailer-en.mp4)** · **[中文宣传片](docs/media/launch-trailer-zh.mp4)** · **[Watch a complete recorded duel](docs/media/full-duel.mp4)**
 
 ## Play your way
 
@@ -28,6 +28,8 @@ AI duels use a user-configured Responses-compatible service and may incur that p
 ## Get started
 
 The current distribution target is **macOS 13 or later**. The packaged app includes its runtime; players do not need Unity Editor or .NET.
+
+Download the macOS installer from [GitHub Releases](https://github.com/keriae/Yu-Gi-Oh-Fight/releases). See [the installation guide](docs/BUILDING.md#optional-macos-packages) for split downloads and first-launch instructions.
 
 For a source build on macOS, install **Python 3.12+**, a **Swift 6+ compiler** (such as Xcode 16+ Command Line Tools), and **zstd** (`brew install zstd` if using Homebrew). Make sure `python3` and `xcrun swiftc --version` select those versions, then run:
 
@@ -69,7 +71,7 @@ The project is not affiliated with or endorsed by Konami. Yu-Gi-Oh! names, cards
 
 Yu-Gi-Oh! Fight 是基于 MDPro3 的非官方、非商业桌面决斗客户端。首页、卡组、学院、回放、收藏、设置以及对战菜单统一采用暗蓝、古金与青蓝视觉，保留真实卡图、原生规则和对战演出。
 
-[观看带游戏声音的宣传视频](docs/media/launch-trailer.mp4) · [观看完整对战录屏](docs/media/full-duel.mp4)
+[观看中文宣传视频](docs/media/launch-trailer-zh.mp4) · [观看英文宣传视频](docs/media/launch-trailer-en.mp4) · [观看完整对战录屏](docs/media/full-duel.mp4)
 
 ### 主要功能
 
@@ -84,7 +86,9 @@ AI 对战需要自行配置兼容 Responses 的服务，费用由对应服务收
 
 ### 构建与存档
 
-应用运行支持 **macOS 13+**，安装包自带运行时，运行无需 Unity Editor 或 .NET。在 macOS 上构建源码需要 **Python 3.12+**、**Swift 6+ 编译器**（例如 Xcode 16+ Command Line Tools）与 **zstd**（使用 Homebrew 时可运行 `brew install zstd`）。确认 `python3` 和 `xcrun swiftc --version` 指向所需版本，再执行：
+应用运行支持 **macOS 13+**，安装包自带运行时，运行无需 Unity Editor 或 .NET。可从 [GitHub Releases](https://github.com/keriae/Yu-Gi-Oh-Fight/releases) 下载安装包，分卷合并和首次打开说明见[安装指南](docs/BUILDING.md#optional-macos-packages)。
+
+在 macOS 上构建源码需要 **Python 3.12+**、**Swift 6+ 编译器**（例如 Xcode 16+ Command Line Tools）与 **zstd**（使用 Homebrew 时可运行 `brew install zstd`）。确认 `python3` 和 `xcrun swiftc --version` 指向所需版本，再执行：
 
 ```sh
 python3 prepare-dependencies.py

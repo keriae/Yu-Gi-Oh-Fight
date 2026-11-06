@@ -7,6 +7,5 @@ export const AiProfiles = () => (
     chapter="04 / CHALLENGE"
     english="Choose an AI duelist. Make it personal."
     chinese="独立模型与外观，打造自己的 AI 决斗者"
-    detail="Profiles · Models · Appearance"
   />
 );

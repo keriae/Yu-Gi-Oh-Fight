@@ -32,7 +32,9 @@ LAUNCHER_SWIFT_VERSION = "6"
 LAUNCHER_MINIMUM_MACOS = "13.0"
 RELEASE_DOCUMENTS = (
     "README.md", "THIRD_PARTY_NOTICES.md", "COPYRIGHT.md", "docs/BUILDING.md", "docs/ASSETS.md", "native/README.md",
-    "docs/media/preview.jpg", "docs/media/launch-trailer.mp4", "docs/media/launch-trailer.srt",
+    "docs/media/preview-en.jpg", "docs/media/preview-zh.jpg",
+    "docs/media/launch-trailer-en.mp4", "docs/media/launch-trailer-en.srt",
+    "docs/media/launch-trailer-zh.mp4", "docs/media/launch-trailer-zh.srt",
     "docs/media/full-duel.mp4",
 )
 RELEASE_LICENSES = (

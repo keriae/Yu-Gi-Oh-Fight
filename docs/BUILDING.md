@@ -84,16 +84,48 @@ test files. Academy authoring provenance can additionally be checked with
 `python3 scripts/validate-deck-academy.py --authoring-sources` when the local
 recording tools are present.
 
-## Optional archive
+## Optional macOS packages
 
 ```sh
 python3 scripts/package-client-release.py
+python3 scripts/package-client-dmg.py
 ```
 
 This verifies the release manifest, assembly, notices and application
-signature, then writes a CRC-checked ZIP64 archive and `SHA256SUMS.txt` under
-`dist/`. It does not publish or upload files. Third-party runtime and asset
-rights remain subject to [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
+signature. The ZIP command writes a CRC-checked ZIP64 archive and `SHA256SUMS.txt`
+under `dist/`. The DMG command writes a compressed disk image with an
+`Applications` drag-and-drop link and `SHA256SUMS.dmg.txt`, verifies the image
+checksum, and mounts it read-only to recheck the packaged app signature and
+critical files. Use `--format ULMO` for slower LZMA compression. Both commands
+create local files; they do not upload them.
+
+The build uses an ad-hoc code signature; Developer ID signing and Apple
+notarization are not configured. To install the DMG, drag the app to
+`Applications`. If macOS blocks the downloaded app on first launch, use
+**System Settings → Privacy & Security → Open Anyway** after checking its
+SHA-256 checksum and download source.
+
+Upload application packages as [GitHub Release assets](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases).
+GitHub requires each asset to be smaller than 2 GiB. The DMG verification report
+records whether the image fits this limit. If it exceeds the limit, split it
+into 1900 MiB files and upload every part with their checksums:
+
+```sh
+cd dist
+split -b 1900m "Yu-Gi-Oh! Fight-macOS.dmg" "Yu-Gi-Oh-Fight-macOS.dmg.part-"
+shasum -a 256 Yu-Gi-Oh-Fight-macOS.dmg.part-* > SHA256SUMS.parts.txt
+```
+
+After downloading every part into one folder, verify and combine them in order:
+
+```sh
+shasum -a 256 -c SHA256SUMS.parts.txt
+cat Yu-Gi-Oh-Fight-macOS.dmg.part-* > "Yu-Gi-Oh! Fight-macOS.dmg"
+shasum -a 256 -c SHA256SUMS.dmg.txt
+```
+
+Third-party runtime and asset rights remain subject to
+[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
 
 ## 中文说明
 
@@ -120,7 +152,13 @@ Mono 加载、双架构原生文件选择器和应用签名；本地验收脚本
 播种前被拒绝。
 
 仅修改 C# 代码时可先 `--code-only`，再执行代码更新脚本。资源或启动器修改需
-完整构建；原生桥接修改同样需要完整构建。更新与构建前请关闭游戏。归档命令只生成本地 ZIP，不执行上传。
+完整构建；原生桥接修改同样需要完整构建。更新与构建前请关闭游戏。归档命令只生成本地
+ZIP 或 DMG，不执行上传。DMG 提供拖拽到 Applications 的链接，并检查映像及包内签名。
+构建采用 ad-hoc 签名，未配置 Developer ID 签名与 Apple 公证。打开 DMG 后将应用拖入
+Applications；若下载的应用首次启动被 macOS 阻止，核对 SHA-256 与下载来源后，可到
+“系统设置 → 隐私与安全性 → 仍要打开”进行首次打开。
+GitHub Releases 单个附件须小于 2 GiB；超过时按上方命令拆成 1900 MiB 分卷，并一并提供
+分卷、完整 DMG 的 SHA-256 校验文件与合并命令。
 
 构建期间修改源码或资源时需要重新构建。编译与发布前会重新核对 C# 文件清单，
 应用发布前也核对客户端内容、文档、许可证及原生组件和启动器输入；源码构建

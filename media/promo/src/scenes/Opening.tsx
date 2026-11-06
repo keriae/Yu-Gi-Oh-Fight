@@ -8,7 +8,5 @@ export const Opening = () => (
     chapter="01 / BEGIN"
     english="A familiar duel. A fresh experience."
     chinese="熟悉的决斗，全新的体验"
-    detail="English · 中文"
-    reveal
   />
 );

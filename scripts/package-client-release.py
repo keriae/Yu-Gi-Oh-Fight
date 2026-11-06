@@ -32,9 +32,12 @@ RELEASE_DOCUMENTS = (DOCUMENT,
                   Path("Contents/Resources/COPYRIGHT.md"), Path("Contents/Resources/README.md"),
                   Path("Contents/Resources/docs/BUILDING.md"), Path("Contents/Resources/docs/ASSETS.md"),
                   Path("Contents/Resources/native/README.md"),
-                  Path("Contents/Resources/docs/media/preview.jpg"),
-                  Path("Contents/Resources/docs/media/launch-trailer.mp4"),
-                  Path("Contents/Resources/docs/media/launch-trailer.srt"),
+                  Path("Contents/Resources/docs/media/preview-en.jpg"),
+                  Path("Contents/Resources/docs/media/preview-zh.jpg"),
+                  Path("Contents/Resources/docs/media/launch-trailer-en.mp4"),
+                  Path("Contents/Resources/docs/media/launch-trailer-en.srt"),
+                  Path("Contents/Resources/docs/media/launch-trailer-zh.mp4"),
+                  Path("Contents/Resources/docs/media/launch-trailer-zh.srt"),
                   Path("Contents/Resources/docs/media/full-duel.mp4"))
 NATIVE_FILE_BROWSER = Path("Contents/Resources/Client") / FILE_BROWSER_PATH
 FILE_BROWSER_LICENSE = Path("Contents/Resources/licenses/StandaloneFileBrowser-LICENSE.txt")
@@ -211,6 +214,35 @@ def atomic_write(path: Path, data: bytes) -> None:
             temporary.unlink(missing_ok=True)
 
 
+def verify_application(app: Path) -> dict[str, str]:
+    """Verify the current shipping application before ZIP or DMG packaging."""
+    expected = critical_hashes(app)
+    manifest = read(app / MANIFEST)
+    require(manifest.get("ok") is True and manifest.get("source_compiled") is True
+            and manifest.get("compatibility_verified") is True and manifest.get("build_profile") == "release"
+            and "FIGHT_UI_PROOF" not in manifest.get("compiler_defines", []),
+            "The application must contain the shipping release build")
+    assembly_sha = expected[ASSEMBLY.as_posix()]
+    require(manifest.get("assembly_sha256") == assembly_sha,
+            "Application assembly does not match its release manifest")
+    sources = {path.relative_to(ROOT / "game").as_posix(): digest(path) for path in game_source_paths(ROOT)}
+    require(sources == manifest.get("source_files"), "Compile and package the current game sources before archiving")
+    for relative in RELEASE_DOCUMENTS:
+        source = ROOT / relative.relative_to("Contents/Resources")
+        require(source.is_file() and digest(source) == expected[relative.as_posix()],
+                "Packaged release document is stale: " + source.name)
+    client = app / "Contents/Resources/Client"
+    changes = read(app / "Contents/Resources/Client-Changes.json")
+    require(changes.get("native_file_browser") is not None, "Packaged native file selector metadata is missing")
+    verify_file_browser(client, changes["native_file_browser"])
+    require(expected[FILE_BROWSER_LICENSE.as_posix()] == digest(ROOT / "native/StandaloneFileBrowser/LICENSE.txt"),
+            "Packaged native file selector license is stale")
+    require(not any((app / "Contents/Resources/Client").rglob("credentials.json*")),
+            "Application bundle contains private credentials")
+    verify_signature(app)
+    return expected
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--app", type=Path, default=APP, help="Verified application bundle to archive")
@@ -236,30 +268,8 @@ def main() -> None:
         require(not path.is_symlink() and (not path.exists() or path.is_file()),
                 "Release record destination must be a regular file: " + str(path))
 
-    expected = critical_hashes(app)
-    manifest = read(app / MANIFEST)
-    require(manifest.get("ok") is True and manifest.get("source_compiled") is True
-            and manifest.get("compatibility_verified") is True and manifest.get("build_profile") == "release"
-            and "FIGHT_UI_PROOF" not in manifest.get("compiler_defines", []),
-            "The application must contain the shipping release build")
+    expected = verify_application(app)
     assembly_sha = expected[ASSEMBLY.as_posix()]
-    require(manifest.get("assembly_sha256") == assembly_sha,
-            "Application assembly does not match its release manifest")
-    sources = {path.relative_to(ROOT / "game").as_posix(): digest(path) for path in game_source_paths(ROOT)}
-    require(sources == manifest.get("source_files"), "Compile and package the current game sources before archiving")
-    for relative in RELEASE_DOCUMENTS:
-        source = ROOT / relative.relative_to("Contents/Resources")
-        require(source.is_file() and digest(source) == expected[relative.as_posix()],
-                "Packaged release document is stale: " + source.name)
-    client = app / "Contents/Resources/Client"
-    changes = read(app / "Contents/Resources/Client-Changes.json")
-    require(changes.get("native_file_browser") is not None, "Packaged native file selector metadata is missing")
-    verify_file_browser(client, changes["native_file_browser"])
-    require(expected[FILE_BROWSER_LICENSE.as_posix()] == digest(ROOT / "native/StandaloneFileBrowser/LICENSE.txt"),
-            "Packaged native file selector license is stale")
-    require(not any((app / "Contents/Resources/Client").rglob("credentials.json*")),
-            "Application bundle contains private credentials")
-    verify_signature(app)
 
     output.parent.mkdir(parents=True, exist_ok=True)
     # Stage beside the destination so os.replace publishes on one filesystem.

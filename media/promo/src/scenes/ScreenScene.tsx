@@ -12,7 +12,7 @@ import { Video } from '@remotion/media';
 import { measureText } from '@remotion/layout-utils';
 import { chineseFont, font, latinFont, palette } from '../style';
 import { usePromoFonts } from '../fonts';
-import { TitleLockup } from '../TitleLockup';
+import { chapterText, localizedRecording, usePromoLanguage } from '../language';
 
 export type ScreenSceneProps = {
   src: string;
@@ -20,8 +20,6 @@ export type ScreenSceneProps = {
   chapter: string;
   english: string;
   chinese: string;
-  detail?: string;
-  reveal?: boolean;
   zoom?: number;
   top?: number;
   left?: number;
@@ -33,33 +31,38 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
   chapter,
   english,
   chinese,
-  detail,
-  reveal = false,
   zoom = 1,
   top = -60,
   left = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
+  const language = usePromoLanguage();
   const fontsLoaded = usePromoFonts();
   if (!fontsLoaded) return null;
-  const englishWidth = measureText({
-    text: english,
-    fontFamily: latinFont,
+  const recording = localizedRecording(src, start, language);
+  const caption = language === 'en' ? english : chinese;
+  const captionFont = language === 'en' ? latinFont : chineseFont;
+  const chapterLabel = chapterText(chapter, language);
+  const chapterLetterSpacing = language === 'en' ? 2.5 : 1.5;
+  const chapterWidth = measureText({
+    text: chapterLabel,
+    fontFamily: captionFont,
+    fontSize: 20,
+    fontWeight: '600',
+    letterSpacing: `${chapterLetterSpacing}px`,
+    validateFontIsLoaded: true,
+  }).width;
+  const chapterScale = Math.min(1, 168 / chapterWidth);
+  const captionWidth = measureText({
+    text: caption,
+    fontFamily: captionFont,
     fontSize: 44,
     fontWeight: '600',
     letterSpacing: '.3px',
     validateFontIsLoaded: true,
   }).width;
-  const chineseWidth = measureText({
-    text: chinese,
-    fontFamily: chineseFont,
-    fontSize: 30,
-    fontWeight: '600',
-    letterSpacing: '.6px',
-    validateFontIsLoaded: true,
-  }).width;
-  const captionScale = Math.min(1, (1732 - 28) / (englishWidth + chineseWidth));
+  const captionScale = Math.min(1, 1516 / captionWidth);
   return (
     <AbsoluteFill
       style={{
@@ -69,14 +72,14 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
       }}
     >
       <Video
-        src={staticFile('footage/' + src)}
-        trimBefore={start * fps}
+        src={staticFile('footage/' + recording.src)}
+        trimBefore={recording.start * fps}
         style={{
           position: 'absolute',
           width: 1920 * zoom,
           height: 1200 * zoom,
           left,
-          top,
+          top: language === 'en' && top === -60 ? 0 : top,
         }}
         objectFit="cover"
         volume={(f) =>
@@ -88,106 +91,11 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
           )
         }
       />
-      {reveal && (
-        <AbsoluteFill
-          style={{
-            backgroundColor: palette.background,
-            opacity: interpolate(
-              frame,
-              [0, 12, 75, 120],
-              [0.62, 0.45, 0.45, 0],
-              { extrapolateRight: 'clamp' },
-            ),
-          }}
-        />
-      )}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 112,
-          left: 94,
-          zIndex: 2,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 24,
-          opacity: interpolate(frame, [0, 15], [0, 1], {
-            extrapolateRight: 'clamp',
-          }),
-        }}
-      >
-        <Interactive.Div
-          name="Chapter"
-          style={{
-            fontFamily: latinFont,
-            fontWeight: 600,
-            color: palette.cyan,
-            fontSize: 20,
-            letterSpacing: 2.5,
-            padding: '12px 18px',
-            border: '1px solid #b49a6159',
-            background: '#050e16d9',
-          }}
-        >
-          {chapter}
-        </Interactive.Div>
-        {detail && (
-          <div
-            style={{
-              fontFamily: latinFont,
-              fontWeight: 600,
-              fontSize: 20,
-              color: '#e5dbc3',
-              textShadow: '0 2px 8px #000',
-            }}
-          >
-            {detail}
-          </div>
-        )}
-      </div>
-      {reveal && (
-        <div
-          style={{
-            position: 'absolute',
-            left: 94,
-            top: 342,
-            opacity: interpolate(frame, [0, 18, 75, 115], [0, 1, 1, 0], {
-              extrapolateRight: 'clamp',
-            }),
-            translate: interpolate(frame, [0, 24], ['0px 18px', '0px 0px'], {
-              extrapolateRight: 'clamp',
-              easing: Easing.bezier(0.2, 0.8, 0.2, 1),
-            }),
-          }}
-        >
-          <TitleLockup size={110} />
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 24,
-              marginTop: 14,
-            }}
-          >
-            <div style={{ width: 60, height: 1, background: palette.gold }} />
-            <div
-              style={{
-                fontFamily: latinFont,
-                fontWeight: 600,
-                fontSize: 32,
-                color: palette.cyan,
-                letterSpacing: 3,
-              }}
-            >
-              YOUR DECK. YOUR DUEL.
-            </div>
-          </div>
-        </div>
-      )}
       <div
         style={{
           position: 'absolute',
           bottom: 0,
-          height: 148,
+          height: 124,
           left: 0,
           right: 0,
           background:
@@ -195,14 +103,15 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
         }}
       />
       <div
-        data-promo-caption="bilingual"
+        data-promo-caption={language}
         style={{
           position: 'absolute',
           left: 94,
           right: 94,
           bottom: 36,
           display: 'flex',
-          alignItems: 'baseline',
+          alignItems: 'center',
+          gap: 28,
           whiteSpace: 'nowrap',
           opacity: interpolate(frame, [6, 20], [0, 1], {
             extrapolateLeft: 'clamp',
@@ -216,9 +125,28 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
         }}
       >
         <Interactive.Div
-          name="English caption"
+          name="Chapter"
           style={{
-            fontFamily: latinFont,
+            fontFamily: captionFont,
+            fontWeight: 600,
+            color: palette.cyan,
+            fontSize: 20 * chapterScale,
+            letterSpacing: chapterLetterSpacing * chapterScale,
+            width: 188,
+            boxSizing: 'border-box',
+            textAlign: 'center',
+            padding: '12px 10px',
+            border: '1px solid #b49a6159',
+            background: '#050e16d9',
+            flexShrink: 0,
+          }}
+        >
+          {chapterLabel}
+        </Interactive.Div>
+        <Interactive.Div
+          name="Caption"
+          style={{
+            fontFamily: captionFont,
             fontSize: 44 * captionScale,
             fontWeight: 600,
             lineHeight: 1.35,
@@ -228,33 +156,7 @@ export const ScreenScene: React.FC<ScreenSceneProps> = ({
             textShadow: '0 2px 8px #000',
           }}
         >
-          {english}
-        </Interactive.Div>
-        <div
-          aria-hidden
-          style={{
-            alignSelf: 'center',
-            width: 1,
-            height: 28,
-            margin: '0 13.5px',
-            background: '#d2bb8470',
-            flexShrink: 0,
-          }}
-        />
-        <Interactive.Div
-          name="Chinese caption"
-          style={{
-            fontFamily: chineseFont,
-            fontSize: 30 * captionScale,
-            fontWeight: 600,
-            lineHeight: 1.35,
-            color: palette.gold,
-            letterSpacing: 0.6 * captionScale,
-            flexShrink: 0,
-            textShadow: '0 2px 8px #000',
-          }}
-        >
-          {chinese}
+          {caption}
         </Interactive.Div>
       </div>
     </AbsoluteFill>
