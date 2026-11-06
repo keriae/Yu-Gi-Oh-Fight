@@ -28,8 +28,8 @@ export const Menus = () => {
             src="menus-zh.mp4"
             start={18}
             chapter="05 / DUEL"
-            english="Stay focused. Every detail, within reach."
-            chinese="设置、日志与卡片详情，融入统一的对战体验"
+            english="Read the duel. Make your next move count."
+            chinese="读懂战局，决胜下一手"
           />
         </TransitionSeries.Sequence>
         <TransitionSeries.Transition
@@ -44,8 +44,8 @@ export const Menus = () => {
             src="menus-zh.mp4"
             start={48}
             chapter="05 / DUEL"
-            english="Stay focused. Every detail, within reach."
-            chinese="设置、日志与卡片详情，融入统一的对战体验"
+            english="Read the duel. Make your next move count."
+            chinese="读懂战局，决胜下一手"
           />
         </TransitionSeries.Sequence>
         <TransitionSeries.Transition
@@ -60,8 +60,8 @@ export const Menus = () => {
             src="menus-zh.mp4"
             start={62}
             chapter="05 / DUEL"
-            english="Stay focused. Every detail, within reach."
-            chinese="设置、日志与卡片详情，融入统一的对战体验"
+            english="Read the duel. Make your next move count."
+            chinese="读懂战局，决胜下一手"
           />
         </TransitionSeries.Sequence>
       </TransitionSeries>
