@@ -37,18 +37,19 @@ do not depend on installed system fonts.
 English and Chinese captions share one baseline and remain on one line,
 with a thin gold separator. Captions are measured within the 1732-pixel safe
 width; chapter and feature labels sit just above that row. The closing copyright
-notice is also a single bilingual line.
+notice is also a single bilingual line and identifies the project as unofficial
+and non-commercial.
 Each scene is separately selectable in Remotion Studio. All timing and fades
 are driven by frame numbers.
 
-This typography revision also preserves the preceding trailer's mastered AAC
+This revision preserves the preceding trailer's mastered AAC
 stream byte for byte. Its source revision and hashes are in `footage.json`.
 To reproduce that exact audio master after rendering the new pictures:
 
 ```sh
-npx remotion render src/index.ts LaunchTrailer out/typography-video.mp4 --codec h264 --crf 24
-git show 2d3abbb2e10315b1bc590432a05565957a631103:docs/media/launch-trailer.mp4 > out/audio-master.mp4
-npx remotion ffmpeg -y -i out/typography-video.mp4 -i out/audio-master.mp4 \
+npx remotion render src/index.ts LaunchTrailer out/revised-video.mp4 --codec h264 --crf 24
+git show a81f51236ae3502ccd35e35f520cab2df0cb2900:docs/media/launch-trailer.mp4 > out/audio-master.mp4
+npx remotion ffmpeg -y -i out/revised-video.mp4 -i out/audio-master.mp4 \
   -map 0:v:0 -map 1:a:0 -c copy -movflags +faststart -map_metadata -1 \
   ../../docs/media/launch-trailer.mp4
 ```

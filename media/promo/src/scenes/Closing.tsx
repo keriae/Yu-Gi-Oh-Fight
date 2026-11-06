@@ -114,14 +114,14 @@ export const Closing = () => {
         }}
       >
         <div style={{ fontFamily: latinFont, fontSize: 20 }}>
-          Unofficial community project. Not affiliated with or endorsed by
-          Konami.
+          Unofficial, non-commercial fan project. Not affiliated with or
+          endorsed by Konami.
         </div>
         <span aria-hidden style={{ color: palette.gold }}>
           ·
         </span>
         <div style={{ fontFamily: chineseFont, fontSize: 20 }}>
-          非官方爱好者项目，与科乐美无关联，未获其背书。
+          非官方、非商业爱好者项目，与科乐美无关联，未获其背书。
         </div>
       </div>
     </AbsoluteFill>

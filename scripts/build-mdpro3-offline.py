@@ -275,12 +275,12 @@ def main() -> None:
             # The copied native bundle's resource signature is stale after replacing
             # its assembly and Info.plist. Sign before dyld loads its Mono runtime.
             run("codesign", "--force", "--sign", "-", "--timestamp=none", native)
-            run(sys.executable, ROOT / "scripts/verify-source-runtime.py", "--client", client,
-                "--assembly", managed / "Assembly-CSharp.dll", "--manifest", manifest_path,
-                "--output", ROOT / "artifacts/mdpro3-source-runtime-packaged.json")
             for path in (contents / "MacOS" / EXECUTABLE_NAME, app):
                 run("codesign", "--force", "--sign", "-", "--timestamp=none", path)
             run("codesign", "--verify", "--deep", "--strict", app)
+            run(sys.executable, ROOT / "scripts/verify-source-runtime.py", "--client", client,
+                "--assembly", managed / "Assembly-CSharp.dll", "--manifest", manifest_path,
+                "--output", ROOT / "artifacts/mdpro3-source-runtime-packaged.json")
             verify_host(client, host_metadata)
             verify_file_browser(client, file_browser_metadata)
             publisher_manifest = ROOT / "vendor/MDPro3-mac-metadata/checksums.txt"

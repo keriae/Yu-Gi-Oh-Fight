@@ -1215,8 +1215,10 @@ namespace MDPro3.UI.Client
             FightUI.Text(banner, "客户端 0.1.0", 254, 82, width - 280, 28, 18, FightUI.Foreground);
             FightUI.Text(banner, "MDPro3 1.4.7-2  ·  协议 " + Config.ClientVersion.ToString("X"), 254, 118, width - 280, 28, 16, FightUI.Muted);
             y += 182;
-            AboutParagraph(parent, width, "游戏与客户端", "由 keriae 维护的非官方爱好者项目，与科乐美（Konami）无关联，也未获得其背书。游戏王卡牌、角色、图像、音效及其他游戏素材归各自权利人所有。第三方代码保留原有许可，详见来源与版权声明。", ref y);
-            AboutParagraph(parent, width, "第三方组件与资源来源", "MDPro3、ocgcore、WindBot、Unity、TextMesh Pro、Newtonsoft.Json 及客户端所附第三方组件。各组件与内容的许可和版权由原作者保留。游戏王及相关卡牌、角色和素材属于其各自权利人。", ref y);
+            AboutParagraph(parent, width, "游戏与客户端", FightProjectNotice.Introduction, ref y);
+            AboutParagraph(parent, width, "非商业用途", FightProjectNotice.NonCommercial, ref y);
+            AboutParagraph(parent, width, "版权与第三方来源", FightProjectNotice.Rights, ref y);
+            AboutParagraph(parent, width, "源码与许可", FightProjectNotice.Sources, ref y);
             AboutParagraph(parent, width, "支持信息", "运行与构建说明见 README.md 和 native/README.md；来源与版权说明见 THIRD_PARTY_NOTICES.md 和 COPYRIGHT.md。", ref y);
             FightUI.Button(parent, "查看来源声明", 0, y, 240, 48, () =>
             {
@@ -1235,8 +1237,10 @@ namespace MDPro3.UI.Client
         {
             SettingsSection(parent, width, title, ref y);
             var paragraph = FightUI.Text(parent, text, 0, y, width, 160, 19, FightUI.Foreground);
+            paragraph.enableWordWrapping = true;
+            paragraph.overflowMode = TextOverflowModes.Overflow;
             paragraph.lineSpacing = 6;
-            float height = paragraph.GetPreferredValues(paragraph.text, width, 1000).y + 10;
+            float height = paragraph.GetPreferredValues(paragraph.text, width, float.PositiveInfinity).y + 10;
             paragraph.rectTransform.sizeDelta = new Vector2(width, height);
             y += height + 16;
         }

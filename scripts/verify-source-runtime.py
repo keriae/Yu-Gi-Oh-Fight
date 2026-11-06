@@ -350,7 +350,11 @@ def main():
                            "--client", str(client), "--assembly", str(assembly), "--manifest", str(manifest),
                            "--worker", worker, "--managed-overlay", str(overlay)]
                 environment = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
-                result = subprocess.run(command, cwd=overlay, env=environment, capture_output=True, text=True, timeout=90)
+                # Cold macOS library mapping can wait for a security scan of the
+                # full app payload. Keep that assessment bounded and retain the
+                # shorter deadline for native rule execution.
+                deadline = 300 if worker == "managed" else 90
+                result = subprocess.run(command, cwd=overlay, env=environment, capture_output=True, text=True, timeout=deadline)
                 check(result.returncode == 0, worker + " worker failed: " + result.stdout[-1000:] + result.stderr[-2000:])
                 parsed = json.loads(result.stdout.strip().splitlines()[-1])
                 check(parsed.get("ok") is True, worker + " worker did not report success")

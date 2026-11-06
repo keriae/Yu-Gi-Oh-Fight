@@ -1,15 +1,19 @@
 # Third-party notices
 
-Yu-Gi-Oh! Fight is an unofficial community project maintained by
-[keriae](https://github.com/keriae). It is not affiliated with or endorsed by
-Konami. Yu-Gi-Oh! names, cards, characters, artwork, animations, music, sound
-effects and other game assets belong to their respective rights holders.
+Yu-Gi-Oh! Fight is an unofficial, non-commercial fan project maintained by
+[keriae](https://github.com/keriae), for personal learning, research and
+community exchange. It is not affiliated with or endorsed by Konami.
+Yu-Gi-Oh! names, cards, characters, artwork, animations, music, sound effects
+and other game assets belong to their respective rights holders.
 
-These notices describe component provenance. They do not grant permission to
-redistribute third-party software or game assets. Original notices in retained
-source files and separately obtained runtimes continue to apply. The project
-does not assign a repository-wide license to third-party code or assets; see
-[COPYRIGHT.md](COPYRIGHT.md) for the scope of original project contributions.
+These notices describe component provenance and reproduce applicable notices;
+they do not grant additional rights in third-party software or game assets.
+Original notices and permissions in retained source files and separately
+obtained runtimes continue to apply. The project's non-commercial purpose
+does not restrict rights granted by individual component licenses, including
+MIT and the SIL Open Font License. The project does not assign a repository-wide
+license to all code and assets; see [COPYRIGHT.md](COPYRIGHT.md) for the scope
+and non-commercial purpose of original project contributions.
 
 ## MDPro3 and the game runtime
 
@@ -17,13 +21,18 @@ does not assign a repository-wide license to third-party code or assets; see
   [MyCard distribution](https://code.moenext.com/mycard/MDPro3).
 - Release: `1.4.7-2`; source commit:
   `72fb92ad02d173aeb5a5bb06f23603d892aec9c1`.
+- References: the [matching distribution README](https://code.moenext.com/mycard/MDPro3/-/blob/72fb92ad02d173aeb5a5bb06f23603d892aec9c1/README.md)
+  and the [official MDPro3 README](https://code.moenext.com/sherry_chaos/MDPro3/-/blob/e177cd8d53092ae9249e37b38d3cef0040e41095/README.md)
+  document Unity development requirements and external resource sources.
 - Matching source archives and their file hashes are retained in
   `vendor/MDPro3-release-source/`. Editable derived code is under `game/`.
 - Publisher resource checksums are under `vendor/MDPro3-mac-metadata/`.
 
 The matching upstream repositories do not provide a root license for all
-current sources and resources. A license from an older mirror is not applied
-to them. The build obtains and verifies the publisher runtime separately;
+current sources and resources, and the READMEs cited above do not state a
+non-commercial restriction. Yu-Gi-Oh! Fight's non-commercial purpose is its
+own project policy. A license from an older mirror is not applied to the
+matching sources. The build obtains and verifies the publisher runtime separately;
 Unity scenes, AssetBundles, card data and matching native libraries remain
 publisher components. This repository does not include the official Master
 Duel executable.
@@ -188,11 +197,16 @@ apply to the authoring assets.
 
 ## 中文说明
 
-Yu-Gi-Oh! Fight 由 keriae 维护，是非官方爱好者项目，与科乐美（Konami）
-无关联，也未获得其背书。游戏王名称、卡牌、角色、图像、动画、音乐、音效
-及其他游戏资源归各自权利人所有。
+Yu-Gi-Oh! Fight 由 keriae 维护，是面向个人学习、研究与社区交流的非官方、
+非商业爱好者项目，与科乐美（Konami）无关联，也未获得其背书。游戏王名称、
+卡牌、角色、图像、动画、音乐、音效及其他游戏资源归各自权利人所有。
 
 第三方代码、运行时与资源保留各自的许可和版权。本文件用于说明来源，
-不构成资源再分发授权，也不为整个派生代码树授予统一许可证。MDPro3 当前
-源码与资源没有覆盖全部内容的根许可证，不能套用旧镜像或其他上游项目的
-许可证。发布安装包或传播视频时，应遵守所使用内容的相关条款。
+不增加第三方代码或资源的授权，也不为整个代码与资源树授予统一许可证。
+项目的非商业定位不改变各组件已有许可授予的权利，包括 MIT 与 SIL OFL。
+原创贡献的非商业定位及适用范围见 [COPYRIGHT.md](COPYRIGHT.md)。
+
+所核对的 MDPro3 固定版本没有覆盖全部源码与资源的根许可证，上方链接的
+README 说明了开发与资源来源，但没有非商用条款。本项目的非商业定位属于
+Yu-Gi-Oh! Fight，不能套用旧镜像或其他上游项目的许可证。发布安装包或传播
+视频时，应遵守所使用内容的相关条款。

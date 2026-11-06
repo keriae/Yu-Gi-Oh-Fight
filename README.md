@@ -4,7 +4,7 @@
 
 **Build your deck. Learn your opening. Challenge an AI duelist.**
 
-A community-made desktop dueling client with a cohesive interface, guided practice, customizable AI duelists, and real duel replays.
+An unofficial, non-commercial desktop dueling client with a cohesive interface, guided practice, customizable AI duelists, and real duel replays.
 
 [English](#play-your-way) · [简体中文](#中文) · [Build from source](docs/BUILDING.md) · [Copyright & credits](THIRD_PARTY_NOTICES.md)
 
@@ -57,7 +57,9 @@ The client builds on **MDPro3** and its matching duel engine and runtime. This r
 | `scripts/`, `tools/` | Build, resource, and release verification tools |
 | `docs/` | Build notes, asset provenance, and gameplay media |
 
-**An unofficial community project by [keriae](https://github.com/keriae).** It is not affiliated with or endorsed by Konami. Yu-Gi-Oh! names, cards, characters, and third-party assets remain the property of their respective rights holders. This project does not relicense them. Read [COPYRIGHT.md](COPYRIGHT.md), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and [asset provenance](docs/ASSETS.md) before redistributing code or assets.
+**An unofficial, non-commercial fan project by [keriae](https://github.com/keriae), for personal learning, research, and community exchange.** Please do not use original project content for commercial sale, paid redistribution, or commercial operation unless its separate license permits that use.
+
+The project is not affiliated with or endorsed by Konami. Yu-Gi-Oh! names, cards, characters, and game assets belong to their respective rights holders. Upstream code, third-party components, fonts, and separately licensed contributions retain their applicable terms. Public source availability does not give the whole repository a single open-source license or grant rights in game assets. The matching [MDPro3 README](https://code.moenext.com/mycard/MDPro3/-/blob/72fb92ad02d173aeb5a5bb06f23603d892aec9c1/README.md) documents its development and resource sources; this project's non-commercial purpose does not change those sources' terms. See [COPYRIGHT.md](COPYRIGHT.md), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and [asset provenance](docs/ASSETS.md).
 
 ---
 
@@ -65,7 +67,7 @@ The client builds on **MDPro3** and its matching duel engine and runtime. This r
 
 **构筑自己的卡组，练习起手展开，与 AI 决斗者对战。**
 
-Yu-Gi-Oh! Fight 是基于 MDPro3 的非官方桌面决斗客户端。首页、卡组、学院、回放、收藏、设置以及对战菜单统一采用暗蓝、古金与青蓝视觉，保留真实卡图、原生规则和对战演出。
+Yu-Gi-Oh! Fight 是基于 MDPro3 的非官方、非商业桌面决斗客户端。首页、卡组、学院、回放、收藏、设置以及对战菜单统一采用暗蓝、古金与青蓝视觉，保留真实卡图、原生规则和对战演出。
 
 [观看带游戏声音的宣传视频](docs/media/launch-trailer.mp4) · [观看完整对战录屏](docs/media/full-duel.mp4)
 
@@ -97,4 +99,6 @@ python3 build.py --open
 
 ### 版权与来源
 
-本项目由 [keriae](https://github.com/keriae) 维护，属于非官方社区项目，与 Konami 无关联且未获其背书。游戏王商标、卡片、角色及第三方素材的权利归各自权利人；本项目不对这些内容重新授权。源码、原创内容与第三方资源的适用范围见 [COPYRIGHT.md](COPYRIGHT.md)、[第三方说明](THIRD_PARTY_NOTICES.md) 和[素材来源](docs/ASSETS.md)。
+**本项目由 [keriae](https://github.com/keriae) 维护，是面向个人学习、研究与社区交流的非官方、非商业爱好者项目。** 除另有独立许可明确允许外，请勿将本项目原创内容用于商业销售、付费分发或商业运营。
+
+本项目与科乐美（Konami）无关联，也未获其背书。游戏王名称、卡片、角色及游戏素材归各自权利人所有；上游代码、第三方组件、字体与另有独立许可的贡献仍适用各自条款。源码公开不等于整个仓库获得统一开源授权，也不构成游戏资源授权。对应版本的 [MDPro3 README](https://code.moenext.com/mycard/MDPro3/-/blob/72fb92ad02d173aeb5a5bb06f23603d892aec9c1/README.md) 说明了开发与资源来源，本项目的非商业定位不改变这些来源的许可。具体范围见 [COPYRIGHT.md](COPYRIGHT.md)、[第三方说明](THIRD_PARTY_NOTICES.md) 和[素材来源](docs/ASSETS.md)。

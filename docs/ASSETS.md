@@ -1,5 +1,9 @@
 # Client artwork and content
 
+Yu-Gi-Oh! Fight is an unofficial, non-commercial fan project for learning,
+research and community exchange. Original project content and third-party
+assets have distinct rights scopes, described in [COPYRIGHT.md](../COPYRIGHT.md).
+
 `content/client-ui/` contains the project's decorative interface artwork,
 brand treatment and opening-coin illustrations. These were created with an
 AI-assisted image workflow using `gpt-image-2`, then cropped, resized and
@@ -36,6 +40,9 @@ captions are measured and placed on one line. The fonts are media-authoring
 assets, separate from the game's publisher fonts.
 
 ## 中文说明
+
+本项目为面向学习、研究与社区交流的非官方、非商业爱好者项目。原创内容与
+第三方资源的权利范围各自独立，详见 [COPYRIGHT.md](../COPYRIGHT.md)。
 
 客户端装饰插画、品牌与硬币素材通过 `gpt-image-2` 辅助生成，随后完成裁切、
 缩放与透明处理。文字、按钮、焦点与交互由原生控件绘制。装饰卡片不提供真实

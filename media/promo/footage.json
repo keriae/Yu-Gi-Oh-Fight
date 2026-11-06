@@ -136,8 +136,8 @@
   "outputs": {
     "launch-trailer.mp4": {
       "repository_path": "docs/media/launch-trailer.mp4",
-      "size_bytes": 17825347,
-      "sha256": "bc7f162077958f3d8f5cb73b325da1a478d3eb02aa5a996d25915ee9a5066fd2"
+      "size_bytes": 17829092,
+      "sha256": "b173ee5d9b282977d2281f8afd81be50ed1f221ba52fd007d5412e3fecd90d34"
     },
     "full-duel.mp4": {
       "repository_path": "docs/media/full-duel.mp4",
@@ -167,10 +167,10 @@
     "font_provenance": "media/promo/public/fonts/provenance.json"
   },
   "mastered_audio_reuse": {
-    "source_revision": "2d3abbb2e10315b1bc590432a05565957a631103",
+    "source_revision": "a81f51236ae3502ccd35e35f520cab2df0cb2900",
     "source_path": "docs/media/launch-trailer.mp4",
-    "source_sha256": "d53419f36751cb0fb3eec35f47abf1ddbe82a29a2efbf894067835b442c03281",
+    "source_sha256": "bc7f162077958f3d8f5cb73b325da1a478d3eb02aa5a996d25915ee9a5066fd2",
     "aac_sha256": "33a1c82f5b9fa5e4402932d5b99ffa3da3234877801a112f6881e50ddf705084",
-    "method": "Original mastered AAC stream copied without re-encoding for the typography revision"
+    "method": "Original mastered AAC stream copied without re-encoding for the non-commercial notice revision"
   }
 }

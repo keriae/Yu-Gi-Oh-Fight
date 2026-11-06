@@ -270,10 +270,12 @@ namespace MDPro3.UI.Client
             else
             {
                 Section(content, "Yu-Gi-Oh! Fight", ref y);
-                Paragraph(content, "由社区开发的非官方决斗客户端，提供卡组管理、练习学院、电脑对战、AI 分身与回放。", ref y);
+                Paragraph(content, FightProjectNotice.Introduction, ref y);
+                Section(content, "非商业用途", ref y);
+                Paragraph(content, FightProjectNotice.NonCommercial, ref y);
                 Section(content, "版权与第三方来源", ref y);
-                Paragraph(content, "Yu-Gi-Oh! 的名称、卡片、角色及相关游戏资源属于其权利人，包括 Konami、集英社及 Studio Dice。本项目与这些权利人没有隶属、赞助或认可关系。", ref y);
-                Paragraph(content, "客户端基于 MDPro3 和开源决斗组件。源代码与第三方组件遵循各自的许可；游戏资源不由本项目授予使用许可。完整来源、版权和许可见 THIRD_PARTY_NOTICES.md。", ref y);
+                Paragraph(content, FightProjectNotice.Rights, ref y);
+                Paragraph(content, FightProjectNotice.Sources, ref y);
                 FightUI.Button(content, "项目维护者 · keriae", 16, y + 4, 300, 44, () => Application.OpenURL("https://github.com/keriae")); y += 66;
             }
             content.sizeDelta = new Vector2(readerWidth, Mathf.Max(390, y + 12));
