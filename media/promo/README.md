@@ -22,6 +22,23 @@ The `LaunchTrailerEN` and `LaunchTrailerZH` compositions export to
 `npm run outputs` regenerates the separate subtitle files and records final
 output hashes after both videos and `preview-en.jpg` / `preview-zh.jpg` exist.
 
+The repository homepage embeds separate full-length English and Chinese GIFs.
+Each runs for 90 seconds at 720×405 and 10 fps, with a 256-color palette,
+Bayer dithering at scale 3, rectangle difference optimization, and infinite
+looping. GIFs have no audio; clicking either animation opens its original MP4
+with game audio. To regenerate a GIF from this directory with a full FFmpeg
+build, replace `en` with `zh` for the Chinese version:
+
+```sh
+ffmpeg -i ../../docs/media/launch-trailer-en.mp4 \
+  -vf "fps=10,scale=720:-1:flags=lanczos,palettegen=stats_mode=diff" \
+  -frames:v 1 /tmp/yu-gi-oh-fight-en-palette.png
+ffmpeg -i ../../docs/media/launch-trailer-en.mp4 \
+  -i /tmp/yu-gi-oh-fight-en-palette.png \
+  -filter_complex "[0:v]fps=10,scale=720:-1:flags=lanczos[v];[v][1:v]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle" \
+  -an -loop 0 -gifflags +transdiff ../../docs/media/launch-trailer-en.gif
+```
+
 Raw recordings, dependencies, and intermediate frames are local production
 files and intentionally ignored by Git. Public output is in the repository-root
 [docs/media](../../docs/media/) directory; redistribute gameplay media subject

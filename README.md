@@ -6,13 +6,13 @@
 
 An unofficial, non-commercial desktop dueling client with a cohesive interface, guided practice, customizable AI duelists, and real duel replays.
 
-[English](#play-your-way) · [简体中文](#中文) · [Build from source](docs/BUILDING.md) · [Copyright & credits](THIRD_PARTY_NOTICES.md)
+[English](#yu-gi-oh-fight) · [简体中文](#中文) · [Build from source](docs/BUILDING.md) · [Copyright & credits](THIRD_PARTY_NOTICES.md)
 
 </div>
 
-[![Yu-Gi-Oh! Fight — gameplay preview](docs/media/preview-en.jpg)](docs/media/launch-trailer-en.mp4)
+[![Yu-Gi-Oh! Fight — complete 90-second English trailer](docs/media/launch-trailer-en.gif)](docs/media/launch-trailer-en.mp4)
 
-**[English trailer](docs/media/launch-trailer-en.mp4)** · **[中文宣传片](docs/media/launch-trailer-zh.mp4)** · **[Watch a complete recorded duel](docs/media/full-duel.mp4)**
+**[Watch the English trailer with game audio](docs/media/launch-trailer-en.mp4)** · **[Watch a complete recorded duel](docs/media/full-duel.mp4)**
 
 ## Play your way
 
@@ -67,18 +67,22 @@ The project is not affiliated with or endorsed by Konami. Yu-Gi-Oh! names, cards
 
 ## 中文
 
+[![Yu-Gi-Oh! Fight — 完整 90 秒中文宣传片](docs/media/launch-trailer-zh.gif)](docs/media/launch-trailer-zh.mp4)
+
 **构筑自己的卡组，练习起手展开，与 AI 决斗者对战。**
 
-Yu-Gi-Oh! Fight 是基于 MDPro3 的非官方、非商业桌面决斗客户端。首页、卡组、学院、回放、收藏、设置以及对战菜单统一采用暗蓝、古金与青蓝视觉，保留真实卡图、原生规则和对战演出。
+Yu-Gi-Oh! Fight 是非官方、非商业桌面决斗客户端，提供统一界面、引导练习、可自定义的 AI 决斗者与真实对战回放。
 
-[观看中文宣传视频](docs/media/launch-trailer-zh.mp4) · [观看英文宣传视频](docs/media/launch-trailer-en.mp4) · [观看完整对战录屏](docs/media/full-duel.mp4)
+首页、卡组、学院、回放、收藏、设置以及对战菜单统一采用暗蓝、古金与青蓝视觉，保留真实卡图、原生规则和对战演出。
+
+**[观看带游戏声音的中文宣传片](docs/media/launch-trailer-zh.mp4)** · **[观看完整对战录屏](docs/media/full-duel.mp4)**
 
 ### 主要功能
 
 - **卡组构筑**：浏览经典与竞技推荐，管理分组，搜索卡池，阅读卡文，编辑主卡组、额外卡组和副卡组。
 - **学习与练习**：52 套学院卡组，固定起手练习、逐步展开指导、真实示范录像与残局挑战。
 - **AI 分身对战**：为不同分身单独配置模型、服务、密钥和外观；支持玩家对 AI、AI 对 AI 观战及本地电脑对战。
-- **精细对战菜单**：日志、附加效果、设置、卡组查看和相关弹窗融入现有界面；对战时移除聊天窗口。
+- **精细对战菜单**：阅读日志、检查附加效果、调整声音与显示、查看自己的卡组；相关菜单与弹窗融入暗蓝、古金与青蓝界面，对战时移除聊天窗口。
 - **录像复盘**：暂停、加速、查看卡片，以及录像支持的不同观看视角。
 - **外观与多语言**：头像、头像框、卡套、场地、伙伴、角色与语音设置；界面语言和卡片语言分别选择。
 
@@ -99,9 +103,22 @@ python3 build.py --open
 
 运行数据保存在 `~/Library/Application Support/Yu-Gi-Oh! Fight/`，不会进入仓库或安装包。旧版存档可用 `python3 scripts/import-legacy-state.py` 预览导入；加 `--apply` 仅复制缺失文件，保留现有数据，默认不导入密钥。
 
-新版页面和学院材料提供英文、简体中文与繁体中文；上游界面与卡片数据提供十种标准语言，其他语言的新页面文案回退到英文。首次启动按受支持的系统语言选择，保留已有用户的设置；具体卡片翻译取决于安装的上游语言资源。
+### 语言
 
-### 版权与来源
+新版页面和学院材料提供英文、简体中文与繁体中文。上游运行时为界面与卡片数据提供十种标准语言；其他语言在有翻译时使用上游文本，新客户端文案回退到英文。首次启动按受支持的系统语言选择，并保留已有用户的语言设置。卡片可用性与翻译覆盖范围取决于安装的上游语言资源。
+
+### 源码与致谢
+
+客户端基于 **MDPro3** 及其配套决斗引擎与运行时。本仓库包含可编辑的客户端源码、独立界面美术、学院内容、macOS 启动器与可复现的构建工具。大型运行时下载、构建产物、个人数据和本地验收脚本不提交 Git。
+
+| 目录 | 内容 |
+| --- | --- |
+| `game/Assets/Scripts/MDPro3/` | 客户端与决斗集成 |
+| `content/client-ui/` | 界面美术与客户端翻译 |
+| `content/deck-academy/` | 卡组、练习、指南与回放数据 |
+| `Sources/`、`native/` | macOS 启动器与原生桥接 |
+| `scripts/`、`tools/` | 构建、资源与发行验证工具 |
+| `docs/` | 构建说明、素材来源与实机媒体 |
 
 **本项目由 [keriae](https://github.com/keriae) 维护，是面向个人学习、研究与社区交流的非官方、非商业爱好者项目。** 除另有独立许可明确允许外，请勿将本项目原创内容用于商业销售、付费分发或商业运营。
 
