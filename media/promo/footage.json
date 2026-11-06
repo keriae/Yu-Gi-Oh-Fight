@@ -136,8 +136,8 @@
   "outputs": {
     "launch-trailer.mp4": {
       "repository_path": "docs/media/launch-trailer.mp4",
-      "size_bytes": 17401603,
-      "sha256": "d53419f36751cb0fb3eec35f47abf1ddbe82a29a2efbf894067835b442c03281"
+      "size_bytes": 17825347,
+      "sha256": "bc7f162077958f3d8f5cb73b325da1a478d3eb02aa5a996d25915ee9a5066fd2"
     },
     "full-duel.mp4": {
       "repository_path": "docs/media/full-duel.mp4",
@@ -146,13 +146,31 @@
     },
     "preview.jpg": {
       "repository_path": "docs/media/preview.jpg",
-      "size_bytes": 331217,
-      "sha256": "3c607f90f48df2db8db63e2b2f79db122f2baee72f714d133d238c7f98b47d81"
+      "size_bytes": 292194,
+      "sha256": "4a60458104685543b99c224eefe29cc0d5b4ba408254941539350a1daa76d1b9"
     },
     "launch-trailer.srt": {
       "repository_path": "docs/media/launch-trailer.srt",
-      "size_bytes": 1377,
-      "sha256": "bc7eea8ed752e6cf0198510887d5728beccd880c0e239f155514f49146796c27"
+      "size_bytes": 1413,
+      "sha256": "5c889cc6b289e0405ef84f61b40202ffdd9c67ed9f75287160dbd2a768c6f7c7"
     }
+  },
+  "typography": {
+    "title_family": "Fight Promo Display",
+    "title_weight": 700,
+    "caption_families": [
+      "Fight Promo Serif Latin",
+      "Fight Promo Serif SC"
+    ],
+    "caption_weight": 600,
+    "caption_layout": "Single baseline and single line; English followed by Simplified Chinese",
+    "font_provenance": "media/promo/public/fonts/provenance.json"
+  },
+  "mastered_audio_reuse": {
+    "source_revision": "2d3abbb2e10315b1bc590432a05565957a631103",
+    "source_path": "docs/media/launch-trailer.mp4",
+    "source_sha256": "d53419f36751cb0fb3eec35f47abf1ddbe82a29a2efbf894067835b442c03281",
+    "aac_sha256": "33a1c82f5b9fa5e4402932d5b99ffa3da3234877801a112f6881e50ddf705084",
+    "method": "Original mastered AAC stream copied without re-encoding for the typography revision"
   }
 }

@@ -1,0 +1,990 @@
+{
+  "schema_version": 1,
+  "purpose": "Self-hosted, renamed font derivatives for the Yu-Gi-Oh! Fight promotional film. Each font remains under its original SIL OFL 1.1.",
+  "source_repository": "https://github.com/google/fonts",
+  "source_commit": "24ddc1f324cac5d9f5aedca126d298f56e3f1640",
+  "toolchain": {
+    "python": "3.13.5",
+    "fonttools": "4.62.1",
+    "brotli": "1.1.0"
+  },
+  "fonts": [
+    {
+      "file": "FightPromoSerifLatin-600.woff2",
+      "family": "Fight Promo Serif Latin",
+      "style": "SemiBold",
+      "weight": 600,
+      "format": "WOFF2",
+      "static": true,
+      "size_bytes": 29204,
+      "sha256": "d66fa1d868152d212b2cc86b53616dd5580eca2d2eb679229c159c8c82ca3e6d",
+      "source": {
+        "repository": "https://github.com/google/fonts",
+        "commit": "24ddc1f324cac5d9f5aedca126d298f56e3f1640",
+        "repository_path": "ofl/cinzel/Cinzel[wght].ttf",
+        "url": "https://raw.githubusercontent.com/google/fonts/24ddc1f324cac5d9f5aedca126d298f56e3f1640/ofl/cinzel/Cinzel%5Bwght%5D.ttf",
+        "size_bytes": 125468,
+        "sha256": "f4d83d34d1f6c741193e4acf4b3dff9531e5a67b6aa65228d00a7db72a4e0f34"
+      },
+      "license": {
+        "name": "SIL Open Font License 1.1",
+        "file": "OFL.Cinzel.txt",
+        "sha256": "f2b3029aba64c378bf0963b62945eee15e564fe4330b934c8f2eb058282b5e83",
+        "source_url": "https://raw.githubusercontent.com/google/fonts/24ddc1f324cac5d9f5aedca126d298f56e3f1640/ofl/cinzel/OFL.txt",
+        "reserved_font_names": []
+      },
+      "changes": [
+        "Verify pinned input font and original OFL SHA256.",
+        "Instantiate only the wght axis at 600 with FontTools, retaining all glyphs.",
+        "Rename all primary font name records; preserve original copyright, designer, URLs and license records.",
+        "Set explicit static weight and style flags; preserve original head timestamps.",
+        "Encode WOFF2 with FontTools and Brotli; copy the original OFL without modifications.",
+        "Reopen and verify the complete glyph order/cmap, all rights records, timestamps, weight and source hash."
+      ],
+      "subset": {
+        "character_subset": false,
+        "unicode_mapping_count": 367,
+        "glyph_count": 548
+      },
+      "validation": {
+        "original_rights_records_preserved": true,
+        "original_head_timestamps_preserved": true,
+        "original_source_unchanged": true,
+        "repeated_output_sha256_matches": true
+      },
+      "reproduction": {
+        "load": {
+          "TTFont_recalcTimestamp": false
+        },
+        "weight_axis": {
+          "wght": 600
+        },
+        "name_records_to_replace": [
+          {
+            "name_id": 25,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "FightPromoSerifLatin"
+          },
+          {
+            "name_id": 1,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif Latin"
+          },
+          {
+            "name_id": 2,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "SemiBold"
+          },
+          {
+            "name_id": 3,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "FightPromoFont-1.0;FightPromoSerifLatin-SemiBold"
+          },
+          {
+            "name_id": 4,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif Latin SemiBold"
+          },
+          {
+            "name_id": 6,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "FightPromoSerifLatin-SemiBold"
+          },
+          {
+            "name_id": 16,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif Latin"
+          },
+          {
+            "name_id": 17,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "SemiBold"
+          },
+          {
+            "name_id": 21,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif Latin"
+          },
+          {
+            "name_id": 22,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "SemiBold"
+          },
+          {
+            "name_id": 25,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "FightPromoSerifLatin"
+          }
+        ],
+        "OS2_usWeightClass": 600,
+        "OS2_fsSelection": 192,
+        "head_macStyle": 0,
+        "save": {
+          "flavor": "woff2",
+          "recalcTimestamp": false
+        },
+        "preserved_rights_name_ids": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "operation_order": [
+          "verify pinned source hash",
+          "instantiate wght=600 if variable; use original static Bold700 otherwise",
+          "replace primary name records",
+          "save WOFF2"
+        ]
+      }
+    },
+    {
+      "file": "FightPromoDisplay-700.woff2",
+      "family": "Fight Promo Display",
+      "style": "Bold",
+      "weight": 700,
+      "format": "WOFF2",
+      "static": true,
+      "size_bytes": 22540,
+      "sha256": "0f855a21d8e289f4a105b07ab7c799dc8ba29f3b33f165687eaf6df42604ec7f",
+      "source": {
+        "repository": "https://github.com/google/fonts",
+        "commit": "24ddc1f324cac5d9f5aedca126d298f56e3f1640",
+        "repository_path": "ofl/cinzeldecorative/CinzelDecorative-Bold.ttf",
+        "url": "https://raw.githubusercontent.com/google/fonts/24ddc1f324cac5d9f5aedca126d298f56e3f1640/ofl/cinzeldecorative/CinzelDecorative-Bold.ttf",
+        "size_bytes": 62300,
+        "sha256": "e854e68a388aa50d742a4415c1ae5c17a617ef7956c95a70021d0a4a44f20518"
+      },
+      "license": {
+        "name": "SIL Open Font License 1.1",
+        "file": "OFL.CinzelDecorative.txt",
+        "sha256": "1e5d6660366ddcfca4f2fc10e2acfba9fa4d97d40aec80d7dbfd41d730a420ae",
+        "source_url": "https://raw.githubusercontent.com/google/fonts/24ddc1f324cac5d9f5aedca126d298f56e3f1640/ofl/cinzeldecorative/OFL.txt",
+        "reserved_font_names": [
+          "Cinzel"
+        ]
+      },
+      "changes": [
+        "Verify pinned input font and original OFL SHA256.",
+        "Use the original Bold700 static outlines, retaining all glyphs.",
+        "Rename all primary font name records; preserve original copyright, designer, URLs and license records.",
+        "Set explicit static weight and style flags; preserve original head timestamps.",
+        "Encode WOFF2 with FontTools and Brotli; copy the original OFL without modifications.",
+        "Reopen and verify the complete glyph order/cmap, all rights records, timestamps, weight and source hash."
+      ],
+      "subset": {
+        "character_subset": false,
+        "unicode_mapping_count": 350,
+        "glyph_count": 353
+      },
+      "validation": {
+        "original_rights_records_preserved": true,
+        "original_head_timestamps_preserved": true,
+        "original_source_unchanged": true,
+        "repeated_output_sha256_matches": true
+      },
+      "reproduction": {
+        "load": {
+          "TTFont_recalcTimestamp": false
+        },
+        "weight_axis": null,
+        "name_records_to_replace": [
+          {
+            "name_id": 1,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "Fight Promo Display"
+          },
+          {
+            "name_id": 2,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "Bold"
+          },
+          {
+            "name_id": 3,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "FightPromoFont-1.0;FightPromoDisplay-Bold"
+          },
+          {
+            "name_id": 4,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "Fight Promo Display Bold"
+          },
+          {
+            "name_id": 6,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "FightPromoDisplay-Bold"
+          },
+          {
+            "name_id": 1,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Display"
+          },
+          {
+            "name_id": 2,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Bold"
+          },
+          {
+            "name_id": 3,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "FightPromoFont-1.0;FightPromoDisplay-Bold"
+          },
+          {
+            "name_id": 4,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Display Bold"
+          },
+          {
+            "name_id": 6,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "FightPromoDisplay-Bold"
+          },
+          {
+            "name_id": 16,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Display"
+          },
+          {
+            "name_id": 17,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Bold"
+          },
+          {
+            "name_id": 21,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Display"
+          },
+          {
+            "name_id": 22,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Bold"
+          },
+          {
+            "name_id": 25,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "FightPromoDisplay"
+          }
+        ],
+        "OS2_usWeightClass": 700,
+        "OS2_fsSelection": 32,
+        "head_macStyle": 1,
+        "save": {
+          "flavor": "woff2",
+          "recalcTimestamp": false
+        },
+        "preserved_rights_name_ids": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "operation_order": [
+          "verify pinned source hash",
+          "instantiate wght=600 if variable; use original static Bold700 otherwise",
+          "replace primary name records",
+          "save WOFF2"
+        ]
+      }
+    },
+    {
+      "file": "FightPromoSerifSC-600.woff2",
+      "family": "Fight Promo Serif SC",
+      "style": "SemiBold",
+      "weight": 600,
+      "format": "WOFF2",
+      "static": true,
+      "size_bytes": 61748,
+      "sha256": "922cd98b61d2f6550640208a73d80d5231cac6b678e20b0409af17909dd6a254",
+      "source": {
+        "repository": "https://github.com/google/fonts",
+        "commit": "24ddc1f324cac5d9f5aedca126d298f56e3f1640",
+        "url": "https://raw.githubusercontent.com/google/fonts/24ddc1f324cac5d9f5aedca126d298f56e3f1640/ofl/notoserifsc/NotoSerifSC%5Bwght%5D.ttf",
+        "sha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9",
+        "size_bytes": 25125512,
+        "repository_path": "ofl/notoserifsc/NotoSerifSC[wght].ttf"
+      },
+      "license": {
+        "name": "SIL Open Font License 1.1",
+        "file": "OFL.NotoSerifSC.txt",
+        "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6",
+        "source_url": "https://raw.githubusercontent.com/google/fonts/24ddc1f324cac5d9f5aedca126d298f56e3f1640/ofl/notoserifsc/OFL.txt",
+        "reserved_font_name_declared": false
+      },
+      "changes": [
+        "Subset to printable codepoints collected from media/promo/chapters.json and all media/promo/src file text, decoded Unicode escapes, plus common Chinese punctuation and separators.",
+        "Retain all layout features and original copyright, designer, license and attribution name records.",
+        "Instantiate the wght axis at 600, remove variation tables, rename primary family/full/PostScript names, convert TTF to WOFF2.",
+        "Preserve source font head timestamps with recalcTimestamp=False."
+      ],
+      "subset": {
+        "character_subset": true,
+        "unicode_mapping_count": 237,
+        "glyph_count": 604,
+        "text_inputs": [
+          "media/promo/chapters.json",
+          "media/promo/src/Composition.tsx",
+          "media/promo/src/Root.tsx",
+          "media/promo/src/TitleLockup.tsx",
+          "media/promo/src/fonts.ts",
+          "media/promo/src/index.ts",
+          "media/promo/src/scenes/Academy.tsx",
+          "media/promo/src/scenes/AiBattle.tsx",
+          "media/promo/src/scenes/AiProfiles.tsx",
+          "media/promo/src/scenes/Closing.tsx",
+          "media/promo/src/scenes/Decks.tsx",
+          "media/promo/src/scenes/Duel.tsx",
+          "media/promo/src/scenes/Editor.tsx",
+          "media/promo/src/scenes/Menus.tsx",
+          "media/promo/src/scenes/Opening.tsx",
+          "media/promo/src/scenes/Practice.tsx",
+          "media/promo/src/scenes/Replays.tsx",
+          "media/promo/src/scenes/ScreenScene.tsx",
+          "media/promo/src/style.ts"
+        ],
+        "unicode_codepoints": [
+          "U+0020",
+          "U+0021",
+          "U+0022",
+          "U+0023",
+          "U+0025",
+          "U+0026",
+          "U+0027",
+          "U+0028",
+          "U+0029",
+          "U+002A",
+          "U+002B",
+          "U+002C",
+          "U+002D",
+          "U+002E",
+          "U+002F",
+          "U+0030",
+          "U+0031",
+          "U+0032",
+          "U+0033",
+          "U+0034",
+          "U+0035",
+          "U+0036",
+          "U+0037",
+          "U+0038",
+          "U+0039",
+          "U+003A",
+          "U+003B",
+          "U+003C",
+          "U+003D",
+          "U+003E",
+          "U+003F",
+          "U+0040",
+          "U+0041",
+          "U+0042",
+          "U+0043",
+          "U+0044",
+          "U+0045",
+          "U+0046",
+          "U+0047",
+          "U+0048",
+          "U+0049",
+          "U+004B",
+          "U+004C",
+          "U+004D",
+          "U+004E",
+          "U+004F",
+          "U+0050",
+          "U+0052",
+          "U+0053",
+          "U+0054",
+          "U+0055",
+          "U+0056",
+          "U+0057",
+          "U+0059",
+          "U+005B",
+          "U+005D",
+          "U+005F",
+          "U+0061",
+          "U+0062",
+          "U+0063",
+          "U+0064",
+          "U+0065",
+          "U+0066",
+          "U+0067",
+          "U+0068",
+          "U+0069",
+          "U+006A",
+          "U+006B",
+          "U+006C",
+          "U+006D",
+          "U+006E",
+          "U+006F",
+          "U+0070",
+          "U+0071",
+          "U+0072",
+          "U+0073",
+          "U+0074",
+          "U+0075",
+          "U+0076",
+          "U+0077",
+          "U+0078",
+          "U+0079",
+          "U+007A",
+          "U+007B",
+          "U+007D",
+          "U+00A9",
+          "U+00B7",
+          "U+2014",
+          "U+2018",
+          "U+2019",
+          "U+201C",
+          "U+201D",
+          "U+2026",
+          "U+3001",
+          "U+3002",
+          "U+3008",
+          "U+3009",
+          "U+300A",
+          "U+300B",
+          "U+300C",
+          "U+300D",
+          "U+300E",
+          "U+300F",
+          "U+3010",
+          "U+3011",
+          "U+3014",
+          "U+3015",
+          "U+4E00",
+          "U+4E0B",
+          "U+4E0E",
+          "U+4E2D",
+          "U+4E3B",
+          "U+4E50",
+          "U+4E5F",
+          "U+4E60",
+          "U+4E66",
+          "U+4ECE",
+          "U+4F53",
+          "U+5165",
+          "U+5168",
+          "U+5173",
+          "U+5176",
+          "U+51B3",
+          "U+51FA",
+          "U+5206",
+          "U+52A8",
+          "U+5361",
+          "U+53D1",
+          "U+53EC",
+          "U+53EF",
+          "U+5524",
+          "U+56DE",
+          "U+56FA",
+          "U+578B",
+          "U+5916",
+          "U+5957",
+          "U+597D",
+          "U+59CB",
+          "U+5B66",
+          "U+5B8C",
+          "U+5B98",
+          "U+5B9A",
+          "U+5B9E",
+          "U+5BB6",
+          "U+5BF9",
+          "U+5BFC",
+          "U+5C40",
+          "U+5C4F",
+          "U+5C55",
+          "U+5DF1",
+          "U+5F00",
+          "U+5F20",
+          "U+5F55",
+          "U+5FAA",
+          "U+5FD7",
+          "U+6089",
+          "U+60C5",
+          "U+6218",
+          "U+624B",
+          "U+6253",
+          "U+628A",
+          "U+62E9",
+          "U+6307",
+          "U+636E",
+          "U+653E",
+          "U+6574",
+          "U+6587",
+          "U+6597",
+          "U+65B0",
+          "U+65B9",
+          "U+65E0",
+          "U+65E5",
+          "U+6709",
+          "U+672A",
+          "U+6765",
+          "U+6784",
+          "U+6863",
+          "U+6A21",
+          "U+6B21",
+          "U+6B63",
+          "U+6B65",
+          "U+6BCF",
+          "U+719F",
+          "U+7231",
+          "U+7247",
+          "U+72EC",
+          "U+73A9",
+          "U+73B0",
+          "U+7684",
+          "U+76EE",
+          "U+770B",
+          "U+771F",
+          "U+78E8",
+          "U+79CD",
+          "U+79D1",
+          "U+7ACB",
+          "U+7B51",
+          "U+7EC3",
+          "U+7EC4",
+          "U+7EDF",
+          "U+7F6E",
+          "U+7F8E",
+          "U+8005",
+          "U+8054",
+          "U+80CC",
+          "U+80FD",
+          "U+81EA",
+          "U+83B7",
+          "U+878D",
+          "U+89C1",
+          "U+89C2",
+          "U+8BA9",
+          "U+8BBE",
+          "U+8BE6",
+          "U+8BFB",
+          "U+8D77",
+          "U+8FDB",
+          "U+9009",
+          "U+9020",
+          "U+9605",
+          "U+9662",
+          "U+975E",
+          "U+9879",
+          "U+9898",
+          "U+9A8C",
+          "U+FF01",
+          "U+FF08",
+          "U+FF09",
+          "U+FF0C",
+          "U+FF1A",
+          "U+FF1B",
+          "U+FF1F",
+          "U+FF3B",
+          "U+FF3D",
+          "U+FF5B",
+          "U+FF5C",
+          "U+FF5D"
+        ],
+        "extra_punctuation": " · ｜—，。！？：；、“”‘’（）【】《》〈〉「」『』〔〕［］｛｝…"
+      },
+      "validation": {
+        "original_rights_records_preserved": true,
+        "original_head_timestamps_preserved": true,
+        "original_source_unchanged": true,
+        "required_glyphs_missing": [],
+        "repeated_output_sha256_matches": true
+      },
+      "reproduction": {
+        "load": {
+          "TTFont_recalcTimestamp": false
+        },
+        "weight_axis": {
+          "wght": 600
+        },
+        "name_records_to_replace": [
+          {
+            "name_id": 1,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "Fight Promo Serif SC"
+          },
+          {
+            "name_id": 2,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "SemiBold"
+          },
+          {
+            "name_id": 3,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "1.0;keriae;FightPromoSerifSC-SemiBold"
+          },
+          {
+            "name_id": 4,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "Fight Promo Serif SC SemiBold"
+          },
+          {
+            "name_id": 6,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "FightPromoSerifSC-SemiBold"
+          },
+          {
+            "name_id": 16,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "Fight Promo Serif SC"
+          },
+          {
+            "name_id": 17,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "SemiBold"
+          },
+          {
+            "name_id": 18,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "Fight Promo Serif SC SemiBold"
+          },
+          {
+            "name_id": 20,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "FightPromoSerifSC-SemiBold"
+          },
+          {
+            "name_id": 21,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "Fight Promo Serif SC"
+          },
+          {
+            "name_id": 22,
+            "platform_id": 1,
+            "encoding_id": 0,
+            "language_id": 0,
+            "value": "SemiBold"
+          },
+          {
+            "name_id": 1,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif SC"
+          },
+          {
+            "name_id": 2,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "SemiBold"
+          },
+          {
+            "name_id": 3,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "1.0;keriae;FightPromoSerifSC-SemiBold"
+          },
+          {
+            "name_id": 4,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif SC SemiBold"
+          },
+          {
+            "name_id": 6,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "FightPromoSerifSC-SemiBold"
+          },
+          {
+            "name_id": 16,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif SC"
+          },
+          {
+            "name_id": 17,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "SemiBold"
+          },
+          {
+            "name_id": 18,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif SC SemiBold"
+          },
+          {
+            "name_id": 20,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "FightPromoSerifSC-SemiBold"
+          },
+          {
+            "name_id": 21,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "Fight Promo Serif SC"
+          },
+          {
+            "name_id": 22,
+            "platform_id": 3,
+            "encoding_id": 1,
+            "language_id": 1033,
+            "value": "SemiBold"
+          }
+        ],
+        "OS2_usWeightClass": 600,
+        "OS2_fsSelection": 64,
+        "head_macStyle": 0,
+        "save": {
+          "flavor": "woff2",
+          "recalcTimestamp": false
+        },
+        "preserved_rights_name_ids": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "operation_order": [
+          "verify pinned source hash",
+          "subset with listed Unicode codepoints",
+          "instantiate wght=600",
+          "replace primary name records and remove nameID25",
+          "save WOFF2"
+        ],
+        "subset_options": {
+          "layout_features": [
+            "*"
+          ],
+          "name_IDs": [
+            "*"
+          ],
+          "name_languages": [
+            "*"
+          ],
+          "name_legacy": true,
+          "glyph_names": true,
+          "recalc_timestamp": false
+        }
+      }
+    }
+  ],
+  "caption_measurements": {
+    "method": "Sum final static-font hmtx advances and one letter-spacing interval per printable codepoint; no browser rendering or kerning shaping. This keeps a small conservative trailing-spacing allowance.",
+    "english": {
+      "family": "Fight Promo Serif Latin",
+      "weight": 600,
+      "font_size_px": 44,
+      "letter_spacing_px": 0.3
+    },
+    "chinese": {
+      "family": "Fight Promo Serif SC",
+      "weight": 600,
+      "font_size_px": 30,
+      "letter_spacing_px": 0.6
+    },
+    "language_gap_px": 28,
+    "caption_available_width_px": 1732,
+    "measurements": [
+      {
+        "cue": 1,
+        "english_width_px": 852.78,
+        "chinese_width_px": 336.6,
+        "combined_width_px": 1217.38,
+        "remaining_width_px": 514.62
+      },
+      {
+        "cue": 2,
+        "english_width_px": 1016.48,
+        "chinese_width_px": 367.2,
+        "combined_width_px": 1411.68,
+        "remaining_width_px": 320.32
+      },
+      {
+        "cue": 3,
+        "english_width_px": 995.14,
+        "chinese_width_px": 428.4,
+        "combined_width_px": 1451.54,
+        "remaining_width_px": 280.46
+      },
+      {
+        "cue": 4,
+        "english_width_px": 991.62,
+        "chinese_width_px": 503.13,
+        "combined_width_px": 1522.75,
+        "remaining_width_px": 209.25
+      },
+      {
+        "cue": 5,
+        "english_width_px": 782.86,
+        "chinese_width_px": 367.2,
+        "combined_width_px": 1178.06,
+        "remaining_width_px": 553.94
+      },
+      {
+        "cue": 6,
+        "english_width_px": 655.85,
+        "chinese_width_px": 397.8,
+        "combined_width_px": 1081.65,
+        "remaining_width_px": 650.35
+      },
+      {
+        "cue": 7,
+        "english_width_px": 950.26,
+        "chinese_width_px": 541.74,
+        "combined_width_px": 1520.0,
+        "remaining_width_px": 212.0
+      },
+      {
+        "cue": 8,
+        "english_width_px": 1049.77,
+        "chinese_width_px": 415.44,
+        "combined_width_px": 1493.21,
+        "remaining_width_px": 238.79
+      },
+      {
+        "cue": 9,
+        "english_width_px": 896.09,
+        "chinese_width_px": 489.6,
+        "combined_width_px": 1413.69,
+        "remaining_width_px": 318.31
+      },
+      {
+        "cue": 10,
+        "english_width_px": 995.52,
+        "chinese_width_px": 612.0,
+        "combined_width_px": 1635.52,
+        "remaining_width_px": 96.48
+      },
+      {
+        "cue": 11,
+        "english_width_px": 972.17,
+        "chinese_width_px": 428.4,
+        "combined_width_px": 1428.57,
+        "remaining_width_px": 303.43
+      },
+      {
+        "cue": 12,
+        "english_width_px": 883.42,
+        "chinese_width_px": 336.6,
+        "combined_width_px": 1248.02,
+        "remaining_width_px": 483.98
+      }
+    ],
+    "longest_cue": {
+      "cue": 10,
+      "english_width_px": 995.52,
+      "chinese_width_px": 612.0,
+      "combined_width_px": 1635.52,
+      "remaining_width_px": 96.48
+    },
+    "closing_rights_layout": {
+      "english_font_size_px": 20,
+      "chinese_font_size_px": 20,
+      "letter_spacing_px": 0,
+      "flex_gap_px": 22,
+      "separator_font_size_px": 16,
+      "combined_width_px": 1339.59,
+      "measurement_method": "Conservative font hmtx advances; matches the final Closing JSX sizes and two flex gaps"
+    }
+  },
+  "publish_files": [
+    "FightPromoDisplay-700.woff2",
+    "FightPromoSerifLatin-600.woff2",
+    "FightPromoSerifSC-600.woff2",
+    "OFL.Cinzel.txt",
+    "OFL.CinzelDecorative.txt",
+    "OFL.NotoSerifSC.txt",
+    "provenance.json"
+  ],
+  "notes": [
+    "Display and body weights are explicitly 700 and 600. The fonts retain their original OFL terms and rights records, with distinct derivative family names.",
+    "Sources, hashes, codepoint selection, toolchain versions and FontTools transformation settings are recorded here."
+  ]
+}

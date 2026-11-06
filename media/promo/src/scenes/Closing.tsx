@@ -7,14 +7,19 @@ import {
   useCurrentFrame,
 } from 'remotion';
 import { Audio } from '@remotion/media';
-import { font, palette } from '../style';
+import { chineseFont, font, latinFont, palette } from '../style';
+import { usePromoFonts } from '../fonts';
+import { TitleLockup } from '../TitleLockup';
 export const Closing = () => {
   const frame = useCurrentFrame();
+  const fontsLoaded = usePromoFonts();
+  if (!fontsLoaded) return null;
   return (
     <AbsoluteFill
       style={{
         backgroundColor: palette.background,
         fontFamily: font,
+        fontSynthesis: 'none',
         color: palette.white,
         justifyContent: 'center',
         alignItems: 'center',
@@ -50,20 +55,20 @@ export const Closing = () => {
       <Interactive.Div
         name="Closing title"
         style={{
-          fontSize: 110,
-          fontWeight: 650,
-          letterSpacing: -3,
+          textAlign: 'center',
           opacity: interpolate(frame, [0, 15], [0, 1], {
             extrapolateRight: 'clamp',
           }),
         }}
       >
-        Yu-Gi-Oh! <span style={{ color: palette.gold }}>Fight</span>
+        <TitleLockup size={118} />
       </Interactive.Div>
       <Interactive.Div
         name="Closing tagline"
         style={{
-          fontSize: 36,
+          fontFamily: latinFont,
+          fontWeight: 600,
+          fontSize: 32,
           letterSpacing: 3,
           color: palette.cyan,
           marginTop: 32,
@@ -73,26 +78,49 @@ export const Closing = () => {
       </Interactive.Div>
       <Interactive.Div
         name="Project link"
-        style={{ fontSize: 34, color: palette.gold, marginTop: 60 }}
+        style={{
+          fontFamily: latinFont,
+          fontSize: 30,
+          fontWeight: 600,
+          color: palette.gold,
+          marginTop: 60,
+        }}
       >
         github.com/keriae
       </Interactive.Div>
-      <div style={{ fontSize: 23, color: palette.muted, marginTop: 25 }}>
+      <div
+        style={{
+          fontFamily: chineseFont,
+          fontSize: 25,
+          fontWeight: 600,
+          color: palette.muted,
+          marginTop: 25,
+          whiteSpace: 'nowrap',
+        }}
+      >
         Complete duel recording included · 完整对战录屏见项目文档
       </div>
       <div
         style={{
           position: 'absolute',
           bottom: 82,
-          textAlign: 'center',
+          display: 'flex',
+          alignItems: 'baseline',
+          justifyContent: 'center',
+          gap: 22,
+          whiteSpace: 'nowrap',
           color: palette.muted,
+          fontWeight: 600,
         }}
       >
-        <div style={{ fontSize: 20 }}>
+        <div style={{ fontFamily: latinFont, fontSize: 20 }}>
           Unofficial community project. Not affiliated with or endorsed by
           Konami.
         </div>
-        <div style={{ fontSize: 18, marginTop: 10 }}>
+        <span aria-hidden style={{ color: palette.gold }}>
+          ·
+        </span>
+        <div style={{ fontFamily: chineseFont, fontSize: 20 }}>
           非官方爱好者项目，与科乐美无关联，未获其背书。
         </div>
       </div>

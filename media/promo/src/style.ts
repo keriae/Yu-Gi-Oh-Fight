@@ -7,4 +7,7 @@ export const palette = {
   cyan: '#79d8e6',
   white: '#edf5f6',
 };
-export const font = '"Avenir Next", "PingFang SC", sans-serif';
+export const displayFont = '"Fight Promo Display", serif';
+export const latinFont = '"Fight Promo Serif Latin", serif';
+export const chineseFont = '"Fight Promo Serif SC", serif';
+export const font = chineseFont;

@@ -171,6 +171,21 @@ dependencies, separate from the game runtime. Their package licenses and
 Remotion's applicable usage terms remain in effect; dependencies are not
 vendored in this repository.
 
+## Promotional fonts
+
+The promotional media sources retain modified fonts derived from
+[Cinzel](https://github.com/google/fonts/tree/main/ofl/cinzel),
+[Cinzel Decorative](https://github.com/google/fonts/tree/main/ofl/cinzeldecorative)
+and [Noto Serif SC](https://github.com/google/fonts/tree/main/ofl/notoserifsc).
+They are distributed under the SIL Open Font License 1.1, with their original
+notices in `media/promo/public/fonts/OFL.Cinzel.txt`,
+`OFL.CinzelDecorative.txt` and `OFL.NotoSerifSC.txt`. The modified family names
+are Fight Promo Serif Latin, Fight Promo Display and Fight Promo Serif SC.
+Source revisions, hashes and modifications are recorded beside them in
+`provenance.json`. The rendered video does not embed these fonts as game
+runtime components; the OFL's font redistribution conditions continue to
+apply to the authoring assets.
+
 ## 中文说明
 
 Yu-Gi-Oh! Fight 由 keriae 维护，是非官方爱好者项目，与科乐美（Konami）
