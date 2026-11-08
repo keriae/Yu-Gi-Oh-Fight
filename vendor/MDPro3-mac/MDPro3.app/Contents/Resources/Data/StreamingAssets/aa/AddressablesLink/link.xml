@@ -1,0 +1,390 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="DoWhenOnDrag" preserve="all" />
+    <type fullname="MDPro3.AudioManager" preserve="all" />
+    <type fullname="MDPro3.BackgroundManager" preserve="all" />
+    <type fullname="MDPro3.CameraManager" preserve="all" />
+    <type fullname="MDPro3.CardBuilderOCG" preserve="all" />
+    <type fullname="MDPro3.CardBuilderRushDuel" preserve="all" />
+    <type fullname="MDPro3.CardDescription" preserve="all" />
+    <type fullname="MDPro3.CardRenderer" preserve="all" />
+    <type fullname="MDPro3.Characters" preserve="all" />
+    <type fullname="MDPro3.Duel.DuelLog" preserve="all" />
+    <type fullname="MDPro3.GameCard" preserve="all" />
+    <type fullname="MDPro3.Items" preserve="all" />
+    <type fullname="MDPro3.MessageManager" preserve="all" />
+    <type fullname="MDPro3.Program" preserve="all" />
+    <type fullname="MDPro3.Servant.Appearance" preserve="all" />
+    <type fullname="MDPro3.Servant.CharacterSelector" preserve="all" />
+    <type fullname="MDPro3.Servant.CutinViewer" preserve="all" />
+    <type fullname="MDPro3.Servant.DeckBrowser" preserve="all" />
+    <type fullname="MDPro3.Servant.DeckEditor" preserve="all" />
+    <type fullname="MDPro3.Servant.DeckSelector" preserve="all" />
+    <type fullname="MDPro3.Servant.MainMenu" preserve="all" />
+    <type fullname="MDPro3.Servant.MateViewer" preserve="all" />
+    <type fullname="MDPro3.Servant.OcgCore" preserve="all" />
+    <type fullname="MDPro3.Servant.OnlineDeckViewer" preserve="all" />
+    <type fullname="MDPro3.Servant.OnlineServant" preserve="all" />
+    <type fullname="MDPro3.Servant.PuzzlePortal" preserve="all" />
+    <type fullname="MDPro3.Servant.PuzzleSelector" preserve="all" />
+    <type fullname="MDPro3.Servant.ReplaySelector" preserve="all" />
+    <type fullname="MDPro3.Servant.RoomServant" preserve="all" />
+    <type fullname="MDPro3.Servant.SettingServant" preserve="all" />
+    <type fullname="MDPro3.Servant.SoloSelector" preserve="all" />
+    <type fullname="MDPro3.SystemEvent" preserve="all" />
+    <type fullname="MDPro3.TextureContainer" preserve="all" />
+    <type fullname="MDPro3.TextureManager" preserve="all" />
+    <type fullname="MDPro3.UI.AppearanceDetail" preserve="all" />
+    <type fullname="MDPro3.UI.ArtRawImageHandler" preserve="all" />
+    <type fullname="MDPro3.UI.AttachedEffectNumHint" preserve="all" />
+    <type fullname="MDPro3.UI.AutoScale" preserve="all" />
+    <type fullname="MDPro3.UI.ButtonHold" preserve="all" />
+    <type fullname="MDPro3.UI.ButtonPress" preserve="all" />
+    <type fullname="MDPro3.UI.CardActionMenu" preserve="all" />
+    <type fullname="MDPro3.UI.CardCollectionView" preserve="all" />
+    <type fullname="MDPro3.UI.CardDetailView" preserve="all" />
+    <type fullname="MDPro3.UI.CardExpand" preserve="all" />
+    <type fullname="MDPro3.UI.CardInfoDetail" preserve="all" />
+    <type fullname="MDPro3.UI.CardList" preserve="all" />
+    <type fullname="MDPro3.UI.CardListItem" preserve="all" />
+    <type fullname="MDPro3.UI.CardRawImageHandler" preserve="all" />
+    <type fullname="MDPro3.UI.ChatPanel" preserve="all" />
+    <type fullname="MDPro3.UI.ClampedContentSizeFitter" preserve="all" />
+    <type fullname="MDPro3.UI.ConditionalAlignmentController" preserve="all" />
+    <type fullname="MDPro3.UI.DamageFrame" preserve="all" />
+    <type fullname="MDPro3.UI.DeckBrowserUIForDuel" preserve="all" />
+    <type fullname="MDPro3.UI.DeckNumCounter" preserve="all" />
+    <type fullname="MDPro3.UI.DeckPickup" preserve="all" />
+    <type fullname="MDPro3.UI.DeckView" preserve="all" />
+    <type fullname="MDPro3.UI.DeckViewForDuel" preserve="all" />
+    <type fullname="MDPro3.UI.DeckViewMobile" preserve="all" />
+    <type fullname="MDPro3.UI.DeviceIcon" preserve="all" />
+    <type fullname="MDPro3.UI.DoTweenInitializer" preserve="all" />
+    <type fullname="MDPro3.UI.DoTweenManager" preserve="all" />
+    <type fullname="MDPro3.UI.DropArea" preserve="all" />
+    <type fullname="MDPro3.UI.DuelErrorLog" preserve="all" />
+    <type fullname="MDPro3.UI.FPSHandler" preserve="all" />
+    <type fullname="MDPro3.UI.GamepadCursor" preserve="all" />
+    <type fullname="MDPro3.UI.HintAutoMove" preserve="all" />
+    <type fullname="MDPro3.UI.HorizontalScrollbarMouseWheel" preserve="all" />
+    <type fullname="MDPro3.UI.InputFieldCleaner" preserve="all" />
+    <type fullname="MDPro3.UI.InputFieldSubmit" preserve="all" />
+    <type fullname="MDPro3.UI.InputFiledChangeAutoFocus" preserve="all" />
+    <type fullname="MDPro3.UI.InputValidation" preserve="all" />
+    <type fullname="MDPro3.UI.LinkClickHandler" preserve="all" />
+    <type fullname="MDPro3.UI.MaterialSetter" preserve="all" />
+    <type fullname="MDPro3.UI.NewText" preserve="all" />
+    <type fullname="MDPro3.UI.OnScrollSetFreeze" preserve="all" />
+    <type fullname="MDPro3.UI.PageHost" preserve="all" />
+    <type fullname="MDPro3.UI.PageLegacy" preserve="all" />
+    <type fullname="MDPro3.UI.PageMyCard" preserve="all" />
+    <type fullname="MDPro3.UI.PickupCardSelection" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupConfirm" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupInput" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupProgress" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupRockPaperScissors" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupSearchFilter" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupSearchOrder" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupSelection" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupText" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.PopupYesOrNo" preserve="all" />
+    <type fullname="MDPro3.UI.Popup.SelectionToggle_PopupSelectionItem" preserve="all" />
+    <type fullname="MDPro3.UI.PopupDuelInput" preserve="all" />
+    <type fullname="MDPro3.UI.PopupDuelPhase" preserve="all" />
+    <type fullname="MDPro3.UI.PopupDuelPosition" preserve="all" />
+    <type fullname="MDPro3.UI.PopupDuelSelectCard" preserve="all" />
+    <type fullname="MDPro3.UI.PopupDuelSelectCardItem" preserve="all" />
+    <type fullname="MDPro3.UI.PopupDuelSelection" preserve="all" />
+    <type fullname="MDPro3.UI.PopupDuelYesOrNo" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_GameObject" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_GridLayoutGroup" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_HorizontalOrVerticalLayoutGroup" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_Image" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_LayoutElement" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_Navigation" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_RectMask2D" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_RectTransform" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_RectTransformScale" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_Slider" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_TextMeshProUGUI" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.PropertyOverrider_UIScrollToSelection" preserve="all" />
+    <type fullname="MDPro3.UI.SafeAreaAdapter" preserve="all" />
+    <type fullname="MDPro3.UI.ScrollWithGamepad" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionButton" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionButton_CardInCollection" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionButton_CardInDeck" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionButton_CardInfoType" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionButton_DeckSelector" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionButton_MainMenu" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionButton_RoomPlayer" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionButton_Setting" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionInputField" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Address" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_AppearanceGenre" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_AppearanceItem" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_AppearancePlayer" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_CardCollectionTab" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_CardFilter" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_CharacterItem" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_CharacterPlayer" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_CharacterSeries" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Cutin" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Deck" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_DeckOnline" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Mate" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Online" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_PickupCard" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Puzzle" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Rarity" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Replay" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_SearchFilter" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_SearchOrder" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Setting" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Solo" preserve="all" />
+    <type fullname="MDPro3.UI.SelectionToggle_Watch" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.AppearanceUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.CharacterSelectorUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.CutinViewerUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.DeckBrowserUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.DeckEditorUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.DeckSelectorUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.MainMenuUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.MateViewerUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.OcgCoreUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.OnlineDeckViewerUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.OnlineServantUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.PuzzlePortalUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.PuzzleSelectorUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.ReplaySelectorUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.RoomServantUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.SettingServantUI" preserve="all" />
+    <type fullname="MDPro3.UI.ServantUI.SoloSelectorUI" preserve="all" />
+    <type fullname="MDPro3.UI.ShortcutIcon" preserve="all" />
+    <type fullname="MDPro3.UI.SubMenu" preserve="all" />
+    <type fullname="MDPro3.UI.SwipeArea" preserve="all" />
+    <type fullname="MDPro3.UI.TmpInputValidation" preserve="all" />
+    <type fullname="MDPro3.UI.UIEventWithAudio" preserve="all" />
+    <type fullname="MDPro3.UI.UIHover" preserve="all" />
+    <type fullname="MDPro3.UI.UIScrollToSelection" preserve="all" />
+    <type fullname="MDPro3.UI.UserProfile" preserve="all" />
+    <type fullname="MDPro3.UI.WatchListHandler" preserve="all" />
+    <type fullname="MDPro3.UIManager" preserve="all" />
+    <type fullname="MDPro3.UserInput" preserve="all" />
+    <type fullname="NewsManager" preserve="all" />
+    <type fullname="YgomGame.DeckBrowser.PickupCursorWidget" preserve="all" />
+    <type fullname="YgomSystem.Effect.ScreenEffect" preserve="all" />
+    <type fullname="YgomSystem.ElementSystem.ElementObject" preserve="all" />
+    <type fullname="YgomSystem.ElementSystem.ElementObjectManager" preserve="all" />
+    <type fullname="YgomSystem.ScrollViewAutoScroll" preserve="all" />
+    <type fullname="YgomSystem.UI.BindingTextMeshProUGUI" preserve="all" />
+    <type fullname="YgomSystem.UI.ColorContainerGraphic" preserve="all" />
+    <type fullname="YgomSystem.UI.ColorContainerImage" preserve="all" />
+    <type fullname="YgomSystem.UI.DeviceIcon" preserve="all" />
+    <type fullname="YgomSystem.UI.ExtendedScrollRect" preserve="all" />
+    <type fullname="YgomSystem.UI.GamepadCursor" preserve="all" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.PlatformColorContainerImageOverrider" preserve="all" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.PlatformImageOverrider" preserve="all" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.PlatformLayoutElementOverrider" preserve="all" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.PlatformLayoutGroupOverrider" preserve="all" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.PlatformRectTransformOverrider" preserve="all" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.PlatformTextMeshProUGUIOverrider" preserve="all" />
+    <type fullname="YgomSystem.UI.SelectionButton" preserve="all" />
+    <type fullname="YgomSystem.UI.ShortcutIcon" preserve="all" />
+    <type fullname="YgomSystem.UI.TweenAlpha" preserve="all" />
+    <type fullname="YgomSystem.UI.TweenAlphaTo" preserve="all" />
+    <type fullname="YgomSystem.UI.TweenColor" preserve="all" />
+    <type fullname="YgomSystem.UI.TweenImage" preserve="all" />
+    <type fullname="YgomSystem.UI.TweenPosition" preserve="all" />
+    <type fullname="YgomSystem.UI.TweenScale" preserve="all" />
+    <type fullname="YgomSystem.UI.TweenSize" preserve="all" />
+    <type fullname="YgomSystem.Utility.PropertyContainer" preserve="all" />
+    <type fullname="YgomSystem.YGomTMPro.ExtendedTextMeshProUGUI" preserve="all" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_Vector2" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.OverrideBoolProperty" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.OverrideFloatProperty" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.OverrideIntProperty" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.OverrideMaterialProperty" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.OverrideSpriteProperty" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.OverrideVector2Property" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.SelectionButton/OnClickEvent" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.Net.MyCardNews" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.ConditionalAlignmentController/AlignmentPreset" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_Bool" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_Float" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_Int" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_RectOffset" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_Sprite" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_Vector3" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_Vector4" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.SelectionButtonClickEvent" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.SelectionButtonHoverEvent" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.SelectionButtonNavigationEvent" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.SelectionButtonSelectEvent" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.SelectionSubmitEvent" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.SelectionToggleEvent" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.OverrideRectOffsetProperty" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.UI.PropertyOverrider.OverrideTextAnchorProperty" preserve="nothing" serialized="true" />
+    <type fullname="YgomSystem.Utility.PropertyContainer/PropertyInfo" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.Net.MyCardRoomOptions" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.Characters/SeriesCharacter" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.Items/Item" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.PropertyOverride.OverrideProperty_Navigation" preserve="nothing" serialized="true" />
+    <type fullname="MDPro3.UI.StringUnityEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="DG.Tweening.DOTweenAnimation" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.InputSystem, Version=1.11.2.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.InputActionReference" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.PlayerInput" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.UI.InputSystemUIInputModule" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.InputAction" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputActionMap" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputBinding" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme/DeviceRequirement" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.PlayerInput/ActionEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.PlayerInput/ControlsChangedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.PlayerInput/DeviceLostEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.PlayerInput/DeviceRegainedEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalLightData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AtlasSpriteProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="TMPro.TextMeshPro" preserve="all" />
+    <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
+    <type fullname="TMPro.TMP_FontAsset" preserve="all" />
+    <type fullname="TMPro.TMP_InputField" preserve="all" />
+    <type fullname="TMPro.TMP_SpriteAsset" preserve="all" />
+    <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.GlyphAnchorPoint" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.LigatureSubstitutionRecord" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.MarkPositionAdjustment" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.MarkToBaseAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_SpriteCharacter" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_SpriteGlyph" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/OnChangeEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/SelectionEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/SubmitEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+    <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.AnimatorOverrideController" preserve="all" />
+    <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioClip" preserve="all" />
+    <type fullname="UnityEngine.AudioListener" preserve="all" />
+    <type fullname="UnityEngine.AudioSource" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Camera" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Light" preserve="all" />
+    <type fullname="UnityEngine.LightmapSettings" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.MeshFilter" preserve="all" />
+    <type fullname="UnityEngine.MeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.RenderSettings" preserve="all" />
+    <type fullname="UnityEngine.RenderTexture" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.SpriteRenderer" preserve="all" />
+    <type fullname="UnityEngine.TextAsset" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+    <type fullname="UnityEngine.U2D.SpriteAtlas" preserve="all" />
+    <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.MeshCollider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Font" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.EventSystems.EventSystem" preserve="all" />
+    <type fullname="UnityEngine.EventSystems.EventTrigger" preserve="all" />
+    <type fullname="UnityEngine.UI.AspectRatioFitter" preserve="all" />
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
+    <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all" />
+    <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.GridLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.HorizontalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.InputField" preserve="all" />
+    <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
+    <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.RawImage" preserve="all" />
+    <type fullname="UnityEngine.UI.RectMask2D" preserve="all" />
+    <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
+    <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
+    <type fullname="UnityEngine.UI.Slider" preserve="all" />
+    <type fullname="UnityEngine.UI.Text" preserve="all" />
+    <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.FontData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Slider/SliderEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.EventSystems.EventTrigger/Entry" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.EventSystems.EventTrigger/TriggerEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.InputField/EndEditEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.InputField/OnChangeEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.InputField/SubmitEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasGroup" preserve="all" />
+    <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.VideoModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Video.VideoPlayer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextCoreFontEngineModule">
+    <type fullname="UnityEngine.TextCore.FaceInfo" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.Glyph" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.GlyphMetrics" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.GlyphRect" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphValueRecord" preserve="nothing" serialized="true" />
+  </assembly>
+</linker>

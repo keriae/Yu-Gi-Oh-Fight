@@ -1,0 +1,4533 @@
+{
+  "_GRP_": "SN0407",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0407_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas découvrir ce qu'est une puissance inarrêtable !"
+    },
+    "V0407_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Observe la force des Yeux Galactiques !"
+    },
+    "V0407_01_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "..."
+    },
+    "V0407_01_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est l'heure du Duel !\nTransformation Photon !"
+    },
+    "V0407_01_00_03_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Haaa !"
+    },
+    "V0407_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401
+      ],
+      "text": "Yuma ! Astral !\nJe vais vous affronter tous les deux !"
+    },
+    "V0407_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        402
+      ],
+      "text": "Tu as développé tes compétences, Yuma.\nMais à quel point ?"
+    },
+    "V0407_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        403
+      ],
+      "text": "Tu es le seul adversaire intéressant à écraser, Astral !"
+    },
+    "V0407_01_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        411
+      ],
+      "text": "Quinton..."
+    },
+    "V0407_01_00_07_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu m'as appris ce que tu savais, mais j'en sais encore plus."
+    },
+    "V0407_01_00_08_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        9092,
+        9093,
+        9094,
+        9095,
+        434,
+        435
+      ],
+      "text": "Je vais chasser ton Numéro et ton âme !"
+    },
+    "V0407_01_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        9092,
+        9093,
+        9094,
+        9095,
+        434,
+        435
+      ],
+      "text": "Tu ne provoques que le chaos !"
+    },
+    "V0407_01_00_09_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est pour ça que je vais te pourchasser !"
+    },
+    "V0407_01_00_10_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        419,
+        420,
+        422,
+        423,
+        441,
+        442,
+        444,
+        445,
+        446
+      ],
+      "text": "Tout être vivant finit par voir arriver sa perte."
+    },
+    "V0407_01_00_10_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mais avant, je m'assurerai que le monde Barian s'effondre."
+    },
+    "V0407_01_00_11_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        424,
+        443
+      ],
+      "text": "Il n'y a qu'un maître des Yeux Galactiques.\nEt c'est moi !"
+    },
+    "V0407_01_00_12_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        424,
+        443
+      ],
+      "text": "Mizar !\nC'est fini pour toi !"
+    },
+    "V0407_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bats-toi !"
+    },
+    "V0407_03_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas payer pour tes erreurs !"
+    },
+    "V0407_03_00_00_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0407_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne peux plus rien faire !"
+    },
+    "V0407_03_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0407_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La chasse est ouverte !"
+    },
+    "V0407_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0407_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0407_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ta stratégie n'est pas mal, mais elle ne vaut pas la mienne."
+    },
+    "V0407_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0407_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'en as pas encore fini avec moi !"
+    },
+    "V0407_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0407_04_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0407_04_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0407_04_00_02_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0407_05_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Pas besoin de chance.\nUn vrai Duelliste pioche ce qu'il faut."
+    },
+    "V0407_05_00_00_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !!!"
+    },
+    "V0407_06_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça ne marchera pas !"
+    },
+    "V0407_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pile à ce moment-là..."
+    },
+    "V0407_06_01_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah tu crois ça ?"
+    },
+    "V0407_06_01_03_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je savais que t'allais essayer ça !"
+    },
+    "V0407_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0407_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !"
+    },
+    "V0407_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !"
+    },
+    "V0407_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Carte Magie Continue !"
+    },
+    "V0407_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Magie d'Équipement !"
+    },
+    "V0407_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Magie Rituelle !"
+    },
+    "V0407_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège !"
+    },
+    "V0407_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !"
+    },
+    "V0407_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Contre-Piège !"
+    },
+    "V0407_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma carte Posée !"
+    },
+    "V0407_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue ma carte Posée !"
+    },
+    "V0407_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0407_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Magie de Terrain !"
+    },
+    "V0407_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0407_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0407_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10342
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie, Accellumière !"
+    },
+    "V0407_08_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle Invoque un monstre Photon ou Galactique de max. Niv. 4."
+    },
+    "V0407_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10415
+      ],
+      "duelist": [],
+      "text": "J'active la Magie Jeu-Rapide, Double Retour Xyz !"
+    },
+    "V0407_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10182
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nRégénérateur Habillé !"
+    },
+    "V0407_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9924
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !\nOrage Galactique !"
+    },
+    "V0407_08_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je détruis un Monstre Xyz qui n'a pas d'unité de couverture."
+    },
+    "V0407_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14981
+      ],
+      "duelist": [],
+      "text": "J'active la Magie Jeu-Rapide, Hypergalactique !"
+    },
+    "V0407_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9971
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie, Sanctuaire Photon !"
+    },
+    "V0407_08_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement 2 Jetons Photon !"
+    },
+    "V0407_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13860
+      ],
+      "duelist": [],
+      "text": "Prépare-toi à te faire chasser !"
+    },
+    "V0407_08_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active la Carte Magie, Main Photon !"
+    },
+    "V0407_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9770
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nSupport Photon !"
+    },
+    "V0407_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9768
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie, Voile Photon !"
+    },
+    "V0407_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9769
+      ],
+      "duelist": [],
+      "text": "J'active la Magie Jeu-Rapide, Guide Photon !"
+    },
+    "V0407_08_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre LUMIÈRE de max. Niveau 4 !"
+    },
+    "V0407_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10343
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nExpédition Galactique !"
+    },
+    "V0407_08_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle Invoque Spé. 1 monstre Photon ou Galactique du Deck."
+    },
+    "V0407_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10344
+      ],
+      "duelist": [],
+      "text": "J'active la Magie d'Équipement, Zéro Galactique !"
+    },
+    "V0407_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10344
+      ],
+      "duelist": [],
+      "text": "Lorsqu'elle disparaît, l'ATK du monstre équipé passe à 0 !"
+    },
+    "V0407_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10948
+      ],
+      "duelist": [],
+      "text": "J'active la Magie Rituelle, Rituel Lumineux du Dragon !"
+    },
+    "V0407_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4842
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie, Monster Reborn !"
+    },
+    "V0407_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5432
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie, Le Livre de la Lune !"
+    },
+    "V0407_08_00_15_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Un monstre face recto passe en Position de Déf. face verso !"
+    },
+    "V0407_08_00_16_0": {
+      "face": 5,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10341
+      ],
+      "duelist": [],
+      "text": "Ceci scellera mon destin !\nJ'active la Carte Message dans une Bouteille !"
+    },
+    "V0407_08_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ressuscite 3 monstres de Niveaux différents du Cimetière."
+    },
+    "V0407_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4837
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie, Polymérisation !"
+    },
+    "V0407_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13943
+      ],
+      "duelist": [],
+      "text": "Je paie mes LP pour activer la Carte Magie Transe Galactique !"
+    },
+    "V0407_08_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11115
+      ],
+      "duelist": [],
+      "text": "Je bannis une carte en jeu et j'active ma Magie Jeu-Rapide !"
+    },
+    "V0407_08_00_19_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot Photon de Destruction !"
+    },
+    "V0407_08_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10020
+      ],
+      "duelist": [],
+      "text": "J'active la Magie Jeu-Rapide, Trident Photon !"
+    },
+    "V0407_08_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10020
+      ],
+      "duelist": [],
+      "text": "Tu as subi des dommages alors Trident Photon détruit une Magie ou Piège !"
+    },
+    "V0407_08_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9936
+      ],
+      "duelist": [],
+      "text": "J'active le Piège Continu, Vague Galactique !"
+    },
+    "V0407_08_00_22_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quand j'Invoque par Xyz, cette carte inflige des dommages !"
+    },
+    "V0407_08_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9936
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Vague Galactique s'active !\nPrends ces dommages !"
+    },
+    "V0407_08_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12791
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Ascension Cipher Magie-Rang-Plus !"
+    },
+    "V0407_08_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14986
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nLien Éternel !"
+    },
+    "V0407_08_00_25_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il ressuscite les monstres Photon en annulant leurs effets !"
+    },
+    "V0407_08_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14986
+      ],
+      "duelist": [],
+      "text": "Je bannis Lien Éternel de mon Cimetière pour utiliser son effet !"
+    },
+    "V0407_08_00_26_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je prends le contrôle d'un monstre Photon !"
+    },
+    "V0407_08_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13861
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !\nChangement Photon !"
+    },
+    "V0407_08_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13861
+      ],
+      "duelist": [],
+      "text": "J'envoie un monstre au Cimetière pour activer Changement Photon !"
+    },
+    "V0407_08_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9788
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nLumièrisation !"
+    },
+    "V0407_08_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11098
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nDouble Descente de Dragon !"
+    },
+    "V0407_08_00_30_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'attaque passe sur le Dragon que j'ai Invoqué Spécialement."
+    },
+    "V0407_08_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9972
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nCharge Photon !"
+    },
+    "V0407_08_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13956
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nÉternité Galactique !"
+    },
+    "V0407_08_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12804
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nSpectre Cipher !"
+    },
+    "V0407_08_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12659
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nÉlément Binaire Cipher !"
+    },
+    "V0407_08_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12658
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nDouble Cipher !"
+    },
+    "V0407_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9729
+      ],
+      "duelist": [],
+      "text": "J'active l'effet des Yeux Galactiques !"
+    },
+    "V0407_09_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si Yeux Galactiques combat, je bannis nos 2 monstres."
+    },
+    "V0407_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10064
+      ],
+      "duelist": [],
+      "text": "Néo Dragon Photon aux Yeux Galactiques annule les effets de toutes les autres cartes !"
+    },
+    "V0407_09_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hurlement Photon !"
+    },
+    "V0407_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10064
+      ],
+      "duelist": [],
+      "text": "Le deuxième effet de la Carte Néo Dragon Photon aux Yeux Galactiques s'active !"
+    },
+    "V0407_09_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle utilise 1 unité de couverture et absorbe les tiennes."
+    },
+    "V0407_09_00_02_2": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cela augmente son ATK et les attaques qu'elle peut lancer !"
+    },
+    "V0407_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14959
+      ],
+      "duelist": [],
+      "text": "Avec Yeux Galactiques sur le Terrain, j'Invoque Spé. ceci."
+    },
+    "V0407_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14959
+      ],
+      "duelist": [],
+      "text": "Dragon des Dernières Lueurs aux Yeux Galactiques n'est plus une unité de couverture, alors attention !"
+    },
+    "V0407_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11113
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Dragonuage aux Yeux Galactiques s'active !"
+    },
+    "V0407_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11113
+      ],
+      "duelist": [],
+      "text": "Je joue l'effet de la Carte Dragonuage aux Yeux Galactiques de mon Cimetière !"
+    },
+    "V0407_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11461
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Dragon Photon Armure Complète aux Yeux Galactiques !"
+    },
+    "V0407_09_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle change ses Cartes d'Équipement en unités de couverture."
+    },
+    "V0407_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11461
+      ],
+      "duelist": [],
+      "text": "Dragon Photon Armure Complète aux Yeux Galactiques utilise 1 unité de couverture pour supprimer 1 carte !"
+    },
+    "V0407_09_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Infrarouge Galactique !"
+    },
+    "V0407_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10266
+      ],
+      "duelist": [],
+      "text": "Si Numéro 9 : Sphère Dyson a 1 unité de couverture, une attaque peut être stoppée."
+    },
+    "V0407_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10266
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Numéro 9 : Sphère Dyson s'active !"
+    },
+    "V0407_09_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "2 monstres de mon Cimetière sont ses unités de couverture !"
+    },
+    "V0407_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10266
+      ],
+      "duelist": [],
+      "text": "La Carte Numéro 9 : Sphère Dyson utilise 1 unité de couverture et active son effet."
+    },
+    "V0407_09_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle peut t'attaquer directement ce tour-ci !"
+    },
+    "V0407_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9759
+      ],
+      "duelist": [],
+      "text": "La Carte Numéro 10 : Illumiknight utilise 1 unité de couverture et active son effet."
+    },
+    "V0407_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11018
+      ],
+      "duelist": [],
+      "text": "Numéro 13 : Incarnation du Crime utilise 1 unité de couverture et utilise son effet."
+    },
+    "V0407_09_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tous tes monstres sont forcés de l'attaquer !"
+    },
+    "V0407_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9760
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Numéro 20 : Giga-Brillant s'active !"
+    },
+    "V0407_09_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pour 1 unité de couv. mes monstres face recto ont de l'ATK."
+    },
+    "V0407_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9858
+      ],
+      "duelist": [],
+      "text": "Durant ma Standby Phase, la Carte Numéro 30 : Golem Acide de Destruction aime me faire du mal."
+    },
+    "V0407_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12260
+      ],
+      "duelist": [],
+      "text": "Quand une Magie s'active, la Carte Numéro 38 : Espoir Annonciateur Dragon Titanesque Galactique peut utiliser son effet."
+    },
+    "V0407_09_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tempête d'écailles de l'Annihilation !"
+    },
+    "V0407_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12260
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Numéro 38 : Espoir Annonciateur Dragon Titanesque Galactique s'active !"
+    },
+    "V0407_09_00_17_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle redirige ton attaque avec 1 unité de couverture !"
+    },
+    "V0407_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12260
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Numéro 38 : Espoir Annonciateur Dragon Titanesque Galactique s'active maintenant !"
+    },
+    "V0407_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10781
+      ],
+      "duelist": [],
+      "text": "Puisque je n'ai pas d'autres monstres, l'effet de Numéro 46 : Dragluon s'active."
+    },
+    "V0407_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9857
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Numéro 56 : Rat d'Or !"
+    },
+    "V0407_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11069
+      ],
+      "duelist": [],
+      "text": "Avec 1 unité de couverture, je joue l'effet de la CarteNuméro 62 : Dragon Photon Primordial aux Yeux Galactiques !"
+    },
+    "V0407_09_00_21_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cette carte gagne de l'ATK pour chaque Rang en jeu !"
+    },
+    "V0407_09_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11069
+      ],
+      "duelist": [],
+      "text": "La Carte Numéro 62 : Dragon Photon Primordial aux Yeux Galactiques contrôle le futur !"
+    },
+    "V0407_09_00_22_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle revient en jeu lors de mon second tour !"
+    },
+    "V0407_09_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13826
+      ],
+      "duelist": [],
+      "text": "La Carte Numéro 90 : Seigneur Photon aux Yeux Galactiques utilise 1 unité de couverture !"
+    },
+    "V0407_09_00_23_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle annule l'effet de ton monstre !"
+    },
+    "V0407_09_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13826
+      ],
+      "duelist": [],
+      "text": "La Carte Numéro 90 : Seigneur Photon aux Yeux Galactiques active son effet !"
+    },
+    "V0407_09_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11651
+      ],
+      "duelist": [],
+      "text": "Si la Carte Numéro 95 : Dragon Matière des Ténèbres aux Yeux Galactiques est Invoquée par Xyz, son effet s'active !"
+    },
+    "V0407_09_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11651
+      ],
+      "duelist": [],
+      "text": "J'utilise une des unités de couverture de la Carte Numéro 95 : Dragon Matière des Ténèbres aux Yeux Galactiques !"
+    },
+    "V0407_09_00_26_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle peut maintenant attaquer deux fois ce tour-ci !"
+    },
+    "V0407_09_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10340
+      ],
+      "duelist": [],
+      "text": "La Carte Paladynamo Seigneur des Étoiles utilise 2 unités de couv. et active son effet."
+    },
+    "V0407_09_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10340
+      ],
+      "duelist": [],
+      "text": "Quand la Carte Paladynamo Seigneur des Étoiles est détruite, je pioche une carte !"
+    },
+    "V0407_09_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10653
+      ],
+      "duelist": [],
+      "text": "Avec les unités de couverture de Galaxion Seigneur des Étoiles, j'active ses effets."
+    },
+    "V0407_09_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13857
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Dragon Explosif Photon Seigneur des Étoiles s'active à son Invocation par Xyz !"
+    },
+    "V0407_09_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13857
+      ],
+      "duelist": [],
+      "text": "La Carte Dragon Explosif Photon Seigneur des Étoiles utilise 1 unité de couverture et active son effet."
+    },
+    "V0407_09_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10891
+      ],
+      "duelist": [],
+      "text": "Lorsque la Carte Sentinelle Habillée est Invoquée, elle passe en Défense."
+    },
+    "V0407_09_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10891
+      ],
+      "duelist": [],
+      "text": "Je bannis la Carte Sentinelle Habillée du Cimetière pour utiliser son effet !"
+    },
+    "V0407_09_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10892
+      ],
+      "duelist": [],
+      "text": "Je bannis la Carte Booster Habillé du Cimetière pour jouer son effet !"
+    },
+    "V0407_09_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10379
+      ],
+      "duelist": [],
+      "text": "Tu sais ce qu'il te reste à faire, Orbital 7 !"
+    },
+    "V0407_09_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10379
+      ],
+      "duelist": [],
+      "text": "Orbital 7, mode combat !"
+    },
+    "V0407_09_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10379
+      ],
+      "duelist": [],
+      "text": "Je Sacrifie la Carte Orbital 7 pour activer son effet !"
+    },
+    "V0407_09_00_37_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as bien rempli ton rôle."
+    },
+    "V0407_09_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13859
+      ],
+      "duelist": [],
+      "text": "Rends-toi utile, Orbital Photon !"
+    },
+    "V0407_09_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13859
+      ],
+      "duelist": [],
+      "text": "Orbital Photon !\nSacrifie-toi pour Hart et moi !"
+    },
+    "V0407_09_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11193
+      ],
+      "duelist": [],
+      "text": "Ton ami t'appelle, Orbital.\nAlors montre-toi !"
+    },
+    "V0407_09_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11193
+      ],
+      "duelist": [],
+      "text": "Lillybot, tu es mille fois plus utile qu'Orbital."
+    },
+    "V0407_09_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11926
+      ],
+      "duelist": [],
+      "text": "Quand j'Invoque la Carte Ver - Galactique, je peux activer son effet !"
+    },
+    "V0407_09_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10336
+      ],
+      "duelist": [],
+      "text": "J'envoie Kuri Photon de ma main au Cimetière pour activer son effet."
+    },
+    "V0407_09_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10336
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Kuri Photon s'active depuis mon Cimetière !"
+    },
+    "V0407_09_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9913
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Lézard Jumeau Photon s'active !"
+    },
+    "V0407_09_00_45_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle se divise en les monstres que j'ai fusionnés."
+    },
+    "V0407_09_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10337
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Voyageur Dimensionnel depuis ma main !"
+    },
+    "V0407_09_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9730
+      ],
+      "duelist": [],
+      "text": "Si j'Invoque Spé. cette carte, je peux Invoquer 1 copie."
+    },
+    "V0407_09_00_48_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11295
+      ],
+      "duelist": [],
+      "text": "Je veux ces Numéros hors de ma vue !"
+    },
+    "V0407_09_00_49_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10134
+      ],
+      "duelist": [],
+      "text": "Si j'Invoque cette carte, je peux en Invoquer Spé. 1 autre."
+    },
+    "V0407_09_00_50_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10334
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Satellite Photon !"
+    },
+    "V0407_09_00_51_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10893
+      ],
+      "duelist": [],
+      "text": "La Carte Chargeur Photon active son effet !"
+    },
+    "V0407_09_00_52_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10333
+      ],
+      "duelist": [],
+      "text": "Je bannis 1 Photon du Cimetière pour utiliser l'effet de Pirate Photon !"
+    },
+    "V0407_09_00_53_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9881
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Lézard Photon !"
+    },
+    "V0407_09_00_54_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9884
+      ],
+      "duelist": [],
+      "text": "La Carte Léo Photon active son effet !\nSouffle rugissant !"
+    },
+    "V0407_09_00_54_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maintenant, tu dois revoir toute ta stratégie."
+    },
+    "V0407_09_00_55_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9966
+      ],
+      "duelist": [],
+      "text": "Lorsque J'Invoque Vouivre Photon, tes cartes Posées sont détruites !"
+    },
+    "V0407_09_00_56_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9864
+      ],
+      "duelist": [],
+      "text": "À son Invocation, Tigre Photon peut utiliser son effet !"
+    },
+    "V0407_09_00_57_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13858
+      ],
+      "duelist": [],
+      "text": "La Carte Volatil Photon me permet d'acquérir Dragon Photon aux Yeux Galactiques !"
+    },
+    "V0407_09_00_58_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9886
+      ],
+      "duelist": [],
+      "text": "La Carte Destructeur de Retournement détruit ton monstre face verso !"
+    },
+    "V0407_09_00_59_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10338
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Sorcier Galactique s'active !"
+    },
+    "V0407_09_00_60_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10338
+      ],
+      "duelist": [],
+      "text": "Je Sacrifie la Carte Sorcier Galactique pour activer son effet !"
+    },
+    "V0407_09_00_61_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10339
+      ],
+      "duelist": [],
+      "text": "Je n'ai pas Invoqué par Sacrifice Chevalier Galactique, donc son effet s'active."
+    },
+    "V0407_09_00_62_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11032
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Tyranno Galactique depuis ma main !"
+    },
+    "V0407_09_00_63_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11032
+      ],
+      "duelist": [],
+      "text": "Si Tyranno Galactique s'Invoque Spécialement, un autre effet s'active !"
+    },
+    "V0407_09_00_63_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cette carte peut Invoquer par Xyz un monstre Galactique Xyz."
+    },
+    "V0407_09_00_64_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11031
+      ],
+      "duelist": [],
+      "text": "L'Effet Flip de la Carte Sage du Miroir Galactique s'active !"
+    },
+    "V0407_09_00_65_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11031
+      ],
+      "duelist": [],
+      "text": "Lorsque la Carte Sage du Miroir Galactique est détruite, son effet s'active !"
+    },
+    "V0407_09_00_66_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10931
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Paladin du Dragon Photon !"
+    },
+    "V0407_09_00_66_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie cette carte pour Invoquer Spé. Yeux Galactiques."
+    },
+    "V0407_09_00_67_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10931
+      ],
+      "duelist": [],
+      "text": "Quand Paladin du Dragon Photon détruit un monstre au combat, je pioche une carte !"
+    },
+    "V0407_09_00_68_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13897
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Clerc Galactique depuis ma main !"
+    },
+    "V0407_09_00_69_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13897
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Clerc Galactique s'active !"
+    },
+    "V0407_09_00_70_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13898
+      ],
+      "duelist": [],
+      "text": "Je montre un monstre Photon et j'Invoque Spécialement ceci."
+    },
+    "V0407_09_00_71_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13898
+      ],
+      "duelist": [],
+      "text": "L'ATK et DEF de Brave Galactique sont égales à celles du monstre choisi."
+    },
+    "V0407_09_00_72_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11114
+      ],
+      "duelist": [],
+      "text": "J'envoie un monstre LUMIÈRE au Cimetière et j'Invoque ceci."
+    },
+    "V0407_09_00_73_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11114
+      ],
+      "duelist": [],
+      "text": "En Invoquant Spécialement la Carte Soldat Galactique, son effet s'active !"
+    },
+    "V0407_09_00_74_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12552
+      ],
+      "duelist": [],
+      "text": "Avec 1 unité de couverture, j'active l'effet de la Carte Dragon Cipher aux Yeux Galactiques !"
+    },
+    "V0407_09_00_74_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Projection Cipher !"
+    },
+    "V0407_09_00_75_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12784
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Néo Dragon Cipher aux Yeux Galactiques s'active !"
+    },
+    "V0407_09_00_75_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Super projection Cipher !"
+    },
+    "V0407_09_00_76_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12696
+      ],
+      "duelist": [],
+      "text": "Avec 1 unité de couverture, je joue l'effet de la Carte Dragon Épée Cipher aux Yeux Galactiques !"
+    },
+    "V0407_09_00_77_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12696
+      ],
+      "duelist": [],
+      "text": "Lorsque la Carte Dragon Épée Cipher aux Yeux Galactiques est détruite, son effet s'active !"
+    },
+    "V0407_09_00_78_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12746
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Étranger Cipher s'active !"
+    },
+    "V0407_09_00_79_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12746
+      ],
+      "duelist": [],
+      "text": "La Carte Étranger Cipher active son effet depuis mon Cimetière !"
+    },
+    "V0407_09_00_81_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12601
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Chevalier Miroir Cipher s'active depuis ma main !"
+    },
+    "V0407_09_00_82_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12601
+      ],
+      "duelist": [],
+      "text": "Puisque ma Carte Chevalier Miroir Cipher est au Cimetière, son effet s'active !"
+    },
+    "V0407_09_00_83_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12600
+      ],
+      "duelist": [],
+      "text": "Je défausse une carte pour activer l'effet de la Carte Raptor Jumeau Cipher !"
+    },
+    "V0407_09_00_84_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12551
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Cipher s'active !"
+    },
+    "V0407_10_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est parti !"
+    },
+    "V0407_10_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais jouer cette carte !"
+    },
+    "V0407_10_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Montre-toi !"
+    },
+    "V0407_10_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde ça !"
+    },
+    "V0407_11_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre !"
+    },
+    "V0407_11_01_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre en Position de Défense."
+    },
+    "V0407_11_02_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement mon monstre."
+    },
+    "V0407_11_03_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie mon monstre !"
+    },
+    "V0407_11_04_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre par Sacrifice !"
+    },
+    "V0407_11_05_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre par Fusion !"
+    },
+    "V0407_11_06_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre par Rituel !"
+    },
+    "V0407_11_07_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre par Synchro !"
+    },
+    "V0407_11_08_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre par Xyz !"
+    },
+    "V0407_11_08_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je construis le Réseau Habillé !\nJ'Invoque par Xyz !"
+    },
+    "V0407_11_09_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre par Pendulation !"
+    },
+    "V0407_11_10_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre par Lien !"
+    },
+    "V0407_37_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9729
+      ],
+      "duelist": [],
+      "text": "Des ténèbres de l'univers émerge une lueur d'espoir !"
+    },
+    "V0407_37_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La véritable incarnation de la lumière !"
+    },
+    "V0407_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        9729
+      ],
+      "duelist": [],
+      "text": "Dis bonjour à Dragon Photon aux Yeux Galactiques !"
+    },
+    "V0407_37_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10064
+      ],
+      "duelist": [],
+      "text": "L'univers converge vers la lumière du chaos !"
+    },
+    "V0407_37_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Émerge devant moi !"
+    },
+    "V0407_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        10064
+      ],
+      "duelist": [],
+      "text": "Néo Dragon Photon aux Yeux Galactiques !"
+    },
+    "V0407_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        14959
+      ],
+      "duelist": [],
+      "text": "C'est parti !\nDragon des Dernières Lueurs aux Yeux Galactiques !"
+    },
+    "V0407_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11113
+      ],
+      "duelist": [],
+      "text": "Voici Dragonuage aux Yeux Galactiques !"
+    },
+    "V0407_37_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11461
+      ],
+      "duelist": [],
+      "text": "La lueur du système solaire me guide vers un nouveau monde !"
+    },
+    "V0407_37_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Xyz blindée !"
+    },
+    "V0407_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11461
+      ],
+      "duelist": [],
+      "text": "La nouvelle incarnation de la lumière pure !"
+    },
+    "V0407_13_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Dragon Photon Armure Complète aux Yeux Galactiques !"
+    },
+    "V0407_37_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10266
+      ],
+      "duelist": [],
+      "text": "J'écraserai tous tes espoirs pour l'avenir !"
+    },
+    "V0407_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10266
+      ],
+      "duelist": [],
+      "text": "Viens !\nNuméro 9 : Sphère Dyson !"
+    },
+    "V0407_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9759
+      ],
+      "duelist": [],
+      "text": "Vas-y !\nNuméro 10 : Illumiknight !"
+    },
+    "V0407_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11018
+      ],
+      "duelist": [],
+      "text": "Admire un peu ça... Numéro 13 : Incarnation du Crime !"
+    },
+    "V0407_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9760
+      ],
+      "duelist": [],
+      "text": "Apparais !\nNuméro 20 : Giga-Brillant !"
+    },
+    "V0407_37_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9858
+      ],
+      "duelist": [],
+      "text": "Numéro 30 est là pour faire fondre tout ce qui existe !"
+    },
+    "V0407_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9858
+      ],
+      "duelist": [],
+      "text": "Numéro 30 : Golem Acide de Destruction !"
+    },
+    "V0407_37_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12260
+      ],
+      "duelist": [],
+      "text": "Tous les espoirs mêlés dans mon esprit ne font plus qu'un !"
+    },
+    "V0407_37_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Xyz !"
+    },
+    "V0407_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12260
+      ],
+      "duelist": [],
+      "text": "Admire ça : Numéro 38 : Espoir Annonciateur Dragon Titanesque Galactique !"
+    },
+    "V0407_37_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10781
+      ],
+      "duelist": [],
+      "text": "Le dragon doré apparaît parmi les éclairs et le tonnerre !"
+    },
+    "V0407_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        10781
+      ],
+      "duelist": [],
+      "text": "Numéro 46 : Dragluon !"
+    },
+    "V0407_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9857
+      ],
+      "duelist": [],
+      "text": "Vas-y !\nNuméro 56 : Rat d'Or !"
+    },
+    "V0407_37_00_07_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11069
+      ],
+      "duelist": [],
+      "text": "Montre-toi !\nNuméro 62 : Dragon Photon Primordial aux Yeux Galactiques !"
+    },
+    "V0407_37_00_07_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unis les dragons vivant entre Lumière et Ténèbres !"
+    },
+    "V0407_13_00_13_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11069
+      ],
+      "duelist": [],
+      "text": "Voici le Numéro que j'utilise !\nNuméro 62 : Dragon Photon Primordial aux Yeux Galactiques !"
+    },
+    "V0407_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13826
+      ],
+      "duelist": [],
+      "text": "Apparais !\nNuméro 90 : Seigneur Photon aux Yeux Galactiques !"
+    },
+    "V0407_37_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11651
+      ],
+      "duelist": [],
+      "text": "Quand l'univers s'éteindra, ce maître émergera !"
+    },
+    "V0407_13_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11651
+      ],
+      "duelist": [],
+      "text": "C'est parti !\nNuméro 95 : Dragon Matière des Ténèbres aux Yeux Galactiques !"
+    },
+    "V0407_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10340
+      ],
+      "duelist": [],
+      "text": "Lève-toi !\nPaladynamo Seigneur des Étoiles !"
+    },
+    "V0407_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10653
+      ],
+      "duelist": [],
+      "text": "Lève-toi !\nGalaxion Seigneur des Étoiles !"
+    },
+    "V0407_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13857
+      ],
+      "duelist": [],
+      "text": "Envole-toi !\nDragon Explosif Photon Seigneur des Étoiles !"
+    },
+    "V0407_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10891
+      ],
+      "duelist": [],
+      "text": "J'Invoque la Carte Sentinelle Habillée !"
+    },
+    "V0407_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10892
+      ],
+      "duelist": [],
+      "text": "Viens jouer !\nBooster Habillé !"
+    },
+    "V0407_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        10379
+      ],
+      "duelist": [],
+      "text": "À toi, Orbital 7 !"
+    },
+    "V0407_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13859
+      ],
+      "duelist": [],
+      "text": "En avant, Orbital Photon !"
+    },
+    "V0407_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11193
+      ],
+      "duelist": [],
+      "text": "La Carte Lillybot est là pour prêter main forte !"
+    },
+    "V0407_13_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10730
+      ],
+      "duelist": [],
+      "text": "Apparais !\nDragon Galactique !"
+    },
+    "V0407_13_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11926
+      ],
+      "duelist": [],
+      "text": "Montre-toi !\nVer - Galactique !"
+    },
+    "V0407_13_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10336
+      ],
+      "duelist": [],
+      "text": "Voici Kuri Photon !"
+    },
+    "V0407_13_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9913
+      ],
+      "duelist": [],
+      "text": "Lézard Jumeau Photon !\nApparais !"
+    },
+    "V0407_13_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10337
+      ],
+      "duelist": [],
+      "text": "C'est parti !\nVoyageur Dimensionnel !"
+    },
+    "V0407_13_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9730
+      ],
+      "duelist": [],
+      "text": "Briseur de Jour ! Lève-toi !"
+    },
+    "V0407_13_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11295
+      ],
+      "duelist": [],
+      "text": "Chasseur Numéral illuminera les ténèbres de ton âme !"
+    },
+    "V0407_13_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13552
+      ],
+      "duelist": [],
+      "text": "Allez, Avanceur Photon !"
+    },
+    "V0407_13_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10134
+      ],
+      "duelist": [],
+      "text": "Allons-y, César Photon !"
+    },
+    "V0407_13_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9883
+      ],
+      "duelist": [],
+      "text": "À toi de jouer !\nBroyeur Photon !"
+    },
+    "V0407_13_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9733
+      ],
+      "duelist": [],
+      "text": "Voici Cerbère Photon !"
+    },
+    "V0407_13_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9885
+      ],
+      "duelist": [],
+      "text": "Voilà Cercle Photon !"
+    },
+    "V0407_13_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10334
+      ],
+      "duelist": [],
+      "text": "Envole-toi dans l'espace, Satellite Photon !"
+    },
+    "V0407_13_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9882
+      ],
+      "duelist": [],
+      "text": "J'Invoque Spécialement Lanceur Photon !"
+    },
+    "V0407_13_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10335
+      ],
+      "duelist": [],
+      "text": "Allez, Trancheur Photon !"
+    },
+    "V0407_13_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10893
+      ],
+      "duelist": [],
+      "text": "Voici Chargeur Photon !"
+    },
+    "V0407_13_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10333
+      ],
+      "duelist": [],
+      "text": "Allons-y, Pirate Photon !"
+    },
+    "V0407_13_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9881
+      ],
+      "duelist": [],
+      "text": "Vas-y ! Lézard Photon !"
+    },
+    "V0407_13_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9884
+      ],
+      "duelist": [],
+      "text": "Léo Photon !\nRugis !"
+    },
+    "V0407_13_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9966
+      ],
+      "duelist": [],
+      "text": "Vouivre Photon ! Vole !"
+    },
+    "V0407_13_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9864
+      ],
+      "duelist": [],
+      "text": "Allez, Tigre Photon !"
+    },
+    "V0407_13_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13858
+      ],
+      "duelist": [],
+      "text": "Rejoins-moi, Volatil Photon !"
+    },
+    "V0407_13_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9886
+      ],
+      "duelist": [],
+      "text": "Je vais rendre tes cartes face verso inutiles."
+    },
+    "V0407_13_00_46_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Viens là, Destructeur de Retournement !"
+    },
+    "V0407_13_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10338
+      ],
+      "duelist": [],
+      "text": "Viens !\nSorcier Galactique !"
+    },
+    "V0407_13_00_48_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10339
+      ],
+      "duelist": [],
+      "text": "Vas-y !\nChevalier Galactique !"
+    },
+    "V0407_13_00_49_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11032
+      ],
+      "duelist": [],
+      "text": "Et voilà Tyranno Galactique !"
+    },
+    "V0407_13_00_50_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11031
+      ],
+      "duelist": [],
+      "text": "Viens jouer !\nSage du Miroir Galactique !"
+    },
+    "V0407_13_00_51_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10931
+      ],
+      "duelist": [],
+      "text": "Paladin du Dragon Photon !\nEnvole-toi !"
+    },
+    "V0407_13_00_52_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13897
+      ],
+      "duelist": [],
+      "text": "Allons-y, Clerc Galactique !"
+    },
+    "V0407_13_00_53_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13898
+      ],
+      "duelist": [],
+      "text": "Rejoins le Duel, Brave Galactique !"
+    },
+    "V0407_13_00_54_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11114
+      ],
+      "duelist": [],
+      "text": "Apparais !\nSoldat Galactique !"
+    },
+    "V0407_37_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12552
+      ],
+      "duelist": [],
+      "text": "La galaxie a soif de vengeance !"
+    },
+    "V0407_37_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Xyz !"
+    },
+    "V0407_13_00_55_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12552
+      ],
+      "duelist": [],
+      "text": "Dragon Cipher aux Yeux Galactiques de Rang 8 !"
+    },
+    "V0407_37_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12784
+      ],
+      "duelist": [],
+      "text": "Dans les ténèbres, la lumière éclaire le chemin de l'avenir."
+    },
+    "V0407_37_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Évolution Xyz Rang Plus !"
+    },
+    "V0407_13_00_56_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12784
+      ],
+      "duelist": [],
+      "text": "Montre-toi !\nNéo Dragon Cipher aux Yeux Galactiques !"
+    },
+    "V0407_37_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12696
+      ],
+      "duelist": [],
+      "text": "Évolution Xyz Rang Plus !"
+    },
+    "V0407_13_00_57_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12696
+      ],
+      "duelist": [],
+      "text": "Viens jouer !\nDragon Épée Cipher aux Yeux Galactiques de Rang 9 !"
+    },
+    "V0407_13_00_58_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12746
+      ],
+      "duelist": [],
+      "text": "Étranger Cipher !"
+    },
+    "V0407_13_00_59_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12601
+      ],
+      "duelist": [],
+      "text": "Chevalier Miroir Cipher !"
+    },
+    "V0407_13_00_60_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12600
+      ],
+      "duelist": [],
+      "text": "Raptor Jumeau Cipher !"
+    },
+    "V0407_13_00_61_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12551
+      ],
+      "duelist": [],
+      "text": "Aile Cipher !"
+    },
+    "V0407_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bats-toi !"
+    },
+    "V0407_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattons !"
+    },
+    "V0407_15_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prends ça !"
+    },
+    "V0407_15_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allez !"
+    },
+    "V0407_15_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Admire un peu ça !"
+    },
+    "V0407_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0407_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque !"
+    },
+    "V0407_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque !"
+    },
+    "V0407_16_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu viens de te faire chasser !"
+    },
+    "V0407_16_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu sais que tu vas perdre ?"
+    },
+    "V0407_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque directe !"
+    },
+    "V0407_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je t'attaque directement !"
+    },
+    "V0407_19_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9729
+      ],
+      "duelist": [],
+      "text": "Dragon Photon aux Yeux Galactiques !\nDéfonce tout !"
+    },
+    "V0407_19_00_00_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot Photon de Destruction !"
+    },
+    "V0407_19_00_01_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10064
+      ],
+      "duelist": [],
+      "text": "Néo Dragon Photon aux Yeux Galactiques !\nAttaque !"
+    },
+    "V0407_19_00_01_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot ultime de destruction Photon !"
+    },
+    "V0407_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14959
+      ],
+      "duelist": [],
+      "text": "Dragon des Dernières Lueurs aux Yeux Galactiques attaque !"
+    },
+    "V0407_19_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot d'illumination Photon !"
+    },
+    "V0407_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11113
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Dragonuage aux Yeux Galactiques !"
+    },
+    "V0407_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11461
+      ],
+      "duelist": [],
+      "text": "Dragon Photon Armure Complète aux Yeux Galactiques attaque !"
+    },
+    "V0407_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot de dévastation Photon !"
+    },
+    "V0407_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10266
+      ],
+      "duelist": [],
+      "text": "Numéro 9 : Sphère Dyson déclenche un torrent de destruction !"
+    },
+    "V0407_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9759
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Numéro 10 : Illumiknight !"
+    },
+    "V0407_19_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lacération d'épée scintillante !"
+    },
+    "V0407_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11018
+      ],
+      "duelist": [],
+      "text": "Numéro 13 : Incarnation du Crime !\nAttaque !"
+    },
+    "V0407_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9760
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Numéro 20 : Giga-Brillant !"
+    },
+    "V0407_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9858
+      ],
+      "duelist": [],
+      "text": "La force de la Carte Numéro 30 : Golem Acide de Destruction dépasse l'entendement !"
+    },
+    "V0407_19_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Projection acide !"
+    },
+    "V0407_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12260
+      ],
+      "duelist": [],
+      "text": "Allez, Numéro 38 : Espoir Annonciateur Dragon Titanesque Galactique !"
+    },
+    "V0407_19_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Explosion titanesque de destruction !"
+    },
+    "V0407_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10781
+      ],
+      "duelist": [],
+      "text": "Reçois la pleine puissance de la Carte Numéro 46 : Dragluon !"
+    },
+    "V0407_19_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Frappe de la flamme d'émeraude !"
+    },
+    "V0407_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9857
+      ],
+      "duelist": [],
+      "text": "Numéro 56 : Rat d'Or ! Attaque !"
+    },
+    "V0407_19_00_13_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11069
+      ],
+      "duelist": [],
+      "text": "Allez, Numéro 62 : Dragon Photon Primordial aux Yeux Galactiques !"
+    },
+    "V0407_19_00_13_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot de Photon éternel !"
+    },
+    "V0407_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13826
+      ],
+      "duelist": [],
+      "text": "Numéro 90 : Seigneur Photon aux Yeux Galactiques attaque !"
+    },
+    "V0407_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11651
+      ],
+      "duelist": [],
+      "text": "Prends ça !\nNuméro 95 : Dragon Matière des Ténèbres aux Yeux Galactiques attaque !"
+    },
+    "V0407_19_00_15_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot de dévastation Photon !"
+    },
+    "V0407_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10340
+      ],
+      "duelist": [],
+      "text": "Paladynamo Seigneur des Étoiles !\nC'est l'heure de la raclée !"
+    },
+    "V0407_19_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Division Photon !"
+    },
+    "V0407_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10653
+      ],
+      "duelist": [],
+      "text": "Mets-lui une raclée, Galaxion Seigneur des Étoiles !"
+    },
+    "V0407_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13857
+      ],
+      "duelist": [],
+      "text": "Écrase-moi ça, Dragon Explosif Photon Seigneur des Étoiles !"
+    },
+    "V0407_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10891
+      ],
+      "duelist": [],
+      "text": "Sentinelle Habillée attaque !"
+    },
+    "V0407_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10892
+      ],
+      "duelist": [],
+      "text": "Booster Habillé attaque !"
+    },
+    "V0407_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10379
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Orbital 7 !"
+    },
+    "V0407_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13859
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Orbital Photon !"
+    },
+    "V0407_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11193
+      ],
+      "duelist": [],
+      "text": "Occupe-toi de cette ordure, Lillybot !"
+    },
+    "V0407_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10730
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Dragon Galactique !"
+    },
+    "V0407_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11926
+      ],
+      "duelist": [],
+      "text": "Ver - Galactique attaque !"
+    },
+    "V0407_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10336
+      ],
+      "duelist": [],
+      "text": "Kuri Photon ! Attaque !"
+    },
+    "V0407_19_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9913
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Lézard Jumeau Photon !"
+    },
+    "V0407_19_00_27_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Force Photon !"
+    },
+    "V0407_19_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10337
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Voyageur Dimensionnel !"
+    },
+    "V0407_19_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9730
+      ],
+      "duelist": [],
+      "text": "Achève l'adversaire, Briseur de Jour !"
+    },
+    "V0407_19_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11295
+      ],
+      "duelist": [],
+      "text": "Chasseur Numéral ! Attaque !"
+    },
+    "V0407_19_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13552
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Avanceur Photon !"
+    },
+    "V0407_19_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10134
+      ],
+      "duelist": [],
+      "text": "César Photon !\nLacère l'adversaire !"
+    },
+    "V0407_19_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9883
+      ],
+      "duelist": [],
+      "text": "Écrase-moi ça, Broyeur Photon !"
+    },
+    "V0407_19_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9733
+      ],
+      "duelist": [],
+      "text": "Cerbère Photon ! Attaque !"
+    },
+    "V0407_19_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9885
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Cercle Photon !"
+    },
+    "V0407_19_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10334
+      ],
+      "duelist": [],
+      "text": "Satellite Photon ! Feu !"
+    },
+    "V0407_19_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9882
+      ],
+      "duelist": [],
+      "text": "Ressens la lame de Lanceur Photon !"
+    },
+    "V0407_19_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10335
+      ],
+      "duelist": [],
+      "text": "Trancheur Photon ! Attaque !"
+    },
+    "V0407_19_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10893
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Chargeur Photon !"
+    },
+    "V0407_19_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10333
+      ],
+      "duelist": [],
+      "text": "Pirate Photon !\nC'est l'heure de la raclée !"
+    },
+    "V0407_19_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9881
+      ],
+      "duelist": [],
+      "text": "Lézard Photon attaque !"
+    },
+    "V0407_19_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9884
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Léo Photon !"
+    },
+    "V0407_19_00_42_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Croc Argenté !"
+    },
+    "V0407_19_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9966
+      ],
+      "duelist": [],
+      "text": "Nettoie tout ça, Vouivre Photon !"
+    },
+    "V0407_19_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9864
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Tigre Photon !"
+    },
+    "V0407_19_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13858
+      ],
+      "duelist": [],
+      "text": "Explose l'adversaire, Volatil Photon !"
+    },
+    "V0407_19_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9886
+      ],
+      "duelist": [],
+      "text": "Quand ceci attaque, tu ne peux activer ni Magies ni Pièges."
+    },
+    "V0407_19_00_46_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allez, Destructeur de Retournement !"
+    },
+    "V0407_19_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10338
+      ],
+      "duelist": [],
+      "text": "Sorcier Galactique attaque !"
+    },
+    "V0407_19_00_48_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10339
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Chevalier Galactique !"
+    },
+    "V0407_19_00_49_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11032
+      ],
+      "duelist": [],
+      "text": "Tyranno Galactique !\nAssomme tout sur ton passage !"
+    },
+    "V0407_19_00_50_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11031
+      ],
+      "duelist": [],
+      "text": "Sage du Miroir Galactique attaque !"
+    },
+    "V0407_19_00_51_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10931
+      ],
+      "duelist": [],
+      "text": "Paladin du Dragon Photon !\nAttaque !"
+    },
+    "V0407_19_00_52_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13897
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Clerc Galactique !"
+    },
+    "V0407_19_00_53_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13898
+      ],
+      "duelist": [],
+      "text": "Lacère l'adversaire, Brave Galactique !"
+    },
+    "V0407_19_00_54_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11114
+      ],
+      "duelist": [],
+      "text": "Soldat Galactique !\nC'est l'heure de cogner !"
+    },
+    "V0407_19_00_55_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12552
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Dragon Cipher aux Yeux Galactiques !"
+    },
+    "V0407_19_00_55_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot de destruction Cipher !"
+    },
+    "V0407_19_00_56_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12784
+      ],
+      "duelist": [],
+      "text": "Néo Dragon Cipher aux Yeux Galactiques !\nAttaque !"
+    },
+    "V0407_19_00_56_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot de l'annihilation Cipher !"
+    },
+    "V0407_19_00_57_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12696
+      ],
+      "duelist": [],
+      "text": "Dragon Épée Cipher aux Yeux Galactiques attaque !"
+    },
+    "V0407_19_00_57_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flot d'extermination Cipher !"
+    },
+    "V0407_19_00_58_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12746
+      ],
+      "duelist": [],
+      "text": "Étranger Cipher attaque !"
+    },
+    "V0407_19_00_59_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12601
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Chevalier Miroir Cipher !"
+    },
+    "V0407_19_00_60_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12600
+      ],
+      "duelist": [],
+      "text": "Raptor Jumeau Cipher attaque !"
+    },
+    "V0407_19_00_61_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12551
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Aile Cipher !"
+    },
+    "V0407_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte."
+    },
+    "V0407_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte."
+    },
+    "V0407_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre."
+    },
+    "V0407_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre."
+    },
+    "V0407_21_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as réussi à survivre."
+    },
+    "V0407_21_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0407_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0407_21_00_01_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Passons aux choses sérieuses !\nC'est ton tour !"
+    },
+    "V0407_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0407_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0407_21_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À toi !"
+    },
+    "V0407_21_00_04_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0407_21_00_04_1": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0407_21_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu es un peu plus coriace que ce que je pensais."
+    },
+    "V0407_21_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0407_28_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il faut y mettre plus de cœur si tu comptes me vaincre."
+    },
+    "V0407_28_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "N'oublie jamais le nom du chasseur qui t’a mis une raclée !"
+    },
+    "V0407_28_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu t'en sors bien en Duel, mais tu ne me vaincras jamais."
+    },
+    "V0407_28_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Peu importe ta stratégie, elle échouera face à moi."
+    },
+    "V0407_28_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402
+      ],
+      "text": "Je ne perds pas contre des amateurs comme toi, Yuma."
+    },
+    "V0407_28_00_05_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402
+      ],
+      "text": "Si tu reviens encore, je continuerai à te battre."
+    },
+    "V0407_28_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        403
+      ],
+      "text": "Je connais toutes tes stratégies, Astral."
+    },
+    "V0407_28_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        410
+      ],
+      "text": "Quattro !\nTu vas payer pour le mal que tu as fait !"
+    },
+    "V0407_28_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        411
+      ],
+      "text": "J'ai toujours rêvé d'atteindre ton niveau.\nJ'ai enfin réussi."
+    },
+    "V0407_28_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        411
+      ],
+      "text": "Aujourd'hui, l'élève dépasse le maître."
+    },
+    "V0407_28_00_10_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        9092,
+        9093,
+        9094,
+        9095,
+        434,
+        435
+      ],
+      "text": "Encore un Numéro de chassé."
+    },
+    "V0407_28_00_11_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        424,
+        443
+      ],
+      "text": "Une seule carte, Yeux Galactiques, m'a conduit jusqu'ici."
+    },
+    "V0407_29_00_00_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ceci ne sera pas mon dernier Duel..."
+    },
+    "V0407_29_00_01_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'abandonnerai pas.\nPas avant de t'avoir écrasé !"
+    },
+    "V0407_29_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'ai jamais été face à une stratégie si solide.\nBien joué."
+    },
+    "V0407_29_00_03_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La victoire est à toi pour l'instant, mais je la reprendrai."
+    },
+    "V0407_29_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402
+      ],
+      "text": "Yuma, tu m’impressionneras toujours."
+    },
+    "V0407_29_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Même quand tu essuies les pires défaites, tu te relèves."
+    },
+    "V0407_29_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        403
+      ],
+      "text": "Toujours aussi impressionnant, Astral."
+    },
+    "V0407_29_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        411
+      ],
+      "text": "Quinton, je veux dire, Christopher...\nJe finirai par te vaincre."
+    },
+    "V0407_29_00_07_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        9092,
+        9093,
+        9094,
+        9095,
+        434,
+        435,
+        419,
+        420,
+        422,
+        423,
+        441,
+        442,
+        444,
+        445,
+        446
+      ],
+      "text": "Pardonne-moi, Hart..."
+    },
+    "V0407_29_00_08_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        9092,
+        9093,
+        9094,
+        9095,
+        434,
+        435
+      ],
+      "text": "Tant que tu auras un Numéro je te pourchasserai !"
+    },
+    "V0407_29_00_09_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        424,
+        443
+      ],
+      "text": "Si nous nous revoyons, Mizar..."
+    },
+    "V0407_29_00_09_1": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu pourras peut-être m'expliquer ton comportement..."
+    },
+    "V0407_29_00_10_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        424,
+        443
+      ],
+      "text": "Fais ce que tu crois être juste, Mizar."
+    },
+    "V0407_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?"
+    },
+    "V0407_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Impossible !"
+    },
+    "V0407_33_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Haaa !"
+    },
+    "V0407_33_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas payer pour tes crimes !"
+    },
+    "V0407_33_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "La chasse est ouverte !"
+    },
+    "V0407_30_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "..."
+    },
+    "V0407_30_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as trop peur."
+    },
+    "V0407_30_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faire une erreur, moi ?\nDans tes rêves."
+    },
+    "V0407_34_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu me déçois.\nTu ne fais que défendre."
+    },
+    "V0407_34_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je sais ce que tu vas jouer ensuite !"
+    },
+    "V0407_34_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon temps est écoulé."
+    },
+    "V0407_34_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le brasier de mon âme brûlera le poison qui est en moi !"
+    },
+    "V0407_34_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yeux Galactiques et moi ne faisons qu'un !"
+    },
+    "V0407_34_00_05_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est impossible !"
+    },
+    "V0407_34_00_06_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne peux compter que sur toi !"
+    },
+    "V0407_34_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'ai jamais rien vu de tel !"
+    },
+    "V0407_34_00_08_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu maîtrises la tactique."
+    },
+    "V0407_34_00_09_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hart !"
+    },
+    "V0407_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0407_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links !"
+    },
+    "V0407_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "On m'appelle le chasseur de Numéros."
+    },
+    "V0407_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "..."
+    },
+    "V0407_36_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le reste du Duel est entre tes mains."
+    },
+    "V0407_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est ton tour."
+    },
+    "V0407_36_00_02_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Comment j'ai pu jouer si mal ?"
+    },
+    "V0407_36_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402
+      ],
+      "text": "Mets un terme à tout ça, Yuma !"
+    },
+    "V0407_36_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402
+      ],
+      "text": "C'est ton tour, Yuma !"
+    },
+    "V0407_36_00_05_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402
+      ],
+      "text": "Argh...\nYuma..."
+    },
+    "V0407_36_00_06_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        404
+      ],
+      "text": "Écrase-moi ça, Shark !"
+    },
+    "V0407_36_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        404
+      ],
+      "text": "Allez, Shark !"
+    },
+    "V0407_36_00_08_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        404
+      ],
+      "text": "Essaie de survivre, Shark !"
+    },
+    "V0407_36_00_09_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        411
+      ],
+      "text": "Allez, Christopher !"
+    },
+    "V0407_36_00_10_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        411
+      ],
+      "text": "Tu n'as pas intérêt de nous faire perdre, Christopher."
+    },
+    "V0407_36_00_11_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        411
+      ],
+      "text": "Argh... Christopher..."
+    },
+    "V0407_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouch !"
+    },
+    "V0407_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erg !"
+    },
+    "V0407_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0407_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erk..."
+    },
+    "V0407_26_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça y est ?"
+    },
+    "V0407_26_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Humpf..."
+    },
+    "V0407_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    },
+    "V0407_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0407_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grrrr !"
+    },
+    "V0407_27_00_00_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas me le payer !"
+    },
+    "V0407_27_00_01_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'est pas encore fini !"
+    },
+    "V0407_27_00_02_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je refuse de perdre !"
+    },
+    "V0407_24_00_00_0": {
+      "face": 10,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Ergh..."
+    },
+    "V0407_23_00_00_0": {
+      "face": 10,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    }
+  }
+}

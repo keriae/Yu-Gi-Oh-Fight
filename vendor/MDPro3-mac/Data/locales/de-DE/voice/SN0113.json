@@ -1,0 +1,2361 @@
+{
+  "_GRP_": "SN0113",
+  "_LNG_": "de-DE",
+  "info": {
+    "V0113_01_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Glückwunsch!\nDu darfst dich mit einem Dino duellieren!"
+    },
+    "V0113_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die Dinos sind nicht ausgestorben!\nSie leben in mir weiter!"
+    },
+    "V0113_01_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bereit fürs Bootcamp, Sonnenschein?"
+    },
+    "V0113_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mit einer Null wie dir werd ich den Boden aufwischen!"
+    },
+    "V0113_01_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Ich hab mich nach oben duelliert – alles dank dir!"
+    },
+    "V0113_01_00_04_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Und unterwegs hab ich ein paar neue Taktiken gelernt, Sarge!"
+    },
+    "V0113_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        112
+      ],
+      "text": "Aufgepasst!"
+    },
+    "V0113_01_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wenn ich gewinne,\nist Jaden MEIN Flügelmann!"
+    },
+    "V0113_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        114
+      ],
+      "text": "Schicksal?\nFür so einen Quatsch hat ein Soldat keine Zeit!"
+    },
+    "V0113_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zeit für ein Duell!"
+    },
+    "V0113_03_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich mache wieder einen Zivilisten aus dir!"
+    },
+    "V0113_03_00_00_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0113_03_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach dich bereit, Soldat!"
+    },
+    "V0113_03_00_01_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0113_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin dran!"
+    },
+    "V0113_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0113_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die prähistorische Patrouille ist noch nicht fertig mit dir!"
+    },
+    "V0113_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0113_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich kann mir keine taktischen Fehler mehr leisten!"
+    },
+    "V0113_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0113_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ein wahrer Soldat ergibt sich niemals!"
+    },
+    "V0113_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0113_04_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0113_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0113_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0113_05_00_00_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ich glaube an meine Karten, genau wie der Sarge!"
+    },
+    "V0113_05_00_00_1": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!!!"
+    },
+    "V0113_06_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rührt euch!"
+    },
+    "V0113_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Halt! Stopp!"
+    },
+    "V0113_06_01_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nicht so schnell!"
+    },
+    "V0113_06_01_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sei niemals unachtsam!"
+    },
+    "V0113_07_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Von meiner Hand …"
+    },
+    "V0113_07_01_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Zauberkarte!"
+    },
+    "V0113_07_02_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Schnellzauber!"
+    },
+    "V0113_07_03_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Permanenten Zauber!"
+    },
+    "V0113_07_04_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ausrüstungszauber!"
+    },
+    "V0113_07_05_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ritualzauber!"
+    },
+    "V0113_07_06_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meine Fallenkarte!"
+    },
+    "V0113_07_07_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Falle!"
+    },
+    "V0113_07_08_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meine Konterfalle!"
+    },
+    "V0113_07_09_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich decke meine verdeckte Karte auf!"
+    },
+    "V0113_07_09_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich spiele meine verdeckte Karte!"
+    },
+    "V0113_07_10_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt meines Monsters!"
+    },
+    "V0113_07_11_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Spielfeldzauber!"
+    },
+    "V0113_07_12_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Effekt!"
+    },
+    "V0113_07_13_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich lege den Pendelbereich fest!"
+    },
+    "V0113_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5983
+      ],
+      "duelist": [],
+      "text": "Mach dich auf was gefasst!\nIch aktiviere die Zauberkarte Erdbeben!"
+    },
+    "V0113_08_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich zwinge alle offenen Monster in Verteidigungsposition!"
+    },
+    "V0113_08_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6823
+      ],
+      "duelist": [],
+      "text": "Ein neues Zeitalter der Dinos beginnt!\nIch aktiviere Jurassische Welt!"
+    },
+    "V0113_08_00_01_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist der Inbegriff des Terrainvorteils!"
+    },
+    "V0113_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6822
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Schwanzhieb!"
+    },
+    "V0113_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13813
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Ausrüstungszauber Lebendes Fossil!"
+    },
+    "V0113_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6839
+      ],
+      "duelist": [],
+      "text": "Hier ist die Zauberkarte Doppelte Evolutionspille!"
+    },
+    "V0113_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13155
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nRaum-Zeit-Transzendenz!"
+    },
+    "V0113_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6819
+      ],
+      "duelist": [],
+      "text": "Ich biete einen Dinosaurier als Tribut an und aktiviereGroße Evolutionspille!"
+    },
+    "V0113_08_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mit dieser Karte im Spiel beschwöre ich Dinos ohne Tribute!"
+    },
+    "V0113_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5909
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Ultra Evolutionspille!"
+    },
+    "V0113_08_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sie entwickelt Reptilien im Handumdrehen zu Dinos weiter!"
+    },
+    "V0113_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8352
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nFossile Grabung!"
+    },
+    "V0113_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4337
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Spielfeldzauber Ödland!"
+    },
+    "V0113_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4332
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Ausrüstungszauber Körpertemperatur erhöhen!"
+    },
+    "V0113_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13013
+      ],
+      "duelist": [],
+      "text": "Ich lade dich in das Land ein, in dem Dinos nie ausstarben!"
+    },
+    "V0113_08_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere den Spielfeldzauber Untergegangene Welt!"
+    },
+    "V0113_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13013
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Untergegangene Welt wird aktiviert!"
+    },
+    "V0113_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13156
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Fallenkarte Jura-Einwirkung!"
+    },
+    "V0113_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6811
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Falle!\nFossile Ausgrabung!"
+    },
+    "V0113_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6817
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Fallenkarte!\nJagdinstinkt!"
+    },
+    "V0113_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6818
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Fallenkarte!\nÜberlebensinstinkt!"
+    },
+    "V0113_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6824
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Fallenkarte Vulkanausbruch!"
+    },
+    "V0113_08_00_17_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die Lava zerstört alle Karten auf dem Spielfeld."
+    },
+    "V0113_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10438
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nJurassier-Einschlag!"
+    },
+    "V0113_08_00_18_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Alle Karten auf dem Spielfeld sterben nun aus!"
+    },
+    "V0113_08_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13014
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nÜberlebensende!"
+    },
+    "V0113_08_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13014
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Überlebensende von meinem Friedhof!"
+    },
+    "V0113_08_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10810
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nÜberleben der Stärksten!"
+    },
+    "V0113_08_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10810
+      ],
+      "duelist": [],
+      "text": "Überleben der Stärksten lässt meinen Dinosaurier erneut angreifen!"
+    },
+    "V0113_08_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6825
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle Seismische Schockwelle!"
+    },
+    "V0113_08_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6825
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Seismische Schockwelle!"
+    },
+    "V0113_08_00_24_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich nehme einen Dinosaurier aus meinem Friedhof auf meine Hand."
+    },
+    "V0113_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7108
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Zerstörersaurier von meiner Hand!"
+    },
+    "V0113_09_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich füge Jurassische Welt meiner Hand hinzu!"
+    },
+    "V0113_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5806
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Riesen-Rex wird aktiviert!"
+    },
+    "V0113_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5888
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Hyper Hammerkopf wird aktiviert!"
+    },
+    "V0113_09_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Er schickt das Monster, gegen das er gekämpft hat, zurück auf die Hand des Besitzers!"
+    },
+    "V0113_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6799
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Babycerasaurier wird aktiviert!"
+    },
+    "V0113_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6776
+      ],
+      "duelist": [],
+      "text": "Schwarzer Stego ist ein Meister der Verteidigung!"
+    },
+    "V0113_09_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wird er angegriffen, wechselt er in die Verteidigungsposition!"
+    },
+    "V0113_09_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5256
+      ],
+      "duelist": [],
+      "text": "Gilasaurus lässt dich ein Monster vom Friedhof spezialbeschwören!"
+    },
+    "V0113_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6816
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Superleiter-Tyranno wird aktiviert!"
+    },
+    "V0113_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7559
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Sauropode Brachion wird aktiviert!"
+    },
+    "V0113_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13010
+      ],
+      "duelist": [],
+      "text": "Ultimativleiter-Tyranno aktiviert seinen Effekt!"
+    },
+    "V0113_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5889
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schwarzer Tyranno wird aktiviert!"
+    },
+    "V0113_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7802
+      ],
+      "duelist": [],
+      "text": "Durch den Effekt von Superantikes Dinoungeheuer kann ich eine Karte ziehen!"
+    },
+    "V0113_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13406
+      ],
+      "duelist": [],
+      "text": "Overtex-Qoatlus!\nAktiviere deinen Effekt!"
+    },
+    "V0113_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6797
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Jurawunderei wird aktiviert!"
+    },
+    "V0113_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12763
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Verschiedosaurier von meiner Hand!"
+    },
+    "V0113_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12763
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Verschiedosaurier wird vom Friedhof aktiviert!"
+    },
+    "V0113_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13011
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Seelenfressender Oviraptor wird aktiviert!"
+    },
+    "V0113_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13009
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Petiteranodon wird aktiviert!"
+    },
+    "V0113_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6798
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schwarzer Ptera wird aktiviert!"
+    },
+    "V0113_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10924
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Schwarzer Brachios!"
+    },
+    "V0113_10_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich spiele das!"
+    },
+    "V0113_10_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unterschätze diesen Kerl nicht, Soldat!"
+    },
+    "V0113_10_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bereitmachen!"
+    },
+    "V0113_10_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Alle Mann an Deck!"
+    },
+    "V0113_11_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster!"
+    },
+    "V0113_11_01_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster in Verteidigungsposition!"
+    },
+    "V0113_11_02_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Spezialbeschwörung!"
+    },
+    "V0113_11_03_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich biete ein Monster als Tribut an!"
+    },
+    "V0113_11_04_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Tributbeschwörung!"
+    },
+    "V0113_11_05_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0113_11_06_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Ritualbeschwörung!"
+    },
+    "V0113_11_07_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Synchrobeschwörung!"
+    },
+    "V0113_11_08_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Xyz-Beschwörung!"
+    },
+    "V0113_11_09_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Pendelbeschwörung!"
+    },
+    "V0113_11_10_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Linkbeschwörung!"
+    },
+    "V0113_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6183
+      ],
+      "duelist": [],
+      "text": "Elementarsaurus!\nAngetreten!"
+    },
+    "V0113_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7108
+      ],
+      "duelist": [],
+      "text": "Zeig dich, Zerstörersaurier!"
+    },
+    "V0113_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5806
+      ],
+      "duelist": [],
+      "text": "Riesen-Rex! Du bist dran!"
+    },
+    "V0113_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6796
+      ],
+      "duelist": [],
+      "text": "Säbelsaurier, zeig, was du draufhast!"
+    },
+    "V0113_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6427
+      ],
+      "duelist": [],
+      "text": "Dies ist der Beginn einer neuen Ära!\nTyranno Infinit!"
+    },
+    "V0113_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5888
+      ],
+      "duelist": [],
+      "text": "Ich zähl auf dich, Hyper Hammerkopf!"
+    },
+    "V0113_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6799
+      ],
+      "duelist": [],
+      "text": "Das wird dich umhauen!\nBabycerasaurier!"
+    },
+    "V0113_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6776
+      ],
+      "duelist": [],
+      "text": "Hier kommt Schwarzer Stego!"
+    },
+    "V0113_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5887
+      ],
+      "duelist": [],
+      "text": "Finsterer Driceratops!\nMelde dich zum Dienst!"
+    },
+    "V0113_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        6777
+      ],
+      "duelist": [],
+      "text": "Ultimativer Tyranno!\nAn die Front mit dir!"
+    },
+    "V0113_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5256
+      ],
+      "duelist": [],
+      "text": "Gilasaurus!\nDurchbrich die feindlichen Linien!"
+    },
+    "V0113_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        6816
+      ],
+      "duelist": [],
+      "text": "Superleiter-Tyranno meldet sich zum Dienst!"
+    },
+    "V0113_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7559
+      ],
+      "duelist": [],
+      "text": "Sauropode Brachion ist bereit für den Kampf!"
+    },
+    "V0113_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13010
+      ],
+      "duelist": [],
+      "text": "Erstarre in Furcht vor dem ultimativen Raubtier!"
+    },
+    "V0113_13_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre Cycroid als Spezialbeschwörung!"
+    },
+    "V0113_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5889
+      ],
+      "duelist": [],
+      "text": "Lass uns loslegen, Schwarzer Tyranno!"
+    },
+    "V0113_13_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7802
+      ],
+      "duelist": [],
+      "text": "Superantikes Dinoungeheuer betritt das Schlachtfeld!"
+    },
+    "V0113_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13406
+      ],
+      "duelist": [],
+      "text": "Ich beschwöre Cycroid als Spezialbeschwörung!"
+    },
+    "V0113_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6797
+      ],
+      "duelist": [],
+      "text": "Hier ist Jurawunderei!"
+    },
+    "V0113_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12763
+      ],
+      "duelist": [],
+      "text": "Ich glaube an dich, Verschiedosaurier!"
+    },
+    "V0113_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13011
+      ],
+      "duelist": [],
+      "text": "Hier kommt Seelenfressender Oviraptor!"
+    },
+    "V0113_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13009
+      ],
+      "duelist": [],
+      "text": "Stürz dich auf sie, Petiteranodon!"
+    },
+    "V0113_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7433
+      ],
+      "duelist": [],
+      "text": "Hier ist Schwarzer Veloci!"
+    },
+    "V0113_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6798
+      ],
+      "duelist": [],
+      "text": "Steig auf, Schwarzer Ptera!"
+    },
+    "V0113_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10924
+      ],
+      "duelist": [],
+      "text": "Zerstampfe sie, Schwarzer Brachios!"
+    },
+    "V0113_13_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        6961
+      ],
+      "duelist": [],
+      "text": "Frostosaurier!\nAngetreten!"
+    },
+    "V0113_13_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13012
+      ],
+      "duelist": [],
+      "text": "Los geht’s, Megaloreißer X!"
+    },
+    "V0113_13_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5142
+      ],
+      "duelist": [],
+      "text": "Du wirst meine Verrückte Schwertbestie nicht aufhalten!"
+    },
+    "V0113_14_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zeit, zu kämpfen!"
+    },
+    "V0113_14_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Kämpfen wir!"
+    },
+    "V0113_15_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nimm das!"
+    },
+    "V0113_15_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das hier ist Grabenkrieg!"
+    },
+    "V0113_15_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Los!"
+    },
+    "V0113_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift an!"
+    },
+    "V0113_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Angriff!"
+    },
+    "V0113_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vorwärts marsch!"
+    },
+    "V0113_16_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Deine Life Points entfernen sich unerlaubt von der Truppe!"
+    },
+    "V0113_16_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das Duell ist vorbei, Soldat!"
+    },
+    "V0113_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife dich direkt an!"
+    },
+    "V0113_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift dich direkt an!"
+    },
+    "V0113_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6183
+      ],
+      "duelist": [],
+      "text": "Mach sie nieder, Elementarsaurus!"
+    },
+    "V0113_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7108
+      ],
+      "duelist": [],
+      "text": "Greif an, Zerstörersaurier!"
+    },
+    "V0113_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5806
+      ],
+      "duelist": [],
+      "text": "Riesen-Rex greift an!"
+    },
+    "V0113_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6796
+      ],
+      "duelist": [],
+      "text": "Säbelsaurier! Angriff!"
+    },
+    "V0113_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6427
+      ],
+      "duelist": [],
+      "text": "Tyranno Infinit greift an!"
+    },
+    "V0113_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unendlicher Reißzahn!"
+    },
+    "V0113_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5888
+      ],
+      "duelist": [],
+      "text": "Hyper Hammerkopf!\nRamm sie in den Boden!"
+    },
+    "V0113_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6799
+      ],
+      "duelist": [],
+      "text": "Babycerasaurier greift an!"
+    },
+    "V0113_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6776
+      ],
+      "duelist": [],
+      "text": "Schwarzer Stego greift an!"
+    },
+    "V0113_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5887
+      ],
+      "duelist": [],
+      "text": "Finsterer Driceratops! Angriff!"
+    },
+    "V0113_19_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Phantomschnabel-Sturzflug!"
+    },
+    "V0113_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6777
+      ],
+      "duelist": [],
+      "text": "Verschlinge sie, Ultimativer Tyranno!"
+    },
+    "V0113_19_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ultimativer Biss!"
+    },
+    "V0113_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5256
+      ],
+      "duelist": [],
+      "text": "Gilasaurus!\nTu deine Pflicht!"
+    },
+    "V0113_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6816
+      ],
+      "duelist": [],
+      "text": "Greif an, Superleiter-Tyranno!"
+    },
+    "V0113_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7559
+      ],
+      "duelist": [],
+      "text": "Stürz dich auf den Feind, Sauropode Brachion!"
+    },
+    "V0113_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13010
+      ],
+      "duelist": [],
+      "text": "Ultimativleiter-Tyranno!\nLooooos!"
+    },
+    "V0113_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5889
+      ],
+      "duelist": [],
+      "text": "Schwarzer Tyranno! Mach sie fertig!"
+    },
+    "V0113_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7802
+      ],
+      "duelist": [],
+      "text": "Superantikes Dinoungeheuer!\nTu ihnen richtig weh!"
+    },
+    "V0113_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13406
+      ],
+      "duelist": [],
+      "text": "Overtex-Qoatlus! Angriff!"
+    },
+    "V0113_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6797
+      ],
+      "duelist": [],
+      "text": "Greif an, Jurawunderei!"
+    },
+    "V0113_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12763
+      ],
+      "duelist": [],
+      "text": "Verschiedosaurier greift an!"
+    },
+    "V0113_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13011
+      ],
+      "duelist": [],
+      "text": "Seelenfressender Oviraptor! Auf sie mit Karacho!"
+    },
+    "V0113_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13009
+      ],
+      "duelist": [],
+      "text": "Greif an, Petiteranodon!"
+    },
+    "V0113_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7433
+      ],
+      "duelist": [],
+      "text": "Schwarzer Veloci greift an!"
+    },
+    "V0113_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6798
+      ],
+      "duelist": [],
+      "text": "Schwarzer Ptera! Angriff!"
+    },
+    "V0113_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10924
+      ],
+      "duelist": [],
+      "text": "Greif an, Schwarzer Brachios!"
+    },
+    "V0113_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6961
+      ],
+      "duelist": [],
+      "text": "Leg sie auf Eis, Frostosaurier!"
+    },
+    "V0113_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13012
+      ],
+      "duelist": [],
+      "text": "Megaloreißer X!\nRadier sie aus!"
+    },
+    "V0113_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5142
+      ],
+      "duelist": [],
+      "text": "Verrückte Schwertbestie! Angriff!"
+    },
+    "V0113_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0113_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0113_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0113_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0113_21_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du und deine Monster werden in kürzester Zeit aussterben!"
+    },
+    "V0113_21_00_00_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Zug!"
+    },
+    "V0113_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Zug!"
+    },
+    "V0113_21_00_02_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich muss es einfach überleben …"
+    },
+    "V0113_21_00_02_1": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Zug!"
+    },
+    "V0113_28_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mission erfüllt!\nAlles dank meiner Dino-DNA!"
+    },
+    "V0113_28_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Sarge half mir, als Duellant neue Höhen zu erreichen!"
+    },
+    "V0113_28_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich habe die Jurazeit überlebt, ich überlebe auch dich!"
+    },
+    "V0113_28_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mit meiner Dino-DNA bin ich kein Durchschnittstyp!"
+    },
+    "V0113_28_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Ohne deine Hilfe könnte ich kein so mächtiges Deck bauen!"
+    },
+    "V0113_28_00_04_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich schulde dir alles, Sarge!"
+    },
+    "V0113_28_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        112
+      ],
+      "text": "Überlass den Auftritt als Sidekick vom Sarge mir!"
+    },
+    "V0113_28_00_06_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        114
+      ],
+      "text": "Dein Gerede über Schicksal kannst du dir sparen!"
+    },
+    "V0113_28_00_06_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Denkst du, du könntest Dinos mit Worten besiegen?"
+    },
+    "V0113_29_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Junge, Junge. Da hab ich eine richtige Tracht Prügel kassiert!"
+    },
+    "V0113_29_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Dinos!!!\nDas ist Befehlsverweigerung!"
+    },
+    "V0113_29_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die Evolution geht weiter. Nächstes Mal verliere ich nicht!"
+    },
+    "V0113_29_00_03_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du bist ’ne harte Nuss … Zu hart für mich!"
+    },
+    "V0113_29_00_04_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Du bist ein T-Rex und ich ein Stegosaurus."
+    },
+    "V0113_29_00_05_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        112
+      ],
+      "text": "Du hast echt Rückgrat gezeigt, Syrus!"
+    },
+    "V0113_29_00_06_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        106
+      ],
+      "text": "Du bist die gruseligste Duellantin östlich des Rio Grande!"
+    },
+    "V0113_29_00_07_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        114
+      ],
+      "text": "Ich glaube nicht an das Schicksal …"
+    },
+    "V0113_29_00_07_1": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Und trotzdem bin ich ausgestorben."
+    },
+    "V0113_30_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich kapier das nicht!"
+    },
+    "V0113_30_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nie mehr Mr. Nice Sarge!"
+    },
+    "V0113_30_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was quasselst du da?"
+    },
+    "V0113_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was?!"
+    },
+    "V0113_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was zum …?!"
+    },
+    "V0113_33_00_00_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Bewundere die wahre Macht der Dinos!"
+    },
+    "V0113_33_00_01_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast meine Dino-DNA geweckt!"
+    },
+    "V0113_33_00_02_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Duellanten-Fähigkeiten entwickeln sich weiter!"
+    },
+    "V0113_34_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Niemand kommt zwischen mich und meinen kommandierenden Offizier!"
+    },
+    "V0113_34_00_01_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gegen dich kann ich meine Deckung nicht runternehmen!"
+    },
+    "V0113_34_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist die Härte, die den Dinos das Überleben ermöglichte!"
+    },
+    "V0113_34_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Herz wird ausbrechen wie ein Vulkan!"
+    },
+    "V0113_34_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Beleidige niemals einen Dino!"
+    },
+    "V0113_34_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du bist kein guter Duellant, aber ich mag deinen Stil!"
+    },
+    "V0113_34_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich freu mich auf unser Duell, Soldat!"
+    },
+    "V0113_34_00_07_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast noch nicht meine besten Dino-Kombos gesehen!"
+    },
+    "V0113_34_00_08_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin der einzige Duellant mit einem Dinoknochen im Bein!"
+    },
+    "V0113_34_00_09_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich verwandle mich jetzt in einen Spacesaurus!"
+    },
+    "V0113_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0113_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duell-Links!"
+    },
+    "V0113_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In niemandem steckt mehr Dino als in mir!"
+    },
+    "V0113_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Name ist Hassleberry! Codename: Tyranno!"
+    },
+    "V0113_22_00_00_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Uff!"
+    },
+    "V0113_22_00_01_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh!"
+    },
+    "V0113_22_00_02_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gwaaaa!"
+    },
+    "V0113_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das war gar nichts!"
+    },
+    "V0113_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ist das schon alles?"
+    },
+    "V0113_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hmpf!"
+    },
+    "V0113_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Urgs!"
+    },
+    "V0113_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grrrr!"
+    },
+    "V0113_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhhh!"
+    },
+    "V0113_27_00_00_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh …"
+    },
+    "V0113_27_00_01_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh nein!"
+    },
+    "V0113_27_00_02_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "E-Es ist noch nicht vorbei!"
+    },
+    "V0113_24_00_00_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh …"
+    },
+    "V0113_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhhhhh!"
+    },
+    "V0113_36_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin froh, dass du in meinem Zug bist! Du bist so stark wie ein Bronto!"
+    },
+    "V0113_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sichere den Graben, Soldat!"
+    },
+    "V0113_36_00_02_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tut mir leid, Soldat …"
+    },
+    "V0113_36_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        115
+      ],
+      "text": "Wenn der Sarge befiehlt, kann ich Heimaturlaub machen!"
+    },
+    "V0113_36_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        115
+      ],
+      "text": "Auf dich ist stets Verlass, Sarge!"
+    },
+    "V0113_36_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        115
+      ],
+      "text": "Ich weiß, dass du immer einen Plan hast, Sarge!"
+    },
+    "V0113_36_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        112
+      ],
+      "text": "Beende diese Mission, Syrus!"
+    },
+    "V0113_36_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        112
+      ],
+      "text": "Du bist dran, Soldat!"
+    },
+    "V0113_36_00_08_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        112
+      ],
+      "text": "Ich weiß, dass du dieser Aufgabe gewachsen bist!"
+    },
+    "V0113_36_00_09_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        106
+      ],
+      "text": "Der Erfolg dieser Mission liegt in deinen Händen!"
+    },
+    "V0113_36_00_10_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        106
+      ],
+      "text": "Du bist am Zug!"
+    },
+    "V0113_36_00_11_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        106
+      ],
+      "text": "Äh … Hoffentlich bist du nicht sauer auf mich."
+    },
+    "V0113_36_00_12_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        140
+      ],
+      "text": "Was ist deine Strategie, Blair?"
+    },
+    "V0113_36_00_13_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        140
+      ],
+      "text": "Du bist dran, Blair."
+    },
+    "V0113_36_00_14_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        140
+      ],
+      "text": "Blair, schaffst du das?"
+    }
+  }
+}

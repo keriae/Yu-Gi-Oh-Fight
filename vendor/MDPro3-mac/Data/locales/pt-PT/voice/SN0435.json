@@ -1,0 +1,628 @@
+{
+  "_GRP_": "SN0435",
+  "_LNG_": "pt-BR",
+  "info": {
+    "V0435_01_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Um Duelo em Equipe?\nEsse não é um terreno em que você queira pisar!"
+    },
+    "V0435_02_00_00_0": {
+      "face": 11,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duelo!"
+    },
+    "V0435_03_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Se você quer se machucar, então você vai se machucar!"
+    },
+    "V0435_03_00_00_1": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "É a minha vez!"
+    },
+    "V0435_03_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meu turno!"
+    },
+    "V0435_03_00_02_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Seu verme..."
+    },
+    "V0435_03_00_02_1": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "É a minha vez!"
+    },
+    "V0435_04_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Compro!"
+    },
+    "V0435_04_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Compro!"
+    },
+    "V0435_04_00_02_0": {
+      "face": 13,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Compro!"
+    },
+    "V0435_05_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Compro!"
+    },
+    "V0435_06_01_00_0": {
+      "face": 11,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hehehe!"
+    },
+    "V0435_06_01_01_0": {
+      "face": 11,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Era isso que eu estava esperando!"
+    },
+    "V0435_07_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Da minha mão..."
+    },
+    "V0435_07_01_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo um Card de Magia!"
+    },
+    "V0435_07_02_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo minha Magia Rápida!"
+    },
+    "V0435_07_03_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo minha Magia Contínua!"
+    },
+    "V0435_07_04_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo minha Magia de Equipamento!"
+    },
+    "V0435_07_05_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo minha Magia de Ritual!"
+    },
+    "V0435_07_06_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo meu Card de Armadilha!"
+    },
+    "V0435_07_07_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo minha Armadilha Contínua!"
+    },
+    "V0435_07_08_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo minha Armadilha de Resposta!"
+    },
+    "V0435_07_09_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Viro meu card Baixado!"
+    },
+    "V0435_07_10_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo meu efeito de monstro!"
+    },
+    "V0435_07_11_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo minha Magia de Campo!"
+    },
+    "V0435_07_12_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ativo um efeito!"
+    },
+    "V0435_07_13_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Baixo a Escala de Pêndulo!"
+    },
+    "V0435_09_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9854
+      ],
+      "duelist": [],
+      "text": "O efeito de Congeladon é ativado!"
+    },
+    "V0435_10_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vou jogar esse!"
+    },
+    "V0435_10_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hehehe!"
+    },
+    "V0435_11_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invoco um monstro!"
+    },
+    "V0435_11_01_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invoco um monstro em Posição de Defesa!"
+    },
+    "V0435_11_02_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faço a Invocação-Especial de um monstro!"
+    },
+    "V0435_11_03_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ofereço um monstro como Tributo!"
+    },
+    "V0435_11_04_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faço a Invocação-Tributo de um monstro!"
+    },
+    "V0435_11_05_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faço a Invocação-Fusão de um monstro!"
+    },
+    "V0435_11_06_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faço a Invocação-Ritual de um monstro!"
+    },
+    "V0435_11_07_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faço a Invocação-Sincro de um monstro!"
+    },
+    "V0435_11_08_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faço a Invocação-Xyz de um monstro!"
+    },
+    "V0435_11_08_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Construo a Rede de Sobreposição! Faço uma Invocação-Xyz!"
+    },
+    "V0435_11_09_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faço a Invocação-Pêndulo de um monstro!"
+    },
+    "V0435_11_10_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faço a Invocação-Elo de um monstro!"
+    },
+    "V0435_13_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9854
+      ],
+      "duelist": [],
+      "text": "Aqui está o Número 19: Congeladon!"
+    },
+    "V0435_14_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À batalha!"
+    },
+    "V0435_15_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aqui vai uma pancada!"
+    },
+    "V0435_15_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tome isso!"
+    },
+    "V0435_17_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meu monstro ataca!"
+    },
+    "V0435_16_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Por isso ninguém se mete comigo!"
+    },
+    "V0435_18_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ataco você diretamente!"
+    },
+    "V0435_19_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9854
+      ],
+      "duelist": [],
+      "text": "Congeladon!\nCongele-os!"
+    },
+    "V0435_20_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Baixo um card!"
+    },
+    "V0435_20_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Estou Baixando um card!"
+    },
+    "V0435_20_01_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Baixo um monstro!"
+    },
+    "V0435_20_01_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Estou Baixando um monstro!"
+    },
+    "V0435_21_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Não há equipe melhor que nós!"
+    },
+    "V0435_21_00_00_1": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino meu turno!"
+    },
+    "V0435_21_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino meu turno!"
+    },
+    "V0435_21_00_02_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino meu turno..."
+    },
+    "V0435_21_00_02_1": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mano, alguma solução?"
+    },
+    "V0435_28_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Você acha que eu estava trapaceando!?\nQue perdedor!"
+    },
+    "V0435_29_00_00_0": {
+      "face": 15,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "O que estamos fazendo aqui?\nNão lembro de nada..."
+    },
+    "V0435_31_00_00_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "O quê?!"
+    },
+    "V0435_31_00_01_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Não é possível..."
+    },
+    "V0435_33_00_00_0": {
+      "face": 11,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "É assim que nós lutamos!"
+    },
+    "V0435_36_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Conseguimos, Scorch!"
+    },
+    "V0435_36_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Você conseguiu, mano!"
+    },
+    "V0435_36_00_02_0": {
+      "face": 15,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Scorch..."
+    },
+    "V0435_22_00_00_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ugh!"
+    },
+    "V0435_22_00_01_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hunf!"
+    },
+    "V0435_26_00_00_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0435_26_00_01_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Isso é jogo baixo!"
+    },
+    "V0435_25_00_00_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhh!"
+    },
+    "V0435_25_00_01_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaaaa!"
+    },
+    "V0435_27_00_00_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gah..."
+    },
+    "V0435_27_00_01_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Isso não pode estar acontecendo..."
+    },
+    "V0435_24_00_00_0": {
+      "face": 17,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "............."
+    },
+    "V0435_23_00_00_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arghhhh!"
+    }
+  }
+}

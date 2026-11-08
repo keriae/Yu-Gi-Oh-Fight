@@ -1,0 +1,1401 @@
+{
+  "_GRP_": "SN0850",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0850_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas voir qu'il ne faut jamais se frotter aux Hanoi !"
+    },
+    "V0850_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Personne n'échappe aux Chevaliers de Hanoi !"
+    },
+    "V0850_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je t'attends !\nÇa va être facile de gagner !"
+    },
+    "V0850_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh oh...\nHum... Je veux dire...\nMa main est parfaite !"
+    },
+    "V0850_01_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        601,
+        607
+      ],
+      "text": "Tu es... Playmaker !"
+    },
+    "V0850_01_00_05_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        605
+      ],
+      "text": "Ouah...\nMaître Varis !"
+    },
+    "V0850_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        849
+      ],
+      "text": "Vaincre le meilleur ami de Playmaker ? Quelle aubaine !"
+    },
+    "V0850_02_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Place au Duel !"
+    },
+    "V0850_03_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne saisis pas l'étendue de ma puissance ?\nImbécile !"
+    },
+    "V0850_03_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0850_03_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé hé hé...\nJe vais t'exterminer !"
+    },
+    "V0850_03_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0850_04_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0850_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0850_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ne t'inquiète pas.\nJe vais vite en finir avec toi !"
+    },
+    "V0850_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0850_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0850_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'aurais pas dû me contrarier !"
+    },
+    "V0850_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0850_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Que devrais-je faire face à ça ?"
+    },
+    "V0850_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0850_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0850_05_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "J'espère piocher la carte qu'il me faut !"
+    },
+    "V0850_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !!!\nHé hé ! C'est exactement la carte qu'il me fallait !"
+    },
+    "V0850_06_01_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Goûte-moi ça !"
+    },
+    "V0850_06_01_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'était pas très malin !"
+    },
+    "V0850_06_01_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça ne t'aidera pas !"
+    },
+    "V0850_06_01_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pas si vite !"
+    },
+    "V0850_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0850_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie !"
+    },
+    "V0850_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0850_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie Continue !"
+    },
+    "V0850_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0850_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0850_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège !"
+    },
+    "V0850_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège Continu !"
+    },
+    "V0850_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Contre-Piège !"
+    },
+    "V0850_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma carte Posée !"
+    },
+    "V0850_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voilà ma carte Posée !"
+    },
+    "V0850_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de ce monstre !"
+    },
+    "V0850_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0850_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0850_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0850_07_14_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Effet Pendule !"
+    },
+    "V0850_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue ça !"
+    },
+    "V0850_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde ça !"
+    },
+    "V0850_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'arrive !"
+    },
+    "V0850_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre !"
+    },
+    "V0850_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0850_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0850_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0850_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0850_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0850_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0850_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0850_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0850_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0850_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0850_11_10_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde mon circuit !"
+    },
+    "V0850_11_10_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Lien !"
+    },
+    "V0850_11_10_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde mon circuit !"
+    },
+    "V0850_11_10_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose mes monstres dans les Flèches Lien !\nLie le circuit !"
+    },
+    "V0850_11_10_02_2": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Lien !"
+    },
+    "V0850_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bats-toi !"
+    },
+    "V0850_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattons !"
+    },
+    "V0850_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Alleeez !"
+    },
+    "V0850_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Écrase-moi ça !"
+    },
+    "V0850_15_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha ha ha ha ha ha !"
+    },
+    "V0850_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0850_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À l'attaque !"
+    },
+    "V0850_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque !"
+    },
+    "V0850_16_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as perdu !"
+    },
+    "V0850_16_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'auras plus de LP !"
+    },
+    "V0850_18_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre t'attaque directement !"
+    },
+    "V0850_18_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque directe !"
+    },
+    "V0850_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0850_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0850_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0850_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais Poser un monstre !"
+    },
+    "V0850_21_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce clown a bien de la chance d'être en vie !"
+    },
+    "V0850_21_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0850_21_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé hé hé...\nTu es dos au mur !"
+    },
+    "V0850_21_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0850_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Et avec ça, je termine mon tour."
+    },
+    "V0850_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bientôt, tu ne seras plus que des octets !"
+    },
+    "V0850_21_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0850_21_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne t'en tireras pas comme ça..."
+    },
+    "V0850_21_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0850_21_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas perdre, oui ou non ?!"
+    },
+    "V0850_21_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0850_28_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha ha ha ha ha !\nQui veut être le prochain à perdre ?"
+    },
+    "V0850_28_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'es pas de taille. Tes monstres sont bien trop faibles !"
+    },
+    "V0850_28_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha ha ha ha ha ha !"
+    },
+    "V0850_28_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne vois pas à quel point je suis meilleur que toi ?"
+    },
+    "V0850_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Humpf.\nTu n'es pas le Duelliste que je cherche."
+    },
+    "V0850_28_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        605
+      ],
+      "text": "Je suis le meilleur Duelliste !\nJe devrais diriger les Hanoi !"
+    },
+    "V0850_29_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'aurais jamais dû faire des Hanoi tes ennemis..."
+    },
+    "V0850_29_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Comment est-ce possible ?!"
+    },
+    "V0850_29_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pourquoi essaies-tu d'arrêter les Hanoi ?"
+    },
+    "V0850_29_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si seulement j'avais eu une meilleure main de départ..."
+    },
+    "V0850_29_00_04_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        605
+      ],
+      "text": "Pardonnez-moi, Maître Varis !"
+    },
+    "V0850_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hein ?!"
+    },
+    "V0850_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Impossible !"
+    },
+    "V0850_33_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Compétence !"
+    },
+    "V0850_33_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "C'est le moment d'utiliser ma Compétence !"
+    },
+    "V0850_33_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Le vrai combat commence maintenant !"
+    },
+    "V0850_33_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais te montrer que ma stratégie est parfaite !"
+    },
+    "V0850_33_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Compétence !\nJe pioche deux fois !"
+    },
+    "V0850_30_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il vaudrait mieux que tu abandonnes."
+    },
+    "V0850_30_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah... Tu te débrouilles mieux que je ne le pensais."
+    },
+    "V0850_30_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pas besoin de réfléchir. Ça ne t'aidera pas !"
+    },
+    "V0850_30_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ta carte fétiche est un Monstre Lien ?!"
+    },
+    "V0850_30_00_04_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?!\nUn Monstre Lien qui n'a pas de Niveau ?!"
+    },
+    "V0850_30_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai pas assez de bonnes cartes..."
+    },
+    "V0850_30_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé ! Ma main est parfaite !"
+    },
+    "V0850_30_00_07_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Que marmonnes-tu dans ta barbe ?"
+    },
+    "V0850_30_00_08_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Seule l'élite peut maîtriser le Dragon - Crackeur !"
+    },
+    "V0850_36_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Balaie-moi tout ça."
+    },
+    "V0850_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Humpf. À toi de jouer."
+    },
+    "V0850_36_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Faites quelque chose pour les arrêter !"
+    },
+    "V0850_36_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        605
+      ],
+      "text": "Achevez-les, Maître Varis !"
+    },
+    "V0850_36_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        605
+      ],
+      "text": "C'est votre tour, Maître Varis !"
+    },
+    "V0850_36_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        605
+      ],
+      "text": "Pardonnez-moi..."
+    },
+    "V0850_08_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13094
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie d'Équipement !\nTempête Crackage Aérien !"
+    },
+    "V0850_08_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13094
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Tempête Crackage Aérien s'active !"
+    },
+    "V0850_08_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11159
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie Charge de l'Âme !"
+    },
+    "V0850_08_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5669
+      ],
+      "duelist": [],
+      "text": "J'active la Magie d'Équipement, Big Bang !"
+    },
+    "V0850_08_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5129
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !\nLimiter Removal !"
+    },
+    "V0850_08_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4663
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie d'Équipement !\nMégamorphe !"
+    },
+    "V0850_08_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7389
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !\nDestruction de Main !"
+    },
+    "V0850_08_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6266
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nUne Plume de Phœnix !"
+    },
+    "V0850_08_00_08_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13108
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nMines à Impulsion !"
+    },
+    "V0850_09_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13053
+      ],
+      "duelist": [],
+      "text": "Imbécile !\nL'effet de la Carte Dragon - Crackeur s'active !"
+    },
+    "V0850_09_00_00_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Chute fissurée !"
+    },
+    "V0850_09_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13052
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Vouivre - Détournement !"
+    },
+    "V0850_09_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9388
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Hercule Colonie de Chrome !"
+    },
+    "V0850_09_00_02_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle détruit toutes les autres cartes sur le Terrain !"
+    },
+    "V0850_09_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9174
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Mante Colonie de Chrome !"
+    },
+    "V0850_13_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13053
+      ],
+      "duelist": [],
+      "text": "Seul le meilleur Duelliste peut contrôler ce monstre !"
+    },
+    "V0850_13_00_00_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Éveille-toi !\nDragon - Crackeur !"
+    },
+    "V0850_13_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13051
+      ],
+      "duelist": [],
+      "text": "En avant !\nVer - Piratage !"
+    },
+    "V0850_13_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13052
+      ],
+      "duelist": [],
+      "text": "Allons-y, Vouivre - Détournement !"
+    },
+    "V0850_13_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11785
+      ],
+      "duelist": [],
+      "text": "Apparais !\nDragon Carapace Mystère !"
+    },
+    "V0850_13_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9388
+      ],
+      "duelist": [],
+      "text": "Viens !\nHercule Colonie de Chrome !"
+    },
+    "V0850_13_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9174
+      ],
+      "duelist": [],
+      "text": "Voici Mante Colonie de Chrome !"
+    },
+    "V0850_19_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13053
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Dragon - Crackeur !"
+    },
+    "V0850_19_00_00_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Explosion de flux !"
+    },
+    "V0850_19_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13051
+      ],
+      "duelist": [],
+      "text": "Ver - Piratage attaque !"
+    },
+    "V0850_19_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13052
+      ],
+      "duelist": [],
+      "text": "Vouivre - Détournement !\nÀ l'attaque !"
+    },
+    "V0850_19_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11785
+      ],
+      "duelist": [],
+      "text": "Dragon Carapace Mystère ! À l'attaque !"
+    },
+    "V0850_19_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9388
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Hercule Colonie de Chrome !"
+    },
+    "V0850_19_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9174
+      ],
+      "duelist": [],
+      "text": "Mante Colonie de Chrome !\nÀ l'attaque !"
+    },
+    "V0850_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0850_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ugh !"
+    },
+    "V0850_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh !"
+    },
+    "V0850_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas payer pour ça !"
+    },
+    "V0850_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grr..."
+    },
+    "V0850_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça y est ?"
+    },
+    "V0850_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaagh !"
+    },
+    "V0850_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaah !"
+    },
+    "V0850_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arggh !"
+    },
+    "V0850_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouch..."
+    },
+    "V0850_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est pas possible !"
+    },
+    "V0850_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais t'avoir..."
+    },
+    "V0850_24_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaagh !"
+    },
+    "V0850_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaaaaaahh !"
+    }
+  }
+}

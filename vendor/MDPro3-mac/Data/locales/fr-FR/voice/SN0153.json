@@ -1,0 +1,2326 @@
+{
+  "_GRP_": "SN0153",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0153_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Commence la mission !"
+    },
+    "V0153_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attends de voir mon Deck Flamme en action !"
+    },
+    "V0153_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais réussir cette mission."
+    },
+    "V0153_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je dois juste rester calme pour faire les bons choix."
+    },
+    "V0153_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Ce n'est pas un entraînement !\nC'est la guerre !\nBats-toi !"
+    },
+    "V0153_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        155
+      ],
+      "text": "Je suis allé aussi loin parce que mes amis croient en moi."
+    },
+    "V0153_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        155
+      ],
+      "text": "Jaden, je ne laisserai pas le mal s'emparer de ton âme !"
+    },
+    "V0153_01_00_07_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        155
+      ],
+      "text": "Jim...\nPrête-moi ta force..."
+    },
+    "V0153_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bats-toi !"
+    },
+    "V0153_03_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cette mission sera bientôt terminée."
+    },
+    "V0153_03_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0153_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu crois que ces tactiques vont marcher contre moi ?"
+    },
+    "V0153_03_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0153_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Me voilà !"
+    },
+    "V0153_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0153_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0153_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il me reste encore plein de contre-stratégies !"
+    },
+    "V0153_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0153_03_00_05_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je dois vider mon esprit et me concentrer."
+    },
+    "V0153_03_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0153_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0153_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0153_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0153_05_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "L'issue du Duel dépend de cette carte..."
+    },
+    "V0153_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0153_06_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Écrase-toi et brûle !"
+    },
+    "V0153_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Que tu es prévisible !"
+    },
+    "V0153_06_01_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas vraiment faire ça ?"
+    },
+    "V0153_06_01_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu tombes dans mon piège !"
+    },
+    "V0153_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0153_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie !"
+    },
+    "V0153_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0153_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Continue !"
+    },
+    "V0153_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0153_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0153_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège !"
+    },
+    "V0153_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège Continu !"
+    },
+    "V0153_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Contre-Piège !"
+    },
+    "V0153_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma carte Posée !"
+    },
+    "V0153_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ma carte Posée passe à l'action !"
+    },
+    "V0153_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0153_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0153_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0153_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0153_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7086
+      ],
+      "duelist": [],
+      "text": "J'active la Magie Continue, Accélérateur de Flammes !"
+    },
+    "V0153_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7086
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Accélérateur de Flammes s'active !"
+    },
+    "V0153_08_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je détruis ton monstre en tirant un Pyro avec max. 500 ATK !"
+    },
+    "V0153_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7086
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Accélérateur de Flammes !"
+    },
+    "V0153_08_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je charge un monstre !\nEt feeeu !"
+    },
+    "V0153_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7088
+      ],
+      "duelist": [],
+      "text": "J'améliore Accélérateur de Flammes en Accélérateur Tri-Flammes !"
+    },
+    "V0153_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7088
+      ],
+      "duelist": [],
+      "text": "J'active mon Accélérateur Tri-Flammes !"
+    },
+    "V0153_08_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il tire, détruit ton monstre et t'inflige des dommages !"
+    },
+    "V0153_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7088
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Accélérateur Tri-Flammes !"
+    },
+    "V0153_08_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je charge un monstre !\nMaintenant, feu !"
+    },
+    "V0153_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7089
+      ],
+      "duelist": [],
+      "text": "J'active la Magie Jeu-Rapide, Feu Sauvage !"
+    },
+    "V0153_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7089
+      ],
+      "duelist": [],
+      "text": "Feu Sauvage détruit Accélérateur de Flammes pour détruire tous les monstres !"
+    },
+    "V0153_08_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Puis il Invoque Spécialement un Jeton Feu Sauvage !"
+    },
+    "V0153_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7087
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nÂme de Feu !"
+    },
+    "V0153_08_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu pioches une carte, mais je t'inflige des dommages !"
+    },
+    "V0153_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6941
+      ],
+      "duelist": [],
+      "text": "La Magie Jeu-Rapide, Enterrement d'une Autre Dimension !"
+    },
+    "V0153_08_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je renvoie 3 monstres bannis au Cimetière !"
+    },
+    "V0153_08_00_10_0": {
+      "face": 5,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5611
+      ],
+      "duelist": [],
+      "text": "Un vrai chef sait prendre des risques !"
+    },
+    "V0153_08_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La Magie d'Équipement, Armure d'Argent Métallisée !"
+    },
+    "V0153_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11597
+      ],
+      "duelist": [],
+      "text": "J'active le Piège Continu, Rechargement Accélérateur de Flammes !"
+    },
+    "V0153_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11597
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Rechargement Accélérateur de Flammes s'active !"
+    },
+    "V0153_08_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je défausse une carte Volcanique pour piocher une carte !"
+    },
+    "V0153_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11597
+      ],
+      "duelist": [],
+      "text": "Je bannis Rechargement Accélérateur de Flammes de mon Cimetière !"
+    },
+    "V0153_08_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Une carte Volcanique de mon Deck part au Cimetière !"
+    },
+    "V0153_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7131
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nRecharge Volcanique !"
+    },
+    "V0153_08_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Jusqu'à 3 monstres Volcanique retournent dans mon Deck !"
+    },
+    "V0153_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7090
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !\nMur de Feu !"
+    },
+    "V0153_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7090
+      ],
+      "duelist": [],
+      "text": "Ça ne marchera pas !\nJ'active l'effet de la Carte Mur de Feu !"
+    },
+    "V0153_08_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je bannis un Pyro de mon Cimetière et j'annule ton attaque !"
+    },
+    "V0153_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5986
+      ],
+      "duelist": [],
+      "text": "J'active le Piège Continu, Retour de Flamme !"
+    },
+    "V0153_08_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5986
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Retour de Flamme t'inflige des dommages !"
+    },
+    "V0153_08_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3772
+      ],
+      "duelist": [],
+      "text": "J'active le Piège Continu, Mur Volcanique !"
+    },
+    "V0153_08_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3772
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Mur Volcanique s'active !"
+    },
+    "V0153_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7490
+      ],
+      "duelist": [],
+      "text": "À son Invocation, Soldat de Feu active son effet !"
+    },
+    "V0153_09_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je l'envoie au Cimetière pour t'infliger des dommages !"
+    },
+    "V0153_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6368
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Empereur De La Flamme Infernale s'active !"
+    },
+    "V0153_09_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À chaque monstre FEU banni, je détruis une Magie ou Piège !"
+    },
+    "V0153_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7082
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Obus Volcanique s'active depuis mon Cimetière !"
+    },
+    "V0153_09_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je paie 500 LP pour ajouter 1 Obus Volcanique à ma main depuis mon Deck !"
+    },
+    "V0153_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7083
+      ],
+      "duelist": [],
+      "text": "Cartouche de Chasse Volcanique est au Cimetière, alors tu subis des dommages !"
+    },
+    "V0153_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7083
+      ],
+      "duelist": [],
+      "text": "Je tire 2 Cartouche de Chasse Volcanique pour détruire tous tes monstres !"
+    },
+    "V0153_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7102
+      ],
+      "duelist": [],
+      "text": "Quand la Carte Blaster Volcanique est détruite, son effet s'active !"
+    },
+    "V0153_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7415
+      ],
+      "duelist": [],
+      "text": "J'ai déjà atteint l'étape finale de mon plan !"
+    },
+    "V0153_09_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La Carte Triceratops Volcanique dans mon Cimetière t'inflige des dommages !"
+    },
+    "V0153_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7243
+      ],
+      "duelist": [],
+      "text": "Fusée Volcanique ajoute une Carte Accélérateur de Flammes à ma main !"
+    },
+    "V0153_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7103
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Trancheur Volcanique !"
+    },
+    "V0153_09_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu subis des dommages, mais cette carte n'attaque pas."
+    },
+    "V0153_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7104
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Marteleur Volcanique se déclenche !"
+    },
+    "V0153_09_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle n'attaque pas ce tour-ci, mais t'inflige des dommages !"
+    },
+    "V0153_09_00_10_0": {
+      "face": 5,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7578
+      ],
+      "duelist": [],
+      "text": "Reine Volcanique active son effet."
+    },
+    "V0153_09_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'envoie une carte au Cimetière pour infliger des dommages."
+    },
+    "V0153_09_00_11_0": {
+      "face": 5,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7578
+      ],
+      "duelist": [],
+      "text": "Pour garder Reine Volcanique en jeu, je Sacrifie..."
+    },
+    "V0153_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7085
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Feu Grégois Volcanique s'active !"
+    },
+    "V0153_09_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Chaîne Volcanique !"
+    },
+    "V0153_09_00_13_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5201
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Fées Dansantes s'active !"
+    },
+    "V0153_09_00_13_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Merci de m'avoir sauvé."
+    },
+    "V0153_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9022
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Sergent Électrique s'active !"
+    },
+    "V0153_09_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La carte qu'elle cible ne peut pas s'activer !"
+    },
+    "V0153_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9470
+      ],
+      "duelist": [],
+      "text": "Je bannis 3 monstres du Cimetière et j'Invoque Spécialement."
+    },
+    "V0153_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9470
+      ],
+      "duelist": [],
+      "text": "Ma Carte Mars l'Embrasé active son effet !"
+    },
+    "V0153_09_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mes monstres vont au Cimetière et j'inflige des dommages !"
+    },
+    "V0153_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7487
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Gardes Royaux Tempête de Feu s'active !"
+    },
+    "V0153_09_00_17_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je renvoie 4 Pyros dans mon Deck pour piocher 2 cartes !"
+    },
+    "V0153_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5878
+      ],
+      "duelist": [],
+      "text": "Lorsque la Carte La Chose dans le Cratère est battue, son effet s'active !"
+    },
+    "V0153_09_00_18_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je peux Invoquer Spécialement un monstre Pyro de ma main !"
+    },
+    "V0153_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6197
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Ame de Gaïa, le Combustible Collectif s'active !"
+    },
+    "V0153_09_00_19_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie des monstres Pyro pour augmenter son ATK !"
+    },
+    "V0153_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6197
+      ],
+      "duelist": [],
+      "text": "La Carte Ame de Gaïa, le Combustible Collectif est détruite durant la End Phase."
+    },
+    "V0153_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5974
+      ],
+      "duelist": [],
+      "text": "La Carte Dragon d'Eclat Solaire t'inflige des dommages durant cette End Phase !"
+    },
+    "V0153_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'envoie mes troupes !"
+    },
+    "V0153_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est parti !"
+    },
+    "V0153_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Viens !"
+    },
+    "V0153_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est parti !"
+    },
+    "V0153_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre !"
+    },
+    "V0153_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0153_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0153_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0153_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0153_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0153_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0153_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0153_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0153_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0153_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0153_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7490
+      ],
+      "duelist": [],
+      "text": "Allons-y, Soldat de Feu !"
+    },
+    "V0153_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6368
+      ],
+      "duelist": [],
+      "text": "Viens !\nEmpereur De La Flamme Infernale !"
+    },
+    "V0153_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7191
+      ],
+      "duelist": [],
+      "text": "Rat Volcanique !"
+    },
+    "V0153_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7082
+      ],
+      "duelist": [],
+      "text": "Obus Volcanique !"
+    },
+    "V0153_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7083
+      ],
+      "duelist": [],
+      "text": "Cartouche de Chasse Volcanique !"
+    },
+    "V0153_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7102
+      ],
+      "duelist": [],
+      "text": "Blaster Volcanique !"
+    },
+    "V0153_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7415
+      ],
+      "duelist": [],
+      "text": "Triceratops Volcanique !"
+    },
+    "V0153_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7243
+      ],
+      "duelist": [],
+      "text": "Fusée Volcanique !"
+    },
+    "V0153_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7103
+      ],
+      "duelist": [],
+      "text": "Trancheur Volcanique !"
+    },
+    "V0153_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7104
+      ],
+      "duelist": [],
+      "text": "Apparais !\nMarteleur Volcanique !"
+    },
+    "V0153_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7578
+      ],
+      "duelist": [],
+      "text": "J'Invoque Spécialement Reine Volcanique !"
+    },
+    "V0153_13_00_11_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7578
+      ],
+      "duelist": [],
+      "text": "Ce monstre...\nIl me rappelle...\nMaman ?"
+    },
+    "V0153_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7085
+      ],
+      "duelist": [],
+      "text": "Admire la puissance de feu de mon Deck Brûlure Volcanique !"
+    },
+    "V0153_13_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Vas-y ! Feu Grégois Volcanique !"
+    },
+    "V0153_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7085
+      ],
+      "duelist": [],
+      "text": "J'Invoque Spécialement cette carte !"
+    },
+    "V0153_13_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Voici Feu Grégois Volcanique !"
+    },
+    "V0153_13_00_14_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5026
+      ],
+      "duelist": [],
+      "text": "Tu me rappelles qu'au fond de moi, je reste un Duelliste !"
+    },
+    "V0153_13_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Servante de l'Aqua !"
+    },
+    "V0153_13_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5026
+      ],
+      "duelist": [],
+      "text": "Tu as le pouvoir d'inonder le Terrain !"
+    },
+    "V0153_13_00_15_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Servante de l'Aqua !"
+    },
+    "V0153_13_00_16_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5201
+      ],
+      "duelist": [],
+      "text": "Nous nous retrouvons, Fées Dansantes !"
+    },
+    "V0153_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9022
+      ],
+      "duelist": [],
+      "text": "Fais ton entrée !\nSergent Électrique !"
+    },
+    "V0153_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9470
+      ],
+      "duelist": [],
+      "text": "Mars l'Embrasé !"
+    },
+    "V0153_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7487
+      ],
+      "duelist": [],
+      "text": "Viens jouer !\nGardes Royaux Tempête de Feu !"
+    },
+    "V0153_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5878
+      ],
+      "duelist": [],
+      "text": "La Chose dans le Cratère !"
+    },
+    "V0153_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6197
+      ],
+      "duelist": [],
+      "text": "Ame de Gaïa, le Combustible Collectif !"
+    },
+    "V0153_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5974
+      ],
+      "duelist": [],
+      "text": "Lève-toi, Dragon d'Eclat Solaire !"
+    },
+    "V0153_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3932
+      ],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un Jeton Feu Sauvage !"
+    },
+    "V0153_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bats-toi !"
+    },
+    "V0153_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça va chauffer !"
+    },
+    "V0153_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prends ça !"
+    },
+    "V0153_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Accroche-toi !"
+    },
+    "V0153_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cible verrouillée !"
+    },
+    "V0153_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0153_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque avec mon monstre !"
+    },
+    "V0153_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lancement de la séquence offensive !"
+    },
+    "V0153_16_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Va voir ailleurs si j'y suis !"
+    },
+    "V0153_16_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ceci mettra un terme à ma mission."
+    },
+    "V0153_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je t'attaque directement !"
+    },
+    "V0153_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre t'attaque directement !"
+    },
+    "V0153_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7490
+      ],
+      "duelist": [],
+      "text": "Soldat de Feu ! Passe à l'action !"
+    },
+    "V0153_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6368
+      ],
+      "duelist": [],
+      "text": "Empereur De La Flamme Infernale attaque !"
+    },
+    "V0153_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7191
+      ],
+      "duelist": [],
+      "text": "Rat Volcanique ! Attaque !"
+    },
+    "V0153_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7082
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Obus Volcanique !"
+    },
+    "V0153_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7083
+      ],
+      "duelist": [],
+      "text": "Cartouche de Chasse Volcanique attaque !"
+    },
+    "V0153_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7102
+      ],
+      "duelist": [],
+      "text": "Blaster Volcanique ! Feu !"
+    },
+    "V0153_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7415
+      ],
+      "duelist": [],
+      "text": "Triceratops Volcanique attaque !"
+    },
+    "V0153_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7243
+      ],
+      "duelist": [],
+      "text": "Allez, Fusée Volcanique !"
+    },
+    "V0153_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7103
+      ],
+      "duelist": [],
+      "text": "Trancheur Volcanique !\nExplose l'adversaire !"
+    },
+    "V0153_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7104
+      ],
+      "duelist": [],
+      "text": "C'est parti !\nMarteleur Volcanique !"
+    },
+    "V0153_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7578
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Reine Volcanique !"
+    },
+    "V0153_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7085
+      ],
+      "duelist": [],
+      "text": "C'est parti !\nFeu Grégois Volcanique !"
+    },
+    "V0153_19_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Canon Volcanique !"
+    },
+    "V0153_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5026
+      ],
+      "duelist": [],
+      "text": "Servante de l'Aqua !\nAttaque !"
+    },
+    "V0153_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5201
+      ],
+      "duelist": [],
+      "text": "Je compte sur toi, Fées Dansantes !"
+    },
+    "V0153_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9022
+      ],
+      "duelist": [],
+      "text": "Sergent Électrique ! Attaque !"
+    },
+    "V0153_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9470
+      ],
+      "duelist": [],
+      "text": "Mars l'Embrasé attaque !"
+    },
+    "V0153_19_00_15_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Syrtis Major !"
+    },
+    "V0153_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7487
+      ],
+      "duelist": [],
+      "text": "Gardes Royaux Tempête de Feu ! Attaque !"
+    },
+    "V0153_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5878
+      ],
+      "duelist": [],
+      "text": "La Chose dans le Cratère attaque !"
+    },
+    "V0153_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6197
+      ],
+      "duelist": [],
+      "text": "Ame de Gaïa, le Combustible Collectif attaque !"
+    },
+    "V0153_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5974
+      ],
+      "duelist": [],
+      "text": "Dragon d'Eclat Solaire !\nMets le feu !"
+    },
+    "V0153_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3932
+      ],
+      "duelist": [],
+      "text": "Mon Jeton Feu Sauvage attaque !"
+    },
+    "V0153_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0153_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0153_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0153_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0153_21_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cette guerre est presque finie."
+    },
+    "V0153_21_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0153_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ma stratégie fonctionne à la perfection."
+    },
+    "V0153_21_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0153_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0153_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fais de ton mieux."
+    },
+    "V0153_21_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0153_21_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je suis en danger..."
+    },
+    "V0153_21_00_04_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0153_21_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu es plus fin stratège que moi..."
+    },
+    "V0153_21_00_05_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0153_28_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mission accomplie."
+    },
+    "V0153_28_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu dois augmenter ta puissance de feu si tu veux me battre."
+    },
+    "V0153_28_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quand on joue avec moi, on joue avec le feu !"
+    },
+    "V0153_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'avais pas le niveau pour combattre en première ligne."
+    },
+    "V0153_28_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "J'ai oublié de rester calme et alerte."
+    },
+    "V0153_28_00_04_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as le don pour me faire perdre mon sang froid."
+    },
+    "V0153_28_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        155
+      ],
+      "text": "Terrasse les ténèbres et débarrasse-toi de ta peur !"
+    },
+    "V0153_28_00_06_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        155
+      ],
+      "text": "La vie dans l'ombre est solitaire.\nCrois-moi."
+    },
+    "V0153_29_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tes tactiques étaient supérieures aux miennes."
+    },
+    "V0153_29_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu l'as échappé belle.\nSi seulement j'avais gardé mon calme."
+    },
+    "V0153_29_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai été trop confiant.\nJe ne referai pas la même erreur."
+    },
+    "V0153_29_00_03_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'ai jamais affronté quelqu'un d'aussi coriace que toi."
+    },
+    "V0153_29_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Tu es facile à cerner, mais difficile à vaincre."
+    },
+    "V0153_29_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Jaden, merci de m'avoir rappelé ce que mon père m'a appris."
+    },
+    "V0153_29_00_06_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        155
+      ],
+      "text": "Argh...\nAaah !"
+    },
+    "V0153_29_00_07_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        155
+      ],
+      "text": "Pardon, Jim.\nJ'ai échoué."
+    },
+    "V0153_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?!"
+    },
+    "V0153_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Impossible !"
+    },
+    "V0153_33_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Mon Deck Flamme calcine tous ceux qui l'affrontent !"
+    },
+    "V0153_33_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais mener mes troupes au combat !"
+    },
+    "V0153_33_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Avec cette stratégie, je vais te prendre à revers !"
+    },
+    "V0153_30_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu essaies de me submerger ?"
+    },
+    "V0153_30_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cette carte est peut-être une feinte."
+    },
+    "V0153_30_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu me gonfles à bloc !"
+    },
+    "V0153_34_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Affirmatif !"
+    },
+    "V0153_34_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ma mission est accomplie."
+    },
+    "V0153_34_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il est temps de se retrancher et de tenir bon !"
+    },
+    "V0153_34_00_03_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ne suis donc bon qu'à perdre ?"
+    },
+    "V0153_34_00_04_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Aaah !"
+    },
+    "V0153_34_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu en as plus dans le crâne que ce que je pensais."
+    },
+    "V0153_34_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'espère te revoir dans de meilleures circonstances."
+    },
+    "V0153_34_00_07_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as percé à jour ma tactique !"
+    },
+    "V0153_34_00_08_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est un lâche que tu as en face de toi..."
+    },
+    "V0153_34_00_09_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fais attention aux ténèbres !"
+    },
+    "V0153_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0153_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links !"
+    },
+    "V0153_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Au rapport !"
+    },
+    "V0153_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est une zone de guerre."
+    },
+    "V0153_36_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ne laisse pas tomber ton armée."
+    },
+    "V0153_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À toi."
+    },
+    "V0153_36_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai besoin de renforts."
+    },
+    "V0153_36_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        154
+      ],
+      "text": "À toi de finir, partenaire !"
+    },
+    "V0153_36_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        154
+      ],
+      "text": "Jim, c'est ton tour."
+    },
+    "V0153_36_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        154
+      ],
+      "text": "Pardonne-moi, Jim."
+    },
+    "V0153_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouch !"
+    },
+    "V0153_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    },
+    "V0153_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tss..."
+    },
+    "V0153_26_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "*Soupir*"
+    },
+    "V0153_26_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0153_26_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça y est ?"
+    },
+    "V0153_25_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    },
+    "V0153_25_00_01_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Urgh !"
+    },
+    "V0153_25_00_02_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh..."
+    },
+    "V0153_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ne peut-on donc pas t'arrêter...."
+    },
+    "V0153_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Garde ton calme..."
+    },
+    "V0153_27_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh non !"
+    },
+    "V0153_24_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0153_23_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Aaah !"
+    }
+  }
+}

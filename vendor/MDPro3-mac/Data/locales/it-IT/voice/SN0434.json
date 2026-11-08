@@ -1,0 +1,642 @@
+{
+  "_GRP_": "SN0434",
+  "_LNG_": "it-IT",
+  "info": {
+    "V0434_01_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bisogna avere i sassi in testa per sfidarci a un Duello Tag!"
+    },
+    "V0434_02_00_00_0": {
+      "face": 11,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duelliamo!"
+    },
+    "V0434_03_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Che principiante.\nFacile come rubare le caramelle a un bambino!"
+    },
+    "V0434_03_00_00_1": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0434_03_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0434_03_00_02_0": {
+      "face": 13,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non mi piaci per niente..."
+    },
+    "V0434_03_00_02_1": {
+      "face": 13,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0434_04_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0434_04_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pesco!"
+    },
+    "V0434_04_00_02_0": {
+      "face": 13,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pesco!"
+    },
+    "V0434_05_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Pesco!"
+    },
+    "V0434_06_01_00_0": {
+      "face": 11,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Contavo che lo facessi!"
+    },
+    "V0434_06_01_01_0": {
+      "face": 11,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ma ora..."
+    },
+    "V0434_07_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dalla mia mano..."
+    },
+    "V0434_07_01_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Carta Magia!"
+    },
+    "V0434_07_02_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Magia Rapida!"
+    },
+    "V0434_07_03_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Magia Continua!"
+    },
+    "V0434_07_04_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Magia Equipaggiamento!"
+    },
+    "V0434_07_05_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Magia Rituale!"
+    },
+    "V0434_07_06_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Carta Trappola!"
+    },
+    "V0434_07_07_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Trappola Continua!"
+    },
+    "V0434_07_08_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Contro-Trappola!"
+    },
+    "V0434_07_09_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Scopro la mia carta Posizionata!"
+    },
+    "V0434_07_10_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo l'effetto del mio mostro!"
+    },
+    "V0434_07_11_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Magia Terreno!"
+    },
+    "V0434_07_12_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo un effetto!"
+    },
+    "V0434_07_13_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Imposto il Valore Pendulum!"
+    },
+    "V0434_09_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9853
+      ],
+      "duelist": [],
+      "text": "Uso 1 Unità Sovrapposta e attivo l'effetto di Volcasauro!"
+    },
+    "V0434_09_00_00_1": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Magma Max!"
+    },
+    "V0434_10_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vediamo un po'..."
+    },
+    "V0434_10_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me!"
+    },
+    "V0434_11_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro!"
+    },
+    "V0434_11_01_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro in Posizione di Difesa!"
+    },
+    "V0434_11_02_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Specialmente un mostro!"
+    },
+    "V0434_11_03_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Offro un mostro come Tributo!"
+    },
+    "V0434_11_04_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Tributo!"
+    },
+    "V0434_11_05_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Fusione!"
+    },
+    "V0434_11_06_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Rituale!"
+    },
+    "V0434_11_07_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchro Evoco un mostro!"
+    },
+    "V0434_11_08_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Xyz un mostro!"
+    },
+    "V0434_11_08_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Costruisco la Rete di Sovrapposizioni! Ecco un'Evocazione Xyz!"
+    },
+    "V0434_11_09_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Pendulum un mostro!"
+    },
+    "V0434_11_10_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Link!"
+    },
+    "V0434_13_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9853
+      ],
+      "duelist": [],
+      "text": "Mostrati!\nNumero 61: Volcasauro!"
+    },
+    "V0434_14_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattiamo!"
+    },
+    "V0434_15_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prendi questo!"
+    },
+    "V0434_15_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Così impari!"
+    },
+    "V0434_17_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il mio mostro attacca!"
+    },
+    "V0434_16_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Saluta un mondo di dolore!"
+    },
+    "V0434_18_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ti attacco direttamente!"
+    },
+    "V0434_19_00_00_0": {
+      "face": 13,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9853
+      ],
+      "duelist": [],
+      "text": "Volcasauro!\nInceneriscili!"
+    },
+    "V0434_20_00_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono una carta!"
+    },
+    "V0434_20_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posizionerò una carta!"
+    },
+    "V0434_20_01_00_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono un mostro!"
+    },
+    "V0434_20_01_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posizionerò un mostro!"
+    },
+    "V0434_21_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nessuna squadra può batterci!"
+    },
+    "V0434_21_00_00_1": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0434_21_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0434_21_00_02_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grrr..."
+    },
+    "V0434_21_00_02_1": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0434_28_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nessuno può resistere al nostro uno-due di fuoco e ghiaccio!"
+    },
+    "V0434_29_00_00_0": {
+      "face": 14,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cosa ci è successo?"
+    },
+    "V0434_31_00_00_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Che cosa?!"
+    },
+    "V0434_31_00_01_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non può essere!"
+    },
+    "V0434_33_00_00_0": {
+      "face": 11,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Chills incassa, e io restituisco!"
+    },
+    "V0434_36_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        435
+      ],
+      "text": "Fai fuori quella mezza calzetta, Chills!"
+    },
+    "V0434_36_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        435
+      ],
+      "text": "Tocca a te, Chills!"
+    },
+    "V0434_36_00_02_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        435
+      ],
+      "text": "Argh...\nOccupatene tu, Chills!"
+    },
+    "V0434_22_00_00_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh!"
+    },
+    "V0434_22_00_01_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah!"
+    },
+    "V0434_26_00_00_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ugh..."
+    },
+    "V0434_26_00_01_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mi stai facendo imbestialire!"
+    },
+    "V0434_25_00_00_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaaah!"
+    },
+    "V0434_25_00_01_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaargh!"
+    },
+    "V0434_27_00_00_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Impossibile!"
+    },
+    "V0434_27_00_01_0": {
+      "face": 17,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Te la farò pagare!"
+    },
+    "V0434_24_00_00_0": {
+      "face": 17,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0434_23_00_00_0": {
+      "face": 14,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaah!"
+    }
+  }
+}

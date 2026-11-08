@@ -1,0 +1,3005 @@
+{
+  "_GRP_": "SN0510",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0510_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si le Duel peut commencer, sache que je vais t'écraser !"
+    },
+    "V0510_01_00_01_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "D'accord, j'accepte de t'affronter."
+    },
+    "V0510_01_00_01_1": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu dois aimer la défaite !"
+    },
+    "V0510_01_00_02_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu veux connaître ma stratégie pour les Duels ?\nC'est de gagner !"
+    },
+    "V0510_01_00_03_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arrête de jacasser et prépare-toi à perdre !"
+    },
+    "V0510_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501,
+        502,
+        506,
+        514
+      ],
+      "text": "Je t'attends !\nJe vais te montrer ce que je vaux en Duel !"
+    },
+    "V0510_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        207,
+        835
+      ],
+      "text": "Si tu veux m'arrêter, il va d'abord falloir me vaincre !"
+    },
+    "V0510_01_00_06_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        509,
+        512
+      ],
+      "text": "Je vérifie quelque chose...\nTu n'es vraiment pas RinRin ?"
+    },
+    "V0510_01_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        511
+      ],
+      "text": "Quand on était jeunes, on réglait nos histoires par un Duel."
+    },
+    "V0510_01_00_07_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Alors, si tu veux m'affronter, je t'attends !"
+    },
+    "V0510_01_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        511
+      ],
+      "text": "C'était notre rêve, RinRin."
+    },
+    "V0510_01_00_08_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "De livrer un Duel ensemble devant une foule immense !"
+    },
+    "V0510_02_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattons !"
+    },
+    "V0510_03_00_00_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "D'accord !\nVitesse max enclenchée !"
+    },
+    "V0510_03_00_00_1": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0510_03_00_01_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça devient amusant !"
+    },
+    "V0510_03_00_01_1": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0510_04_00_00_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0510_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est parti !"
+    },
+    "V0510_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est à moi de jouer !"
+    },
+    "V0510_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est fini pour toi !"
+    },
+    "V0510_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0510_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0510_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Merci de me rappeler que je dois me concentrer !"
+    },
+    "V0510_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est à mon tour de jouer !"
+    },
+    "V0510_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'abandonne jamais !"
+    },
+    "V0510_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0510_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0510_05_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'ai pas de temps à perdre !\nJ'ai besoin d'une carte qui me permettra de gagner !"
+    },
+    "V0510_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioooche !"
+    },
+    "V0510_06_01_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue cette carte !"
+    },
+    "V0510_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sans façon !"
+    },
+    "V0510_06_01_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pas si vite !"
+    },
+    "V0510_06_01_03_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Très bien !"
+    },
+    "V0510_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0510_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie !"
+    },
+    "V0510_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0510_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie Continue !"
+    },
+    "V0510_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0510_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0510_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège !"
+    },
+    "V0510_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège Continu !"
+    },
+    "V0510_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Contre-Piège !"
+    },
+    "V0510_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma carte Posée !"
+    },
+    "V0510_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ma carte Posée !"
+    },
+    "V0510_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0510_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0510_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0510_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0510_07_14_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Effet Pendule !"
+    },
+    "V0510_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je sais quoi faire !"
+    },
+    "V0510_10_00_01_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est parti !"
+    },
+    "V0510_10_00_02_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Et ouais !"
+    },
+    "V0510_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde ça !"
+    },
+    "V0510_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre !"
+    },
+    "V0510_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0510_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0510_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0510_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0510_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0510_11_05_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Fusion !"
+    },
+    "V0510_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0510_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0510_11_07_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0510_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0510_11_08_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je construis le Réseau Habillé !\nInvocation Xyz !"
+    },
+    "V0510_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0510_11_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Pendule !"
+    },
+    "V0510_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0510_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combat !"
+    },
+    "V0510_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattons !"
+    },
+    "V0510_15_00_00_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prépare-toi !"
+    },
+    "V0510_15_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prends ça !"
+    },
+    "V0510_15_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'y vais !"
+    },
+    "V0510_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0510_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À l'attaque !"
+    },
+    "V0510_16_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ton heure a sonné !"
+    },
+    "V0510_16_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est fini pour toi !"
+    },
+    "V0510_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre t'attaque directement !"
+    },
+    "V0510_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu es à découvert !"
+    },
+    "V0510_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0510_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0510_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0510_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0510_21_00_00_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0510_21_00_00_1": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Qu'est-ce que tu vas faire ?"
+    },
+    "V0510_21_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je sais que tu en as encore sous le coude !"
+    },
+    "V0510_21_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0510_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0510_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Et mon tour s'achève !"
+    },
+    "V0510_21_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu te débrouilles mieux que je ne le pensais !"
+    },
+    "V0510_21_00_04_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0510_21_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tant que le Duel n'est pas terminé, je peux encore gagner !"
+    },
+    "V0510_21_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0510_28_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est comme ça qu'on fait !"
+    },
+    "V0510_28_00_01_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dans ma ville, les Duels sont le seul moyen de survivre."
+    },
+    "V0510_28_00_02_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il faut de meilleurs monstres pour vaincre l'Aile Claire !"
+    },
+    "V0510_28_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouaaaais !\nJ'ai le vent en poupe !"
+    },
+    "V0510_28_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quand je vois une opportunité, je ne la laisse pas passer."
+    },
+    "V0510_28_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si je le faisais, RinRin m'enguirlanderait..."
+    },
+    "V0510_28_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tout ce qui compte dans une course, c'est de finir premier."
+    },
+    "V0510_28_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        512
+      ],
+      "text": "Tu as du talent...\nMais ta façon de jouer est trop scolaire."
+    },
+    "V0510_28_00_06_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lâche-toi !\nLa stratégie, c'est bien, mais improvise aussi !"
+    },
+    "V0510_28_00_07_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        511
+      ],
+      "text": "Là, RinRin.\nLe Dragon Synchro de l'Aile Claire.\nTon préféré."
+    },
+    "V0510_28_00_07_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as toujours dit qu'il nous mènerait à la victoire."
+    },
+    "V0510_29_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu fais des miracles !"
+    },
+    "V0510_29_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "RinRin sera furieuse si elle apprend que j'ai flanché."
+    },
+    "V0510_29_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arghh...\nJe tape ! Je tape !\nTu gagnes !"
+    },
+    "V0510_29_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je te paierai le double !\nLe triple !\nLe centuple !"
+    },
+    "V0510_29_00_04_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        502,
+        509,
+        512
+      ],
+      "text": "Vous êtes vraiment pareils.\nTu es aussi coriace qu'elle."
+    },
+    "V0510_29_00_05_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        511
+      ],
+      "text": "Aïe !\nÇa t'arrive d'y aller doucement parfois ?"
+    },
+    "V0510_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hein ?! Sérieusement ?!"
+    },
+    "V0510_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est autorisé ?!"
+    },
+    "V0510_33_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Si tu vois passer une opportunité, saisis-la au vol !"
+    },
+    "V0510_33_00_01_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Un Duel est toujours imprévisible."
+    },
+    "V0510_33_00_02_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "L'abandon ne fait pas partie de mon vocabulaire !"
+    },
+    "V0510_30_00_00_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je m'appelle Yugo !"
+    },
+    "V0510_30_00_01_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai dit que je m'appelais Yugo !"
+    },
+    "V0510_30_00_02_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ne parle pas de Fusion quand je suis là !"
+    },
+    "V0510_34_00_00_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je m'appelle Yugo ! Pas gogo !"
+    },
+    "V0510_34_00_01_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'est pas un vélo ! C'est un Duel Runner !"
+    },
+    "V0510_34_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arrête de me faire marcher !"
+    },
+    "V0510_34_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Abandonner ? Je ne sais même pas ce que ça signifie !"
+    },
+    "V0510_34_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est un super Duel ! Mais rendons-le encore meilleur !"
+    },
+    "V0510_34_00_05_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu dois te lâcher en Duel !"
+    },
+    "V0510_34_00_06_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il fait frisquet aujourd'hui !"
+    },
+    "V0510_34_00_07_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Passons à l'action !"
+    },
+    "V0510_34_00_08_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je sais !\nTais-toi un peu !"
+    },
+    "V0510_34_00_09_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La victoire ne se trouve pas dans les cartes..."
+    },
+    "V0510_34_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À vos marques... Prêts... Combattez !"
+    },
+    "V0510_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0510_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links !"
+    },
+    "V0510_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je m'appelle Yugo !\nTu connais le Turbo Duel ?"
+    },
+    "V0510_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je m'appelle Yugo !\nPas dodo !"
+    },
+    "V0510_36_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "OK !\nFonce !"
+    },
+    "V0510_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À toi.\nTu as intérêt à gagner !"
+    },
+    "V0510_36_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pardon...\nMais je sais que tu vas inverser la tendance !"
+    },
+    "V0510_36_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        511
+      ],
+      "text": "Dégomme l'adversaire, RinRin !"
+    },
+    "V0510_36_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        511
+      ],
+      "text": "Tu ne devrais avoir aucun mal, RinRin !"
+    },
+    "V0510_36_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        511
+      ],
+      "text": "Pardon, RinRin !"
+    },
+    "V0510_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12166
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nRemise à Niveau à Grande Vitesse !"
+    },
+    "V0510_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12057
+      ],
+      "duelist": [],
+      "text": "Je ne veux pas d'eux, alors je vais m'en débarrasser !"
+    },
+    "V0510_08_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La Carte Magie Surprise Choc !"
+    },
+    "V0510_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16429
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nÉgratignure Vitesseroid !"
+    },
+    "V0510_08_00_03_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16381
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !\nRoue Vitesseroid !"
+    },
+    "V0510_08_00_03_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je lance les dés !"
+    },
+    "V0510_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12056
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nRécupération de Vitesse !"
+    },
+    "V0510_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12056
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Récupération de Vitesse depuis mon Cimetière !"
+    },
+    "V0510_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12857
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !\nDriftrapide !"
+    },
+    "V0510_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4909
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !\nTyphon d'Espace Mystique !"
+    },
+    "V0510_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12058
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nPétard Synchro !"
+    },
+    "V0510_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14982
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nTransfèrement Pendule !"
+    },
+    "V0510_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12059
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nBataille de Dés !"
+    },
+    "V0510_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12059
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Bataille de Dés depuis mon Cimetière !"
+    },
+    "V0510_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12342
+      ],
+      "duelist": [],
+      "text": "Allez, il faut juste un peu de chance !"
+    },
+    "V0510_08_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège !\nRecycle-Dé !"
+    },
+    "V0510_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12342
+      ],
+      "duelist": [],
+      "text": "Je bannis Recycle-Dé de mon Cimetière pour utiliser son effet !"
+    },
+    "V0510_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16382
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nDupliportail Vitesseroid !"
+    },
+    "V0510_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16382
+      ],
+      "duelist": [],
+      "text": "J'active un Piège depuis mon Cimetière !\nDupliportail Vitesseroid !"
+    },
+    "V0510_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7920
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nSyntonisation Urgente !"
+    },
+    "V0510_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12178
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !\nAile Suivante !"
+    },
+    "V0510_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12178
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Suivante !"
+    },
+    "V0510_08_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12177
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !\nLien du Dragon !"
+    },
+    "V0510_08_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12828
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte Dragon Rapide de l'Aile Claire !"
+    },
+    "V0510_08_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13122
+      ],
+      "duelist": [],
+      "text": "Dragon de l'Aile aux Yeux Impairs active son Effet Pendule !"
+    },
+    "V0510_08_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12910
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte Magicienne Aile Blanche !"
+    },
+    "V0510_08_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12829
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte Planeur de Passage Vitesseroid !"
+    },
+    "V0510_08_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14340
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte Hexacoupe Vitesseroid !"
+    },
+    "V0510_08_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14339
+      ],
+      "duelist": [],
+      "text": "Machine de Billes Vitesseroid active son Effet Pendule !"
+    },
+    "V0510_08_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12883
+      ],
+      "duelist": [],
+      "text": "Papillodomino Vitesseroid active son Effet Pendule !"
+    },
+    "V0510_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Dragon Synchro de l'Aile Claire active son effet !"
+    },
+    "V0510_09_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Retournement de vengeance !"
+    },
+    "V0510_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12321
+      ],
+      "duelist": [],
+      "text": "Dragon Synchro de l'Aile de Cristal active son effet !"
+    },
+    "V0510_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16379
+      ],
+      "duelist": [],
+      "text": "Dragon Synchro de l'Aile Claire de Cristal active son effet !"
+    },
+    "V0510_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16379
+      ],
+      "duelist": [],
+      "text": "La Carte Dragon Synchro de l'Aile Claire de Cristal a été envoyée au Cimetière !"
+    },
+    "V0510_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12828
+      ],
+      "duelist": [],
+      "text": "Dragon Rapide de l'Aile Claire active son effet !"
+    },
+    "V0510_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13122
+      ],
+      "duelist": [],
+      "text": "Dragon de l'Aile aux Yeux Impairs active son effet !"
+    },
+    "V0510_09_00_06_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16380
+      ],
+      "duelist": [],
+      "text": "Motocycliste Aile Claire Grande Vitesseroid active son effet !"
+    },
+    "V0510_09_00_06_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "On lance les dés !"
+    },
+    "V0510_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16380
+      ],
+      "duelist": [],
+      "text": "Je Sacrifie la Carte Motocycliste Aile Claire Grande Vitesseroid pour activer son effet !"
+    },
+    "V0510_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14430
+      ],
+      "duelist": [],
+      "text": "Drake-Volant Grande Vitesseroid active son effet !"
+    },
+    "V0510_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14430
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Drake-Volant Grande Vitesseroid s'active une fois au Cimetière !"
+    },
+    "V0510_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11640
+      ],
+      "duelist": [],
+      "text": "Kendama Grande Vitesseroid active son effet !"
+    },
+    "V0510_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11640
+      ],
+      "duelist": [],
+      "text": "Kendama Grande Vitesseroid active son effet depuis le Cimetière !"
+    },
+    "V0510_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12157
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Hagoita Grande Vitesseroid !"
+    },
+    "V0510_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12157
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Hagoita Grande Vitesseroid depuis le Cimetière !"
+    },
+    "V0510_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12055
+      ],
+      "duelist": [],
+      "text": "Chanbara Grande Vitesseroid active son effet !"
+    },
+    "V0510_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12055
+      ],
+      "duelist": [],
+      "text": "Chanbara Grande Vitesseroid s'active une fois au Cimetière !"
+    },
+    "V0510_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12322
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de ma Carte Puzzle Grande Vitesseroid !"
+    },
+    "V0510_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12322
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Puzzle Grande Vitesseroid s'active une fois au Cimetière !"
+    },
+    "V0510_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16378
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Tireur de Bouchon Grande Vitesseroid s'active !"
+    },
+    "V0510_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14206
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Tireur Élastique Grande Vitesseroid !"
+    },
+    "V0510_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12920
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Crâne de Marbre Vitesseroid s'active depuis ma main !"
+    },
+    "V0510_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12922
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Avion Élastique Vitesseroid s'active depuis ma main !"
+    },
+    "V0510_09_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12922
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Avion Élastique Vitesseroid s'active !"
+    },
+    "V0510_09_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12829
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Planeur de Passage Vitesseroid s'active !"
+    },
+    "V0510_09_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12051
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Menko Vitesseroid s'active depuis ma main !"
+    },
+    "V0510_09_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14340
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Hexacoupe Vitesseroid s'active quand elle est détruite !"
+    },
+    "V0510_09_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15179
+      ],
+      "duelist": [],
+      "text": "Bloc-Roule Vitesseroid s'active si elle sert pour une Invocation Synchro !"
+    },
+    "V0510_09_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12741
+      ],
+      "duelist": [],
+      "text": "Chevaléchasses Vitesseroid active son effet !"
+    },
+    "V0510_09_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12741
+      ],
+      "duelist": [],
+      "text": "Je bannis Chevaléchasses Vitesseroid de mon Cimetière pour utiliser son effet !"
+    },
+    "V0510_09_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12279
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Pachingo-Kart Vitesseroid !"
+    },
+    "V0510_09_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12049
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Double Yoyo Vitesseroid !"
+    },
+    "V0510_09_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12050
+      ],
+      "duelist": [],
+      "text": "Razorang Vitesseroid active son effet !"
+    },
+    "V0510_09_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16376
+      ],
+      "duelist": [],
+      "text": "Joueur de Flûte Fuki-Modoshi Vitesseroid active son effet !"
+    },
+    "V0510_09_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16376
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Joueur de Flûte Fuki-Modoshi Vitesseroid depuis le Cimetière !"
+    },
+    "V0510_09_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16377
+      ],
+      "duelist": [],
+      "text": "Chien de Meute Ultra Vitesseroid active son effet !"
+    },
+    "V0510_09_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12047
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Terrortop Vitesseroid s'active !"
+    },
+    "V0510_09_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12052
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Taketomborg Vitesseroid !"
+    },
+    "V0510_09_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12053
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Ohajikid Vitesseroid s'active !"
+    },
+    "V0510_09_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12048
+      ],
+      "duelist": [],
+      "text": "Je bannis Dé aux Trois Yeux Vitesseroid de mon Cimetière pour utiliser son effet !"
+    },
+    "V0510_09_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12278
+      ],
+      "duelist": [],
+      "text": "Je bannis la Carte Duc Den-Den Daiko Vitesseroid du Cimetière !"
+    },
+    "V0510_09_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15180
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte VoiTurbo Vitesseroid depuis ma main !"
+    },
+    "V0510_09_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15180
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte VoiTurbo Vitesseroid depuis mon Cimetière !"
+    },
+    "V0510_09_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14339
+      ],
+      "duelist": [],
+      "text": "Machine de Billes Vitesseroid active son effet !"
+    },
+    "V0510_09_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12921
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aimant Malveillant Vitesseroid s'active !"
+    },
+    "V0510_09_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12054
+      ],
+      "duelist": [],
+      "text": "Dé à l'Œil Rouge Vitesseroid active son effet !"
+    },
+    "V0510_09_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12740
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Prix Gomme Vitesseroid s'active depuis ma main !"
+    },
+    "V0510_09_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12740
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Prix Gomme Vitesseroid s'active !"
+    },
+    "V0510_37_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Bats des ailes et crée un tourbillon de destruction !"
+    },
+    "V0510_37_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je fais une Invocation Synchro !"
+    },
+    "V0510_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Dragon Synchro de l'Aile Claire de Niveau 7 !"
+    },
+    "V0510_37_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12321
+      ],
+      "duelist": [],
+      "text": "Ouvre le passage au monstre forgé par la force brute !"
+    },
+    "V0510_37_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je fais une Invocation Synchro !"
+    },
+    "V0510_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12321
+      ],
+      "duelist": [],
+      "text": "Envole-toi, Dragon Synchro de l'Aile de Cristal de Niveau 8 !"
+    },
+    "V0510_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        16379
+      ],
+      "duelist": [],
+      "text": "Apparais, Dragon Synchro de l'Aile Claire de Cristal de Niveau 10 !"
+    },
+    "V0510_37_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12828
+      ],
+      "duelist": [],
+      "text": "Les ailes brillantes illuminent le ciel à toute vitesse !"
+    },
+    "V0510_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12828
+      ],
+      "duelist": [],
+      "text": "Envole-toi, Dragon Rapide de l'Aile Claire !"
+    },
+    "V0510_37_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13122
+      ],
+      "duelist": [],
+      "text": "Le dichromatique aux ailes de lumière conquiert le ciel !"
+    },
+    "V0510_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13122
+      ],
+      "duelist": [],
+      "text": "Que ce dragon répande la sagesse !"
+    },
+    "V0510_13_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Dragon de l'Aile aux Yeux Impairs !"
+    },
+    "V0510_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12910
+      ],
+      "duelist": [],
+      "text": "Le Syntoniseur Pendule, Magicienne Aile Blanche !"
+    },
+    "V0510_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16380
+      ],
+      "duelist": [],
+      "text": "En avant, Motocycliste Aile Claire Grande Vitesseroid de Niveau 11 !"
+    },
+    "V0510_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        14430
+      ],
+      "duelist": [],
+      "text": "Vas-y, Drake-Volant Grande Vitesseroid de Niveau 8 !"
+    },
+    "V0510_37_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11640
+      ],
+      "duelist": [],
+      "text": "L'épée mystique qui réduit tous les ennemis à néant !"
+    },
+    "V0510_37_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je fais une Invocation Synchro !"
+    },
+    "V0510_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11640
+      ],
+      "duelist": [],
+      "text": "J'appelle Kendama Grande Vitesseroid de Niveau 6 !"
+    },
+    "V0510_37_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12157
+      ],
+      "duelist": [],
+      "text": "Passe en mode supersonique et franchis tous les murs !"
+    },
+    "V0510_37_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je fais une Invocation Synchro !"
+    },
+    "V0510_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12157
+      ],
+      "duelist": [],
+      "text": "Appuie sur l'accélérateur, Hagoita Grande Vitesseroid de Niveau 5 !"
+    },
+    "V0510_37_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12055
+      ],
+      "duelist": [],
+      "text": "Voici un monstre qui surpasse toute la concurrence !"
+    },
+    "V0510_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12055
+      ],
+      "duelist": [],
+      "text": "Montre-toi, Chanbara Grande Vitesseroid de Niveau 5 !"
+    },
+    "V0510_37_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12322
+      ],
+      "duelist": [],
+      "text": "Perds-toi dans une folie impossible à résoudre !"
+    },
+    "V0510_37_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je fais une Invocation Synchro !"
+    },
+    "V0510_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12322
+      ],
+      "duelist": [],
+      "text": "Puzzle Grande Vitesseroid de Niveau 4 !"
+    },
+    "V0510_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16378
+      ],
+      "duelist": [],
+      "text": "Voici le Syntoniseur Synchro de Niveau 3 !\nTireur de Bouchon Grande Vitesseroid !"
+    },
+    "V0510_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        14206
+      ],
+      "duelist": [],
+      "text": "Tireur Élastique Grande Vitesseroid !\nÀ toi de jouer !"
+    },
+    "V0510_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12920
+      ],
+      "duelist": [],
+      "text": "Crâne de Marbre Vitesseroid !"
+    },
+    "V0510_13_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12922
+      ],
+      "duelist": [],
+      "text": "Avion Élastique Vitesseroid !"
+    },
+    "V0510_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12829
+      ],
+      "duelist": [],
+      "text": "Planeur de Passage Vitesseroid !"
+    },
+    "V0510_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12051
+      ],
+      "duelist": [],
+      "text": "Menko Vitesseroid !"
+    },
+    "V0510_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14340
+      ],
+      "duelist": [],
+      "text": "Le Monstre Pendule Hexacoupe Vitesseroid !"
+    },
+    "V0510_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15179
+      ],
+      "duelist": [],
+      "text": "Bloc-Roule Vitesseroid !"
+    },
+    "V0510_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12741
+      ],
+      "duelist": [],
+      "text": "Chevaléchasses Vitesseroid !"
+    },
+    "V0510_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12279
+      ],
+      "duelist": [],
+      "text": "Pachingo-Kart Vitesseroid !"
+    },
+    "V0510_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12049
+      ],
+      "duelist": [],
+      "text": "Double Yoyo Vitesseroid !"
+    },
+    "V0510_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12050
+      ],
+      "duelist": [],
+      "text": "Razorang Vitesseroid !"
+    },
+    "V0510_13_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16376
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur Joueur de Flûte Fuki-Modoshi Vitesseroid !"
+    },
+    "V0510_13_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16377
+      ],
+      "duelist": [],
+      "text": "Chien de Meute Ultra Vitesseroid !"
+    },
+    "V0510_13_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12047
+      ],
+      "duelist": [],
+      "text": "Terrortop Vitesseroid !"
+    },
+    "V0510_13_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12052
+      ],
+      "duelist": [],
+      "text": "Taketomborg Vitesseroid !"
+    },
+    "V0510_13_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12053
+      ],
+      "duelist": [],
+      "text": "Ohajikid Vitesseroid !"
+    },
+    "V0510_13_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12048
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur Dé aux Trois Yeux Vitesseroid !"
+    },
+    "V0510_13_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12278
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur Duc Den-Den Daiko Vitesseroid !"
+    },
+    "V0510_13_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15180
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur VoiTurbo Vitesseroid !"
+    },
+    "V0510_13_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14339
+      ],
+      "duelist": [],
+      "text": "Le Monstre Pendule Machine de Billes Vitesseroid !"
+    },
+    "V0510_13_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12883
+      ],
+      "duelist": [],
+      "text": "Le Syntoniseur Pendule, Papillodomino Vitesseroid !"
+    },
+    "V0510_13_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12921
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur Aimant Malveillant Vitesseroid !"
+    },
+    "V0510_13_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12054
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur Dé à l'Œil Rouge Vitesseroid !"
+    },
+    "V0510_13_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12740
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur Prix Gomme Vitesseroid !"
+    },
+    "V0510_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Dragon Synchro de l'Aile Claire ! À l'attaque !"
+    },
+    "V0510_19_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Frappe de la Tempête Tournoyante Céleste !"
+    },
+    "V0510_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12321
+      ],
+      "duelist": [],
+      "text": "Attaque, Dragon Synchro de l'Aile de Cristal !"
+    },
+    "V0510_19_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Frappe Cataclysmique du Cristal !"
+    },
+    "V0510_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16379
+      ],
+      "duelist": [],
+      "text": "Dragon Synchro de l'Aile Claire de Cristal attaque !"
+    },
+    "V0510_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12828
+      ],
+      "duelist": [],
+      "text": "Attaque, Dragon Rapide de l'Aile Claire !"
+    },
+    "V0510_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13122
+      ],
+      "duelist": [],
+      "text": "Dragon de l'Aile aux Yeux Impairs attaque !"
+    },
+    "V0510_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12910
+      ],
+      "duelist": [],
+      "text": "Magicienne Aile Blanche !\nLibère ta magie !"
+    },
+    "V0510_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16380
+      ],
+      "duelist": [],
+      "text": "Motocycliste Aile Claire Grande Vitesseroid !\nTerrasse l'adversaire !"
+    },
+    "V0510_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14430
+      ],
+      "duelist": [],
+      "text": "Attaque, Drake-Volant Grande Vitesseroid !"
+    },
+    "V0510_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11640
+      ],
+      "duelist": [],
+      "text": "Kendama Grande Vitesseroid ! À l'attaque !"
+    },
+    "V0510_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12157
+      ],
+      "duelist": [],
+      "text": "Hagoita Grande Vitesseroid ! Écrase-moi ça !"
+    },
+    "V0510_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12055
+      ],
+      "duelist": [],
+      "text": "Attaque, Chanbara Grande Vitesseroid !"
+    },
+    "V0510_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12322
+      ],
+      "duelist": [],
+      "text": "Ma Carte Puzzle Grande Vitesseroid attaque !"
+    },
+    "V0510_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16378
+      ],
+      "duelist": [],
+      "text": "Explose l'adversaire, Tireur de Bouchon Grande Vitesseroid !"
+    },
+    "V0510_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14206
+      ],
+      "duelist": [],
+      "text": "Tireur Élastique Grande Vitesseroid !\nÀ l'attaque !"
+    },
+    "V0510_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12920
+      ],
+      "duelist": [],
+      "text": "Crâne de Marbre Vitesseroid ! À l'attaque !"
+    },
+    "V0510_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12922
+      ],
+      "duelist": [],
+      "text": "Avion Élastique Vitesseroid attaque !"
+    },
+    "V0510_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12829
+      ],
+      "duelist": [],
+      "text": "Frappe, Planeur de Passage Vitesseroid !"
+    },
+    "V0510_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12051
+      ],
+      "duelist": [],
+      "text": "Attaque, Menko Vitesseroid !"
+    },
+    "V0510_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14340
+      ],
+      "duelist": [],
+      "text": "Hexacoupe Vitesseroid va attaquer !"
+    },
+    "V0510_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15179
+      ],
+      "duelist": [],
+      "text": "Bloc-Roule Vitesseroid !\nBouscule l'adversaire !"
+    },
+    "V0510_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12741
+      ],
+      "duelist": [],
+      "text": "Attaque, Chevaléchasses Vitesseroid !"
+    },
+    "V0510_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12279
+      ],
+      "duelist": [],
+      "text": "Attaque, Pachingo-Kart Vitesseroid !"
+    },
+    "V0510_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12049
+      ],
+      "duelist": [],
+      "text": "Double Yoyo Vitesseroid attaque !"
+    },
+    "V0510_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12050
+      ],
+      "duelist": [],
+      "text": "Lacère l'adversaire, Razorang Vitesseroid !"
+    },
+    "V0510_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16376
+      ],
+      "duelist": [],
+      "text": "Joueur de Flûte Fuki-Modoshi Vitesseroid attaque !"
+    },
+    "V0510_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16377
+      ],
+      "duelist": [],
+      "text": "Dévore-moi ça, Chien de Meute Ultra Vitesseroid !"
+    },
+    "V0510_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12047
+      ],
+      "duelist": [],
+      "text": "Attaque, Terrortop Vitesseroid !"
+    },
+    "V0510_19_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12052
+      ],
+      "duelist": [],
+      "text": "Taketomborg Vitesseroid ! À l'attaque !"
+    },
+    "V0510_19_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12053
+      ],
+      "duelist": [],
+      "text": "Frappe l'adversaire, Ohajikid Vitesseroid !"
+    },
+    "V0510_19_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12048
+      ],
+      "duelist": [],
+      "text": "Dé aux Trois Yeux Vitesseroid attaque !"
+    },
+    "V0510_19_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12278
+      ],
+      "duelist": [],
+      "text": "Duc Den-Den Daiko Vitesseroid !\nÀ l'attaque !"
+    },
+    "V0510_19_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15180
+      ],
+      "duelist": [],
+      "text": "VoiTurbo Vitesseroid ! À l'attaque !"
+    },
+    "V0510_19_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14339
+      ],
+      "duelist": [],
+      "text": "Machine de Billes Vitesseroid !\nÀ l'attaque !"
+    },
+    "V0510_19_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12883
+      ],
+      "duelist": [],
+      "text": "Attaque, Papillodomino Vitesseroid !"
+    },
+    "V0510_19_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12921
+      ],
+      "duelist": [],
+      "text": "Ma Carte Aimant Malveillant Vitesseroid attaque !"
+    },
+    "V0510_19_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12054
+      ],
+      "duelist": [],
+      "text": "Viens à moi, Dé à l'Œil Rouge Vitesseroid !"
+    },
+    "V0510_19_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12740
+      ],
+      "duelist": [],
+      "text": "Attaque, Prix Gomme Vitesseroid !"
+    },
+    "V0510_38_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À vos marques... Prêts... Combattez !"
+    },
+    "V0510_44_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duellistes !\nPréparez-vous pour le combat !"
+    },
+    "V0510_44_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Qui sera le meilleur ?"
+    },
+    "V0510_44_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est la fusion ultime entre monstres et chaos !"
+    },
+    "V0510_44_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'action commence maintenant !"
+    },
+    "V0510_44_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Actiooon..."
+    },
+    "V0510_44_00_06_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattez !"
+    },
+    "V0510_45_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Carte Action !"
+    },
+    "V0510_45_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Action !"
+    },
+    "V0510_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0510_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouch !"
+    },
+    "V0510_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0510_26_00_00_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mmm !"
+    },
+    "V0510_26_00_01_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça a piqué !"
+    },
+    "V0510_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je suis encore dans la course !"
+    },
+    "V0510_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaah !"
+    },
+    "V0510_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaah !"
+    },
+    "V0510_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Agggh !"
+    },
+    "V0510_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Faut se concentrer !"
+    },
+    "V0510_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est pas bon..."
+    },
+    "V0510_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est pas possible !"
+    },
+    "V0510_24_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erghhh... !"
+    },
+    "V0510_23_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaaaghhhh !"
+    }
+  }
+}

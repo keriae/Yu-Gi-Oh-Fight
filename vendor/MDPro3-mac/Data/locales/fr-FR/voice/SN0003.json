@@ -1,0 +1,5793 @@
+{
+    "_GRP_": "SN0003",
+    "_LNG_": "fr-FR",
+    "info": {
+        "V0003_01_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Un vrai Duelliste accepte tous les défis, alors je vais t'affronter !"
+        },
+        "V0003_01_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Approche que je te démolisse !"
+        },
+        "V0003_01_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                1,
+                331,
+                41
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Yuge ! T'as promis de faire un Duel avec moi et c'est l'heure de tenir parole !"
+        },
+        "V0003_01_00_04_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                2,
+                42
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Kaiba ! Je vais te donner une bonne leçon !"
+        },
+        "V0003_01_00_05_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                7
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "J'avais bien cru sentir un scarabée bousier."
+        },
+        "V0003_01_00_05_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Je vais montrer à cette honte des Duellistes qui est le chef !"
+        },
+        "V0003_01_00_06_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                4
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Mai, montre-moi ce que tu as dans le ventre !"
+        },
+        "V0003_01_00_06_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Parce que je vais me battre jusqu'au bout !"
+        },
+        "V0003_01_00_07_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                14
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "Écoute, le chauve tatoué ! J'ai pas peur de toi !  "
+        },
+        "V0003_01_00_08_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                10
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Je vais jouer à ton Jeu des Ombres !"
+        },
+        "V0003_01_00_08_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "On dirait que le Pilleur de l'Ombre va se faire piller !"
+        },
+        "V0003_01_00_09_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                12
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "Je dirai bien que t'es qu'un vieux rat, mais je veux pas insulter les rats !"
+        },
+        "V0003_01_00_10_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                29
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Allez, Tristan !\nTu sais que tu ne peux pas me battre !"
+        },
+        "V0003_01_00_11_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                5,
+                34,
+                45
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Si je veux être un vrai Duelliste, je ne peux pas perdre !"
+        },
+        "V0003_01_00_12_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                24
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Faisons un combat à la loyale, Esparo !"
+        },
+        "V0003_01_00_13_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "On va commencer ce Duel !"
+        },
+        "V0003_01_00_14_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "S'il y a un Duel à remporter, Joey est là !"
+        },
+        "V0003_01_00_15_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                47
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Sérénité !\nSi t'es là, c'est que t'es une Duelliste dans l'âme !"
+        },
+        "V0003_01_00_16_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                46
+            ],
+            "face": 4,
+            "frame": 0,
+            "text": "Princesse Adena... ?"
+        },
+        "V0003_01_00_16_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 0,
+            "text": "Une minute ! Ouah !\nMakuba ?!"
+        },
+        "V0003_01_00_17_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                49,
+                50,
+                52,
+                828
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Vous allez pas vous en tirer comme ça, les sbires de Doma !"
+        },
+        "V0003_01_00_18_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                51
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Valon !\nFaire un Duel, c'est se battre pour ceux qu'on aime !"
+        },
+        "V0003_01_00_19_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                51
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Si tu veux pas laisser tomber, alors moi non plus, Valon !"
+        },
+        "V0003_01_00_20_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                44
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Mai...\nJe vais la libérer de l'emprise des sbires de Doma !"
+        },
+        "V0003_01_00_21_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                44
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Si faire un Duel est le seul moyen, alors c'est parti !"
+        },
+        "V0003_01_00_22_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                99999
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "Tu as rejoint Doma ?\nT'es le pro des mauvaises décisions !"
+        },
+        "V0003_01_00_23_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                99999
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Tu me rappelles Kaiba.\nEt c'est pas un compliment !"
+        },
+        "V0003_02_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Duel !"
+        },
+        "V0003_03_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "La chance est de mon côté aujourd'hui !"
+        },
+        "V0003_03_00_00_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "À mon tour !"
+        },
+        "V0003_03_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Regarde ce que je sais faire !"
+        },
+        "V0003_03_00_01_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "C'est à moi de jouer !"
+        },
+        "V0003_03_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "À moi !"
+        },
+        "V0003_03_00_02_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "C'est à moi de jouer !"
+        },
+        "V0003_03_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Personne cherche d'embrouilles à Joey Wheeler !"
+        },
+        "V0003_03_00_03_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "C'est à moi de jouer !"
+        },
+        "V0003_03_00_04_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "J'abandonnerai pas ! Je sais pas ce que perdre veut dire !"
+        },
+        "V0003_03_00_04_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "C'est à moi de jouer !"
+        },
+        "V0003_03_00_05_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 5,
+            "frame": 0,
+            "text": "Ce Duel s'annonce pas bien pour moi..."
+        },
+        "V0003_03_00_05_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "À mon tour !"
+        },
+        "V0003_04_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Je pioche !"
+        },
+        "V0003_04_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Je pioche !"
+        },
+        "V0003_04_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Argh... Je pioche !"
+        },
+        "V0003_05_00_00_0": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Je peux pas perdre, alors faut que je passe à la vitesse max !"
+        },
+        "V0003_05_00_00_1": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je pioche !"
+        },
+        "V0003_06_01_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Ouah, génial !"
+        },
+        "V0003_06_01_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Pas si vite !"
+        },
+        "V0003_06_01_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Hé hé ! Parfait !"
+        },
+        "V0003_06_01_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Attends !"
+        },
+        "V0003_07_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Depuis ma main..."
+        },
+        "V0003_07_01_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active une Magie !"
+        },
+        "V0003_07_02_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active une Magie Jeu-Rapide !"
+        },
+        "V0003_07_03_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active une Magie Continue !"
+        },
+        "V0003_07_04_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active une Magie d'Équipement !"
+        },
+        "V0003_07_05_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active une Magie Rituelle !"
+        },
+        "V0003_07_06_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Mon Piège s'active !"
+        },
+        "V0003_07_07_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Mon Piège Continu s'active !"
+        },
+        "V0003_07_08_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Mon Contre-Piège s'active !"
+        },
+        "V0003_07_09_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active ma carte face verso !"
+        },
+        "V0003_07_09_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Je révèle ma carte face verso !"
+        },
+        "V0003_07_10_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "L'effet de mon monstre s'active !"
+        },
+        "V0003_07_11_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Ma Magie de Terrain s'active !"
+        },
+        "V0003_07_12_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active un effet !"
+        },
+        "V0003_07_13_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'pose une Échelle Pendule !"
+        },
+        "V0003_07_14_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active un Effet Pendule !"
+        },
+        "V0003_07_15_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'active une Magie Rituelle !"
+        },
+        "V0003_08_00_00_0": {
+            "card": [
+                4836
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Ta-daa !"
+        },
+        "V0003_08_00_00_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "C'est la Carte Piège Trappe !"
+        },
+        "V0003_08_00_01_0": {
+            "card": [
+                4818
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Voilà la Magie Jeu-Rapide Bouc Émissaire !"
+        },
+        "V0003_08_00_02_0": {
+            "card": [
+                5113
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active la Carte Piège Boîte Féérique !"
+        },
+        "V0003_08_00_02_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Tu peux pas frapper ce que tu peux pas voir, ah ah ah !"
+        },
+        "V0003_08_00_03_0": {
+            "card": [
+                4910
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active la Carte Magie Tornade Géante !"
+        },
+        "V0003_08_00_04_0": {
+            "card": [
+                4985
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active la Carte Piège Profanateur de Tombes !"
+        },
+        "V0003_08_00_04_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Je vole une Carte Magie dans ton Cimetière !"
+        },
+        "V0003_08_00_05_0": {
+            "card": [
+                4815
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Voilà la Carte Magie - Dé gracieux !"
+        },
+        "V0003_08_00_05_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Elle augmente les points d'attaque de mes monstres selon mon lancer de dé !"
+        },
+        "V0003_08_00_06_0": {
+            "card": [
+                4816
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active la Carte Piège - Dé-crâne !"
+        },
+        "V0003_08_00_06_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Elle baisse les points d'attaque de tes monstres selon mon lancer de dé !"
+        },
+        "V0003_08_00_07_0": {
+            "card": [
+                6270
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "C'est l'heure de la baston, Gearfried ! J'active la Carte Magie, Déchaîné !"
+        },
+        "V0003_08_00_08_0": {
+            "card": [
+                5944
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "La Magie Continue Machine Dangereuse Type 6 s'active !"
+        },
+        "V0003_08_00_09_0": {
+            "card": [
+                4834
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active le Piège Bouclier Magique de Bras !"
+        },
+        "V0003_08_00_10_0": {
+            "card": [
+                4811
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Bouclier et Épée !"
+        },
+        "V0003_08_00_10_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Ça échange les points d'attaque et de défense de tous les monstres sur le terrain !"
+        },
+        "V0003_08_00_10_2": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "C'est pas un bon échange pour toi !"
+        },
+        "V0003_08_00_11_0": {
+            "card": [
+                9138
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active la Carte Magie Cadeau de l'Éléphant Blanc !"
+        },
+        "V0003_08_00_12_0": {
+            "card": [
+                5837
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active la Carte Magie Cœur de l'Opprimé !"
+        },
+        "V0003_08_00_13_0": {
+            "card": [
+                4657
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Ça doit marcher !"
+        },
+        "V0003_08_00_13_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active le Piège Kunai avec Chaîne !"
+        },
+        "V0003_08_00_14_0": {
+            "card": [
+                4837
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active la Carte Magie Polymérisation !"
+        },
+        "V0003_08_00_15_0": {
+            "card": [
+                4820
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Faut prendre de gros risques pour gagner gros !"
+        },
+        "V0003_08_00_15_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Tourne, Arraignée à Roulette !"
+        },
+        "V0003_08_00_16_0": {
+            "card": [
+                11892
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je peux sentir la puissance de cette carte... "
+        },
+        "V0003_08_00_16_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'ai jamais rien vu d'aussi balèze ! La Griffe d'Hermocrate !"
+        },
+        "V0003_08_00_17_0": {
+            "card": [
+                11895
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "C'est parti ! J'active ma Carte Magie Rituelle !"
+        },
+        "V0003_08_00_17_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Transmigration des Yeux Rouges !"
+        },
+        "V0003_08_00_18_0": {
+            "card": [
+                5494
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'ai une question pour toi !"
+        },
+        "V0003_08_00_18_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Quel monstre se trouve au fond de mon Cimetière ?"
+        },
+        "V0003_08_00_19_0": {
+            "card": [
+                5236
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je vais jouer ceci pour envoyer un monstre au Cimetière !"
+        },
+        "V0003_08_00_19_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Magie, Sacrifice Inutile !"
+        },
+        "V0003_08_00_20_0": {
+            "card": [
+                6134
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Yeux Rouges !\nAttaque les Life Points !"
+        },
+        "V0003_08_00_20_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Souffle du Feu de l'Enfer !"
+        },
+        "V0003_08_00_21_0": {
+            "card": [
+                4339
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ce Terrain est parfait pour mes monstres !"
+        },
+        "V0003_08_00_21_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Sogen !"
+        },
+        "V0003_08_00_22_0": {
+            "card": [
+                4660
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Magie d'Équipement !\nMets le feu, Salamandra !"
+        },
+        "V0003_08_00_23_0": {
+            "card": [
+                4668
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ça va faire mouche contre les insectes."
+        },
+        "V0003_08_00_23_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Aérosol de Destruction !"
+        },
+        "V0003_08_00_24_0": {
+            "card": [
+                5110
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "L'électricité fait des étincelles dans l'eau !\nLame Foudroyante !"
+        },
+        "V0003_08_00_25_0": {
+            "card": [
+                4664
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Piège !\nMétalmorphe !"
+        },
+        "V0003_08_00_26_0": {
+            "card": [
+                5330
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Magie !\nLe Guerrier Réincarné !"
+        },
+        "V0003_08_00_27_0": {
+            "card": [
+                4874
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active ma Carte Magie !\nBlocage d'Attaque !"
+        },
+        "V0003_08_00_28_0": {
+            "card": [
+                4326
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active la Carte Magie, Stop Défense !"
+        },
+        "V0003_08_00_29_0": {
+            "card": [
+                5315
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Magie !\nDouble Piège !"
+        },
+        "V0003_08_00_30_0": {
+            "card": [
+                4678
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Quelle bonne idée d'inclure la carte de Mai dans mon Deck !"
+        },
+        "V0003_08_00_30_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "J'active la Carte Magie, Le Plumeau de Dame Harpie !"
+        },
+        "V0003_08_00_31_0": {
+            "card": [
+                4809
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'équipe la Magie d'Équipement Griffe de Dragon sur mon monstre !"
+        },
+        "V0003_08_00_32_0": {
+            "card": [
+                4809
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Griffe de Dragon s'active !"
+        },
+        "V0003_08_00_33_0": {
+            "card": [
+                5757
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Magie !\nTitre de Chevalier !"
+        },
+        "V0003_08_00_34_0": {
+            "card": [
+                4842
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Magie !\nMonster Reborn !"
+        },
+        "V0003_08_00_35_0": {
+            "card": [
+                4966
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Magie d'Équipement !\nEnterrement Prématuré !"
+        },
+        "V0003_08_00_36_0": {
+            "card": [
+                5904
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Magie, Agneaux Égarés !"
+        },
+        "V0003_08_00_37_0": {
+            "card": [
+                5404
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active le Piège, Laissez Tomber !\nJe vais pas te laisser piocher !"
+        },
+        "V0003_08_00_38_0": {
+            "card": [
+                11893
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active mon Piège !\nEntrave du Double Bras Magique !"
+        },
+        "V0003_08_00_39_0": {
+            "card": [
+                12240
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Je t'ai bien eu !\nVoici ma Carte Piège, Trappe d'Épines !"
+        },
+        "V0003_08_00_40_0": {
+            "card": [
+                5403
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Piège !\nRation Z !"
+        },
+        "V0003_08_00_41_0": {
+            "card": [
+                5400
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ma Carte Piège, Trappe sans Fond !"
+        },
+        "V0003_08_00_42_0": {
+            "card": [
+                19729
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Magie Continue !\nRoyaumépées des Flammes !"
+        },
+        "V0003_08_00_43_0": {
+            "card": [
+                19729
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'envoie un monstre au Cimetière pour activer Royaumépées des Flammes !"
+        },
+        "V0003_08_00_44_0": {
+            "card": [
+                19729
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'espère que ça va marcher !\nJ'active l'effet de la Carte Royaumépées des Flammes !"
+        },
+        "V0003_08_00_45_0": {
+            "card": [
+                19730
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Magie d'Équipement !\nFusion Salamandra !"
+        },
+        "V0003_08_00_46_0": {
+            "card": [
+                19731
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "C'est parti !\nLa Magie Jeu-Rapide, Épée des Flammes Combattante !"
+        },
+        "V0003_08_00_47_0": {
+            "card": [
+                19733
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Piège !\nDansépées des Flammes !"
+        },
+        "V0003_08_00_48_0": {
+            "card": [
+                19733
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Dansépées des Flammes depuis le Cimetière !"
+        },
+        "V0003_08_00_49_0": {
+            "card": [
+                19732
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active le Piège, Salamandra avec Chaîne !"
+        },
+        "V0003_08_00_50_0": {
+            "card": [
+                19732
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Salamandra avec Chaîne depuis le Cimetière !"
+        },
+        "V0003_08_00_51_0": {
+            "card": [
+                20547
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active mon Piège, Métalmorphe Max !"
+        },
+        "V0003_08_00_52_0": {
+            "card": [
+                20812
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active mon Piège !\nRevêtement de Flamme Métalmorphe !"
+        },
+        "V0003_08_00_53_0": {
+            "card": [
+                20548
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active le Piège, Moteur à Voyager Dans le Temps !"
+        },
+        "V0003_08_00_54_0": {
+            "card": [
+                12650
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Magie !\nVision aux Yeux Rouges !"
+        },
+        "V0003_08_00_55_0": {
+            "card": [
+                11843
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Magie !\nFusion aux Yeux Rouges !"
+        },
+        "V0003_08_00_56_0": {
+            "card": [
+                11844
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Maintenant, ma Carte Magie !\nCartes de la Pierre Rouge !"
+        },
+        "V0003_08_00_57_0": {
+            "card": [
+                11897
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Magie Rituelle !\nRituel du Dragon Noir !"
+        },
+        "V0003_08_00_58_0": {
+            "card": [
+                11897
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Rituel du Dragon Noir depuis le Cimetière !"
+        },
+        "V0003_08_00_59_0": {
+            "card": [
+                13171
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active mon Piège !\nCroc aux Yeux Rouges avec Chaîne !"
+        },
+        "V0003_08_00_60_0": {
+            "card": [
+                13171
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Croc aux Yeux Rouges avec Chaîne a un autre effet !"
+        },
+        "V0003_08_00_61_0": {
+            "card": [
+                11898
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active mon Piège !\nEsprit des Yeux Rouges !"
+        },
+        "V0003_08_00_62_0": {
+            "card": [
+                11899
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active le Piège, Brûlure des Yeux Rouges !"
+        },
+        "V0003_08_00_63_0": {
+            "card": [
+                11856
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Carte Piège Continu, Le Retour des Yeux Rouges !"
+        },
+        "V0003_08_00_64_0": {
+            "card": [
+                11856
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Le Retour des Yeux Rouges s'active !"
+        },
+        "V0003_08_00_65_0": {
+            "card": [
+                11856
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Le Retour des Yeux Rouges s'active lorsqu'elle est détruite !"
+        },
+        "V0003_08_00_66_0": {
+            "card": [
+                21580
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active ma Magie d'Équipement !\nVENTS DE LA VICTOIRE !"
+        },
+        "V0003_08_00_67_0": {
+            "card": [
+                21579
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active mon Piège !\nPiège du Scorpion Venimeux !"
+        },
+        "V0003_08_00_68_0": {
+            "card": [
+                4950
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "C'est l'heure de ma Carte Piège !\nGamble !"
+        },
+        "V0003_08_00_68_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'espère que la chance est de mon côté !"
+        },
+        "V0003_09_00_00_0": {
+            "card": [
+                4022
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Magicien du Temps s'active !"
+        },
+        "V0003_09_00_00_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Roulette du Temps !"
+        },
+        "V0003_09_00_02_0": {
+            "card": [
+                4758
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Jinzo s'active !"
+        },
+        "V0003_09_00_02_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Recherche de Piège !"
+        },
+        "V0003_09_00_03_0": {
+            "card": [
+                5451
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La capacité spéciale de la Carte Gilford, L'Éclair s'active !"
+        },
+        "V0003_09_00_03_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ça va être la tempête de coups et l'orage de la défaite !"
+        },
+        "V0003_09_00_04_0": {
+            "card": [
+                10864
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Quand Spadassin des Flammes Bleues est détruit, sa capacité spéciale s'active."
+        },
+        "V0003_09_00_05_0": {
+            "card": [
+                10864
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Spadassin des Flammes Bleues s'active !"
+        },
+        "V0003_09_00_06_0": {
+            "card": [
+                5059
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Les Cartes d'Équipement s'écrasent sur l'armure en fer de Gearfried le Chevalier de Fer !"
+        },
+        "V0003_09_00_07_0": {
+            "card": [
+                6251
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Quand Gearfried le Maître Escrimeur équipe une Carte d'Équipement, il détruit un de tes monstres !"
+        },
+        "V0003_09_00_08_0": {
+            "card": [
+                4795
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ouais ! Copiechat !"
+        },
+        "V0003_09_00_08_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Il me permet de copier ta meilleure carte !"
+        },
+        "V0003_09_00_09_0": {
+            "card": [
+                4771
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Petit Guerrier Ailé change sa position de combat !"
+        },
+        "V0003_09_00_10_0": {
+            "card": [
+                5067
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Guerrier Roquette réduit l'ATK de ton monstre !"
+        },
+        "V0003_09_00_11_0": {
+            "card": [
+                20481
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active Dragon de Métal Noir Entier aux Yeux Rouges depuis ma main !"
+        },
+        "V0003_09_00_12_0": {
+            "card": [
+                20481
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Dragon de Métal Noir Entier aux Yeux Rouges active son effet !"
+        },
+        "V0003_09_00_13_0": {
+            "card": [
+                11838
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon de Métal Flamboyant aux Yeux Rouges !\nRessuscite, Yeux Rouges !"
+        },
+        "V0003_09_00_14_0": {
+            "card": [
+                13170
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Lame aux Yeux Rouges équipe un Guerrier depuis mon Cimetière !"
+        },
+        "V0003_09_00_15_0": {
+            "card": [
+                13170
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Lame aux Yeux Rouges envoie une Carte d'Équipement depuis le Cimetière !"
+        },
+        "V0003_09_00_16_0": {
+            "card": [
+                13170
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Dragon Lame aux Yeux Rouges s'active lorsqu'elle est détruite !"
+        },
+        "V0003_09_00_17_0": {
+            "card": [
+                11891
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'vais te laisser manier la lame la plus puissante du jeu !"
+        },
+        "V0003_09_00_17_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'équipe un monstre avec Épée de Dragon Noir aux Yeux Rouges !"
+        },
+        "V0003_09_00_18_0": {
+            "card": [
+                17243
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Âme aux Yeux Rouges !"
+        },
+        "V0003_09_00_19_0": {
+            "card": [
+                17243
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Âme aux Yeux Rouges !\nAllez, inflige des dommages !"
+        },
+        "V0003_09_00_20_0": {
+            "card": [
+                21162
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Dragon de Griffes Métalliques aux Yeux Rouges s'active depuis ma main !"
+        },
+        "V0003_09_00_21_0": {
+            "card": [
+                21162
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Dragon de Griffes Métalliques aux Yeux Rouges active son effet !"
+        },
+        "V0003_09_00_22_0": {
+            "card": [
+                11804
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Dragon Flamboyant Noir aux Yeux Rouges active son effet !"
+        },
+        "V0003_09_00_23_0": {
+            "card": [
+                17388
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active Dragon Météore Noir aux Yeux Rouges depuis ma main !"
+        },
+        "V0003_09_00_24_0": {
+            "card": [
+                17388
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Météore Noir aux Yeux Rouges s'active depuis le Cimetière !"
+        },
+        "V0003_09_00_25_0": {
+            "card": [
+                11807
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Archdémon d'Éclairs aux Yeux Rouges active son effet !"
+        },
+        "V0003_09_00_26_0": {
+            "card": [
+                7982
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Vouivre aux Yeux Rouges !"
+        },
+        "V0003_09_00_27_0": {
+            "card": [
+                11929
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Dragon Rétro aux Yeux Rouges s'active depuis ma main !"
+        },
+        "V0003_09_00_28_0": {
+            "card": [
+                11929
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je Sacrifie la Carte Dragon Rétro aux Yeux Rouges pour activer son effet !"
+        },
+        "V0003_09_00_29_0": {
+            "card": [
+                13168
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Bébé Dragon aux Yeux Rouges active son effet !"
+        },
+        "V0003_09_00_30_0": {
+            "card": [
+                13168
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Bébé Dragon aux Yeux Rouges s'active en arrivant au Cimetière !"
+        },
+        "V0003_09_00_31_0": {
+            "card": [
+                11806
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'équipe Dragon de Métal Noir sur un monstre !"
+        },
+        "V0003_09_00_32_0": {
+            "card": [
+                11806
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Dragon de Métal Noir s'active une fois envoyée au Cimetière !"
+        },
+        "V0003_09_00_33_0": {
+            "card": [
+                11805
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Pierre Noire Légendaire !"
+        },
+        "V0003_09_00_34_0": {
+            "card": [
+                11805
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active la Carte Pierre Noire Légendaire depuis mon Cimetière !"
+        },
+        "V0003_09_00_35_0": {
+            "card": [
+                6109
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Poussin Dragon Noir !"
+        },
+        "V0003_09_00_36_0": {
+            "card": [
+                11894
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Regarde un peu l'effet de la Carte Seigneur du Rouge !"
+        },
+        "V0003_09_00_36_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Il utilise ses pouvoirs magiques pour détruire un monstre !"
+        },
+        "V0003_09_00_37_0": {
+            "card": [
+                11894
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Seigneur du Rouge utilise son effet !"
+        },
+        "V0003_09_00_37_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Il détruit une carte !"
+        },
+        "V0003_09_00_38_0": {
+            "card": [
+                11896
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Paladin du Dragon Noir active son effet !"
+        },
+        "V0003_09_00_39_0": {
+            "card": [
+                14952
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Soldat Dragon Sombre aux Yeux Rouges !"
+        },
+        "V0003_09_00_40_0": {
+            "card": [
+                11832
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Dragon Crâne Noir Archdémon active son effet !"
+        },
+        "V0003_09_00_41_0": {
+            "card": [
+                12631
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Dragon Noir Comète Météore active son effet !"
+        },
+        "V0003_09_00_42_0": {
+            "card": [
+                12631
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Noir Comète Météore s'active depuis le Cimetière !"
+        },
+        "V0003_09_00_43_0": {
+            "card": [
+                14801
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Gearfried Phénix Immortel s'active depuis ma main !"
+        },
+        "V0003_09_00_44_0": {
+            "card": [
+                14801
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Gearfried Phénix Immortel !"
+        },
+        "V0003_09_00_45_0": {
+            "card": [
+                8431
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried Phénix active son effet !"
+        },
+        "V0003_09_00_46_0": {
+            "card": [
+                6724
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Gilti-Gearfried le Chevalier d'Acier Magique !"
+        },
+        "V0003_09_00_47_0": {
+            "card": [
+                13169
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Gearfried aux Yeux Rouges le Chevalier de Fer active son effet !"
+        },
+        "V0003_09_00_48_0": {
+            "card": [
+                13169
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried aux Yeux Rouges le Chevalier de Fer supprime sa Carte d'Équipement !"
+        },
+        "V0003_09_00_49_0": {
+            "card": [
+                19727
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes Ultime active son effet !"
+        },
+        "V0003_09_00_50_0": {
+            "card": [
+                20753
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Spadassin des Flammes Métalliques depuis ma main !"
+        },
+        "V0003_09_00_51_0": {
+            "card": [
+                14333
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes Féroces active son effet !"
+        },
+        "V0003_09_00_52_0": {
+            "card": [
+                19724
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Spadassin des Flammes Combattant s'active !"
+        },
+        "V0003_09_00_53_0": {
+            "card": [
+                19724
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes Combattant s'active en allant au Cimetière !"
+        },
+        "V0003_09_00_54_0": {
+            "card": [
+                19728
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Dragon des Flammes Combattant !"
+        },
+        "V0003_09_00_55_0": {
+            "card": [
+                5698
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Chevalier du Flamboiement des Ténèbres s'active lorsqu'il est détruit au combat !"
+        },
+        "V0003_09_00_56_0": {
+            "card": [
+                21430
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Spadassin du Flamboiement des Ténèbres s'active depuis ma main !"
+        },
+        "V0003_09_00_57_0": {
+            "card": [
+                21430
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Spadassin du Flamboiement des Ténèbres !"
+        },
+        "V0003_09_00_58_0": {
+            "card": [
+                5699
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Regarde ça !\nL'effet de la Carte Chevalier Mirage !"
+        },
+        "V0003_09_00_59_0": {
+            "card": [
+                19726
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Spadassin Mirage s'active !"
+        },
+        "V0003_09_00_60_0": {
+            "card": [
+                11887
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Chevalier Légendaire Hermocrate active son effet !"
+        },
+        "V0003_09_00_60_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Épée du Renouveau !"
+        },
+        "V0003_09_00_61_0": {
+            "card": [
+                11888
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Marteau de Magie Temporelle !"
+        },
+        "V0003_09_00_62_0": {
+            "card": [
+                11889
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Canon à Roquettes Hermocrate !\nÉquipe-toi sur un monstre !"
+        },
+        "V0003_09_00_63_0": {
+            "card": [
+                11890
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte La Déesse Archère - Artémis s'active !"
+        },
+        "V0003_09_00_64_0": {
+            "card": [
+                15344
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active son effet depuis ma main !"
+        },
+        "V0003_09_00_65_0": {
+            "card": [
+                15344
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Jinzo la Menace Machine !"
+        },
+        "V0003_09_00_66_0": {
+            "card": [
+                4768
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'aime pas les insectes...\nMais je vais quand même utiliser l'effet de Reine Insecte !"
+        },
+        "V0003_09_00_67_0": {
+            "card": [
+                5943
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Et maintenant, l'effet de la Carte Six Maximum !"
+        },
+        "V0003_09_00_68_0": {
+            "card": [
+                6374
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Ishzark le Chevalier Divin s'active !"
+        },
+        "V0003_09_00_69_0": {
+            "card": [
+                16621
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Giltia, Chevalier des Ténèbres - Lance des Âmes va détruire son adversaire !"
+        },
+        "V0003_09_00_70_0": {
+            "card": [
+                16621
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Giltia, Chevalier des Ténèbres - Lance des Âmes !\nActive ton effet !"
+        },
+        "V0003_09_00_71_0": {
+            "card": [
+                15461
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Dragon Centenaire active son effet !"
+        },
+        "V0003_09_00_72_0": {
+            "card": [
+                5318
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Capitaine en Maraude active son effet !"
+        },
+        "V0003_09_00_73_0": {
+            "card": [
+                5371
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'Effet Flip de la Carte Fiberjarre s'active !"
+        },
+        "V0003_09_00_74_0": {
+            "card": [
+                5412
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Et maintenant, l'effet de la Carte Samouraï Sasuke !"
+        },
+        "V0003_09_00_75_0": {
+            "card": [
+                19725
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'active l'effet de la Carte Salamandra, le Dragon Volant des Flammes !"
+        },
+        "V0003_09_00_76_0": {
+            "card": [
+                20484
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Carte Illusionniste Métallique active son effet !"
+        },
+        "V0003_09_00_77_0": {
+            "card": [
+                5595
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "L'effet de la Carte Roi Neko Mane s'active !"
+        },
+        "V0003_09_00_78_0": {
+            "card": [
+                15462
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Magicien du Temps du Lendemain !\nTout dépend de toi !"
+        },
+        "V0003_09_00_78_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Roulette du Temps !"
+        },
+        "V0003_10_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Allons-y !"
+        },
+        "V0003_10_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "OK !"
+        },
+        "V0003_10_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Au boulot !"
+        },
+        "V0003_10_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Parfait !"
+        },
+        "V0003_11_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre en Position d'Attaque !"
+        },
+        "V0003_11_01_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre en Position de Défense !"
+        },
+        "V0003_11_02_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque Spécialement un monstre !"
+        },
+        "V0003_11_03_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Je Sacrifie un monstre !"
+        },
+        "V0003_11_04_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre par Sacrifice !"
+        },
+        "V0003_11_04_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Sacrifice !"
+        },
+        "V0003_11_05_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre par Fusion !"
+        },
+        "V0003_11_05_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Fusion !"
+        },
+        "V0003_11_06_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre par Rituel !"
+        },
+        "V0003_11_06_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Rituelle !"
+        },
+        "V0003_11_07_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre par Synchro !"
+        },
+        "V0003_11_07_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Synchro !"
+        },
+        "V0003_11_08_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre par Xyz !"
+        },
+        "V0003_11_08_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Xyz !"
+        },
+        "V0003_11_09_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre par Pendulation !"
+        },
+        "V0003_11_09_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Pendule !"
+        },
+        "V0003_11_10_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Lien !"
+        },
+        "V0003_11_11_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre par Maximum !"
+        },
+        "V0003_11_11_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Maximum !"
+        },
+        "V0003_11_12_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque un monstre par Fusion !"
+        },
+        "V0003_11_12_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Fusion !"
+        },
+        "V0003_11_13_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Je Contact Fusionne un monstre !"
+        },
+        "V0003_11_13_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Contact Fusion !"
+        },
+        "V0003_11_14_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'Invoque Rituellement un monstre !"
+        },
+        "V0003_11_14_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Invocation Rituelle !"
+        },
+        "V0003_13_00_00_0": {
+            "card": [
+                4088
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Noir aux Yeux Rouges !"
+        },
+        "V0003_13_00_00_1": {
+            "card": [],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ce pote à moi est un monstre super rare !"
+        },
+        "V0003_13_00_01_0": {
+            "card": [
+                4075
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Parfait !"
+        },
+        "V0003_13_00_01_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Millénaire !"
+        },
+        "V0003_13_00_02_0": {
+            "card": [
+                4758
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Attends de voir ça !"
+        },
+        "V0003_13_00_02_1": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Jinzo !"
+        },
+        "V0003_13_00_03_0": {
+            "card": [
+                5451
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Mon combattant légendaire peut contrôler les cieux et démolir tes chances de victoire !"
+        },
+        "V0003_13_00_03_1": {
+            "card": [],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gilford, L'Éclair !"
+        },
+        "V0003_13_00_04_0": {
+            "card": [
+                6374
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La force de mon chevalier noble vient tout droit du ciel !"
+        },
+        "V0003_13_00_04_1": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ishzark le Chevalier Divin !"
+        },
+        "V0003_13_00_05_0": {
+            "card": [
+                11832
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Crâne Noir Archdémon !"
+        },
+        "V0003_13_00_06_0": {
+            "card": [
+                10864
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Et voilà Spadassin des Flammes Bleues !"
+        },
+        "V0003_13_00_07_0": {
+            "card": [
+                4748
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'Invoque Spécialement Dragon de Métal Noir aux Yeux Rouges !"
+        },
+        "V0003_13_00_08_0": {
+            "card": [
+                5059
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Allez, Gearfried le Chevalier de Fer !"
+        },
+        "V0003_13_00_09_0": {
+            "card": [
+                6251
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Brise tes chaînes, Gearfried le Maître Escrimeur !"
+        },
+        "V0003_13_00_10_0": {
+            "card": [
+                4751
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dévore tout, Guerrier Panthère !"
+        },
+        "V0003_13_00_11_0": {
+            "card": [
+                4021
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes ! Vas-yyy !"
+        },
+        "V0003_13_00_12_0": {
+            "card": [
+                11888
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je sais pas ce que cette arme peut faire, mais ça m'a jamais arrêté !"
+        },
+        "V0003_13_00_12_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Marteau de Magie Temporelle !"
+        },
+        "V0003_13_00_13_0": {
+            "card": [
+                11889
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je compte sur cette carte !"
+        },
+        "V0003_13_00_13_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Canon à Roquettes Hermocrate !"
+        },
+        "V0003_13_00_14_0": {
+            "card": [
+                11891
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je forge l'arme ultime !"
+        },
+        "V0003_13_00_14_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Épée de Dragon Noir aux Yeux Rouges !"
+        },
+        "V0003_13_00_15_0": {
+            "card": [
+                11894
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je me Sacrifie ! "
+        },
+        "V0003_13_00_15_1": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Viens là, Seigneur du Rouge !"
+        },
+        "V0003_13_00_16_0": {
+            "card": [
+                4022
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "C'est pour toi, Magicien du Temps !"
+        },
+        "V0003_13_00_17_0": {
+            "card": [
+                4010
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Allons-y, Bébé Dragon !"
+        },
+        "V0003_13_00_18_0": {
+            "card": [
+                4795
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Copiechat !"
+        },
+        "V0003_13_00_19_0": {
+            "card": [
+                4084
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Regarde ça !\nC'est Axe Raider !"
+        },
+        "V0003_13_00_19_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "C'est un monstre ultra rare !"
+        },
+        "V0003_13_00_20_0": {
+            "card": [
+                4106
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Guerrier de Bataille !"
+        },
+        "V0003_13_00_21_0": {
+            "card": [
+                4759
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Allez viens, Le Spadassin de Landstar !"
+        },
+        "V0003_13_00_22_0": {
+            "card": [
+                4395
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je joue cette carte !\nGiltia, Chevalier des Ténèbres !"
+        },
+        "V0003_13_00_23_0": {
+            "card": [
+                5069
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Mako me l'a confié pour que je l'utilise à bon escient !"
+        },
+        "V0003_13_00_23_1": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Le Pêcheur Légendaire !"
+        },
+        "V0003_13_00_24_0": {
+            "card": [
+                4771
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Petit Guerrier Ailé !"
+        },
+        "V0003_13_00_25_0": {
+            "card": [
+                4767
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Glaive de l'Alligator !"
+        },
+        "V0003_13_00_26_0": {
+            "card": [
+                5003
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon du Glaive de l'Alligator !"
+        },
+        "V0003_13_00_27_0": {
+            "card": [
+                5067
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Guerrier Roquette !"
+        },
+        "V0003_13_00_28_0": {
+            "card": [
+                5059
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried le Chevalier de Fer !"
+        },
+        "V0003_13_00_29_0": {
+            "card": [
+                4223
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Voici Dragon Crâne Noir !"
+        },
+        "V0003_13_00_30_0": {
+            "card": [
+                4719
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Voilà Dragon Noir Météore !"
+        },
+        "V0003_13_00_31_0": {
+            "card": [
+                20481
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon de Métal Noir Entier aux Yeux Rouges !"
+        },
+        "V0003_13_00_32_0": {
+            "card": [
+                11838
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon de Métal Flamboyant aux Yeux Rouges !"
+        },
+        "V0003_13_00_33_0": {
+            "card": [
+                13170
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Mes Yeux Rouges renaissent !\nDragon Lame aux Yeux Rouges !"
+        },
+        "V0003_13_00_33_1": {
+            "card": [],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ce monstre est super rare !"
+        },
+        "V0003_13_00_34_0": {
+            "card": [
+                17243
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je mets tout mon cœur dans cette carte !"
+        },
+        "V0003_13_00_34_1": {
+            "card": [],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Âme aux Yeux Rouges !"
+        },
+        "V0003_13_00_35_0": {
+            "card": [
+                21162
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon de Griffes Métalliques aux Yeux Rouges !"
+        },
+        "V0003_13_00_36_0": {
+            "card": [
+                11804
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Envole-toi, Dragon Flamboyant Noir aux Yeux Rouges !"
+        },
+        "V0003_13_00_37_0": {
+            "card": [
+                17388
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Météore Noir aux Yeux Rouges !"
+        },
+        "V0003_13_00_38_0": {
+            "card": [
+                12618
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Météore Impact aux Yeux Rouges !\nC'est parti !"
+        },
+        "V0003_13_00_39_0": {
+            "card": [
+                11807
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Lève-toi !\nArchdémon d'Éclairs aux Yeux Rouges !"
+        },
+        "V0003_13_00_40_0": {
+            "card": [
+                7982
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Voilà Vouivre aux Yeux Rouges !"
+        },
+        "V0003_13_00_41_0": {
+            "card": [
+                11929
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Voilà ce que j'attendais !\nDragon Rétro aux Yeux Rouges !"
+        },
+        "V0003_13_00_42_0": {
+            "card": [
+                13168
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Bébé Dragon aux Yeux Rouges !\nTu peux le faire !"
+        },
+        "V0003_13_00_43_0": {
+            "card": [
+                11806
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je choisis Dragon de Métal Noir !"
+        },
+        "V0003_13_00_44_0": {
+            "card": [
+                11805
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je joue Pierre Noire Légendaire !"
+        },
+        "V0003_13_00_45_0": {
+            "card": [
+                6109
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Poussin Dragon Noir !\nSur le Terrain !"
+        },
+        "V0003_13_00_46_0": {
+            "card": [
+                11896
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Paladin du Dragon Noir !"
+        },
+        "V0003_13_00_47_0": {
+            "card": [
+                14952
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Soldat Dragon Sombre aux Yeux Rouges !"
+        },
+        "V0003_13_00_48_0": {
+            "card": [
+                12631
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Noir Comète Météore !"
+        },
+        "V0003_13_00_49_0": {
+            "card": [
+                14801
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried Phénix Immortel !"
+        },
+        "V0003_13_00_50_0": {
+            "card": [
+                8431
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried Phénix !"
+        },
+        "V0003_13_00_51_0": {
+            "card": [
+                6724
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gilti-Gearfried le Chevalier d'Acier Magique !"
+        },
+        "V0003_13_00_52_0": {
+            "card": [
+                13169
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Attention, Gearfried aux Yeux Rouges le Chevalier de Fer arrive !"
+        },
+        "V0003_13_00_53_0": {
+            "card": [
+                19727
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Oh yeah !\nVoici Spadassin des Flammes Ultime !"
+        },
+        "V0003_13_00_54_0": {
+            "card": [
+                20753
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes Métalliques !"
+        },
+        "V0003_13_00_55_0": {
+            "card": [
+                14333
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Regarde ça !\nSpadassin des Flammes Féroces !"
+        },
+        "V0003_13_00_56_0": {
+            "card": [
+                19724
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes Combattant !"
+        },
+        "V0003_13_00_57_0": {
+            "card": [
+                19728
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Apparais, Dragon des Flammes Combattant !"
+        },
+        "V0003_13_00_58_0": {
+            "card": [
+                5698
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Chevalier du Flamboiement des Ténèbres !"
+        },
+        "V0003_13_00_59_0": {
+            "card": [
+                21430
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin du Flamboiement des Ténèbres !"
+        },
+        "V0003_13_00_60_0": {
+            "card": [
+                5699
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Chevalier Mirage !"
+        },
+        "V0003_13_00_61_0": {
+            "card": [
+                19726
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin Mirage !"
+        },
+        "V0003_13_00_62_0": {
+            "card": [
+                11887
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'ai besoin de votre aide !"
+        },
+        "V0003_13_00_62_1": {
+            "card": [],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Chevalier Légendaire Hermocrate !"
+        },
+        "V0003_13_00_63_0": {
+            "card": [
+                11890
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Déesse Archère - Artémis !"
+        },
+        "V0003_13_00_64_0": {
+            "card": [
+                15344
+            ],
+            "cutin": 2,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Jinzo la Menace Machine !"
+        },
+        "V0003_13_00_65_0": {
+            "card": [
+                4768
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Reine Insecte !"
+        },
+        "V0003_13_00_66_0": {
+            "card": [
+                4761
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Démon Mégacyber !"
+        },
+        "V0003_13_00_67_0": {
+            "card": [
+                5943
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je joue cette carte !\nSix Maximum !"
+        },
+        "V0003_13_00_68_0": {
+            "card": [
+                16621
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Giltia, Chevalier des Ténèbres - Lance des Âmes !"
+        },
+        "V0003_13_00_69_0": {
+            "card": [
+                15462
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Je compte sur toi !\nMagicien du Temps du Lendemain !"
+        },
+        "V0003_13_00_70_0": {
+            "card": [
+                4790
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Alligator Cybertech !"
+        },
+        "V0003_13_00_71_0": {
+            "card": [
+                4074
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ça fera l'affaire !\nGaroozis !"
+        },
+        "V0003_13_00_72_0": {
+            "card": [
+                5145
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Troupe d'Assaut Gobeline !"
+        },
+        "V0003_13_00_73_0": {
+            "card": [
+                5239
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ça devrait prouver que Mai est avec moi !\nCyber-Harpie !"
+        },
+        "V0003_13_00_74_0": {
+            "card": [
+                15461
+            ],
+            "cutin": 1,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À toi de jouer !\nDragon Centenaire !"
+        },
+        "V0003_13_00_75_0": {
+            "card": [
+                4299
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Masaki le Spadassin Légendaire !"
+        },
+        "V0003_13_00_76_0": {
+            "card": [
+                4148
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Manipulateur de Flammes !\nÀ toi de jouer !"
+        },
+        "V0003_13_00_77_0": {
+            "card": [
+                5318
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ça va être génial !\nCapitaine en Maraude !"
+        },
+        "V0003_13_00_78_0": {
+            "card": [
+                5371
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Fiberjarre !"
+        },
+        "V0003_13_00_79_0": {
+            "card": [
+                5412
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Vas-y, Samouraï Sasuke !"
+        },
+        "V0003_13_00_80_0": {
+            "card": [
+                19725
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Salamandra, le Dragon Volant des Flammes !"
+        },
+        "V0003_13_00_81_0": {
+            "card": [
+                20484
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "C'est le moment parfait pour Illusionniste Métallique !"
+        },
+        "V0003_13_00_82_0": {
+            "card": [
+                5595
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Roi Neko Mane !"
+        },
+        "V0003_13_00_83_0": {
+            "card": [
+                3902
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'Invoque Spécialement 1 Jeton Mouton !"
+        },
+        "V0003_13_00_84_0": {
+            "card": [
+                3918
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'Invoque Spécialement 1 Jeton Agneau !"
+        },
+        "V0003_14_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Combat !"
+        },
+        "V0003_14_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Combattons !"
+        },
+        "V0003_15_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "OK, tu l'auras voulu !"
+        },
+        "V0003_15_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Prends ça !"
+        },
+        "V0003_15_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Allez, un peu de chance !"
+        },
+        "V0003_16_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "C'est l'heure de mordre la poussière !"
+        },
+        "V0003_16_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "KO !"
+        },
+        "V0003_17_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "J'attaque avec mon monstre !"
+        },
+        "V0003_17_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "Mon monstre va cogner !"
+        },
+        "V0003_17_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "Mon monstre attaque !"
+        },
+        "V0003_18_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'attaque directement tes Life Points !"
+        },
+        "V0003_18_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Mon monstre attaque directement tes Life Points !"
+        },
+        "V0003_19_00_00_0": {
+            "card": [
+                4088
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Vas-y, Dragon Noir aux Yeux Rouges !"
+        },
+        "V0003_19_00_00_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Souffle du Feu de l'Enfer !"
+        },
+        "V0003_19_00_01_0": {
+            "card": [
+                4075
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Vas-y, Dragon Millénaire !"
+        },
+        "V0003_19_00_01_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Souffle Toxique !"
+        },
+        "V0003_19_00_02_0": {
+            "card": [
+                4758
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Jinzo, attaque ! "
+        },
+        "V0003_19_00_02_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Choc Énergétique Cyber !"
+        },
+        "V0003_19_00_03_0": {
+            "card": [
+                5496
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Golem de Lave, attaque !"
+        },
+        "V0003_19_00_03_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Réchauffe-moi tout ça !"
+        },
+        "V0003_19_00_04_0": {
+            "card": [
+                5451
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'attaque avec Gilford, L'Éclair !"
+        },
+        "V0003_19_00_04_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Foudre Écrasante !"
+        },
+        "V0003_19_00_05_0": {
+            "card": [
+                6374
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Vas-y, Ishzark le Chevalier Divin !"
+        },
+        "V0003_19_00_05_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Distorsion de Rupture !"
+        },
+        "V0003_19_00_06_0": {
+            "card": [
+                4021
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes, c'est l'heure du combat !"
+        },
+        "V0003_19_00_06_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Épée Enflammée des Batailles !"
+        },
+        "V0003_19_00_07_0": {
+            "card": [
+                4223
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Crâne Noir !"
+        },
+        "V0003_19_00_07_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Écrase l'adversaire avec tes Boules de Feu Fondu !"
+        },
+        "V0003_19_00_08_0": {
+            "card": [
+                4748
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'attaque avec Dragon de Métal Noir aux Yeux Rouges !"
+        },
+        "V0003_19_00_08_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Explosion Flash !"
+        },
+        "V0003_19_00_09_0": {
+            "card": [
+                5059
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'attaque avec Gearfried le Chevalier de Fer !"
+        },
+        "V0003_19_00_09_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Coup de Bras Métallique !\n"
+        },
+        "V0003_19_00_10_0": {
+            "card": [
+                6251
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried le Maître Escrimeur, attaque !"
+        },
+        "V0003_19_00_11_0": {
+            "card": [
+                5067
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Guerrier Roquette, passe en Mode Invincible !"
+        },
+        "V0003_19_00_11_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Attaque Invincible !"
+        },
+        "V0003_19_00_12_0": {
+            "card": [
+                4751
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'attaque avec Guerrier Panthère !"
+        },
+        "V0003_19_00_12_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Lame de Panthère Affûtée !"
+        },
+        "V0003_19_00_13_0": {
+            "card": [
+                4106
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'attaque avec Guerrier de Bataille !"
+        },
+        "V0003_19_00_13_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Poing de Combat Ultime !\n"
+        },
+        "V0003_19_00_14_0": {
+            "card": [
+                7331
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'attaque avec Moteur Démoniaque Oméga !"
+        },
+        "V0003_19_00_14_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Crash du Siècle !"
+        },
+        "V0003_19_00_15_0": {
+            "card": [
+                4022
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Magicien du Temps !\nAttaque !"
+        },
+        "V0003_19_00_16_0": {
+            "card": [
+                4010
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "En avant, Bébé Dragon !"
+        },
+        "V0003_19_00_16_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Souffle du Dragon !"
+        },
+        "V0003_19_00_17_0": {
+            "card": [
+                4795
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Copiechat ! Attaque !"
+        },
+        "V0003_19_00_18_0": {
+            "card": [
+                4084
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À l'attaque, Axe Raider !"
+        },
+        "V0003_19_00_18_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Lancer de hache !"
+        },
+        "V0003_19_00_19_0": {
+            "card": [
+                4759
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Le Spadassin de Landstar !\nAttaque !"
+        },
+        "V0003_19_00_20_0": {
+            "card": [
+                4395
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Giltia, Chevalier des Ténèbres ! Attaque !"
+        },
+        "V0003_19_00_20_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Charge à la Lance des âmes !"
+        },
+        "V0003_19_00_21_0": {
+            "card": [
+                5069
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Le Pêcheur Légendaire attaque !"
+        },
+        "V0003_19_00_21_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Harpon du destin !"
+        },
+        "V0003_19_00_22_0": {
+            "card": [
+                4771
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Petit Guerrier Ailé attaque !"
+        },
+        "V0003_19_00_23_0": {
+            "card": [
+                4767
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Glaive de l'Alligator !\nBrandis ta lame !"
+        },
+        "V0003_19_00_24_0": {
+            "card": [
+                5003
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Vole, Dragon du Glaive de l'Alligator !"
+        },
+        "V0003_19_00_24_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Lame planée !"
+        },
+        "V0003_19_00_25_0": {
+            "card": [
+                4088
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Noir aux Yeux Rouges attaque !"
+        },
+        "V0003_19_00_25_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Souffle du Feu de l'Enfer !"
+        },
+        "V0003_19_00_26_0": {
+            "card": [
+                4719
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À l'attaque, Dragon Noir Météore !"
+        },
+        "V0003_19_00_26_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Météore des Ténèbres ardents"
+        },
+        "V0003_19_00_27_0": {
+            "card": [
+                20481
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon de Métal Noir Entier aux Yeux Rouges !\nAttaque !"
+        },
+        "V0003_19_00_27_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Explosion Flash !"
+        },
+        "V0003_19_00_28_0": {
+            "card": [
+                11838
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon de Métal Flamboyant aux Yeux Rouges !\nAttaque !"
+        },
+        "V0003_19_00_28_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Explosion Flash de Métal !"
+        },
+        "V0003_19_00_29_0": {
+            "card": [
+                13170
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Vas-y, Dragon Lame aux Yeux Rouges !"
+        },
+        "V0003_19_00_29_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Coup d'Épée Inferno !"
+        },
+        "V0003_19_00_30_0": {
+            "card": [
+                11891
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Épée de Dragon Noir aux Yeux Rouges !\nAttaque !"
+        },
+        "V0003_19_00_31_0": {
+            "card": [
+                17243
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Âme aux Yeux Rouges !\nAttaque-les !"
+        },
+        "V0003_19_00_32_0": {
+            "card": [
+                21162
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon de Griffes Métalliques aux Yeux Rouges !\nDécoupe-moi tout ça !"
+        },
+        "V0003_19_00_33_0": {
+            "card": [
+                11804
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Libère tes flammes, Dragon Flamboyant Noir aux Yeux Rouges !"
+        },
+        "V0003_19_00_34_0": {
+            "card": [
+                17388
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Météore Noir aux Yeux Rouges !\nAttaque !"
+        },
+        "V0003_19_00_35_0": {
+            "card": [
+                12618
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Vas-y, Dragon Météore Impact aux Yeux Rouges !\nAttaque à une vitesse supersonique !"
+        },
+        "V0003_19_00_36_0": {
+            "card": [
+                11807
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Archdémon d'Éclairs aux Yeux Rouges !\nAttaque !"
+        },
+        "V0003_19_00_37_0": {
+            "card": [
+                7982
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Vouivre aux Yeux Rouges attaque !"
+        },
+        "V0003_19_00_37_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Flamme des Ténèbres !"
+        },
+        "V0003_19_00_38_0": {
+            "card": [
+                11929
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Rétro aux Yeux Rouges !\nAttaque !"
+        },
+        "V0003_19_00_39_0": {
+            "card": [
+                13168
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Bébé Dragon aux Yeux Rouges attaque !"
+        },
+        "V0003_19_00_40_0": {
+            "card": [
+                11806
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À l'attaque, Dragon de Métal Noir !"
+        },
+        "V0003_19_00_41_0": {
+            "card": [
+                11805
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Pierre Noire Légendaire !\nAttaque !"
+        },
+        "V0003_19_00_42_0": {
+            "card": [
+                6109
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À l'attaque, Poussin Dragon Noir !"
+        },
+        "V0003_19_00_43_0": {
+            "card": [
+                11894
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Prépare-toi, Seigneur du Rouge !"
+        },
+        "V0003_19_00_43_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Attaque !"
+        },
+        "V0003_19_00_44_0": {
+            "card": [
+                11896
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Paladin du Dragon Noir !\nAttaque !"
+        },
+        "V0003_19_00_45_0": {
+            "card": [
+                14952
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Soldat Dragon Sombre aux Yeux Rouges !\nFais ce que tu as à faire !"
+        },
+        "V0003_19_00_46_0": {
+            "card": [
+                11832
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Crâne Noir Archdémon !\nAttaque !"
+        },
+        "V0003_19_00_47_0": {
+            "card": [
+                12631
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Noir Comète Météore !\nÀ l'attaque !"
+        },
+        "V0003_19_00_48_0": {
+            "card": [
+                14801
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried Phénix Immortel !\nAttaque !"
+        },
+        "V0003_19_00_49_0": {
+            "card": [
+                8431
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried Phénix attaque !"
+        },
+        "V0003_19_00_50_0": {
+            "card": [
+                6724
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gilti-Gearfried le Chevalier d'Acier Magique !\nAttaque !"
+        },
+        "V0003_19_00_50_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Lame des Âmes !"
+        },
+        "V0003_19_00_51_0": {
+            "card": [
+                13169
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Gearfried aux Yeux Rouges le Chevalier de Fer !\nAttaque !"
+        },
+        "V0003_19_00_52_0": {
+            "card": [
+                19727
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes Ultime !\nAttaque !"
+        },
+        "V0003_19_00_52_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Épée Enflammée des Batailles !"
+        },
+        "V0003_19_00_53_0": {
+            "card": [
+                20753
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes Métalliques !\nPasse à l'assaut !"
+        },
+        "V0003_19_00_54_0": {
+            "card": [
+                14333
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin des Flammes Féroces !\nAttaque !"
+        },
+        "V0003_19_00_55_0": {
+            "card": [
+                10864
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Lacère l'adversaire, Spadassin des Flammes Bleues !"
+        },
+        "V0003_19_00_56_0": {
+            "card": [
+                19724
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À l'attaque, Spadassin des Flammes Combattant !"
+        },
+        "V0003_19_00_56_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Épée des Flammes Combattante !"
+        },
+        "V0003_19_00_57_0": {
+            "card": [
+                19728
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon des Flammes Combattant attaque !"
+        },
+        "V0003_19_00_58_0": {
+            "card": [
+                5698
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À l'attaque, Chevalier du Flamboiement des Ténèbres !"
+        },
+        "V0003_19_00_59_0": {
+            "card": [
+                21430
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin du Flamboiement des Ténèbres attaque !"
+        },
+        "V0003_19_00_60_0": {
+            "card": [
+                5699
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Chevalier Mirage ! Attaque !"
+        },
+        "V0003_19_00_61_0": {
+            "card": [
+                19726
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Spadassin Mirage !\nAttaque !"
+        },
+        "V0003_19_00_62_0": {
+            "card": [
+                11887
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Chevalier Légendaire Hermocrate !\nAttaque !"
+        },
+        "V0003_19_00_62_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Épée du Renouveau !"
+        },
+        "V0003_19_00_63_0": {
+            "card": [
+                11888
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Charge, Marteau de Magie Temporelle !"
+        },
+        "V0003_19_00_64_0": {
+            "card": [
+                11889
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Canon à Roquettes Hermocrate !\nFeu !"
+        },
+        "V0003_19_00_65_0": {
+            "card": [
+                11890
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "La Déesse Archère - Artémis !\nAttaque !"
+        },
+        "V0003_19_00_66_0": {
+            "card": [
+                15344
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Jinzo la Menace Machine attaque !"
+        },
+        "V0003_19_00_66_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Choc Énergétique Cyber menaçant !"
+        },
+        "V0003_19_00_67_0": {
+            "card": [
+                4768
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Reine Insecte !\nAttaque !"
+        },
+        "V0003_19_00_67_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Souffle Toxique de la Reine !"
+        },
+        "V0003_19_00_68_0": {
+            "card": [
+                4761
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Démon Mégacyber !\nAttaque !"
+        },
+        "V0003_19_00_69_0": {
+            "card": [
+                5943
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Six Maximum ! Attaque !"
+        },
+        "V0003_19_00_70_0": {
+            "card": [
+                16621
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Giltia, Chevalier des Ténèbres - Lance des Âmes !\nAttaque !"
+        },
+        "V0003_19_00_70_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Lance des âmes !"
+        },
+        "V0003_19_00_71_0": {
+            "card": [
+                15462
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Magicien du Temps du Lendemain !\nAttaque !"
+        },
+        "V0003_19_00_72_0": {
+            "card": [
+                4790
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Alligator Cybertech !\nFais le ménage !"
+        },
+        "V0003_19_00_73_0": {
+            "card": [
+                4074
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Garoozis ! Attaque !"
+        },
+        "V0003_19_00_73_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Frappe Quintuple !"
+        },
+        "V0003_19_00_74_0": {
+            "card": [
+                5145
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Troupe d'Assaut Gobeline !\nAttaque !"
+        },
+        "V0003_19_00_75_0": {
+            "card": [
+                5239
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Cyber-Harpie !\nAttaque !"
+        },
+        "V0003_19_00_76_0": {
+            "card": [
+                15461
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Dragon Centenaire ! Attaque !"
+        },
+        "V0003_19_00_76_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Souffle Toxique !"
+        },
+        "V0003_19_00_77_0": {
+            "card": [
+                4299
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Masaki le Spadassin Légendaire !\nAttaque !"
+        },
+        "V0003_19_00_78_0": {
+            "card": [
+                4148
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À l'attaque, Manipulateur de Flammes !"
+        },
+        "V0003_19_00_79_0": {
+            "card": [
+                5318
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Capitaine en Maraude !\nCharge !"
+        },
+        "V0003_19_00_80_0": {
+            "card": [
+                5371
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "À l'attaque, Fiberjarre !"
+        },
+        "V0003_19_00_81_0": {
+            "card": [
+                5412
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Samouraï Sasuke !\nAttaque !"
+        },
+        "V0003_19_00_82_0": {
+            "card": [
+                19725
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Salamandra, le Dragon Volant des Flammes !\nBrûle tout !"
+        },
+        "V0003_19_00_83_0": {
+            "card": [
+                20484
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Illusionniste Métallique !\nAttaque !"
+        },
+        "V0003_19_00_84_0": {
+            "card": [
+                5595
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Roi Neko Mane !\nAttaque !"
+        },
+        "V0003_19_00_85_0": {
+            "card": [
+                3902
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Ma Carte Jeton Mouton attaque !"
+        },
+        "V0003_19_00_86_0": {
+            "card": [
+                3918
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "J'attaque avec ma Carte Jeton Agneau !"
+        },
+        "V0003_20_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 0,
+            "frame": 0,
+            "text": "Je Pose une carte !"
+        },
+        "V0003_20_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 0,
+            "frame": 0,
+            "text": "Je Pose une carte face verso."
+        },
+        "V0003_20_01_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 0,
+            "frame": 0,
+            "text": "Je Pose un monstre."
+        },
+        "V0003_20_01_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 0,
+            "frame": 0,
+            "text": "Je Pose un monstre face verso."
+        },
+        "V0003_21_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Hé hé, je termine mon tour. À toi !"
+        },
+        "V0003_21_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Je termine mon tour."
+        },
+        "V0003_21_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 5,
+            "frame": 0,
+            "text": "Argh... Bon, je termine mon tour."
+        },
+        "V0003_21_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 8,
+            "frame": 0,
+            "text": "À chaque fois que je me bats en Duel, je deviens plus fort !"
+        },
+        "V0003_21_00_03_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 8,
+            "frame": 0,
+            "text": "Je termine mon tour !"
+        },
+        "V0003_21_00_04_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "C'est tout ce que j'peux faire pour l'instant."
+        },
+        "V0003_21_00_04_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Je termine mon tour !"
+        },
+        "V0003_21_00_05_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "J'abandonnerai jamais !"
+        },
+        "V0003_21_00_05_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Je termine mon tour !"
+        },
+        "V0003_22_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 0,
+            "text": "Agh !"
+        },
+        "V0003_22_00_04_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 0,
+            "text": "Ngh !"
+        },
+        "V0003_22_00_05_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 0,
+            "text": "Arggh !"
+        },
+        "V0003_22_00_06_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "Arrrrgghh !"
+        },
+        "V0003_22_00_07_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "Aaaaaah !"
+        },
+        "V0003_22_00_08_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "Rrrrgghh !"
+        },
+        "V0003_23_00_00_0": {
+            "card": [],
+            "cutin": 3,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "Arrrrrrgghhh !"
+        },
+        "V0003_24_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Rrrggghhhh..."
+        },
+        "V0003_26_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Rrrgh..."
+        },
+        "V0003_26_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "C'était rien..."
+        },
+        "V0003_26_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Je resterai pas à terre pour ça !"
+        },
+        "V0003_27_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Argh... J'aime pas la façon dont ça se passe..."
+        },
+        "V0003_27_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "J'peux pas perdre contre quelqu'un comme toi !"
+        },
+        "V0003_27_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "C'est pas encore fini !"
+        },
+        "V0003_28_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "J'ai gagné parce que t'affrontais pas que moi."
+        },
+        "V0003_28_00_00_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "T'affrontais toute une équipe ! Mes cartes me laissent jamais tomber !"
+        },
+        "V0003_28_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Dommage ! Des fois, c'est comme ça !"
+        },
+        "V0003_28_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Ouaiiis !"
+        },
+        "V0003_28_00_02_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "T'as vu la magie du Joey ?"
+        },
+        "V0003_28_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                9
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "C'était un honneur de t'affronter, Mako !"
+        },
+        "V0003_28_00_04_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                7
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "C'est pas que je suis trop fort..."
+        },
+        "V0003_28_00_04_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "C'est que t'es trop faible, moustique !"
+        },
+        "V0003_28_00_05_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                14
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Qui c'est qu'a gagné ? C'est Jo-ey !"
+        },
+        "V0003_28_00_06_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                10
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Bienvenue chez les perdants, Marik !"
+        },
+        "V0003_28_00_07_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                1,
+                331,
+                41
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Yuge ! C'était un Duel de légende !"
+        },
+        "V0003_28_00_08_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                29
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Ha ha ha ha !\nAllez, Tristan !\nTu crois que je vais perdre face à un amateur ?"
+        },
+        "V0003_28_00_09_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                34
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Tss ! Qu'est-ce que tu dis de ça !\nJe joue trop bien !"
+        },
+        "V0003_28_00_10_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 11,
+            "frame": 0,
+            "text": "Ouaiiis !\nAlors, qu'est-ce que t'en dis ?!"
+        },
+        "V0003_28_00_11_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                47
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Tant que tu persévères, t'as toujours une chance de gagner !"
+        },
+        "V0003_28_00_12_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                46
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Vous ressemblez beaucoup à Princesse Adena, votre Majesté."
+        },
+        "V0003_28_00_13_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                49,
+                50,
+                52,
+                828
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "Je n'ai pas le temps pour des losers comme vous !"
+        },
+        "V0003_28_00_14_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                51
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Tu te bats comme un vrai Duelliste.\nAvec détermination."
+        },
+        "V0003_28_00_15_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                44
+            ],
+            "face": 9,
+            "frame": 0,
+            "text": "Je serai toujours à tes côtés.\nJ'oublierai jamais notre amitié."
+        },
+        "V0003_28_00_16_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                44
+            ],
+            "face": 9,
+            "frame": 0,
+            "text": "Sous toute cette colère se cache quelqu'un de bien."
+        },
+        "V0003_28_00_17_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                99999
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "Tout le monde veut être un héros.\nMais personne n'agit comme un héros !"
+        },
+        "V0003_28_00_18_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                99999
+            ],
+            "face": 9,
+            "frame": 0,
+            "text": "Si tu rejoins Doma, tu te bats pour les mauvaises raisons !"
+        },
+        "V0003_29_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 5,
+            "frame": 0,
+            "text": "Des fois ça veut, des fois ça veut pas."
+        },
+        "V0003_29_00_00_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 5,
+            "frame": 0,
+            "text": "Mais je déteste vraiment perdre..."
+        },
+        "V0003_29_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 5,
+            "frame": 0,
+            "text": "J'aime pas l'admettre, mais tu m'as surpassé cette fois-ci."
+        },
+        "V0003_29_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                14
+            ],
+            "face": 5,
+            "frame": 0,
+            "text": "J'y ai été à fond, mais ça n'a pas suffi..."
+        },
+        "V0003_29_00_04_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                4
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Pas mal, Mai !"
+        },
+        "V0003_29_00_04_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Tu m'as battu comme une championne !"
+        },
+        "V0003_29_00_05_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                10
+            ],
+            "face": 5,
+            "frame": 0,
+            "text": "Marik... Je t'arrêterai un jour..."
+        },
+        "V0003_29_00_06_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                2,
+                42
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "LE Duelliste contre lequel je voulais vraiment pas perdre ! Argh ! J'ai pas fini d'en entendre parler !"
+        },
+        "V0003_29_00_07_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                1,
+                331,
+                41
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "C'est pour ça que t'es le vrai Roi des Jeux ! Merci pour le Duel, Yuge !"
+        },
+        "V0003_29_00_08_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                29
+            ],
+            "face": 4,
+            "frame": 0,
+            "text": "J'ai perdu contre Tristan...\nQuelle humiliation..."
+        },
+        "V0003_29_00_09_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                34
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "Argh !\nRevanche !\nAllez ! Revanche !"
+        },
+        "V0003_29_00_09_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Je gagnerai la prochaine fois !"
+        },
+        "V0003_29_00_10_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 7,
+            "frame": 0,
+            "text": "Argh !\nJ'ai rien pu faire !"
+        },
+        "V0003_29_00_11_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Je dois continuer à m'battre jusqu'à remporter la victoire !"
+        },
+        "V0003_29_00_12_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                47
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Ouah, Sérénité...\nC'était trop cool..."
+        },
+        "V0003_29_00_13_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                49,
+                50,
+                52,
+                828
+            ],
+            "face": 7,
+            "frame": 0,
+            "text": "Alors c'est comme ça que ça se finit ?\nDoma prend le dessus ?"
+        },
+        "V0003_29_00_14_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                51
+            ],
+            "face": 7,
+            "frame": 0,
+            "text": "T'as confiance en toi pour prendre autant de risques !"
+        },
+        "V0003_29_00_15_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                44
+            ],
+            "face": 5,
+            "frame": 0,
+            "text": "Je savais pas que t'étais si malheureuse.\nOn aurait pu t'aider, Mai !"
+        },
+        "V0003_29_00_16_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                44
+            ],
+            "face": 5,
+            "frame": 0,
+            "text": "Félicitations. T'as gagné.\nAllez, à plus."
+        },
+        "V0003_29_00_17_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                44
+            ],
+            "face": 5,
+            "frame": 0,
+            "text": "Si l'un d'entre nous doit perdre son âme..."
+        },
+        "V0003_29_00_17_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 5,
+            "frame": 0,
+            "text": "Je suis juste soulagé que ce soit pas toi, Mai."
+        },
+        "V0003_29_00_18_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                99999
+            ],
+            "face": 7,
+            "frame": 0,
+            "text": "Tu veux vraiment sacrifier ton âme pour me battre ?"
+        },
+        "V0003_30_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Qu'est-ce qu'il y a ? T'as peur ?"
+        },
+        "V0003_30_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Tu perds confiance, hein ? P'têt parce que tes stratégies sont nulles !"
+        },
+        "V0003_30_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "Tu sais plus quoi faire, non ? Tu veux des astuces ?"
+        },
+        "V0003_31_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "Quoi ?!"
+        },
+        "V0003_31_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "Gloups !"
+        },
+        "V0003_32_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 0,
+            "frame": 0,
+            "text": "Yu-Gi-Oh! Duel Links"
+        },
+        "V0003_32_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 0,
+            "frame": 0,
+            "text": "Yu-Gi-Oh! Duel Links !"
+        },
+        "V0003_33_00_00_0": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Mate mes meilleurs coups !"
+        },
+        "V0003_33_00_01_0": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Je déchire !"
+        },
+        "V0003_33_00_02_0": {
+            "card": [],
+            "cutin": 1,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Allez, on appuie sur le champignon !"
+        },
+        "V0003_34_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Si j'ai bien compté, tu seras à plat dans onze tours ! "
+        },
+        "V0003_34_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "T'es la 21ème personne que j'ai rencontrée qui me fait transpirer !"
+        },
+        "V0003_34_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Hé, je suis un Duelliste aussi ! Je vais pas rester là à te regarder me battre !"
+        },
+        "V0003_34_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Je prends un risque, espérons que ça paye !"
+        },
+        "V0003_34_00_04_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 0,
+            "text": "Comment je suis censé gagner... Mais faut pas que l'adversaire sente que je flippe !"
+        },
+        "V0003_34_00_05_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 5,
+            "frame": 0,
+            "text": "Je suis peut-être pas capable de gagner..."
+        },
+        "V0003_34_00_06_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Je t'attends !"
+        },
+        "V0003_34_00_07_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Hé hé ! Fais gaffe, y a un piège qui t'attend !"
+        },
+        "V0003_34_00_08_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Hé hé... J'ai pensé à un truc et tu vas pas aimer !"
+        },
+        "V0003_34_00_09_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 0,
+            "text": "Je suis lancé et tu vas le regretter !"
+        },
+        "V0003_34_00_10_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 11,
+            "frame": 0,
+            "text": "Joey Wheeler est au sommet de son art, oh yeah !"
+        },
+        "V0003_34_00_11_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 11,
+            "frame": 0,
+            "text": "Oh ouais !"
+        },
+        "V0003_34_00_12_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 8,
+            "frame": 0,
+            "text": "Même si t'essaies de tricher, je gagnerais quand même !"
+        },
+        "V0003_34_00_13_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 8,
+            "frame": 0,
+            "text": "Ma chance est en train de tourner !"
+        },
+        "V0003_34_00_14_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 8,
+            "frame": 0,
+            "text": "J'vais pas me laisser intimider par des imposteurs chelous !"
+        },
+        "V0003_36_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 0,
+            "text": "Balaie-moi tout ça !"
+        },
+        "V0003_36_00_01_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 0,
+            "text": "C'est ton tour.\nReste sur tes gardes !"
+        },
+        "V0003_36_00_02_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 5,
+            "frame": 0,
+            "text": "Désolé...\nMais je sais que tu peux le faire !"
+        },
+        "V0003_36_00_03_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                1,
+                331,
+                6,
+                303,
+                41
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Yugi ! Tu peux le faire !"
+        },
+        "V0003_36_00_04_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                1,
+                331,
+                6,
+                303,
+                41
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "OK !\nJe te passe le relais !"
+        },
+        "V0003_36_00_05_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                1,
+                331,
+                6,
+                303,
+                41
+            ],
+            "face": 5,
+            "frame": 0,
+            "text": "Désolé de t'avoir mis dans ce pétrin, Yugi."
+        },
+        "V0003_36_00_06_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                29
+            ],
+            "face": 2,
+            "frame": 0,
+            "text": "Ouais !\nÉcrase-moi ça, Tristan !"
+        },
+        "V0003_36_00_07_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                29
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "Ne fais pas de bêtises, Tristan !"
+        },
+        "V0003_36_00_08_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                29
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "Tristaaaan !\nNe perds paaas !"
+        },
+        "V0003_36_00_09_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                47
+            ],
+            "face": 1,
+            "frame": 0,
+            "text": "La victoire est à notre portée !\nTu peux le faire, Sérénité !"
+        },
+        "V0003_36_00_10_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                47
+            ],
+            "face": 9,
+            "frame": 0,
+            "text": "À toi de jouer, Sérénité.\nCrois en toi."
+        },
+        "V0003_36_00_11_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [
+                47
+            ],
+            "face": 3,
+            "frame": 0,
+            "text": "Ne baisse pas les bras, Sérénité !\nJ'suis à tes côtés !"
+        },
+        "V0003_39_00_69_0": {
+            "card": [
+                4950
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Oh yeah !\nJ'peux piocher !"
+        },
+        "V0003_39_00_70_0": {
+            "card": [
+                4950
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "C'est une blague...\nJ'dois passer mon tour..."
+        },
+        "V0003_40_00_00_0": {
+            "card": [
+                4022
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Magicien du Temps !"
+        },
+        "V0003_40_00_00_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 3,
+            "frame": 1,
+            "text": "Magie du Temps !"
+        },
+        "V0003_40_00_01_0": {
+            "card": [
+                4022
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "Ooh non !\nJ'ai échoué !"
+        },
+        "V0003_40_00_79_0": {
+            "card": [
+                15462
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Oh oui !"
+        },
+        "V0003_40_00_79_1": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 2,
+            "frame": 1,
+            "text": "Sorcellerie temporelle !"
+        },
+        "V0003_40_00_80_0": {
+            "card": [
+                15462
+            ],
+            "cutin": 0,
+            "duelist": [],
+            "face": 4,
+            "frame": 1,
+            "text": "Gah !\nSérieux ?!"
+        },
+        "V0003_48_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "Je me lance !"
+        },
+        "V0003_48_01_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "C'est parti pour le Rush !"
+        },
+        "V0003_49_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "Ouais !\nJe suis né pour ça."
+        },
+        "V0003_49_01_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "Turbo Rush Duel !"
+        },
+        "V0003_51_00_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "Joey Wheeler !"
+        },
+        "V0003_51_01_00_0": {
+            "card": [],
+            "cutin": 0,
+            "duelist": [],
+            "face": 1,
+            "frame": 1,
+            "text": "C'est l'heure du rush !"
+        }
+    }
+}

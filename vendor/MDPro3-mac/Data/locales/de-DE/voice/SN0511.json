@@ -1,0 +1,2326 @@
+{
+  "_GRP_": "SN0511",
+  "_LNG_": "de-DE",
+  "info": {
+    "V0511_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hi! Ich bin Rin!\nBereit für ein Duell, wenn du es bist!"
+    },
+    "V0511_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Genug geplaudert.\nLass uns loslegen!"
+    },
+    "V0511_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Traum ist ein Duell gegen Jack, bin also keine Niete!"
+    },
+    "V0511_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die Commons nehmen auf niemanden Rücksicht!"
+    },
+    "V0511_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Windhexen werden dich von der Bühne fegen!"
+    },
+    "V0511_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Na los, Yugo!\nIch liebe es, dich fertigzumachen!"
+    },
+    "V0511_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Ich teste dich, um zu sehen, wie viel stärker du wurdest!"
+    },
+    "V0511_01_00_06_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich hoffe, du überraschst mich, Yugo!"
+    },
+    "V0511_01_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        202
+      ],
+      "text": "Ich darf gegen Jack antreten …\nIch träume doch nicht, oder?"
+    },
+    "V0511_01_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        502,
+        509,
+        512
+      ],
+      "text": "So komisch …\nFühlt sich wie ein Duell gegen mich selbst an!"
+    },
+    "V0511_01_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        514
+      ],
+      "text": "Diesmal werde ich nicht gegen dich verlieren!\nHörst du?!"
+    },
+    "V0511_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duell!"
+    },
+    "V0511_03_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast nicht mehr viele LP …\nWird Zeit, das zu beenden!"
+    },
+    "V0511_03_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0511_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mir gefällt es, dass du nicht aufgeben willst!"
+    },
+    "V0511_03_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0511_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0511_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0511_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Los geht’s!"
+    },
+    "V0511_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0511_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0511_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das Duell ist noch nicht vorbei!\nNoch lange nicht!"
+    },
+    "V0511_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0511_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich gebe dir nur ein Handicap!"
+    },
+    "V0511_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0511_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0511_05_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Bis ich aufgebe, ist nichts vorbei!\nHiermit gewinne ich!"
+    },
+    "V0511_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!!!"
+    },
+    "V0511_06_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nun, in diesem Fall …"
+    },
+    "V0511_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Jetzt!"
+    },
+    "V0511_06_01_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist nicht gut genug!"
+    },
+    "V0511_06_01_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich wusste, dass das passieren würde!"
+    },
+    "V0511_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Von meiner Hand …"
+    },
+    "V0511_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Zauberkarte!"
+    },
+    "V0511_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Schnellzauber!"
+    },
+    "V0511_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Permanenten Zauber!"
+    },
+    "V0511_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ausrüstungszauber!"
+    },
+    "V0511_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ritualzauber!"
+    },
+    "V0511_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Falle!"
+    },
+    "V0511_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Permanente Falle!"
+    },
+    "V0511_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Konterfalle!"
+    },
+    "V0511_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich decke meine gesetzte Karte auf!"
+    },
+    "V0511_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hier ist das, was ich gesetzt hatte!"
+    },
+    "V0511_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt meines Monsters!"
+    },
+    "V0511_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Spielfeldzauber!"
+    },
+    "V0511_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Effekt!"
+    },
+    "V0511_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich lege den Pendelbereich fest!"
+    },
+    "V0511_07_14_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Pendeleffekt!"
+    },
+    "V0511_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pass auf!"
+    },
+    "V0511_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Komm raus!"
+    },
+    "V0511_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erscheine!"
+    },
+    "V0511_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Und los!"
+    },
+    "V0511_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster!"
+    },
+    "V0511_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster in Verteidigungsposition!"
+    },
+    "V0511_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Spezialbeschwörung!"
+    },
+    "V0511_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich biete ein Monster als Tribut an!"
+    },
+    "V0511_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Tributbeschwörung!"
+    },
+    "V0511_11_04_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tributbeschwörung!"
+    },
+    "V0511_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0511_11_05_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusionsbeschwörung!"
+    },
+    "V0511_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Ritualbeschwörung!"
+    },
+    "V0511_11_06_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ritualbeschwörung!"
+    },
+    "V0511_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Synchrobeschwörung!"
+    },
+    "V0511_11_07_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchrobeschwörung!"
+    },
+    "V0511_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Xyz-Beschwörung!"
+    },
+    "V0511_11_08_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Xyz-Beschwörung!"
+    },
+    "V0511_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Pendelbeschwörung!"
+    },
+    "V0511_11_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pendelbeschwörung!"
+    },
+    "V0511_11_09_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Monster!\nKommt raus!"
+    },
+    "V0511_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Linkbeschwörung!"
+    },
+    "V0511_11_10_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Linkbeschwörung!"
+    },
+    "V0511_11_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Maximalbeschwörung!"
+    },
+    "V0511_11_11_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maximalbeschwörung!"
+    },
+    "V0511_11_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0511_11_12_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusionsbeschwörung!"
+    },
+    "V0511_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Kampf!"
+    },
+    "V0511_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zeit zu kämpfen!"
+    },
+    "V0511_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Looooos!"
+    },
+    "V0511_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Also gut!"
+    },
+    "V0511_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Es ist Zeit!"
+    },
+    "V0511_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift an!"
+    },
+    "V0511_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife mit meinem Monster an!"
+    },
+    "V0511_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Angriff!"
+    },
+    "V0511_16_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du kannst nichts tun, um mich aufzuhalten!"
+    },
+    "V0511_16_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bereit zu verlieren?"
+    },
+    "V0511_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift dich direkt an!"
+    },
+    "V0511_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife dich direkt an!"
+    },
+    "V0511_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0511_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0511_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0511_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0511_21_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Muss auf der Hut bleiben …\nDarf den Fokus nicht verlieren!"
+    },
+    "V0511_21_00_00_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0511_21_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du darfst aufgeben, das weißt du doch, ja?"
+    },
+    "V0511_21_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0511_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0511_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Damit endet mein Spielzug!"
+    },
+    "V0511_21_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Denk nur an den Sieg …\nUnd an nichts anderes!"
+    },
+    "V0511_21_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0511_21_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin auch nicht dafür bekannt aufzugeben!"
+    },
+    "V0511_21_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0511_28_00_00_0": {
+      "face": 6,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ja!\nMeine Windhexen waren großartig!"
+    },
+    "V0511_28_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das Duell hat mir Spaß gemacht!\nDanke dafür!"
+    },
+    "V0511_28_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich kämpfe für meinen Traum – ganz egal, in welcher Welt!"
+    },
+    "V0511_28_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein bester Freund gibt nie auf, ich werde es auch nicht."
+    },
+    "V0511_28_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Windhexen waren kein Zuckerschlecken, nicht wahr?"
+    },
+    "V0511_28_00_05_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wenn ich auch nur die kleinste Chance sehe, nutze ich sie!"
+    },
+    "V0511_28_00_06_0": {
+      "face": 6,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Hahaha!\nDiesem Kampf gewinne ich, Yugo!"
+    },
+    "V0511_28_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Mensch, Yugo.\nIch weiß, dass du mehr auf dem Kasten hast!"
+    },
+    "V0511_28_00_08_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Nur du schaffst es, den sicheren Sieg aus der Hand zu geben."
+    },
+    "V0511_28_00_08_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lass dich nicht ablenken und konzentriere dich auf den Sieg!"
+    },
+    "V0511_28_00_09_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        502,
+        509,
+        512
+      ],
+      "text": "Wir sind eher verschieden als gleich.\nWie Schwestern!"
+    },
+    "V0511_29_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "*seufz* …\nIch habe verloren …\nDas ist zu schade."
+    },
+    "V0511_29_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nächstes Mal verliere ich nicht!\nDas kannst du mir glauben!"
+    },
+    "V0511_29_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich dachte, es läuft gut …\nWas habe ich falsch gemacht?"
+    },
+    "V0511_29_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yugo wird mich volljammern, wie schlecht ich gewesen bin."
+    },
+    "V0511_29_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "So eine Art zu kämpfen kannte ich nicht!\nViel gelernt!"
+    },
+    "V0511_29_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Egal wie aussichtslos die Lage ist, man gibt niemals auf!"
+    },
+    "V0511_29_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Hey!\nDu wirst langsam immer besser!"
+    },
+    "V0511_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das soll wohl ein Witz sein!"
+    },
+    "V0511_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was?!"
+    },
+    "V0511_33_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Wenn es eine Chance gibt, ergreife sie – solange du kannst!"
+    },
+    "V0511_33_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Wind weht zum Sieg!"
+    },
+    "V0511_33_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Kannst du mit meinem Tempo mithalten?"
+    },
+    "V0511_30_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du wirst so übermütig, dass du dumme Fehler machst!"
+    },
+    "V0511_30_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist eine schlechte Angewohnheit von dir!"
+    },
+    "V0511_30_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Kommt deine Aktion noch in diesem Jahrhundert?"
+    },
+    "V0511_34_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Egal, wie lange du nachdenkst, es wird nichts ändern."
+    },
+    "V0511_34_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wir wissen beide, dass ich gewinnen werde, also gib auf."
+    },
+    "V0511_34_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dass du nicht aufgibst, ist das, was dich hart macht."
+    },
+    "V0511_34_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Warum hast du so lange gebraucht?!"
+    },
+    "V0511_34_00_04_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Weißt du nicht, was für Sorgen ich mir gemacht habe?"
+    },
+    "V0511_34_00_05_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In größter Angst … Nicht wissend, ob du …"
+    },
+    "V0511_34_00_06_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yugo … Du Idiot!"
+    },
+    "V0511_34_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich lasse dich entscheiden, wo wir kämpfen."
+    },
+    "V0511_34_00_08_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was?!\nAber ich bin am Zug!"
+    },
+    "V0511_34_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Auf die Plätze … Fertig … Duell!"
+    },
+    "V0511_34_00_10_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du denkst zu viel nach.\nKämpfe einfach."
+    },
+    "V0511_34_00_11_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sieh es ein – das war’s. Ich akzeptiere deine Kapitulation."
+    },
+    "V0511_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0511_32_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!"
+    },
+    "V0511_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin Rin.\nIch benutze Synchros, wie Yugo!"
+    },
+    "V0511_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe mein Ding durch, um mir meine Träume zu erfüllen!"
+    },
+    "V0511_36_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sei immer zu allem bereit!"
+    },
+    "V0511_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du bist dran. Viel Glück!"
+    },
+    "V0511_36_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tut mir leid …\nAber ich weiß, du kannst gewinnen!"
+    },
+    "V0511_36_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Beende das hier, Yugo!"
+    },
+    "V0511_36_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Ich verlasse mich auf dich, Yugo!"
+    },
+    "V0511_36_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Ich zähle darauf, dass du niemals aufgibst, Yugo!"
+    },
+    "V0511_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15750
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Windhexen-Glocken!"
+    },
+    "V0511_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15763
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nEisbrisen-Refrain!"
+    },
+    "V0511_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17259
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Ausrüstungszauber!\nKahyoreigetsu!"
+    },
+    "V0511_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17259
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Kahyoreigetsu wird von meinem Friedhof aktiviert!"
+    },
+    "V0511_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9675
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nGulldos' gefiederter Stift!"
+    },
+    "V0511_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16409
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nSturm heraufbeschwören!"
+    },
+    "V0511_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16409
+      ],
+      "duelist": [],
+      "text": "Ich verbanne Sturm heraufbeschwören von meinem Friedhof und nutze den Effekt!"
+    },
+    "V0511_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14446
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte Verwunschener Pfad!"
+    },
+    "V0511_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9662
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Ausrüstungszauber!\nZauberstab der Wunder!"
+    },
+    "V0511_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9662
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Zauberstab der Wunder wird aktiviert!"
+    },
+    "V0511_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13101
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Magiebuch des Wissens!"
+    },
+    "V0511_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12010
+      ],
+      "duelist": [],
+      "text": "Unterschätze mich NIEMALS!"
+    },
+    "V0511_08_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere den Schnellzauber Superkopfüber voranstürmen!"
+    },
+    "V0511_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6532
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nMagischer Knall!"
+    },
+    "V0511_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6532
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Magischer Knall wird von meinem Friedhof aktiviert!"
+    },
+    "V0511_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6442
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nSpiritistische Windkunst - Miyabi!"
+    },
+    "V0511_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5005
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Falle Ring der Zerstörung!"
+    },
+    "V0511_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13643
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Falle!\nSchleife der Zerstörung!"
+    },
+    "V0511_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13643
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schleife der Zerstörung wird aktiviert!"
+    },
+    "V0511_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5912
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nZerstörungsring!"
+    },
+    "V0511_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12778
+      ],
+      "duelist": [],
+      "text": "Entfessle deine frostigen Kräfte, Windhexe - Winterglocke!"
+    },
+    "V0511_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12778
+      ],
+      "duelist": [],
+      "text": "Windhexe - Winterglocke kann ihren Effekt während der Battle Phase aktivieren!"
+    },
+    "V0511_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15734
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Windhexe - Diamantglocke wird bei Synchrobeschwörung aktiviert!"
+    },
+    "V0511_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15734
+      ],
+      "duelist": [],
+      "text": "Du hast Schaden erhalten, daher aktiviert Windhexe - Diamantglocke ihren Effekt!"
+    },
+    "V0511_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12775
+      ],
+      "duelist": [],
+      "text": "Windhexe - Kristallglocke aktiviert ihren Effekt!"
+    },
+    "V0511_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12775
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Windhexe - Kristallglocke wird bei Zerstörung aktiviert!"
+    },
+    "V0511_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15707
+      ],
+      "duelist": [],
+      "text": "Ich lege Windhexe - Blizzardglocke auf den Friedhof, um ihren Effekt zu nutzen!"
+    },
+    "V0511_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12861
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Windhexe - Glasglocke wird bei der Beschwörung aktiviert!"
+    },
+    "V0511_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12743
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Windhexe - Schneeglocke wird von meiner Hand aktiviert!"
+    },
+    "V0511_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12742
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Windhexe - Eisglocke wird von meiner Hand aktiviert!"
+    },
+    "V0511_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12742
+      ],
+      "duelist": [],
+      "text": "Ich kann den Effekt von Windhexe - Eisglocke bei ihrer Beschwörung aktivieren!"
+    },
+    "V0511_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15708
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Windhexe - Frostglocke wird von meiner Hand aktiviert!"
+    },
+    "V0511_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15708
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Windhexe - Frostglocke!"
+    },
+    "V0511_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7198
+      ],
+      "duelist": [],
+      "text": "Lustiger Rattenfänger wird aktiviert, wenn er ein Monster zerstört!"
+    },
+    "V0511_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12744
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Fusionsparasit wird bei Spezialbeschwörung aktiviert!"
+    },
+    "V0511_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11058
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Pilica, Nachfahrin von Gusto wird bei der Beschwörung aktiviert!"
+    },
+    "V0511_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15022
+      ],
+      "duelist": [],
+      "text": "Ich werfe Geistertrauernde und Mondeskälte ab, um ihren Effekt zu verwenden!"
+    },
+    "V0511_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12052
+      ],
+      "duelist": [],
+      "text": "Ich biete Geschwindigkeitsroid Taketomborg als Tribut an, um seinen Effekt zu aktivieren!"
+    },
+    "V0511_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12047
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Geschwindigkeitsroid Terrorkreisel wird aktiviert!"
+    },
+    "V0511_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12054
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Geschwindigkeitsroid Rotaugen-Würfel!"
+    },
+    "V0511_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Glasflügel-Synchrodrache aktiviert seinen Effekt!"
+    },
+    "V0511_09_00_20_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Umgekehrte Rache!"
+    },
+    "V0511_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12321
+      ],
+      "duelist": [],
+      "text": "Kristallflügel-Synchrodrache aktiviert seinen Effekt!"
+    },
+    "V0511_37_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12778
+      ],
+      "duelist": [],
+      "text": "Lass dich von der Kraft eines boshaften Blizzards treffen! "
+    },
+    "V0511_37_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchrobeschwörung!"
+    },
+    "V0511_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12778
+      ],
+      "duelist": [],
+      "text": "Windhexe - Winterglocke auf Stufe 7!"
+    },
+    "V0511_37_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15734
+      ],
+      "duelist": [],
+      "text": "Die Eiskristalle glitzern auf dem Schneefeld!"
+    },
+    "V0511_37_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchrobeschwörung!"
+    },
+    "V0511_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        15734
+      ],
+      "duelist": [],
+      "text": "Windhexe - Diamantglocke auf Stufe 8!"
+    },
+    "V0511_37_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12775
+      ],
+      "duelist": [],
+      "text": "Bei meinem Monster wird’s dir eisig über den Rücken laufen!"
+    },
+    "V0511_37_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusionsbeschwörung!"
+    },
+    "V0511_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12775
+      ],
+      "duelist": [],
+      "text": "Das Glockenspiel, das im ganzen Land widerhallt!"
+    },
+    "V0511_13_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Windhexe - Kristallglocke!"
+    },
+    "V0511_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15707
+      ],
+      "duelist": [],
+      "text": "Das Empfänger-Monster Windhexe - Blizzardglocke!"
+    },
+    "V0511_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12861
+      ],
+      "duelist": [],
+      "text": "Das Empfänger-Monster Windhexe - Glasglocke!"
+    },
+    "V0511_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12743
+      ],
+      "duelist": [],
+      "text": "Das Empfänger-Monster Windhexe - Schneeglocke!"
+    },
+    "V0511_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12742
+      ],
+      "duelist": [],
+      "text": "Windhexe - Eisglocke!"
+    },
+    "V0511_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15708
+      ],
+      "duelist": [],
+      "text": "Windhexe - Frostglocke!"
+    },
+    "V0511_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7198
+      ],
+      "duelist": [],
+      "text": "Lustiger Rattenfänger!"
+    },
+    "V0511_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12744
+      ],
+      "duelist": [],
+      "text": "Fusionsparasit!"
+    },
+    "V0511_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11058
+      ],
+      "duelist": [],
+      "text": "Pilica, Nachfahrin von Gusto!"
+    },
+    "V0511_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15022
+      ],
+      "duelist": [],
+      "text": "Das Empfänger-Monster Geistertrauernde und Mondeskälte!"
+    },
+    "V0511_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12052
+      ],
+      "duelist": [],
+      "text": "Geschwindigkeitsroid Taketomborg!"
+    },
+    "V0511_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12047
+      ],
+      "duelist": [],
+      "text": "Geschwindigkeitsroid Terrorkreisel!"
+    },
+    "V0511_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12054
+      ],
+      "duelist": [],
+      "text": "Das Empfänger-Monster Geschwindigkeitsroid Rotaugen-Würfel!"
+    },
+    "V0511_37_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Schlag mit den Flügeln und entfessle einen Wirbelsturm!"
+    },
+    "V0511_37_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchrobeschwörung!"
+    },
+    "V0511_13_00_15_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Ich weiß, du kämpfst lieber an meiner Seite als mit Yugo."
+    },
+    "V0511_13_00_15_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Glasflügel-Synchrodrache auf Stufe 7!"
+    },
+    "V0511_37_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12321
+      ],
+      "duelist": [],
+      "text": "Ebne den Weg für das durch rohe Kraft geschmiedete Monster!"
+    },
+    "V0511_37_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchrobeschwörung!"
+    },
+    "V0511_13_00_16_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12321
+      ],
+      "duelist": [],
+      "text": "Ein so großartiges Monster ist bei Yugo doch Verschwendung!"
+    },
+    "V0511_13_00_16_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Abflug, Kristallflügel-Synchrodrache auf Stufe 8!"
+    },
+    "V0511_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12778
+      ],
+      "duelist": [],
+      "text": "Windhexe - Winterglocke!\nLeg sie auf Eis!"
+    },
+    "V0511_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15734
+      ],
+      "duelist": [],
+      "text": "Greif an, Windhexe - Diamantglocke!"
+    },
+    "V0511_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12775
+      ],
+      "duelist": [],
+      "text": "Windhexe - Kristallglocke!\nAngriff!"
+    },
+    "V0511_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15707
+      ],
+      "duelist": [],
+      "text": "Friere sie ein, Windhexe - Blizzardglocke!"
+    },
+    "V0511_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12861
+      ],
+      "duelist": [],
+      "text": "Greif an, Windhexe - Glasglocke!"
+    },
+    "V0511_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12743
+      ],
+      "duelist": [],
+      "text": "Windhexe - Schneeglocke!\nAngriff!"
+    },
+    "V0511_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12742
+      ],
+      "duelist": [],
+      "text": "Greif an, Windhexe - Eisglocke!"
+    },
+    "V0511_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15708
+      ],
+      "duelist": [],
+      "text": "Windhexe - Frostglocke! Angriff!"
+    },
+    "V0511_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7198
+      ],
+      "duelist": [],
+      "text": "Lustiger Rattenfänger!\nAngriff!"
+    },
+    "V0511_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12744
+      ],
+      "duelist": [],
+      "text": "Greif an, Fusionsparasit!"
+    },
+    "V0511_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11058
+      ],
+      "duelist": [],
+      "text": "Pilica, Nachfahrin von Gusto!\nAngriff!"
+    },
+    "V0511_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15022
+      ],
+      "duelist": [],
+      "text": "Geistertrauernde und Mondeskälte!\nAngriff!"
+    },
+    "V0511_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12052
+      ],
+      "duelist": [],
+      "text": "Geschwindigkeitsroid Taketomborg greift an!"
+    },
+    "V0511_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12047
+      ],
+      "duelist": [],
+      "text": "Greif an, Geschwindigkeitsroid Terrorkreisel!"
+    },
+    "V0511_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12054
+      ],
+      "duelist": [],
+      "text": "Geschwindigkeitsroid Rotaugen-Würfel! Angriff!"
+    },
+    "V0511_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Glasflügel-Synchrodrache!\nAngriff!"
+    },
+    "V0511_19_00_15_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wirbelsturm-Himmelsschlag!"
+    },
+    "V0511_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12321
+      ],
+      "duelist": [],
+      "text": "Kristallflügel-Synchrodrache!\nAngriff!"
+    },
+    "V0511_19_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Katastrophaler Kristallschlag!"
+    },
+    "V0511_48_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Los geht’s!"
+    },
+    "V0511_48_01_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach dich bereit für den Rush!"
+    },
+    "V0511_38_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Auf die Plätze … Fertig … Duell!"
+    },
+    "V0511_44_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duellanten!\nBereitmachen zum Kampf!"
+    },
+    "V0511_44_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nur einer wird das Duell beherrschen …"
+    },
+    "V0511_44_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In der ultimativen Fusion von Monstern und Chaos!"
+    },
+    "V0511_44_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die Action beginnt jetzt!"
+    },
+    "V0511_44_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Action …"
+    },
+    "V0511_44_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duell!"
+    },
+    "V0511_45_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich spiele eine Action-Karte!"
+    },
+    "V0511_45_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Action-Zauber!"
+    },
+    "V0511_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Uff!"
+    },
+    "V0511_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aah!"
+    },
+    "V0511_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nein!"
+    },
+    "V0511_26_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Agh …"
+    },
+    "V0511_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dafür kriege ich dich!"
+    },
+    "V0511_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin noch nicht am Ende."
+    },
+    "V0511_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hargh!"
+    },
+    "V0511_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erghh!"
+    },
+    "V0511_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaahhh!"
+    },
+    "V0511_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh …"
+    },
+    "V0511_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh nein …"
+    },
+    "V0511_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wenn ich nicht bald etwas unternehme …"
+    },
+    "V0511_24_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh … Agh …"
+    },
+    "V0511_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaaaah!"
+    }
+  }
+}

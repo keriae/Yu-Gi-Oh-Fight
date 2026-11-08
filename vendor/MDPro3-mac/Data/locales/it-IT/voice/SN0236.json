@@ -1,0 +1,592 @@
+{
+  "_GRP_": "SN0236",
+  "_LNG_": "it-IT",
+  "info": {
+    "V0236_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Se non ti impegni, non hai speranze contro Grannel!"
+    },
+    "V0236_02_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duelliamo!"
+    },
+    "V0236_03_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Davvero non sai fare di meglio?"
+    },
+    "V0236_03_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0236_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me!"
+    },
+    "V0236_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Eh eh.\nAllora hai del talento."
+    },
+    "V0236_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0236_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pesco!"
+    },
+    "V0236_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pesco!"
+    },
+    "V0236_04_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pesco!"
+    },
+    "V0236_05_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me pescare!!!"
+    },
+    "V0236_06_01_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah!"
+    },
+    "V0236_06_01_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È inutile!"
+    },
+    "V0236_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dalla mia mano..."
+    },
+    "V0236_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Carta Magia!"
+    },
+    "V0236_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Rapida!"
+    },
+    "V0236_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Continua!"
+    },
+    "V0236_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Equipaggiamento!"
+    },
+    "V0236_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Rituale!"
+    },
+    "V0236_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Trappola!"
+    },
+    "V0236_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Trappola Continua!"
+    },
+    "V0236_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Contro-Trappola!"
+    },
+    "V0236_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Scopro la mia carta Posizionata!"
+    },
+    "V0236_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo l'effetto del mio mostro!"
+    },
+    "V0236_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Terreno!"
+    },
+    "V0236_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo un effetto!"
+    },
+    "V0236_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Imposto il Valore Pendulum!"
+    },
+    "V0236_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Stai a guardare!"
+    },
+    "V0236_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro!"
+    },
+    "V0236_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro in Posizione di Difesa!"
+    },
+    "V0236_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Specialmente un mostro!"
+    },
+    "V0236_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Offro un mostro come Tributo!"
+    },
+    "V0236_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Tributo!"
+    },
+    "V0236_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Fusione!"
+    },
+    "V0236_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Rituale!"
+    },
+    "V0236_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchro Evoco un mostro!"
+    },
+    "V0236_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Xyz un mostro!"
+    },
+    "V0236_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Pendulum un mostro!"
+    },
+    "V0236_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Link!"
+    },
+    "V0236_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È giunta l'ora della battaglia!"
+    },
+    "V0236_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Molto bene!"
+    },
+    "V0236_17_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attacco con il mio mostro!"
+    },
+    "V0236_16_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È giunta la tua fine!"
+    },
+    "V0236_18_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il mio mostro ti attacca direttamente!"
+    },
+    "V0236_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono una carta!"
+    },
+    "V0236_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posizionerò una carta!"
+    },
+    "V0236_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono un mostro!"
+    },
+    "V0236_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posizionerò un mostro!"
+    },
+    "V0236_21_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non hai scelta!"
+    },
+    "V0236_21_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0236_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0236_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grrr..."
+    },
+    "V0236_21_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0236_28_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah!\nTutti sono impotenti davanti agli Imperatori Meklord!"
+    },
+    "V0236_29_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quindi gli umani possono fare più di quanto credono..."
+    },
+    "V0236_31_00_00_0": {
+      "face": 5,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ooh..."
+    },
+    "V0236_33_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ora vedrai il potere degli Imperatori Meklord!"
+    },
+    "V0236_22_00_00_0": {
+      "face": 5,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh!"
+    },
+    "V0236_26_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grrr..."
+    },
+    "V0236_25_00_00_0": {
+      "face": 5,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah!"
+    },
+    "V0236_27_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0236_24_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ugh..."
+    },
+    "V0236_23_00_00_0": {
+      "face": 5,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaargh!"
+    },
+    "V0236_38_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pronti... Partenza... Duelliamo!"
+    },
+    "V0236_09_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9265
+      ],
+      "duelist": [],
+      "text": "Uso l'effetto di Imperatore Meklord Grannel per Evocarlo Specialmente!"
+    },
+    "V0236_09_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9265
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Imperatore Meklord Grannel!"
+    },
+    "V0236_09_00_01_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Una volta per turno, assorbe 1 Mostro Synchro sul tuo Terreno!"
+    },
+    "V0236_09_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9265
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Imperatore Meklord Grannel!"
+    },
+    "V0236_09_00_02_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoca Specialmente un mostro equipaggiato!"
+    },
+    "V0236_13_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9265
+      ],
+      "duelist": [],
+      "text": "Potenziamo Imperatore Meklord Grannel!"
+    },
+    "V0236_19_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9265
+      ],
+      "duelist": [],
+      "text": "Attacca, Imperatore Meklord Grannel!"
+    },
+    "V0236_19_00_00_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bombardamento Finale!"
+    }
+  }
+}

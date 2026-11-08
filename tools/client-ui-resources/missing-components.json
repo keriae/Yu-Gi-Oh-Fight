@@ -1,0 +1,1127 @@
+{
+  "version": 1,
+  "publisher_assembly_sha256": "57d0517f1e4c7bd6211d35fdc1806c19ed5ed39b3d48c4a52662cf052b038db6",
+  "policy": "These seven script identities have no TypeDef in the pinned publisher Assembly-CSharp.dll. Remove only these fingerprinted unusable objects and their GameObject/preload entries. Preserve native AnimatorController behaviour-vector indices by nulling only their missing behaviour pointers. Preserve all other objects and data.",
+  "files": {
+    "StandaloneOSX/MasterDuel/AvatarStand/AvatarStand_u081_far": {
+      "source_sha256": "bd36f2c523066568f5c035ccefb5f1eb9d8e0b1da367c7a5eb9a02eae629ce64",
+      "objects": [
+        {
+          "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+          "path_id": -7544263431614788461,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "4de862a5bc64b0968b5763be64b5a5e9f91f09de825b5beb6b469db186b18265",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  33
+                ]
+              ],
+              "body_sha256": "6481071ac7fcb6e473e98d68e0e834b49934d04e5f72a523116dfc7cf796ef38"
+            },
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  5
+                ]
+              ],
+              "body_sha256": "093eb79de4a4106af222712351a5ca8908ae7b39d462f632e66fe54a34a6eabb"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+          "path_id": -3712182198491766198,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "507d8648d39dd4226089cdb9f18243c2c5e5dc0272876c021aac35b283b4217e",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  83
+                ]
+              ],
+              "body_sha256": "6481071ac7fcb6e473e98d68e0e834b49934d04e5f72a523116dfc7cf796ef38"
+            },
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  4
+                ]
+              ],
+              "body_sha256": "093eb79de4a4106af222712351a5ca8908ae7b39d462f632e66fe54a34a6eabb"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+          "path_id": -3146273100466975087,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "2cfc97dda5b9c4c16d11686754410a957bf09a608d0b91de08172d30e124bb4f",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  91
+                ]
+              ],
+              "body_sha256": "6481071ac7fcb6e473e98d68e0e834b49934d04e5f72a523116dfc7cf796ef38"
+            },
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  2
+                ]
+              ],
+              "body_sha256": "093eb79de4a4106af222712351a5ca8908ae7b39d462f632e66fe54a34a6eabb"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+          "path_id": -494579330480881898,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "e5db9935dcf9753a7e2a6cb35e7ac68a916d26888a197f730428d24d8063ffb1",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  129
+                ]
+              ],
+              "body_sha256": "6481071ac7fcb6e473e98d68e0e834b49934d04e5f72a523116dfc7cf796ef38"
+            },
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  3
+                ]
+              ],
+              "body_sha256": "093eb79de4a4106af222712351a5ca8908ae7b39d462f632e66fe54a34a6eabb"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+          "path_id": 5695548094104422208,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "0bbc987b30a30229830da0b3ad8946e8b50d2b3544437ef0906127f9b2388f94",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  193
+                ]
+              ],
+              "body_sha256": "6481071ac7fcb6e473e98d68e0e834b49934d04e5f72a523116dfc7cf796ef38"
+            },
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  1
+                ]
+              ],
+              "body_sha256": "093eb79de4a4106af222712351a5ca8908ae7b39d462f632e66fe54a34a6eabb"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+          "path_id": 8199268332571486714,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "ad67bef607366d62a56c62855de027c341a4295c9264e47f0aa902a9599c7193",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  236
+                ]
+              ],
+              "body_sha256": "6481071ac7fcb6e473e98d68e0e834b49934d04e5f72a523116dfc7cf796ef38"
+            },
+            {
+              "asset_file": "CAB-d8028d0e6ba01580533286d18435b5c0",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  0
+                ]
+              ],
+              "body_sha256": "093eb79de4a4106af222712351a5ca8908ae7b39d462f632e66fe54a34a6eabb"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/AvatarStand/AvatarStand_u081_near": {
+      "source_sha256": "c4f25be07c244e126cacb91aff089b2f5bc67b8cf686ad5a18057bd696deda3e",
+      "objects": [
+        {
+          "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+          "path_id": -7544263431614788461,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "4de862a5bc64b0968b5763be64b5a5e9f91f09de825b5beb6b469db186b18265",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  24
+                ]
+              ],
+              "body_sha256": "6b1b6d37b71674310134e04903dcd3d9f3045645ea337815c0ecfa8d66364ab5"
+            },
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  5
+                ]
+              ],
+              "body_sha256": "1d67bcd65febbe7212d6394fd57d023802813d51e0bb965e8cd0751a207d3d65"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+          "path_id": -3712182198491766198,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "507d8648d39dd4226089cdb9f18243c2c5e5dc0272876c021aac35b283b4217e",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  73
+                ]
+              ],
+              "body_sha256": "6b1b6d37b71674310134e04903dcd3d9f3045645ea337815c0ecfa8d66364ab5"
+            },
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  4
+                ]
+              ],
+              "body_sha256": "1d67bcd65febbe7212d6394fd57d023802813d51e0bb965e8cd0751a207d3d65"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+          "path_id": -3146273100466975087,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "2cfc97dda5b9c4c16d11686754410a957bf09a608d0b91de08172d30e124bb4f",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  83
+                ]
+              ],
+              "body_sha256": "6b1b6d37b71674310134e04903dcd3d9f3045645ea337815c0ecfa8d66364ab5"
+            },
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  2
+                ]
+              ],
+              "body_sha256": "1d67bcd65febbe7212d6394fd57d023802813d51e0bb965e8cd0751a207d3d65"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+          "path_id": -494579330480881898,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "e5db9935dcf9753a7e2a6cb35e7ac68a916d26888a197f730428d24d8063ffb1",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  123
+                ]
+              ],
+              "body_sha256": "6b1b6d37b71674310134e04903dcd3d9f3045645ea337815c0ecfa8d66364ab5"
+            },
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  3
+                ]
+              ],
+              "body_sha256": "1d67bcd65febbe7212d6394fd57d023802813d51e0bb965e8cd0751a207d3d65"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+          "path_id": 5695548094104422208,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "0bbc987b30a30229830da0b3ad8946e8b50d2b3544437ef0906127f9b2388f94",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  205
+                ]
+              ],
+              "body_sha256": "6b1b6d37b71674310134e04903dcd3d9f3045645ea337815c0ecfa8d66364ab5"
+            },
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  1
+                ]
+              ],
+              "body_sha256": "1d67bcd65febbe7212d6394fd57d023802813d51e0bb965e8cd0751a207d3d65"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+          "path_id": 8199268332571486714,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "ad67bef607366d62a56c62855de027c341a4295c9264e47f0aa902a9599c7193",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  233
+                ]
+              ],
+              "body_sha256": "6b1b6d37b71674310134e04903dcd3d9f3045645ea337815c0ecfa8d66364ab5"
+            },
+            {
+              "asset_file": "CAB-72c0d6e4c2373d58edfe673cc3d5f6df",
+              "path_id": 8089236129558928788,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  0
+                ]
+              ],
+              "body_sha256": "1d67bcd65febbe7212d6394fd57d023802813d51e0bb965e8cd0751a207d3d65"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Mat/Mat_039_far": {
+      "source_sha256": "6768be323a53c9366efd23383f8c95b7b46f34f6146ce7dfc90a47a77e322852",
+      "objects": [
+        {
+          "asset_file": "CAB-78ff2a5e71685ba4cb7d472cb7d3185a",
+          "path_id": -4963009776884711427,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "b8a88d074a950029b4c69a410e83a779aff3d432b4b32f63aa74cb62962a8a69",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-78ff2a5e71685ba4cb7d472cb7d3185a",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  179
+                ]
+              ],
+              "body_sha256": "50cb6ed81922091fedb7b8ba6f6c1a3bab4a1c57843acce449365f483187d496"
+            },
+            {
+              "asset_file": "CAB-78ff2a5e71685ba4cb7d472cb7d3185a",
+              "path_id": 4910936783411737507,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  0
+                ]
+              ],
+              "body_sha256": "ebb6c2d0eb6a598351e72d6169dd61713937f3a2bd8f29d1a2b039616b1352f4"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Mat/Mat_039_near": {
+      "source_sha256": "446ba91907cb20895279e5f39593b6cbcc92395ef870d999d69c613bd890805b",
+      "objects": [
+        {
+          "asset_file": "CAB-3a303393e09e5d8a052c1f740b6bb496",
+          "path_id": -654086790461777048,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgEffectStateControl",
+          "body_sha256": "b8a88d074a950029b4c69a410e83a779aff3d432b4b32f63aa74cb62962a8a69",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-3a303393e09e5d8a052c1f740b6bb496",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  372
+                ]
+              ],
+              "body_sha256": "817d88754dcad0f1dabb335e67d800bae4694dfdbfb7d224c7101f8e84d75aea"
+            },
+            {
+              "asset_file": "CAB-3a303393e09e5d8a052c1f740b6bb496",
+              "path_id": 1370795251083415664,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  0
+                ]
+              ],
+              "body_sha256": "bbef7e44588c9cd42aee1fb5d3fc5280fbc1716ffb454392eac1a9165d615a56"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Mate/M12843_Model": {
+      "source_sha256": "dec8d0c4259b50ea2bb3681338d5efb690b678a2e680b95a2ea280352ad3df93",
+      "objects": [
+        {
+          "asset_file": "CAB-0447d93ce364205138c015c7be6cad93",
+          "path_id": -8721114639796889699,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgObjectSEController",
+          "body_sha256": "2b195f3828700d293367c3ed09a2e687670e8594efe4b560d19a571def94da2d",
+          "game_object_path_id": -3500075666835391363,
+          "game_object_name": "fxp_M12843_Victory_f",
+          "game_object_component_indices": [
+            3
+          ],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-0447d93ce364205138c015c7be6cad93",
+              "path_id": -3500075666835391363,
+              "type": "GameObject",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_Component",
+                  3,
+                  "component"
+                ]
+              ],
+              "body_sha256": "491aeab38f65eb3c4949d46bd186d1328d373f4793dfea15a4f1b8d10ab15b61"
+            },
+            {
+              "asset_file": "CAB-0447d93ce364205138c015c7be6cad93",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  16
+                ]
+              ],
+              "body_sha256": "aad9fac20d761c2bec999338ef7e87942a17533dd15912b0246c8828e0cbf91c"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-0447d93ce364205138c015c7be6cad93",
+          "path_id": -8378009150079858623,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.BgObjectSEController",
+          "body_sha256": "5954dd9e45fb84bcdd1f745dd2dc7bbac390e074f08adced43dae5b2b00ff151",
+          "game_object_path_id": -3500075666835391363,
+          "game_object_name": "fxp_M12843_Victory_f",
+          "game_object_component_indices": [
+            4
+          ],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-0447d93ce364205138c015c7be6cad93",
+              "path_id": -3500075666835391363,
+              "type": "GameObject",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_Component",
+                  4,
+                  "component"
+                ]
+              ],
+              "body_sha256": "491aeab38f65eb3c4949d46bd186d1328d373f4793dfea15a4f1b8d10ab15b61"
+            },
+            {
+              "asset_file": "CAB-0447d93ce364205138c015c7be6cad93",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  29
+                ]
+              ],
+              "body_sha256": "aad9fac20d761c2bec999338ef7e87942a17533dd15912b0246c8828e0cbf91c"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Mate/M13671_Model": {
+      "source_sha256": "9dcaa9b9b7502d15f19187d37ffe520d517d3da7b1a646fe969a503247de30ff",
+      "objects": [
+        {
+          "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+          "path_id": -8169822480829993380,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterStateControl",
+          "body_sha256": "97969328f028967f4a99aba96a25f5ff40c26680ffb0fcb62798ae32537e2fd9",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+              "path_id": -425698739841943802,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  0
+                ]
+              ],
+              "body_sha256": "86293e53a9a363675c5eab232d269f48836149a2689075c4bd9011cd0073038e"
+            },
+            {
+              "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  39
+                ]
+              ],
+              "body_sha256": "1052a18041a1f8c16cbaea334fec2af79895fe919f410c694767461b541a69c7"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+          "path_id": 4621250534303290153,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterStateControl",
+          "body_sha256": "f234a898c5de075e24bd19e99597f1e362c213c65caf84c3a0cc9a14afb01159",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+              "path_id": -425698739841943802,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  1
+                ]
+              ],
+              "body_sha256": "86293e53a9a363675c5eab232d269f48836149a2689075c4bd9011cd0073038e"
+            },
+            {
+              "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  418
+                ]
+              ],
+              "body_sha256": "1052a18041a1f8c16cbaea334fec2af79895fe919f410c694767461b541a69c7"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+          "path_id": 7621772283465719528,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterStateControl",
+          "body_sha256": "97969328f028967f4a99aba96a25f5ff40c26680ffb0fcb62798ae32537e2fd9",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+              "path_id": -425698739841943802,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  2
+                ]
+              ],
+              "body_sha256": "86293e53a9a363675c5eab232d269f48836149a2689075c4bd9011cd0073038e"
+            },
+            {
+              "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  498
+                ]
+              ],
+              "body_sha256": "1052a18041a1f8c16cbaea334fec2af79895fe919f410c694767461b541a69c7"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+          "path_id": -7928385168881993814,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterObjectControl",
+          "body_sha256": "48cdbc828163a479a43500bfff7ebd3eb044896f22cd3bf5fd418b6420f30e9e",
+          "game_object_path_id": 8806494207330285805,
+          "game_object_name": "M13671_Model",
+          "game_object_component_indices": [
+            2
+          ],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  50
+                ]
+              ],
+              "body_sha256": "1052a18041a1f8c16cbaea334fec2af79895fe919f410c694767461b541a69c7"
+            },
+            {
+              "asset_file": "CAB-d1900f5d97bc0d93831edeef683ebb79",
+              "path_id": 8806494207330285805,
+              "type": "GameObject",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_Component",
+                  2,
+                  "component"
+                ]
+              ],
+              "body_sha256": "50526f1e9e5ebc8585ac17ddc01d5646797c4668c5d672ec18bb12d168023c71"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Mate/M14676_Model": {
+      "source_sha256": "aa51cb4107cdf1899fa3441d1f24c68cba5c62fcb009ff753f80ed2429e1a927",
+      "objects": [
+        {
+          "asset_file": "CAB-67058d7f8ab1bf83b986f1860444071e",
+          "path_id": -6764750862114379767,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterObjectControl",
+          "body_sha256": "aa8b692c3434129dea2dba58bbc0ae936765a7f8e773aced4b42388d5ef110f7",
+          "game_object_path_id": 3555144993321554359,
+          "game_object_name": "M14676_Model",
+          "game_object_component_indices": [
+            1
+          ],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-67058d7f8ab1bf83b986f1860444071e",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  71
+                ]
+              ],
+              "body_sha256": "efe2ea585d4d256b820f62f07e6aac88655e659f7be09c93f552f1948984a692"
+            },
+            {
+              "asset_file": "CAB-67058d7f8ab1bf83b986f1860444071e",
+              "path_id": 3555144993321554359,
+              "type": "GameObject",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_Component",
+                  1,
+                  "component"
+                ]
+              ],
+              "body_sha256": "0802b9c1408f151f1796259a942655c5a3b17cc8ea27e59ee8b2258c3972ba96"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-67058d7f8ab1bf83b986f1860444071e",
+          "path_id": 617849609736713510,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterStateControl",
+          "body_sha256": "1d86ae85ee1a8961a1062a83a8030c5a4ad1bddf2f99d97e2468d039c268b837",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-67058d7f8ab1bf83b986f1860444071e",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  259
+                ]
+              ],
+              "body_sha256": "efe2ea585d4d256b820f62f07e6aac88655e659f7be09c93f552f1948984a692"
+            },
+            {
+              "asset_file": "CAB-67058d7f8ab1bf83b986f1860444071e",
+              "path_id": 291633189046891647,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  0
+                ]
+              ],
+              "body_sha256": "b9d91750a47f5469dd31299772dfc5f810a17c2cf04e50971ceaaf4c9bff33b1"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Mate/M15527_Model": {
+      "source_sha256": "83a6306af8e0a0e48a35c3ccaca46ae898f7b478d4889b4f1deeb3fe7062452f",
+      "objects": [
+        {
+          "asset_file": "CAB-bdd7bb66bfabc6e7bbf911fe07c6e53e",
+          "path_id": -3143534344193822145,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterStateControl",
+          "body_sha256": "d135d7e62de926f4bc58128b20d06ed1459e9a50b7e4e8aea06c95884a3d64c4",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-bdd7bb66bfabc6e7bbf911fe07c6e53e",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  162
+                ]
+              ],
+              "body_sha256": "f1cacf2530f8acecedd7fffa9ecc918b3122124c70d85eb67a8cf719b95077cd"
+            },
+            {
+              "asset_file": "CAB-bdd7bb66bfabc6e7bbf911fe07c6e53e",
+              "path_id": 2425355704269614064,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  0
+                ]
+              ],
+              "body_sha256": "41140590d9bd2435bee5994371b7b6927d2b4b3e7b5c2acf82ea543f107301cc"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Mate/M15702_Model": {
+      "source_sha256": "b2ef20b0bf6b4569984a5d2f6875130a576e3fc6d5619e3fae45bcde7dce84d9",
+      "objects": [
+        {
+          "asset_file": "CAB-4df3a7a86be1dfc27fb6ef0cfad0b87f",
+          "path_id": -8643807862492189281,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterObjectControl",
+          "body_sha256": "5dc1af55a08fb7bc9ed3144755d62c85fa3d812bd18b3454f959553e0ee7dc07",
+          "game_object_path_id": 5887591650344442481,
+          "game_object_name": "M15702_Model",
+          "game_object_component_indices": [
+            1
+          ],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-4df3a7a86be1dfc27fb6ef0cfad0b87f",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  22
+                ]
+              ],
+              "body_sha256": "9298a9cd8e26f59c2e8e5d4665626191745efd6d1d69e9ab02e24bc855de1542"
+            },
+            {
+              "asset_file": "CAB-4df3a7a86be1dfc27fb6ef0cfad0b87f",
+              "path_id": 5887591650344442481,
+              "type": "GameObject",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_Component",
+                  1,
+                  "component"
+                ]
+              ],
+              "body_sha256": "5aef97cf70eeb8d80d5c3eab5d42ff45b5f268e7b2e2ad18d39a43f65d3375a7"
+            }
+          ]
+        },
+        {
+          "asset_file": "CAB-4df3a7a86be1dfc27fb6ef0cfad0b87f",
+          "path_id": -7628682678769830294,
+          "missing_identity": "Assembly-CSharp:YgomGame.Bg.CharacterStateControl",
+          "body_sha256": "1d86ae85ee1a8961a1062a83a8030c5a4ad1bddf2f99d97e2468d039c268b837",
+          "game_object_path_id": 0,
+          "game_object_name": null,
+          "game_object_component_indices": [],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-4df3a7a86be1dfc27fb6ef0cfad0b87f",
+              "path_id": -4992507348571047595,
+              "type": "AnimatorController",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_StateMachineBehaviours",
+                  0
+                ]
+              ],
+              "body_sha256": "6de308403412ce13a284e244c2d5243c3f70f2ba2757c494f68c9743f9bc7cc7"
+            },
+            {
+              "asset_file": "CAB-4df3a7a86be1dfc27fb6ef0cfad0b87f",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  48
+                ]
+              ],
+              "body_sha256": "9298a9cd8e26f59c2e8e5d4665626191745efd6d1d69e9ab02e24bc855de1542"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Wallpaper/63288574": {
+      "source_sha256": "4146e12861345ea4414a34f329eb398eae80053dd320dacf2c7360ef56d54afb",
+      "objects": [
+        {
+          "asset_file": "CAB-cfbb4aecb0c630502da9a2ee76c2cde4",
+          "path_id": 3324207244587377794,
+          "missing_identity": "Assembly-CSharp:P63288574_Handler",
+          "body_sha256": "b9ecd68ee59e86e8260af020a7cae3ff154eaf5e98f55ab154ffcf5af40f2e07",
+          "game_object_path_id": -519810130756639829,
+          "game_object_name": "63288574",
+          "game_object_component_indices": [
+            3
+          ],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-cfbb4aecb0c630502da9a2ee76c2cde4",
+              "path_id": -519810130756639829,
+              "type": "GameObject",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_Component",
+                  3,
+                  "component"
+                ]
+              ],
+              "body_sha256": "2d4b6af979efcc417b2a9bcdf37d2622e99e063190296a998d26e5aa42be1d36"
+            },
+            {
+              "asset_file": "CAB-cfbb4aecb0c630502da9a2ee76c2cde4",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  49
+                ]
+              ],
+              "body_sha256": "65e6ee30bede14e18a592932bb81e73c3747301a207f77ac6de669ee4aa42587"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Wallpaper/65741786": {
+      "source_sha256": "41b3ad0a539259488ab0832ef3ce061a781b747c0ad77b11b39f17eba08bb9b0",
+      "objects": [
+        {
+          "asset_file": "CAB-b76a8b5ce381c80ac786c54185abcfee",
+          "path_id": 8882303415032576184,
+          "missing_identity": "Assembly-CSharp:P14676_Handler",
+          "body_sha256": "da085c2fd0cad16a6ad6aae630c5669112c455a30344bcb006a926745c2ebc81",
+          "game_object_path_id": -2122502461997581384,
+          "game_object_name": "65741786",
+          "game_object_component_indices": [
+            3
+          ],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-b76a8b5ce381c80ac786c54185abcfee",
+              "path_id": -2122502461997581384,
+              "type": "GameObject",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_Component",
+                  3,
+                  "component"
+                ]
+              ],
+              "body_sha256": "befabd34a7ee9a3e0a0b34e4c1eac0f481dc6fe08d8865b250237be31cad049d"
+            },
+            {
+              "asset_file": "CAB-b76a8b5ce381c80ac786c54185abcfee",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  23
+                ]
+              ],
+              "body_sha256": "362e19fa54a286485fe44fd10425c35d9023044fdc80e5a8ab94bf0324f7e393"
+            }
+          ]
+        }
+      ]
+    },
+    "StandaloneOSX/MasterDuel/Wallpaper/65741787": {
+      "source_sha256": "7742eb3d32506b09c1cd2820284a56ab12fecacc5200d5c4c4e91753c4677e47",
+      "objects": [
+        {
+          "asset_file": "CAB-bd099608cd4438b5125a0451cb86c0d7",
+          "path_id": 5713389076353345501,
+          "missing_identity": "Assembly-CSharp:P3415_Handler",
+          "body_sha256": "803d1a7d416ca21cd6bab246ad4777d2cdb07701b0e8fbf99ed6a30ead52b06e",
+          "game_object_path_id": 3636634290904760902,
+          "game_object_name": "65741787",
+          "game_object_component_indices": [
+            3
+          ],
+          "incoming_references": [
+            {
+              "asset_file": "CAB-bd099608cd4438b5125a0451cb86c0d7",
+              "path_id": 1,
+              "type": "AssetBundle",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_PreloadTable",
+                  32
+                ]
+              ],
+              "body_sha256": "b77d4592f9b81bf1d4790071f300812e6a36bb77eeacdc13d839fc69290adcb7"
+            },
+            {
+              "asset_file": "CAB-bd099608cd4438b5125a0451cb86c0d7",
+              "path_id": 3636634290904760902,
+              "type": "GameObject",
+              "target_file_id": 0,
+              "verified_typed_paths": [
+                [
+                  "m_Component",
+                  3,
+                  "component"
+                ]
+              ],
+              "body_sha256": "38b2e574fcd93a44a60e7e674a61e0725df8fce95453b95558efdcb283a7c68a"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

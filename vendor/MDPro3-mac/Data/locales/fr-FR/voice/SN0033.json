@@ -1,0 +1,1434 @@
+{
+  "_GRP_": "SN0033",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0033_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je suis l'un des Pilleurs de l'Ombre de Marik !"
+    },
+    "V0033_01_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "On m'appelle Umbra !"
+    },
+    "V0033_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon Deck Masques fait trembler de peur les Dieux Égyptiens !"
+    },
+    "V0033_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        10,
+        28,
+        53
+      ],
+      "text": "Maître Marik..."
+    },
+    "V0033_01_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'utiliserai ton Deck pour acquérir les Dieux Égyptiens."
+    },
+    "V0033_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duel !"
+    },
+    "V0033_03_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est à moi de jouer !"
+    },
+    "V0033_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est à moi de jouer !"
+    },
+    "V0033_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne t'en tireras pas comme ça..."
+    },
+    "V0033_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est à moi de jouer !"
+    },
+    "V0033_04_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0033_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0033_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0033_05_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ce combat est loin d'être terminé !"
+    },
+    "V0033_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !!!"
+    },
+    "V0033_06_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha !"
+    },
+    "V0033_06_01_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Excellent."
+    },
+    "V0033_06_01_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais jouer cette carte !"
+    },
+    "V0033_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0033_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie !"
+    },
+    "V0033_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0033_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Continue !"
+    },
+    "V0033_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0033_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0033_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Carte Piège !"
+    },
+    "V0033_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !"
+    },
+    "V0033_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Contre-Piège !"
+    },
+    "V0033_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma carte face verso !"
+    },
+    "V0033_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue ma carte face verso !"
+    },
+    "V0033_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0033_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0033_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0033_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0033_08_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5098
+      ],
+      "duelist": [],
+      "text": "La Carte Magie Masque de Volonté et de Jugement !"
+    },
+    "V0033_08_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5103
+      ],
+      "duelist": [],
+      "text": "J'utilise cette Carte Magie !"
+    },
+    "V0033_08_00_01_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La Magie Rituelle, Malédiction de la Bête Masquée !"
+    },
+    "V0033_08_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5108
+      ],
+      "duelist": [],
+      "text": "La Magie d'Équipement, Masque de Brutalité !"
+    },
+    "V0033_08_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5107
+      ],
+      "duelist": [],
+      "text": "La Magie d'Équipement, Masque du Maudit !"
+    },
+    "V0033_08_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5101
+      ],
+      "duelist": [],
+      "text": "La Carte Magie L'Élu !"
+    },
+    "V0033_08_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5104
+      ],
+      "duelist": [],
+      "text": "La Magie Continue Masque de Dissipation !"
+    },
+    "V0033_08_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9134
+      ],
+      "duelist": [],
+      "text": "La Magie d'Équipement, Boulet des Ténèbres !"
+    },
+    "V0033_08_00_06_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ces chaînes t'empêchent de te battre !"
+    },
+    "V0033_08_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9134
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Boulet des Ténèbres t'inflige 250 points de dommages !"
+    },
+    "V0033_08_00_08_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5102
+      ],
+      "duelist": [],
+      "text": "Ma Carte Piège, Masque de Faiblesse !"
+    },
+    "V0033_08_00_09_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5106
+      ],
+      "duelist": [],
+      "text": "Mon Piège Continu, Masque de Restriction !"
+    },
+    "V0033_08_00_09_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah !\nLes Dieux Égyptiens ne peuvent pas être Invoqués !"
+    },
+    "V0033_08_00_10_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5438
+      ],
+      "duelist": [],
+      "text": "Mon Contre-Piège s'active, Masque de Tutan !"
+    },
+    "V0033_08_00_11_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5396
+      ],
+      "duelist": [],
+      "text": "Ma Carte Piège s'active !\nChaîne Explosive !"
+    },
+    "V0033_08_00_12_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5396
+      ],
+      "duelist": [],
+      "text": "Chaîne Explosive ! Explose !"
+    },
+    "V0033_08_00_13_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4692
+      ],
+      "duelist": [],
+      "text": "Ce Piège va te balayer !"
+    },
+    "V0033_08_00_13_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ruines Étendues !"
+    },
+    "V0033_08_00_14_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5100
+      ],
+      "duelist": [],
+      "text": "<card mrk=5100/> s'active !"
+    },
+    "V0033_08_00_14_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce masque me protège de ta pitoyable attaque !\nAh ah ah !"
+    },
+    "V0033_09_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5096
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Nuvia la Malfaisante s'active !"
+    },
+    "V0033_09_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5097
+      ],
+      "duelist": [],
+      "text": "Quand Des Gardius la Bête Masquée est vaincu, il laisse un masque derrière lui !"
+    },
+    "V0033_09_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5002
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Valkyrion, le Guerrier Magnétique s'active !"
+    },
+    "V0033_09_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4108
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Masque des Ténèbres s'active !"
+    },
+    "V0033_09_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4226
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Sorcier Masqué s'active !"
+    },
+    "V0033_09_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7039
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Hacheur Masqué !"
+    },
+    "V0033_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé hé hé..."
+    },
+    "V0033_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À moi !"
+    },
+    "V0033_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Observe !"
+    },
+    "V0033_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre !"
+    },
+    "V0033_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0033_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0033_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0033_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0033_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0033_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0033_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0033_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0033_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0033_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0033_13_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5090
+      ],
+      "duelist": [],
+      "text": "Abysse Étincelante !"
+    },
+    "V0033_13_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4050
+      ],
+      "duelist": [],
+      "text": "Poupée Brigande !"
+    },
+    "V0033_13_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5096
+      ],
+      "duelist": [],
+      "text": "Nuvia la Malfaisante !"
+    },
+    "V0033_13_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5095
+      ],
+      "duelist": [],
+      "text": "Melchid la Bête aux Quatre Visages !"
+    },
+    "V0033_13_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5093
+      ],
+      "duelist": [],
+      "text": "Grand Ancien Tiki !"
+    },
+    "V0033_13_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        5097
+      ],
+      "duelist": [],
+      "text": "J'Invoque Spécialement Des Gardius la Bête Masquée !"
+    },
+    "V0033_13_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        5094
+      ],
+      "duelist": [],
+      "text": "Contemple la toute puissance de la Carte La Bête Masquée ! "
+    },
+    "V0033_13_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5002
+      ],
+      "duelist": [],
+      "text": "Valkyrion, le Guerrier Magnétique !"
+    },
+    "V0033_13_00_08_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4108
+      ],
+      "duelist": [],
+      "text": "Masque des Ténèbres !"
+    },
+    "V0033_13_00_09_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4188
+      ],
+      "duelist": [],
+      "text": "Clown masqué !"
+    },
+    "V0033_13_00_10_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4226
+      ],
+      "duelist": [],
+      "text": "Sorcier Masqué !"
+    },
+    "V0033_13_00_11_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7039
+      ],
+      "duelist": [],
+      "text": "Hacheur Masqué !"
+    },
+    "V0033_13_00_12_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4590
+      ],
+      "duelist": [],
+      "text": "Chaîne d'engagement !"
+    },
+    "V0033_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combat !"
+    },
+    "V0033_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattons !"
+    },
+    "V0033_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé hé hé..."
+    },
+    "V0033_15_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allons-y !"
+    },
+    "V0033_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0033_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque !"
+    },
+    "V0033_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque !"
+    },
+    "V0033_16_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dis bonjour au Royaume des Ombres !  "
+    },
+    "V0033_18_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'as rien pour te défendre !\nJe t'attaque directement !"
+    },
+    "V0033_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne m'échapperas pas !\nJe t'attaque directement !"
+    },
+    "V0033_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5090
+      ],
+      "duelist": [],
+      "text": "Abysse Étincelante ! Attaque !"
+    },
+    "V0033_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4050
+      ],
+      "duelist": [],
+      "text": "Poupée Brigande !"
+    },
+    "V0033_19_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque destructrice !"
+    },
+    "V0033_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5096
+      ],
+      "duelist": [],
+      "text": "À l'attaque, Nuvia la Malfaisante !"
+    },
+    "V0033_19_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bombardement de lumière !"
+    },
+    "V0033_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5095
+      ],
+      "duelist": [],
+      "text": "Melchid la Bête aux Quatre Visages ! Attaque !"
+    },
+    "V0033_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5093
+      ],
+      "duelist": [],
+      "text": "Grand Ancien Tiki ! Attaque !"
+    },
+    "V0033_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Explosion mentale !"
+    },
+    "V0033_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5097
+      ],
+      "duelist": [],
+      "text": "Des Gardius la Bête Masquée attaque !"
+    },
+    "V0033_19_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Destruction sombre !"
+    },
+    "V0033_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5094
+      ],
+      "duelist": [],
+      "text": "Rien ne peut arrêter la colère de La Bête Masquée !"
+    },
+    "V0033_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5002
+      ],
+      "duelist": [],
+      "text": "Valkyrion, le Guerrier Magnétique !\nAttaque !"
+    },
+    "V0033_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4108
+      ],
+      "duelist": [],
+      "text": "Masque des Ténèbres ! Attaque !"
+    },
+    "V0033_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4188
+      ],
+      "duelist": [],
+      "text": "Clown masqué ! Attaque !"
+    },
+    "V0033_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4226
+      ],
+      "duelist": [],
+      "text": "Sorcier Masqué ! Attaque !"
+    },
+    "V0033_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7039
+      ],
+      "duelist": [],
+      "text": "Hacheur Masqué ! Attaque !"
+    },
+    "V0033_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4590
+      ],
+      "duelist": [],
+      "text": "Chaîne d'engagement attaque !"
+    },
+    "V0033_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0033_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0033_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0033_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0033_21_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il faut donner tout ce que tu as pour survivre."
+    },
+    "V0033_21_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0033_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0033_21_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À toi de jouer !"
+    },
+    "V0033_21_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est impossible..."
+    },
+    "V0033_21_00_02_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0033_28_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ta tactique était si évidente que c'en était gênant."
+    },
+    "V0033_28_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Un simple masque dépasse la puissance d'un Dieu Égyptien !"
+    },
+    "V0033_28_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        10,
+        28,
+        53
+      ],
+      "text": "Maître Marik, êtes-vous satisfait ?"
+    },
+    "V0033_28_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Votre Deck va capturer les Dieux Égyptiens !"
+    },
+    "V0033_29_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non...\nCe n'est pas possible !"
+    },
+    "V0033_29_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "M-Mes Life Points...\nJe n'en ai plus..."
+    },
+    "V0033_30_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La partie est terminée !"
+    },
+    "V0033_30_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'anticipais toutes tes attaques !"
+    },
+    "V0033_30_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'arriveras jamais à gagner !"
+    },
+    "V0033_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?!"
+    },
+    "V0033_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'est pas possible !"
+    },
+    "V0033_33_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Les Dieux Égyptiens tremblent devant mon Deck Masques !"
+    },
+    "V0033_33_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Prépare-toi !"
+    },
+    "V0033_34_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voici la clé de tes chaînes. Prends-la."
+    },
+    "V0033_34_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha ha ! Mes masques renforcent mes monstres !"
+    },
+    "V0033_34_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Les Dieux Égyptiens sont scellés !"
+    },
+    "V0033_34_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas m'aider, espèce de tocard !"
+    },
+    "V0033_34_00_04_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Noooon ! Mes Life Points !"
+    },
+    "V0033_34_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh... On dirait que je suis le seul à pouvoir me sauver !"
+    },
+    "V0033_34_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est d'une évidence."
+    },
+    "V0033_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0033_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!"
+    },
+    "V0033_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Umbra, le Pilleur de l'Ombre !"
+    },
+    "V0033_36_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        32
+      ],
+      "text": "Tu es vraiment le meilleur partenaire au monde !"
+    },
+    "V0033_36_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        32
+      ],
+      "text": "Je te laisse t'occuper de ça, Lumis !"
+    },
+    "V0033_36_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        32
+      ],
+      "text": "J'ai suivi tes ordres, et regarde ce qu'il s'est passé !\nImbécile !"
+    },
+    "V0033_22_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouch !"
+    },
+    "V0033_22_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grr !"
+    },
+    "V0033_22_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahh !"
+    },
+    "V0033_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh..."
+    },
+    "V0033_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas payer pour ça !"
+    },
+    "V0033_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0033_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erf !"
+    },
+    "V0033_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Noooon !"
+    },
+    "V0033_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhh !"
+    },
+    "V0033_27_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non..."
+    },
+    "V0033_27_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mes Life Points..."
+    },
+    "V0033_24_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh..."
+    },
+    "V0033_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaahhhhhhhh !"
+    },
+    "V0033_36_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Écrase-les pour moi !"
+    },
+    "V0033_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est ton tour."
+    },
+    "V0033_36_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne vaux rien..."
+    }
+  }
+}

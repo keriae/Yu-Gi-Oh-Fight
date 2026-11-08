@@ -1,0 +1,39 @@
+{
+  "name": "yu-gi-oh-fight-promo",
+  "version": "1.0.0",
+  "description": "Separate English and Chinese gameplay trailers with recorded game audio",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.541",
+    "@remotion/fonts": "4.0.541",
+    "@remotion/layout-utils": "4.0.541",
+    "@remotion/media": "4.0.541",
+    "@remotion/transitions": "4.0.541",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.541"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.541",
+    "@types/react": "19.3.0",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "preview": "remotion studio --no-open",
+    "render": "npm run render:en && npm run render:zh && node scripts/update-outputs.mjs",
+    "lint": "eslint src && tsc",
+    "render:en": "remotion render src/index.ts LaunchTrailerEN ../../docs/media/launch-trailer-en.mp4 --codec h264 --crf 24",
+    "render:zh": "remotion render src/index.ts LaunchTrailerZH ../../docs/media/launch-trailer-zh.mp4 --codec h264 --crf 24",
+    "outputs": "node scripts/update-outputs.mjs"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}

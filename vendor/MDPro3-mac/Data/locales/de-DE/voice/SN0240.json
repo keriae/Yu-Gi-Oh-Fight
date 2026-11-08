@@ -1,0 +1,2232 @@
+{
+  "_GRP_": "SN0240",
+  "_LNG_": "de-DE",
+  "info": {
+    "V0240_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin Sherry LeBlanc.\nIch prüfe deine Standfestigkeit."
+    },
+    "V0240_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wir werden uns duellieren.\nTatsächlich läuft der Kampf schon!"
+    },
+    "V0240_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Im Duell lernen wir uns kennen.\nLass uns Spaß haben."
+    },
+    "V0240_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nichts hält mich ab, dich zu besiegen."
+    },
+    "V0240_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin hier, weil ich es will.\nDuellieren wir uns!"
+    },
+    "V0240_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In meinem Angesicht ist dir klar, deine Mission ist vorbei."
+    },
+    "V0240_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        201
+      ],
+      "text": "Monsieur Fudo kommt letztendlich in mein Team?"
+    },
+    "V0240_01_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        215,
+        216,
+        217,
+        235,
+        236
+      ],
+      "text": "Du bist von Yliaster!"
+    },
+    "V0240_01_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        218
+      ],
+      "text": "Z-one …\nDessen Macht sich mit den Göttlichen misst …"
+    },
+    "V0240_01_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        99999
+      ],
+      "text": "Das ist kein Training, Elsworth.\nEs ist ein echtes Duell!"
+    },
+    "V0240_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duell!"
+    },
+    "V0240_03_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schneller als schnell – das belebt unser Duell so richtig!"
+    },
+    "V0240_03_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0240_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ziehe ich eine gewisse Karte, verlierst du garantiert!"
+    },
+    "V0240_03_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Spielzug!"
+    },
+    "V0240_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0240_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0240_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das wird ein Spaß."
+    },
+    "V0240_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Spielzug!"
+    },
+    "V0240_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0240_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hättest mir keine LP übriglassen sollen!"
+    },
+    "V0240_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0240_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du konntest mich ausmanövrieren …\nAber das nimmt ein Ende!"
+    },
+    "V0240_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Spielzug!"
+    },
+    "V0240_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0240_05_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Tragisch. Deine Erfolge führen zu deiner Niederlage!"
+    },
+    "V0240_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!!!"
+    },
+    "V0240_06_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich wusste, dass du das versuchen würdest!"
+    },
+    "V0240_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Genau, worauf ich gewartet hab!"
+    },
+    "V0240_06_01_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Merci!"
+    },
+    "V0240_06_01_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aber …"
+    },
+    "V0240_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Von meiner Hand …"
+    },
+    "V0240_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Zauberkarte!"
+    },
+    "V0240_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Schnellzauber!"
+    },
+    "V0240_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Permanenten Zauber!"
+    },
+    "V0240_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ausrüstungszauber!"
+    },
+    "V0240_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ritualzauber!"
+    },
+    "V0240_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Falle!"
+    },
+    "V0240_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Permanente Falle!"
+    },
+    "V0240_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine Konterfalle!"
+    },
+    "V0240_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich decke meine gesetzte Karte auf!"
+    },
+    "V0240_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine gesetzte Karte!"
+    },
+    "V0240_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt meines Monsters!"
+    },
+    "V0240_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Spielfeldzauber!"
+    },
+    "V0240_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Effekt!"
+    },
+    "V0240_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich lege den Pendelbereich fest!"
+    },
+    "V0240_07_14_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Pendeleffekt!"
+    },
+    "V0240_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sieh zu und staune!"
+    },
+    "V0240_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hahaha."
+    },
+    "V0240_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Los geht’s!"
+    },
+    "V0240_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zeig dich!"
+    },
+    "V0240_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster!"
+    },
+    "V0240_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster in Verteidigungsposition!"
+    },
+    "V0240_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Spezialbeschwörung!"
+    },
+    "V0240_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich biete ein Monster als Tribut an!"
+    },
+    "V0240_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Tributbeschwörung!"
+    },
+    "V0240_11_04_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tributbeschwörung!"
+    },
+    "V0240_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0240_11_05_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusionsbeschwörung!"
+    },
+    "V0240_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Ritualbeschwörung!"
+    },
+    "V0240_11_06_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ritualbeschwörung!"
+    },
+    "V0240_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Synchrobeschwörung!"
+    },
+    "V0240_11_07_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich verwende meine Monster gemeinsam als Empfänger!"
+    },
+    "V0240_11_07_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchrobeschwörung!"
+    },
+    "V0240_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Xyz-Beschwörung!"
+    },
+    "V0240_11_08_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Xyz-Beschwörung!"
+    },
+    "V0240_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Pendelbeschwörung!"
+    },
+    "V0240_11_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pendelbeschwörung!"
+    },
+    "V0240_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Linkbeschwörung!"
+    },
+    "V0240_11_10_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Linkbeschwörung!"
+    },
+    "V0240_11_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Maximum-Beschwörung!"
+    },
+    "V0240_11_11_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maximum-Beschwörung!"
+    },
+    "V0240_11_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0240_11_12_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusionsbeschwörung!"
+    },
+    "V0240_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Kampf!"
+    },
+    "V0240_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lass uns kämpfen!"
+    },
+    "V0240_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nun dann!"
+    },
+    "V0240_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach dich bereit!"
+    },
+    "V0240_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Los!"
+    },
+    "V0240_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift an!"
+    },
+    "V0240_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife mit meinem Monster an!"
+    },
+    "V0240_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife mit meinem Monster an!"
+    },
+    "V0240_16_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Au revoir!"
+    },
+    "V0240_16_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Es ist vorbei."
+    },
+    "V0240_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift dich direkt an!"
+    },
+    "V0240_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife dich direkt an!"
+    },
+    "V0240_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0240_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0240_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0240_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0240_21_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Selbst du musst einsehen, dass ein Sieg unmöglich ist!"
+    },
+    "V0240_21_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0240_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug."
+    },
+    "V0240_21_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nur weil du überlebt hast, ist das kein Grund zum Feiern."
+    },
+    "V0240_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0240_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Damit endet mein Spielzug!"
+    },
+    "V0240_21_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du bist am Zug!"
+    },
+    "V0240_21_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mal sehen, welche Überraschungen du auf Lager hast!"
+    },
+    "V0240_21_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0240_21_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sei vorsichtig.\nMeine Strategie wird deiner entgegenwirken!"
+    },
+    "V0240_21_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0240_28_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das Duell mag vorbei sein, aber uns erwarten viele mehr."
+    },
+    "V0240_28_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hehe …\nAuf Wiedersehen."
+    },
+    "V0240_28_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich habe es satt, vor Angreifern wegzulaufen!"
+    },
+    "V0240_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Sieg ist leicht zu holen, wenn man für ein Ziel kämpft."
+    },
+    "V0240_28_00_04_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du bist ein harter Gegner.\nMögen wir nie Feinde sein."
+    },
+    "V0240_28_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ein paar Runden genügten, um uns kennenzulernen."
+    },
+    "V0240_28_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Deine Karten sagten alles über dich.\nUnd meine über mich."
+    },
+    "V0240_28_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich kämpfe am Rande der Geschwindigkeit."
+    },
+    "V0240_28_00_06_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich spüre, dass du dich auch gerne so duellieren würdest."
+    },
+    "V0240_28_00_07_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        204
+      ],
+      "text": "Haha.\nDu bist ein interessanter Typ."
+    },
+    "V0240_28_00_08_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        99999
+      ],
+      "text": "Elsworth, du musst deine Fähigkeiten schärfen."
+    },
+    "V0240_29_00_00_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich hatte viele Chancen – nutzte aber keine einzige davon."
+    },
+    "V0240_29_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Magnifique.\nDu faszinierst mich mehr denn je."
+    },
+    "V0240_29_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Muss schön sein, nach nur einem Sieg so glücklich zu sein."
+    },
+    "V0240_29_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nicht viele können meine Strategien lösen – aber du schon."
+    },
+    "V0240_29_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast meine Aufmerksamkeit.\nIch hoffe, wir sehen uns."
+    },
+    "V0240_29_00_05_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Kein einziger guter Moment …\nVielleicht beim nächsten Mal."
+    },
+    "V0240_29_00_06_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was inspiriert dich, dich auf diese Weise zu duellieren?"
+    },
+    "V0240_29_00_07_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vater lehrte mich, mit ganzem Herzen zu kämpfen, aber …"
+    },
+    "V0240_29_00_07_1": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vergib mir, Vater."
+    },
+    "V0240_29_00_11_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        99999
+      ],
+      "text": "Elsworth, ich sah noch nie solche Entschlossenheit in dir."
+    },
+    "V0240_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unmöglich!"
+    },
+    "V0240_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was?!"
+    },
+    "V0240_33_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Willkommen auf meinem Spielfeld."
+    },
+    "V0240_33_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Der Sieg ist zum Greifen nah!"
+    },
+    "V0240_33_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Nun wirst du versagen!"
+    },
+    "V0240_30_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wenn du eine Synchrobeschwörung planst, muss deine Karte …"
+    },
+    "V0240_30_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich habe dich nicht gefragt!"
+    },
+    "V0240_30_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das hattest du also geplant!"
+    },
+    "V0240_34_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich weiß, dass du mich jagst, um diese Karte zu stehlen!"
+    },
+    "V0240_34_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Woher hast du diese Karte?"
+    },
+    "V0240_34_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast mich für so ein erbärmliches Manöver warten lassen?"
+    },
+    "V0240_34_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Es mir leicht zu machen ist ein Fauxpas."
+    },
+    "V0240_34_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wozu ein Duell fortsetzen, wenn ein Sieg unmöglich ist?"
+    },
+    "V0240_34_00_05_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Warum sollte ich nicht meine Familie wiedervereinen?"
+    },
+    "V0240_34_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du wirst keinem Team beitreten, außer meinem eigenen!"
+    },
+    "V0240_34_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "LP opfern, um Monster zu zerstören, war ein Fehler."
+    },
+    "V0240_34_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du fährst zu schnell, selbst für ein Turboduell."
+    },
+    "V0240_34_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nur am Rande der Geschwindigkeit lernst du mehr über dich."
+    },
+    "V0240_34_00_10_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nach nur wenigen Runden habe ich alles über dich erfahren."
+    },
+    "V0240_34_00_11_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Auf die Plätze … Fertig … Duell!"
+    },
+    "V0240_34_00_12_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wage es nicht zu lügen! Ich weiß, du willst mich reinlegen!"
+    },
+    "V0240_34_00_13_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Versteck dich im Shuttle!"
+    },
+    "V0240_34_00_14_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich werde das schnell beenden, Elsworth."
+    },
+    "V0240_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0240_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!\nZischen wir ab!"
+    },
+    "V0240_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Name ist Sherry LeBlanc.\nBereit zum Duell?"
+    },
+    "V0240_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich werde mit dir kommen!"
+    },
+    "V0240_36_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du kannst meinen Platz einnehmen."
+    },
+    "V0240_36_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich werde dieses Duell nun beenden."
+    },
+    "V0240_36_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du bist am Zug."
+    },
+    "V0240_36_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zeig ihnen deine Fähigkeiten!"
+    },
+    "V0240_36_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Räche dich in meinem Namen."
+    },
+    "V0240_36_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich brauche eure Hilfe."
+    },
+    "V0240_36_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        201
+      ],
+      "text": "Ich verlasse mich auf dich, Yusei!"
+    },
+    "V0240_36_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        99999
+      ],
+      "text": "Elsworth!"
+    },
+    "V0240_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9447
+      ],
+      "duelist": [],
+      "text": "Diese Karte wird bei der Zerstörung aktiviert!"
+    },
+    "V0240_08_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt der Zauberkarte Z-ONE vom Friedhof!"
+    },
+    "V0240_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9447
+      ],
+      "duelist": [],
+      "text": "Die mir von Vater vererbte Karte setzt dir ein Ende!"
+    },
+    "V0240_08_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Effekt von Z-ONE wird bei Zerstörung aktiviert!"
+    },
+    "V0240_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16415
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Spielfeldzauber!\nEcole de Zone!"
+    },
+    "V0240_08_00_02_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Willkommen auf meinem Spielfeld."
+    },
+    "V0240_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16415
+      ],
+      "duelist": [],
+      "text": "Der Spielfeldzauber, der Effekt von Ecole de Zone wird aktiviert!"
+    },
+    "V0240_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16387
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Ausrüstungszauber!\nBlumenflorett!"
+    },
+    "V0240_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16387
+      ],
+      "duelist": [],
+      "text": "Blumenflorett wird aktiviert, wenn sie auf den Friedhof gelegt wird!"
+    },
+    "V0240_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16388
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Permanenten Zauber!\nSynchrodilemma!"
+    },
+    "V0240_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16388
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Permanenten Zauber, den Effekt von Synchrodilemma!"
+    },
+    "V0240_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16416
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Spielfeldzauber!\nSeelenbindendes Tor!"
+    },
+    "V0240_08_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du kommst nicht weiter – auch wenn es mich alles kostet!"
+    },
+    "V0240_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16416
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Seelenbindendes Tor wird aktiviert!"
+    },
+    "V0240_08_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das Monster wird zerstört, und wir beide erleiden Schaden!"
+    },
+    "V0240_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16416
+      ],
+      "duelist": [],
+      "text": "Was du auch versuchst, du kommst nicht durch dieses Tor!"
+    },
+    "V0240_08_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Effekt von Seelenbindendes Tor wird aktiviert!"
+    },
+    "V0240_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3715
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Nachahmung!"
+    },
+    "V0240_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16389
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Falle!\nBanner der Revolution!"
+    },
+    "V0240_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16389
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Banner der Revolution!"
+    },
+    "V0240_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9200
+      ],
+      "duelist": [],
+      "text": "Meine Fallenkarte!\nEndlich frei!!"
+    },
+    "V0240_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3718
+      ],
+      "duelist": [],
+      "text": "Ich decke meine Fallenkarte auf!\nBlumenschild!"
+    },
+    "V0240_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3719
+      ],
+      "duelist": [],
+      "text": "Ich spiele meine Fallenkarte!\nKettenschluss!"
+    },
+    "V0240_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3716
+      ],
+      "duelist": [],
+      "text": "Meine Fallenkarte Für unsere Träume!"
+    },
+    "V0240_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3717
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nSchwindelblume!"
+    },
+    "V0240_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9199
+      ],
+      "duelist": [],
+      "text": "Blumen-Chevalier aktiviert ihren Effekt!"
+    },
+    "V0240_09_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sie annulliert und zerstört deine Zauber und Fallen!"
+    },
+    "V0240_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9199
+      ],
+      "duelist": [],
+      "text": "Blumen-Chevalier kann deine Zauber und Fallen annullieren!"
+    },
+    "V0240_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16386
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Blumenbaronin!"
+    },
+    "V0240_09_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fleur de Serenade!"
+    },
+    "V0240_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16386
+      ],
+      "duelist": [],
+      "text": "Blumenbaronin aktiviert ihren Effekt!"
+    },
+    "V0240_09_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fleur de Nocturne!"
+    },
+    "V0240_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16386
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Blumenbaronin!"
+    },
+    "V0240_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9446
+      ],
+      "duelist": [],
+      "text": "Blumenzauberin aktiviert ihren Effekt!"
+    },
+    "V0240_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16383
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Blumenweise!"
+    },
+    "V0240_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16414,
+        3714
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Zentaurin Mina!"
+    },
+    "V0240_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16384
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere Weißes Ross der Blumenritter aus dem Grab!"
+    },
+    "V0240_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16412,
+        3710
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Pferd der Blumenritter!"
+    },
+    "V0240_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16411,
+        3711
+      ],
+      "duelist": [],
+      "text": "Edler Ritter-Schildträger aktiviert den Effekt!"
+    },
+    "V0240_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16413,
+        3709
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Edler Ritter-Speerträger!"
+    },
+    "V0240_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9201
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Edler Ritter Johanna wird aktiviert!"
+    },
+    "V0240_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9445
+      ],
+      "duelist": [],
+      "text": "Todesblume wird bei Zerstörung durch einen Effekt aktiviert!"
+    },
+    "V0240_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9198
+      ],
+      "duelist": [],
+      "text": "Blumensynchronisierer aktiviert sich bei Benutzung für eine Synchrobeschwörung!"
+    },
+    "V0240_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16385
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Nekrosynchron!"
+    },
+    "V0240_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9406
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Burgundy der magische Elf!"
+    },
+    "V0240_37_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9199
+      ],
+      "duelist": [],
+      "text": "Schneller als die Lichtgeschwindigkeit!"
+    },
+    "V0240_37_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Sieg fällt mir in die Hände!\nIch führe eine Synchrobeschwörung durch!"
+    },
+    "V0240_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        9199
+      ],
+      "duelist": [],
+      "text": "Leuchte!\nBlumen-Chevalier!"
+    },
+    "V0240_37_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16386
+      ],
+      "duelist": [],
+      "text": "Die edle Blume erhebt sich für die Rebellion!"
+    },
+    "V0240_37_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Sieg fällt mir in die Hände!\nIch führe eine Synchrobeschwörung durch!"
+    },
+    "V0240_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        16386
+      ],
+      "duelist": [],
+      "text": "Erblühe in Herrlichkeit!\nBlumenbaronin!"
+    },
+    "V0240_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9446
+      ],
+      "duelist": [],
+      "text": "Blumenzauberin!"
+    },
+    "V0240_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16383
+      ],
+      "duelist": [],
+      "text": "Blumenweise!"
+    },
+    "V0240_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16414,
+        3714
+      ],
+      "duelist": [],
+      "text": "Erscheine!\nZentaurin Mina!"
+    },
+    "V0240_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16384
+      ],
+      "duelist": [],
+      "text": "Hier kommt Weißes Ross der Blumenritter!"
+    },
+    "V0240_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16412,
+        3710
+      ],
+      "duelist": [],
+      "text": "Werde Zeuge der Erhabenheit von Pferd der Blumenritter!"
+    },
+    "V0240_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16411,
+        3711
+      ],
+      "duelist": [],
+      "text": "Edler Ritter-Schildträger!\nHereinspaziert!"
+    },
+    "V0240_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16413,
+        3709
+      ],
+      "duelist": [],
+      "text": "Hier ist Edler Ritter-Speerträger!"
+    },
+    "V0240_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9201
+      ],
+      "duelist": [],
+      "text": "Steig auf!\nEdler Ritter Johanna!"
+    },
+    "V0240_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9445
+      ],
+      "duelist": [],
+      "text": "Todesblume!"
+    },
+    "V0240_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9198
+      ],
+      "duelist": [],
+      "text": "Das Empfänger-Monster Blumensynchronisierer!"
+    },
+    "V0240_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16385
+      ],
+      "duelist": [],
+      "text": "Das Empfänger-Monster Nekrosynchron!"
+    },
+    "V0240_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9406
+      ],
+      "duelist": [],
+      "text": "Burgundy der magische Elf!"
+    },
+    "V0240_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16464
+      ],
+      "duelist": [],
+      "text": "Spezialbeschwörung einer Maske-Spielmarke!"
+    },
+    "V0240_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9199
+      ],
+      "duelist": [],
+      "text": "Blumen-Chevalier greift an!"
+    },
+    "V0240_19_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fleur du Orage!"
+    },
+    "V0240_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16386
+      ],
+      "duelist": [],
+      "text": "Angriff, Blumenbaronin!"
+    },
+    "V0240_19_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fleur de Rhapsodie!"
+    },
+    "V0240_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9446
+      ],
+      "duelist": [],
+      "text": "Blumenzauberin!\nAngriff!"
+    },
+    "V0240_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16383
+      ],
+      "duelist": [],
+      "text": "Angriff, Blumenweise!"
+    },
+    "V0240_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16414,
+        3714
+      ],
+      "duelist": [],
+      "text": "Auf sie, Zentaurin Mina!"
+    },
+    "V0240_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Anmutige Klinge!"
+    },
+    "V0240_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16384
+      ],
+      "duelist": [],
+      "text": "Weißes Ross der Blumenritter!\nAngriff!"
+    },
+    "V0240_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16412,
+        3710
+      ],
+      "duelist": [],
+      "text": "Angriff, Pferd der Blumenritter!"
+    },
+    "V0240_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16411,
+        3711
+      ],
+      "duelist": [],
+      "text": "Edler Ritter-Schildträger greift an!"
+    },
+    "V0240_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16413,
+        3709
+      ],
+      "duelist": [],
+      "text": "Edler Ritter-Speerträger!\nAngriff!"
+    },
+    "V0240_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9201
+      ],
+      "duelist": [],
+      "text": "Edler Ritter Johanna!\nAngriff!"
+    },
+    "V0240_19_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Heilige Entscheidung!"
+    },
+    "V0240_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9445
+      ],
+      "duelist": [],
+      "text": "Angriff, Todesblume!"
+    },
+    "V0240_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9198
+      ],
+      "duelist": [],
+      "text": "Blumensynchronisierer! Angriff!"
+    },
+    "V0240_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16385
+      ],
+      "duelist": [],
+      "text": "Nekrosynchron greift an!"
+    },
+    "V0240_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9406
+      ],
+      "duelist": [],
+      "text": "Burgundy der magische Elf greift an!"
+    },
+    "V0240_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16464
+      ],
+      "duelist": [],
+      "text": "Maske-Spielmarke greift an!"
+    },
+    "V0240_48_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Los geht’s!"
+    },
+    "V0240_48_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach dich bereit für den Rush!"
+    },
+    "V0240_38_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Auf die Plätze … Fertig … Duell!"
+    },
+    "V0240_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahh!"
+    },
+    "V0240_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh!"
+    },
+    "V0240_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaa!"
+    },
+    "V0240_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich sehe, du bist hier, um zu kämpfen!"
+    },
+    "V0240_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Noch ist es nicht vorbei!"
+    },
+    "V0240_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh? War’s das schon?"
+    },
+    "V0240_25_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaahhh!"
+    },
+    "V0240_25_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaargh!"
+    },
+    "V0240_25_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Neeeiiin!"
+    },
+    "V0240_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grr …"
+    },
+    "V0240_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nein …"
+    },
+    "V0240_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wie konnte das passieren …"
+    },
+    "V0240_24_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erghhh …"
+    },
+    "V0240_23_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaaahhhhh!"
+    }
+  }
+}

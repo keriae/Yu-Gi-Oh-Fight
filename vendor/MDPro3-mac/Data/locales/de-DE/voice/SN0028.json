@@ -1,0 +1,3473 @@
+{
+  "_GRP_": "SN0028",
+  "_LNG_": "de-DE",
+  "info": {
+    "V0028_01_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Name ist Marik.\nMarik Ishtar."
+    },
+    "V0028_01_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Besiege sie, meine Marionette!"
+    },
+    "V0028_01_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Geh und spiel mit diesen Narren."
+    },
+    "V0028_01_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        1,
+        11,
+        15,
+        41
+      ],
+      "text": "Dieses Duell wurde über Jahrtausende vorbereitet!"
+    },
+    "V0028_01_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        1,
+        41
+      ],
+      "text": "Du hast mir nichts als Narben beschert, Pharao!"
+    },
+    "V0028_01_00_06_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        1,
+        41
+      ],
+      "text": "Wenn ich mit dir fertig bin, werde ich endlich frei sein!"
+    },
+    "V0028_01_00_07_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        6
+      ],
+      "text": "Ich will kein Duell mit dir.\nDu bist nur ein Gefäß."
+    },
+    "V0028_01_00_08_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        2,
+        42
+      ],
+      "text": "Seto Kaiba …\nHerrscher über einen Ägyptischen Gott …"
+    },
+    "V0028_01_00_09_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        3,
+        43
+      ],
+      "text": "Hehehehe …\nIch mache dich zu meiner Marionette, Wheeler!"
+    },
+    "V0028_01_00_10_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        11
+      ],
+      "text": "Bakura …\nZusammenarbeiten …\nOder dich auslöschen …?"
+    },
+    "V0028_01_00_11_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        13
+      ],
+      "text": "Du wagst es, dich mir zu widersetzen, Schwester?"
+    },
+    "V0028_01_00_12_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        14
+      ],
+      "text": "Odion, glaubst du wirklich, ich tappe in deine Fallen?"
+    },
+    "V0028_01_00_13_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        10
+      ],
+      "text": "Du bist es …\nDas Böse, das ich erschaffen habe …"
+    },
+    "V0028_01_00_14_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        22,
+        26,
+        28,
+        31,
+        32,
+        33
+      ],
+      "text": "Ich teste die Macht der Götter an meinen Untergebenen."
+    },
+    "V0028_02_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duell!"
+    },
+    "V0028_03_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In nur wenigen Sekunden wird deine Existenz zu Ende sein!"
+    },
+    "V0028_03_00_00_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0028_03_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dir bleibt nur die Wahl, wie du verlieren willst!"
+    },
+    "V0028_03_00_01_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0028_04_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0028_03_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach dich bereit!"
+    },
+    "V0028_03_00_02_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0028_03_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Spiel fängt gerade erst an."
+    },
+    "V0028_03_00_03_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0028_04_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0028_03_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "He …\nWie unterhaltsam!"
+    },
+    "V0028_03_00_04_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0028_03_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast meine Züge vorausgesehen …\nWie interessant."
+    },
+    "V0028_03_00_05_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0028_04_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0028_05_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ägyptische Götter, lasst eure Macht durch mich fließen!"
+    },
+    "V0028_05_00_00_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziiiiieeeeehe!"
+    },
+    "V0028_06_01_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das wird nicht funktionieren."
+    },
+    "V0028_06_01_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Willst du das wirklich tun?"
+    },
+    "V0028_06_01_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die Dinge werden nicht so laufen, wie du gehofft hast!"
+    },
+    "V0028_06_01_03_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist meine Chance!"
+    },
+    "V0028_07_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Von meiner Hand …"
+    },
+    "V0028_07_01_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!"
+    },
+    "V0028_07_02_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Schnellzauber!"
+    },
+    "V0028_07_03_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Permanenten Zauber!"
+    },
+    "V0028_07_04_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Ausrüstungszauber!"
+    },
+    "V0028_07_05_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Ritualzauber!"
+    },
+    "V0028_07_06_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!"
+    },
+    "V0028_07_07_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Falle!"
+    },
+    "V0028_07_08_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meine Konterfalle!"
+    },
+    "V0028_07_09_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist die Karte, die ich gesetzt habe!"
+    },
+    "V0028_07_09_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine gesetzte Karte!"
+    },
+    "V0028_07_10_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt meines Monsters!"
+    },
+    "V0028_07_11_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Spielfeldzauber!"
+    },
+    "V0028_07_12_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Effekt!"
+    },
+    "V0028_07_13_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich lege den Pendelbereich fest!"
+    },
+    "V0028_07_14_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Pendeleffekt!"
+    },
+    "V0028_07_15_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ritualzauber!"
+    },
+    "V0028_10_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erscheine!"
+    },
+    "V0028_10_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Komm raus!"
+    },
+    "V0028_10_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sieh und staune!"
+    },
+    "V0028_10_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "So mache ich das jetzt!"
+    },
+    "V0028_11_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster!"
+    },
+    "V0028_11_01_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster in Verteidigungsposition!"
+    },
+    "V0028_11_02_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Spezialbeschwörung!"
+    },
+    "V0028_11_03_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich biete ein Monster als Tribut an!"
+    },
+    "V0028_11_04_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Tributbeschwörung!"
+    },
+    "V0028_11_04_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tributbeschwörung!"
+    },
+    "V0028_11_05_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0028_11_05_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusionsbeschwörung!"
+    },
+    "V0028_11_06_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Ritualbeschwörung!"
+    },
+    "V0028_11_06_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ritualbeschwörung!"
+    },
+    "V0028_11_07_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Synchrobeschwörung!"
+    },
+    "V0028_11_07_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchrobeschwörung!"
+    },
+    "V0028_11_08_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Xyz-Beschwörung!"
+    },
+    "V0028_11_08_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Xyz-Beschwörung!"
+    },
+    "V0028_11_09_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Pendelbeschwörung!"
+    },
+    "V0028_11_09_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pendelbeschwörung!"
+    },
+    "V0028_11_10_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Linkbeschwörung!"
+    },
+    "V0028_11_10_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Linkbeschwörung!"
+    },
+    "V0028_11_11_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Maximalbeschwörung!"
+    },
+    "V0028_11_11_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maximalbeschwörung!"
+    },
+    "V0028_11_12_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0028_11_12_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusionsbeschwörung!"
+    },
+    "V0028_11_13_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Kontaktfusion!"
+    },
+    "V0028_11_13_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Kontaktfusion!"
+    },
+    "V0028_11_14_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Ritualbeschwörung!"
+    },
+    "V0028_11_14_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ritualbeschwörung!"
+    },
+    "V0028_14_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duell!"
+    },
+    "V0028_14_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich gehe in die Battle Phase!"
+    },
+    "V0028_15_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin dran!"
+    },
+    "V0028_15_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nimm das!"
+    },
+    "V0028_15_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Verschwinde!"
+    },
+    "V0028_17_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift an!"
+    },
+    "V0028_17_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife mit meinem Monster an!"
+    },
+    "V0028_17_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Angriff!"
+    },
+    "V0028_16_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dein Dasein war kurz und nicht erinnerungswürdig."
+    },
+    "V0028_16_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "He he.\nDas hat Spaß gemacht, solange es dauerte!"
+    },
+    "V0028_18_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift dich direkt an!"
+    },
+    "V0028_18_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife dich direkt an!"
+    },
+    "V0028_20_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze meine Karte verdeckt!"
+    },
+    "V0028_20_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0028_20_01_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0028_20_01_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze mein Monster."
+    },
+    "V0028_21_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Kämpf weiter!\nIch liebe es, die Angst in deinen Augen zu sehen!"
+    },
+    "V0028_21_00_00_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0028_21_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hast du eine Karte in deinem Deck, die mich bedrohen kann?"
+    },
+    "V0028_21_00_01_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0028_21_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was auch immer du vorhast, ich habe keine Angst."
+    },
+    "V0028_21_00_02_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0028_21_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dieser Zug war ein weiterer kleiner Schritt zu meinem Sieg."
+    },
+    "V0028_21_00_03_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0028_21_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bevor ich dich erledige, möchte ich dich noch bestrafen."
+    },
+    "V0028_21_00_04_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0028_21_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Na los, greif mich an!\nIch bin bereit, zurückzuschlagen!"
+    },
+    "V0028_21_00_05_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug!"
+    },
+    "V0028_28_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Es gibt keine Möglichkeit, mich zu besiegen.\nGar keine!"
+    },
+    "V0028_28_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich fürchte mich nicht vor einer einzelnen gesetzten Karte!"
+    },
+    "V0028_28_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Steh nicht auf.\nDu verdienst es, auf dem Boden zu kriechen!"
+    },
+    "V0028_28_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Keine Strategie hilft gegen einen Ägyptischen Gott!"
+    },
+    "V0028_28_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Haha!\nDeine Monster sind nicht wie mein Ägyptischer Gott!"
+    },
+    "V0028_28_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        1,
+        41
+      ],
+      "text": "Die drei Ägyptischen Götter werden mich zum Pharao krönen!"
+    },
+    "V0028_28_00_05_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Und ich werde frei sein von dem Fluch deiner Existenz!"
+    },
+    "V0028_28_00_06_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        1,
+        41
+      ],
+      "text": "Wie fühlt es sich an, alles zu verlieren, was man liebt?"
+    },
+    "V0028_28_00_06_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Diese Last hast du mir als Grabwächter auferlegt!"
+    },
+    "V0028_28_00_07_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        6
+      ],
+      "text": "Sei stolz!\nDu hast dich gut duelliert … für ein Gefäß!"
+    },
+    "V0028_28_00_08_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        11
+      ],
+      "text": "Dein Deck macht mir sogar Angst, Bakura!"
+    },
+    "V0028_28_00_09_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        14
+      ],
+      "text": "Haha …\nSehr gut, Odion."
+    },
+    "V0028_28_00_10_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        13
+      ],
+      "text": "Alle Ägyptischen Götter werden mein sein.\nSo wie der Thron!"
+    },
+    "V0028_28_00_11_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        10
+      ],
+      "text": "Mein Schatten!\nVerschwinde!"
+    },
+    "V0028_28_00_12_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        22,
+        26,
+        28,
+        31,
+        32,
+        33
+      ],
+      "text": "Da du verloren hast, musst du meine Strafe akzeptieren."
+    },
+    "V0028_29_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das kann nicht sein …\nIch habe verloren!"
+    },
+    "V0028_29_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Egal.\nEin so sinnloses Duell ist leicht abzutun."
+    },
+    "V0028_29_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wir sehen uns wieder.\nGenieße die Zeit, die du noch hast."
+    },
+    "V0028_29_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich habe dein Deck durchschaut.\nNächstes Mal gewinnst du nicht."
+    },
+    "V0028_29_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grr …\nWie kannst du es wagen …"
+    },
+    "V0028_29_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        6
+      ],
+      "text": "Wie konnte ein mickriges Gefäß mir das antun!"
+    },
+    "V0028_29_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        13
+      ],
+      "text": "Glaubst du, dass wir Grabwächter jemals frei sein werden …?"
+    },
+    "V0028_29_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        14
+      ],
+      "text": "Odion, du nimmst allem den Spaß!"
+    },
+    "V0028_29_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        10
+      ],
+      "text": "Aaaahhh!\n… Schwester …"
+    },
+    "V0028_31_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was!?"
+    },
+    "V0028_31_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unmöglich!"
+    },
+    "V0028_33_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ich werde dir zeigen, wie ein perfektes Duell aussieht!"
+    },
+    "V0028_33_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Erlebe die ultimative Verbindung von Geschick und Kraft!"
+    },
+    "V0028_33_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Die Ägyptischen Götter sind unmöglich zu besiegen!"
+    },
+    "V0028_30_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wir sind zwar beide Duellanten, aber du bist nicht wie ich."
+    },
+    "V0028_30_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Instinkte sind immer goldrichtig!"
+    },
+    "V0028_30_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Es ist so amüsant, dir bei deinen Versuchen zuzusehen."
+    },
+    "V0028_34_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du musst nicht nachdenken.\nDu verlierst sowieso."
+    },
+    "V0028_34_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich kann im Handumdrehen neue Strategien entwickeln."
+    },
+    "V0028_34_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hast du Angst vor einer einzigen verdeckten Karte?"
+    },
+    "V0028_34_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das war nur ein Test, wie stark du als Duellant bist."
+    },
+    "V0028_34_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast mehr Tiefe, als es scheint."
+    },
+    "V0028_34_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast nur noch drei Spielzüge in diesem Duell!"
+    },
+    "V0028_34_00_06_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist kein Monster. Es ist ein Gott!"
+    },
+    "V0028_34_00_07_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gegen diese ultimative Kombo kommst du nicht an!"
+    },
+    "V0028_34_00_08_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wechsle in die Verteidigungsposition, wenn du möchtest."
+    },
+    "V0028_34_00_09_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh nein … Das ist eine Endlosschleife!"
+    },
+    "V0028_34_00_10_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich hauche dieser Karte meinen Rachedurst ein!"
+    },
+    "V0028_34_00_11_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich spüre den Zorn des Ägyptischen Gottes in meinem Deck …"
+    },
+    "V0028_34_00_12_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich heiße Namu.\nWir werden sicher gute Freunde."
+    },
+    "V0028_34_00_13_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast die Ägyptischen Götter verärgert!"
+    },
+    "V0028_35_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Name ist Marik.\nMarik Ishtar."
+    },
+    "V0028_35_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Besiege sie, meine Marionette!"
+    },
+    "V0028_36_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bin ich nicht nett?\nIch überlasse dir den Ruhm."
+    },
+    "V0028_36_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha.\nDu bist dran."
+    },
+    "V0028_36_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Plan läuft nicht so, wie ich gehofft hatte …"
+    },
+    "V0028_36_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        3,
+        30,
+        43
+      ],
+      "text": "Zermalme sie, Joey!\nZermalme sie!!!"
+    },
+    "V0028_36_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        3,
+        30,
+        43
+      ],
+      "text": "Mach sie fertig, Joey!"
+    },
+    "V0028_36_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        3,
+        30,
+        43,
+        5,
+        45,
+        22,
+        26,
+        28,
+        31,
+        32,
+        33
+      ],
+      "text": "Argh!\nWarum tust du nicht, was ich dir sage?"
+    },
+    "V0028_36_00_06_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        5,
+        45,
+        22,
+        26,
+        28,
+        31,
+        32,
+        33
+      ],
+      "text": "Besiege sie, meine Marionette!"
+    },
+    "V0028_36_00_07_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        5,
+        45,
+        22,
+        26,
+        28,
+        31,
+        32,
+        33
+      ],
+      "text": "Geh und spiel mit diesen Narren."
+    },
+    "V0028_36_00_08_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        14
+      ],
+      "text": "Odion, beende diese Farce."
+    },
+    "V0028_36_00_09_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        14
+      ],
+      "text": "Odion …\nVerwende deine Fallen, um sie zu dezimieren."
+    },
+    "V0028_36_00_10_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        14
+      ],
+      "text": "Odion …\nEs ist nicht klug, mir Sorgen zu bereiten."
+    },
+    "V0028_36_00_11_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        13
+      ],
+      "text": "Ich hoffe, du duellierst dich gut, Schwester."
+    },
+    "V0028_08_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15334
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Schnellzauber!\nGlutkanone!"
+    },
+    "V0028_08_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15334
+      ],
+      "duelist": [],
+      "text": "Mit meinem Monster als Tribut erhöhe ich Ras ATK diesen Zug!"
+    },
+    "V0028_08_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15334
+      ],
+      "duelist": [],
+      "text": "Der Angriff meines Drachens wird deine Monster zerstören!"
+    },
+    "V0028_08_00_03_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15333
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nUralter Gesang!"
+    },
+    "V0028_08_00_03_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mit diesem Gesang wird der Ägyptische Gott mir gehorchen!"
+    },
+    "V0028_08_00_04_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15333
+      ],
+      "duelist": [],
+      "text": "Ich verbanne Uralter Gesang von meinem Friedhof und nutze den Effekt!"
+    },
+    "V0028_08_00_05_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17743
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Permanenten Zauber!\nDer wahre Sonnengott!"
+    },
+    "V0028_08_00_05_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dass die Gottheit der Sonne so viel Macht haben würde …"
+    },
+    "V0028_08_00_06_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17743
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Der wahre Sonnengott!"
+    },
+    "V0028_08_00_07_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15335
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Permanenten Zauber Millenniumsenthüllung!"
+    },
+    "V0028_08_00_07_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist eine Offenbarung, von der selbst ich nichts wusste!"
+    },
+    "V0028_08_00_08_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15335
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Millenniumsenthüllung!"
+    },
+    "V0028_08_00_09_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15335
+      ],
+      "duelist": [],
+      "text": "Ich lege Millenniumsenthüllung auf den Friedhof!"
+    },
+    "V0028_08_00_10_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15839
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Falle!\nUltimatives Götterungeheuer!"
+    },
+    "V0028_08_00_11_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15839
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Ultimatives Götterungeheuer!"
+    },
+    "V0028_08_00_11_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dies ist kein Monster.\nEs ist ein Gott!"
+    },
+    "V0028_08_00_12_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15839
+      ],
+      "duelist": [],
+      "text": "Kein Effekt kann einem Ägyptischen Gott schaden."
+    },
+    "V0028_08_00_13_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15336
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Permanente Falle Vereinigung des Sonnengotts!"
+    },
+    "V0028_08_00_13_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dass die Gottheit der Sonne so viel Macht haben würde …"
+    },
+    "V0028_08_00_14_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15336
+      ],
+      "duelist": [],
+      "text": "Ich bezahle LP, um den Effekt von Vereinigung des Sonnengotts zu aktivieren!"
+    },
+    "V0028_08_00_15_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15336
+      ],
+      "duelist": [],
+      "text": "Ich biete meinen Ra an, um den Effekt von Vereinigung des Sonnengotts zu aktivieren!"
+    },
+    "V0028_08_00_16_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15836
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Schnellzauber!\nDonnerschlagskraft-Angriff!"
+    },
+    "V0028_08_00_17_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5119
+      ],
+      "duelist": [],
+      "text": "Dieses Duell wird gleich interessant werden!"
+    },
+    "V0028_08_00_17_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Permanente Zauberkarte!\nSchleimbrutmaschine!"
+    },
+    "V0028_08_00_18_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5119
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schleimbrutmaschine wird aktiviert!"
+    },
+    "V0028_08_00_19_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5122
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Fallenkarte!\nSchleimverteidiger!"
+    },
+    "V0028_08_00_20_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5122
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schleimverteidiger wird aktiviert!"
+    },
+    "V0028_08_00_21_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5686
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Falle!\nMetallisch reflektierender Schleim!"
+    },
+    "V0028_08_00_22_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4842
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nWiedergeburt!"
+    },
+    "V0028_08_00_23_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16882
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Fallenkarte!\nWiedergeboren!"
+    },
+    "V0028_08_00_24_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5216
+      ],
+      "duelist": [],
+      "text": "Mit dieser Karte werde ich meine Rache bekommen!"
+    },
+    "V0028_08_00_24_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meteor der Zerstörung!"
+    },
+    "V0028_08_00_25_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4350
+      ],
+      "duelist": [],
+      "text": "Die Zauberkarte Hinotama!"
+    },
+    "V0028_08_00_25_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du erhältst Schaden!"
+    },
+    "V0028_08_00_26_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5120
+      ],
+      "duelist": [],
+      "text": "Meine Zauberkarte, Stahlkäfig des Albtraums!"
+    },
+    "V0028_08_00_26_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wie fühlt es sich an, eingesperrt zu sein?\nOhne Freiheit?"
+    },
+    "V0028_08_00_27_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5281
+      ],
+      "duelist": [],
+      "text": "Die Permanente Zauberkarte Rachsüchtiger Sumpfgeist!"
+    },
+    "V0028_08_00_28_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5498
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nMaschinenduplizierung!"
+    },
+    "V0028_08_00_29_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4844
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Topf der Gier!"
+    },
+    "V0028_08_00_30_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4317
+      ],
+      "duelist": [],
+      "text": "Ich rüste ein Monster mit Schwarzer Anhänger aus!"
+    },
+    "V0028_08_00_31_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4317
+      ],
+      "duelist": [],
+      "text": "He he …\nSpüre den Effekt von Schwarzer Anhänger!"
+    },
+    "V0028_08_00_32_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5637
+      ],
+      "duelist": [],
+      "text": "Die Zauberkarte Opfer des linken Arms!"
+    },
+    "V0028_08_00_33_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5123
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Zauberkarte!\nKarte der sicheren Wiederkehr!"
+    },
+    "V0028_08_00_34_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5123
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Karte der sicheren Wiederkehr wird aktiviert!"
+    },
+    "V0028_08_00_35_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5486
+      ],
+      "duelist": [],
+      "text": "Der Schnellzauber Zauber der Schmerzen!"
+    },
+    "V0028_08_00_36_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5479
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nKarten der Heiligkeit!"
+    },
+    "V0028_08_00_37_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5688
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nMagische Steinausgrabung!"
+    },
+    "V0028_08_00_38_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12571
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nTraueropfer!"
+    },
+    "V0028_08_00_39_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5121
+      ],
+      "duelist": [],
+      "text": "Solange diese Karte aktiv ist, ist meine Hand grenzenlos!"
+    },
+    "V0028_08_00_39_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Permanente Zauber Unbegrenzte Karten!"
+    },
+    "V0028_08_00_40_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4837
+      ],
+      "duelist": [],
+      "text": "Die Zauberkarte Polymerisation!"
+    },
+    "V0028_08_00_41_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5118
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Schnellzauber De-Fusion!"
+    },
+    "V0028_08_00_42_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4838
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nFalle entfernen!"
+    },
+    "V0028_08_00_43_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5497
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nMonster ablösen!"
+    },
+    "V0028_08_00_44_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5638
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Fallenkarte!\nDunkle Zauberregeneration!"
+    },
+    "V0028_08_00_45_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5638
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere Dunkle Zauberregeneration von meinem Friedhof!"
+    },
+    "V0028_08_00_46_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5297
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nKarte des letzten Willens!"
+    },
+    "V0028_08_00_47_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5490
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nVersteckter Soldat!"
+    },
+    "V0028_08_00_48_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5492
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Permanente Falle Sargverkäufer!"
+    },
+    "V0028_08_00_49_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5492
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Sargverkäufer fügt dir Schaden zu!"
+    },
+    "V0028_08_00_50_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5298
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Permanente Falle!\nAlptraum-Rad!"
+    },
+    "V0028_08_00_51_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5298
+      ],
+      "duelist": [],
+      "text": "Spüre den Effekt von Alptraum-Rad!"
+    },
+    "V0028_08_00_52_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5493
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nSchlimmes Desaster!"
+    },
+    "V0028_08_00_53_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4887
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nSpiegelkraft!"
+    },
+    "V0028_08_00_54_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [
+        6277
+      ],
+      "duelist": [],
+      "text": "Du wolltest spielen, nun musst du den Preis dafür bezahlen."
+    },
+    "V0028_08_00_54_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Strafspiel!!"
+    },
+    "V0028_08_00_55_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5287
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Fallenkarte!\nRettungsleine!"
+    },
+    "V0028_08_00_56_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5217
+      ],
+      "duelist": [],
+      "text": "Das ist ein Favorit unter den Raritätenjägern!\nBlitzeinschlag!"
+    },
+    "V0028_08_00_57_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17727
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Grabwächters Inschrift!"
+    },
+    "V0028_09_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5000
+      ],
+      "duelist": [],
+      "text": "Der geflügelte Drache von Ra hat Fähigkeiten, die noch nie jemand gesehen hat!"
+    },
+    "V0028_09_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5000
+      ],
+      "duelist": [],
+      "text": "Erzittere vor der wahren Form von Ra!"
+    },
+    "V0028_09_00_01_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ägyptischer Götterphönix!"
+    },
+    "V0028_09_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11927
+      ],
+      "duelist": [],
+      "text": "Nur Auserwählte können die Macht eines Gottes nutzen!"
+    },
+    "V0028_09_00_03_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12234
+      ],
+      "duelist": [],
+      "text": "Ra erhebt sich vom Friedhof!"
+    },
+    "V0028_09_00_04_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12234
+      ],
+      "duelist": [],
+      "text": "Werde Zeuge von Ras wahrer Macht!\nÄgyptischer Götterphönix!"
+    },
+    "V0028_09_00_05_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12234
+      ],
+      "duelist": [],
+      "text": "Der Phönix ruht wieder …"
+    },
+    "V0028_09_00_06_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4999
+      ],
+      "duelist": [],
+      "text": "Slifer der Himmelsdrache aktiviert den Effekt!"
+    },
+    "V0028_09_00_06_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Donnerschlag!"
+    },
+    "V0028_09_00_06_2": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dies ist kein Monster.\nEs ist ein Gott!"
+    },
+    "V0028_09_00_07_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4999
+      ],
+      "duelist": [],
+      "text": "Kein Effekt kann einem Ägyptischen Gott schaden."
+    },
+    "V0028_09_00_08_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5496
+      ],
+      "duelist": [],
+      "text": "Die Magma von Lava-Golem schmilzt deine LP weg."
+    },
+    "V0028_09_00_09_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5453
+      ],
+      "duelist": [],
+      "text": "Legendärer Unterweltler aktiviert den Effekt!"
+    },
+    "V0028_09_00_10_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5300
+      ],
+      "duelist": [],
+      "text": "Byser-Schocker zu beschwören bringt alle gesetzten Karten auf die Hand!"
+    },
+    "V0028_09_00_11_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5489
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Helpoemer!\nHör dir die Elegie des Jenseits an!"
+    },
+    "V0028_09_00_12_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15331
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Wächterschleim!"
+    },
+    "V0028_09_00_13_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5063
+      ],
+      "duelist": [],
+      "text": "Perfekt gegen jeden Angriff!"
+    },
+    "V0028_09_00_13_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wiederbelebungsschleim fügt sich wieder zusammen!"
+    },
+    "V0028_09_00_14_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15330
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Reaktorschleim!"
+    },
+    "V0028_09_00_15_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5695
+      ],
+      "duelist": [],
+      "text": "Granadora aktiviert den Effekt!"
+    },
+    "V0028_09_00_16_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5636
+      ],
+      "duelist": [],
+      "text": "Juragedo aktiviert den Effekt von meiner Hand!"
+    },
+    "V0028_09_00_17_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5636
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Juragedo!"
+    },
+    "V0028_09_00_18_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5499
+      ],
+      "duelist": [],
+      "text": "Finsterer Jeroid aktiviert den Effekt!"
+    },
+    "V0028_09_00_19_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5484
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Newdoria wird bei Zerstörung im Kampf aktiviert!"
+    },
+    "V0028_09_00_20_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12236
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Blockierte Arme wird aktiviert!"
+    },
+    "V0028_09_00_21_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12237
+      ],
+      "duelist": [],
+      "text": "Blockierte Beine aktiviert den Effekt!"
+    },
+    "V0028_09_00_22_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12237
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Blockierte Beine von meinem Friedhof!"
+    },
+    "V0028_09_00_23_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5687
+      ],
+      "duelist": [],
+      "text": "Hier kommt der Effekt von Bowganian!"
+    },
+    "V0028_09_00_23_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Armbrust des Unheils!"
+    },
+    "V0028_09_00_24_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5687
+      ],
+      "duelist": [],
+      "text": "Nutze deinen Effekt, Bowganian!"
+    },
+    "V0028_09_00_24_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schieß deinen Pfeil ab!"
+    },
+    "V0028_09_00_25_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5564
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Lekunga!"
+    },
+    "V0028_09_00_26_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5485
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Herrscher des Gifts wird aktiviert!"
+    },
+    "V0028_09_00_27_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5285
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Makyura der Zerstörer!"
+    },
+    "V0028_09_00_28_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5292
+      ],
+      "duelist": [],
+      "text": "Viser Des aktiviert den Effekt!"
+    },
+    "V0028_09_00_29_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11169
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Ras Schüler!"
+    },
+    "V0028_37_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [
+        5000
+      ],
+      "duelist": [],
+      "text": "Hülle die Wüsten in dein Leuchten und entfessle deinen Zorn!"
+    },
+    "V0028_13_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        5000
+      ],
+      "duelist": [],
+      "text": "Erscheine, wenn ich deinen Namen rufe!\nDer geflügelte Drache von Ra!"
+    },
+    "V0028_13_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11927
+      ],
+      "duelist": [],
+      "text": "Erscheine!\nDer geflügelte Drache von Ra - Kugelmodus!"
+    },
+    "V0028_37_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12234
+      ],
+      "duelist": [],
+      "text": "Erlebe die wahre Gestalt des geflügelten Drachen!"
+    },
+    "V0028_13_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12234
+      ],
+      "duelist": [],
+      "text": "Der geflügelte Drache von Ra - Unsterblicher Phönix!"
+    },
+    "V0028_37_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4999
+      ],
+      "duelist": [],
+      "text": "Werde geblendet von der Erhabenheit von Slifer der Himmelsdrache!"
+    },
+    "V0028_13_00_03_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        4999
+      ],
+      "duelist": [],
+      "text": "Slifer der Himmelsdrache!"
+    },
+    "V0028_13_00_03_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Eine der drei Ägyptischen Götterkarten!"
+    },
+    "V0028_37_00_03_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5496
+      ],
+      "duelist": [],
+      "text": "Ich werde deine Monster für meine Spezialbeschwörung opfern!"
+    },
+    "V0028_13_00_04_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5496
+      ],
+      "duelist": [],
+      "text": "Lava-Golem!"
+    },
+    "V0028_13_00_05_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5062
+      ],
+      "duelist": [],
+      "text": "Das Fusionsmonster Menschlicher Drachenwurm!"
+    },
+    "V0028_13_00_06_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5453
+      ],
+      "duelist": [],
+      "text": "Legendärer Unterweltler!"
+    },
+    "V0028_13_00_07_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5300
+      ],
+      "duelist": [],
+      "text": "Byser-Schocker!"
+    },
+    "V0028_13_00_08_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5489
+      ],
+      "duelist": [],
+      "text": "Helpoemer!"
+    },
+    "V0028_13_00_09_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15332
+      ],
+      "duelist": [],
+      "text": "Dieses Plasma nimmt jede Form an, auch die stärkste!"
+    },
+    "V0028_13_00_09_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ägyptischer Götterschleim!"
+    },
+    "V0028_13_00_10_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15331
+      ],
+      "duelist": [],
+      "text": "Wächterschleim!"
+    },
+    "V0028_13_00_11_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5060
+      ],
+      "duelist": [],
+      "text": "Menschlicher Schleim!"
+    },
+    "V0028_13_00_12_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5063
+      ],
+      "duelist": [],
+      "text": "Dieses gestaltlose Wesen ist absolut unzerstörbar!"
+    },
+    "V0028_13_00_12_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wiederbelebungsschleim!"
+    },
+    "V0028_13_00_13_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15330
+      ],
+      "duelist": [],
+      "text": "Reaktorschleim!"
+    },
+    "V0028_13_00_14_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7293
+      ],
+      "duelist": [],
+      "text": "Magisch reflektierender Schleim!"
+    },
+    "V0028_13_00_15_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3907
+      ],
+      "duelist": [],
+      "text": "Ich beschwöre Schleim-Spielmarke als Spezialbeschwörung!"
+    },
+    "V0028_13_00_16_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5491
+      ],
+      "duelist": [],
+      "text": "Gil Garth!"
+    },
+    "V0028_13_00_17_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5695
+      ],
+      "duelist": [],
+      "text": "Granadora!"
+    },
+    "V0028_13_00_18_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5636
+      ],
+      "duelist": [],
+      "text": "Juragedo!"
+    },
+    "V0028_13_00_19_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5499
+      ],
+      "duelist": [],
+      "text": "Finsterer Jeroid!"
+    },
+    "V0028_13_00_20_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5562
+      ],
+      "duelist": [],
+      "text": "Drillago!"
+    },
+    "V0028_13_00_21_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5484
+      ],
+      "duelist": [],
+      "text": "Newdoria!"
+    },
+    "V0028_13_00_22_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5061
+      ],
+      "duelist": [],
+      "text": "Drachenwurm!"
+    },
+    "V0028_13_00_23_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12236
+      ],
+      "duelist": [],
+      "text": "Blockierte Arme!"
+    },
+    "V0028_13_00_24_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12237
+      ],
+      "duelist": [],
+      "text": "Blockierte Beine!"
+    },
+    "V0028_13_00_25_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5687
+      ],
+      "duelist": [],
+      "text": "Bowganian!"
+    },
+    "V0028_13_00_26_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5564
+      ],
+      "duelist": [],
+      "text": "Lekunga!"
+    },
+    "V0028_13_00_27_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3910
+      ],
+      "duelist": [],
+      "text": "Ich beschwöre Lekunga-Spielmarke als Spezialbeschwörung!"
+    },
+    "V0028_13_00_28_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5485
+      ],
+      "duelist": [],
+      "text": "Herrscher des Gifts!"
+    },
+    "V0028_13_00_29_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5285
+      ],
+      "duelist": [],
+      "text": "Makyura der Zerstörer!"
+    },
+    "V0028_13_00_30_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5292
+      ],
+      "duelist": [],
+      "text": "Viser Des!"
+    },
+    "V0028_13_00_31_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11169
+      ],
+      "duelist": [],
+      "text": "Ras Schüler!"
+    },
+    "V0028_19_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5000
+      ],
+      "duelist": [],
+      "text": "Ra! Angriff!"
+    },
+    "V0028_19_00_00_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Glutkanone!"
+    },
+    "V0028_19_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12234
+      ],
+      "duelist": [],
+      "text": "Angriff, Der geflügelte Drache von Ra - Unsterblicher Phönix!"
+    },
+    "V0028_19_00_01_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Glutkanone!"
+    },
+    "V0028_19_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4999
+      ],
+      "duelist": [],
+      "text": "Los, Slifer der Himmelsdrache!"
+    },
+    "V0028_19_00_02_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Donnerschlagskraft-Angriff!"
+    },
+    "V0028_19_00_03_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4999
+      ],
+      "duelist": [],
+      "text": "Zeig keine Gnade, Slifer!"
+    },
+    "V0028_19_00_03_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Donnerschlagskraft-Angriff!"
+    },
+    "V0028_19_00_04_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5496
+      ],
+      "duelist": [],
+      "text": "Lava-Golem!\nAngriff!"
+    },
+    "V0028_19_00_04_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Magmaexplosion!"
+    },
+    "V0028_19_00_05_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5062
+      ],
+      "duelist": [],
+      "text": "Angriff, Menschlicher Drachenwurm!"
+    },
+    "V0028_19_00_05_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schleimdrache!"
+    },
+    "V0028_19_00_06_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5453
+      ],
+      "duelist": [],
+      "text": "Legendärer Unterweltler greift an!"
+    },
+    "V0028_19_00_07_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5300
+      ],
+      "duelist": [],
+      "text": "Tu es, Byser-Schocker!"
+    },
+    "V0028_19_00_07_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach sie platt!"
+    },
+    "V0028_19_00_08_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5489
+      ],
+      "duelist": [],
+      "text": "Angriff, <card mrk='5489/>!"
+    },
+    "V0028_19_00_09_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15332
+      ],
+      "duelist": [],
+      "text": "Ägyptischer Götterschleim!\nAngriff!"
+    },
+    "V0028_19_00_10_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15331
+      ],
+      "duelist": [],
+      "text": "Wächterschleim!\nAngriff!"
+    },
+    "V0028_19_00_11_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5060
+      ],
+      "duelist": [],
+      "text": "Angriff, Menschlicher Schleim!"
+    },
+    "V0028_19_00_12_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5063
+      ],
+      "duelist": [],
+      "text": "Dieses Plasma kann sich ins schärfste Schwert verwandeln!"
+    },
+    "V0028_19_00_12_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Angriff, Wiederbelebungsschleim!"
+    },
+    "V0028_19_00_13_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15330
+      ],
+      "duelist": [],
+      "text": "Reaktorschleim! Angriff!"
+    },
+    "V0028_19_00_14_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7293
+      ],
+      "duelist": [],
+      "text": "Magisch reflektierender Schleim!\nAngriff!"
+    },
+    "V0028_19_00_15_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3907
+      ],
+      "duelist": [],
+      "text": "Angriff, Schleim-Spielmarke!"
+    },
+    "V0028_19_00_16_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5491
+      ],
+      "duelist": [],
+      "text": "Gil Garth!\nSchwinge deine Klinge!"
+    },
+    "V0028_19_00_17_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5695
+      ],
+      "duelist": [],
+      "text": "Granadora! Angriff!"
+    },
+    "V0028_19_00_18_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5636
+      ],
+      "duelist": [],
+      "text": "Angriff, Juragedo!"
+    },
+    "V0028_19_00_19_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5499
+      ],
+      "duelist": [],
+      "text": "Finsterer Jeroid! Angriff!"
+    },
+    "V0028_19_00_20_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5562
+      ],
+      "duelist": [],
+      "text": "Angriff, Drillago!"
+    },
+    "V0028_19_00_21_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5484
+      ],
+      "duelist": [],
+      "text": "Newdoria! Angriff!"
+    },
+    "V0028_19_00_22_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5061
+      ],
+      "duelist": [],
+      "text": "Angriff, Drachenwurm!"
+    },
+    "V0028_19_00_23_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12236
+      ],
+      "duelist": [],
+      "text": "Blockierte Arme!\nAngriff!"
+    },
+    "V0028_19_00_24_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12237
+      ],
+      "duelist": [],
+      "text": "Blockierte Beine!\nAngriff!"
+    },
+    "V0028_19_00_25_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5687
+      ],
+      "duelist": [],
+      "text": "Bowganian!\nFeuer!"
+    },
+    "V0028_19_00_26_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5564
+      ],
+      "duelist": [],
+      "text": "Lekunga!\nAngriff!"
+    },
+    "V0028_19_00_27_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3910
+      ],
+      "duelist": [],
+      "text": "Lekunga-Spielmarke greift an!"
+    },
+    "V0028_19_00_28_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5485
+      ],
+      "duelist": [],
+      "text": "Herrscher des Gifts!\nAngriff!"
+    },
+    "V0028_19_00_29_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5285
+      ],
+      "duelist": [],
+      "text": "Makyura der Zerstörer!\nAngriff!"
+    },
+    "V0028_19_00_29_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Drei-Klauen-Hieb!"
+    },
+    "V0028_19_00_30_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5285
+      ],
+      "duelist": [],
+      "text": "Makyura der Zerstörer! Angriff!"
+    },
+    "V0028_19_00_30_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Reiß sie auseinander!"
+    },
+    "V0028_19_00_31_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5285
+      ],
+      "duelist": [],
+      "text": "Angriff, Makyura der Zerstörer!"
+    },
+    "V0028_19_00_31_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schwert des Urteils!"
+    },
+    "V0028_19_00_32_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5292
+      ],
+      "duelist": [],
+      "text": "Viser Des!\nAngriff!"
+    },
+    "V0028_19_00_33_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11169
+      ],
+      "duelist": [],
+      "text": "Ras Schüler!\nAngriff!"
+    },
+    "V0028_48_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Los geht’s!"
+    },
+    "V0028_48_01_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach dich bereit für den Rush!"
+    },
+    "V0028_51_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hehehehe …"
+    },
+    "V0028_51_01_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Go Rush!"
+    },
+    "V0028_49_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das wird sicher ein Spaß!"
+    },
+    "V0028_49_01_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Turbo-Rush-Duel!"
+    },
+    "V0028_22_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gah!"
+    },
+    "V0028_22_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Agh!"
+    },
+    "V0028_22_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hargh!"
+    },
+    "V0028_26_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grr …"
+    },
+    "V0028_26_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "He …"
+    },
+    "V0028_26_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Haha …"
+    },
+    "V0028_25_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhh!"
+    },
+    "V0028_25_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaah!"
+    },
+    "V0028_25_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Agh …!"
+    },
+    "V0028_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dafür wirst du bezahlen!"
+    },
+    "V0028_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unmöglich …"
+    },
+    "V0028_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das muss ausgerechnet mir passieren …"
+    },
+    "V0028_24_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaargh!"
+    },
+    "V0028_23_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaaaaaaahhhh!"
+    }
+  }
+}

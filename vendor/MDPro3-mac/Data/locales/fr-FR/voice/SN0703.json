@@ -1,0 +1,2938 @@
+{
+  "_GRP_": "SN0703",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0703_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon style Sogetsu est victorieux depuis des générations !"
+    },
+    "V0703_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai hâte de relever ton défi !"
+    },
+    "V0703_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "En tant que président de Goha #7, je défendrai mon école !"
+    },
+    "V0703_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pour un Duel, nous devons donner le meilleur de nous-mêmes !"
+    },
+    "V0703_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je compte bien gagner ce Rush Duel !"
+    },
+    "V0703_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est peut-être le moment de changer de style !"
+    },
+    "V0703_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        701
+      ],
+      "text": "Un Rush Duel avec toi est un défi que j'aime relever, Yuga !"
+    },
+    "V0703_01_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        702
+      ],
+      "text": "Très bien, Luke !\nJ’accepte ton Duel !"
+    },
+    "V0703_01_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        704
+      ],
+      "text": "Romin !\nPour ce Duel, donnons le meilleur de nous-mêmes !"
+    },
+    "V0703_01_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        707
+      ],
+      "text": "\"Oh, mais je dois affronter mon ami ?\" C’est ce que tu penses !"
+    },
+    "V0703_01_00_10_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        708
+      ],
+      "text": "Je sais que tu es coriace.\nMais je ne perdrai pas !"
+    },
+    "V0703_01_00_11_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        708
+      ],
+      "text": "Je dois faire évoluer mon style de Duel pour vaincre !"
+    },
+    "V0703_01_00_12_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        716
+      ],
+      "text": "Seul un adepte de la tradition est digne de t’affronter."
+    },
+    "V0703_01_00_12_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je relève ton défi, Yuran !"
+    },
+    "V0703_01_00_13_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        715
+      ],
+      "text": "Je serai à la hauteur !"
+    },
+    "V0703_01_00_14_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        859
+      ],
+      "text": "Ta négligence est dangereuse et inacceptable !"
+    },
+    "V0703_48_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Commençons !"
+    },
+    "V0703_48_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prépare-toi pour le rush !"
+    },
+    "V0703_03_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais utiliser mon avantage pour créer une bonne avance !"
+    },
+    "V0703_03_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0703_03_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ferai en sorte que tu n’aies pas d'autre tour !"
+    },
+    "V0703_03_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À moi !"
+    },
+    "V0703_04_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0703_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maintenant c'est mon tour !"
+    },
+    "V0703_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'arrive !"
+    },
+    "V0703_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À moi !"
+    },
+    "V0703_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0703_03_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu joues bien...\nMais est-ce que cela va durer ?"
+    },
+    "V0703_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À moi !"
+    },
+    "V0703_03_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ne tiens peut-être qu'à un fil, mais je tiens bon !"
+    },
+    "V0703_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0703_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0703_05_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Cette carte va me permettre de revenir dans la partie !"
+    },
+    "V0703_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioooche !"
+    },
+    "V0703_06_01_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cependant !"
+    },
+    "V0703_06_01_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça ne marchera pas !"
+    },
+    "V0703_06_01_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est ce que j'attendais !"
+    },
+    "V0703_06_01_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue cette carte !"
+    },
+    "V0703_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0703_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie !"
+    },
+    "V0703_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0703_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie Continue !"
+    },
+    "V0703_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0703_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0703_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Piège !"
+    },
+    "V0703_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège Continu !"
+    },
+    "V0703_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Contre-Piège !"
+    },
+    "V0703_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais jouer cette carte que j'ai Posée avant !"
+    },
+    "V0703_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voici ma carte Posée !"
+    },
+    "V0703_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0703_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0703_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0703_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0703_07_14_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Effet Pendule !"
+    },
+    "V0703_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde ça !"
+    },
+    "V0703_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "OK ! J'arrive !"
+    },
+    "V0703_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Viens à moi !"
+    },
+    "V0703_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce coup va marcher !"
+    },
+    "V0703_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre !"
+    },
+    "V0703_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0703_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0703_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0703_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0703_11_04_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Sacrifice !"
+    },
+    "V0703_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0703_11_05_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Fusion !"
+    },
+    "V0703_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0703_11_06_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Rituelle !"
+    },
+    "V0703_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0703_11_07_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0703_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0703_11_08_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Xyz !"
+    },
+    "V0703_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0703_11_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Pendule !"
+    },
+    "V0703_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0703_11_10_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Lien !"
+    },
+    "V0703_11_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre au Maximum !"
+    },
+    "V0703_11_11_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Maximum !"
+    },
+    "V0703_11_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais Invoquer un monstre par Fusion !"
+    },
+    "V0703_11_12_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Fusion !"
+    },
+    "V0703_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est l'heure de combattre !"
+    },
+    "V0703_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Battons-nous !"
+    },
+    "V0703_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Très bien !"
+    },
+    "V0703_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'arrive !"
+    },
+    "V0703_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Donnons-nous à fond !"
+    },
+    "V0703_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque avec mon monstre !"
+    },
+    "V0703_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0703_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À l'attaque !"
+    },
+    "V0703_16_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est la fin !"
+    },
+    "V0703_16_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce Duel touche à sa fin !"
+    },
+    "V0703_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je t'attaque directement !"
+    },
+    "V0703_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque directe !"
+    },
+    "V0703_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0703_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais poser une carte !"
+    },
+    "V0703_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0703_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais Poser un monstre !"
+    },
+    "V0703_21_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne peux vraiment rien faire."
+    },
+    "V0703_21_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0703_21_00_01_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha ha ha !\nMa défense est impénétrable !"
+    },
+    "V0703_21_00_01_1": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0703_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0703_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voilà qui termine mon tour !"
+    },
+    "V0703_21_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0703_21_00_04_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Comment vais-je me tirer d'affaire ?\nJe suis dans le pétrin !"
+    },
+    "V0703_21_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0703_21_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je dois survivre à ce tour si je veux une autre chance !"
+    },
+    "V0703_28_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai appris à éviter les distractions pour gagner !"
+    },
+    "V0703_28_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le style Sogetsu enseigne qu'il y a toujours un moyen !"
+    },
+    "V0703_28_00_02_0": {
+      "face": 6,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Les Rush Duels rompent la tradition, mais je m’amuse !"
+    },
+    "V0703_28_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mes aventures avec Yuga et Luke m'ont appris des choses !"
+    },
+    "V0703_28_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "As-tu vu tous les risques que j’ai pris ?\nJe me sens vivant !"
+    },
+    "V0703_28_00_05_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grâce à notre Rush Duel, je suis sorti de ma coquille !"
+    },
+    "V0703_28_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        701
+      ],
+      "text": "Les Rush Duels sont vraiment spectaculaires, Yuga !"
+    },
+    "V0703_28_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        702
+      ],
+      "text": "Moi vivant, tu ne prendras pas le contrôle de l’école !"
+    },
+    "V0703_28_00_08_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        704
+      ],
+      "text": "Te ménager serait te manquer de respect, Romin."
+    },
+    "V0703_28_00_09_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        716
+      ],
+      "text": "J'ai paré tous tes coups, Yuran !"
+    },
+    "V0703_28_00_09_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'honneur est synonyme de victoire !"
+    },
+    "V0703_29_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n’est pas contraire au règlement d’être si redoutable ?"
+    },
+    "V0703_29_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai terni l'honneur du style Sogetsu !"
+    },
+    "V0703_29_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai perdu...\nJe ne mérite pas d’être président du conseil !"
+    },
+    "V0703_29_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'avais pas prévu ce résultat !"
+    },
+    "V0703_29_00_04_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je dois apprendre à briller, pour Rino et Rayne."
+    },
+    "V0703_29_00_05_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        701
+      ],
+      "text": "Le créateur des Rush Duels doit être pris au sérieux !"
+    },
+    "V0703_29_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        702
+      ],
+      "text": "Oui, j’ai perdu, Luke...\nMais tu ne peux pas être président."
+    },
+    "V0703_29_00_07_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        704
+      ],
+      "text": "Tu as beaucoup travaillé ton jeu, comme pour la musique !"
+    },
+    "V0703_29_00_08_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        707
+      ],
+      "text": "Euh...\nTu me fais peur..."
+    },
+    "V0703_29_00_09_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        705
+      ],
+      "text": "Bas les pattes, ruffiane !"
+    },
+    "V0703_29_00_09_1": {
+      "face": 6,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai toujours voulu dire ça."
+    },
+    "V0703_29_00_10_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        705
+      ],
+      "text": "Tu m’as piétiné !"
+    },
+    "V0703_29_00_11_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        855
+      ],
+      "text": "Seul un extraterrestre peut élaborer de telles stratégies."
+    },
+    "V0703_29_00_12_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        716
+      ],
+      "text": "Bien joué, Yuran...\nTu m’as vaincu..."
+    },
+    "V0703_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?!"
+    },
+    "V0703_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Impossible !"
+    },
+    "V0703_33_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne sais pas ce que je prépare ?\nEt bien voici !"
+    },
+    "V0703_33_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'ai jamais été aussi déterminé à l'emporter !"
+    },
+    "V0703_33_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je vois le chemin vers la victoire !"
+    },
+    "V0703_33_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Cette stratégie a été perfectionnée sur des générations !"
+    },
+    "V0703_33_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Admire le cœur du style Sogetsu !"
+    },
+    "V0703_30_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh oh !"
+    },
+    "V0703_30_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "S’il te plaît, arrête !"
+    },
+    "V0703_30_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Q-q-quoi ?"
+    },
+    "V0703_34_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J’ai encore une carte pour renverser...\nAh, non ! Nooon !"
+    },
+    "V0703_34_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !\nC’est terminééé !"
+    },
+    "V0703_34_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Exactement !"
+    },
+    "V0703_34_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C’est contraire aux règles !\nViens me voir après les cours !"
+    },
+    "V0703_34_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si je change mon style, j’ai encore une chance de briller !"
+    },
+    "V0703_34_00_05_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "N'oublie jamais que je suis toujours concentré !"
+    },
+    "V0703_34_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attends !\nNous devons piocher jusqu’à avoir 5 cartes !"
+    },
+    "V0703_34_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Les égoïstes ne survivent jamais à l'apocalypse zombie !"
+    },
+    "V0703_34_00_08_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Frappe de Gavin !"
+    },
+    "V0703_34_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Professeur Gavin, à ton service !"
+    },
+    "V0703_34_00_10_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quand je dis DJ, il faut dire G !\nDJ ! DJ ? Heu, allô ?"
+    },
+    "V0703_34_00_11_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai abandonné mon style Sogetsu, mais je rate tout ici..."
+    },
+    "V0703_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0703_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bienvenue à Yu-Gi-Oh! Duel Links !"
+    },
+    "V0703_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je suis Gavin Sogetsu !\nPrésident du conseil des élèves !"
+    },
+    "V0703_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu peux compter sur le style Sogetsu pour te sauver !"
+    },
+    "V0703_36_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pense que tu vas mettre fin au Duel à ce tour !"
+    },
+    "V0703_36_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termine ce match en apothéose !"
+    },
+    "V0703_36_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À toi.\nJ'ai hâte de voir ce que tu vas faire !"
+    },
+    "V0703_36_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maintenant c'est ton tour !"
+    },
+    "V0703_36_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est pire que mauvais !\nC'est horrible !"
+    },
+    "V0703_36_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si l’attaque de l’adversaire réussit, nous perdons !\nSurvis !"
+    },
+    "V0703_36_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        701
+      ],
+      "text": "Tout repose sur toi, Yuga !"
+    },
+    "V0703_36_00_07_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        702
+      ],
+      "text": "Je compte sur toi, Luke !"
+    },
+    "V0703_36_00_08_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        704
+      ],
+      "text": "Tu peux le faire, Romin !"
+    },
+    "V0703_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16776
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie Stop Défense !"
+    },
+    "V0703_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15659
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie Blocage d'Attaque !"
+    },
+    "V0703_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15658
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie Révérence Liée !"
+    },
+    "V0703_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16934
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nFusion !"
+    },
+    "V0703_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17009
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie Cinq Types d'Assistance !"
+    },
+    "V0703_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15657
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nBouclier et Épée !"
+    },
+    "V0703_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15660
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nSupratransperce !! !"
+    },
+    "V0703_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        18717
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie Épée Maudite de l'Est !"
+    },
+    "V0703_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15815
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie Châtaigne Ardente !"
+    },
+    "V0703_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17532
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nTechnique d'Épée - Coup du Souverain !"
+    },
+    "V0703_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15204
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nTransperce ! !"
+    },
+    "V0703_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16698
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie  !"
+    },
+    "V0703_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        18632
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie  !"
+    },
+    "V0703_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16781
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nRévérence de la Fraternité !"
+    },
+    "V0703_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15661
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Piège !\nParchemin du Salut !"
+    },
+    "V0703_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15662
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Piège, Âme de l'Ermite !"
+    },
+    "V0703_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17542
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Piège, Masque Chanceux des Présages !"
+    },
+    "V0703_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17912
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Piège, Plaque de Piège !"
+    },
+    "V0703_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16716
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Piège !\nLacération du Seigneur des Ténèbres !"
+    },
+    "V0703_08_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16782
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Piège,  !"
+    },
+    "V0703_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15194
+      ],
+      "duelist": [],
+      "text": "Je change la position de combat de la Carte Yamiruler le Retardateur des Ténèbres pour l’effet !"
+    },
+    "V0703_09_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Directive de Délai !"
+    },
+    "V0703_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15649
+      ],
+      "duelist": [],
+      "text": "L’effet de la Carte Kimeruler le Pilleur des Ténèbres lui permet de t’attaquer directement !"
+    },
+    "V0703_09_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prépare-toi à charger !"
+    },
+    "V0703_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16143
+      ],
+      "duelist": [],
+      "text": "Semeruler l'Invocateur des Ténèbres active son effet !"
+    },
+    "V0703_09_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Force Rayonnante !"
+    },
+    "V0703_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16983
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Kiméluna la Déplaceuse des Ténèbres !"
+    },
+    "V0703_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15801
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Kesshin le Décimateur des Ténèbres !"
+    },
+    "V0703_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15650
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Umegumi l'Escouade du Souverain !"
+    },
+    "V0703_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16779
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Matsugumi l'Escouade du Souverain !"
+    },
+    "V0703_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16327
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Takegumi l'Escouade du Souverain !"
+    },
+    "V0703_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16329
+      ],
+      "duelist": [],
+      "text": "Icezark le Sans Égal active son effet !"
+    },
+    "V0703_09_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Futur du Crépuscule !"
+    },
+    "V0703_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16678
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Karchizark le Sans Égal !"
+    },
+    "V0703_09_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vol de Gloire !"
+    },
+    "V0703_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17312
+      ],
+      "duelist": [],
+      "text": "Je sélectionne et j'active l'effet de la Carte Semeterasu le Souverain Divin !"
+    },
+    "V0703_09_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Réincarnation Fluide !"
+    },
+    "V0703_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17312
+      ],
+      "duelist": [],
+      "text": "J'active le deuxième effet de la Carte Semeterasu le Souverain Divin !"
+    },
+    "V0703_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17002
+      ],
+      "duelist": [],
+      "text": "Je choisis d’activer le premier effet de la Carte Yamiterasu la Souveraine Divine !"
+    },
+    "V0703_09_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Édit Impérial !"
+    },
+    "V0703_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17002
+      ],
+      "duelist": [],
+      "text": "Je choisis d’activer le deuxième effet de la Carte Yamiterasu la Souveraine Divine !"
+    },
+    "V0703_09_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Politique Erratique !"
+    },
+    "V0703_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17200
+      ],
+      "duelist": [],
+      "text": "Je sélectionne et j'active le premier effet de la Carte Kiméterasu la Luna Divine !"
+    },
+    "V0703_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17200
+      ],
+      "duelist": [],
+      "text": "J'active le deuxième effet de la Carte Kiméterasu la Luna Divine !"
+    },
+    "V0703_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17527
+      ],
+      "duelist": [],
+      "text": " active son effet !"
+    },
+    "V0703_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17526
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte  !"
+    },
+    "V0703_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16917
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Maître de l'Épée du Croissant de Lune !"
+    },
+    "V0703_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15651
+      ],
+      "duelist": [],
+      "text": "Yurushima la Sage active son effet !"
+    },
+    "V0703_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16328
+      ],
+      "duelist": [],
+      "text": "Guerrier Curieux active son effet !"
+    },
+    "V0703_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15652
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Yurushima le Guerrier !"
+    },
+    "V0703_09_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16141
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Tama le Chat Mancien !"
+    },
+    "V0703_09_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16142
+      ],
+      "duelist": [],
+      "text": "Modorina la Récupératrice de la Lumière active son effet !"
+    },
+    "V0703_09_00_23_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Récupérons cette carte !"
+    },
+    "V0703_09_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16982
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Samouraï Perçant s'active !"
+    },
+    "V0703_09_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15436
+      ],
+      "duelist": [],
+      "text": "Nandes l'Éveilleur du Feu se réveille pour activer son effet !"
+    },
+    "V0703_09_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16981
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Mézamé l'Alarme Retentissante !"
+    },
+    "V0703_37_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15194
+      ],
+      "duelist": [],
+      "text": "Lorsque les ténèbres menacent de submerger la justice..."
+    },
+    "V0703_37_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce général s'élève pour les arrêter dans leur élan !"
+    },
+    "V0703_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        15194
+      ],
+      "duelist": [],
+      "text": "Viens à moi !\nYamiruler le Retardateur des Ténèbres !"
+    },
+    "V0703_37_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15649
+      ],
+      "duelist": [],
+      "text": "Un guerrier frappe l'ennemi avec la rapidité de l’éclair !"
+    },
+    "V0703_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        15649
+      ],
+      "duelist": [],
+      "text": "Lève-toi !\nKimeruler le Pilleur des Ténèbres !"
+    },
+    "V0703_37_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16143
+      ],
+      "duelist": [],
+      "text": "Ce guerrier fait régner l'ordre en déchaînant le chaos !"
+    },
+    "V0703_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        16143
+      ],
+      "duelist": [],
+      "text": "Semeruler l'Invocateur des Ténèbres !"
+    },
+    "V0703_37_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16983
+      ],
+      "duelist": [],
+      "text": "La lumière de la lune la guide vers l’illumination !"
+    },
+    "V0703_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        16983
+      ],
+      "duelist": [],
+      "text": "Avance, Kiméluna la Déplaceuse des Ténèbres !"
+    },
+    "V0703_37_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15801
+      ],
+      "duelist": [],
+      "text": "Cette carte prouvera ma détermination à gagner !"
+    },
+    "V0703_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15801
+      ],
+      "duelist": [],
+      "text": "Viens !\nKesshin le Décimateur des Ténèbres !"
+    },
+    "V0703_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        18381
+      ],
+      "duelist": [],
+      "text": "Voici  !"
+    },
+    "V0703_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15650
+      ],
+      "duelist": [],
+      "text": "Avance, Umegumi l'Escouade du Souverain !"
+    },
+    "V0703_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16779
+      ],
+      "duelist": [],
+      "text": "Allons-y !\nMatsugumi l'Escouade du Souverain !"
+    },
+    "V0703_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16327
+      ],
+      "duelist": [],
+      "text": "Voici Takegumi l'Escouade du Souverain !"
+    },
+    "V0703_37_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16329
+      ],
+      "duelist": [],
+      "text": "Ses magnifiques ailes de glace volent vers la victoire ! "
+    },
+    "V0703_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        16329
+      ],
+      "duelist": [],
+      "text": "Icezark le Sans Égal !"
+    },
+    "V0703_37_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16678
+      ],
+      "duelist": [],
+      "text": "Vole vers les cieux pour enflammer l’univers !"
+    },
+    "V0703_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        16678
+      ],
+      "duelist": [],
+      "text": "Éveille-toi !\nKarchizark le Sans Égal !"
+    },
+    "V0703_37_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17312
+      ],
+      "duelist": [],
+      "text": "Unis les ombres à la lumière pour rendre la justice !"
+    },
+    "V0703_37_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Fusion !"
+    },
+    "V0703_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        17312
+      ],
+      "duelist": [],
+      "text": "Le guerrier céleste, Semeterasu le Souverain Divin !"
+    },
+    "V0703_37_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17002
+      ],
+      "duelist": [],
+      "text": "Brille pour éclairer l’injustice qui se cache dans la nuit !"
+    },
+    "V0703_37_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Fusion !"
+    },
+    "V0703_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        17002
+      ],
+      "duelist": [],
+      "text": "Viens à moi, céleste Yamiterasu la Souveraine Divine !"
+    },
+    "V0703_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        17200
+      ],
+      "duelist": [],
+      "text": "La guerrière céleste s’éveille !\nKiméterasu la Luna Divine !"
+    },
+    "V0703_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        17527
+      ],
+      "duelist": [],
+      "text": "Rejoins-moi !\n !"
+    },
+    "V0703_13_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        17526
+      ],
+      "duelist": [],
+      "text": "Voici  !"
+    },
+    "V0703_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16917
+      ],
+      "duelist": [],
+      "text": "Maître de l'Épée du Croissant de Lune !\nDégaine ta lame !"
+    },
+    "V0703_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15651
+      ],
+      "duelist": [],
+      "text": "Cette carte est parfaite !\nYurushima la Sage !"
+    },
+    "V0703_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        16328
+      ],
+      "duelist": [],
+      "text": "Guerrier Curieux !\nInterviens en ma faveur !"
+    },
+    "V0703_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15652
+      ],
+      "duelist": [],
+      "text": "Yurushima le Guerrier !"
+    },
+    "V0703_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16141
+      ],
+      "duelist": [],
+      "text": "Tama le Chat Mancien !"
+    },
+    "V0703_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16142
+      ],
+      "duelist": [],
+      "text": "Modorina la Récupératrice de la Lumière !"
+    },
+    "V0703_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16982
+      ],
+      "duelist": [],
+      "text": "Samouraï Perçant !"
+    },
+    "V0703_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15436
+      ],
+      "duelist": [],
+      "text": "Nandes l'Éveilleur du Feu !"
+    },
+    "V0703_13_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16981
+      ],
+      "duelist": [],
+      "text": "Mézamé l'Alarme Retentissante !"
+    },
+    "V0703_13_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15654
+      ],
+      "duelist": [],
+      "text": "Viens là, Yurushima l'Ermite !"
+    },
+    "V0703_13_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15653
+      ],
+      "duelist": [],
+      "text": "Tengu Faucon Bleu !\nEnvole-toi !"
+    },
+    "V0703_13_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15655
+      ],
+      "duelist": [],
+      "text": "Masaki le Samouraï Légendaire !"
+    },
+    "V0703_13_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15195
+      ],
+      "duelist": [],
+      "text": "Ancienne Tortue Protecteuse !"
+    },
+    "V0703_13_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15223
+      ],
+      "duelist": [],
+      "text": "Chaîne d'engagement !"
+    },
+    "V0703_13_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16780
+      ],
+      "duelist": [],
+      "text": "Héros de la Levure !"
+    },
+    "V0703_13_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16967
+      ],
+      "duelist": [],
+      "text": "Aiguilkyrie la Couturière Céleste !"
+    },
+    "V0703_13_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15656
+      ],
+      "duelist": [],
+      "text": "Lapin de la Lune en Pleurs !"
+    },
+    "V0703_13_00_33_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16658
+      ],
+      "duelist": [],
+      "text": "La légende aux platines !\nTournange la Fée Ensoleillée !"
+    },
+    "V0703_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15194
+      ],
+      "duelist": [],
+      "text": "Yamiruler le Retardateur des Ténèbres ! À l'attaque !"
+    },
+    "V0703_19_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Entaille Samouraï !"
+    },
+    "V0703_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15194
+      ],
+      "duelist": [],
+      "text": "Yamiruler le Retardateur des Ténèbres !\nC'est l'heure de la raclée !"
+    },
+    "V0703_19_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Entaille Samouraï !"
+    },
+    "V0703_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15194
+      ],
+      "duelist": [],
+      "text": "Rien ne pourra te protéger !"
+    },
+    "V0703_19_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Entaille Samouraï !"
+    },
+    "V0703_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15649
+      ],
+      "duelist": [],
+      "text": "Kimeruler le Pilleur des Ténèbres !\nFrappe comme l'éclair à une vitesse fulgurante !"
+    },
+    "V0703_19_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Charge à la Lance !"
+    },
+    "V0703_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16143
+      ],
+      "duelist": [],
+      "text": "Semeruler l'Invocateur des Ténèbres !\nÀ l'attaque !"
+    },
+    "V0703_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Coupe en Croissant !"
+    },
+    "V0703_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16983
+      ],
+      "duelist": [],
+      "text": "La lune me montre le chemin de la victoire !\nKiméluna la Déplaceuse des Ténèbres ! À l'attaque !"
+    },
+    "V0703_19_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Frappe Magique du Clair de Lune !"
+    },
+    "V0703_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15801
+      ],
+      "duelist": [],
+      "text": "Kesshin le Décimateur des Ténèbres attaque !"
+    },
+    "V0703_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        18381
+      ],
+      "duelist": [],
+      "text": " !\nÀ l'attaque !"
+    },
+    "V0703_19_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Entaille à la Lance !"
+    },
+    "V0703_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15650
+      ],
+      "duelist": [],
+      "text": "Umegumi l'Escouade du Souverain !\nEnterre l’adversaire !"
+    },
+    "V0703_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16779
+      ],
+      "duelist": [],
+      "text": "Matsugumi l'Escouade du Souverain !\nÀ l'attaque !"
+    },
+    "V0703_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16327
+      ],
+      "duelist": [],
+      "text": "Takegumi l'Escouade du Souverain attaque !"
+    },
+    "V0703_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16329
+      ],
+      "duelist": [],
+      "text": "Icezark le Sans Égal !\nÀ l'attaque !"
+    },
+    "V0703_19_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Explosion de Glace de l'Aile de Cristal !"
+    },
+    "V0703_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16678
+      ],
+      "duelist": [],
+      "text": "Attaque, Karchizark le Sans Égal !"
+    },
+    "V0703_19_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Brasier de la Victoire !"
+    },
+    "V0703_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17312
+      ],
+      "duelist": [],
+      "text": "Semeterasu le Souverain Divin !\nÀ l'attaque !"
+    },
+    "V0703_19_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Entaille Ardente !"
+    },
+    "V0703_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17002
+      ],
+      "duelist": [],
+      "text": "Je vais me tailler un chemin vers la victoire !"
+    },
+    "V0703_19_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yamiterasu la Souveraine Divine !\nEntaille de Création !"
+    },
+    "V0703_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17200
+      ],
+      "duelist": [],
+      "text": "Kiméterasu la Luna Divine attaque !"
+    },
+    "V0703_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17527
+      ],
+      "duelist": [],
+      "text": " !\nÀ l'attaque !"
+    },
+    "V0703_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17526
+      ],
+      "duelist": [],
+      "text": " !\nNettoie-moi tout ça !"
+    },
+    "V0703_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16917
+      ],
+      "duelist": [],
+      "text": "Maître de l'Épée du Croissant de Lune !\nÀ l'attaque !"
+    },
+    "V0703_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15651
+      ],
+      "duelist": [],
+      "text": "Yurushima la Sage ! À l'attaque !"
+    },
+    "V0703_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16328
+      ],
+      "duelist": [],
+      "text": "Ma Carte Guerrier Curieux attaque !"
+    },
+    "V0703_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15652
+      ],
+      "duelist": [],
+      "text": "Il est temps de maintenir la discipline !\nAttaque, Yurushima le Guerrier !"
+    },
+    "V0703_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16141
+      ],
+      "duelist": [],
+      "text": "Tama le Chat Mancien attaque !"
+    },
+    "V0703_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16142
+      ],
+      "duelist": [],
+      "text": "Attaque, Modorina la Récupératrice de la Lumière !"
+    },
+    "V0703_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16982
+      ],
+      "duelist": [],
+      "text": "Samouraï Perçant ! À l'attaque !"
+    },
+    "V0703_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15436
+      ],
+      "duelist": [],
+      "text": "Nandes l'Éveilleur du Feu !\nÀ l'attaque !"
+    },
+    "V0703_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16981
+      ],
+      "duelist": [],
+      "text": "Mézamé l'Alarme Retentissante !\nÀ l'attaque !"
+    },
+    "V0703_19_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15654
+      ],
+      "duelist": [],
+      "text": "Yurushima l'Ermite attaque !"
+    },
+    "V0703_19_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15653
+      ],
+      "duelist": [],
+      "text": "Attaque, Tengu Faucon Bleu !"
+    },
+    "V0703_19_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15655
+      ],
+      "duelist": [],
+      "text": "Masaki le Samouraï Légendaire attaque !"
+    },
+    "V0703_19_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15195
+      ],
+      "duelist": [],
+      "text": "Ancienne Tortue Protecteuse !\nÀ l'attaque !"
+    },
+    "V0703_19_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15223
+      ],
+      "duelist": [],
+      "text": "Chaîne d'engagement attaque !"
+    },
+    "V0703_19_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16780
+      ],
+      "duelist": [],
+      "text": "Héros de la Levure !\nFais-en du pain grillé !"
+    },
+    "V0703_19_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16967
+      ],
+      "duelist": [],
+      "text": "Transperce l’ennemi, Aiguilkyrie la Couturière Céleste !"
+    },
+    "V0703_19_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15656
+      ],
+      "duelist": [],
+      "text": "Attaque, Lapin de la Lune en Pleurs !"
+    },
+    "V0703_19_00_35_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16658
+      ],
+      "duelist": [],
+      "text": "Que la soirée commence !\nRegarde l’attaque de la Carte Tournange la Fée Ensoleillée !"
+    },
+    "V0703_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Place au Duel !"
+    },
+    "V0703_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouch !"
+    },
+    "V0703_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gah !"
+    },
+    "V0703_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh !"
+    },
+    "V0703_26_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Impressionnant !"
+    },
+    "V0703_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'est pas encore fini !"
+    },
+    "V0703_26_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0703_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaah !"
+    },
+    "V0703_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    },
+    "V0703_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arrêêête !"
+    },
+    "V0703_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai à peine réussi à survivre..."
+    },
+    "V0703_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est impossible..."
+    },
+    "V0703_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'est pas bon !"
+    },
+    "V0703_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    }
+  }
+}

@@ -1,0 +1,2327 @@
+{
+  "_GRP_": "SN0207",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0207_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Personne n'échappe au bras de la justice !"
+    },
+    "V0207_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu crois vraiment que je peux perdre contre toi ?"
+    },
+    "V0207_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'espère que tu as une bonne raison de me défier.\nTu plaides la folie passagère ?"
+    },
+    "V0207_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "On n'échappe pas à un officier de sécurité !"
+    },
+    "V0207_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        201
+      ],
+      "text": "Allez, je t'embarque pour t'interroger !"
+    },
+    "V0207_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        202,
+        203,
+        204,
+        206,
+        209
+      ],
+      "text": "Mon devoir est de protéger la Nouvelle Domino City !\nPas vous, bande de voyous !"
+    },
+    "V0207_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        205
+      ],
+      "text": "Pas de traitement de faveur même si t'es mineur, Lua !"
+    },
+    "V0207_01_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        208,
+        210,
+        231,
+        211,
+        9058,
+        9059,
+        9061,
+        9062,
+        215,
+        216,
+        217,
+        218,
+        235,
+        236
+      ],
+      "text": "Ces gosses n'ont pas l'autorisation de maintenir la paix !\nMoi si !"
+    },
+    "V0207_01_00_07_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Direction le panier à salade !"
+    },
+    "V0207_01_00_08_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        4,
+        13,
+        36,
+        240,
+        308,
+        610
+      ],
+      "text": "*Rougit*"
+    },
+    "V0207_02_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duel !"
+    },
+    "V0207_03_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je te poursuivrai jusqu'au bout du monde !"
+    },
+    "V0207_03_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0207_03_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah ! La poursuite est lancée !"
+    },
+    "V0207_03_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0207_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À moi !"
+    },
+    "V0207_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0207_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0207_03_00_04_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pas mal pour une canaille..."
+    },
+    "V0207_03_00_04_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0207_03_00_05_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh..."
+    },
+    "V0207_03_00_05_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0207_04_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0207_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0207_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0207_05_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Les forces de sécurité protègent les citoyens à tout prix !"
+    },
+    "V0207_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !!!"
+    },
+    "V0207_06_01_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je savais que t'allais essayer ça !"
+    },
+    "V0207_06_01_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne m'échapperas pas !"
+    },
+    "V0207_06_01_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Comme si ça pouvait marcher !"
+    },
+    "V0207_06_01_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maintenant !"
+    },
+    "V0207_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0207_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie !"
+    },
+    "V0207_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0207_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Continue !"
+    },
+    "V0207_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0207_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0207_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Carte Piège !"
+    },
+    "V0207_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !"
+    },
+    "V0207_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Contre-Piège !"
+    },
+    "V0207_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma carte face verso !"
+    },
+    "V0207_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue ma carte face verso !"
+    },
+    "V0207_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0207_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0207_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0207_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0207_08_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8518
+      ],
+      "duelist": [],
+      "text": "Ma Carte Magie, Ver d'Appât !"
+    },
+    "V0207_08_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4967
+      ],
+      "duelist": [],
+      "text": "Alors tu trafiques sous le nez des forces de sécurité ?"
+    },
+    "V0207_08_00_01_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active la Magie Continue, Inspection !"
+    },
+    "V0207_08_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4967
+      ],
+      "duelist": [],
+      "text": "Allez, Inspection !\nLes mains en l'air !"
+    },
+    "V0207_08_00_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11180
+      ],
+      "duelist": [],
+      "text": "La Carte Piège, Mouchard Électronique !"
+    },
+    "V0207_08_00_03_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle annule un Piège et le renvoie dans le deck !"
+    },
+    "V0207_08_00_04_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6146
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu, Avidité !"
+    },
+    "V0207_08_00_05_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6146
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Avidité s'active !"
+    },
+    "V0207_08_00_05_1": {
+      "face": 6,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais en avoir pour mon argent !\nDes pièces ! De l'argent ! De l'or !\nC'est le gros lot !"
+    },
+    "V0207_08_00_06_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12479
+      ],
+      "duelist": [],
+      "text": "Avant ton attaque, je vais enquêter sur ta main !"
+    },
+    "V0207_08_00_06_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège, Le Point de Contrôle Inflexible !"
+    },
+    "V0207_08_00_07_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7489
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nOrbe de Sécurité !"
+    },
+    "V0207_08_00_08_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7759
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Piège !\nBloqueur Démantibulé !"
+    },
+    "V0207_08_00_08_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "On ne plaisante pas avec la loi !"
+    },
+    "V0207_08_00_09_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8519
+      ],
+      "duelist": [],
+      "text": "J'active le Piège, Résurrection Malheureuse !"
+    },
+    "V0207_08_00_10_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7765
+      ],
+      "duelist": [],
+      "text": "Ah ah ah ! Je t'ai eu !\nMon Contre-Piège s'active !\nInterception !"
+    },
+    "V0207_08_00_10_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ton monstre est à moi !"
+    },
+    "V0207_08_00_11_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5799
+      ],
+      "duelist": [],
+      "text": "Grave erreur !\nJ'active le Piège, Armure de Sakuretsu !"
+    },
+    "V0207_08_00_12_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4988
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nTornade de Poussière !"
+    },
+    "V0207_09_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11178
+      ],
+      "duelist": [],
+      "text": "Tu as détruit Cerbère Explosif, mais mon effet canin s'active !"
+    },
+    "V0207_09_00_00_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je peux invoquer d'autres Cartes Cerbère Explosif de mon Deck !"
+    },
+    "V0207_09_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8517
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Ver de Feu s'active !"
+    },
+    "V0207_09_00_01_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Les trois cartes du dessus de ton Deck vont au Cimetière !"
+    },
+    "V0207_09_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6697
+      ],
+      "duelist": [],
+      "text": "Voici l'effet de la Carte Chien de Garde !"
+    },
+    "V0207_09_00_02_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne peux pas faire d'Invocation Spéciale ce tour-ci !"
+    },
+    "V0207_09_00_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7736
+      ],
+      "duelist": [],
+      "text": "J'utilise l'effet de la Carte Gardien Goyo pour t'arrêter !"
+    },
+    "V0207_09_00_04_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7713
+      ],
+      "duelist": [],
+      "text": "Affronte Gonogo et passe et Position de Défense face verso !"
+    },
+    "V0207_09_00_05_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7883
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Nemrod Détecteur s'active !"
+    },
+    "V0207_09_00_06_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8737
+      ],
+      "duelist": [],
+      "text": "J'utilise l'effet de la Carte Maître Samouraï des Katanas !"
+    },
+    "V0207_09_00_07_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8520
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Ver Bouclier s'active !"
+    },
+    "V0207_09_00_08_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7710
+      ],
+      "duelist": [],
+      "text": "Admire l'effet de la Carte Guerrier au Jitte !"
+    },
+    "V0207_09_00_09_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7884
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Missile Chasseur s'active !"
+    },
+    "V0207_09_00_10_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7869
+      ],
+      "duelist": [],
+      "text": "J'utilise Générateur d'Onde de Guérison pour restaurer mes LP !\nVague de lumière étoilée !"
+    },
+    "V0207_09_00_10_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouais !\nMes forces reviennent !"
+    },
+    "V0207_09_00_11_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8738
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Garde Stygien s'active !"
+    },
+    "V0207_09_00_12_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8739
+      ],
+      "duelist": [],
+      "text": "Ce n'est pas encore fini !\nSergent Stygien revient à la charge !"
+    },
+    "V0207_09_00_13_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8740
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Patrouilleur Stygien s'active !"
+    },
+    "V0207_09_00_14_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7711
+      ],
+      "duelist": [],
+      "text": "Dragon Menottes s'équipe sur ton monstre et l'affaiblit !"
+    },
+    "V0207_09_00_15_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7711
+      ],
+      "duelist": [],
+      "text": "Le monstre équipé est fichu, mais pas mon Dragon Menottes !"
+    },
+    "V0207_09_00_16_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12152
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Empereur Goyo !"
+    },
+    "V0207_09_00_17_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12159
+      ],
+      "duelist": [],
+      "text": "Roi Goyo ! \nFais ce que tu as à faire !"
+    },
+    "V0207_09_00_18_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12077
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Poursuivant Goyo s'active !"
+    },
+    "V0207_09_00_19_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12158
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Défenseur Goyo !"
+    },
+    "V0207_09_00_20_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12081
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Prédateur Goyo !"
+    },
+    "V0207_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Viens jouer !"
+    },
+    "V0207_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rejoins le Duel !"
+    },
+    "V0207_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouais !"
+    },
+    "V0207_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais jouer celle-ci !"
+    },
+    "V0207_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre !"
+    },
+    "V0207_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0207_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0207_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0207_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0207_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0207_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0207_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0207_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0207_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0207_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0207_13_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11178
+      ],
+      "duelist": [],
+      "text": "Charge, Cerbère Explosif !"
+    },
+    "V0207_13_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8517
+      ],
+      "duelist": [],
+      "text": "Infiltre-toi, Ver de Feu !"
+    },
+    "V0207_13_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6697
+      ],
+      "duelist": [],
+      "text": "Viens, Chien de Garde !"
+    },
+    "V0207_13_00_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11179
+      ],
+      "duelist": [],
+      "text": "Ça va changer le cours de ce Duel !"
+    },
+    "V0207_13_00_03_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Porte Bloqueur !"
+    },
+    "V0207_37_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7736
+      ],
+      "duelist": [],
+      "text": "Je vais t'arrêter avec ça !"
+    },
+    "V0207_37_00_00_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0207_13_00_04_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7736
+      ],
+      "duelist": [],
+      "text": "Rejoins les rangs, Gardien Goyo !"
+    },
+    "V0207_13_00_05_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7713
+      ],
+      "duelist": [],
+      "text": "Voici Gonogo !"
+    },
+    "V0207_13_00_06_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7883
+      ],
+      "duelist": [],
+      "text": "Voilà Nemrod Détecteur !"
+    },
+    "V0207_13_00_07_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8737
+      ],
+      "duelist": [],
+      "text": "Viens ici, Maître Samouraï des Katanas !"
+    },
+    "V0207_13_00_08_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8520
+      ],
+      "duelist": [],
+      "text": "Viens jouer !\nVer Bouclier !"
+    },
+    "V0207_13_00_09_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7710
+      ],
+      "duelist": [],
+      "text": "Voici le Monstre Syntoniseur, Guerrier au Jitte !"
+    },
+    "V0207_13_00_10_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7884
+      ],
+      "duelist": [],
+      "text": "Cette carte va te suivre à la trace !\nMissile Chasseur !"
+    },
+    "V0207_13_00_11_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8170
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Polichinelle Malicieux !"
+    },
+    "V0207_13_00_12_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7869
+      ],
+      "duelist": [],
+      "text": "Bienvenue, Générateur d'Onde de Guérison !"
+    },
+    "V0207_13_00_13_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8738
+      ],
+      "duelist": [],
+      "text": "Garde Stygien, en patrouille !"
+    },
+    "V0207_13_00_14_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        8739
+      ],
+      "duelist": [],
+      "text": "Viens !\nSergent Stygien !"
+    },
+    "V0207_13_00_15_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8740
+      ],
+      "duelist": [],
+      "text": "Allons-y, Patrouilleur Stygien !"
+    },
+    "V0207_13_00_16_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7712
+      ],
+      "duelist": [],
+      "text": "Je les envoie au Cimetière pour Invoquer Spécialement Dragon Hybride !"
+    },
+    "V0207_13_00_16_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Et chaque monstre donne 300 points d'ATK par niveau !"
+    },
+    "V0207_13_00_17_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6192
+      ],
+      "duelist": [],
+      "text": "Ah, voilà ce qu'il me fallait !\nExpert en Tactiques d'Espionnage !"
+    },
+    "V0207_13_00_18_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7711
+      ],
+      "duelist": [],
+      "text": "Mon monstre de niveau 5 !\nDragon Menottes !"
+    },
+    "V0207_37_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12152
+      ],
+      "duelist": [],
+      "text": "Tu vas tomber de haut avec ce monstre !"
+    },
+    "V0207_37_00_01_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Fusion !"
+    },
+    "V0207_13_00_19_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12152
+      ],
+      "duelist": [],
+      "text": "Prosterne-toi devant la figure d'autorité ultime !"
+    },
+    "V0207_13_00_19_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Empereur Goyo !"
+    },
+    "V0207_37_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12159
+      ],
+      "duelist": [],
+      "text": "Terminus, espèce de hors-la-loi !"
+    },
+    "V0207_37_00_02_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0207_13_00_20_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12159
+      ],
+      "duelist": [],
+      "text": "Roi Goyo au niveau 8 !"
+    },
+    "V0207_37_00_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12077
+      ],
+      "duelist": [],
+      "text": "Ce monstre attrape toujours le suspect !"
+    },
+    "V0207_37_00_03_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0207_13_00_21_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12077
+      ],
+      "duelist": [],
+      "text": "Poursuivant Goyo au niveau 5 !"
+    },
+    "V0207_37_00_04_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12158
+      ],
+      "duelist": [],
+      "text": "Y en a qu'ont essayé de s'enfuir, ils ont eu des problèmes."
+    },
+    "V0207_37_00_04_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0207_13_00_22_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12158
+      ],
+      "duelist": [],
+      "text": "Défenseur Goyo au niveau 3 !\nAu rapport !"
+    },
+    "V0207_37_00_05_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12081
+      ],
+      "duelist": [],
+      "text": "Pour attraper ma proie, j'appelle un prédateur !"
+    },
+    "V0207_37_00_05_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0207_13_00_23_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12081
+      ],
+      "duelist": [],
+      "text": "Prédateur Goyo au niveau 6 !"
+    },
+    "V0207_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combat !"
+    },
+    "V0207_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prépare-toi ! Combattons !"
+    },
+    "V0207_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allez !"
+    },
+    "V0207_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allons-y !"
+    },
+    "V0207_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prends ça !"
+    },
+    "V0207_17_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0207_17_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque avec mon monstre !"
+    },
+    "V0207_17_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque !"
+    },
+    "V0207_16_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il n'y a nulle part où aller !"
+    },
+    "V0207_16_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est terminé !"
+    },
+    "V0207_18_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre t'attaque directement !"
+    },
+    "V0207_18_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je t'attaque directement !"
+    },
+    "V0207_19_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11178
+      ],
+      "duelist": [],
+      "text": "Cerbère Explosif ! Le dîner est servi !"
+    },
+    "V0207_19_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8517
+      ],
+      "duelist": [],
+      "text": "Ma Carte Ver de Feu attaque !"
+    },
+    "V0207_19_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6697
+      ],
+      "duelist": [],
+      "text": "Chien de Garde ! Attaque !"
+    },
+    "V0207_19_00_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11179
+      ],
+      "duelist": [],
+      "text": "Porte Bloqueur attaque !"
+    },
+    "V0207_19_00_04_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7736
+      ],
+      "duelist": [],
+      "text": "Écrase-moi ça, Gardien Goyo !"
+    },
+    "V0207_19_00_04_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lasso Goyo !"
+    },
+    "V0207_19_00_05_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7713
+      ],
+      "duelist": [],
+      "text": "Allez, Gonogo !"
+    },
+    "V0207_19_00_05_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Réduis-les en bouillie !"
+    },
+    "V0207_19_00_06_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7883
+      ],
+      "duelist": [],
+      "text": "En avant, Nemrod Détecteur !"
+    },
+    "V0207_19_00_06_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Frappe intelligente !"
+    },
+    "V0207_19_00_07_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8737
+      ],
+      "duelist": [],
+      "text": "Attaque, Maître Samouraï des Katanas !"
+    },
+    "V0207_19_00_08_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8520
+      ],
+      "duelist": [],
+      "text": "Ver Bouclier attaque !"
+    },
+    "V0207_19_00_09_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7710
+      ],
+      "duelist": [],
+      "text": "Attaque, Guerrier au Jitte !"
+    },
+    "V0207_19_00_10_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7884
+      ],
+      "duelist": [],
+      "text": "Missile Chasseur ! Attaque !"
+    },
+    "V0207_19_00_11_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8170
+      ],
+      "duelist": [],
+      "text": "Polichinelle Malicieux attaque !"
+    },
+    "V0207_19_00_12_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7869
+      ],
+      "duelist": [],
+      "text": "Ma Carte Générateur d'Onde de Guérison attaque !"
+    },
+    "V0207_19_00_13_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8738
+      ],
+      "duelist": [],
+      "text": "Garde Stygien ! Attaque !"
+    },
+    "V0207_19_00_14_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8739
+      ],
+      "duelist": [],
+      "text": "Attaque, Sergent Stygien !"
+    },
+    "V0207_19_00_15_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8740
+      ],
+      "duelist": [],
+      "text": "Patrouilleur Stygien attaque !"
+    },
+    "V0207_19_00_16_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7712
+      ],
+      "duelist": [],
+      "text": "Attaque, Dragon Hybride !"
+    },
+    "V0207_19_00_16_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Colle de puissance !"
+    },
+    "V0207_19_00_17_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6192
+      ],
+      "duelist": [],
+      "text": "Expert en Tactiques d'Espionnage ! Attaque !"
+    },
+    "V0207_19_00_18_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7711
+      ],
+      "duelist": [],
+      "text": "Allez, Dragon Menottes !"
+    },
+    "V0207_19_00_18_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mets-les sous les verrous !"
+    },
+    "V0207_19_00_19_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12152
+      ],
+      "duelist": [],
+      "text": "Empereur Goyo ! Attaque !"
+    },
+    "V0207_19_00_20_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12159
+      ],
+      "duelist": [],
+      "text": "Roi Goyo !\nLa loi, c'est toi ! Montre-leur !"
+    },
+    "V0207_19_00_22_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12077
+      ],
+      "duelist": [],
+      "text": "Poursuivant Goyo attaque !"
+    },
+    "V0207_19_00_23_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12158
+      ],
+      "duelist": [],
+      "text": "Défenseur Goyo ! Attaque !"
+    },
+    "V0207_19_00_24_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12081
+      ],
+      "duelist": [],
+      "text": "Prédateur Goyo !\nC'est l'heure de la chasse !"
+    },
+    "V0207_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0207_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0207_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0207_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0207_21_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça va passer au vert pour toi !"
+    },
+    "V0207_21_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0207_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La justice ne se repose jamais longtemps."
+    },
+    "V0207_21_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0207_21_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Comment oses-tu plaisanter avec la loi ?!"
+    },
+    "V0207_21_00_02_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0207_28_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah !\nTu croyais vraiment pouvoir m'échapper ?"
+    },
+    "V0207_28_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dommage !\nJ'anticipais tous tes faits et gestes !"
+    },
+    "V0207_28_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'était couru d'avance !"
+    },
+    "V0207_28_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai juré de protéger cette ville !"
+    },
+    "V0207_28_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        201,
+        202,
+        203,
+        204,
+        206,
+        209
+      ],
+      "text": "Les gens ne devraient pas se fier à des voyous comme vous."
+    },
+    "V0207_28_00_04_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je suis là pour protéger la Nouvelle Domino City !"
+    },
+    "V0207_28_00_05_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        205
+      ],
+      "text": "Bon sang...\nLes enfants, de nos jours..."
+    },
+    "V0207_28_00_06_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        208,
+        210,
+        231,
+        211,
+        9058,
+        9059,
+        9061,
+        9062,
+        215,
+        216,
+        217,
+        218,
+        235,
+        236
+      ],
+      "text": "Les citoyens sont sous ma protection !"
+    },
+    "V0207_28_00_06_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Roule moins vite et arrête-moi ce chaos !"
+    },
+    "V0207_28_00_07_0": {
+      "face": 6,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        4,
+        13,
+        36,
+        240,
+        308,
+        610
+      ],
+      "text": "Tu me trouves impressionnant ?\nTu dois bien aimer l'uniforme."
+    },
+    "V0207_29_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'arrive pas à y croire...\nJ'ai perdu ?!"
+    },
+    "V0207_29_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pfff.\nBien joué."
+    },
+    "V0207_29_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu m'as distancé, mais je t'aurai la prochaine fois !"
+    },
+    "V0207_29_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh...\nTon crime ne restera pas impuni !"
+    },
+    "V0207_29_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        201
+      ],
+      "text": "Yusei...\nMa vie a changé le jour de notre rencontre."
+    },
+    "V0207_29_00_05_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        202
+      ],
+      "text": "Ahhhh ! Noooon !\nJe suis plus rapide que le dirigeant de la diligence !"
+    },
+    "V0207_29_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        203,
+        204,
+        209
+      ],
+      "text": "Pfff.\nLes enfants grandissent si vite de nos jours..."
+    },
+    "V0207_29_00_07_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        205
+      ],
+      "text": "Argh...\nComment un gosse peut-il prendre de vitesse mes stratégies ?"
+    },
+    "V0207_29_00_08_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        206
+      ],
+      "text": "Tu te débrouilles bien pour ton âge."
+    },
+    "V0207_29_00_09_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        208,
+        210,
+        231,
+        211,
+        9058,
+        9059,
+        9061,
+        9062,
+        215,
+        216,
+        217,
+        218,
+        235,
+        236
+      ],
+      "text": "Un officier de sécurité n'a pas le droit de perdre contre toi..."
+    },
+    "V0207_29_00_10_0": {
+      "face": 6,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        4,
+        13,
+        36,
+        240,
+        308,
+        610
+      ],
+      "text": "Tu as battu la loi.\nBien joué."
+    },
+    "V0207_30_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sale gosse !"
+    },
+    "V0207_30_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu me tapes sur les nerfs !"
+    },
+    "V0207_30_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "On ne plaisante pas avec l'autorité !"
+    },
+    "V0207_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?!"
+    },
+    "V0207_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Impossible !"
+    },
+    "V0207_33_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Les forces de sécurité ont des privilèges spéciaux."
+    },
+    "V0207_33_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Tu es à la merci du tribunal !"
+    },
+    "V0207_33_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Tu es en état d'arrestation !"
+    },
+    "V0207_34_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle est à toi cette carte ?"
+    },
+    "V0207_34_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "T'aboies fort mais tu mords pas."
+    },
+    "V0207_34_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha ha ha ha ha !\nCours toujours !"
+    },
+    "V0207_34_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Concentre-toi ! Le Duel n'est pas fini !"
+    },
+    "V0207_34_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Parle plus fort ! On t'a volé ta langue ou quoi ?"
+    },
+    "V0207_34_00_05_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fais plutôt parler tes cartes !"
+    },
+    "V0207_34_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu veux m'engager comme garde du corps ?"
+    },
+    "V0207_34_00_07_0": {
+      "face": 6,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Jackpot !"
+    },
+    "V0207_34_00_08_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Belle preuve de talent."
+    },
+    "V0207_34_00_09_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À vos marques... Prêt... Duel !"
+    },
+    "V0207_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0207_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La nouvelle génération de Duellistes ! Ça va chauffer !"
+    },
+    "V0207_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Les cartes en disent plus long que les mots !"
+    },
+    "V0207_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne peux pas échapper à la loi !"
+    },
+    "V0207_36_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je leur ai mis les menottes ! Ne les laisse pas s'échapper !"
+    },
+    "V0207_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "OK ! On échange !"
+    },
+    "V0207_36_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pardon. Occupe-toi de ça."
+    },
+    "V0207_22_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0207_22_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouch !"
+    },
+    "V0207_22_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh..."
+    },
+    "V0207_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tss..."
+    },
+    "V0207_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pfff !"
+    },
+    "V0207_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bien joué !"
+    },
+    "V0207_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhhhh !"
+    },
+    "V0207_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erghhh !"
+    },
+    "V0207_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grrrr !"
+    },
+    "V0207_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je t'aurai pour ça !"
+    },
+    "V0207_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arrête de plaisanter avec la loi !"
+    },
+    "V0207_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Efface ce sourire de ton visage !"
+    },
+    "V0207_24_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erghhhh..."
+    },
+    "V0207_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhhhhhhh !"
+    },
+    "V0207_38_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À vos marques... Prêt... Duel !"
+    }
+  }
+}

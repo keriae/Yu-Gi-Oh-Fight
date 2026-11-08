@@ -1,0 +1,1386 @@
+{
+  "_GRP_": "SN0015",
+  "_LNG_": "de-DE",
+  "info": {
+    "V0015_01_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich erlaube es nur ausgewählten Duellanten, sich mit mir zu messen."
+    },
+    "V0015_01_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich hoffe, du wirst deinem Ruf gerecht."
+    },
+    "V0015_01_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Begreifst du überhaupt, was für einem Risiko du dich aussetzt, indem du dich mit mir duellierst?"
+    },
+    "V0015_01_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        2,
+        42
+      ],
+      "text": "Mein liebes Kaibalein! Gelingt es dir, mich in einem Duell zu schlagen?"
+    },
+    "V0015_01_00_03_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ein einziger kleiner Sieg sollte doch kein Problem sein für den Meister der Duell Monsters!  "
+    },
+    "V0015_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        1,
+        331,
+        41
+      ],
+      "text": "Yugilein!"
+    },
+    "V0015_01_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Solange ich die Macht meines Millenniumsauges besitze, bin ich unbesiegbar!"
+    },
+    "V0015_02_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duell!"
+    },
+    "V0015_03_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wann wirst du endlich begreifen, dass all deine Taktiken vollkommen wirkungslos bei mir sind?"
+    },
+    "V0015_03_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0015_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich lese dich wie ein offenes Buch."
+    },
+    "V0015_03_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin an der Reihe!"
+    },
+    "V0015_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zeit, dass ich dran bin."
+    },
+    "V0015_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0015_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Heh he heh …"
+    },
+    "V0015_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0015_03_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Alles entfaltet sich nach wie vor nach Plan."
+    },
+    "V0015_03_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0015_03_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich werde gerade erst richtig warm."
+    },
+    "V0015_03_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Zug!"
+    },
+    "V0015_04_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0015_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Karte!"
+    },
+    "V0015_04_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "… Ich ziehe!"
+    },
+    "V0015_05_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Meine nächste Karte wird dir zeigen, wie wenig du doch über Duell Monsters weißt."
+    },
+    "V0015_05_00_00_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0015_06_01_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Genau wie ich es erwartet hatte."
+    },
+    "V0015_06_01_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast genau das getan, was ich von dir wollte."
+    },
+    "V0015_06_01_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich wusste, dass das passieren würde."
+    },
+    "V0015_06_01_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah. Einfältiger Tölpel."
+    },
+    "V0015_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Von meiner Hand …"
+    },
+    "V0015_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Zauber."
+    },
+    "V0015_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Schnellzauber."
+    },
+    "V0015_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Permanenten Zauber."
+    },
+    "V0015_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ausrüstungszauber."
+    },
+    "V0015_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ritualzauber."
+    },
+    "V0015_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Falle wird aktiviert!"
+    },
+    "V0015_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Permanente Falle wird aktiviert!"
+    },
+    "V0015_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Konterfalle wird aktiviert!"
+    },
+    "V0015_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich decke meine verdeckte Karte auf!"
+    },
+    "V0015_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere eine verdeckte Karte!"
+    },
+    "V0015_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Effekt meines Monsters wird aktiviert!"
+    },
+    "V0015_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Spielfeldzauber wird aktiviert!"
+    },
+    "V0015_08_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4798
+      ],
+      "duelist": [],
+      "text": "Magst du Cartoons? Ich habe eine komplette magische Cartoonwelt nur für dich!"
+    },
+    "V0015_08_00_00_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Toon-Welt!"
+    },
+    "V0015_08_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11901
+      ],
+      "duelist": [],
+      "text": "Willkommen in meinem kleinen Reich des Chaos und des Unfugs!"
+    },
+    "V0015_08_00_01_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere Toon-Königreich!"
+    },
+    "V0015_08_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5474
+      ],
+      "duelist": [],
+      "text": "Diese Karte sollte der ganzen Sache etwas mehr Pepp verleihen!"
+    },
+    "V0015_08_00_02_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Toon-Inhaltsverzeichnis!"
+    },
+    "V0015_08_00_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5473
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere Toon-Abwehr!"
+    },
+    "V0015_08_00_04_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4335
+      ],
+      "duelist": [],
+      "text": "Meine Karte ist Drachenfanggefäß."
+    },
+    "V0015_08_00_04_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Alle Monster vom Typ Drache dürfen sich erst einmal abkühlen."
+    },
+    "V0015_08_00_05_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4674
+      ],
+      "duelist": [],
+      "text": "Glanzpalast!"
+    },
+    "V0015_08_00_05_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Monster vom Typ LICHT erhalten 700 Angriffspunkte!"
+    },
+    "V0015_08_00_06_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6221
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere Gedanken-Hacking!"
+    },
+    "V0015_08_00_07_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4800
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere Kopierkatze!"
+    },
+    "V0015_08_00_07_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Diese Karte kann sich in jede deiner Karten transformieren!"
+    },
+    "V0015_08_00_08_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4837
+      ],
+      "duelist": [],
+      "text": "Die Zauberkarte Polymerisation\n"
+    },
+    "V0015_09_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4737
+      ],
+      "duelist": [],
+      "text": "Die besondere Fähigkeit von Aufgegeben wird aktiviert!"
+    },
+    "V0015_09_00_00_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hypnotische Anziehung!"
+    },
+    "V0015_09_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4740
+      ],
+      "duelist": [],
+      "text": "Hier kommt die besondere Fähigkeit von Tausendäugiges Opfer!"
+    },
+    "V0015_09_00_01_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tausendäugiger Zauber!"
+    },
+    "V0015_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Spaß beginnt!"
+    },
+    "V0015_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nun …"
+    },
+    "V0015_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich würde dir gern mein Monster vorstellen."
+    },
+    "V0015_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich hoffe, du bist bereit."
+    },
+    "V0015_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster in Angriffsposition!"
+    },
+    "V0015_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster in Verteidigungsposition!"
+    },
+    "V0015_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Spezialbeschwörung!"
+    },
+    "V0015_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich biete ein Monster als Tribut an."
+    },
+    "V0015_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Tributbeschwörung!"
+    },
+    "V0015_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0015_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Ritualbeschwörung!"
+    },
+    "V0015_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Synchrobeschwörung!"
+    },
+    "V0015_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Xyz-Beschwörung!"
+    },
+    "V0015_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Pendelbeschwörung!"
+    },
+    "V0015_13_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        4773
+      ],
+      "duelist": [],
+      "text": "Hier kommt ein legendäres Monster in seiner ultimativen Form! Und es ist auch noch viel niedlicher!"
+    },
+    "V0015_13_00_00_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Blauäugiger Toon-Drache!"
+    },
+    "V0015_13_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        4735
+      ],
+      "duelist": [],
+      "text": "Darf ich vorstellen? Der Hauptdarsteller eines neuen düsteren Comics, an dem ich arbeite!"
+    },
+    "V0015_13_00_01_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Herbeigerufener Toon-Schädel!"
+    },
+    "V0015_13_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5450
+      ],
+      "duelist": [],
+      "text": "Ich beschwöre Toon-Dunkles Magier-Mädchen!"
+    },
+    "V0015_13_00_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4734
+      ],
+      "duelist": [],
+      "text": "Ich beschwöre Toon-Jungfrau als Spezialbeschwörung!"
+    },
+    "V0015_13_00_04_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        4733
+      ],
+      "duelist": [],
+      "text": "Ich beschwöre Manga Ryu-Ran als Spezialbeschwörung!"
+    },
+    "V0015_13_00_05_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5475
+      ],
+      "duelist": [],
+      "text": "Ich beschwöre Toon-Maskierter Hexenmeister!"
+    },
+    "V0015_13_00_06_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5477
+      ],
+      "duelist": [],
+      "text": "Mach Platz für Toon-Kanonensoldat!"
+    },
+    "V0015_13_00_07_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5478
+      ],
+      "duelist": [],
+      "text": "Ich präsentiere: Toon-Goblin Angriffstrupp!"
+    },
+    "V0015_13_00_08_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5476
+      ],
+      "duelist": [],
+      "text": "Als nächstes auf der Bühne: Toon-Elfenzwillinge!"
+    },
+    "V0015_13_00_09_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        4391
+      ],
+      "duelist": [],
+      "text": "Ich beschwöre Bickuribox als Spezialbeschwörung!"
+    },
+    "V0015_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        4737
+      ],
+      "duelist": [],
+      "text": "Hier kommt mein Monster – ein echter Hingucker!"
+    },
+    "V0015_13_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Aufgegeben!"
+    },
+    "V0015_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        4740
+      ],
+      "duelist": [],
+      "text": "Erblasse in der Gegenwart dieser Schönheit!"
+    },
+    "V0015_13_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Hier ist mein einzigartiges Tausendäugiges Opfer!"
+    },
+    "V0015_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lass uns kämpfen!"
+    },
+    "V0015_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zeit zu kämpfen!"
+    },
+    "V0015_15_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin dran!"
+    },
+    "V0015_17_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife dich mit einem Monster an!"
+    },
+    "V0015_15_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach dich auf was gefasst!"
+    },
+    "V0015_17_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife mit einem Monster an!"
+    },
+    "V0015_15_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nimm das!"
+    },
+    "V0015_17_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift an!"
+    },
+    "V0015_16_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hm, deine Zeit ist abgelaufen!"
+    },
+    "V0015_18_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift deine Life Points direkt an!"
+    },
+    "V0015_16_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das Ende ist wahrlich in Sicht."
+    },
+    "V0015_18_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife dich direkt mit meinem Monster an."
+    },
+    "V0015_19_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4773
+      ],
+      "duelist": [],
+      "text": "Ich greife dich mit Blauäugiger Toon-Drache an!"
+    },
+    "V0015_19_00_00_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Weißer Energiestrahl!"
+    },
+    "V0015_19_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4735
+      ],
+      "duelist": [],
+      "text": "Ich greife mit Herbeigerufener Toon-Schädel an!"
+    },
+    "V0015_19_00_01_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Blitzangriff!"
+    },
+    "V0015_19_00_02_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5450
+      ],
+      "duelist": [],
+      "text": "Ich greife dich mit Toon-Dunkles Magier-Mädchen an!"
+    },
+    "V0015_19_00_02_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dunkler Glutangriff!"
+    },
+    "V0015_19_00_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5476
+      ],
+      "duelist": [],
+      "text": "Der Angriff der Toon-Elfenzwillinge ist zum Totlachen!"
+    },
+    "V0015_19_00_03_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Doppelte Zwillingsstrahlung!"
+    },
+    "V0015_20_00_00_0": {
+      "face": 0,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte."
+    },
+    "V0015_20_00_01_0": {
+      "face": 0,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte verdeckt."
+    },
+    "V0015_20_01_00_0": {
+      "face": 0,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster."
+    },
+    "V0015_20_01_01_0": {
+      "face": 0,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster verdeckt."
+    },
+    "V0015_21_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Heh he heh. Mein Zug geht zu Ende."
+    },
+    "V0015_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Zug."
+    },
+    "V0015_21_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gah … Ich beende meinen Zug."
+    },
+    "V0015_28_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Man merkt, dass dir deine Karten wirklich wichtig sind."
+    },
+    "V0015_28_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Als Schöpfer von Duell Monsters macht mich das sehr glücklich."
+    },
+    "V0015_28_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Solange ich deine Gedanken lesen kann, wird keine Karte dir zum Sieg verhelfen können."
+    },
+    "V0015_28_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast viel gelernt und es weit gebracht."
+    },
+    "V0015_28_00_02_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aber im Vergleich zu mir bist du immer noch ein blutiger Anfänger."
+    },
+    "V0015_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        2,
+        42
+      ],
+      "text": "Armes Kaibalein. Du hast alle enttäuscht!"
+    },
+    "V0015_28_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich werde dir den Schmerz deiner weiteren Existenz ersparen … und deine Seele in einer Karte einsperren!"
+    },
+    "V0015_29_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich habe verloren …?"
+    },
+    "V0015_29_00_00_1": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In einem Spiel, was ich erschaffen habe?"
+    },
+    "V0015_29_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh neeeiiin! Verloren!"
+    },
+    "V0015_29_00_03_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        1,
+        331,
+        41
+      ],
+      "text": "Unmöglich! Unbegreiflich! Meine Kräfte sollten mich doch unbesiegbar machen! "
+    },
+    "V0015_29_00_03_1": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aber das Band eurer Freundschaft hat mein Millenniumsauge besiegt."
+    },
+    "V0015_30_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Herrje, wenn wütende Blicke Duelle gewinnen könnten, hättest du vielleicht wirklich eine Chance!"
+    },
+    "V0015_30_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Könntest du etwas schneller machen? Mein Lieblingscartoon fängt gleich an."
+    },
+    "V0015_30_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wir haben alle Zeit der Welt, also bitte, durchdenke deine Züge bis ins letzte Detail. Nicht, dass es einen Unterschied machen würde …"
+    },
+    "V0015_31_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was?!"
+    },
+    "V0015_31_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Huh?"
+    },
+    "V0015_33_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Das wird so viel Spaß machen!"
+    },
+    "V0015_33_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Bereit für meinen nächsten Streich?"
+    },
+    "V0015_33_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Es sind meine Fähigkeiten, die mir einen unschlagbaren Vorteil gewähren!  "
+    },
+    "V0015_34_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die Kräfte meines Millenniumsauges machen mich unaufhaltsam.  "
+    },
+    "V0015_34_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh, das wird ein Riesenspaß!"
+    },
+    "V0015_34_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich kann bis in den letzten Winkel deines Verstandes blicken!"
+    },
+    "V0015_34_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Deine Gedanken verraten mir, was du in der Hand hältst!"
+    },
+    "V0015_34_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du glaubst immer noch, dass du gewinnen könntest. Hör auf, dich lächerlich zu machen."
+    },
+    "V0015_34_00_05_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was?!"
+    },
+    "V0015_34_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ja!"
+    },
+    "V0015_34_00_07_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh nein!"
+    },
+    "V0015_34_00_08_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du spielst diese Karte wirklich? Unfassbar."
+    },
+    "V0015_34_00_09_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Heh! Diese Karte kann mich nur kurz aufhalten."
+    },
+    "V0015_32_00_00_0": {
+      "face": 0,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0015_32_00_01_0": {
+      "face": 0,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!"
+    },
+    "V0015_22_00_03_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Agh …"
+    },
+    "V0015_22_00_04_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ughh …"
+    },
+    "V0015_22_00_05_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Uuuufff …"
+    },
+    "V0015_26_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gah …"
+    },
+    "V0015_26_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das war gar nichts."
+    },
+    "V0015_26_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Noch bin ich nicht erledigt."
+    },
+    "V0015_22_00_06_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaahhhh!"
+    },
+    "V0015_22_00_07_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaghhhhh!"
+    },
+    "V0015_22_00_08_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arrrgh!"
+    },
+    "V0015_27_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin noch längst nicht fertig mit dir."
+    },
+    "V0015_27_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das ist der reinste Albtraum …"
+    },
+    "V0015_27_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich habe nicht vor aufzugeben."
+    },
+    "V0015_24_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Uuuugggrrhhhh …"
+    },
+    "V0015_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaaaahhhhh!"
+    }
+  }
+}

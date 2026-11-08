@@ -1,0 +1,3074 @@
+{
+  "_GRP_": "SN0533",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0533_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu désires un Duel ?\nGénial ! C'est parti !"
+    },
+    "V0533_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quand je sors le grand jeu, tu n'as aucune chance !"
+    },
+    "V0533_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duel !"
+    },
+    "V0533_03_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai encore de la réserve !"
+    },
+    "V0533_03_00_00_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0533_03_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je sais que tu vois ta fin approcher !"
+    },
+    "V0533_03_00_01_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0533_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À moi !"
+    },
+    "V0533_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0533_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0533_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0533_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0533_04_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0533_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0533_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0533_05_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !!!"
+    },
+    "V0533_06_01_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Genre !"
+    },
+    "V0533_06_01_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu crois que ça va marcher contre moi ?"
+    },
+    "V0533_06_01_03_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attendais que tu fasses ça !"
+    },
+    "V0533_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0533_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie !"
+    },
+    "V0533_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0533_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Continue !"
+    },
+    "V0533_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0533_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0533_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Carte Piège !"
+    },
+    "V0533_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !"
+    },
+    "V0533_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Contre-Piège !"
+    },
+    "V0533_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma carte face verso !"
+    },
+    "V0533_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue ma carte face verso !"
+    },
+    "V0533_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0533_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0533_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0533_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0533_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8202
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nPuissance du Vent !"
+    },
+    "V0533_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7743
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie Désynchronisation !"
+    },
+    "V0533_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8043
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie, Attaque Tourbillonnante de Rapace !"
+    },
+    "V0533_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8820
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nMitrailleuse Ailes Sombres !"
+    },
+    "V0533_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5849
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !\nRecharge !"
+    },
+    "V0533_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8203
+      ],
+      "duelist": [],
+      "text": "Ma Magie Continue Tourbillon Noir !"
+    },
+    "V0533_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8821
+      ],
+      "duelist": [],
+      "text": "Regarde cette Magie !\nCartes Plumes Noires !"
+    },
+    "V0533_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13855
+      ],
+      "duelist": [],
+      "text": "Voilà ma Magie d'Équipement, Arbalète Rayonnante !"
+    },
+    "V0533_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8840
+      ],
+      "duelist": [],
+      "text": "Je retourne ma Carte Piège !\nAile Noire - Bombardement !"
+    },
+    "V0533_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8839
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nAile Noire - Bourrasque !"
+    },
+    "V0533_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9145
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de mon Piège Mine Aile Noire !"
+    },
+    "V0533_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6709
+      ],
+      "duelist": [],
+      "text": "Regarde ma Carte Piège !\nAttaque d'Icare !"
+    },
+    "V0533_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11177
+      ],
+      "duelist": [],
+      "text": "Je retourne ma Carte Piège !\nImpulsion de l'Ombre !"
+    },
+    "V0533_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9143
+      ],
+      "duelist": [],
+      "text": "Je révèle ma Carte Piège !\nDuel de Défenseurs !"
+    },
+    "V0533_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8220
+      ],
+      "duelist": [],
+      "text": "Ce Piège t'explose à la figure !\nCorbeaux Delta - Anti Retournement !"
+    },
+    "V0533_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8223
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nParalysateur de Piège !"
+    },
+    "V0533_08_00_15_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tous les autres effets de Piège sont annulés ce tour-ci !"
+    },
+    "V0533_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8222
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège, Plume de Duplication !"
+    },
+    "V0533_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8064
+      ],
+      "duelist": [],
+      "text": "J'active le Piège, Flèche d'Ébène !"
+    },
+    "V0533_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8841
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nTonnerre Sombre !"
+    },
+    "V0533_08_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11175
+      ],
+      "duelist": [],
+      "text": "Ton meilleur jeu ne vaut même pas mon pire !"
+    },
+    "V0533_08_00_19_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège !\nNoir Supersonique !"
+    },
+    "V0533_08_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9142
+      ],
+      "duelist": [],
+      "text": "Je retourne ma Carte Piège !\nRetour Funèbre !"
+    },
+    "V0533_08_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9356
+      ],
+      "duelist": [],
+      "text": "Je révèle ma Carte Piège !\nAssistance Noire !"
+    },
+    "V0533_08_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9246
+      ],
+      "duelist": [],
+      "text": "J'attendais ce moment !"
+    },
+    "V0533_08_00_22_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma Carte Piège !\nRetour Noir !"
+    },
+    "V0533_08_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11176
+      ],
+      "duelist": [],
+      "text": "Je ferai honneur à ton sacrifice !"
+    },
+    "V0533_08_00_23_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma Carte Piège !\nVengeance des Ailes Noires !"
+    },
+    "V0533_08_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8842
+      ],
+      "duelist": [],
+      "text": "Comme si j'allais te laisser faire !\nJ'active mon Piège, Défense Anti-Mines !"
+    },
+    "V0533_08_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8221
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nModificateur de Niveau !"
+    },
+    "V0533_08_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7920
+      ],
+      "duelist": [],
+      "text": "Mon Piège s'active !\nSyntonisation Urgente !"
+    },
+    "V0533_08_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9245
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nBalise Plume Noire !"
+    },
+    "V0533_08_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4988
+      ],
+      "duelist": [],
+      "text": "J'active le Piège, Tornade de Poussière !"
+    },
+    "V0533_08_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9144
+      ],
+      "duelist": [],
+      "text": "Mon Contre-Piège s'active !\nFracture de Gravité !"
+    },
+    "V0533_08_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13856
+      ],
+      "duelist": [],
+      "text": "Mon Contre-Piège s'active !\nOiseau Noir Achevé !"
+    },
+    "V0533_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12447
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Assaut Aile Noire - Sohaya la Pluie Diluvienne s'active !"
+    },
+    "V0533_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12448
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Assaut Aile Noire - Onimaru le Tonnerre Divin s'active !"
+    },
+    "V0533_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11962
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Assaut Aile Noire - Kunai la Bruine s'active !"
+    },
+    "V0533_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12323
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Assaut Aile Noire - Chidori de la Bruine s'active !"
+    },
+    "V0533_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11991
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Assaut Aile Noire - Raikiri du Déluge s'active !"
+    },
+    "V0533_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9463
+      ],
+      "duelist": [],
+      "text": "Dompteur Aile Noire - Joe Faucon Obsidienne !\nUtilise ton effet !"
+    },
+    "V0533_09_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maîtriser les oiseaux de proie et éveiller une Aile Noire !"
+    },
+    "V0533_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9463
+      ],
+      "duelist": [],
+      "text": "Ma Carte Dompteur Aile Noire - Joe Faucon Obsidienne active son effet !"
+    },
+    "V0533_09_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La cible passe de Joe Faucon à une autre Aile Noire !"
+    },
+    "V0533_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8779
+      ],
+      "duelist": [],
+      "text": "Comme un effet a ajouté Aile Noire - Brise le Zéphyr à ma main, je peux l'Invoquer !"
+    },
+    "V0533_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8036
+      ],
+      "duelist": [],
+      "text": "Tu vas goûter de la Cuirasse !"
+    },
+    "V0533_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8036
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Maître des Armures s'active !"
+    },
+    "V0533_09_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "En retirant un Compteur Cuirasse, son ATK et DEF sont à 0 !"
+    },
+    "V0533_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11173
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Vapeur de la Cape s'active !"
+    },
+    "V0533_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9437
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Jin l'Ombre de Pluie s'active !"
+    },
+    "V0533_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12411
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Tornade du Retournement s'active !"
+    },
+    "V0533_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8013
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Sirocco l'Aube s'active !"
+    },
+    "V0533_09_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La puissance de la volée en une seule Aile Noire !"
+    },
+    "V0533_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9093
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Aurora la Lumière du Nord s'active !"
+    },
+    "V0533_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8162
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Blizzard, la Tempête d'Extrême Nord s'active !"
+    },
+    "V0533_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10303
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Noire - Damascus de la Nuit Polaire depuis ma main !"
+    },
+    "V0533_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8295
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Mistral le Bouclier d'Argent s'active !"
+    },
+    "V0533_09_00_17_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pour une fois unique, les dommages de combat deviennent 0 !"
+    },
+    "V0533_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9094
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Abrolhos le Méga Séisme s'active !"
+    },
+    "V0533_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8164
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Noire - Kalut l'Ombre de la Lune depuis ma main !"
+    },
+    "V0533_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8476
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Vent d'Argent le Suprême s'active !"
+    },
+    "V0533_09_00_20_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tempête parfaite !"
+    },
+    "V0533_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12122
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Harmattan la Poussière s'active !"
+    },
+    "V0533_09_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8165
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Elphin le Corbeau Funeste s'active !"
+    },
+    "V0533_09_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8011
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Mistral le Tourbillon s'active !"
+    },
+    "V0533_09_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9459
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Pinaki la Lune Ascendante s'active !"
+    },
+    "V0533_09_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11649
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Nothung la Lumière d'Étoile s'active !"
+    },
+    "V0533_09_00_25_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Épée du retour !"
+    },
+    "V0533_09_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9244
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Noire - Zephyros l'Élite depuis mon Cimetière !"
+    },
+    "V0533_09_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9298
+      ],
+      "duelist": [],
+      "text": "Je bannis Aile Noire - Boreas le Tranchant de mon Cimetière pour utiliser ses effets !"
+    },
+    "V0533_09_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8163
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Shura la Flamme Bleue s'active !"
+    },
+    "V0533_09_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9243
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Noire - Jet le Ciel Bleu depuis ma main !"
+    },
+    "V0533_09_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8296
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Vâyu l'Étendard de la Justice s'active !"
+    },
+    "V0533_09_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12289
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Décomposition le Vent Néfaste s'active !"
+    },
+    "V0533_09_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9299
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Brisote le Vent Arrière s'active !"
+    },
+    "V0533_09_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8297
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Foehn la Chaîne d'Acier s'active !"
+    },
+    "V0533_09_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9479
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Noire - Hillen le Vent de Tengu depuis mon Cimetière !"
+    },
+    "V0533_09_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11172
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Noire - Oroshi !"
+    },
+    "V0533_09_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9092
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Noire - Etesia la Double Lame depuis ma main !"
+    },
+    "V0533_09_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8777
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Aile Noire - Ghibli le Vent Flamboyant !"
+    },
+    "V0533_09_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9300
+      ],
+      "duelist": [],
+      "text": "Je bannis Aile Noire - Calima la Brume pour ressusciter un Monstre Synchro !"
+    },
+    "V0533_09_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9480
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Kogarashi le Vagabond s'active !"
+    },
+    "V0533_09_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11174
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Ouragan de la Tornade s'active !"
+    },
+    "V0533_09_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12412
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Gofu la Vague de l'Ombre s'active !"
+    },
+    "V0533_09_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9464
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Gram l'Étoile Brillante s'active !"
+    },
+    "V0533_09_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6980
+      ],
+      "duelist": [],
+      "text": "J'activerai l'effet de la Carte Corbeau D.D. depuis ma main !"
+    },
+    "V0533_09_00_43_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je bannis une carte de ton Cimetière !"
+    },
+    "V0533_09_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8815
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Dragon Ailes Sombres s'active !"
+    },
+    "V0533_09_00_44_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Explosion d'Orbe Noir !"
+    },
+    "V0533_09_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11012
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Dragon Ragesombre Plumenoire !"
+    },
+    "V0533_09_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13852
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Maître Complet des Armures s'active !"
+    },
+    "V0533_09_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13853
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Simoon le Vent Empoisonné s'active !"
+    },
+    "V0533_09_00_48_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13854
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Aile Noire - Auster le Vent du Sud s'active !"
+    },
+    "V0533_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À moi !"
+    },
+    "V0533_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attention !"
+    },
+    "V0533_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Montre-toi."
+    },
+    "V0533_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde ça !"
+    },
+    "V0533_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre !"
+    },
+    "V0533_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0533_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0533_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0533_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0533_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0533_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0533_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0533_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0533_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0533_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0533_37_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12446
+      ],
+      "duelist": [],
+      "text": "La puissance du vol devient puissance de combat !"
+    },
+    "V0533_37_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12446
+      ],
+      "duelist": [],
+      "text": "Vole, Assaut Aile Noire - Sayo le Dissimulateur de Pluie !"
+    },
+    "V0533_37_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12447
+      ],
+      "duelist": [],
+      "text": "Une tempête approche et elle va semer la destruction !"
+    },
+    "V0533_37_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12447
+      ],
+      "duelist": [],
+      "text": "Envole-toi, Assaut Aile Noire - Sohaya la Pluie Diluvienne !"
+    },
+    "V0533_37_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12448
+      ],
+      "duelist": [],
+      "text": "Prépare-toi à une retentissante démonstration de puissance !"
+    },
+    "V0533_37_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12448
+      ],
+      "duelist": [],
+      "text": "Souffle en rafales !\nAssaut Aile Noire - Onimaru le Tonnerre Divin !"
+    },
+    "V0533_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11962
+      ],
+      "duelist": [],
+      "text": "Apparais !\nAssaut Aile Noire - Kunai la Bruine !"
+    },
+    "V0533_37_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12323
+      ],
+      "duelist": [],
+      "text": "Les coups de tonnerre pleuvent !"
+    },
+    "V0533_37_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12323
+      ],
+      "duelist": [],
+      "text": "Allez, Assaut Aile Noire - Chidori de la Bruine !"
+    },
+    "V0533_37_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11991
+      ],
+      "duelist": [],
+      "text": "Une tempête de tourments se déchaîne !"
+    },
+    "V0533_37_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11991
+      ],
+      "duelist": [],
+      "text": "Allez, Assaut Aile Noire - Raikiri du Déluge !"
+    },
+    "V0533_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        9463
+      ],
+      "duelist": [],
+      "text": "J'invite Dompteur Aile Noire - Joe Faucon Obsidienne !"
+    },
+    "V0533_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8779
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Brise le Zéphyr !"
+    },
+    "V0533_37_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8036
+      ],
+      "duelist": [],
+      "text": "Un nouveau genre d'oiseau de proie vient d'éclore !"
+    },
+    "V0533_37_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        8036
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Maître des Armures !"
+    },
+    "V0533_37_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8193
+      ],
+      "duelist": [],
+      "text": "Crée un maelström géant de tes ailes tournoyantes !"
+    },
+    "V0533_37_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        8193
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Arsenal Aérien !"
+    },
+    "V0533_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11173
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Vapeur de la Cape !"
+    },
+    "V0533_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9437
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Jin l'Ombre de Pluie !"
+    },
+    "V0533_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12411
+      ],
+      "duelist": [],
+      "text": "Dis bonjour à Aile Noire - Tornade du Retournement !"
+    },
+    "V0533_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8778
+      ],
+      "duelist": [],
+      "text": "Viens, Aile Noire - Rafale la Bourrasque !"
+    },
+    "V0533_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8013
+      ],
+      "duelist": [],
+      "text": "Voilà Aile Noire - Sirocco l'Aube !"
+    },
+    "V0533_13_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9093
+      ],
+      "duelist": [],
+      "text": "J'Invoque Spécialement Aile Noire - Aurora la Lumière du Nord !"
+    },
+    "V0533_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8162
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Blizzard, la Tempête d'Extrême Nord !"
+    },
+    "V0533_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10303
+      ],
+      "duelist": [],
+      "text": "Voilà Aile Noire - Damascus de la Nuit Polaire !"
+    },
+    "V0533_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8295
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Mistral le Bouclier d'Argent !"
+    },
+    "V0533_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9094
+      ],
+      "duelist": [],
+      "text": "Apparais !\nAile Noire - Abrolhos le Méga Séisme !"
+    },
+    "V0533_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8164
+      ],
+      "duelist": [],
+      "text": "Allons-y, Aile Noire - Kalut l'Ombre de la Lune !"
+    },
+    "V0533_37_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8476
+      ],
+      "duelist": [],
+      "text": "La tempête allie volonté de fer et vitesse de la lumière !"
+    },
+    "V0533_37_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        8476
+      ],
+      "duelist": [],
+      "text": "Souhaite la bienvenue à Aile Noire - Vent d'Argent le Suprême !"
+    },
+    "V0533_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8012
+      ],
+      "duelist": [],
+      "text": "Allons-y, Aile Noire - Bora la Lance !"
+    },
+    "V0533_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12122
+      ],
+      "duelist": [],
+      "text": "Allons-y !\nAile Noire - Harmattan la Poussière !"
+    },
+    "V0533_13_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9460
+      ],
+      "duelist": [],
+      "text": "Voilà Aile Noire - Kris la Fissure de l'Aube !"
+    },
+    "V0533_13_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8165
+      ],
+      "duelist": [],
+      "text": "Envole-toi, Aile Noire - Elphin le Corbeau Funeste !"
+    },
+    "V0533_13_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8011
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Mistral le Tourbillon !"
+    },
+    "V0533_13_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9459
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Pinaki la Lune Ascendante !"
+    },
+    "V0533_37_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11649
+      ],
+      "duelist": [],
+      "text": "Cet oiseau de proie héroïque brandit l'épée légendaire !"
+    },
+    "V0533_37_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11649
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Nothung la Lumière d'Étoile !"
+    },
+    "V0533_13_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9244
+      ],
+      "duelist": [],
+      "text": "Vole, Aile Noire - Zephyros l'Élite !"
+    },
+    "V0533_13_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9298
+      ],
+      "duelist": [],
+      "text": "Montre-toi !\nAile Noire - Boreas le Tranchant !"
+    },
+    "V0533_13_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8163
+      ],
+      "duelist": [],
+      "text": "À toi, Aile Noire - Shura la Flamme Bleue !"
+    },
+    "V0533_13_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9243
+      ],
+      "duelist": [],
+      "text": "Voilà Aile Noire - Jet le Ciel Bleu !"
+    },
+    "V0533_13_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8296
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Vâyu l'Étendard de la Justice !"
+    },
+    "V0533_13_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12289
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Décomposition le Vent Néfaste !"
+    },
+    "V0533_13_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9299
+      ],
+      "duelist": [],
+      "text": "Rejoins-moi, Aile Noire - Brisote le Vent Arrière !"
+    },
+    "V0533_13_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8297
+      ],
+      "duelist": [],
+      "text": "Allons-y, Aile Noire - Foehn la Chaîne d'Acier !"
+    },
+    "V0533_13_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9479
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Hillen le Vent de Tengu !"
+    },
+    "V0533_13_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9242
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Kochi l'Aube !"
+    },
+    "V0533_13_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11172
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Oroshi !"
+    },
+    "V0533_13_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9092
+      ],
+      "duelist": [],
+      "text": "Rejoins-moi, Aile Noire - Etesia la Double Lame !"
+    },
+    "V0533_13_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8777
+      ],
+      "duelist": [],
+      "text": "Investis le terrain, Aile Noire - Ghibli le Vent Flamboyant !"
+    },
+    "V0533_13_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9461
+      ],
+      "duelist": [],
+      "text": "Voilà Aile Noire - Gladius du Soleil de Minuit !"
+    },
+    "V0533_13_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9300
+      ],
+      "duelist": [],
+      "text": "Allons-y, Aile Noire - Calima la Brume !"
+    },
+    "V0533_13_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9480
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Kogarashi le Vagabond !"
+    },
+    "V0533_13_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11174
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Aile Noire - Ouragan de la Tornade !"
+    },
+    "V0533_13_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12412
+      ],
+      "duelist": [],
+      "text": "J'Invoque Spécialement Aile Noire - Gofu la Vague de l'Ombre !"
+    },
+    "V0533_37_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9464
+      ],
+      "duelist": [],
+      "text": "Tu ne sais pas ce que te réserve cet épéiste ailé !"
+    },
+    "V0533_37_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9464
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Gram l'Étoile Brillante !"
+    },
+    "V0533_13_00_48_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6980
+      ],
+      "duelist": [],
+      "text": "Et voilà Corbeau D.D. !"
+    },
+    "V0533_13_00_49_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4583
+      ],
+      "duelist": [],
+      "text": "Gobelin corbeau !\nJe compte sur toi !"
+    },
+    "V0533_37_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8815
+      ],
+      "duelist": [],
+      "text": "Prépare-toi au choc et à la stupeur !"
+    },
+    "V0533_37_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_50_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        8815
+      ],
+      "duelist": [],
+      "text": "Élève ta puissance !\nDragon Ailes Sombres !"
+    },
+    "V0533_37_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11012
+      ],
+      "duelist": [],
+      "text": "Le vent souffle sur les derniers jours de la bataille !"
+    },
+    "V0533_37_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0533_13_00_51_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11012
+      ],
+      "duelist": [],
+      "text": "Dragon Ragesombre Plumenoire !"
+    },
+    "V0533_13_00_52_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13852
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Maître Complet des Armures !"
+    },
+    "V0533_13_00_53_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13853
+      ],
+      "duelist": [],
+      "text": "Voilà Aile Noire - Simoon le Vent Empoisonné !"
+    },
+    "V0533_13_00_54_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13854
+      ],
+      "duelist": [],
+      "text": "Allons-y, Aile Noire - Auster le Vent du Sud !"
+    },
+    "V0533_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattons !"
+    },
+    "V0533_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combat !"
+    },
+    "V0533_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allons-y !"
+    },
+    "V0533_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est l'heure de la raclée !"
+    },
+    "V0533_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prends ça !"
+    },
+    "V0533_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque avec mon monstre !"
+    },
+    "V0533_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0533_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque !"
+    },
+    "V0533_16_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dommage !"
+    },
+    "V0533_16_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est la ligne d'arrivée !"
+    },
+    "V0533_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre t'attaque directement !"
+    },
+    "V0533_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je t'attaque directement !"
+    },
+    "V0533_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12446
+      ],
+      "duelist": [],
+      "text": "Assaut Aile Noire - Sayo le Dissimulateur de Pluie attaque !"
+    },
+    "V0533_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12447
+      ],
+      "duelist": [],
+      "text": "Mets-lui une raclée, Assaut Aile Noire - Sohaya la Pluie Diluvienne !"
+    },
+    "V0533_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12448
+      ],
+      "duelist": [],
+      "text": "Assaut Aile Noire - Onimaru le Tonnerre Divin attaque !"
+    },
+    "V0533_19_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Frappe retentissante !"
+    },
+    "V0533_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11962
+      ],
+      "duelist": [],
+      "text": "Assaut Aile Noire - Kunai la Bruine ! Attaque !"
+    },
+    "V0533_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12323
+      ],
+      "duelist": [],
+      "text": "Assaut Aile Noire - Chidori de la Bruine attaque !"
+    },
+    "V0533_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rafale foudroyante !"
+    },
+    "V0533_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11991
+      ],
+      "duelist": [],
+      "text": "Attaque, Assaut Aile Noire - Raikiri du Déluge !"
+    },
+    "V0533_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9463
+      ],
+      "duelist": [],
+      "text": "Dompteur Aile Noire - Joe Faucon Obsidienne attaque !"
+    },
+    "V0533_19_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Griffe d'Assaut !"
+    },
+    "V0533_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8779
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Brise le Zéphyr ! Attaque !"
+    },
+    "V0533_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8036
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Maître des Armures ! Attaque !"
+    },
+    "V0533_19_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouragan Noir !"
+    },
+    "V0533_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8193
+      ],
+      "duelist": [],
+      "text": "Allez, Aile Noire - Arsenal Aérien ! Attaque !"
+    },
+    "V0533_19_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Charge Noire !"
+    },
+    "V0533_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11173
+      ],
+      "duelist": [],
+      "text": "Écrase l'adversaire, Aile Noire - Vapeur de la Cape !"
+    },
+    "V0533_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9437
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Jin l'Ombre de Pluie attaque !"
+    },
+    "V0533_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12411
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Tornade du Retournement !\nSouffle l'adversaire !"
+    },
+    "V0533_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8778
+      ],
+      "duelist": [],
+      "text": "Explose l'adversaire, Aile Noire - Rafale la Bourrasque !"
+    },
+    "V0533_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8013
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Sirocco l'Aube ! Attaque !"
+    },
+    "V0533_19_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rafale de l'Aile Noire !"
+    },
+    "V0533_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9093
+      ],
+      "duelist": [],
+      "text": "Attaque, Aile Noire - Aurora la Lumière du Nord !"
+    },
+    "V0533_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8162
+      ],
+      "duelist": [],
+      "text": "Refroidis-moi tout ça, Aile Noire - Blizzard, la Tempête d'Extrême Nord !"
+    },
+    "V0533_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10303
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Damascus de la Nuit Polaire ! Attaque !"
+    },
+    "V0533_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8295
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Mistral le Bouclier d'Argent attaque !"
+    },
+    "V0533_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9094
+      ],
+      "duelist": [],
+      "text": "Secoue-moi tout ça, Aile Noire - Abrolhos le Méga Séisme !"
+    },
+    "V0533_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8164
+      ],
+      "duelist": [],
+      "text": "Frappe-les, Aile Noire - Kalut l'Ombre de la Lune !"
+    },
+    "V0533_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8476
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Vent d'Argent le Suprême attaque !"
+    },
+    "V0533_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8012
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Bora la Lance ! Attaque !"
+    },
+    "V0533_19_00_22_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lance incontrôlable !"
+    },
+    "V0533_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12122
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Harmattan la Poussière attaque !"
+    },
+    "V0533_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9460
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Kris la Fissure de l'Aube ! Attaque !"
+    },
+    "V0533_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8165
+      ],
+      "duelist": [],
+      "text": "Attaque, Aile Noire - Elphin le Corbeau Funeste !"
+    },
+    "V0533_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8011
+      ],
+      "duelist": [],
+      "text": "Attaque, Aile Noire - Mistral le Tourbillon !"
+    },
+    "V0533_19_00_26_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Griffure Noire !"
+    },
+    "V0533_19_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9459
+      ],
+      "duelist": [],
+      "text": "Ma Carte Aile Noire - Pinaki la Lune Ascendante attaque !"
+    },
+    "V0533_19_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11649
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Nothung la Lumière d'Étoile ! Attaque !"
+    },
+    "V0533_19_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9244
+      ],
+      "duelist": [],
+      "text": "Attaque, Aile Noire - Zephyros l'Élite !"
+    },
+    "V0533_19_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9298
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Boreas le Tranchant attaque !"
+    },
+    "V0533_19_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8163
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Shura la Flamme Bleue ! Attaque !"
+    },
+    "V0533_19_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9243
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Jet le Ciel Bleu attaque !"
+    },
+    "V0533_19_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8296
+      ],
+      "duelist": [],
+      "text": "Attaque, Aile Noire - Vâyu l'Étendard de la Justice !"
+    },
+    "V0533_19_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12289
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Décomposition le Vent Néfaste ! Attaque !"
+    },
+    "V0533_19_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9299
+      ],
+      "duelist": [],
+      "text": "Allez, Aile Noire - Brisote le Vent Arrière ! Attaque !"
+    },
+    "V0533_19_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8297
+      ],
+      "duelist": [],
+      "text": "Écrase l'adversaire, Aile Noire - Foehn la Chaîne d'Acier !"
+    },
+    "V0533_19_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9479
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Hillen le Vent de Tengu ! Attaque !"
+    },
+    "V0533_19_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9242
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Kochi l'Aube attaque !"
+    },
+    "V0533_19_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11172
+      ],
+      "duelist": [],
+      "text": "Attaque, Aile Noire - Oroshi !"
+    },
+    "V0533_19_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9092
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Etesia la Double Lame ! Attaque !"
+    },
+    "V0533_19_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8777
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Ghibli le Vent Flamboyant !\nEnvoie-les au ciel !"
+    },
+    "V0533_19_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9461
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Gladius du Soleil de Minuit ! Attaque !"
+    },
+    "V0533_19_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9300
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Calima la Brume attaque !"
+    },
+    "V0533_19_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9480
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Kogarashi le Vagabond ! Attaque !"
+    },
+    "V0533_19_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11174
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Ouragan de la Tornade attaque !"
+    },
+    "V0533_19_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12412
+      ],
+      "duelist": [],
+      "text": "Attaque, Aile Noire - Gofu la Vague de l'Ombre !"
+    },
+    "V0533_19_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9464
+      ],
+      "duelist": [],
+      "text": "Attaque, Aile Noire - Gram l'Étoile Brillante !"
+    },
+    "V0533_19_00_47_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tranche croissante !"
+    },
+    "V0533_19_00_48_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6980
+      ],
+      "duelist": [],
+      "text": "Corbeau D.D. ! Attaque !"
+    },
+    "V0533_19_00_49_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4583
+      ],
+      "duelist": [],
+      "text": "Gobelin corbeau ! Attaque !"
+    },
+    "V0533_19_00_50_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8815
+      ],
+      "duelist": [],
+      "text": "Attaque, Dragon Ailes Sombres !"
+    },
+    "V0533_19_00_50_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bourrasque explosive d'ombre !"
+    },
+    "V0533_19_00_51_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11012
+      ],
+      "duelist": [],
+      "text": "Vole avec fureur, Dragon Ragesombre Plumenoire !"
+    },
+    "V0533_19_00_51_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Entrée en rage noire !"
+    },
+    "V0533_19_00_52_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13852
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Maître Complet des Armures attaque !"
+    },
+    "V0533_19_00_53_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13853
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Simoon le Vent Empoisonné attaque !"
+    },
+    "V0533_19_00_54_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13854
+      ],
+      "duelist": [],
+      "text": "Aile Noire - Auster le Vent du Sud attaque !"
+    },
+    "V0533_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0533_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0533_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0533_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0533_21_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0533_21_00_00_1": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fais voir ce que tu sais faire !"
+    },
+    "V0533_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0533_21_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh ! Les choses se présentent mal !"
+    },
+    "V0533_21_00_02_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0533_28_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Désolé.\nJe connaissais toutes tes astuces."
+    },
+    "V0533_28_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ne me sous-estime pas !"
+    },
+    "V0533_29_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ne tomberai pas dans le même panneau la prochaine fois !"
+    },
+    "V0533_29_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Joli coup !"
+    },
+    "V0533_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Q... Quoi ?!?"
+    },
+    "V0533_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vraiment ?"
+    },
+    "V0533_33_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Quand je sors le grand jeu, tu n'as aucune chance !"
+    },
+    "V0533_36_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu peux mettre fin à tout cela !"
+    },
+    "V0533_36_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça ne tient qu'à toi !"
+    },
+    "V0533_36_00_02_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Désolé... Mais je sais que tu peux encore changer la donne !"
+    },
+    "V0533_22_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0533_22_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhh !"
+    },
+    "V0533_22_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh..."
+    },
+    "V0533_26_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est tout ce que tu sais faire ?"
+    },
+    "V0533_26_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé !"
+    },
+    "V0533_26_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pas mal !"
+    },
+    "V0533_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhhhh !"
+    },
+    "V0533_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0533_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oouuch..."
+    },
+    "V0533_27_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'est pas encore fini !"
+    },
+    "V0533_27_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'était rien !"
+    },
+    "V0533_27_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je peux le faire !"
+    },
+    "V0533_24_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Erggghhh..."
+    },
+    "V0533_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhhhhhhh !"
+    },
+    "V0533_38_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À vos marques... Prêt... Duel !"
+    }
+  }
+}

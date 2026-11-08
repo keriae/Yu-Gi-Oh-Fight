@@ -1,0 +1,320 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc972f6728141141b4c2bfb30b95cf4, type: 3}
+  m_Name: ScriptReplacementConfig
+  m_EditorClassIdentifier: 
+  replacementPairs:
+  - scriptName: TimelineAsset
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: bfda56da833e2384a9677cd3c976a436
+    oldFileId: 337831424
+    newFileId: 11500000
+  - scriptName: SignalTrack
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: b46e36075dd1c124a8422c228e75e1fb
+    oldFileId: 661751997
+    newFileId: 11500000
+  - scriptName: ActivationPlayableAsset
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: fde0d25a170598d46a0b9dc16b4527a5
+    oldFileId: 442072544
+    newFileId: 11500000
+  - scriptName: PlayableTrack
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 82cd92ffc29383742932b27ca414c80f
+    oldFileId: 1778877366
+    newFileId: 11500000
+  - scriptName: SignalAsset
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: d6fa2d92fc1b3f34da284357edf89c3b
+    oldFileId: -561356381
+    newFileId: 11500000
+  - scriptName: ActivationTrack
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 21bf7f712d84d26478ebe6a299f21738
+    oldFileId: 46519060
+    newFileId: 11500000
+  - scriptName: TrackAsset
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 3ad53269c7421084ab67f804591994e0
+    oldFileId: -1261509315
+    newFileId: 11500000
+  - scriptName: SignalReceiver
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: e52de21a22b6dd44c9cc19f810c65059
+    oldFileId: -1490623707
+    newFileId: 11500000
+  - scriptName: AnimationTrack
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: d21dcc2386d650c4597f3633c75a1f98
+    oldFileId: 1467732076
+    newFileId: 11500000
+  - scriptName: ControlTrack
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 15e0374501f39d54eb30235764636e0e
+    oldFileId: -1095772578
+    newFileId: 11500000
+  - scriptName: Marker
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 89b48a03f6f43e94e87cc8d2104d3d4d
+    oldFileId: 1935730151
+    newFileId: 11500000
+  - scriptName: AnimationPlayableAsset
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 030f85c3f73729f4f976f66ffb23b875
+    oldFileId: 2024714994
+    newFileId: 11500000
+  - scriptName: AudioTrack
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 8b22792c3b570444eb18cb78c2af3a74
+    oldFileId: -2113462093
+    newFileId: 11500000
+  - scriptName: AudioPlayableAsset
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 4f10dd60657c6004587f237a7e90f8e4
+    oldFileId: -1977359656
+    newFileId: 11500000
+  - scriptName: SignalEmitter
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 15c38f6fa1940124db1ab7f6fe7268d1
+    oldFileId: 619702795
+    newFileId: 11500000
+  - scriptName: MarkerTrack
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 2a16748d9461eae46a725db9776d5390
+    oldFileId: -119666388
+    newFileId: 11500000
+  - scriptName: GroupTrack
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: d0fc6f5187a81dc47999eefade6f0935
+    oldFileId: -1544527758
+    newFileId: 11500000
+  - scriptName: ControlPlayableAsset
+    oldGuid: 1f79187d04fa6fdd168e19d4bafe7dfa
+    newGuid: 48853ae485fa386428341ac1ea122570
+    oldFileId: -1670381969
+    newFileId: 11500000
+  - scriptName: HorizontalLayoutGroup
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 30649d3a9faa99c48a7b1166b86bf2a0
+    oldFileId: -405508275
+    newFileId: 11500000
+  - scriptName: RawImage
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 1344c3c82d62a2a41a3576d8abb8e3ea
+    oldFileId: -98529514
+    newFileId: 11500000
+  - scriptName: PointerInputModule
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: cbab8835092323a4389f2dc7d8f6c781
+    oldFileId: -1235632416
+    newFileId: 11500000
+  - scriptName: PanelRaycaster
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 7a79c4e23d4d4b64bfa5fa9e6671a460
+    oldFileId: -19100109
+    newFileId: 11500000
+  - scriptName: PositionAsUV1
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 020ee4c1798a3d243a4b8cbfee6cac2d
+    oldFileId: 1849938685
+    newFileId: 11500000
+  - scriptName: Toggle
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 9085046f02f69544eb97fd06b6048fe2
+    oldFileId: 2109663825
+    newFileId: 11500000
+  - scriptName: Shadow
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: cfabb0440166ab443bba8876756fdfa9
+    oldFileId: 1573420865
+    newFileId: 11500000
+  - scriptName: PanelEventHandler
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 8a410b213209442fb15a69799f0240a5
+    oldFileId: -1610670888
+    newFileId: 11500000
+  - scriptName: BaseRaycaster
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 426106349a0ff964fa4e7178c1d3a4f5
+    oldFileId: -1394661563
+    newFileId: 11500000
+  - scriptName: BaseInputModule
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 1ea10891dd782154ca0fb67bce9e6f72
+    oldFileId: -1837839079
+    newFileId: 11500000
+  - scriptName: Button
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 4e29b1a8efbd4b44bb3f3716e73f07ff
+    oldFileId: 1392445389
+    newFileId: 11500000
+  - scriptName: Dropdown
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 0d0b652f32a2cc243917e4028fa0f046
+    oldFileId: 853051423
+    newFileId: 11500000
+  - scriptName: HorizontalOrVerticalLayoutGroup
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: a5c214e5846a99242b348c37e49b2f59
+    oldFileId: 812294440
+    newFileId: 11500000
+  - scriptName: InputField
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: d199490a83bb2b844b9695cbf13b01ef
+    oldFileId: 575553740
+    newFileId: 11500000
+  - scriptName: AspectRatioFitter
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 86710e43de46f6f4bac7c8e50813a599
+    oldFileId: -1254083943
+    newFileId: 11500000
+  - scriptName: ScrollRect
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 1aa08ab6e0800fa44ae55d278d1423e3
+    oldFileId: 1367256648
+    newFileId: 11500000
+  - scriptName: EventTrigger
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: d0b148fe25e99eb48b9724523833bab1
+    oldFileId: -1862395651
+    newFileId: 11500000
+  - scriptName: Image
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: fe87c0e1cc204ed48ad3b37840f39efc
+    oldFileId: -765806418
+    newFileId: 11500000
+  - scriptName: ToggleGroup
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 2fafe2cfe61f6974895a912c3755e8f1
+    oldFileId: -1184210157
+    newFileId: 11500000
+  - scriptName: Physics2DRaycaster
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 56666c5a40171f54783dd416a44f42bf
+    oldFileId: -1690312454
+    newFileId: 11500000
+  - scriptName: UIBehaviour
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 0aaa057ce5566e940b18a0ccd0344693
+    oldFileId: 479328781
+    newFileId: 11500000
+  - scriptName: BaseMeshEffect
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 718966f960cb50643986195e5fe953ca
+    oldFileId: 1649306735
+    newFileId: 11500000
+  - scriptName: StandaloneInputModule
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 4f231c4fb786f3946a6b90b886c48677
+    oldFileId: 1077351063
+    newFileId: 11500000
+  - scriptName: VerticalLayoutGroup
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 59f8146938fff824cb5fd77236b75775
+    oldFileId: 1297475563
+    newFileId: 11500000
+  - scriptName: MaskableGraphic
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 976acc75bfafe594cb01142ba21947be
+    oldFileId: -1493381411
+    newFileId: 11500000
+  - scriptName: GridLayoutGroup
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 8a8695521f0d02e499659fee002a26c2
+    oldFileId: -2095666955
+    newFileId: 11500000
+  - scriptName: BaseInput
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 1511ccae7919cfc46b603b9b337fdc94
+    oldFileId: 1327945023
+    newFileId: 11500000
+  - scriptName: CanvasScaler
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 0cd44c1031e13a943bb63640046fad76
+    oldFileId: 1980459831
+    newFileId: 11500000
+  - scriptName: ContentSizeFitter
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 3245ec927659c4140ac4f8d17403cc18
+    oldFileId: 1741964061
+    newFileId: 11500000
+  - scriptName: Slider
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 67db9e8f0e2ae9c40bc1e2b64352a6b4
+    oldFileId: -113659843
+    newFileId: 11500000
+  - scriptName: EventSystem
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 76c392e42b5098c458856cdf6ecaaaa1
+    oldFileId: -619905303
+    newFileId: 11500000
+  - scriptName: PhysicsRaycaster
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: c49b4cc203aa6414fae5c798d1d0e7d6
+    oldFileId: -768656878
+    newFileId: 11500000
+  - scriptName: LayoutElement
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 306cc8c2b49d7114eaa3623786fc2126
+    oldFileId: 1679637790
+    newFileId: 11500000
+  - scriptName: Text
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 5f7201a12d95ffc409449d95f23cf332
+    oldFileId: 708705254
+    newFileId: 11500000
+  - scriptName: RectMask2D
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 3312d7739989d2b4e91e6319e9a96d76
+    oldFileId: -146154839
+    newFileId: 11500000
+  - scriptName: LayoutGroup
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: cb7c939a806f03341b682c180dc13f08
+    oldFileId: -555945567
+    newFileId: 11500000
+  - scriptName: Mask
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 31a19414c41e5ae4aae2af33fee712f6
+    oldFileId: -1200242548
+    newFileId: 11500000
+  - scriptName: TouchInputModule
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 2d49b7c1bcd2e07499844da127be038d
+    oldFileId: 1997211142
+    newFileId: 11500000
+  - scriptName: Selectable
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 7a98125502f715b4b83cfb77b434e436
+    oldFileId: -234403039
+    newFileId: 11500000
+  - scriptName: Scrollbar
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: 2a4db7a114972834c8e4117be1d82ba3
+    oldFileId: -2061169968
+    newFileId: 11500000
+  - scriptName: Graphic
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: a6238e9452bfc704f82ff36791fe1a45
+    oldFileId: 383007879
+    newFileId: 11500000
+  - scriptName: GraphicRaycaster
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: dc42784cf147c0c48a680349fa168899
+    oldFileId: 1301386320
+    newFileId: 11500000
+  - scriptName: Outline
+    oldGuid: d3e719b59ab71ba3f6b398058c866280
+    newGuid: e19747de3f5aca642ab2be37e372fb86
+    oldFileId: -900027084
+    newFileId: 11500000

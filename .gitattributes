@@ -1,0 +1,3 @@
+# Preserve the verified publisher and toolchain bytes on every checkout.
+vendor/** -text -whitespace
+.tools/** -text -whitespace

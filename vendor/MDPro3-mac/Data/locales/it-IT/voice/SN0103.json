@@ -1,0 +1,2449 @@
+{
+  "_GRP_": "SN0103",
+  "_LNG_": "it-IT",
+  "info": {
+    "V0103_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ho già vinto."
+    },
+    "V0103_01_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Stai solo decidendo come perdere!"
+    },
+    "V0103_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il futuro è deciso."
+    },
+    "V0103_01_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ed è destino che i miei EROI mi guidino alla vittoria!"
+    },
+    "V0103_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Ti mostrerò di cosa è capace un Deck di veri eroi!"
+    },
+    "V0103_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        105
+      ],
+      "text": "È ora di darti una ridimensionata, Chazz!"
+    },
+    "V0103_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        102
+      ],
+      "text": "Sei diverso da quando ci siamo visti l'ultima volta. Sono gli ormoni?"
+    },
+    "V0103_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duelliamo!"
+    },
+    "V0103_03_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hai molto da imparare sul destino, ad esempio che io domino il tuo!"
+    },
+    "V0103_03_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0103_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mmh, strategia interessante... il che non vuol dire che sia efficace."
+    },
+    "V0103_03_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno ora!"
+    },
+    "V0103_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I miei EROI del Destino sono molto meglio dei tuoi EROI Elementali!"
+    },
+    "V0103_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0103_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Scoprirai perché sono un professionista!"
+    },
+    "V0103_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno ora!"
+    },
+    "V0103_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il mio destino non si è concluso!"
+    },
+    "V0103_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0103_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Credo ancora in tutti gli EROI del Destino progettati da mio padre!"
+    },
+    "V0103_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno ora!"
+    },
+    "V0103_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pesco."
+    },
+    "V0103_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me pescare!"
+    },
+    "V0103_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me pescare!"
+    },
+    "V0103_05_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Dai uno sguardo oltre i cancelli del destino!"
+    },
+    "V0103_05_00_00_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me pescare!"
+    },
+    "V0103_06_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non ci pensare nemmeno!"
+    },
+    "V0103_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dovrei aver paura?"
+    },
+    "V0103_06_01_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sapevo che ci avresti provato!"
+    },
+    "V0103_06_01_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non farmi ridere!"
+    },
+    "V0103_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dalla mia mano..."
+    },
+    "V0103_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia!"
+    },
+    "V0103_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Rapida!"
+    },
+    "V0103_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Continua!"
+    },
+    "V0103_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Equipaggiamento!"
+    },
+    "V0103_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Rituale!"
+    },
+    "V0103_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La mia Trappola si attiva!"
+    },
+    "V0103_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La mia Trappola Continua si attiva!"
+    },
+    "V0103_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La mia Contro-Trappola si attiva!"
+    },
+    "V0103_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rivelo la mia carta coperta!"
+    },
+    "V0103_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ecco la mia carta coperta!"
+    },
+    "V0103_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'effetto del mio mostro si attiva!"
+    },
+    "V0103_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Terreno!"
+    },
+    "V0103_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si attiva il mio effetto!"
+    },
+    "V0103_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Imposto il Valore Pendulum!"
+    },
+    "V0103_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6761
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Catena del Destino!"
+    },
+    "V0103_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7639
+      ],
+      "duelist": [],
+      "text": "Si attiva la mia Trappola! Fortuna - D!"
+    },
+    "V0103_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7621
+      ],
+      "duelist": [],
+      "text": "La Magia Continua Formazione - D!"
+    },
+    "V0103_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6952
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Contrattacco - D!"
+    },
+    "V0103_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6680
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! D - Scudo!"
+    },
+    "V0103_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6762
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Spirito del Destino!"
+    },
+    "V0103_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6678
+      ],
+      "duelist": [],
+      "text": "Il destino mi sorride!"
+    },
+    "V0103_08_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la Trappola D - Ora!"
+    },
+    "V0103_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6953
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Eterno Terrore!"
+    },
+    "V0103_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6676
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Ricarica Elementale!"
+    },
+    "V0103_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6951
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Grande Destino!"
+    },
+    "V0103_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6667
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Magia Rapida! Penalità di Difesa!"
+    },
+    "V0103_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6758
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Magia Terreno! Città Oscura!"
+    },
+    "V0103_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6679
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Destino-Segnale!"
+    },
+    "V0103_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6677
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Distruzione del Destino!"
+    },
+    "V0103_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6950
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Pescata del Destino!"
+    },
+    "V0103_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6763
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Miraggio del Destino!"
+    },
+    "V0103_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6669
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Sfortuna!"
+    },
+    "V0103_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6814
+      ],
+      "duelist": [],
+      "text": "Attivo la Magia Equipaggiamento Lama Ciclone!"
+    },
+    "V0103_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6759
+      ],
+      "duelist": [],
+      "text": "La Magia Terreno Mausoleo dell'Imperatore!"
+    },
+    "V0103_08_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6668
+      ],
+      "duelist": [],
+      "text": "I miei EROI del Destino domineranno un nuovo campo di battaglia!"
+    },
+    "V0103_08_00_19_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Magia Terreno Prigione della Torre dell'Orologio!"
+    },
+    "V0103_08_00_19_2": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ogni scatto delle lancette mi avvicina alla vittoria!"
+    },
+    "V0103_08_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4837
+      ],
+      "duelist": [],
+      "text": "Attivo la Carta Magia Polimerizzazione!"
+    },
+    "V0103_08_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4872
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Saggio delle Fusioni!"
+    },
+    "V0103_08_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6360
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Depolimerizzazione!"
+    },
+    "V0103_08_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3759
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! D - Mind!"
+    },
+    "V0103_08_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12709
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! D-Fusione!"
+    },
+    "V0103_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7096
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Plasma - EROE del Destino!"
+    },
+    "V0103_09_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "All'assalto!"
+    },
+    "V0103_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6659
+      ],
+      "duelist": [],
+      "text": "L'effetto di Capitano Tenace - EROE del Destino si attiva!"
+    },
+    "V0103_09_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meraviglia Vivente!"
+    },
+    "V0103_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6660
+      ],
+      "duelist": [],
+      "text": "Ragazzo Diamante - EROE del Destino! Usa il tuo effetto, amico mio!"
+    },
+    "V0103_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6752
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Maestro di Lame - EROE del Destino!"
+    },
+    "V0103_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6753
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Dasher - EROE del Destino!"
+    },
+    "V0103_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6754
+      ],
+      "duelist": [],
+      "text": "Duplicante - EROE del Destino attiva il suo effetto!"
+    },
+    "V0103_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7416
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Schiacciatore - EROE del Destino!"
+    },
+    "V0103_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6949
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Malicious - EROE del Destino!"
+    },
+    "V0103_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7095
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Comandante Disco - EROE del Destino!"
+    },
+    "V0103_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7417
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Trapassato - EROE del Destino!"
+    },
+    "V0103_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6755
+      ],
+      "duelist": [],
+      "text": "Difensore - EROE del Destino attiva il suo effetto!"
+    },
+    "V0103_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6658
+      ],
+      "duelist": [],
+      "text": "Signore del Fato - EROE del Destino, attiva il tuo effetto!"
+    },
+    "V0103_09_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Stretta del Fato Imminente!"
+    },
+    "V0103_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6756
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Dispensatore di Paura - EROE del Destino!"
+    },
+    "V0103_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6757
+      ],
+      "duelist": [],
+      "text": "L'effetto di Dogma - EROE del Destino si attiva!"
+    },
+    "V0103_09_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Assoluto Vitale!"
+    },
+    "V0103_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6661
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Maestro del Terrore - EROE del Destino!"
+    },
+    "V0103_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7577
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Servitore del Terrore - EROE del Destino!"
+    },
+    "V0103_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7615
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Dragone del Destino Finale!"
+    },
+    "V0103_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12708
+      ],
+      "duelist": [],
+      "text": "Guarda l'effetto di Cubo D!"
+    },
+    "V0103_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12706
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Angelo Oscuro - EROE del Destino!"
+    },
+    "V0103_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12707
+      ],
+      "duelist": [],
+      "text": "Celestial - EROE del Destino, mostra il tuo effetto!"
+    },
+    "V0103_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9229
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Vyon EROE Vision!"
+    },
+    "V0103_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9076
+      ],
+      "duelist": [],
+      "text": "Guarda l'effetto di Adoration EROE Vision!"
+    },
+    "V0103_09_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9196
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Trinity EROE Vision!"
+    },
+    "V0103_09_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9467
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Il Grande Giove!"
+    },
+    "V0103_09_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12702
+      ],
+      "duelist": [],
+      "text": "Drilldark - EROE del Destino, mostra il tuo effetto!"
+    },
+    "V0103_09_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12703
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Dynatag - EROE del Destino!"
+    },
+    "V0103_09_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12704
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Decisore - EROE del Destino!"
+    },
+    "V0103_09_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12705
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Dystopia - EROE del Destino!"
+    },
+    "V0103_09_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12694
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Pericoloso - EROE del Destino!"
+    },
+    "V0103_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ci siamo!"
+    },
+    "V0103_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dammi il tuo potere!"
+    },
+    "V0103_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Andiamo!"
+    },
+    "V0103_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Guarda e impara!"
+    },
+    "V0103_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro in Posizione di Attacco!"
+    },
+    "V0103_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro in Posizione di Difesa!"
+    },
+    "V0103_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Specialmente un mostro!"
+    },
+    "V0103_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Offro un mostro come Tributo!"
+    },
+    "V0103_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Tributo!"
+    },
+    "V0103_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Fusione!"
+    },
+    "V0103_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Rituale!"
+    },
+    "V0103_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchro Evoco un mostro!"
+    },
+    "V0103_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Xyz un mostro!"
+    },
+    "V0103_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Pendulum un mostro!"
+    },
+    "V0103_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro Link!"
+    },
+    "V0103_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7096
+      ],
+      "duelist": [],
+      "text": "Metterò fine al tuo destino con la forza vitale di tutto il creato!"
+    },
+    "V0103_13_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "L'inarrestabile Plasma - EROE del Destino!"
+    },
+    "V0103_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6659
+      ],
+      "duelist": [],
+      "text": "Ti presento Capitano Tenace - EROE del Destino!"
+    },
+    "V0103_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6660
+      ],
+      "duelist": [],
+      "text": "Ecco il mio nuovo amico! Ragazzo Diamante - EROE del Destino!"
+    },
+    "V0103_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6752
+      ],
+      "duelist": [],
+      "text": "Ecco Maestro di Lame - EROE del Destino!"
+    },
+    "V0103_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6753
+      ],
+      "duelist": [],
+      "text": "Forza, Dasher - EROE del Destino!"
+    },
+    "V0103_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6754
+      ],
+      "duelist": [],
+      "text": "Ti aspetta una doppia batosta! Duplicante - EROE del Destino!"
+    },
+    "V0103_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7416
+      ],
+      "duelist": [],
+      "text": "Schiacciatore - EROE del Destino sta arrivando per metterti al tappeto!"
+    },
+    "V0103_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6949
+      ],
+      "duelist": [],
+      "text": "Forza, Malicious - EROE del Destino!"
+    },
+    "V0103_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7095
+      ],
+      "duelist": [],
+      "text": "Comandante Disco - EROE del Destino, andiamo!"
+    },
+    "V0103_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7417
+      ],
+      "duelist": [],
+      "text": "Ora che Trapassato - EROE del Destino è qui, il tuo futuro ha le ore contate!"
+    },
+    "V0103_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6755
+      ],
+      "duelist": [],
+      "text": "Difensore - EROE del Destino fa la sua comparsa!"
+    },
+    "V0103_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6658
+      ],
+      "duelist": [],
+      "text": "Dai il benvenuto alla tua fine! Signore del Fato - EROE del Destino!"
+    },
+    "V0103_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6756
+      ],
+      "duelist": [],
+      "text": "Ti presento Dispensatore di Paura - EROE del Destino!"
+    },
+    "V0103_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        6757
+      ],
+      "duelist": [],
+      "text": "Andiamo, Dogma - EROE del Destino!"
+    },
+    "V0103_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        6661
+      ],
+      "duelist": [],
+      "text": "Libero il mio EROE del Destino dalla sua prigione! "
+    },
+    "V0103_13_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Andiamo, Maestro del Terrore - EROE del Destino!"
+    },
+    "V0103_13_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7577
+      ],
+      "duelist": [],
+      "text": "Servitore del Terrore - EROE del Destino è qui!"
+    },
+    "V0103_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7615
+      ],
+      "duelist": [],
+      "text": "Il mio destino va a gonfie vele!"
+    },
+    "V0103_13_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Fatti avanti, Dragone del Destino Finale!"
+    },
+    "V0103_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6655
+      ],
+      "duelist": [],
+      "text": "Guarda qui: Fenice Sorvegliante EROE Elementale!"
+    },
+    "V0103_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        6656
+      ],
+      "duelist": [],
+      "text": "Ecco Lucente Fenice Sorvegliante EROE Elementale!"
+    },
+    "V0103_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12708
+      ],
+      "duelist": [],
+      "text": "Tocca a te, Cubo D!"
+    },
+    "V0103_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12706
+      ],
+      "duelist": [],
+      "text": "Questo l'ha creato mio padre come nemesi del mio EROE migliore..."
+    },
+    "V0103_13_00_20_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Rivelati, Angelo Oscuro - EROE del Destino!"
+    },
+    "V0103_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12707
+      ],
+      "duelist": [],
+      "text": "Guarda qui: Celestial - EROE del Destino!"
+    },
+    "V0103_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9229
+      ],
+      "duelist": [],
+      "text": "Vyon EROE Vision, mostra il tuo potenziale!"
+    },
+    "V0103_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9076
+      ],
+      "duelist": [],
+      "text": "Gioco questa cosuccia da nulla! Adoration EROE Vision!"
+    },
+    "V0103_13_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9196
+      ],
+      "duelist": [],
+      "text": "Trinity EROE Vision è qui!"
+    },
+    "V0103_13_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9467
+      ],
+      "duelist": [],
+      "text": "Fatti avanti, Il Grande Giove!"
+    },
+    "V0103_13_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12702
+      ],
+      "duelist": [],
+      "text": "Ecco Drilldark - EROE del Destino!"
+    },
+    "V0103_13_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12703
+      ],
+      "duelist": [],
+      "text": "Dai il benvenuto a Dynatag - EROE del Destino!"
+    },
+    "V0103_13_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12704
+      ],
+      "duelist": [],
+      "text": "Ti presento Decisore - EROE del Destino!"
+    },
+    "V0103_13_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12705
+      ],
+      "duelist": [],
+      "text": "Saluta Dystopia - EROE del Destino!"
+    },
+    "V0103_13_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12694
+      ],
+      "duelist": [],
+      "text": "Ecco Pericoloso - EROE del Destino!"
+    },
+    "V0103_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È ora di combattere!"
+    },
+    "V0103_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È giunta l'ora della battaglia!"
+    },
+    "V0103_15_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Via!"
+    },
+    "V0103_15_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Falli fuori!"
+    },
+    "V0103_15_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schiacciali!"
+    },
+    "V0103_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il mio mostro attacca!"
+    },
+    "V0103_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attacco con il mio mostro!"
+    },
+    "V0103_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "All'attacco!"
+    },
+    "V0103_16_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Scacco matto!"
+    },
+    "V0103_16_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non avevi speranze contro la mia strategia!"
+    },
+    "V0103_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il mio mostro ti attacca direttamente!"
+    },
+    "V0103_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ti attacco direttamente!"
+    },
+    "V0103_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7096
+      ],
+      "duelist": [],
+      "text": "Plasma - EROE del Destino, attacca!"
+    },
+    "V0103_19_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regno Vendicativo!"
+    },
+    "V0103_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6659
+      ],
+      "duelist": [],
+      "text": "Capitano Tenace - EROE del Destino, scatena l'inferno!"
+    },
+    "V0103_19_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Terrore Spaventoso!"
+    },
+    "V0103_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6660
+      ],
+      "duelist": [],
+      "text": "Ragazzo Diamante - EROE del Destino, attacca!"
+    },
+    "V0103_19_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Esplosione di Diamanti!"
+    },
+    "V0103_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6752
+      ],
+      "duelist": [],
+      "text": "Maestro di Lame - EROE del Destino, dacci dentro! Attacca!"
+    },
+    "V0103_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6753
+      ],
+      "duelist": [],
+      "text": "Dasher - EROE del Destino, attacca!"
+    },
+    "V0103_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Scossa Piroelettrica!"
+    },
+    "V0103_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6754
+      ],
+      "duelist": [],
+      "text": "Vai, Duplicante - EROE del Destino!"
+    },
+    "V0103_19_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fato Sovrapposto!"
+    },
+    "V0103_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7416
+      ],
+      "duelist": [],
+      "text": "Schiacciatore - EROE del Destino! Attacca!"
+    },
+    "V0103_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6949
+      ],
+      "duelist": [],
+      "text": "Malicious - EROE del Destino! Attacca senza pietà!"
+    },
+    "V0103_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7095
+      ],
+      "duelist": [],
+      "text": "Comandante Disco - EROE del Destino! Lancia i tuoi dischi!"
+    },
+    "V0103_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7417
+      ],
+      "duelist": [],
+      "text": "Fagliela vedere, Trapassato - EROE del Destino! Attacca!"
+    },
+    "V0103_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6755
+      ],
+      "duelist": [],
+      "text": "Difensore - EROE del Destino attacca!"
+    },
+    "V0103_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6658
+      ],
+      "duelist": [],
+      "text": "Signore del Fato - EROE del Destino, toglimeli di mezzo!"
+    },
+    "V0103_19_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Stretta del Fato Imminente!"
+    },
+    "V0103_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6756
+      ],
+      "duelist": [],
+      "text": "Attacca, Dispensatore di Paura - EROE del Destino!"
+    },
+    "V0103_19_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Spaventali con Fato Oscuro!"
+    },
+    "V0103_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6757
+      ],
+      "duelist": [],
+      "text": "Vai, Dogma - EROE del Destino!"
+    },
+    "V0103_19_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Carica di Pugnale!"
+    },
+    "V0103_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6661
+      ],
+      "duelist": [],
+      "text": "Maestro del Terrore - EROE del Destino, attacca!"
+    },
+    "V0103_19_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Predatore della Corazzata!"
+    },
+    "V0103_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7577
+      ],
+      "duelist": [],
+      "text": "Servitore del Terrore - EROE del Destino, fagli fare il botto!"
+    },
+    "V0103_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7615
+      ],
+      "duelist": [],
+      "text": "Dragone del Destino Finale! Attacca!"
+    },
+    "V0103_19_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Esplosione Suprema del Destino!"
+    },
+    "V0103_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6655
+      ],
+      "duelist": [],
+      "text": "Vai, Fenice Sorvegliante EROE Elementale!"
+    },
+    "V0103_19_00_17_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fiamma della Fenice!"
+    },
+    "V0103_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6656
+      ],
+      "duelist": [],
+      "text": "Lucente Fenice Sorvegliante EROE Elementale! Vai!"
+    },
+    "V0103_19_00_18_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Calcio Splendente!"
+    },
+    "V0103_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12708
+      ],
+      "duelist": [],
+      "text": "Cubo D! Attacca!"
+    },
+    "V0103_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12706
+      ],
+      "duelist": [],
+      "text": "Angelo Oscuro - EROE del Destino, falli fuori! Attacca!"
+    },
+    "V0103_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12707
+      ],
+      "duelist": [],
+      "text": "Attacco con Celestial - EROE del Destino!"
+    },
+    "V0103_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9229
+      ],
+      "duelist": [],
+      "text": "Fagli vedere di cosa sei capace, Vyon EROE Vision! Attacca!"
+    },
+    "V0103_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9076
+      ],
+      "duelist": [],
+      "text": "Adoration EROE Vision, attacca!"
+    },
+    "V0103_19_00_23_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sanzione dell'Ambizione!"
+    },
+    "V0103_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9196
+      ],
+      "duelist": [],
+      "text": "Trinity EROE Vision, mostra il tuo potenziale!"
+    },
+    "V0103_19_00_24_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Scontro della Trinità!"
+    },
+    "V0103_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9467
+      ],
+      "duelist": [],
+      "text": "Il Grande Giove attacca!"
+    },
+    "V0103_19_00_25_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grande Macchia Rossa!"
+    },
+    "V0103_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12702
+      ],
+      "duelist": [],
+      "text": "Vai, Drilldark - EROE del Destino!"
+    },
+    "V0103_19_00_26_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Infilzali!"
+    },
+    "V0103_19_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12703
+      ],
+      "duelist": [],
+      "text": "Dynatag - EROE del Destino, falli esplodere!"
+    },
+    "V0103_19_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12704
+      ],
+      "duelist": [],
+      "text": "Decisore - EROE del Destino! Attacca e decidi il fato dei miei avversari!"
+    },
+    "V0103_19_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12705
+      ],
+      "duelist": [],
+      "text": "Vai, Dystopia - EROE del Destino!"
+    },
+    "V0103_19_00_29_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Colpo Distopico!"
+    },
+    "V0103_19_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12694
+      ],
+      "duelist": [],
+      "text": "Vai e attacca, Pericoloso - EROE del Destino!"
+    },
+    "V0103_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono una carta!"
+    },
+    "V0103_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono una carta!"
+    },
+    "V0103_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono un mostro!"
+    },
+    "V0103_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono un mostro!"
+    },
+    "V0103_21_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno."
+    },
+    "V0103_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno."
+    },
+    "V0103_21_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grrr! Termino il mio turno!"
+    },
+    "V0103_28_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il destino mi ha già prescelto per essere il migliore!"
+    },
+    "V0103_28_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vincere Duelli è una passeggiata quando il destino è dalla tua parte! "
+    },
+    "V0103_28_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vedo che hai dubitato delle tue capacità."
+    },
+    "V0103_28_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Se non credi nelle tue mosse, non hai la stoffa per i Duelli."
+    },
+    "V0103_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Pensavi davvero che esistessero eroi migliori dei miei?"
+    },
+    "V0103_28_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        105
+      ],
+      "text": "Fai pena come un poppante! Vai a metterti il pigiama degli Ojama."
+    },
+    "V0103_28_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        102
+      ],
+      "text": "Devo dirtelo, Zane, pensavo che fossi più forte."
+    },
+    "V0103_28_00_07_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Se non sai mantenere la calma, la tua carriera è già finita."
+    },
+    "V0103_29_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I miei EROI del Destino sono stati sconfitti... Scusa, papà."
+    },
+    "V0103_29_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Come? Come ho potuto perdere? Non ho commesso errori!"
+    },
+    "V0103_29_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh! Che me ne importa?"
+    },
+    "V0103_29_00_02_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È solo un intoppo sulla strada del trionfo a livello professionale!"
+    },
+    "V0103_29_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "I miei EROI del Destino non sono inferiori ai tuoi Elementali!"
+    },
+    "V0103_29_00_03_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ho solo fatto un paio di errori. Mi sono confuso, tutto qui."
+    },
+    "V0103_29_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        105
+      ],
+      "text": "Sei migliorato, Chazz."
+    },
+    "V0103_29_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Giocheremo la rivincita nel circuito professionale!"
+    },
+    "V0103_30_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Eh eh, con i principianti è troppo facile."
+    },
+    "V0103_30_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non mi scompongo!"
+    },
+    "V0103_30_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mi stai facendo perdere tempo."
+    },
+    "V0103_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cosa?!"
+    },
+    "V0103_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh no!"
+    },
+    "V0103_33_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Stai per scoprire perché io sono un professionista e tu una schiappa!"
+    },
+    "V0103_33_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "EROI del Destino! Datemi una mano!"
+    },
+    "V0103_33_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Non avrò pietà!"
+    },
+    "V0103_34_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nessuno può fermare il destino!"
+    },
+    "V0103_34_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non avrai mai la stoffa per diventare un vero eroe come me!"
+    },
+    "V0103_34_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gli EROI del Destino controllano le sorti del futuro!"
+    },
+    "V0103_34_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah!"
+    },
+    "V0103_34_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Un professionista non rivela mai le sue strategie migliori."
+    },
+    "V0103_34_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non farti più vedere!"
+    },
+    "V0103_34_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non hai speranze contro un Duellante professionista come me!"
+    },
+    "V0103_34_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non puoi sfuggire al destino!"
+    },
+    "V0103_34_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non credo proprio."
+    },
+    "V0103_34_00_09_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Impossibile!"
+    },
+    "V0103_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0103_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!"
+    },
+    "V0103_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Scoprirai cosa vuol dire essere un professionista."
+    },
+    "V0103_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "EROI del Destino, conquistiamo la vittoria!"
+    },
+    "V0103_22_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Urgh..."
+    },
+    "V0103_22_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0103_22_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah!"
+    },
+    "V0103_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Niente di speciale!"
+    },
+    "V0103_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Solo un colpo di fortuna!"
+    },
+    "V0103_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tutto qua?"
+    },
+    "V0103_25_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah!"
+    },
+    "V0103_25_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaah!"
+    },
+    "V0103_25_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0103_27_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non è ancora finita!"
+    },
+    "V0103_27_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sono ancora qui!"
+    },
+    "V0103_27_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ti sto solo dando un po' di vantaggio!"
+    },
+    "V0103_24_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Urgh..."
+    },
+    "V0103_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah!"
+    }
+  }
+}

@@ -1,0 +1,1931 @@
+{
+  "_GRP_": "SN0110",
+  "_LNG_": "it-IT",
+  "info": {
+    "V0110_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'esito di un Duello è determinato al 99% dall'intelligenza."
+    },
+    "V0110_01_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Te lo proverò!"
+    },
+    "V0110_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vediamo se le tue tattiche sono all'altezza delle mie!"
+    },
+    "V0110_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Dici di essere il Duellante più abile dell'Accademia."
+    },
+    "V0110_01_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ma io ho ideato un nuovo Deck per sconfiggere i tuoi EROI Elementali!"
+    },
+    "V0110_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        105,
+        116
+      ],
+      "text": "Sei solo un problema da risolvere, un teorema da dimostrare."
+    },
+    "V0110_01_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "E lo farò con questo Deck, Chazz!"
+    },
+    "V0110_01_00_10_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        112,
+        117
+      ],
+      "text": "Ehi, ciao! Ero qui fin dall'inizio!"
+    },
+    "V0110_01_00_10_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Anche da prima che arrivassi tu!"
+    },
+    "V0110_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duelliamo!"
+    },
+    "V0110_03_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ho risolto il tuo Deck!"
+    },
+    "V0110_03_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0110_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È ora di porre fine a tutto ciò!"
+    },
+    "V0110_03_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno ora!"
+    },
+    "V0110_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Per me non c'è niente da temere."
+    },
+    "V0110_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0110_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mi sto divertendo!"
+    },
+    "V0110_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno ora!"
+    },
+    "V0110_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Non riesco a decifrare il tuo algoritmo!"
+    },
+    "V0110_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno!"
+    },
+    "V0110_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ho finito di raccogliere i tuoi dati!"
+    },
+    "V0110_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "È il mio turno ora!"
+    },
+    "V0110_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me pescare!"
+    },
+    "V0110_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me pescare!"
+    },
+    "V0110_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me pescare!"
+    },
+    "V0110_05_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Con il mio Deck e le pescate, ho perfezionato la teoria del Duello!"
+    },
+    "V0110_05_00_00_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me pescare!"
+    },
+    "V0110_06_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In questo momento..."
+    },
+    "V0110_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Proprio come avevo calcolato!"
+    },
+    "V0110_06_01_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Solo i Duellanti impreparati farebbero una mossa del genere!"
+    },
+    "V0110_06_01_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ora!"
+    },
+    "V0110_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dalla mia mano..."
+    },
+    "V0110_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia!"
+    },
+    "V0110_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Rapida!"
+    },
+    "V0110_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Continua!"
+    },
+    "V0110_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Equipaggiamento!"
+    },
+    "V0110_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Rituale!"
+    },
+    "V0110_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La mia Trappola si attiva!"
+    },
+    "V0110_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La mia Trappola Continua si attiva!"
+    },
+    "V0110_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La mia Contro-Trappola si attiva!"
+    },
+    "V0110_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rivelo la mia carta coperta!"
+    },
+    "V0110_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Userò la mia carta coperta!"
+    },
+    "V0110_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo l'effetto del mio mostro!"
+    },
+    "V0110_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo una Magia Terreno!"
+    },
+    "V0110_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si attiva il mio effetto!"
+    },
+    "V0110_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Imposto il Valore Pendulum!"
+    },
+    "V0110_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6492
+      ],
+      "duelist": [],
+      "text": "Attivo la Carta Magia Legame - H2O!"
+    },
+    "V0110_08_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Con 2 Hydrogeddon e 1 Oxygeddon sul mio Terreno..."
+    },
+    "V0110_08_00_00_2": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non ci vuole una scienza per creare l'acqua!"
+    },
+    "V0110_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5853
+      ],
+      "duelist": [],
+      "text": "Ah, proprio il momento che stavo aspettando..."
+    },
+    "V0110_08_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attivo la mia Trappola! Sigillo Maledetto della Magia Proibita!"
+    },
+    "V0110_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5849
+      ],
+      "duelist": [],
+      "text": "Attivo la Magia Rapida Ricarica!"
+    },
+    "V0110_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5629
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Duplica Magia!"
+    },
+    "V0110_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5343
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Il Battito d'Ali del Drago Gigante!"
+    },
+    "V0110_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6142
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Trappola Continua! Barriera dello Spirito!"
+    },
+    "V0110_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4964
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Nobiluomo dello Sterminio!"
+    },
+    "V0110_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5005
+      ],
+      "duelist": [],
+      "text": "Si attiva la mia Carta Trappola! Anello della Distruzione!"
+    },
+    "V0110_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5124
+      ],
+      "duelist": [],
+      "text": "Si attiva la mia Carta Trappola! Cilindro Magico!"
+    },
+    "V0110_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4821
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Distruggi-Carte!"
+    },
+    "V0110_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4812
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Carità Graziosa!"
+    },
+    "V0110_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5236
+      ],
+      "duelist": [],
+      "text": "Attivo la mia Carta Magia! Sepoltura Sciocca!"
+    },
+    "V0110_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6222
+      ],
+      "duelist": [],
+      "text": "La Carta Trappola Fuh-Rin-Ka-Zan!"
+    },
+    "V0110_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9286
+      ],
+      "duelist": [],
+      "text": "La Carta Trappola Dispetto dello Yokai!"
+    },
+    "V0110_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13812
+      ],
+      "duelist": [],
+      "text": "Attivo la Magia Rituale Litmus Doom Ritual!"
+    },
+    "V0110_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6481
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Drago Acquatico!"
+    },
+    "V0110_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6480
+      ],
+      "duelist": [],
+      "text": "Sai che succede quando l'ossigeno si mischia con il fuoco? Guarda!"
+    },
+    "V0110_09_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Oxygeddon!"
+    },
+    "V0110_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11167
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Carboneddon!"
+    },
+    "V0110_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6479
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Hydrogeddon!"
+    },
+    "V0110_09_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Se distrugge il tuo mostro, posso Evocare Specialmente un altro Hydrogeddon!"
+    },
+    "V0110_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11168
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Il Matematico!"
+    },
+    "V0110_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7358
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Shutendoji!"
+    },
+    "V0110_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7804
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Orco Rosso!"
+    },
+    "V0110_09_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Inferno Ardente!"
+    },
+    "V0110_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7359
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Mezuki!"
+    },
+    "V0110_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12896
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Gozuki!"
+    },
+    "V0110_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6920
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Goka, la Pira della Malvagità!"
+    },
+    "V0110_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7937
+      ],
+      "duelist": [],
+      "text": "Ecco l'effetto di Kasha!"
+    },
+    "V0110_09_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ingresso nel Mondo Sotterraneo!"
+    },
+    "V0110_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6198
+      ],
+      "duelist": [],
+      "text": "Si attiva l'effetto di Volpe di Fuoco!"
+    },
+    "V0110_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5044
+      ],
+      "duelist": [],
+      "text": "Attivo l'effetto di Predatore Inflessibile!"
+    },
+    "V0110_09_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5975
+      ],
+      "duelist": [],
+      "text": "Maga Bianca Pikeru, attiva il tuo effetto!"
+    },
+    "V0110_09_00_15_1": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Uff... Sei qualcosa di più della mia carta preferita!"
+    },
+    "V0110_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13811
+      ],
+      "duelist": [],
+      "text": "Litmus Doom Swordsman, scatena il tuo effetto!"
+    },
+    "V0110_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3763
+      ],
+      "duelist": [],
+      "text": "L'effetto di Plasma Warrior Eitom si attiva!"
+    },
+    "V0110_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tocca a me!"
+    },
+    "V0110_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Conto su di te!"
+    },
+    "V0110_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Proviamo... così!"
+    },
+    "V0110_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sarà perfetto!"
+    },
+    "V0110_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro in Posizione di Attacco!"
+    },
+    "V0110_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro in Posizione di Difesa!"
+    },
+    "V0110_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Specialmente un mostro!"
+    },
+    "V0110_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Offro un mostro come Tributo!"
+    },
+    "V0110_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Tributo!"
+    },
+    "V0110_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Fusione!"
+    },
+    "V0110_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Rituale!"
+    },
+    "V0110_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchro Evoco un mostro!"
+    },
+    "V0110_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Xyz un mostro!"
+    },
+    "V0110_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco Pendulum un mostro!"
+    },
+    "V0110_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Evoco un mostro tramite Link!"
+    },
+    "V0110_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        6481
+      ],
+      "duelist": [],
+      "text": "Anche le acque più calme possono inghiottire il mondo intero..."
+    },
+    "V0110_13_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Fatti avanti, Drago Acquatico!"
+    },
+    "V0110_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6480
+      ],
+      "duelist": [],
+      "text": "Ti presento Oxygeddon!"
+    },
+    "V0110_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11167
+      ],
+      "duelist": [],
+      "text": "Ti presento Carboneddon!"
+    },
+    "V0110_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6479
+      ],
+      "duelist": [],
+      "text": "Ti presento Hydrogeddon!"
+    },
+    "V0110_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11168
+      ],
+      "duelist": [],
+      "text": "Vieni, Il Matematico!"
+    },
+    "V0110_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4743
+      ],
+      "duelist": [],
+      "text": "Ecco Hyozanryu di diamante!"
+    },
+    "V0110_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7358
+      ],
+      "duelist": [],
+      "text": "Ecco Shutendoji!"
+    },
+    "V0110_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7804
+      ],
+      "duelist": [],
+      "text": "Ho invitato l'Emissario dell'Oscurità, Orco Rosso!"
+    },
+    "V0110_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7359
+      ],
+      "duelist": [],
+      "text": "Mezuki galoppa sul Terreno!"
+    },
+    "V0110_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12896
+      ],
+      "duelist": [],
+      "text": "Vieni a me, Gozuki!"
+    },
+    "V0110_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        6920
+      ],
+      "duelist": [],
+      "text": "Una singola scintilla può trasformarsi in un inferno rovente!"
+    },
+    "V0110_13_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Brucia con Goka, la Pira della Malvagità!"
+    },
+    "V0110_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7937
+      ],
+      "duelist": [],
+      "text": "Evoco Specialmente un mostro di Livello 8!"
+    },
+    "V0110_13_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Rotola qui, Kasha!"
+    },
+    "V0110_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6198
+      ],
+      "duelist": [],
+      "text": "Non si deve giudicare un mostro dalle apparenze."
+    },
+    "V0110_13_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ti presento Volpe di Fuoco!"
+    },
+    "V0110_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5004
+      ],
+      "duelist": [],
+      "text": "Fatti vedere, Predatore Vorse!"
+    },
+    "V0110_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5044
+      ],
+      "duelist": [],
+      "text": "Fatti vedere, Predatore Inflessibile!"
+    },
+    "V0110_13_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        5975
+      ],
+      "duelist": [],
+      "text": "Non ricordo di aver messo questa carta nel Deck. Com'è finita qui?"
+    },
+    "V0110_13_00_15_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ci penserò dopo... Andiamo, Maga Bianca Pikeru!"
+    },
+    "V0110_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13811
+      ],
+      "duelist": [],
+      "text": "Questa carta è immune alle Trappole e indistruttibile in battaglia."
+    },
+    "V0110_13_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Avanza, Litmus Doom Swordsman!"
+    },
+    "V0110_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3763
+      ],
+      "duelist": [],
+      "text": "Presentati, Plasma Warrior Eitom!"
+    },
+    "V0110_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "D'accordo, è ora di combattere!"
+    },
+    "V0110_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattiamo!"
+    },
+    "V0110_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Via!"
+    },
+    "V0110_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Userò questa carta!"
+    },
+    "V0110_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sarà ideale!"
+    },
+    "V0110_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il mio mostro attacca!"
+    },
+    "V0110_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attacco con il mio mostro!"
+    },
+    "V0110_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "All'attacco!"
+    },
+    "V0110_16_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Perfetto!"
+    },
+    "V0110_16_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cerca di non rattristarti troppo..."
+    },
+    "V0110_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il mio mostro ti attacca direttamente!"
+    },
+    "V0110_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ti attacco direttamente!"
+    },
+    "V0110_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6481
+      ],
+      "duelist": [],
+      "text": "Passa all'azione, Drago Acquatico!"
+    },
+    "V0110_19_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Esplosione Oceanica!"
+    },
+    "V0110_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6480
+      ],
+      "duelist": [],
+      "text": "Oxygeddon, attacca!"
+    },
+    "V0110_19_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Getto di Vapore!"
+    },
+    "V0110_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11167
+      ],
+      "duelist": [],
+      "text": "Attacca, Carboneddon!"
+    },
+    "V0110_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6479
+      ],
+      "duelist": [],
+      "text": "Attacca, Hydrogeddon!"
+    },
+    "V0110_19_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Idroraffica!"
+    },
+    "V0110_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11168
+      ],
+      "duelist": [],
+      "text": "Finiscili, Il Matematico!"
+    },
+    "V0110_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Masticanumeri!"
+    },
+    "V0110_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4743
+      ],
+      "duelist": [],
+      "text": "Rendimi orgoglioso, Hyozanryu!"
+    },
+    "V0110_19_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Devastazione di Diamante!"
+    },
+    "V0110_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7358
+      ],
+      "duelist": [],
+      "text": "Attacco con Shutendoji!"
+    },
+    "V0110_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7804
+      ],
+      "duelist": [],
+      "text": "Mmh, è il momento giusto per attaccare... Vai, Orco Rosso!"
+    },
+    "V0110_19_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fiamma di Orco!"
+    },
+    "V0110_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7359
+      ],
+      "duelist": [],
+      "text": "Falli a fettine, Mezuki!"
+    },
+    "V0110_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12896
+      ],
+      "duelist": [],
+      "text": "Vai! Gozuki!"
+    },
+    "V0110_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6920
+      ],
+      "duelist": [],
+      "text": "Attacca subito, Goka, la Pira della Malvagità!"
+    },
+    "V0110_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7937
+      ],
+      "duelist": [],
+      "text": "Avvolgili nelle fiamme, Kasha!"
+    },
+    "V0110_19_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ruota Infuocata!"
+    },
+    "V0110_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6198
+      ],
+      "duelist": [],
+      "text": "Volpe di Fuoco attacca!"
+    },
+    "V0110_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5004
+      ],
+      "duelist": [],
+      "text": "Squarciali, Predatore Vorse!"
+    },
+    "V0110_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5044
+      ],
+      "duelist": [],
+      "text": "Predatore Inflessibile! Attacca!"
+    },
+    "V0110_19_00_15_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5975
+      ],
+      "duelist": [],
+      "text": "Maga Bianca Pikeru, la regina del mio Deck! Forse dovrei concentrarmi..."
+    },
+    "V0110_19_00_15_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attacca, Principessa della Magia Bianca!"
+    },
+    "V0110_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13811
+      ],
+      "duelist": [],
+      "text": "Litmus Doom Swordsman, fagli assaggiare il tuo acciaio!"
+    },
+    "V0110_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3763
+      ],
+      "duelist": [],
+      "text": "Vai, Eitom!"
+    },
+    "V0110_19_00_17_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Esplosione Atomica!"
+    },
+    "V0110_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono una carta!"
+    },
+    "V0110_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono una carta!"
+    },
+    "V0110_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono un mostro!"
+    },
+    "V0110_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posiziono un mostro!"
+    },
+    "V0110_21_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non ci sono errori nelle mie equazioni."
+    },
+    "V0110_21_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0110_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le mie mosse iniziali mi hanno dato un discreto vantaggio."
+    },
+    "V0110_21_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0110_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Posso ancora recuperare!"
+    },
+    "V0110_21_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Termino il mio turno!"
+    },
+    "V0110_28_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Che sfortuna per te..."
+    },
+    "V0110_28_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mi sono solo attenuto alle formule."
+    },
+    "V0110_28_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Duelli si basano sui numeri, e i numeri non mentono mai."
+    },
+    "V0110_28_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fiuu... Il mio Deck sperimentale ha avuto successo!"
+    },
+    "V0110_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Come dici tu, è stato un Duello davvero spettacolare."
+    },
+    "V0110_28_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ora sono io il miglior Duellante dell'Accademia!"
+    },
+    "V0110_29_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0110_29_00_00_1": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le mie formule erano perfette! Cos'è andato storto?"
+    },
+    "V0110_29_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Un solo errore ha minato il delicato equilibrio del mio Deck."
+    },
+    "V0110_29_00_02_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0110_29_00_02_1": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Un singolo errore di gioco ha avuto conseguenze disastrose."
+    },
+    "V0110_29_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Dopo tanti teoremi ed equazioni, ignoro la tua formula, Jaden."
+    },
+    "V0110_29_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hai sconfitto questo Deck, ma ti assicuro che ce ne sarà un altro."
+    },
+    "V0110_30_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Userò questo tempo per calcolare nuove equazioni per i Duelli."
+    },
+    "V0110_30_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "1... 2... pesca! 1... 2... pesca!"
+    },
+    "V0110_30_00_02_0": {
+      "face": 6,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non tentare di distrarmi con le tue carte preferite! Sono ridicole!"
+    },
+    "V0110_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cosa?!"
+    },
+    "V0110_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non è possibile!"
+    },
+    "V0110_33_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Questa è la formula per la vittoria!"
+    },
+    "V0110_33_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "I miei calcoli sono perfetti!"
+    },
+    "V0110_33_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Il tuo Deck è un problema che ho già risolto!"
+    },
+    "V0110_34_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La velocità del vento!"
+    },
+    "V0110_34_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il silenzio dell'acqua!"
+    },
+    "V0110_34_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'aggressività del fuoco!"
+    },
+    "V0110_34_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'incrollabilità della terra!"
+    },
+    "V0110_34_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La luce nelle tenebre!"
+    },
+    "V0110_34_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In base ai miei calcoli, hai meno dell'1% di probabilità di vincere."
+    },
+    "V0110_34_00_06_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Devo scordare il passato, come il bruco che si trasforma in farfalla!"
+    },
+    "V0110_34_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Stai calmo, Bastion, non farti distrarre dalle tue carte preferite! "
+    },
+    "V0110_34_00_08_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sono proprio qui!"
+    },
+    "V0110_34_00_09_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sono sempre stato qui!"
+    },
+    "V0110_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0110_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!"
+    },
+    "V0110_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Guarda la mia formula per la vittoria!"
+    },
+    "V0110_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Finalmente è il mio turno. Pensavo non arrivasse mai..."
+    },
+    "V0110_22_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mpf..."
+    },
+    "V0110_22_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Uff..."
+    },
+    "V0110_22_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Urgh..."
+    },
+    "V0110_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non è ancora finita!"
+    },
+    "V0110_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tutto calcolato."
+    },
+    "V0110_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah, era questo che avevi in mente."
+    },
+    "V0110_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah!"
+    },
+    "V0110_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaah!"
+    },
+    "V0110_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ugh!"
+    },
+    "V0110_27_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Ho commesso un errore di calcolo!"
+    },
+    "V0110_27_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Era un sacrificio necessario per portare a termine il mio piano!"
+    },
+    "V0110_27_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Devo schiarirmi le idee per uscire da questa situazione!"
+    },
+    "V0110_24_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0110_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Impossibile!"
+    }
+  }
+}

@@ -1,0 +1,2234 @@
+{
+  "_GRP_": "SN0419",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0419_01_00_00_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "On dirait que tu as peur.\nÇa, ça me plaît !"
+    },
+    "V0419_01_00_00_1": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu es comme un petit lapin, et moi un prédateur !"
+    },
+    "V0419_01_00_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allons-y !\nTous les coups sont permis !"
+    },
+    "V0419_01_00_02_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pourquoi je dois t'affronter ?\nOn sait déjà qui va gagner."
+    },
+    "V0419_01_00_03_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu l'auras voulu...\nEt tu vas l'avoir !"
+    },
+    "V0419_01_00_04_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402,
+        415
+      ],
+      "text": "Yuma Tsukumo !\nJ'avais hâte de t'affronter !"
+    },
+    "V0419_01_00_05_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        420,
+        442
+      ],
+      "text": "Je suis sans pitié !\nMême avec mes amis !\nAllons-y, Alito !"
+    },
+    "V0419_01_00_06_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        424,
+        443
+      ],
+      "text": "Je ne connais qu'un seul Duelliste aussi fort...\nMizar !"
+    },
+    "V0419_01_00_07_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        419,
+        420,
+        422,
+        423,
+        441,
+        442,
+        444,
+        445,
+        446
+      ],
+      "text": "Barian vs. Barian, vraiment ?\nTu vas le regretter !"
+    },
+    "V0419_01_00_08_0": {
+      "face": 33,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        99999
+      ],
+      "text": "J'ai un compte à régler avec toi, Vector !"
+    },
+    "V0419_01_00_09_0": {
+      "face": 33,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        99999
+      ],
+      "text": "Tu vas payer pour tout ce que tu as fait, Don Thousand !"
+    },
+    "V0419_02_00_00_0": {
+      "face": 33,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Place au Duel !"
+    },
+    "V0419_03_00_00_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha ha ha ha !\nJe vais gagner ce Duel !"
+    },
+    "V0419_03_00_00_1": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0419_03_00_01_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Devine à qui c'est de jouer ?!"
+    },
+    "V0419_03_00_01_1": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0419_04_00_00_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0419_03_00_02_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0419_03_00_03_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À moi !"
+    },
+    "V0419_03_00_03_1": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0419_04_00_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0419_03_00_04_0": {
+      "face": 33,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Arrête de te la jouer, espèce de minable !"
+    },
+    "V0419_03_00_04_1": {
+      "face": 33,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0419_03_00_05_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attends une seconde...\nJe suis dans le pétrin !"
+    },
+    "V0419_03_00_05_1": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0419_04_00_02_0": {
+      "face": 33,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0419_05_00_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "C'est avec cette pioche que je vais te battre !"
+    },
+    "V0419_05_00_00_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioooche !"
+    },
+    "V0419_06_01_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue cette carte !"
+    },
+    "V0419_06_01_01_0": {
+      "face": 32,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ne te laisserai pas faire !"
+    },
+    "V0419_06_01_02_0": {
+      "face": 32,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Une petite minute !"
+    },
+    "V0419_06_01_03_0": {
+      "face": 32,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pile à ce moment-là..."
+    },
+    "V0419_07_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0419_07_01_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie !"
+    },
+    "V0419_07_02_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0419_07_03_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Carte Magie Continue !"
+    },
+    "V0419_07_04_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0419_07_05_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0419_07_06_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège !"
+    },
+    "V0419_07_07_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Piège Continu !"
+    },
+    "V0419_07_08_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Contre-Piège !"
+    },
+    "V0419_07_09_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma carte Posée !"
+    },
+    "V0419_07_09_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voilà ma carte Posée !"
+    },
+    "V0419_07_10_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0419_07_11_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0419_07_12_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0419_07_13_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0419_07_14_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Effet Pendule !"
+    },
+    "V0419_10_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde ça !"
+    },
+    "V0419_10_00_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Apparais !"
+    },
+    "V0419_10_00_02_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À toi de jouer !"
+    },
+    "V0419_10_00_03_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C’est parfait !"
+    },
+    "V0419_11_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre !"
+    },
+    "V0419_11_01_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0419_11_02_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0419_11_03_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0419_11_04_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0419_11_04_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Sacrifice !"
+    },
+    "V0419_11_05_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0419_11_05_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Fusion !"
+    },
+    "V0419_11_06_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0419_11_06_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Rituelle !"
+    },
+    "V0419_11_07_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0419_11_07_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0419_11_08_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0419_11_08_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je construis le Réseau Habillé !"
+    },
+    "V0419_11_08_01_1": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Xyz !"
+    },
+    "V0419_11_09_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0419_11_09_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Pendule !"
+    },
+    "V0419_11_10_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0419_11_10_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Lien !"
+    },
+    "V0419_14_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combat !"
+    },
+    "V0419_14_00_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Combattons !"
+    },
+    "V0419_15_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prépare-toi !"
+    },
+    "V0419_15_00_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Alleeez !"
+    },
+    "V0419_15_00_02_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Prends ça !"
+    },
+    "V0419_17_00_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0419_17_00_01_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque avec ceci !"
+    },
+    "V0419_17_00_02_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque !"
+    },
+    "V0419_16_00_00_0": {
+      "face": 32,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est le grand final !\nÀ plus tard !"
+    },
+    "V0419_16_00_01_0": {
+      "face": 32,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fini le bon temps !"
+    },
+    "V0419_18_00_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre t'attaque directement !"
+    },
+    "V0419_18_00_01_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque directe !"
+    },
+    "V0419_20_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0419_20_00_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0419_20_01_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0419_20_01_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais Poser un monstre !"
+    },
+    "V0419_21_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allez !\nTu n'as pas encore capitulé ?"
+    },
+    "V0419_21_00_00_1": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0419_21_00_01_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tout est parfait !"
+    },
+    "V0419_21_00_01_1": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0419_21_00_02_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0419_21_00_03_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voilà qui termine mon tour !"
+    },
+    "V0419_21_00_04_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tes petites stratégies ne t'aideront pas à t'en tirer !"
+    },
+    "V0419_21_00_04_1": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0419_21_00_05_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Comment est-ce que je peux être si super méga naze ?!"
+    },
+    "V0419_21_00_05_1": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0419_28_00_00_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé !\nJe t'ai mis la misère !"
+    },
+    "V0419_28_00_01_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'avais aucune chance.\nMais tu refusais de l'admettre."
+    },
+    "V0419_28_00_02_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si tu veux du pouvoir, je peux t'en offrir."
+    },
+    "V0419_28_00_02_1": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Assez de pouvoir pour diriger toute ta pathétique planète !"
+    },
+    "V0419_28_00_03_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as du talent.\nJ'ai besoin de quelqu'un comme toi."
+    },
+    "V0419_28_00_04_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        420,
+        442
+      ],
+      "text": "Dommage, Alito !\nJ'ai gagné !"
+    },
+    "V0419_29_00_00_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'arrive pas à le croire, tu as contré tous mes coups..."
+    },
+    "V0419_29_00_01_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu m'as eu aujourd'hui.\nMais demain sera un autre jour !"
+    },
+    "V0419_29_00_02_0": {
+      "face": 35,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La fête est finie pour moi..."
+    },
+    "V0419_29_00_03_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La prochaine fois, ça ne se passera pas comme ça !"
+    },
+    "V0419_31_00_00_0": {
+      "face": 34,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?!"
+    },
+    "V0419_31_00_01_0": {
+      "face": 34,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Jamais !"
+    },
+    "V0419_33_00_00_0": {
+      "face": 32,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai pensé à une bonne stratégie !"
+    },
+    "V0419_33_00_01_0": {
+      "face": 32,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ça va fonctionner !"
+    },
+    "V0419_33_00_02_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [
+        999999
+      ],
+      "text": "Démolition de la Main de Géant !"
+    },
+    "V0419_33_00_03_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [
+        999999
+      ],
+      "text": "Pioche du Chaos de Barian !"
+    },
+    "V0419_43_00_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Grrr !"
+    },
+    "V0419_43_00_00_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Transformation de combat Barian !"
+    },
+    "V0419_30_00_00_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé ! C'était super !"
+    },
+    "V0419_30_00_01_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ooh, comme c'est mignon."
+    },
+    "V0419_30_00_02_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai une question pour toi."
+    },
+    "V0419_34_00_00_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça me toucherait que tu signes cette carte pour moi."
+    },
+    "V0419_34_00_01_0": {
+      "face": 33,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un ours et je termine mon tour !"
+    },
+    "V0419_34_00_02_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rappelle-toi, tu as accepté de perdre exprès ce Duel."
+    },
+    "V0419_34_00_03_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Seul un Duel sportif te remontera le moral !"
+    },
+    "V0419_34_00_04_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Règle tes problèmes en faisant de l'exercice !"
+    },
+    "V0419_34_00_05_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça va pas du tout ! C'est fini pour moi ?!"
+    },
+    "V0419_34_00_06_0": {
+      "face": 35,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est terminé... Là je suis plus bas que terre..."
+    },
+    "V0419_34_00_07_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai toujours les scoops exclusifs !"
+    },
+    "V0419_34_00_08_0": {
+      "face": 33,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je te pousse à bout !"
+    },
+    "V0419_34_00_09_0": {
+      "face": 36,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voici une attaque directe... directement dans ton cœur !"
+    },
+    "V0419_32_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0419_35_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si tu veux du pouvoir, nous allons devenir amis !"
+    },
+    "V0419_35_00_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Moi, c'est Girag !\nLe guerrier toujours prêt au combat !"
+    },
+    "V0419_36_00_00_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Écrase-moi ça !"
+    },
+    "V0419_36_00_01_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est ton tour.\nNe te rate pas !"
+    },
+    "V0419_36_00_02_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé ! Fais quelque chose !"
+    },
+    "V0419_36_00_03_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        420,
+        442
+      ],
+      "text": "Écrase tout sur ton passage, Alito !"
+    },
+    "V0419_36_00_04_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        420,
+        442
+      ],
+      "text": "Ce type est à toi, Alito !"
+    },
+    "V0419_36_00_05_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        420,
+        442
+      ],
+      "text": "Pardon, Alito."
+    },
+    "V0419_36_00_06_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402,
+        415
+      ],
+      "text": "Yuma !\nUtilise mes cartes !"
+    },
+    "V0419_36_00_07_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402,
+        415
+      ],
+      "text": "T'assures, Yuma !"
+    },
+    "V0419_36_00_08_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402,
+        415
+      ],
+      "text": "Souviens-toi, Yuma.\nTu n'as pas à saboter ce Duel."
+    },
+    "V0419_36_00_09_0": {
+      "face": 35,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402,
+        415
+      ],
+      "text": "Yuma, tu pourrais prendre ce Duel au sérieux pour une fois."
+    },
+    "V0419_36_00_10_0": {
+      "face": 35,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        401,
+        402,
+        415
+      ],
+      "text": "C'est horrible...\nJe touche le fond..."
+    },
+    "V0419_22_00_00_0": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0419_22_00_01_0": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0419_22_00_02_0": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaa !"
+    },
+    "V0419_26_00_00_0": {
+      "face": 31,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Humpf !"
+    },
+    "V0419_26_00_01_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu te débrouilles pas mal !"
+    },
+    "V0419_26_00_02_0": {
+      "face": 32,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça y est ?"
+    },
+    "V0419_25_00_00_0": {
+      "face": 34,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaaaah !"
+    },
+    "V0419_25_00_01_0": {
+      "face": 34,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aagh !"
+    },
+    "V0419_25_00_02_0": {
+      "face": 34,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Daaarh !"
+    },
+    "V0419_27_00_00_0": {
+      "face": 37,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça sent pas bon..."
+    },
+    "V0419_27_00_01_0": {
+      "face": 34,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "P-Pas si vite !"
+    },
+    "V0419_27_00_02_0": {
+      "face": 34,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je suis fichu !"
+    },
+    "V0419_27_00_03_0": {
+      "face": 35,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je touche le fond..."
+    },
+    "V0419_24_00_00_0": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaargh !"
+    },
+    "V0419_23_00_00_0": {
+      "face": 34,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaaaaaahh !"
+    },
+    "V0419_08_00_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10541
+      ],
+      "duelist": [],
+      "text": "J'active Force de Barian Magie-Rang-Plus !"
+    },
+    "V0419_08_00_01_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11087
+      ],
+      "duelist": [],
+      "text": "Découvre le véritable pouvoir des Barians !"
+    },
+    "V0419_08_00_01_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La Septième - Magie-Rang-Plus !"
+    },
+    "V0419_08_00_02_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17043
+      ],
+      "duelist": [],
+      "text": "Pioche du Chaos de Barian !"
+    },
+    "V0419_08_00_03_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17256
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie de Terrain !\nAntopie Barian !"
+    },
+    "V0419_08_00_04_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17256
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Antopie Barian s'active !"
+    },
+    "V0419_08_00_04_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je prends ton monstre !"
+    },
+    "V0419_08_00_05_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17044
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nSeptième Ascension !"
+    },
+    "V0419_08_00_06_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17044
+      ],
+      "duelist": [],
+      "text": "Je vais lancer cette Magie-Rang-Plus pour activer Septième Ascension !"
+    },
+    "V0419_08_00_06_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Il a le même effet que la Magie-Rang-Plus que j'ai jetée !"
+    },
+    "V0419_08_00_07_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5849
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !\nRecharge !"
+    },
+    "V0419_08_00_07_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je renvoie ma main au Deck et je pioche autant de cartes !"
+    },
+    "V0419_08_00_08_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15546
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nSurprise à la Main !"
+    },
+    "V0419_08_00_08_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je te laisse avoir une carte !\nFais ton choix !"
+    },
+    "V0419_08_00_09_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6349
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !\nFrappe Kaminote !"
+    },
+    "V0419_08_00_09_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sors ton monstre de là !"
+    },
+    "V0419_08_00_10_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17107
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nRenaissance des Septièmes Empereurs !"
+    },
+    "V0419_08_00_11_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17106
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nRéincarnation des Septièmes Empereurs !"
+    },
+    "V0419_08_00_12_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17045
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !\nSeptième Éternité !"
+    },
+    "V0419_08_00_13_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17045
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Septième Éternité s'active !"
+    },
+    "V0419_08_00_14_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11668
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nMain Roquette !"
+    },
+    "V0419_08_00_14_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'équipe cette carte sur un monstre !"
+    },
+    "V0419_08_00_15_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11668
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Main Roquette équipée s'active !"
+    },
+    "V0419_08_00_15_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'envoie cette carte au Cimetière et j'en détruis une autre."
+    },
+    "V0419_08_00_16_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10551
+      ],
+      "duelist": [],
+      "text": "Cela me sera utile !\nJ'active mon Piège !\nPerte de Mémoire !"
+    },
+    "V0419_09_00_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10457
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Numéro 106 : Main de Géant !"
+    },
+    "V0419_09_00_00_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Démolition de la Main de Géant !"
+    },
+    "V0419_09_00_01_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10457
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Numéro 106 : Main de Géant !"
+    },
+    "V0419_09_00_01_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Démolition de la Main de Géant !"
+    },
+    "V0419_09_00_01_2": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ton monstre est pire qu'inutile !"
+    },
+    "V0419_09_00_02_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10684
+      ],
+      "duelist": [],
+      "text": "Numéro C106 : Main Rouge de Géant !\nActive ton effet !"
+    },
+    "V0419_09_00_02_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'unité de couverture annule l'effet des autres cartes."
+    },
+    "V0419_09_00_02_2": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouragan violent !"
+    },
+    "V0419_09_00_03_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10684
+      ],
+      "duelist": [],
+      "text": "Ne te fatigue pas, Numéro C106 : Main Rouge de Géant va l'écraser !"
+    },
+    "V0419_09_00_03_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouragan violent !"
+    },
+    "V0419_09_00_04_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11025
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Numéro 58 : Visière de Brûleur !"
+    },
+    "V0419_09_00_05_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11191
+      ],
+      "duelist": [],
+      "text": "Lorsque la Carte Main de Glace est détruite, son effet s'active !"
+    },
+    "V0419_09_00_05_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle détruit une Magie ou un Piège et Invoque Main de Feu !"
+    },
+    "V0419_09_00_06_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11190
+      ],
+      "duelist": [],
+      "text": "Lorsque la Carte Main de Feu est détruite, son effet s'active !"
+    },
+    "V0419_09_00_06_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Elle détruit ton monstre et Invoque Spécialement Main de Glace !"
+    },
+    "V0419_09_00_07_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11189
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Main Magique s'active !"
+    },
+    "V0419_09_00_07_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Débarrassez-vous de cette carte et subissez des dommages !"
+    },
+    "V0419_09_00_08_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15265
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Main du Tonnerre s'active !"
+    },
+    "V0419_09_00_08_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque cette carte, et je détruis une de tes cartes !"
+    },
+    "V0419_09_00_09_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10782
+      ],
+      "duelist": [],
+      "text": "Avec 1 unité de couverture, je joue l'effet de la Carte Numéro 64 : Ronin Raton Laveur Sandayu !"
+    },
+    "V0419_09_00_10_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10746
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Bébé Raton Laveur Tantan s'active quand elle est retournée !"
+    },
+    "V0419_09_00_10_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement une Bête de Niveau 2 de mon Deck !"
+    },
+    "V0419_09_00_11_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10745
+      ],
+      "duelist": [],
+      "text": "À son Invocation, la Carte Bébé Raton Laveur Ponpoko active son effet !"
+    },
+    "V0419_09_00_11_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque une Bête de Niveau 2 de mon Deck en défense !"
+    },
+    "V0419_13_00_00_0": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        10457
+      ],
+      "duelist": [],
+      "text": "Grrrr...\nÉcrase le monde de ton poing puissant !"
+    },
+    "V0419_13_00_00_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Numéro 106 : Main de Géant !"
+    },
+    "V0419_37_00_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10684
+      ],
+      "duelist": [],
+      "text": "Il a le pouvoir de maîtriser ce monde chaotique !"
+    },
+    "V0419_37_00_00_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Son poing frappera la terre,\nses doigts déchireront le ciel !"
+    },
+    "V0419_13_00_01_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        10684
+      ],
+      "duelist": [],
+      "text": "Numéro C106 : Main Rouge de Géant !"
+    },
+    "V0419_37_00_01_0": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10684
+      ],
+      "duelist": [],
+      "text": "Pour contrôler ce monstre, je dois abandonner ma force..."
+    },
+    "V0419_37_00_01_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mais je suis prêt à faire ce sacrifice !\nÉvolution Xyz Chaos !"
+    },
+    "V0419_37_00_01_2": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Viens à moi, Numéro C106 !"
+    },
+    "V0419_13_00_02_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        10684
+      ],
+      "duelist": [],
+      "text": "Numéro C106 : Main Rouge de Géant !"
+    },
+    "V0419_13_00_03_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11025
+      ],
+      "duelist": [],
+      "text": "Enflamme ce Duel !\nNuméro 58 : Visière de Brûleur !"
+    },
+    "V0419_13_00_04_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11191
+      ],
+      "duelist": [],
+      "text": "Allez, Main de Glace !"
+    },
+    "V0419_13_00_04_1": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Aaagh !"
+    },
+    "V0419_13_00_05_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11190
+      ],
+      "duelist": [],
+      "text": "Argh...\nViens, Main de Feu !"
+    },
+    "V0419_13_00_05_1": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaargh !"
+    },
+    "V0419_13_00_06_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11192
+      ],
+      "duelist": [],
+      "text": "À toi de jouer !\nMain de la Proéminence !"
+    },
+    "V0419_13_00_06_1": {
+      "face": 37,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Errrrgh..."
+    },
+    "V0419_13_00_07_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11189
+      ],
+      "duelist": [],
+      "text": "Voici Main Magique !"
+    },
+    "V0419_13_00_08_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        15265
+      ],
+      "duelist": [],
+      "text": "Rejoins le Duel, Main du Tonnerre !"
+    },
+    "V0419_13_00_09_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4171
+      ],
+      "duelist": [],
+      "text": "La Main du Jugement !"
+    },
+    "V0419_13_00_10_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8174
+      ],
+      "duelist": [],
+      "text": "Robot Vrille Koa'ki Meiru !"
+    },
+    "V0419_37_00_02_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10782
+      ],
+      "duelist": [],
+      "text": "Allons-y, Numéro 64 !"
+    },
+    "V0419_37_00_02_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "La sagesse de confondre le monde !"
+    },
+    "V0419_13_00_11_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        10782
+      ],
+      "duelist": [],
+      "text": "Numéro 64 : Ronin Raton Laveur Sandayu !"
+    },
+    "V0419_13_00_12_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3981
+      ],
+      "duelist": [],
+      "text": "J'Invoque Spécialement 1 Jeton Raton Laveur Kagemusha !"
+    },
+    "V0419_13_00_13_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10746
+      ],
+      "duelist": [],
+      "text": "Bébé Raton Laveur Tantan !"
+    },
+    "V0419_13_00_14_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10745
+      ],
+      "duelist": [],
+      "text": "Bébé Raton Laveur Ponpoko !"
+    },
+    "V0419_13_00_15_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6329
+      ],
+      "duelist": [],
+      "text": "Maître Moine !"
+    },
+    "V0419_13_00_16_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6328
+      ],
+      "duelist": [],
+      "text": "Moine Combattant !"
+    },
+    "V0419_13_00_17_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6234
+      ],
+      "duelist": [],
+      "text": "Chu-Suke, Le Guerrier Rongeur !"
+    },
+    "V0419_19_00_00_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10457
+      ],
+      "duelist": [],
+      "text": "Numéro 106 : Main de Géant !\nÉcrase-moi ça !"
+    },
+    "V0419_19_00_01_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10457
+      ],
+      "duelist": [],
+      "text": "Numéro 106 : Main de Géant attaque !"
+    },
+    "V0419_19_00_02_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10684
+      ],
+      "duelist": [],
+      "text": "Numéro C106 : Main Rouge de Géant !\nAttaque !"
+    },
+    "V0419_19_00_02_1": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Spirale d'assaut !"
+    },
+    "V0419_19_00_03_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11025
+      ],
+      "duelist": [],
+      "text": "Numéro 58 : Visière de Brûleur !\nAttaque !"
+    },
+    "V0419_19_00_04_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11191
+      ],
+      "duelist": [],
+      "text": "Attaque, Main de Glace !"
+    },
+    "V0419_19_00_05_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11190
+      ],
+      "duelist": [],
+      "text": "Main de Feu ! Attaque !"
+    },
+    "V0419_19_00_06_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11192
+      ],
+      "duelist": [],
+      "text": "Main de la Proéminence attaque !"
+    },
+    "V0419_19_00_07_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11189
+      ],
+      "duelist": [],
+      "text": "Attaque, Main Magique !"
+    },
+    "V0419_19_00_08_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15265
+      ],
+      "duelist": [],
+      "text": "Main du Tonnerre attaque !"
+    },
+    "V0419_19_00_09_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4171
+      ],
+      "duelist": [],
+      "text": "La Main du Jugement !\nCharge !"
+    },
+    "V0419_19_00_10_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        8174
+      ],
+      "duelist": [],
+      "text": "Robot Vrille Koa'ki Meiru !\nAttaque !"
+    },
+    "V0419_19_00_11_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10782
+      ],
+      "duelist": [],
+      "text": "Numéro 64 : Ronin Raton Laveur Sandayu !\nAttaque !"
+    },
+    "V0419_19_00_12_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3981
+      ],
+      "duelist": [],
+      "text": "Ma Carte Jeton Raton Laveur Kagemusha attaque !"
+    },
+    "V0419_19_00_13_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10746
+      ],
+      "duelist": [],
+      "text": "Bébé Raton Laveur Tantan !\nAttaque !"
+    },
+    "V0419_19_00_14_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        10745
+      ],
+      "duelist": [],
+      "text": "Bébé Raton Laveur Ponpoko !\nAttaque !"
+    },
+    "V0419_19_00_15_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6329
+      ],
+      "duelist": [],
+      "text": "Maître Moine attaque !"
+    },
+    "V0419_19_00_16_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6328
+      ],
+      "duelist": [],
+      "text": "Moine Combattant !\nAttaque !"
+    },
+    "V0419_19_00_17_0": {
+      "face": 33,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6234
+      ],
+      "duelist": [],
+      "text": "Chu-Suke, Le Guerrier Rongeur !\nFrappe-les fort, mon gars ! "
+    }
+  }
+}

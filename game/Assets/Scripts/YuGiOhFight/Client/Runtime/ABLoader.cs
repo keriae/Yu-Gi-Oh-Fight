@@ -1,0 +1,773 @@
+using Cysharp.Threading.Tasks;
+
+
+using System.IO;
+using System.Linq;
+
+using UnityEngine;
+
+
+namespace YuGiOhFight.Client.Runtime
+{
+    public class ABLoader
+    {
+        public static System.Collections.Generic.Dictionary<string, GameObject> cachedAB = new();
+        public static System.Collections.Generic.Dictionary<string, GameObject> cachedABFolder = new();
+        public static System.Collections.Generic.Dictionary<string, Material> cachedPMat = new();
+        public static System.Collections.Generic.Dictionary<string, Material> cachedFrameMat = new();
+        private static readonly System.Threading.SemaphoreSlim protectorSemaphoreSlim = new(1, 1);
+        private static readonly System.Threading.SemaphoreSlim frameSemaphoreSlim = new(1, 1);
+        private static readonly System.Collections.Generic.Dictionary<string, System.Threading.SemaphoreSlim> bundleLoadLocks = new();
+
+        public static async UniTask<AssetBundle> CacheFromFileAsync(string path)
+        {
+            return await AssetBundle.LoadFromFileAsync(path);
+        }
+
+        public static GameObject LoadFromFile(string path, bool cache, bool instantiate)
+        {
+            if (cachedAB.TryGetValue(path, out var returnValue))
+            {
+                if (instantiate)
+                    return Object.Instantiate(returnValue);
+                else
+                    return returnValue;
+            }
+
+            AssetBundle ab;
+            ab = AssetBundle.LoadFromFile(Program.root + path);
+            var assets = ab.LoadAllAssets();
+            foreach (Object asset in assets)
+            {
+                if (typeof(GameObject).IsInstanceOfType(asset))
+                {
+                    if (cache)
+                        if (!cachedAB.TryAdd(path, asset as GameObject))
+                            Debug.LogError($"Failed to cache {path}");
+                    returnValue = asset as GameObject;
+                    break;
+                }
+            }
+
+            ab.Unload(false);
+            if (instantiate && returnValue != null)
+                return Object.Instantiate(returnValue);
+            else
+                return returnValue;
+        }
+
+        public static async UniTask<GameObject> LoadFromFileAsync(string path, bool cache, bool instantiate)
+        {
+            // A category change can request the same bundle before the first
+            // preview has finished. Unity refuses that second open; serialize
+            // by path and recheck the prefab cache after acquiring the lock.
+            System.Threading.SemaphoreSlim gate;
+            lock (bundleLoadLocks)
+            {
+                if (!bundleLoadLocks.TryGetValue(path, out gate))
+                    bundleLoadLocks[path] = gate = new System.Threading.SemaphoreSlim(1, 1);
+            }
+            await gate.WaitAsync();
+            try { return await LoadFromFileAsyncLocked(path, cache, instantiate); }
+            finally { gate.Release(); }
+        }
+        private static async UniTask<GameObject> LoadFromFileAsyncLocked(string path, bool cache, bool instantiate)
+        {
+            if (cachedAB.TryGetValue(path, out GameObject returnValue))
+            {
+                if (instantiate)
+                    return Object.Instantiate(returnValue);
+                else
+                    return returnValue;
+            }
+
+            AssetBundle ab = await AssetBundle.LoadFromFileAsync(Program.root + path);
+            if (ab == null) throw new IOException("Unable to load bundle: " + path);
+            try
+            {
+                var expectedName = Path.GetFileName(path);
+                if (!string.IsNullOrEmpty(expectedName))
+                {
+                    var assetRequest = ab.LoadAssetAsync<GameObject>(expectedName);
+                    await assetRequest;
+                    returnValue = assetRequest.asset as GameObject;
+                }
+
+                if (returnValue == null)
+                {
+                    var allAssets = ab.LoadAllAssetsAsync();
+                    await allAssets;
+                    var assets = allAssets.allAssets;
+                    foreach (Object asset in assets)
+                    {
+                        if (!typeof(GameObject).IsInstanceOfType(asset))
+                            continue;
+
+                        var candidate = asset as GameObject;
+                        returnValue = candidate;
+                        if (candidate != null && candidate.name == expectedName)
+                            break;
+                    }
+                }
+            }
+            finally { ab.Unload(false); }
+
+            if (cache && returnValue != null)
+            {
+                if (!cachedAB.TryAdd(path, returnValue))
+                    Debug.LogWarning($"Failed to cache {path}");
+            }
+
+            if (instantiate && returnValue != null)
+                return Object.Instantiate(returnValue);
+            else
+                return returnValue;
+        }
+
+        public static GameObject LoadFromFolder<T>(string path, bool cache, bool instantiate) where T : Component
+        {
+            if (cachedABFolder.TryGetValue(path, out var returnValue))
+            {
+                if (instantiate)
+                    return Object.Instantiate(returnValue);
+                else
+                    return returnValue;
+            }
+
+            DirectoryInfo dir = new(Program.root + path);
+#if !UNITY_EDITOR && UNITY_STANDALONE_WIN
+            dir = new DirectoryInfo(Path.Combine(Application.dataPath, Program.root + path));
+#endif
+            FileInfo[] files = dir.GetFiles("*");
+            System.Collections.Generic.List<AssetBundle> bundles = new();
+            for (int i = 0; i < files.Length; i++)
+            {
+                try
+                {
+                    bundles.Add(AssetBundle.LoadFromFile(files[i].FullName));
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError($"Failed to load AssetBundle from file: {files[i].FullName}. Exception: {ex.Message}");
+                    continue;
+                }
+            }
+            System.Collections.Generic.List<GameObject> loadedPrefabs = new();
+            foreach (AssetBundle bundle in bundles)
+            {
+                var prefabs = bundle.LoadAllAssets();
+                for (int j = 0; j < prefabs.Length; j++)
+                    if (typeof(GameObject).IsInstanceOfType(prefabs[j]))
+                        loadedPrefabs.Add(prefabs[j] as GameObject);
+            }
+
+            foreach (var prefab in loadedPrefabs)
+                if (prefab.TryGetComponent<T>(out _))
+                {
+                    returnValue = prefab;
+                    break;
+                }
+            foreach (AssetBundle bundle in bundles)
+                bundle.Unload(false);
+            if(cache && returnValue != null)
+                cachedABFolder.TryAdd(path, returnValue);
+
+            if (returnValue == null)
+                Debug.Log($"LoadFromFolderAsync get null: {path}");
+
+            if (instantiate)
+            {
+                if (returnValue != null)
+                    return Object.Instantiate(returnValue);
+                else
+                    return Object.Instantiate(loadedPrefabs[0]);
+            }
+            else
+            {
+                if (returnValue != null)
+                    return returnValue;
+                else
+                    return loadedPrefabs[0];
+            }
+        }
+
+        public static GameObject LoadFromFolder(string path)
+        {
+            DirectoryInfo dir = new(Program.root + path);
+#if !UNITY_EDITOR && UNITY_STANDALONE_WIN
+            dir = new DirectoryInfo(Path.Combine(Application.dataPath, Program.root + path));
+#endif
+            FileInfo[] files = dir.GetFiles("*");
+            System.Collections.Generic.List<AssetBundle> bundles = new();
+            for (int i = 0; i < files.Length; i++)
+                bundles.Add(AssetBundle.LoadFromFile(files[i].FullName));
+
+            var go = new GameObject(Path.GetFileName(path));
+            foreach(var bundle in bundles)
+            {
+                var prefabs = bundle.LoadAllAssets();
+                for (int i = 0; i < prefabs.Length; i++)
+                {
+                    if (typeof(GameObject).IsInstanceOfType(prefabs[i]))
+                    {
+                        var p =Object.Instantiate((GameObject)prefabs[i]);
+                        p.transform.SetParent(go.transform);
+                    }
+                }
+            }
+
+            foreach (AssetBundle bundle in bundles)
+                bundle.Unload(false);
+
+            return go;
+        }
+
+        public static async UniTask<GameObject> LoadFromFolderAsync<T>(string path, bool cache, bool instantiate
+            , System.Action<GameObject, System.Collections.Generic.List<Object>> processEvent = null ) where T : Component
+        {
+            System.Threading.SemaphoreSlim gate;
+            lock (bundleLoadLocks)
+            {
+                string key = "folder:" + path;
+                if (!bundleLoadLocks.TryGetValue(key, out gate))
+                    bundleLoadLocks[key] = gate = new System.Threading.SemaphoreSlim(1, 1);
+            }
+            await gate.WaitAsync();
+            try { return await LoadFromFolderAsyncLocked<T>(path, cache, instantiate, processEvent); }
+            finally { gate.Release(); }
+        }
+
+        private static async UniTask<GameObject> LoadFromFolderAsyncLocked<T>(string path, bool cache, bool instantiate
+            , System.Action<GameObject, System.Collections.Generic.List<Object>> processEvent) where T : Component
+        {
+            if (cachedABFolder.TryGetValue(path, out var returnValue))
+            {
+                if (instantiate)
+                    return Object.Instantiate(returnValue);
+                else
+                    return returnValue;
+            }
+
+            DirectoryInfo dir = new(Program.root + path);
+#if !UNITY_EDITOR && UNITY_STANDALONE_WIN
+            dir = new DirectoryInfo(Path.Combine(Application.dataPath, Program.root + path));
+#endif
+            if (!dir.Exists)
+            {
+                Debug.LogError($"[LoadFromFolderAsync]: Path [{dir.FullName}] does not exist.");
+                return null;
+            }
+            FileInfo[] files = dir.GetFiles("*");
+            System.Collections.Generic.List<AssetBundle> bundles = new();
+            for (int i = 0; i < files.Length; i++)
+            {
+                try
+                {
+                    var loaded = await AssetBundle.LoadFromFileAsync(files[i].FullName);
+                    if (loaded != null) bundles.Add(loaded);
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError($"[LoadFromFolderAsync]: Failed to load AssetBundle from file: {files[i].FullName}. Exception: {ex.Message}");
+                    continue;
+                }
+            }
+
+            var allAssets = new System.Collections.Generic.List<Object>();
+            foreach (AssetBundle bundle in bundles)
+            {
+                var request = bundle.LoadAllAssetsAsync();
+                await request;
+                allAssets.AddRange(request.allAssets);
+            }
+
+            var allPrefabs = new System.Collections.Generic.List<GameObject>();
+            foreach (var asset in allAssets)
+                if (typeof(GameObject).IsInstanceOfType(asset))
+                    allPrefabs.Add(asset as GameObject);
+
+            foreach (var prefab in allPrefabs)
+                if (prefab.TryGetComponent<T>(out _))
+                {
+                    returnValue = prefab;
+                    break;
+                }
+
+            foreach (AssetBundle bundle in bundles)
+                bundle.Unload(false);
+
+            if (returnValue != null)
+                processEvent?.Invoke(returnValue, allAssets);
+
+            if (cache && returnValue != null)
+                cachedABFolder.TryAdd(path, returnValue);
+
+            if (returnValue == null)
+                Debug.Log($"[ABLoader]: LoadFromFolderAsync get no GameObject: {path}");
+
+            if (instantiate)
+            {
+                if(returnValue != null)
+                    return Object.Instantiate(returnValue);
+                else
+                    return Object.Instantiate(allPrefabs[0]);
+            }
+            else
+            {
+                if (returnValue != null)
+                    return returnValue;
+                else
+                    return allPrefabs[0];
+            }
+        }
+
+        public static async UniTask<System.Collections.Generic.List<GameObject>> LoadsFromFolderAsync<T>(string path)
+        {
+            var returnValue = new System.Collections.Generic.List<GameObject>();
+
+            DirectoryInfo dir = new(Program.root + path);
+#if !UNITY_EDITOR && UNITY_STANDALONE_WIN
+            dir = new DirectoryInfo(Path.Combine(Application.dataPath, Program.root + path));
+#endif
+
+            FileInfo[] files = dir.GetFiles("*");
+            System.Collections.Generic.List<AssetBundle> bundles = new();
+            for (int i = 0; i < files.Length; i++)
+            {
+                try
+                {
+                    bundles.Add(await AssetBundle.LoadFromFileAsync(files[i].FullName));
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError($"[LoadsFromFolderAsync]: Failed to load AssetBundle from file: {files[i].FullName}. Exception: {ex.Message}");
+                    continue;
+                }
+            }
+
+            var loadedPrefabs = new System.Collections.Generic.List<GameObject>();
+            foreach (AssetBundle bundle in bundles)
+            {
+                var prefabs = bundle.LoadAllAssets();
+                foreach(var prefab in prefabs)
+                    if (typeof(GameObject).IsInstanceOfType(prefab))
+                        loadedPrefabs.Add(prefab as GameObject);
+            }
+
+            foreach (var prefab in loadedPrefabs)
+                if (prefab.TryGetComponent<T>(out _))
+                    returnValue.Add(prefab);
+
+            foreach (AssetBundle bundle in bundles)
+                bundle.Unload(false);
+
+            return returnValue;
+        }
+
+        public static async UniTask<GameObject> LoadMonsterCutinAsync(int code, bool cache, bool instantiate)
+        {
+            var path = $"MonsterCutin/{code}";
+            return await LoadFromFolderAsync<UnityEngine.Playables.PlayableDirector>(path, cache, instantiate, FindAndSetSkeletonDataAsset);
+        }
+
+        private static void FindAndSetSkeletonDataAsset(GameObject prefab, System.Collections.Generic.List<Object> assets)
+        {
+            //召唤兽 梅尔卡巴[75286622]在安卓端和iOS端的Spine动画资源丢失，
+            //临时修复方案为从已加载的AssetBundle中寻找SkeletonDataAsset并赋值。
+
+            //傻缺科乐美在 混沌幻魔[60110982]的Root节点留了个没删的SkeletonAnimation。
+
+            var sas = prefab.GetComponentsInChildren<Spine.Unity.SkeletonAnimation>();
+            if(sas == null || sas.Length == 0 || sas.Length > 1)
+                return;
+
+            var sa = sas[0];
+            if (sa == null)
+                return;
+            if (sa.skeletonDataAsset == null)
+            {
+                foreach (var asset in assets)
+                    if (asset is Spine.Unity.SkeletonDataAsset sda)
+                    {
+                        sa.skeletonDataAsset = sda;
+                        break;
+                    }
+            }
+        }
+
+        private static Shader defaultProtectorShader;
+        private const string defaultProtectorCode = "1070002";
+        public static async UniTask<Material> LoadProtectorMaterial(string code, System.Threading.CancellationToken token)
+        {
+            if(defaultProtectorShader == null)
+                await InternalLoadProtectorMaterialAsync(defaultProtectorCode, token);
+            return await InternalLoadProtectorMaterialAsync(code, token);
+        }
+
+        public static async UniTask<Material> InternalLoadProtectorMaterialAsync(string code, System.Threading.CancellationToken token)
+        {
+            await protectorSemaphoreSlim.WaitAsync(token);
+
+            try
+            {
+                if (code == Presentation.Assets.Items.CODE_RANDOM.ToString())
+                    code = Program.items.GetRandomItem(Presentation.Assets.Items.ItemType.Protector).id.ToString();
+
+                if (cachedPMat.TryGetValue(code, out var material))
+                    if (material != null)
+                        return material;
+
+                var folder = Program.root + "MasterDuel/Protector/" + code;
+#if !UNITY_EDITOR && UNITY_STANDALONE_WIN
+            folder = Path.Combine(Application.dataPath, folder);
+#endif
+                if (!Directory.Exists(folder))
+                    return null;
+
+                var files = Directory.GetFiles(folder)
+                    .OrderBy(path => Path.GetFileName(path).Equals(code, System.StringComparison.OrdinalIgnoreCase) ? 0 : 1)
+                    .ThenBy(Path.GetFileName, System.StringComparer.OrdinalIgnoreCase)
+                    .ToArray();
+                if (files.Length == 0)
+                    return null;
+
+                var bundles = new System.Collections.Generic.List<AssetBundle>();
+                AssetBundle matAB = null;
+                foreach (var path in files)
+                {
+                    var bundle = await AssetBundle.LoadFromFileAsync(path).WithCancellation(token);
+                    if (bundle == null)
+                        continue;
+
+                    bundles.Add(bundle);
+                    if (Path.GetFileName(path).Equals(code, System.StringComparison.OrdinalIgnoreCase))
+                        matAB = bundle;
+                }
+                if (matAB == null)
+                    return null;
+
+                material = matAB.LoadAsset<Material>("PMat");
+                if (material == null)
+                {
+                    foreach (var bundle in bundles)
+                        bundle.Unload(false);
+                    return null;
+                }
+
+                if (defaultProtectorShader == null &&
+                    code == defaultProtectorCode)
+                    defaultProtectorShader = material.shader;
+                if (material.shader.name.Contains("3D"))
+                    material.shader = defaultProtectorShader;
+                material.renderQueue = 3000;
+                foreach (var bundle in bundles)
+                    bundle.Unload(false);
+                cachedPMat.TryAdd(code, material);
+
+                return material;
+            }
+            finally
+            {
+                protectorSemaphoreSlim.Release();
+            }
+        }
+
+        private static Shader metalFrameEffectShader;
+        private const string MetalFrameEffectCode = "1031002";
+
+        public static async UniTask<Material> LoadFrameMaterial(string code)
+        {
+            // The newer Canvas-target Shader02 in some frame bundles renders
+            // an error surface on Metal. The shipped Sprite-target Shader02
+            // has the same frame/effect properties and renders in this player.
+            if (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Metal && metalFrameEffectShader == null)
+            {
+                var compatible = await LoadFrameMaterialCore(MetalFrameEffectCode);
+                if (compatible != null)
+                {
+                    if (compatible.shader != null && compatible.shader.isSupported)
+                        metalFrameEffectShader = compatible.shader;
+                    Object.Destroy(compatible);
+                }
+            }
+            return await LoadFrameMaterialCore(code);
+        }
+
+        private static async UniTask<Material> LoadFrameMaterialCore(string code)
+        {
+            if (code == Presentation.Assets.Items.CODE_RANDOM.ToString())
+                code = Presentation.Assets.Items.lastRandomFrameID;
+
+            await frameSemaphoreSlim.WaitAsync();
+
+            try
+            {
+                if (cachedFrameMat.TryGetValue(code, out var cachedMaterial))
+                    if (cachedMaterial != null)
+                        return new Material(cachedMaterial);
+
+                var ab = await AssetBundle.LoadFromFileAsync(Program.root + "MasterDuel/Frame/ProfileFrameMat" + code);
+                if (ab == null)
+                    return null;
+
+                try
+                {
+                    var material = ab.LoadAsset<Material>("ProfileFrameMat" + code);
+                    if (material == null)
+                        return null;
+
+                    if (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Metal && metalFrameEffectShader != null
+                        && material.shader != null && material.shader.name == "Shader Graph EX/ProfileIconShader02")
+                        material.shader = metalFrameEffectShader;
+                    TextureManager.ChangeProfileFrameMaterialWrapMode(material);
+
+                    if (cachedFrameMat.TryGetValue(code, out cachedMaterial) && cachedMaterial != null)
+                        return new Material(cachedMaterial);
+
+                    cachedFrameMat[code] = material;
+                    return new Material(material);
+                }
+                finally
+                {
+                    ab.Unload(false);
+                }
+            }
+            finally
+            {
+                frameSemaphoreSlim.Release();
+            }
+        }
+
+        public static async UniTask<Material> LoadMaterialAsync(string path, System.Threading.CancellationToken token)
+        {
+            var ab = await AssetBundle.LoadFromFileAsync(Program.root + path).WithCancellation(token);
+            var matetial = ab.LoadAsset<Material>(Path.GetFileName(path));
+            ab.Unload(false);
+            return matetial;
+        }
+
+        public static async UniTask<Shader> LoadShaderAsync(string path, System.Threading.CancellationToken token)
+        {
+            var ab = await AssetBundle.LoadFromFileAsync(Path.Combine(Program.root, path)).WithCancellation(token);
+            var shader = ab.LoadAsset<Shader>(Path.GetFileNameWithoutExtension(path));
+            ab.Unload(false);
+            return shader;
+        }
+
+        public static async UniTask<Presentation.Mate> LoadMateAsync(int code)
+            => await LoadMateAsync(code, false);
+
+        public static async UniTask<Presentation.Mate> LoadMateAsync(int code, bool cache)
+        {
+            Presentation.Assets.Items.Item item = new();
+            foreach (var mate in Program.items.mates)
+            {
+                if (mate.id == code)
+                {
+                    item = mate;
+                    break;
+                }
+            }
+            Presentation.Mate.MateType type = Presentation.Mate.MateType.MasterDuel;
+            if (item.id == 0 && File.Exists(Program.root + "CrossDuel/" + code + ".bundle"))
+                type = Presentation.Mate.MateType.CrossDuel;
+            Presentation.Mate returnValue = null;
+            if (type == Presentation.Mate.MateType.CrossDuel)
+            {
+                var ab = await AssetBundle.LoadFromFileAsync(Program.root + "CrossDuel/" + code + ".bundle");
+                var request = ab.LoadAllAssetsAsync();
+                await request;
+                var all = request.allAssets;
+                ab.Unload(false);
+                foreach (var asset in all)
+                {
+                    if (asset is Presentation.Willow.NamedAssetContainer container)
+                    {
+                        container.TryGet<GameObject>("prefab", out var prefab);
+                        container.TryGet<Presentation.Willow.NamedAssetContainer>("Timelines", out Presentation.Willow.NamedAssetContainer timelines);
+                        container.TryGet<Presentation.Willow.InGameField.ParameterContainer>("Settings", out Presentation.Willow.InGameField.ParameterContainer settings);
+                        var mateGo = Object.Instantiate(prefab);
+                        mateGo.AddComponent<Presentation.Willow.InGameField.FieldParamEventController_AnimationEventReceiver>();
+                        foreach (var s in timelines.AllNamedAssetNames())
+                        {
+                            timelines.TryGet<GameObject>(s, out var timeline);
+                            var newT = Object.Instantiate(timeline);
+                            newT.transform.SetParent(mateGo.transform, false);
+                            newT.SetActive(true);
+                            for (int i = 0; i < newT.transform.childCount; i++)
+                            {
+                                if (newT.transform.GetChild(i).GetComponent<UnityEngine.Rendering.Volume>() != null)
+                                    Object.Destroy(newT.transform.GetChild(i).gameObject);
+                                if (newT.transform.GetChild(i).name == "UIBattleDownAni")
+                                    Object.Destroy(newT.transform.GetChild(i).gameObject);
+                            }
+                            Presentation.Willow.CustomTimelineController controller = newT.GetComponent<Presentation.Willow.CustomTimelineController>();
+                            var bindTrackInfo = controller.checkReplacer.m_bindTrackInfo;
+                            var director = newT.transform.GetChild(0).GetComponent<UnityEngine.Playables.PlayableDirector>();
+
+                            if (director == null)
+                                continue;
+                            System.Collections.Generic.Dictionary<string, UnityEngine.Playables.PlayableBinding> bindingDict = new System.Collections.Generic.Dictionary<string, UnityEngine.Playables.PlayableBinding>();
+                            foreach (UnityEngine.Playables.PlayableBinding pb in director.playableAsset.outputs)
+                                foreach (Presentation.Willow.TimelineReplacer.BindTrackInfo bind in bindTrackInfo)
+                                    if (pb.streamName == bind.m_name
+                                        && director.GetGenericBinding(pb.sourceObject) == null)
+                                        director.SetGenericBinding(pb.sourceObject, mateGo.GetComponent<Animator>());
+                        }
+                        returnValue = mateGo.AddComponent<Presentation.Mate>();
+                    }
+                }
+            }
+            else
+            {
+                var matePath = Program.items.GetAssetPath(code.ToString(), Presentation.Assets.Items.ItemType.Mate);
+
+                GameObject mateGo;
+                if (matePath.EndsWith("_Folder"))
+                    mateGo = await LoadFromFolderAsync<YgomGame.CharacterCollision>("MasterDuel/" + matePath.Replace("_Folder", string.Empty), cache, true);
+                else
+                    mateGo = await LoadFromFileAsync("MasterDuel/" + matePath, cache, true);
+                returnValue = mateGo.AddComponent<Presentation.Mate>();
+            }
+            returnValue.type = type;
+            returnValue.code = code;
+            return returnValue;
+        }
+
+        #region Built-in MasterDuel Assets
+
+        public static bool mdCached;
+        public static float mdCachedProgress;
+        private static bool mdDuelCached;
+
+        private static AssetBundle mdBundleDuel;
+        private static AssetBundle mdBundleOutDuel;
+        private static AssetBundle mdBundleMaterials;
+        private static AssetBundle mdBundleSprites;
+        private static AssetBundle mdBundleTextures;
+        private static AssetBundle mdBundleShaders;
+
+        public static async UniTask CacheMasterDuelOutDuelBundles()
+        {
+            mdCachedProgress = 0f;
+            mdBundleShaders = await CacheFromFileAsync(Program.root + "MasterDuel/Built-in/shaders");
+            mdCachedProgress = 0.3f;
+            mdBundleSprites = await CacheFromFileAsync(Program.root + "MasterDuel/Built-in/sprites");
+            mdCachedProgress = 0.6f;
+            mdBundleMaterials = await CacheFromFileAsync(Program.root + "MasterDuel/Built-in/materials");
+            mdCachedProgress = 0.9f;
+            mdBundleOutDuel = await CacheFromFileAsync(Program.root + "MasterDuel/Built-in/outduel");
+            mdCachedProgress = 1f;
+            mdCached = true;
+        }
+
+        public static async UniTask CacheMasterDuelBundles()
+        {
+            if (mdDuelCached)
+                return;
+            mdBundleTextures = await CacheFromFileAsync(Program.root + "MasterDuel/Built-in/textures");
+            mdBundleDuel = await CacheFromFileAsync(Program.root + "MasterDuel/Built-in/duel");
+            mdDuelCached = true;
+        }
+
+        internal static Shader LoadDuelSceneVertexColourShader()
+        {
+            if (mdBundleShaders == null) return null;
+            try
+            {
+                // Load the audited asset explicitly; opening the bundle does
+                // not register every shader for Shader.Find.
+                var shader = mdBundleShaders.LoadAsset<Shader>(
+                    "assets/assetbundles/shaders/shader graphs_unlitrecieveshadow_vc.shader");
+                return shader != null && shader.name == "Shader Graphs/UnlitRecieveShadow_vc"
+                    && shader.isSupported ? shader : null;
+            }
+            catch (System.Exception) { return null; }
+        }
+
+        public static GameObject LoadMasterDuelGameObject(string oName)
+        {
+            if(mdBundleDuel == null)
+            {
+                Debug.LogError("MasterDuel AssetBundle [Duel] is not cached!");
+                return null;
+            }
+
+            var prefab = mdBundleDuel.LoadAsset<GameObject>(oName);
+            if(prefab == null)
+            {
+                Debug.LogError($"MasterDuel AssetBundle [Duel] does not contain [{oName}]!");
+                return null;
+            }
+            return Object.Instantiate(prefab);
+        }
+
+        public static GameObject LoadMasterDuelOutDuelObject(string oName)
+        {
+            if (mdBundleOutDuel == null)
+            {
+                Debug.LogError("MasterDuel AssetBundle [OutDuel] is not cached!");
+                return null;
+            }
+
+            var prefab = mdBundleOutDuel.LoadAsset<GameObject>(oName);
+            if (prefab == null)
+            {
+                Debug.LogError($"MasterDuel AssetBundle [OutDuel] does not contain [{oName}]!");
+                return null;
+            }
+            return Object.Instantiate(prefab);
+        }
+
+        public static Material LoadMasterDuelMaterial(string mName)
+        {
+            if (mdBundleMaterials == null)
+            {
+                Debug.LogError("MasterDuel AssetBundle [Materials] is not cached!");
+                return null;
+            }
+            var mat = mdBundleMaterials.LoadAsset<Material>(mName);
+            if (mat == null)
+            {
+                Debug.LogError($"MasterDuel AssetBundle [Materials] does not contain material [{mName}]!");
+                return null;
+            }
+            return Object.Instantiate(mat);
+        }
+
+        public static Sprite LoadMasterDuelSprite(string sName)
+        {
+            if (mdBundleSprites == null)
+            {
+                Debug.LogError("MasterDuel AssetBundle [Sprites] is not cached!");
+                return null;
+            }
+            var sprite = mdBundleSprites.LoadAsset<Sprite>(sName);
+            if (sprite == null)
+            {
+                Debug.LogError($"MasterDuel AssetBundle [Sprites] does not contain sprite [{sName}]!");
+                return null;
+            }
+            return sprite;
+        }
+
+        public static Texture2D LoadMasterDuelTexture(string tName)
+        {
+            if (mdBundleTextures == null)
+            {
+                Debug.LogError("MasterDuel AssetBundle [Textures] is not cached!");
+                return null;
+            }
+            var tex = mdBundleTextures.LoadAsset<Texture2D>(tName);
+            if (tex == null)
+            {
+                Debug.LogError($"MasterDuel AssetBundle [Textures] does not contain texture [{tName}]!");
+                return null;
+            }
+            return tex;
+        }
+
+        #endregion
+
+    }
+}

@@ -1,0 +1,3446 @@
+{
+  "_GRP_": "SN0505",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0505_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voyons si tes talents sont à la hauteur de ta réputation."
+    },
+    "V0505_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ne prends aucun Duelliste à la légère, d'où qu'il vienne."
+    },
+    "V0505_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si tu veux atteindre le sommet, tu dois d'abord me battre."
+    },
+    "V0505_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "En Duel les mots ne valent rien.\nSeules tes actions comptent."
+    },
+    "V0505_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas apprendre que ma force transcende les dimensions !"
+    },
+    "V0505_02_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duel !"
+    },
+    "V0505_03_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je sais de quoi tu es capable, tu peux faire mieux que ça."
+    },
+    "V0505_03_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0505_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu es à court d'options."
+    },
+    "V0505_03_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0505_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0505_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'ai pas encore montré ma pleine puissance.\nLoin de là."
+    },
+    "V0505_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0505_03_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu aurais dû en finir quand tu en avais l'occasion !"
+    },
+    "V0505_03_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0505_03_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu me pousses à montrer ma vraie puissance !"
+    },
+    "V0505_03_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0505_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0505_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0505_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0505_05_00_00_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "J'ai vu la prochaine évolution du Duel !"
+    },
+    "V0505_05_00_00_1": {
+      "face": 10,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !!!"
+    },
+    "V0505_06_01_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais jouer cette carte !"
+    },
+    "V0505_06_01_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maintenant !"
+    },
+    "V0505_06_01_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ça ne se passera pas comme ça !"
+    },
+    "V0505_06_01_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ne crois pas, non !"
+    },
+    "V0505_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0505_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Carte Magie !"
+    },
+    "V0505_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Magie Jeu-Rapide !"
+    },
+    "V0505_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Carte Magie Continue !"
+    },
+    "V0505_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Magie d'Équipement !"
+    },
+    "V0505_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Magie Rituelle !"
+    },
+    "V0505_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège !"
+    },
+    "V0505_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !"
+    },
+    "V0505_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active mon Contre-Piège !"
+    },
+    "V0505_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je retourne ma carte Posée !"
+    },
+    "V0505_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voici ma carte Posée !"
+    },
+    "V0505_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active l'effet de mon monstre !"
+    },
+    "V0505_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active ma Magie de Terrain !"
+    },
+    "V0505_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0505_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0505_07_14_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un Effet Pendule !"
+    },
+    "V0505_10_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je joue cette carte !"
+    },
+    "V0505_10_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Apparais !"
+    },
+    "V0505_10_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Viens !"
+    },
+    "V0505_10_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Admire ça !"
+    },
+    "V0505_11_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre !"
+    },
+    "V0505_11_01_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque mon monstre en Position de Défense !"
+    },
+    "V0505_11_02_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement mon monstre !"
+    },
+    "V0505_11_03_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie mon monstre !"
+    },
+    "V0505_11_04_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0505_11_05_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0505_11_05_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Fusion !"
+    },
+    "V0505_11_06_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0505_11_07_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0505_11_07_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Invocation Synchro !"
+    },
+    "V0505_11_08_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0505_11_08_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je construis le Réseau Habillé !\nInvocation Xyz !"
+    },
+    "V0505_11_09_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0505_11_09_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'énergie universelle oscille entre ténèbres et lumière !"
+    },
+    "V0505_11_09_01_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais exploiter cette oscillation !\nInvocation Pendule !"
+    },
+    "V0505_11_10_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0505_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bats-toi !"
+    },
+    "V0505_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "On y va ?"
+    },
+    "V0505_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je sais exactement quoi faire !"
+    },
+    "V0505_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "En avant !"
+    },
+    "V0505_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Allez !"
+    },
+    "V0505_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'attaque avec mon monstre !"
+    },
+    "V0505_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À l'attaque !"
+    },
+    "V0505_16_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est la fin !"
+    },
+    "V0505_16_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ton maximum n'était pas suffisant."
+    },
+    "V0505_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre t'attaque directement !"
+    },
+    "V0505_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque directe !"
+    },
+    "V0505_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0505_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0505_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0505_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0505_21_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon tour est terminé."
+    },
+    "V0505_21_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mais en as-tu fini avec ce Duel ?"
+    },
+    "V0505_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Où est passée ta fougue de tout à l'heure ?"
+    },
+    "V0505_21_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0505_21_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0505_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0505_21_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Vas-y, repense ta stratégie.\nJe vais la réduire en pièces."
+    },
+    "V0505_21_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Voilà ce que ça donne quand on se bat de tout son cœur."
+    },
+    "V0505_21_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0505_21_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je parie que tu penses que tout va bien se passer."
+    },
+    "V0505_21_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0505_28_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce n'est pas parce que tu veux la victoire que tu l'auras."
+    },
+    "V0505_28_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu dois améliorer ta fin de partie, mais c'est prometteur."
+    },
+    "V0505_28_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si c'était un vrai combat, tu aurais tout perdu !"
+    },
+    "V0505_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pour être un pro, tu ne dois pas faire la moindre erreur."
+    },
+    "V0505_29_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bien joué.\nTu as prouvé que tu sais te défendre."
+    },
+    "V0505_29_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quelle erreur ai-je pu commettre..."
+    },
+    "V0505_29_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Peut-être que tu vas dépasser toutes mes attentes."
+    },
+    "V0505_29_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501,
+        503,
+        504,
+        508,
+        513
+      ],
+      "text": "Tu as réussi à me battre, alors tu vas m'aider."
+    },
+    "V0505_29_00_04_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501,
+        503,
+        504,
+        508,
+        513
+      ],
+      "text": "Tu as survécu à mon épreuve.\nBien."
+    },
+    "V0505_29_00_04_1": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu es digne d'être un Lancier."
+    },
+    "V0505_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hein ?!"
+    },
+    "V0505_31_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah..."
+    },
+    "V0505_33_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Observe ce qui rend les forts aussi puissants !"
+    },
+    "V0505_33_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je n'y vais jamais doucement quand je me bats !"
+    },
+    "V0505_33_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Découvrez ce qu'il y a au-delà de l'évolution !"
+    },
+    "V0505_30_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vois.\nVoilà donc ton plan."
+    },
+    "V0505_30_00_01_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hmm... Mes excuses."
+    },
+    "V0505_30_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Silence !"
+    },
+    "V0505_34_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'admire ton talent."
+    },
+    "V0505_34_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si tu es un Duelliste, fais plutôt parler tes cartes !"
+    },
+    "V0505_34_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'as aucun avenir !"
+    },
+    "V0505_34_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si tu commences à t'excuser, tu as déjà perdu."
+    },
+    "V0505_34_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mes monstres viennent d'une autre dimension."
+    },
+    "V0505_34_00_05_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'issue d'un Duel n'est jamais gravée dans le marbre."
+    },
+    "V0505_34_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je maîtrise toutes les techniques d'Invocation."
+    },
+    "V0505_34_00_07_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'aimerais un Duel éternel, où tu perdrais quand même."
+    },
+    "V0505_34_00_08_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Essaie un peu de passer mes défenses impénétrables !"
+    },
+    "V0505_34_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rien de tel que du beau jeu pour gagner !"
+    },
+    "V0505_34_00_10_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Apprends quels risques valent la peine d'être pris."
+    },
+    "V0505_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0505_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links !"
+    },
+    "V0505_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Un professionnel doit maîtriser tous les aspects du Duel."
+    },
+    "V0505_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Moi aussi, je maîtrise les Invocations Pendule !"
+    },
+    "V0505_36_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Montre-moi ce que tu sais faire."
+    },
+    "V0505_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est ton tour."
+    },
+    "V0505_36_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ce Duel n'est pas encore terminé."
+    },
+    "V0505_08_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11446
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Magie Continue, Contrat des Ténèbres avec la Porte !"
+    },
+    "V0505_08_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11446
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Contrat des Ténèbres avec la Porte s'active !"
+    },
+    "V0505_08_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11447
+      ],
+      "duelist": [],
+      "text": "J'active la Magie Contrat des Ténèbres avec le Roi Marais !"
+    },
+    "V0505_08_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11447
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Contrat des Ténèbres avec le Roi Marais s'active !"
+    },
+    "V0505_08_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12455
+      ],
+      "duelist": [],
+      "text": "J'active Contrat des Ténèbres avec le Roi Marais Interdit !"
+    },
+    "V0505_08_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12455
+      ],
+      "duelist": [],
+      "text": "La Carte Contrat des Ténèbres avec le Roi Marais Interdit est activée !"
+    },
+    "V0505_08_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12230
+      ],
+      "duelist": [],
+      "text": "J'active ma Magie, Contrat des Ténèbres avec le Yamimakai !"
+    },
+    "V0505_08_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12230
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Contrat des Ténèbres avec le Yamimakai s'active."
+    },
+    "V0505_08_00_08_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12867
+      ],
+      "duelist": [],
+      "text": "Je joue ma Carte Magie Continue, Contrat des Ténèbres avec les Entités !"
+    },
+    "V0505_08_00_09_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12867
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Contrat des Ténèbres avec les Entités s'active !"
+    },
+    "V0505_08_00_10_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4874
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie Blocage d'Attaque !"
+    },
+    "V0505_08_00_11_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6995
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie Anciens Règlements !"
+    },
+    "V0505_08_00_12_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11450
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Piège.\nD/D/D Ressources Humaines !"
+    },
+    "V0505_08_00_13_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12012
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nD/D/D Changement de Contrat !"
+    },
+    "V0505_08_00_14_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11449
+      ],
+      "duelist": [],
+      "text": "Pourquoi sceller un contrat alors que je possède ce Piège ?"
+    },
+    "V0505_08_00_14_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Blanchissement de Contrat !\nTous les Contrats des Ténèbres sont annulés !"
+    },
+    "V0505_08_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11448
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !\nContrat des Ténèbres avec la Sorcière !"
+    },
+    "V0505_08_00_16_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11448
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Contrat des Ténèbres avec la Sorcière s'active !"
+    },
+    "V0505_08_00_17_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12013
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !\nContrat des Ténèbres avec des Erreurs !"
+    },
+    "V0505_08_00_18_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12013
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Contrat des Ténèbres avec des Erreurs s'active !"
+    },
+    "V0505_08_00_19_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12982
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nContrat des Ténèbres avec l'Obscurité Éternelle !"
+    },
+    "V0505_08_00_20_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12982
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Contrat des Ténèbres avec l'Obscurité Éternelle s'active !"
+    },
+    "V0505_08_00_21_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11451
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège !\nD/D Recrues !"
+    },
+    "V0505_08_00_22_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12231
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu, D/D Reroll !"
+    },
+    "V0505_08_00_23_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12231
+      ],
+      "duelist": [],
+      "text": "Je bannis D/D Reroll de mon Cimetière pour utiliser son effet !"
+    },
+    "V0505_08_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13123
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D/D Super Roi du Déclin Armageddon Pourpre !"
+    },
+    "V0505_08_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13132
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D/D Super Roi du Déclin Armageddon Brillant !"
+    },
+    "V0505_08_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13133
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D/D Super Roi du Déclin Armageddon Sombre !"
+    },
+    "V0505_08_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14708
+      ],
+      "duelist": [],
+      "text": "L'Effet Pendule de la Carte Go ! - D/D/D Rage, Roi du Zéro Divin s'active !"
+    },
+    "V0505_08_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13121
+      ],
+      "duelist": [],
+      "text": "L'Effet Pendule de la Carte D/D/D Roi de la Destinée Zéro Laplace s'active !"
+    },
+    "V0505_08_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11616
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D/D Abysses Ragnarok, Roi de l'Oubli !"
+    },
+    "V0505_08_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12225
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D/D Apocalypse, Roi du Chaos !"
+    },
+    "V0505_08_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11443
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D/D Roi du Déclin Armageddon !"
+    },
+    "V0505_08_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14961
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D/D Roi du Vice Requiem !"
+    },
+    "V0505_08_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13304
+      ],
+      "duelist": [],
+      "text": "J'utilise l'effet Pendule de la Carte D/D/D Roi de la Supervue Zéro Maxwell !"
+    },
+    "V0505_08_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11460
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D/D Léonidas, Roi Rebelle !"
+    },
+    "V0505_08_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14448
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D Arche !"
+    },
+    "V0505_08_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14739
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D Mal !"
+    },
+    "V0505_08_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12228
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D Orthros !"
+    },
+    "V0505_08_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11458
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D Cerbère !"
+    },
+    "V0505_08_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11442
+      ],
+      "duelist": [],
+      "text": "L'Effet Pendule de la Carte D/D Savant Keplerée s'active !"
+    },
+    "V0505_08_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12227
+      ],
+      "duelist": [],
+      "text": "L'Effet Pendule de la Carte D/D Savant Copernic s'active !"
+    },
+    "V0505_08_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15181
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D Chien !"
+    },
+    "V0505_08_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11329
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D Fier Ogre !"
+    },
+    "V0505_08_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11330
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D Fier Chevalier !"
+    },
+    "V0505_08_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12410
+      ],
+      "duelist": [],
+      "text": "L'Effet Pendule de la Carte D/D Savant Nikola s'active !"
+    },
+    "V0505_08_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11441
+      ],
+      "duelist": [],
+      "text": "L'Effet Pendule de la Carte D/D Savant Galilée s'active !"
+    },
+    "V0505_08_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12409
+      ],
+      "duelist": [],
+      "text": "J'active l'Effet Pendule de la Carte D/D Savant Thomas !"
+    },
+    "V0505_08_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12226
+      ],
+      "duelist": [],
+      "text": "L'Effet Pendule de la Carte D/D Savant Newton s'active !"
+    },
+    "V0505_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11444
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D Genghis, Roi des Flammes !"
+    },
+    "V0505_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13016
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D Genghis, Grand Roi des Flammes !"
+    },
+    "V0505_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12232
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Beowulf, Roi du Fléau des Dragons s'active !"
+    },
+    "V0505_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13123
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D Super Roi du Déclin Armageddon Pourpre !"
+    },
+    "V0505_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11988
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D César Ragnaork, Roi des Vagues de l'Oubli s'active !"
+    },
+    "V0505_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11445
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D Alexandre, Roi des Rafales !"
+    },
+    "V0505_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13079
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Alexandre, Grand Roi des Rafales s'active !"
+    },
+    "V0505_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12233
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Siegfried, Roi Maudit s'active !"
+    },
+    "V0505_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13132
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Super Roi du Déclin Armageddon Brillant s'active !"
+    },
+    "V0505_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11457
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D César, Roi des Vagues !"
+    },
+    "V0505_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13081
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D César, Grand Roi des Vagues !"
+    },
+    "V0505_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11994
+      ],
+      "duelist": [],
+      "text": "Avec 1 unité de couverture, j'active l'effet de la Carte D/D/D Kali Yuga, Roi de la Double Aurore !"
+    },
+    "V0505_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11836
+      ],
+      "duelist": [],
+      "text": "Avec 1 unité de couverture, je joue l'effet de la Carte D/D/D Tireur Roi Tell !"
+    },
+    "V0505_09_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flèche Électrostatique !"
+    },
+    "V0505_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11836
+      ],
+      "duelist": [],
+      "text": "Quand la Carte D/D/D Tireur Roi Tell est au Cimetière, son effet s'active !"
+    },
+    "V0505_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13133
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Super Roi du Déclin Armageddon Sombre s'active !"
+    },
+    "V0505_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12959
+      ],
+      "duelist": [],
+      "text": "Avec 1 unité de couverture, j'active l'effet de la Carte D/D/D Darius, Roi de Pierre !"
+    },
+    "V0505_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11328
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Kaiser, Roi Suprême s'active !"
+    },
+    "V0505_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11769
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D Pendragon, le Roi Dragon !"
+    },
+    "V0505_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14708
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte Go ! - D/D/D Rage, Roi du Zéro Divin !"
+    },
+    "V0505_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13121
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Roi de la Destinée Zéro Laplace s'active !"
+    },
+    "V0505_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11616
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D Abysses Ragnarok, Roi de l'Oubli !"
+    },
+    "V0505_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12225
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D Apocalypse, Roi du Chaos !"
+    },
+    "V0505_09_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11443
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Roi du Déclin Armageddon s'active !"
+    },
+    "V0505_09_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14961
+      ],
+      "duelist": [],
+      "text": "J'ai utilisé la Carte D/D/D Roi du Vice Requiem comme matériel et son effet s'active."
+    },
+    "V0505_09_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13304
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D/D Roi de la Supervue Zéro Maxwell s'active !"
+    },
+    "V0505_09_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11460
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D/D Léonidas, Roi Rebelle !"
+    },
+    "V0505_09_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14448
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Arche !"
+    },
+    "V0505_09_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14739
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Mal !"
+    },
+    "V0505_09_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12228
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Orthros depuis ma main !"
+    },
+    "V0505_09_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12929
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Fantôme D/D s'active !"
+    },
+    "V0505_09_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11955
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Tourbillon Slime !"
+    },
+    "V0505_09_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11458
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D Cerbère s'active !"
+    },
+    "V0505_09_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11440
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D Hurlement de Nuit s'active !"
+    },
+    "V0505_09_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11956
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D Nécro Slime s'active depuis mon Cimetière !"
+    },
+    "V0505_09_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11954
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Berfomet !"
+    },
+    "V0505_09_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11442
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Savant Keplerée !"
+    },
+    "V0505_09_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12227
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D Savant Copernic s'active !"
+    },
+    "V0505_09_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12229
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Lamia !"
+    },
+    "V0505_09_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11439
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Lilith !"
+    },
+    "V0505_09_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15181
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D Chien s'active !"
+    },
+    "V0505_09_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11795
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D Pandore s'active !"
+    },
+    "V0505_09_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11329
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D Fier Ogre s'active !"
+    },
+    "V0505_09_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11330
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Fier Chevalier !"
+    },
+    "V0505_09_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12410
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte D/D Savant Nikola s'active !"
+    },
+    "V0505_09_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13056
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Typhon Vice !"
+    },
+    "V0505_09_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11441
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Savant Galilée !"
+    },
+    "V0505_09_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12409
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Savant Thomas !"
+    },
+    "V0505_09_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12226
+      ],
+      "duelist": [],
+      "text": "J'active l'effet de la Carte D/D Savant Newton !"
+    },
+    "V0505_37_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11444
+      ],
+      "duelist": [],
+      "text": "Élevons un monstre qui brillera d'une force ardente !"
+    },
+    "V0505_37_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Fusion !"
+    },
+    "V0505_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11444
+      ],
+      "duelist": [],
+      "text": "Viens à moi et remporte la victoire !\nD/D/D Genghis, Roi des Flammes !"
+    },
+    "V0505_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13016
+      ],
+      "duelist": [],
+      "text": "D/D/D Genghis, Grand Roi des Flammes !"
+    },
+    "V0505_37_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12232
+      ],
+      "duelist": [],
+      "text": "Combinez-vous en un héros que même les dragons craindront !"
+    },
+    "V0505_37_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Fusion !"
+    },
+    "V0505_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12232
+      ],
+      "duelist": [],
+      "text": "Apparais !\nD/D/D Beowulf, Roi du Fléau des Dragons !"
+    },
+    "V0505_37_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11830
+      ],
+      "duelist": [],
+      "text": "Je vais créer un monstre qui scellera ton destin !"
+    },
+    "V0505_37_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Fusion !"
+    },
+    "V0505_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11830
+      ],
+      "duelist": [],
+      "text": "Le seigneur de légende est là !\nD/D/D Oracle Roi d'Arc !"
+    },
+    "V0505_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13123
+      ],
+      "duelist": [],
+      "text": "D/D/D Super Roi du Déclin Armageddon Pourpre !"
+    },
+    "V0505_37_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11988
+      ],
+      "duelist": [],
+      "text": "J'assemble une force qui te mettra à genoux !"
+    },
+    "V0505_37_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Fusion !"
+    },
+    "V0505_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11988
+      ],
+      "duelist": [],
+      "text": "Le véritable tyran !\nD/D/D César Ragnaork, Roi des Vagues de l'Oubli !"
+    },
+    "V0505_37_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11445
+      ],
+      "duelist": [],
+      "text": "Lacère ces ténèbres telle une lame de lumière !"
+    },
+    "V0505_37_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je fais une Invocation Synchro !"
+    },
+    "V0505_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11445
+      ],
+      "duelist": [],
+      "text": "Que ton règne advienne !\nD/D/D Alexandre, Roi des Rafales !"
+    },
+    "V0505_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13079
+      ],
+      "duelist": [],
+      "text": "D/D/D Alexandre, Grand Roi des Rafales !"
+    },
+    "V0505_37_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12233
+      ],
+      "duelist": [],
+      "text": "Brandis ton épée et bats-toi pour les héros déchus !"
+    },
+    "V0505_37_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je fais une Invocation Synchro !"
+    },
+    "V0505_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12233
+      ],
+      "duelist": [],
+      "text": "Apparais !\nD/D/D Siegfried, Roi Maudit !"
+    },
+    "V0505_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13132
+      ],
+      "duelist": [],
+      "text": "D/D/D Super Roi du Déclin Armageddon Brillant !"
+    },
+    "V0505_37_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11457
+      ],
+      "duelist": [],
+      "text": "Je n'ai jamais combattu un monstre aussi imposant !"
+    },
+    "V0505_37_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Xyz !"
+    },
+    "V0505_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11457
+      ],
+      "duelist": [],
+      "text": "Lève-toi !\nD/D/D César, Roi des Vagues de Rang 4 !"
+    },
+    "V0505_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13081
+      ],
+      "duelist": [],
+      "text": "D/D/D César, Grand Roi des Vagues !"
+    },
+    "V0505_37_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11994
+      ],
+      "duelist": [],
+      "text": "Les soleils jumeaux se lèvent et éclairent un nouveau monde."
+    },
+    "V0505_37_00_07_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Xyz !"
+    },
+    "V0505_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11994
+      ],
+      "duelist": [],
+      "text": "Éveille-toi !\nD/D/D Kali Yuga, Roi de la Double Aurore de Rang 8 !"
+    },
+    "V0505_37_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11836
+      ],
+      "duelist": [],
+      "text": "Quand il vise, il ne rate jamais sa cible !"
+    },
+    "V0505_37_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Xyz !"
+    },
+    "V0505_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11836
+      ],
+      "duelist": [],
+      "text": "Émerge !\nD/D/D Tireur Roi Tell de Rang 5 !"
+    },
+    "V0505_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13133
+      ],
+      "duelist": [],
+      "text": "D/D/D Super Roi du Déclin Armageddon Sombre !"
+    },
+    "V0505_37_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12959
+      ],
+      "duelist": [],
+      "text": "Le roi invincible revient du seuil de l'éternité !"
+    },
+    "V0505_37_00_09_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque par Xyz !"
+    },
+    "V0505_13_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12959
+      ],
+      "duelist": [],
+      "text": "Rejoins le combat !\nD/D/D Darius, Roi de Pierre !"
+    },
+    "V0505_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11328
+      ],
+      "duelist": [],
+      "text": "D/D/D Kaiser, Roi Suprême !"
+    },
+    "V0505_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11769
+      ],
+      "duelist": [],
+      "text": "D/D/D Pendragon, le Roi Dragon !"
+    },
+    "V0505_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        14708
+      ],
+      "duelist": [],
+      "text": "Go ! - D/D/D Rage, Roi du Zéro Divin !"
+    },
+    "V0505_37_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13121
+      ],
+      "duelist": [],
+      "text": "Le paradigme noir invite l'ennemi avec sa force imprenable !"
+    },
+    "V0505_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13121
+      ],
+      "duelist": [],
+      "text": "D/D/D Roi de la Destinée Zéro Laplace !"
+    },
+    "V0505_37_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11616
+      ],
+      "duelist": [],
+      "text": "Fais place au seigneur du désespoir et de la ruine !"
+    },
+    "V0505_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11616
+      ],
+      "duelist": [],
+      "text": "D/D/D Abysses Ragnarok, Roi de l'Oubli !"
+    },
+    "V0505_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12225
+      ],
+      "duelist": [],
+      "text": "D/D/D Apocalypse, Roi du Chaos !"
+    },
+    "V0505_37_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11443
+      ],
+      "duelist": [],
+      "text": "L'immortel sans peur qui asservit le monde !"
+    },
+    "V0505_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        11443
+      ],
+      "duelist": [],
+      "text": "D/D/D Roi du Déclin Armageddon !"
+    },
+    "V0505_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        14961
+      ],
+      "duelist": [],
+      "text": "D/D/D Roi du Vice Requiem !"
+    },
+    "V0505_37_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13304
+      ],
+      "duelist": [],
+      "text": "Mon serviteur va poser son regard sur le monde !"
+    },
+    "V0505_13_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13304
+      ],
+      "duelist": [],
+      "text": "D/D/D Roi de la Supervue Zéro Maxwell !"
+    },
+    "V0505_13_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11460
+      ],
+      "duelist": [],
+      "text": "D/D/D Léonidas, Roi Rebelle !"
+    },
+    "V0505_13_00_26_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14448
+      ],
+      "duelist": [],
+      "text": "D/D Arche !"
+    },
+    "V0505_13_00_27_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14739
+      ],
+      "duelist": [],
+      "text": "D/D Mal !"
+    },
+    "V0505_13_00_28_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12228
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, D/D Orthros !"
+    },
+    "V0505_13_00_29_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12929
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, Fantôme D/D !"
+    },
+    "V0505_13_00_30_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11955
+      ],
+      "duelist": [],
+      "text": "D/D Tourbillon Slime !"
+    },
+    "V0505_13_00_31_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11458
+      ],
+      "duelist": [],
+      "text": "D/D Cerbère !"
+    },
+    "V0505_13_00_32_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11440
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, D/D Hurlement de Nuit !"
+    },
+    "V0505_13_00_33_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11956
+      ],
+      "duelist": [],
+      "text": "D/D Nécro Slime !"
+    },
+    "V0505_13_00_34_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11954
+      ],
+      "duelist": [],
+      "text": "Le béhémoth aux ailes noires !\nD/D Berfomet !"
+    },
+    "V0505_13_00_35_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11442
+      ],
+      "duelist": [],
+      "text": "D/D Savant Keplerée !"
+    },
+    "V0505_13_00_36_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12227
+      ],
+      "duelist": [],
+      "text": "D/D Savant Copernic !"
+    },
+    "V0505_13_00_37_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12229
+      ],
+      "duelist": [],
+      "text": "Le Monstre Syntoniseur, D/D Lamia !"
+    },
+    "V0505_13_00_38_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11439
+      ],
+      "duelist": [],
+      "text": "D/D Lilith !"
+    },
+    "V0505_13_00_39_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15181
+      ],
+      "duelist": [],
+      "text": "D/D Chien !"
+    },
+    "V0505_13_00_40_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11795
+      ],
+      "duelist": [],
+      "text": "D/D Pandore !"
+    },
+    "V0505_13_00_41_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11329
+      ],
+      "duelist": [],
+      "text": "D/D Fier Ogre !"
+    },
+    "V0505_13_00_42_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11330
+      ],
+      "duelist": [],
+      "text": "D/D Fier Chevalier !"
+    },
+    "V0505_13_00_43_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12410
+      ],
+      "duelist": [],
+      "text": "D/D Savant Nikola !"
+    },
+    "V0505_13_00_44_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13056
+      ],
+      "duelist": [],
+      "text": "D/D Typhon Vice !"
+    },
+    "V0505_13_00_45_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11441
+      ],
+      "duelist": [],
+      "text": "D/D Savant Galilée !"
+    },
+    "V0505_13_00_46_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12409
+      ],
+      "duelist": [],
+      "text": "D/D Savant Thomas !"
+    },
+    "V0505_13_00_47_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12226
+      ],
+      "duelist": [],
+      "text": "D/D Savant Newton !"
+    },
+    "V0505_13_00_48_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4789
+      ],
+      "duelist": [],
+      "text": "Bête de Talwar !"
+    },
+    "V0505_13_00_49_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5762
+      ],
+      "duelist": [],
+      "text": "Archdémon Soldat !"
+    },
+    "V0505_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11444
+      ],
+      "duelist": [],
+      "text": "D/D/D Genghis, Roi des Flammes ! À l'attaque !"
+    },
+    "V0505_19_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Coup d'Épée Ardent !"
+    },
+    "V0505_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13016
+      ],
+      "duelist": [],
+      "text": "Ma Carte D/D/D Genghis, Grand Roi des Flammes attaque !"
+    },
+    "V0505_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12232
+      ],
+      "duelist": [],
+      "text": "D/D/D Beowulf, Roi du Fléau des Dragons ! Transperce ton ennemi !"
+    },
+    "V0505_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11830
+      ],
+      "duelist": [],
+      "text": "D/D/D Oracle Roi d'Arc ! À l'attaque !"
+    },
+    "V0505_19_00_03_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Assaut impérial !"
+    },
+    "V0505_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13123
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D/D Super Roi du Déclin Armageddon Pourpre !"
+    },
+    "V0505_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11988
+      ],
+      "duelist": [],
+      "text": "D/D/D César Ragnaork, Roi des Vagues de l'Oubli !\nMontre-leur qui règne en maître !"
+    },
+    "V0505_19_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Châtiment sauvage !"
+    },
+    "V0505_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11445
+      ],
+      "duelist": [],
+      "text": "D/D/D Alexandre, Roi des Rafales attaque !"
+    },
+    "V0505_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13079
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D/D Alexandre, Grand Roi des Rafales !"
+    },
+    "V0505_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12233
+      ],
+      "duelist": [],
+      "text": "D/D/D Siegfried, Roi Maudit attaque !"
+    },
+    "V0505_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13132
+      ],
+      "duelist": [],
+      "text": "D/D/D Super Roi du Déclin Armageddon Brillant ! À l'attaque !"
+    },
+    "V0505_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11457
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D/D César, Roi des Vagues !"
+    },
+    "V0505_19_00_10_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Torrent de vague !"
+    },
+    "V0505_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13081
+      ],
+      "duelist": [],
+      "text": "D/D/D César, Grand Roi des Vagues ! À l'attaque !"
+    },
+    "V0505_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11994
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D/D Kali Yuga, Roi de la Double Aurore !"
+    },
+    "V0505_19_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Éclairs du bannissement !"
+    },
+    "V0505_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11836
+      ],
+      "duelist": [],
+      "text": "D/D/D Tireur Roi Tell attaque !"
+    },
+    "V0505_19_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flèches ioniques !"
+    },
+    "V0505_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13133
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D/D Super Roi du Déclin Armageddon Sombre !"
+    },
+    "V0505_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12959
+      ],
+      "duelist": [],
+      "text": "D/D/D Darius, Roi de Pierre ! À l'attaque !"
+    },
+    "V0505_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11328
+      ],
+      "duelist": [],
+      "text": "D/D/D Kaiser, Roi Suprême attaque !"
+    },
+    "V0505_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11769
+      ],
+      "duelist": [],
+      "text": "D/D/D Pendragon, le Roi Dragon ! À l'attaque !"
+    },
+    "V0505_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14708
+      ],
+      "duelist": [],
+      "text": "Go ! - D/D/D Rage, Roi du Zéro Divin ! À l'attaque !"
+    },
+    "V0505_19_00_18_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Épilogue final !"
+    },
+    "V0505_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13121
+      ],
+      "duelist": [],
+      "text": "D/D/D Roi de la Destinée Zéro Laplace attaque !"
+    },
+    "V0505_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11616
+      ],
+      "duelist": [],
+      "text": "D/D/D Abysses Ragnarok, Roi de l'Oubli ! À l'attaque !"
+    },
+    "V0505_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12225
+      ],
+      "duelist": [],
+      "text": "D/D/D Apocalypse, Roi du Chaos ! À l'attaque !"
+    },
+    "V0505_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11443
+      ],
+      "duelist": [],
+      "text": "D/D/D Roi du Déclin Armageddon !\nCondamne l'adversaire !"
+    },
+    "V0505_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14961
+      ],
+      "duelist": [],
+      "text": "D/D/D Roi du Vice Requiem ! À l'attaque !"
+    },
+    "V0505_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13304
+      ],
+      "duelist": [],
+      "text": "D/D/D Roi de la Supervue Zéro Maxwell ! À l'attaque !"
+    },
+    "V0505_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11460
+      ],
+      "duelist": [],
+      "text": "D/D/D Léonidas, Roi Rebelle attaque !"
+    },
+    "V0505_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14448
+      ],
+      "duelist": [],
+      "text": "D/D Arche ! Allez !"
+    },
+    "V0505_19_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14739
+      ],
+      "duelist": [],
+      "text": "C'est l'heure d'attaquer, D/D Mal !"
+    },
+    "V0505_19_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12228
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D Orthros !"
+    },
+    "V0505_19_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12929
+      ],
+      "duelist": [],
+      "text": "Fantôme D/D attaque !"
+    },
+    "V0505_19_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11955
+      ],
+      "duelist": [],
+      "text": "Ma Carte D/D Tourbillon Slime attaque !"
+    },
+    "V0505_19_00_31_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11458
+      ],
+      "duelist": [],
+      "text": "D/D Cerbère ! À l'attaque !"
+    },
+    "V0505_19_00_32_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11440
+      ],
+      "duelist": [],
+      "text": "D/D Hurlement de Nuit ! À l'attaque !"
+    },
+    "V0505_19_00_33_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11956
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D Nécro Slime !"
+    },
+    "V0505_19_00_34_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11954
+      ],
+      "duelist": [],
+      "text": "D/D Berfomet ! À l'attaque !"
+    },
+    "V0505_19_00_35_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11442
+      ],
+      "duelist": [],
+      "text": "D/D Savant Keplerée ! À l'attaque !"
+    },
+    "V0505_19_00_36_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12227
+      ],
+      "duelist": [],
+      "text": "D/D Savant Copernic ! À l'attaque !"
+    },
+    "V0505_19_00_37_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12229
+      ],
+      "duelist": [],
+      "text": "D/D Lamia ! À l'attaque !"
+    },
+    "V0505_19_00_38_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11439
+      ],
+      "duelist": [],
+      "text": "D/D Lilith !\nMets-leur la pression !"
+    },
+    "V0505_19_00_39_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        15181
+      ],
+      "duelist": [],
+      "text": "D/D Chien ! Charge !"
+    },
+    "V0505_19_00_40_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11795
+      ],
+      "duelist": [],
+      "text": "D/D Pandore ! À l'attaque !"
+    },
+    "V0505_19_00_41_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11329
+      ],
+      "duelist": [],
+      "text": "D/D Fier Ogre ! À l'attaque !"
+    },
+    "V0505_19_00_42_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11330
+      ],
+      "duelist": [],
+      "text": "D/D Fier Chevalier ! À l'attaque !"
+    },
+    "V0505_19_00_43_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12410
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D Savant Nikola !"
+    },
+    "V0505_19_00_44_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13056
+      ],
+      "duelist": [],
+      "text": "À l'attaque, D/D Typhon Vice !"
+    },
+    "V0505_19_00_45_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11441
+      ],
+      "duelist": [],
+      "text": "D/D Savant Galilée ! À l'attaque !"
+    },
+    "V0505_19_00_46_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12409
+      ],
+      "duelist": [],
+      "text": "D/D Savant Thomas ! À l'attaque !"
+    },
+    "V0505_19_00_47_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12226
+      ],
+      "duelist": [],
+      "text": "D/D Savant Newton ! À l'attaque !"
+    },
+    "V0505_19_00_48_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4789
+      ],
+      "duelist": [],
+      "text": "Allez, Bête de Talwar !"
+    },
+    "V0505_19_00_49_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        5762
+      ],
+      "duelist": [],
+      "text": "Archdémon Soldat attaque !"
+    },
+    "V0505_38_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À vos marques... Prêts ? Duel !"
+    },
+    "V0505_44_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duellistes !\nPréparez-vous au combat !"
+    },
+    "V0505_44_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Qui sera le meilleur ?"
+    },
+    "V0505_44_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est la fusion ultime entre monstres et chaos !"
+    },
+    "V0505_44_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'action commence maintenant !"
+    },
+    "V0505_44_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Action..."
+    },
+    "V0505_44_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duel !"
+    },
+    "V0505_45_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Carte Action !"
+    },
+    "V0505_45_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Action !"
+    },
+    "V0505_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    },
+    "V0505_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh !"
+    },
+    "V0505_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ouch !"
+    },
+    "V0505_26_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0505_26_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vois..."
+    },
+    "V0505_26_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0505_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    },
+    "V0505_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Agh !"
+    },
+    "V0505_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaargh !"
+    },
+    "V0505_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je ne m'attendais pas à ça..."
+    },
+    "V0505_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh..."
+    },
+    "V0505_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gah..."
+    },
+    "V0505_24_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh..."
+    },
+    "V0505_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Aaah !"
+    }
+  }
+}

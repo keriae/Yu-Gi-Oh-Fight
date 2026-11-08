@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "version": "v17-simple-round-fixtures",
+  "catalog": "content/client-ui/duel-scenes/catalog.json",
+  "origin": "AI-edited court clean plates preserve scene architecture and restrained floor inlays. Interactive fixtures use a shared simple circular mesh with theme material skins.",
+  "rendering": {
+    "environment": "AI camera-aligned overview and court-v3 clean backgrounds; interactive fixtures are separate low circular meshes with soft contact shadows.",
+    "live_3d": "Native cards and card flight effects; matching round grave and banish wells distinguished by blue and violet light; a round phase/TURN disc and round timer; engraved zone corners and pooled card contact shadows. Mate anchor state is restored on release.",
+    "material_limit": "Existing v4 material atlases supply quiet ivory, sandstone and gunmetal surfaces. Procedural vertex shading reveals the bevels. Owned white pixels support solid stencil lettering; per-fixture response pixels tint the single light ring and restrained radial wash.",
+    "modal_ui": "Rule and phase-selection reading panels use alpha .97 for academy and .96 for Egypt/city to suppress field labels and effects beneath them. Current, available and disabled phase fills are .98, .94 and .65; primary actions use .98. Current academy phase uses its primary foreground for contrast. Placement hints and normal notices retain alpha .80 for academy and .74 for Egypt/city; brief phase announcements retain .42. Original callbacks, navigation and interactability remain native.",
+    "field_readouts": "Grave and banish wells have no number labels. Phase and TURN text are engraved directly on a circular face; the timer shows seconds and a quiet remaining-time line when available. Hover, press and native data changes vary light intensity. No moving mechanical ornaments, rectangular sockets or phase lamp arrays. Fits use static circular bounds, shared camera projection and original collider identities; release restores the original hit volumes.",
+    "hud": "Player and opponent avatar, name, LP label and LP digits use separate mirrored columns. Explicit Face and MyCard images take precedence; the default Face uses the chosen Character, including the AI profile character, independently of voice mute. Superseded asynchronous portrait and expression loads cannot overwrite the current selection.",
+    "selection_ui": "Native full-UV card textures stay opaque and complete. Folded-card-back, level, pendulum-scale and tuner indicators sit in a separate 24-unit footer with original native visibility/state; selection frames and unknown-card logic remain native. The card viewport leaves space for this footer and horizontal scrolling. Bottom hand presentation is unchanged.",
+    "court_markings": "22 unique native card zones (ten per side and two extra monster zones) have quiet corner engravings. Occupied field zones share pooled soft contact meshes; no frame allocations."
+  },
+  "assets": [
+    {
+      "path": "content/client-ui/duel-scenes/action-glyphs-v2.png",
+      "sha256": "892cb293b57dca4fdd37dbca2a55f5c14b9b8d2a196eaabb2363256422d3d530",
+      "dimensions": [
+        384,
+        384
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/ancient-egypt-controls-fine.png",
+      "sha256": "8cbc94f98da3f553a377aa370b0085277ba8fd70b1c760c375f4c756ef0714ba",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/ancient-egypt-court-v3.png",
+      "sha256": "5d570e46d2983a4b6ab3b9986485c197232aa77f6951a4c8d209d4be40af8d81",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/ancient-egypt-field-materials-v4.png",
+      "sha256": "f7424061469dae79b0f21097489205b7ba5a2d8df757257126eeac7595e49b21",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/ancient-egypt-fixture-layout-v3.json",
+      "sha256": "811a587ae4be792db17b96db2861a4e0870675cb6f4a60a5ac68cdd734b42f4a"
+    },
+    {
+      "path": "content/client-ui/duel-scenes/ancient-egypt-opening-order-v3.png",
+      "sha256": "cfeef858f7fe605a201dc53a0fb08e3258f37fef3ee6d02dfcfb8315d9be7092",
+      "dimensions": [
+        2048,
+        768
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/ancient-egypt-opening-parts-v2.png",
+      "sha256": "ca1f344dab948e4cbaec52307d579ca1c3385c41be76df18778e1478fe93f4de",
+      "dimensions": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/ancient-egypt-overview.png",
+      "sha256": "fc5a27ff3338296d1ad9600d7d2cfd6a667c7c1ba453a81fff46ac4a2168dc9a",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/battle-academy-controls-fine.png",
+      "sha256": "78cedaa74b94bd600f14cde87a112d4e45a94259b22ef61a5e6511b7d04cfbf8",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/battle-academy-court-v3.png",
+      "sha256": "318e2649c21c83c13e1d867f5747b879347cfa1672219e430fb41a8a3998dbdd",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/battle-academy-field-materials-v4.png",
+      "sha256": "5094ea5ceff7bfeb0e0387e50ec223a6bbc078cc85362ff805fd2c60b8967920",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/battle-academy-fixture-layout-v3.json",
+      "sha256": "811a587ae4be792db17b96db2861a4e0870675cb6f4a60a5ac68cdd734b42f4a"
+    },
+    {
+      "path": "content/client-ui/duel-scenes/battle-academy-opening-order-v3.png",
+      "sha256": "24fd2abcbf017a697ee0c63adf86ed4ffd4987dc460787dd60ceeaf70eb5fb40",
+      "dimensions": [
+        2048,
+        768
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/battle-academy-opening-parts-v2.png",
+      "sha256": "5718b3e9eac8b4411f36f1d9b0bf99cbeaf45f91b976e9b4537830c6e9a436f6",
+      "dimensions": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/battle-academy-overview.png",
+      "sha256": "67daed99a22c442de6a75f7c454a6ca45b3997fabb0b4d740735935c95751446",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/catalog.json",
+      "sha256": "9c033d77f2ceee5aeb44b8fe4ab22369c73dd1a62f183efb139dd6739003be34"
+    },
+    {
+      "path": "content/client-ui/duel-scenes/classic-overview.jpg",
+      "sha256": "3c8a982a99de69776f49b6f6f4fd78c3e62aff7ac97dbb9ad7584679b39a403e",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/classic.jpg",
+      "sha256": "1a996ec735eb2c435ab4829f2866c3c57b3c2c3183a0df6ade387fade3d0ee67",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/hud-glyphs-v2.png",
+      "sha256": "02d4fe24ddbe8b969fb9484a88d036927d61fed12a8bd80213f66d55ebd2ab64",
+      "dimensions": [
+        320,
+        240
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/skyscraper-controls-fine.png",
+      "sha256": "079e702c65d6f395cba63a628ce1a548a2453fdd94a4aa0170d0ec3f21b75c89",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/skyscraper-court-v3.png",
+      "sha256": "e91ae40f34ab21418843987af24cc1dce13827e5c0131ce8850de9518298343f",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/skyscraper-field-materials-v4.png",
+      "sha256": "ca8c0296a65f0d98a2bca22b4f94f7a7362437c35cbb215288f7542deb379519",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/skyscraper-fixture-layout-v3.json",
+      "sha256": "811a587ae4be792db17b96db2861a4e0870675cb6f4a60a5ac68cdd734b42f4a"
+    },
+    {
+      "path": "content/client-ui/duel-scenes/skyscraper-opening-order-v3.png",
+      "sha256": "0d2ac4f1c5ea9b600964de67f766b0f4e6a6057ad6789ee05da60789123e875b",
+      "dimensions": [
+        2048,
+        768
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/skyscraper-opening-parts-v2.png",
+      "sha256": "73d792a61b32ba88d2879812b9be2ca3fe13cf9fe7c6704ed82f62bc2df40510",
+      "dimensions": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "content/client-ui/duel-scenes/skyscraper-overview.png",
+      "sha256": "29eae3699bd6431e2aef4b336165830869304495e5b0370017f33dcd99444272",
+      "dimensions": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "implementation_sources": {
+    "content/client-ui/duel-scenes/catalog.json": "9c033d77f2ceee5aeb44b8fe4ab22369c73dd1a62f183efb139dd6739003be34",
+    "game/Assets/Scripts/YuGiOhFight/Client/Controllers/OcgCore.cs": "0eae7095159a495492b12d349d465ad9172f204d6fc967df2879cd613b4cda2d",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelBGManager.cs": "4c5a26fc961d644942a479581d94f72870bff917b2aa1d4471eaffd9aa4dee0e",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneBindings.cs": "dee375b536f0d8c90755ad78c498eb2fcfc4a3655708d07c1f40c66f8fcc50f2",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneCatalog.cs": "59be1ae164f915a04efab0d0b0045edd87d0bdfde6ef038c234d5df6a1e9ad14",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneCourtMarkings.cs": "b45e2a1bd756db109811adbe5e90f5e26dbb134be508b081bfe889e6e69de0a1",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneEnvironment.cs": "42eac8fd597d156504e7f1aabf66e617a7e0a95ec5df6cb9d45496189ba3fc1e",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldInstruments.cs": "30eecf867a66996e0408688f3e06be0cf2ea57f87635327e1e36faa95d84ddc5",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldModels.cs": "3310e3f106ad7be88fe0040957a2a613d992f035ecddc58094434d8df3bbdb2d",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldProps.cs": "236bfe18e5ceaca0d9d9ebceabe9aef6c9cfb3cdfa08ae6cb0a99e66a173bcda",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldReadout.cs": "9ef6b15021a9a1bdb731833c9c6a4963edceaaffac1c786a4b54e8706f681b43",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFixtureLayout.cs": "042cafba1988d140d7e103e975bd0a57027045893b7048e1ffc16280d1a196e9",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneGeometry.cs": "c61e400e42a5905f5927c5bb16c7ca987960988065a2574792fda6aa332d415d",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelScenePhotoBackdrop.cs": "8b09a8cd3988cce26d0f61fe18dd88a26206b44f84bcb604e8300675c41e4232",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/GraveBehaviour.cs": "b8a6c02c131292e1e55eeb90072a9f1476b02137d14b60e1171ccb0c78123930",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/GameCard.cs": "6c0d71b161ec9bdc634102c581e4c864ea870ecdc2af9b3b5c094e2b6851ce50",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/Message/DuelMessage.cs": "346a440d29f8dee0cc99f4d2bddd141a31dac52934a8c58fbd2206e4d6c104e6",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/Message/VoiceMessage.cs": "65ea907fcd96ae58575a585ece18749aa0a8c43ee9844a3ab0b8539e4b758129",
+    "game/Assets/Scripts/YuGiOhFight/Client/Runtime/CameraManager.cs": "c5c83321b86670aed27f75753a04861324730becdb69f4f9e4d02744874b94f5",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightClient.DuelScenes.cs": "285f15beb143ae73b1ee1e084fc355bc74a9d613663d981ad822774b68044746",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelActionComposition.cs": "a442e02570bb055438ae3ea31bd8df4215f28781c4e09ca8783c38bbed835da1",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelAuxiliarySkin.cs": "a405af3976e9326707ea5a586a61f888ae66efcc2c5fb0692fa39f78585bd7db",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelCardDetailSkin.cs": "0730ace3e1266d66993b41fa0b965f3f1dedeea724c17c31bcc8dfa270d01d78",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelHudComposition.cs": "b5a57ae21e09821a457d03efb8ff3a1640f0aaa31bf70845819c1e058bafc22f",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelHudSkin.cs": "5bcf601f283a5ea500cf0130c4f075d9c4745c2893877b8f678111f769d66159",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelLaunch.cs": "8d1f5e45238816b92ccccf41a527f3bdb2065ecdd15b500ad195f3346850cfe6",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelLogSkin.cs": "389f3868d171222fe6b60f2cfd7d9009107c0e68343eb988a2a37c14b527b262",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelMenu.Appearance.cs": "cede764fa999289dbe713c6cd81df446eb1f62824a7288c608d588c4cbb98fa4",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelMenu.Cards.cs": "6eee6b3620087ef7622e99c0e027f003a217c568f078d0b3db19565581893129",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelMenu.Navigation.cs": "e78b7a3643d2420afd0f78c915bd86a44a95f10e41a03722cc7edcb74aa23b73",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelMenu.cs": "c855645fe73f521b147af7dd4d386a59108590ed4bf636b26b30d39d891f9c07",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelMessageSkin.cs": "b3e9534936b8fec5fa5809b4d553cbec13a1a0f32f5d5cdea7b91a58a09a6cb3",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelPopupLayout.cs": "2cc8d362463dc529f701c7f396cce551ad3e3be4341bd59e149aa68877b58b85",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelPopupSkin.cs": "795745b56cd91bf0a8870ff1497b80529fafcafdc0b41e8d523b920e99448c71",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightOpeningCoin.cs": "559e7c2249b22aa624e5172e243730831bffb514672527fff530b39bedc8d61d",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightSceneAnnouncement.cs": "1f1da9ae89d9db4474383ef7f2cc24dd7bc678ea5443cf57c795694ee0dc8476",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightSceneCinematic.cs": "8977c497c2c5ad30073818f0ff3395946459653115728d26f66faf6cd2d2b261",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightSceneCombatFeedback.cs": "6072232941e89897a2c56d5efbb1a84adf6c2ce93b74055c43fea28e0fb2e01d",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightSceneOpeningOrder.cs": "9ca0b6f766feeaa533024f685c7f188efd6f930d3e39caeb9e4faab30355ba17",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightSceneOpeningRig.cs": "6e59742cf401387d2a8753feabac3ab317b43aeb73e437b437c917c6b17cdb10",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightSkin.cs": "1dff2eb08326824607c27063a8fe1d41bfcc805b0a28bce3dfe8db19cda22ae0",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/UIComponents/PhaseButtonHandler.cs": "d8ae006db794e147dc552919f1b1565b777074b023a7879e38d73492181cdbd3",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/UIComponents/PlaceSelector.cs": "1876f38bddde79fba207a236d25cb561372555a2348fd3f3791b27094a08b4b8",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/UIComponents/TimerHandler.cs": "7715c629e39fa3e2d92a79d47f5443ba9e22815318521edf6ac01b8b66796f81",
+    "scripts/client_ui_assets.py": "0b156554dabdf4fcc79684f1cd9554ed5f8dac8e8a9c9c93232f82fc3b0ec5ce"
+  },
+  "generation": {
+    "battle-academy": {
+      "conversation_id": "3510932568836",
+      "prompt": "Use case: precise-object-edit. Production game environment clean plate for a top-down 3D Yu-Gi-Oh duel. Edit the supplied image, preserving the exact camera angle, perspective, outer architecture, entrances and entire floor footprint. The play area must stay EMPTY: no cards, no trays, no graves, no portals, no clocks, no consoles, no people, no floating props, no lettering or interface. Refinish the floor as described. All decoration must be restrained and built into the material, no glowing grid, no card slot rectangles. Leave the broad central 65% of the frame very calm, evenly lit and readable for gameplay. Retain realistic physically based materials, cinematic crafted architecture and detailed soft shadows at the outer walls. Generate one landscape image, 16:9, at 2048x1152 or higher. No collage. Turn the plain blank beige arena floor into a sophisticated military academy dueling court: softly weathered cool ivory composite slabs with subtle large radial panel seams, a thin dark navy and brushed silver inlaid ring just inside the outer oval boundary, and a very understated geometric academy compass medallion engraved at the exact center (under 12% of frame width). A muted blue gray inner field, not white glare. Keep the existing stadium architecture, navy seating and polished silver railing; reduce overbright specular reflections. Soft cool daylight with discreet cyan lights only on outer walls. Make this a premium strategic training arena, clean and disciplined.",
+      "model": "gpt-image-2",
+      "output": "content/client-ui/duel-scenes/battle-academy-court-v3.png"
+    },
+    "ancient-egypt": {
+      "conversation_id": "3508224494852",
+      "prompt": "Use case: precise-object-edit. Production game environment clean plate for a top-down 3D Yu-Gi-Oh duel. Edit the supplied image, preserving the exact camera angle, perspective, outer architecture, entrances and entire floor footprint. The play area must stay EMPTY: no cards, no trays, no graves, no portals, no clocks, no consoles, no people, no floating props, no lettering or interface. Refinish the floor as described. All decoration must be restrained and built into the material, no glowing grid, no card slot rectangles. Leave the broad central 65% of the frame very calm, evenly lit and readable for gameplay. Retain realistic physically based materials, cinematic crafted architecture and detailed soft shadows at the outer walls. Generate one landscape image, 16:9, at 2048x1152 or higher. No collage. Refine this ancient Egyptian temple dueling courtyard: smooth worn limestone and golden sandstone large flagstones in the central play court, quiet low-contrast texture so cards read clearly. Add a narrow dark lapis lazuli and aged gold inlaid border around the courtyard inside existing architecture. At the exact center engrave a subtle circular winged sun seal in sandstone (under 12% of frame width), no giant glyphs or glowing symbols. Retain elaborate ancient columns, fire bowls, palms and entrance. Balance warm illumination across the floor, preserve dramatic warm torchlight at edges with a few tasteful turquoise stone insets on the architecture. Reduce dense gritty pebbles and noisy central cracks. A noble ceremonial temple, elegant and believable.",
+      "model": "gpt-image-2",
+      "output": "content/client-ui/duel-scenes/ancient-egypt-court-v3.png"
+    },
+    "skyscraper": {
+      "conversation_id": "3509630413316",
+      "prompt": "Use case: precise-object-edit. Production game environment clean plate for a top-down 3D Yu-Gi-Oh duel. Edit the supplied image, preserving the exact camera angle, perspective, outer architecture, entrances and entire floor footprint. The play area must stay EMPTY: no cards, no trays, no graves, no portals, no clocks, no consoles, no people, no floating props, no lettering or interface. Refinish the floor as described. All decoration must be restrained and built into the material, no glowing grid, no card slot rectangles. Leave the broad central 65% of the frame very calm, evenly lit and readable for gameplay. Retain realistic physically based materials, cinematic crafted architecture and detailed soft shadows at the outer walls. Generate one landscape image, 16:9, at 2048x1152 or higher. No collage. Refine the rooftop dueling terrace: retain the exact existing gothic industrial buildings, wrought iron rails, water tower, nighttime city view and original dark blue stone floor character. Replace only excessively gritty noise with believable broad slate flagstones, restrained charcoal gunmetal joints, a thin aged brass perimeter inlay, and one very subtle engraved circular art deco compass at the exact center (under 12% of frame width). No visible UI, no neon floor. Lift the broad central court lighting by about one stop so both cards and physical fixtures will be readable against the cool dark blue slate, while walls retain warm amber lanterns and the skyline remains atmospheric. Premium cinematic nighttime rooftop, balanced material detail and clear gameplay negative space.",
+      "model": "gpt-image-2",
+      "output": "content/client-ui/duel-scenes/skyscraper-court-v3.png"
+    }
+  }
+}

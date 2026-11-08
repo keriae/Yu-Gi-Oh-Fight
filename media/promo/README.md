@@ -1,0 +1,76 @@
+# Gameplay trailers
+
+The separate 90-second English and Simplified Chinese trailers use recordings
+of the real macOS game window, with the corresponding interface language.
+Captured game audio is retained, with short fades and a recorded menu theme
+under paused menus and the closing card. No synthetic gameplay or stock
+footage is used. Remotion and React are pinned in `package-lock.json`.
+
+Use Node.js 24 or later, and run these commands from `media/promo`. Place the
+source recordings listed in `footage.json` under `public/footage/` before
+previewing or rendering:
+
+```sh
+npm ci
+npm run preview
+npm run render
+```
+
+The `LaunchTrailerEN` and `LaunchTrailerZH` compositions export to
+`docs/media/launch-trailer-en.mp4` and `docs/media/launch-trailer-zh.mp4`.
+`npm run render:en` or `npm run render:zh` renders only one language.
+`npm run outputs` regenerates the separate subtitle files and records final
+output hashes after both videos, GIFs, and `preview-en.jpg` / `preview-zh.jpg` exist.
+
+The repository homepage embeds separate full-length English and Chinese GIFs.
+Each runs for 90 seconds at 720×405 and 10 fps, with a 256-color palette,
+Bayer dithering at scale 3, rectangle difference optimization, and infinite
+looping. GIFs have no audio; clicking either animation opens its original MP4
+with game audio. To regenerate a GIF from this directory with a full FFmpeg
+build, replace `en` with `zh` for the Chinese version:
+
+```sh
+ffmpeg -i ../../docs/media/launch-trailer-en.mp4 \
+  -vf "fps=10,scale=720:-1:flags=lanczos,palettegen=stats_mode=diff" \
+  -frames:v 1 /tmp/yu-gi-oh-fight-en-palette.png
+ffmpeg -i ../../docs/media/launch-trailer-en.mp4 \
+  -i /tmp/yu-gi-oh-fight-en-palette.png \
+  -filter_complex "[0:v]fps=10,scale=720:-1:flags=lanczos[v];[v][1:v]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle" \
+  -an -loop 0 -gifflags +transdiff ../../docs/media/launch-trailer-en.gif
+```
+
+Raw recordings, dependencies, and intermediate frames are local production
+files and intentionally ignored by Git. Public output is in the repository-root
+[docs/media](../../docs/media/) directory; redistribute gameplay media subject
+to the project's [third-party notices](../../THIRD_PARTY_NOTICES.md).
+
+The capture canvas is 1920×1200. The complete game page is fitted proportionally
+and centered above a separate footer in the 1920×1080 trailer. Only recorded
+bottom black padding identified by `content_height_pixels` is omitted; game
+content is never cropped or enlarged. `ScreenScene` uses the selected language
+for both recording and subtitle. Each scene has one centered bottom row
+containing its chapter label and a single-language caption, measured within
+the safe width. This footer sits below the game page and covers no controls.
+The homepage remains visible without a central title overlay. The closing card
+uses the actual project logo, the complete repository URL, and a single-language
+unofficial, non-commercial notice.
+
+The trailer uses self-hosted SIL OFL 1.1 fonts under `public/fonts/`: Cinzel at
+600 for English and Noto Serif SC at 600 for Chinese. The font sources, hashes,
+and Chinese subset corpus are recorded in `public/fonts/provenance.json`,
+with the original licenses. Loading completes before text measurement or
+rendering. All timing and fades are driven by frame numbers.
+
+The narrative runs from deck building to academy learning, AI preparation,
+brief duel action, the redesigned duel menus, and replay review. The separate
+`docs/media/full-duel.mp4` keeps the opening, all three turns, and victory from
+26–149 seconds of `full-replay-zh.mp4`. Only bottom black padding is cropped;
+the original AAC audio stream is copied. Reproduce it from this directory with
+a full FFmpeg build that includes the `crop` filter:
+
+```sh
+ffmpeg -ss 26 -i public/footage/full-replay-zh.mp4 -t 123 \
+  -vf "crop=1920:1092:0:0,fps=30" -c:v libx264 -preset medium -crf 20 \
+  -maxrate 4800k -bufsize 9600k -pix_fmt yuv420p -c:a copy \
+  -movflags +faststart -map_metadata -1 ../../docs/media/full-duel.mp4
+```

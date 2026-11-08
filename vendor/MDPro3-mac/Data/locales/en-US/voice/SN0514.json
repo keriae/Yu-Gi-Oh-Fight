@@ -1,0 +1,3458 @@
+{
+  "_GRP_": "SN0514",
+  "_LNG_": "en-US",
+  "info": {
+    "V0514_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're in my way."
+    },
+    "V0514_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're brave for deciding to Duel me.\nBut not very smart."
+    },
+    "V0514_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sure, let's Duel.\nIt'll help me pass the time."
+    },
+    "V0514_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I hope you provide even the slightest bit of a challenge.  "
+    },
+    "V0514_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Now let's begin.\nHeh heh heh..."
+    },
+    "V0514_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Okay.\nI'll face you."
+    },
+    "V0514_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're feisty.\nThis should be fun."
+    },
+    "V0514_01_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501
+      ],
+      "text": "I hope no one interrupts our Duel, Yuya."
+    },
+    "V0514_01_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501,
+        506,
+        510
+      ],
+      "text": "You'll never defeat me or my Starving Venom."
+    },
+    "V0514_01_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Ready to lose, Dodo?"
+    },
+    "V0514_01_00_10_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        502,
+        512,
+        509,
+        511
+      ],
+      "text": "I'll give you one last chance to take back your challenge."
+    },
+    "V0514_01_00_11_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        512
+      ],
+      "text": "This is the one Duel I've been looking forward to the most."
+    },
+    "V0514_01_00_12_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        513
+      ],
+      "text": "Whatever happens, you asked for this, Dennis."
+    },
+    "V0514_01_00_13_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        507
+      ],
+      "text": "Get ready to Duel, Sora."
+    },
+    "V0514_01_00_14_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        106
+      ],
+      "text": "You've beaten the elite - but never faced anyone like me."
+    },
+    "V0514_02_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duel!"
+    },
+    "V0514_03_00_00_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I can see you're trying your best.\nBut it's not enough."
+    },
+    "V0514_03_00_00_1": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's my turn!"
+    },
+    "V0514_03_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Are you sure you want to continue?\nOkay - your mistake."
+    },
+    "V0514_03_00_01_1": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "My turn!"
+    },
+    "V0514_03_00_02_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You'll learn that all your effort adds up to nothing!"
+    },
+    "V0514_03_00_02_1": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's my turn!"
+    },
+    "V0514_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I draw!"
+    },
+    "V0514_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Here I go."
+    },
+    "V0514_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's my turn!"
+    },
+    "V0514_03_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I guess I can try a little harder."
+    },
+    "V0514_03_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "My turn!"
+    },
+    "V0514_03_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Would you like to see how terrifying a Duel can be?"
+    },
+    "V0514_03_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's my turn!"
+    },
+    "V0514_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I draw!"
+    },
+    "V0514_03_00_06_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Settle down.\nYou need to be more humble like me."
+    },
+    "V0514_03_00_06_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's my turn!"
+    },
+    "V0514_03_00_07_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're starting to irritate me!"
+    },
+    "V0514_03_00_07_1": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "My turn!"
+    },
+    "V0514_03_00_08_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I've never lost a Duel, and I'm not starting now!"
+    },
+    "V0514_03_00_08_1": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's my turn!"
+    },
+    "V0514_04_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I draw!"
+    },
+    "V0514_05_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "I wonder which will last longer - your spirit or your LP?"
+    },
+    "V0514_05_00_00_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "I drawww!"
+    },
+    "V0514_06_01_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Now!"
+    },
+    "V0514_06_01_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pointless."
+    },
+    "V0514_06_01_02_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I don't think so."
+    },
+    "V0514_06_01_03_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Haha! That's no good!"
+    },
+    "V0514_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "From my hand..."
+    },
+    "V0514_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate my Spell Card!"
+    },
+    "V0514_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate my Quick-Play Spell!"
+    },
+    "V0514_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate a Continuous Spell!"
+    },
+    "V0514_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate an Equip Spell!"
+    },
+    "V0514_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate a Ritual Spell!"
+    },
+    "V0514_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate my Trap!"
+    },
+    "V0514_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate a Continuous Trap!"
+    },
+    "V0514_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate a Counter Trap!"
+    },
+    "V0514_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate my Set card!"
+    },
+    "V0514_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I flip over the card I Set!"
+    },
+    "V0514_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate my monster's effect!"
+    },
+    "V0514_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate a Field Spell!"
+    },
+    "V0514_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate an effect!"
+    },
+    "V0514_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I set the Pendulum Scale!"
+    },
+    "V0514_07_14_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate a Pendulum Effect!"
+    },
+    "V0514_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ready for this?"
+    },
+    "V0514_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's finally time to make yourself known."
+    },
+    "V0514_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Check this out."
+    },
+    "V0514_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Here's what I'll do."
+    },
+    "V0514_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Summon a monster."
+    },
+    "V0514_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Summon a monster in Defense Position."
+    },
+    "V0514_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Special Summon a monster."
+    },
+    "V0514_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Tribute a monster."
+    },
+    "V0514_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Tribute Summon a monster!"
+    },
+    "V0514_11_04_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tribute Summon!"
+    },
+    "V0514_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Fusion Summon a monster!"
+    },
+    "V0514_11_05_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusion Summon!"
+    },
+    "V0514_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Ritual Summon a monster!"
+    },
+    "V0514_11_06_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ritual Summon!"
+    },
+    "V0514_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Synchro Summon a monster!"
+    },
+    "V0514_11_07_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Synchro Summon!"
+    },
+    "V0514_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Xyz Summon a monster!"
+    },
+    "V0514_11_08_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Xyz Summon!"
+    },
+    "V0514_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Pendulum Summon a monster!"
+    },
+    "V0514_11_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pendulum Summon!"
+    },
+    "V0514_11_09_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rise, my monsters!"
+    },
+    "V0514_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Link Summon a monster!"
+    },
+    "V0514_11_10_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Link Summon!"
+    },
+    "V0514_11_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Maximum Summon a monster!"
+    },
+    "V0514_11_11_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maximum Summon!"
+    },
+    "V0514_11_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Fusion Summon a monster!"
+    },
+    "V0514_11_12_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusion Summon!"
+    },
+    "V0514_11_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Contact Fusion a monster!"
+    },
+    "V0514_11_13_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Contact Fusion!"
+    },
+    "V0514_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Battle!"
+    },
+    "V0514_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Let's battle!"
+    },
+    "V0514_15_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Now gooo!"
+    },
+    "V0514_15_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You won't like this."
+    },
+    "V0514_15_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You can't do anything to stop me."
+    },
+    "V0514_17_00_00_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "My monster attacks!"
+    },
+    "V0514_17_00_01_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I attack with my monster!"
+    },
+    "V0514_17_00_02_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attack!"
+    },
+    "V0514_16_00_00_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "One final strike to finish you forever."
+    },
+    "V0514_16_00_01_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I can't wait to hear you scream."
+    },
+    "V0514_18_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "My monster attacks you directly!"
+    },
+    "V0514_18_00_01_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Direct attack!"
+    },
+    "V0514_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Set a card."
+    },
+    "V0514_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'll Set a card."
+    },
+    "V0514_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Set a monster."
+    },
+    "V0514_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'm Setting this monster."
+    },
+    "V0514_21_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's more fun to watch you squirm than winning right away."
+    },
+    "V0514_21_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I end my turn."
+    },
+    "V0514_21_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You really think you can make a comeback?\nThen show me."
+    },
+    "V0514_21_00_01_1": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I end my turn."
+    },
+    "V0514_21_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'd appreciate it if you'd try - just even a little bit."
+    },
+    "V0514_21_00_02_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I end my turn."
+    },
+    "V0514_21_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "And that's that."
+    },
+    "V0514_21_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'm ending my turn."
+    },
+    "V0514_21_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "That's it for now, but you won't like what I have in store."
+    },
+    "V0514_21_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I end my turn."
+    },
+    "V0514_21_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I end my turn."
+    },
+    "V0514_21_00_05_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're up.\nBring it on."
+    },
+    "V0514_21_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're playing pretty well.\nThat's starting to annoy me."
+    },
+    "V0514_21_00_06_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I end my turn."
+    },
+    "V0514_21_00_07_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Whatever.\nI'm still winning in the end."
+    },
+    "V0514_21_00_07_1": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I end my turn."
+    },
+    "V0514_21_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I was willing to end you painlessly, but not anymore."
+    },
+    "V0514_21_00_08_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I end my turn."
+    },
+    "V0514_28_00_00_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hahaha! Are you okay?\nIt looks like you can't even stand up."
+    },
+    "V0514_28_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "That was a lot quicker than I thought it'd be."
+    },
+    "V0514_28_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Done and done."
+    },
+    "V0514_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's not my fault you lost.\nYou're the one without skills."
+    },
+    "V0514_28_00_04_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "It's always fun to win!\nHahahahahaha!"
+    },
+    "V0514_28_00_05_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "That was great!\nYou're the best!"
+    },
+    "V0514_28_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I was going to turn down your challenge.\nI'm glad I didn't."
+    },
+    "V0514_28_00_06_1": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "No one's ever entertained me as much as you!"
+    },
+    "V0514_28_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501,
+        506,
+        510
+      ],
+      "text": "I had... fun.\nPerhaps for the first time in my life."
+    },
+    "V0514_28_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501,
+        506,
+        510
+      ],
+      "text": "If I knew it'd be this much fun, we should've Dueled sooner!"
+    },
+    "V0514_28_00_09_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        502,
+        512,
+        509,
+        511
+      ],
+      "text": "Ooh - not bad.\nImpressive how none of you would quit."
+    },
+    "V0514_28_00_10_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        507
+      ],
+      "text": "That's too bad, Sora."
+    },
+    "V0514_28_00_11_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        513
+      ],
+      "text": "I think my Dueling was more entertaining than yours, Dennis."
+    },
+    "V0514_28_00_12_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        106
+      ],
+      "text": "How does it feel to get a failing grade?\nHahahaha!"
+    },
+    "V0514_29_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'll get you back for this - in my own way."
+    },
+    "V0514_29_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I can't believe I lost..."
+    },
+    "V0514_29_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Did you come here just to annoy me!"
+    },
+    "V0514_29_00_03_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "What?\nMe? Lose?"
+    },
+    "V0514_29_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Humph...\nI never want to see you again!"
+    },
+    "V0514_29_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501,
+        506,
+        510
+      ],
+      "text": "Losing to you feels like I lost against myself."
+    },
+    "V0514_29_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501,
+        506,
+        510
+      ],
+      "text": "My previous foes were all bark and no bite - but not you."
+    },
+    "V0514_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "What!?"
+    },
+    "V0514_31_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Humph!"
+    },
+    "V0514_33_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "I'm going to give it my all.\nWhich is bad news for you."
+    },
+    "V0514_33_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "I'll enjoy this Duel in my own way."
+    },
+    "V0514_33_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "I'll be nice and end you quickly."
+    },
+    "V0514_30_00_00_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You should surrender.\nThis is a Duel you can't win."
+    },
+    "V0514_30_00_01_0": {
+      "face": 11,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "If you don't behave, I'll turn you into a card."
+    },
+    "V0514_30_00_02_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'm impressed you've survived this far!"
+    },
+    "V0514_34_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're coming with me - whether you like it or not."
+    },
+    "V0514_34_00_01_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'll use a Structure Deck instead of my usual Deck."
+    },
+    "V0514_34_00_02_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I know exactly what I'm doing."
+    },
+    "V0514_34_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh my! Looks like I drew a doozy!"
+    },
+    "V0514_34_00_04_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Am I a genius?\nI mastered this Deck on my very first try."
+    },
+    "V0514_34_00_05_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "This card is in my Deck because I put it there!"
+    },
+    "V0514_34_00_06_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You think I'd play an effect without knowing what it does?"
+    },
+    "V0514_34_00_07_0": {
+      "face": 12,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "What's the point of that?"
+    },
+    "V0514_34_00_08_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I always draw what I need!"
+    },
+    "V0514_34_00_09_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You said you were going to crush me.\nOr were you all talk?"
+    },
+    "V0514_34_00_10_0": {
+      "face": 13,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Here it is!\nThis is going to be amazing!"
+    },
+    "V0514_34_00_11_0": {
+      "face": 8,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I love how hard you try even when you know you can't win!"
+    },
+    "V0514_34_00_12_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "That monster again? Don't you know when to give up?"
+    },
+    "V0514_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0514_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!"
+    },
+    "V0514_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I've been called many names, but my name is Yuri."
+    },
+    "V0514_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Let's make things exciting."
+    },
+    "V0514_36_00_00_0": {
+      "face": 9,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hurry up so I it'll be my turn again!"
+    },
+    "V0514_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'm warning you - don't mess up."
+    },
+    "V0514_36_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "This is why I like Dueling by myself."
+    },
+    "V0514_36_00_03_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I do not give you permission to lose."
+    },
+    "V0514_36_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        501
+      ],
+      "text": "There's still something we can do, Yuya."
+    },
+    "V0514_36_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        510
+      ],
+      "text": "Don't you dare lose, Yugo."
+    },
+    "V0514_36_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        506
+      ],
+      "text": "I know you're skilled enough to do something, Yuto."
+    },
+    "V0514_36_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        513
+      ],
+      "text": "Just when it's getting fun...\nMake sure I get another turn!"
+    },
+    "V0514_08_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4837
+      ],
+      "duelist": [],
+      "text": "I activate the Spell Card, Polymerization!"
+    },
+    "V0514_08_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7445
+      ],
+      "duelist": [],
+      "text": "I activate the Quick-Play Spell, Super Polymerization!"
+    },
+    "V0514_08_00_01_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Super Polymerization can fuse monsters on both our fields!"
+    },
+    "V0514_08_00_01_2": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "And no effect can be activated in response."
+    },
+    "V0514_08_00_02_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7445
+      ],
+      "duelist": [],
+      "text": "I activate my Quick-Play Spell!\nSuper Polymerization!"
+    },
+    "V0514_08_00_03_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12966
+      ],
+      "duelist": [],
+      "text": "Feast your eyes on a card more powerful than any other!"
+    },
+    "V0514_08_00_03_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate the Spell Card, Ultra Polymerization!"
+    },
+    "V0514_08_00_04_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12966
+      ],
+      "duelist": [],
+      "text": "I banish Ultra Polymerization from my Graveyard!"
+    },
+    "V0514_08_00_05_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14984
+      ],
+      "duelist": [],
+      "text": "I activate my Spell Card!\nDowsing Fusion!"
+    },
+    "V0514_08_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12884
+      ],
+      "duelist": [],
+      "text": "I activate my Spell Card!\nPendulum Fusion!"
+    },
+    "V0514_08_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14604
+      ],
+      "duelist": [],
+      "text": "I activate the Quick-Play Spell, Predaprime Fusion!"
+    },
+    "V0514_08_00_08_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12837
+      ],
+      "duelist": [],
+      "text": "I activate my Continuous Spell!\nPredaponics!"
+    },
+    "V0514_08_00_09_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12837
+      ],
+      "duelist": [],
+      "text": "I activate Predaponics's effect!"
+    },
+    "V0514_08_00_10_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12838
+      ],
+      "duelist": [],
+      "text": "I activate the Equip Spell, Predapruning!"
+    },
+    "V0514_08_00_11_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14603
+      ],
+      "duelist": [],
+      "text": "I activate the Spell Card, Predapractice!"
+    },
+    "V0514_08_00_12_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12858
+      ],
+      "duelist": [],
+      "text": "I activate my Quick-Play Spell!\nPredaplast!"
+    },
+    "V0514_08_00_13_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14605
+      ],
+      "duelist": [],
+      "text": "I activate my Trap!\nPredaplanning!"
+    },
+    "V0514_08_00_14_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14605
+      ],
+      "duelist": [],
+      "text": "I banish Predaplanning from my Graveyard to use its effect!"
+    },
+    "V0514_08_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12839
+      ],
+      "duelist": [],
+      "text": "I activate my Continuous Trap!\nPredaplanet!"
+    },
+    "V0514_08_00_16_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12839
+      ],
+      "duelist": [],
+      "text": "Predaplanet's effect activates!"
+    },
+    "V0514_08_00_17_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12839
+      ],
+      "duelist": [],
+      "text": "I banish Predaplanet from my Graveyard to use its effect!"
+    },
+    "V0514_08_00_18_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12679
+      ],
+      "duelist": [],
+      "text": "Heh heh...\nI activate the Spell Card, Ancient Gear Catapult!"
+    },
+    "V0514_08_00_19_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12679
+      ],
+      "duelist": [],
+      "text": "I activate Ancient Gear Catapult's effect from my Graveyard!"
+    },
+    "V0514_08_00_20_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12680
+      ],
+      "duelist": [],
+      "text": "I activate the Continuous Spell, Ancient Gear Fortress!"
+    },
+    "V0514_08_00_21_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12680
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Fortress activates when it's destroyed!"
+    },
+    "V0514_08_00_22_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6935
+      ],
+      "duelist": [],
+      "text": "I activate the Spell Card, Ancient Gear Workshop!"
+    },
+    "V0514_08_00_23_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12805
+      ],
+      "duelist": [],
+      "text": "I activate the Continuous Trap, Ancient Gear Reborn!"
+    },
+    "V0514_08_00_24_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12805
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Reborn's effect activates!"
+    },
+    "V0514_08_00_25_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14343
+      ],
+      "duelist": [],
+      "text": "Starving Venemy Lethal Dose Dragon uses its Pendulum Effect!"
+    },
+    "V0514_08_00_26_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13131
+      ],
+      "duelist": [],
+      "text": "Odd-Eyes Venom Dragon activates its Pendulum Effect!"
+    },
+    "V0514_08_00_27_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13990
+      ],
+      "duelist": [],
+      "text": "I activate Predaplant Spider Orchid's Pendulum Effect!"
+    },
+    "V0514_08_00_28_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17130
+      ],
+      "duelist": [],
+      "text": "Predaplant Bufolicula activates its Pendulum Effect!"
+    },
+    "V0514_09_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12628
+      ],
+      "duelist": [],
+      "text": "Fusion Summoning Starving Venom activates its effect!"
+    },
+    "V0514_09_00_01_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12628
+      ],
+      "duelist": [],
+      "text": "Starving Venom Fusion Dragon activates its effect!"
+    },
+    "V0514_09_00_02_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12628
+      ],
+      "duelist": [],
+      "text": "Starving Venom Fusion Dragon activates when it's destroyed!"
+    },
+    "V0514_09_00_03_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12836
+      ],
+      "duelist": [],
+      "text": "Greedy Venom Fusion Dragon activates its effect!"
+    },
+    "V0514_09_00_04_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12836
+      ],
+      "duelist": [],
+      "text": "Greedy Venom's effect activates when it's destroyed!"
+    },
+    "V0514_09_00_05_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17147
+      ],
+      "duelist": [],
+      "text": "I activate Starving Venom Predapower Fusion Dragon's effect!"
+    },
+    "V0514_09_00_06_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17147
+      ],
+      "duelist": [],
+      "text": "Predapower's effect activates when it goes to the Graveyard!"
+    },
+    "V0514_09_00_07_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16428
+      ],
+      "duelist": [],
+      "text": "Starving Venemy Dragon's effect activates!"
+    },
+    "V0514_09_00_08_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14343
+      ],
+      "duelist": [],
+      "text": "I activate Starving Venemy Lethal Dose Dragon's effect!"
+    },
+    "V0514_09_00_09_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13131
+      ],
+      "duelist": [],
+      "text": "I activate Odd-Eyes Venom Dragon's effect!"
+    },
+    "V0514_09_00_10_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14601
+      ],
+      "duelist": [],
+      "text": "Fusion Summoning Triphyoverutum lets it use this effect!"
+    },
+    "V0514_09_00_11_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14601
+      ],
+      "duelist": [],
+      "text": "Since you have a Predator Counter, I can revive this card!"
+    },
+    "V0514_09_00_12_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12870
+      ],
+      "duelist": [],
+      "text": "Dragostapelia activates its effect!"
+    },
+    "V0514_09_00_13_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12835
+      ],
+      "duelist": [],
+      "text": "I activate Chimerafflesia's effect!"
+    },
+    "V0514_09_00_14_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17148
+      ],
+      "duelist": [],
+      "text": "Ambulomelides's effect activates when it's Fusion Summoned!"
+    },
+    "V0514_09_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17148
+      ],
+      "duelist": [],
+      "text": "I activate Ambulomelides's effect!"
+    },
+    "V0514_09_00_16_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14602
+      ],
+      "duelist": [],
+      "text": "I activate Heliamphorhynchus's effect from my hand!"
+    },
+    "V0514_09_00_17_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14602
+      ],
+      "duelist": [],
+      "text": "Heliamphorhynchus's effect activates when it's destroyed!"
+    },
+    "V0514_09_00_18_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13055
+      ],
+      "duelist": [],
+      "text": "Banksiogre's effect activates when it goes to the Graveyard!"
+    },
+    "V0514_09_00_19_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12831
+      ],
+      "duelist": [],
+      "text": "I banish Drosophyllum Hydra from my Graveyard!"
+    },
+    "V0514_09_00_20_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12597
+      ],
+      "duelist": [],
+      "text": "Moray Nepenthes activates when it destroys a monster!"
+    },
+    "V0514_09_00_21_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12597
+      ],
+      "duelist": [],
+      "text": "Moray Nepenthes has a monster equipped, so it can do this!"
+    },
+    "V0514_09_00_22_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12833
+      ],
+      "duelist": [],
+      "text": "Summoning Spinodionaea activates its effect!"
+    },
+    "V0514_09_00_23_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12833
+      ],
+      "duelist": [],
+      "text": "Spinodionaea battled a monster with equal or lower Level!"
+    },
+    "V0514_09_00_24_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12923
+      ],
+      "duelist": [],
+      "text": "By Summoning Ophrys Scorpio, its effect activates!"
+    },
+    "V0514_09_00_25_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12924
+      ],
+      "duelist": [],
+      "text": "A Predaplant's effect Special Summoned Darlingtonia Cobra!"
+    },
+    "V0514_09_00_26_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12832
+      ],
+      "duelist": [],
+      "text": "Pterapenthes's effect activates when it deals damage!"
+    },
+    "V0514_09_00_27_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12832
+      ],
+      "duelist": [],
+      "text": "Pterapenthes activates its effect!"
+    },
+    "V0514_09_00_28_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12598
+      ],
+      "duelist": [],
+      "text": "I send Squid Drosera from my hand to the Graveyard!"
+    },
+    "V0514_09_00_29_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12598
+      ],
+      "duelist": [],
+      "text": "Squid Drosera's effect activates when it leaves the field!"
+    },
+    "V0514_09_00_30_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12596
+      ],
+      "duelist": [],
+      "text": "I activate Predaplant Flytrap's effect!"
+    },
+    "V0514_09_00_31_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12596
+      ],
+      "duelist": [],
+      "text": "Predaplant Flytrap's effect activates when it battles!"
+    },
+    "V0514_09_00_32_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12834
+      ],
+      "duelist": [],
+      "text": "I use Chlamydosundew's effect to Fusion Summon!"
+    },
+    "V0514_09_00_33_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12925
+      ],
+      "duelist": [],
+      "text": "I banish Cordyceps from my Graveyard to use its effect!"
+    },
+    "V0514_09_00_34_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17129
+      ],
+      "duelist": [],
+      "text": "Byblisp's effect activates when it's sent to the Graveyard!"
+    },
+    "V0514_09_00_35_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17129
+      ],
+      "duelist": [],
+      "text": "Predaplant Byblisp activates its effect from the Graveyard!"
+    },
+    "V0514_09_00_36_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12830
+      ],
+      "duelist": [],
+      "text": "Predaplant Sarraceniant's effect activates from my hand!"
+    },
+    "V0514_09_00_37_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12830
+      ],
+      "duelist": [],
+      "text": "Sarraceniant's effect activates when it battles!"
+    },
+    "V0514_09_00_38_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12830
+      ],
+      "duelist": [],
+      "text": "Sarraceniant activates its effect!"
+    },
+    "V0514_09_00_39_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17131
+      ],
+      "duelist": [],
+      "text": "Triantis's effect activates when it's used to Fusion Summon!"
+    },
+    "V0514_09_00_40_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13990
+      ],
+      "duelist": [],
+      "text": "Summoning Spider Orchid this turn lets me use its effect!"
+    },
+    "V0514_09_00_41_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17130
+      ],
+      "duelist": [],
+      "text": "Bufolicula activates when it's used to Fusion Summon!"
+    },
+    "V0514_09_00_42_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14944
+      ],
+      "duelist": [],
+      "text": "I activate Verte Anaconda's effect!"
+    },
+    "V0514_09_00_43_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14944
+      ],
+      "duelist": [],
+      "text": "I pay LP to activate Verte Anaconda's effect!"
+    },
+    "V0514_09_00_44_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "I activate  Clear Wing Synchro Dragon's effect!"
+    },
+    "V0514_09_00_45_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7616
+      ],
+      "duelist": [],
+      "text": "Ultimate Ancient Gear Golem activates when it's destroyed!"
+    },
+    "V0514_09_00_46_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12676
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Reactor Dragon activates its effect!"
+    },
+    "V0514_09_00_47_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12677
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Hydra's effect activates!"
+    },
+    "V0514_09_00_48_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11061
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Box's effect activates!"
+    },
+    "V0514_09_00_49_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12678
+      ],
+      "duelist": [],
+      "text": "It says this Wyvern can use its effect when it's Summoned!"
+    },
+    "V0514_09_00_50_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12675
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Gadget activates its effect!"
+    },
+    "V0514_09_00_51_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12748
+      ],
+      "duelist": [],
+      "text": "Whoa! Hunting Hound can deal damage when it's Summoned!"
+    },
+    "V0514_09_00_52_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12748
+      ],
+      "duelist": [],
+      "text": "I activate Ancient Gear Hunting Hound's effect!"
+    },
+    "V0514_37_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12628
+      ],
+      "duelist": [],
+      "text": "My plants have never been more ravenous!"
+    },
+    "V0514_37_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'll graft these together to create a botanical nightmare!"
+    },
+    "V0514_37_00_00_2": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusion Summon!"
+    },
+    "V0514_13_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12628
+      ],
+      "duelist": [],
+      "text": "You're no match for this toxic predator!"
+    },
+    "V0514_13_00_00_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Arise!\nStarving Venom Fusion Dragon!"
+    },
+    "V0514_37_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12836
+      ],
+      "duelist": [],
+      "text": "I combine voracious venom with a carnivorous plant!"
+    },
+    "V0514_37_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "The result is toxically terrifying!"
+    },
+    "V0514_37_00_01_2": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Fusion Summon!"
+    },
+    "V0514_13_00_01_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12836
+      ],
+      "duelist": [],
+      "text": "Level 10!\nGreedy Venom Fusion Dragon!"
+    },
+    "V0514_37_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17147
+      ],
+      "duelist": [],
+      "text": "My flora is ready to feast!"
+    },
+    "V0514_37_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I'll graft these together to sprout the fiercest of fangs!"
+    },
+    "V0514_37_00_02_2": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Fusion Summon!"
+    },
+    "V0514_13_00_02_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        17147
+      ],
+      "duelist": [],
+      "text": "The poisonous dragon that devours all!"
+    },
+    "V0514_13_00_02_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Level 10!\nStarving Venom Predapower Fusion Dragon!"
+    },
+    "V0514_37_00_03_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16428
+      ],
+      "duelist": [],
+      "text": "Poison mixes with poison to make this monster dangerous!"
+    },
+    "V0514_13_00_03_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        16428
+      ],
+      "duelist": [],
+      "text": "Appear!\nStarving Venemy Dragon!"
+    },
+    "V0514_37_00_04_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14343
+      ],
+      "duelist": [],
+      "text": "Mixing them is dangerous!\nAnd too much results in chaos!"
+    },
+    "V0514_13_00_04_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        14343
+      ],
+      "duelist": [],
+      "text": "Come forth!\nThe fusion of three ultimate dragons!"
+    },
+    "V0514_13_00_04_1": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Starving Venemy Lethal Dose Dragon!"
+    },
+    "V0514_37_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13131
+      ],
+      "duelist": [],
+      "text": "The power of Pendulum combines with the forces of Fusion!"
+    },
+    "V0514_13_00_05_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        13131
+      ],
+      "duelist": [],
+      "text": "Let's get toxic!"
+    },
+    "V0514_13_00_05_1": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Odd-Eyes Venom Dragon!"
+    },
+    "V0514_13_00_06_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        14601
+      ],
+      "duelist": [],
+      "text": "Here's Level 9 Predaplant Triphyoverutum!"
+    },
+    "V0514_13_00_07_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12870
+      ],
+      "duelist": [],
+      "text": "Go, Level 8 Predaplant Dragostapelia!"
+    },
+    "V0514_13_00_08_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12835
+      ],
+      "duelist": [],
+      "text": "Here comes Level 7 Predaplant Chimerafflesia!"
+    },
+    "V0514_13_00_09_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        17148
+      ],
+      "duelist": [],
+      "text": "Appear!\nLevel 5 Predaplant Ambulomelides!"
+    },
+    "V0514_13_00_10_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        14602
+      ],
+      "duelist": [],
+      "text": "Level 8 Predaplant Heliamphorhynchus!"
+    },
+    "V0514_13_00_11_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        13055
+      ],
+      "duelist": [],
+      "text": "Level 6 Predaplant Banksiogre!"
+    },
+    "V0514_13_00_12_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12831
+      ],
+      "duelist": [],
+      "text": "Level 5 Predaplant Drosophyllum Hydra!"
+    },
+    "V0514_13_00_13_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12597
+      ],
+      "duelist": [],
+      "text": "Predaplant Moray Nepenthes!"
+    },
+    "V0514_13_00_14_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12833
+      ],
+      "duelist": [],
+      "text": "Predaplant Spinodionaea!"
+    },
+    "V0514_13_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12923
+      ],
+      "duelist": [],
+      "text": "Predaplant Ophrys Scorpio!"
+    },
+    "V0514_13_00_16_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12924
+      ],
+      "duelist": [],
+      "text": "Predaplant Darlingtonia Cobra!"
+    },
+    "V0514_13_00_17_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12832
+      ],
+      "duelist": [],
+      "text": "Predaplant Pterapenthes!"
+    },
+    "V0514_13_00_18_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12598
+      ],
+      "duelist": [],
+      "text": "Predaplant Squid Drosera!"
+    },
+    "V0514_13_00_19_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12596
+      ],
+      "duelist": [],
+      "text": "Predaplant Flytrap!"
+    },
+    "V0514_13_00_20_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12834
+      ],
+      "duelist": [],
+      "text": "Predaplant Chlamydosundew!"
+    },
+    "V0514_13_00_21_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12925
+      ],
+      "duelist": [],
+      "text": "Predaplant Cordyceps!"
+    },
+    "V0514_13_00_22_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17129
+      ],
+      "duelist": [],
+      "text": "Predaplant Byblisp!"
+    },
+    "V0514_13_00_23_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12830
+      ],
+      "duelist": [],
+      "text": "Predaplant Sarraceniant!"
+    },
+    "V0514_13_00_24_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        17131
+      ],
+      "duelist": [],
+      "text": "Predaplant Triantis!"
+    },
+    "V0514_13_00_25_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13990
+      ],
+      "duelist": [],
+      "text": "The Pendulum Monster, Predaplant Spider Orchid!"
+    },
+    "V0514_13_00_26_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17130
+      ],
+      "duelist": [],
+      "text": "The Pendulum Monster, Predaplant Bufolicula!"
+    },
+    "V0514_13_00_27_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14944
+      ],
+      "duelist": [],
+      "text": "Link 2 Predaplant Verte Anaconda!"
+    },
+    "V0514_37_00_06_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Beat your wings to whip up a whirlwind of destruction!"
+    },
+    "V0514_37_00_06_1": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Synchro Summon!"
+    },
+    "V0514_13_00_28_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Level 7 Clear Wing Synchro Dragon!"
+    },
+    "V0514_13_00_29_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        6315
+      ],
+      "duelist": [],
+      "text": "Step forth!\nAncient Gear Golem!"
+    },
+    "V0514_37_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7616
+      ],
+      "duelist": [],
+      "text": "Unite the wisdom and savagery of past ages into a behemoth!"
+    },
+    "V0514_37_00_07_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I Fusion Summon!"
+    },
+    "V0514_13_00_30_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7616
+      ],
+      "duelist": [],
+      "text": "Ultimate Ancient Gear Golem!"
+    },
+    "V0514_13_00_31_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12676
+      ],
+      "duelist": [],
+      "text": "Let's go!\nLevel 9 Ancient Gear Reactor Dragon!"
+    },
+    "V0514_13_00_32_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12677
+      ],
+      "duelist": [],
+      "text": "Here comes Level 7 Ancient Gear Hydra!"
+    },
+    "V0514_13_00_33_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11061
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Box!"
+    },
+    "V0514_13_00_34_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12678
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Wyvern!"
+    },
+    "V0514_13_00_35_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12675
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Gadget!"
+    },
+    "V0514_13_00_36_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12748
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Hunting Hound!"
+    },
+    "V0514_13_00_37_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12681
+      ],
+      "duelist": [],
+      "text": "I Special Summon an Ancient Gear Token!"
+    },
+    "V0514_19_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12628
+      ],
+      "duelist": [],
+      "text": "Starving Venom Fusion Dragon!\nAttack!"
+    },
+    "V0514_19_00_01_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12836
+      ],
+      "duelist": [],
+      "text": "Attack, Greedy Venom Fusion Dragon!"
+    },
+    "V0514_19_00_02_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17147
+      ],
+      "duelist": [],
+      "text": "Starving Venom Predapower Fusion Dragon!\nAttack!"
+    },
+    "V0514_19_00_03_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        16428
+      ],
+      "duelist": [],
+      "text": "Take 'em down, Starving Venemy Dragon!"
+    },
+    "V0514_19_00_04_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14343
+      ],
+      "duelist": [],
+      "text": "Starving Venemy Lethal Dose Dragon attacks!"
+    },
+    "V0514_19_00_05_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13131
+      ],
+      "duelist": [],
+      "text": "Attack, Odd-Eyes Venom Dragon!"
+    },
+    "V0514_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14601
+      ],
+      "duelist": [],
+      "text": "Triphyoverutum!\nAttack!"
+    },
+    "V0514_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12870
+      ],
+      "duelist": [],
+      "text": "Dragostapelia! Attack!"
+    },
+    "V0514_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12835
+      ],
+      "duelist": [],
+      "text": "Attack, Chimerafflesia!"
+    },
+    "V0514_19_00_08_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Support Thorn!"
+    },
+    "V0514_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17148
+      ],
+      "duelist": [],
+      "text": "Attack, Ambulomelides!"
+    },
+    "V0514_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14602
+      ],
+      "duelist": [],
+      "text": "Heliamphorhynchus!\nAttack!"
+    },
+    "V0514_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13055
+      ],
+      "duelist": [],
+      "text": "Attack, Banksiogre!"
+    },
+    "V0514_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12831
+      ],
+      "duelist": [],
+      "text": "Drosophyllum Hydra!\nAttack!"
+    },
+    "V0514_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12597
+      ],
+      "duelist": [],
+      "text": "Attack, Moray Nepenthes!"
+    },
+    "V0514_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12833
+      ],
+      "duelist": [],
+      "text": "Bite 'em, Spinodionaea!"
+    },
+    "V0514_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12923
+      ],
+      "duelist": [],
+      "text": "Ophrys Scorpio!\nAttack!"
+    },
+    "V0514_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12924
+      ],
+      "duelist": [],
+      "text": "Darlingtonia Cobra!\nAttack!"
+    },
+    "V0514_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12832
+      ],
+      "duelist": [],
+      "text": "Attack, Pterapenthes!"
+    },
+    "V0514_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12598
+      ],
+      "duelist": [],
+      "text": "Squid Drosera!\nAttack!"
+    },
+    "V0514_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12596
+      ],
+      "duelist": [],
+      "text": "Go get 'em, Flytrap!"
+    },
+    "V0514_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12834
+      ],
+      "duelist": [],
+      "text": "Chlamydosundew attacks!"
+    },
+    "V0514_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12925
+      ],
+      "duelist": [],
+      "text": "Attack, Cordyceps!"
+    },
+    "V0514_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17129
+      ],
+      "duelist": [],
+      "text": "Byblisp attacks!"
+    },
+    "V0514_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12830
+      ],
+      "duelist": [],
+      "text": "Sarraceniant! Attack!"
+    },
+    "V0514_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17131
+      ],
+      "duelist": [],
+      "text": "Attack, Triantis!"
+    },
+    "V0514_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        13990
+      ],
+      "duelist": [],
+      "text": "Spider Orchid!\nAttack!"
+    },
+    "V0514_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        17130
+      ],
+      "duelist": [],
+      "text": "Bufolicula! Attack!"
+    },
+    "V0514_19_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        14944
+      ],
+      "duelist": [],
+      "text": "Attack, Verte Anaconda!"
+    },
+    "V0514_19_00_28_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11721
+      ],
+      "duelist": [],
+      "text": "Clear Wing Synchro Dragon!\nAttack!"
+    },
+    "V0514_19_00_29_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6315
+      ],
+      "duelist": [],
+      "text": "Crush 'em, Ancient Gear Golem!"
+    },
+    "V0514_19_00_30_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7616
+      ],
+      "duelist": [],
+      "text": "Ultimate Ancient Gear Golem!\nFlatten 'em!"
+    },
+    "V0514_19_00_31_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12676
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Reactor Dragon!\nAttack!"
+    },
+    "V0514_19_00_32_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12677
+      ],
+      "duelist": [],
+      "text": "Attack, Ancient Gear Hydra!"
+    },
+    "V0514_19_00_33_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        11061
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Box! Attack!"
+    },
+    "V0514_19_00_34_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12678
+      ],
+      "duelist": [],
+      "text": "Attack, Ancient Gear Wyvern!"
+    },
+    "V0514_19_00_35_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12675
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Gadget!\nAttack!"
+    },
+    "V0514_19_00_36_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12748
+      ],
+      "duelist": [],
+      "text": "Sink your fangs, Ancient Gear Hunting Hound!"
+    },
+    "V0514_19_00_37_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12681
+      ],
+      "duelist": [],
+      "text": "Ancient Gear Token!\nAttack!"
+    },
+    "V0514_48_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sure."
+    },
+    "V0514_48_01_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Get ready for the rush!"
+    },
+    "V0514_38_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ready... Set... Duel!"
+    },
+    "V0514_44_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duelists!\nPrepare for battle!"
+    },
+    "V0514_44_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Only one will rule the Duel..."
+    },
+    "V0514_44_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "In the ultimate fusion of monsters and mayhem!"
+    },
+    "V0514_44_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "The action begins now!"
+    },
+    "V0514_44_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Action..."
+    },
+    "V0514_44_00_06_0": {
+      "face": 9,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duel!"
+    },
+    "V0514_45_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I play an Action Card!"
+    },
+    "V0514_45_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "I activate an Action Spell!"
+    },
+    "V0514_22_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahh!"
+    },
+    "V0514_22_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Agh!"
+    },
+    "V0514_22_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gah!"
+    },
+    "V0514_26_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ooh - you're scary."
+    },
+    "V0514_26_00_01_0": {
+      "face": 10,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh, is that it?"
+    },
+    "V0514_26_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're trying so hard."
+    },
+    "V0514_25_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaa!"
+    },
+    "V0514_25_00_01_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Aaagh!"
+    },
+    "V0514_25_00_02_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hargh!"
+    },
+    "V0514_27_00_00_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Humph..."
+    },
+    "V0514_27_00_01_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grr..."
+    },
+    "V0514_27_00_02_0": {
+      "face": 7,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "You're such a pest!"
+    },
+    "V0514_24_00_00_0": {
+      "face": 8,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh... Heh heh heh..."
+    },
+    "V0514_23_00_00_0": {
+      "face": 7,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Gaaaaahhhh!"
+    }
+  }
+}

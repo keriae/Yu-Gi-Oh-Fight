@@ -1,0 +1,15 @@
+// Based on UnityStandaloneFileBrowser, commit 04a5d49ed2545556da8a7192e86c69bd47641f10.
+// Copyright (c) 2017 Gökhan Gökçe.
+// Modifications Copyright (c) 2026 keriae.
+// SPDX-License-Identifier: MIT. Full permission and disclaimer: LICENSE.txt.
+#import <AppKit/AppKit.h>
+
+extern "C" {
+    typedef void (*callbackFunc)(const char *);
+    const char* DialogOpenFilePanel(const char*, const char*, const char*, bool);
+    const char* DialogOpenFolderPanel(const char*, const char*, bool);
+    const char* DialogSaveFilePanel(const char*, const char*, const char*, const char*);
+    void DialogOpenFilePanelAsync(const char*, const char*, const char*, bool, callbackFunc);
+    void DialogOpenFolderPanelAsync(const char*, const char*, bool, callbackFunc);
+    void DialogSaveFilePanelAsync(const char*, const char*, const char*, const char*, callbackFunc);
+}

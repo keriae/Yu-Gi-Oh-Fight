@@ -1,0 +1,2449 @@
+{
+  "_GRP_": "SN0103",
+  "_LNG_": "de-DE",
+  "info": {
+    "V0103_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Sieg steht bereits fest."
+    },
+    "V0103_01_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dir bleibt nur noch die Wahl deiner Niederlage!"
+    },
+    "V0103_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Die Zukunft ist vorherbestimmt."
+    },
+    "V0103_01_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Und es ist Schicksal, dass meine Helden mich zum Sieg führen werden!"
+    },
+    "V0103_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Ich zeige dir, was ein Deck mit ECHTEN Helden anzurichten vermag!"
+    },
+    "V0103_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        105
+      ],
+      "text": "Machen wir dich einen Kopf kürzer!"
+    },
+    "V0103_01_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        102
+      ],
+      "text": "Du hast dich stark verändert, seit dem letzten Mal.\nLäuft’s nicht so?"
+    },
+    "V0103_02_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duell!"
+    },
+    "V0103_03_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Das Schicksal birgt viele Geheimnisse, aber ich kontrolliere deines!"
+    },
+    "V0103_03_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Spielzug!"
+    },
+    "V0103_03_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hmm, interessante Strategie.\nSchlecht, aber interessant!"
+    },
+    "V0103_03_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0103_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Schicksals-HELDEN sind Elementar-HELDEN weit überlegen!"
+    },
+    "V0103_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Spielzug!"
+    },
+    "V0103_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du wirst sehen, warum ich ein Profi bin!"
+    },
+    "V0103_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0103_03_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Schicksal ist noch nicht besiegelt!"
+    },
+    "V0103_03_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Spielzug!"
+    },
+    "V0103_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Glaube an die Schicksals-HELDEN meines Vaters ist ungebrochen!"
+    },
+    "V0103_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin am Zug!"
+    },
+    "V0103_04_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe."
+    },
+    "V0103_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0103_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!!"
+    },
+    "V0103_05_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Schau, was das Schicksal für dich bereithält!"
+    },
+    "V0103_05_00_00_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Ich ziehe!"
+    },
+    "V0103_06_01_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nein, danke!"
+    },
+    "V0103_06_01_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Soll mir das etwa Angst machen?"
+    },
+    "V0103_06_01_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich wusste, dass du das versuchen würdest!"
+    },
+    "V0103_06_01_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Lächerlich!"
+    },
+    "V0103_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Von meiner Hand …"
+    },
+    "V0103_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Zauber!"
+    },
+    "V0103_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Schnellzauber!"
+    },
+    "V0103_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Permanenten Zauber!"
+    },
+    "V0103_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ausrüstungszauber!"
+    },
+    "V0103_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Ritualzauber!"
+    },
+    "V0103_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Falle wird aktiviert!"
+    },
+    "V0103_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Permanente Falle wird aktiviert!"
+    },
+    "V0103_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Konterfalle wird aktiviert!"
+    },
+    "V0103_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich decke meine verdeckte Karte auf!"
+    },
+    "V0103_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hier ist meine verdeckte Karte!"
+    },
+    "V0103_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Der Effekt meines Monsters wird aktiviert!"
+    },
+    "V0103_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere einen Spielfeldzauber!"
+    },
+    "V0103_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Effekt wird aktiviert!"
+    },
+    "V0103_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich lege den Pendelbereich fest!"
+    },
+    "V0103_08_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6761
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nSchicksalskette!"
+    },
+    "V0103_08_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7639
+      ],
+      "duelist": [],
+      "text": "Meine Falle wird aktiviert!\nD - Geschick!"
+    },
+    "V0103_08_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7621
+      ],
+      "duelist": [],
+      "text": "Der Permanente Zauber D - Formation!"
+    },
+    "V0103_08_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6952
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nD - Gegenschlag!"
+    },
+    "V0103_08_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6680
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nD - Schild!"
+    },
+    "V0103_08_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6762
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nSchicksalsgeist!"
+    },
+    "V0103_08_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6678
+      ],
+      "duelist": [],
+      "text": "Das Schicksal meint es gut mit mir!"
+    },
+    "V0103_08_00_06_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere die Falle D - Zeit!"
+    },
+    "V0103_08_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6953
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nEwige Furcht!"
+    },
+    "V0103_08_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6676
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nElementaraufladung!"
+    },
+    "V0103_08_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6951
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nGrößeres Schicksal!"
+    },
+    "V0103_08_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6667
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Schnellzauber!\nStrafe des Wächters!"
+    },
+    "V0103_08_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6758
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Spielfeldzauber!\nFinstere Stadt!"
+    },
+    "V0103_08_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6679
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nSchicksalssignal!"
+    },
+    "V0103_08_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6677
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nZerstörung des Schicksals!"
+    },
+    "V0103_08_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6950
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nSchicksalsziehen!"
+    },
+    "V0103_08_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6763
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nSchicksalswunder!"
+    },
+    "V0103_08_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6669
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nUnglück!"
+    },
+    "V0103_08_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6814
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Ausrüstungszauber Zyklonklinge!"
+    },
+    "V0103_08_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6759
+      ],
+      "duelist": [],
+      "text": "Der Spielfeldzauber Mausoleum des Kaisers!"
+    },
+    "V0103_08_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6668
+      ],
+      "duelist": [],
+      "text": "Zeit für meine Schicksals-HELDEN, ein neues Schlachtfeld zu betreten!"
+    },
+    "V0103_08_00_19_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich aktiviere meinen Spielfeldzauber Gefängnisuhrturm!"
+    },
+    "V0103_08_00_19_2": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mit jedem Ticken der Uhr nähere ich mich meinem Sieg!"
+    },
+    "V0103_08_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4837
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere die Zauberkarte Polymerisation!"
+    },
+    "V0103_08_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4872
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nFusionsweiser!"
+    },
+    "V0103_08_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6360
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nFehlpolymerisation!"
+    },
+    "V0103_08_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3759
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Zauberkarte!\nD - Mind!"
+    },
+    "V0103_08_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12709
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere meine Falle!\nD-Fusion!"
+    },
+    "V0103_09_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7096
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Plasma wird aktiviert!"
+    },
+    "V0103_09_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Auf sie!"
+    },
+    "V0103_09_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6659
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Captain Tenacious wird aktiviert!"
+    },
+    "V0103_09_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wundersame Auferstehung!"
+    },
+    "V0103_09_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6660
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Diamond Dude!\nAktiviere deinen Effekt!"
+    },
+    "V0103_09_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6752
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Schicksals-HELD - Blade Master!"
+    },
+    "V0103_09_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6753
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Schicksals-HELD - Dasher!"
+    },
+    "V0103_09_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6754
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Double Dude aktiviert seinen Effekt!"
+    },
+    "V0103_09_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7416
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Schicksals-HELD - Dunker!"
+    },
+    "V0103_09_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6949
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Schicksals-HELD - Malicious!"
+    },
+    "V0103_09_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7095
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Disc Commander wird aktiviert!"
+    },
+    "V0103_09_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7417
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Departed wird aktiviert!"
+    },
+    "V0103_09_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6755
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Defender aktiviert seinen Effekt!"
+    },
+    "V0103_09_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6658
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Doom Lord, aktiviere deinen Effekt!"
+    },
+    "V0103_09_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unausweichlicher Schicksalsgriff!"
+    },
+    "V0103_09_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6756
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Fear Monger wird aktiviert!"
+    },
+    "V0103_09_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6757
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Dogma tritt ein!"
+    },
+    "V0103_09_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Absolution des Lebens!"
+    },
+    "V0103_09_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6661
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Dreadmaster wird aktiviert!"
+    },
+    "V0103_09_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7577
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Dread Servant wird aktiviert!"
+    },
+    "V0103_09_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7615
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Schicksalsenddrache!"
+    },
+    "V0103_09_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12708
+      ],
+      "duelist": [],
+      "text": "Schau dir den Effekt von D-Würfel an!"
+    },
+    "V0103_09_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12706
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Dark Angel wird aktiviert!"
+    },
+    "V0103_09_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12707
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Celestial, zeig deinen Effekt!"
+    },
+    "V0103_09_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9229
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Visions-HELD Vyon!"
+    },
+    "V0103_09_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9076
+      ],
+      "duelist": [],
+      "text": "Schau dir den Effekt von Visions-HELD Anbetung an!"
+    },
+    "V0103_09_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9196
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Visions-HELD Trinity wird aktiviert!"
+    },
+    "V0103_09_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9467
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Der große Jupiter!"
+    },
+    "V0103_09_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12702
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Drilldark, zeig deinen Effekt!"
+    },
+    "V0103_09_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12703
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Schicksals-HELD - Dynatag!"
+    },
+    "V0103_09_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12704
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Decider wird aktiviert!"
+    },
+    "V0103_09_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12705
+      ],
+      "duelist": [],
+      "text": "Der Effekt von Schicksals-HELD - Dystopia wird aktiviert!"
+    },
+    "V0103_09_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12694
+      ],
+      "duelist": [],
+      "text": "Ich aktiviere den Effekt von Schicksals-HELD - Dangerous!"
+    },
+    "V0103_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Und los geht’s!"
+    },
+    "V0103_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Leih mir deine Kraft!"
+    },
+    "V0103_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Komm raus!"
+    },
+    "V0103_10_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schau und lerne!"
+    },
+    "V0103_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster in Angriffsposition!"
+    },
+    "V0103_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster in Verteidigungsposition!"
+    },
+    "V0103_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Spezialbeschwörung!"
+    },
+    "V0103_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich biete ein Monster als Tribut an!"
+    },
+    "V0103_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Tributbeschwörung!"
+    },
+    "V0103_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Fusionsbeschwörung!"
+    },
+    "V0103_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Ritualbeschwörung!"
+    },
+    "V0103_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Synchrobeschwörung!"
+    },
+    "V0103_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Xyz-Beschwörung!"
+    },
+    "V0103_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Pendelbeschwörung!"
+    },
+    "V0103_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beschwöre ein Monster als Linkbeschwörung!"
+    },
+    "V0103_13_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7096
+      ],
+      "duelist": [],
+      "text": "Ich besiegle dein Schicksal mit der Lebenskraft aller Dinge!"
+    },
+    "V0103_13_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Der unaufhaltsame Schicksals-HELD - Plasma!"
+    },
+    "V0103_13_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6659
+      ],
+      "duelist": [],
+      "text": "Ich präsentiere: Schicksals-HELD - Captain Tenacious!"
+    },
+    "V0103_13_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6660
+      ],
+      "duelist": [],
+      "text": "Hier ist mein neuer Freund!\nSchicksals-HELD - Diamond Dude!"
+    },
+    "V0103_13_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6752
+      ],
+      "duelist": [],
+      "text": "Hier kommt Schicksals-HELD - Blade Master!"
+    },
+    "V0103_13_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6753
+      ],
+      "duelist": [],
+      "text": "Komm, Schicksals-HELD - Dasher!"
+    },
+    "V0103_13_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6754
+      ],
+      "duelist": [],
+      "text": "Auf dich wartet eine doppelte Portion Prügel!\nSchicksals-HELD - Double Dude!"
+    },
+    "V0103_13_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7416
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Dunker kommt und zermalmt dich!"
+    },
+    "V0103_13_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6949
+      ],
+      "duelist": [],
+      "text": "Komm, Schicksals-HELD - Malicious!"
+    },
+    "V0103_13_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7095
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Disc Commander, zeig dich!"
+    },
+    "V0103_13_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7417
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Departed ist hier und deine Zukunft sieht auf einmal sehr düster aus!"
+    },
+    "V0103_13_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6755
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Defender betritt die Bühne!"
+    },
+    "V0103_13_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6658
+      ],
+      "duelist": [],
+      "text": "Ich darf vorstellen: dein Untergang!\nSchicksals-HELD - Doom Lord!"
+    },
+    "V0103_13_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6756
+      ],
+      "duelist": [],
+      "text": "Ich präsentiere: Schicksals-HELD - Fear Monger!"
+    },
+    "V0103_13_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        6757
+      ],
+      "duelist": [],
+      "text": "Komm raus, Schicksals-HELD - Dogma!"
+    },
+    "V0103_13_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        6661
+      ],
+      "duelist": [],
+      "text": "Ich befreie meinen Schicksals-HELDEN aus seinem Gefängnis! "
+    },
+    "V0103_13_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Komm raus, Schicksals-HELD - Dreadmaster!"
+    },
+    "V0103_13_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7577
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Dread Servant ist da!"
+    },
+    "V0103_13_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7615
+      ],
+      "duelist": [],
+      "text": "Mein Schicksal läuft und läuft und läuft!"
+    },
+    "V0103_13_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Komm her! Schicksalsenddrache!"
+    },
+    "V0103_13_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6655
+      ],
+      "duelist": [],
+      "text": "Schau her! Elementar-HELD Phoenix Enforcer!"
+    },
+    "V0103_13_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        6656
+      ],
+      "duelist": [],
+      "text": "Und es zeigt sich … Elementar-HELD Shining Phoenix Enforcer!"
+    },
+    "V0103_13_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12708
+      ],
+      "duelist": [],
+      "text": "Du bist dran, D-Würfel!"
+    },
+    "V0103_13_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12706
+      ],
+      "duelist": [],
+      "text": "Mein Vater erschuf sie als Gegnerin der Schicksals-HELDEN …"
+    },
+    "V0103_13_00_20_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Zeig dich, Schicksals-HELD - Dark Angel!"
+    },
+    "V0103_13_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12707
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Celestial!"
+    },
+    "V0103_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9229
+      ],
+      "duelist": [],
+      "text": "Zeig, was du kannst, Visions-HELD Vyon!"
+    },
+    "V0103_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9076
+      ],
+      "duelist": [],
+      "text": "Ich spiele diese kleine Karte:Visions-HELD Anbetung!"
+    },
+    "V0103_13_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9196
+      ],
+      "duelist": [],
+      "text": "Visions-HELD Trinity ist da!"
+    },
+    "V0103_13_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        9467
+      ],
+      "duelist": [],
+      "text": "Komm her, Der große Jupiter!"
+    },
+    "V0103_13_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12702
+      ],
+      "duelist": [],
+      "text": "Hier kommt Schicksals-HELD - Drilldark!"
+    },
+    "V0103_13_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12703
+      ],
+      "duelist": [],
+      "text": "Heiße den Schicksals-HELD - Dynatag willkommen!"
+    },
+    "V0103_13_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12704
+      ],
+      "duelist": [],
+      "text": "Ich stelle vor: Schicksals-HELD - Decider!"
+    },
+    "V0103_13_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        12705
+      ],
+      "duelist": [],
+      "text": "Darf ich vorstellen … Schicksals-HELD - Dystopia!"
+    },
+    "V0103_13_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        12694
+      ],
+      "duelist": [],
+      "text": "Hier ist Schicksals-HELD - Dangerous!"
+    },
+    "V0103_14_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Kämpfen wir!"
+    },
+    "V0103_14_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zeit zu kämpfen!"
+    },
+    "V0103_15_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Los!"
+    },
+    "V0103_15_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mach sie platt!"
+    },
+    "V0103_15_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Zermalme sie!"
+    },
+    "V0103_17_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift an!"
+    },
+    "V0103_17_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife mit meinem Monster an!"
+    },
+    "V0103_17_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attacke!"
+    },
+    "V0103_16_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schachmatt!"
+    },
+    "V0103_16_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hattest nie auch nur den Hauch einer Chance gegen mich!"
+    },
+    "V0103_18_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Monster greift dich direkt an!"
+    },
+    "V0103_18_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich greife dich direkt an!"
+    },
+    "V0103_19_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7096
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Plasma, Attacke!"
+    },
+    "V0103_19_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Rachsüchtige Herrschaft!"
+    },
+    "V0103_19_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6659
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Captain Tenacious, lass Schmerzen regnen!"
+    },
+    "V0103_19_00_01_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Furchtbare Furcht!"
+    },
+    "V0103_19_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6660
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Diamond Dude, Attacke!"
+    },
+    "V0103_19_00_02_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Diamantangriff!"
+    },
+    "V0103_19_00_03_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6752
+      ],
+      "duelist": [],
+      "text": "Zieh dein Ding durch, Schicksals-HELD - Blade Master! Attacke!"
+    },
+    "V0103_19_00_04_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6753
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Dasher, Attacke!"
+    },
+    "V0103_19_00_04_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pyroelektrischer Schock!"
+    },
+    "V0103_19_00_05_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6754
+      ],
+      "duelist": [],
+      "text": "Los, Schicksals-HELD - Double Dude!"
+    },
+    "V0103_19_00_05_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Überlappender Untergang!"
+    },
+    "V0103_19_00_06_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7416
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Dunker! Angriff!"
+    },
+    "V0103_19_00_07_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6949
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Malicious! Zeig keine Gnade und greif an!"
+    },
+    "V0103_19_00_08_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7095
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Disc Commander! Wirf deine Scheiben!"
+    },
+    "V0103_19_00_09_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7417
+      ],
+      "duelist": [],
+      "text": "Leg los, Schicksals-HELD - Departed! Attacke!"
+    },
+    "V0103_19_00_10_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6755
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Defender greift an!"
+    },
+    "V0103_19_00_11_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6658
+      ],
+      "duelist": [],
+      "text": "Schick sie nach Hause, Schicksals-HELD - Doom Lord!"
+    },
+    "V0103_19_00_11_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unausweichlicher Schicksalsgriff!"
+    },
+    "V0103_19_00_12_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6756
+      ],
+      "duelist": [],
+      "text": "Greif an, Schicksals-HELD - Fear Monger!"
+    },
+    "V0103_19_00_12_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Verbreite Angst und Schrecken mit dem Finsteren Untergang!"
+    },
+    "V0103_19_00_13_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6757
+      ],
+      "duelist": [],
+      "text": "Los, Schicksals-HELD - Dogma!"
+    },
+    "V0103_19_00_13_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dolchsturm!"
+    },
+    "V0103_19_00_14_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6661
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Dreadmaster, Attacke!"
+    },
+    "V0103_19_00_14_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Jäger der Furchtlosen!"
+    },
+    "V0103_19_00_15_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7577
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Dread Servant, verabschiede sie mit einem Knall!"
+    },
+    "V0103_19_00_16_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7615
+      ],
+      "duelist": [],
+      "text": "Schicksalsenddrache! Angriff!"
+    },
+    "V0103_19_00_16_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ultimative Schicksalsexplosion!"
+    },
+    "V0103_19_00_17_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6655
+      ],
+      "duelist": [],
+      "text": "Los, Elementar-HELD Phoenix Enforcer!"
+    },
+    "V0103_19_00_17_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Phönix-Flamme!"
+    },
+    "V0103_19_00_18_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6656
+      ],
+      "duelist": [],
+      "text": "Elementar-HELD Shining Phoenix Enforcer! Los!"
+    },
+    "V0103_19_00_18_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schimmerkick!"
+    },
+    "V0103_19_00_19_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12708
+      ],
+      "duelist": [],
+      "text": "D-Würfel! Angriff!"
+    },
+    "V0103_19_00_20_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12706
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Dark Angel, schnapp sie dir! Angriff!"
+    },
+    "V0103_19_00_21_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12707
+      ],
+      "duelist": [],
+      "text": "Ich greife mit Schicksals-HELD - Celestial an!"
+    },
+    "V0103_19_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9229
+      ],
+      "duelist": [],
+      "text": "Zeig, was du draufhast, Visions-HELD Vyon! Greif an!"
+    },
+    "V0103_19_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9076
+      ],
+      "duelist": [],
+      "text": "Visions-HELD Anbetung, Attacke!"
+    },
+    "V0103_19_00_23_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Streben nach Bestrafung!"
+    },
+    "V0103_19_00_24_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9196
+      ],
+      "duelist": [],
+      "text": "Visions-HELD Trinity! Zeig, was du drauf hast!"
+    },
+    "V0103_19_00_24_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dreifach-Zerstörer!"
+    },
+    "V0103_19_00_25_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        9467
+      ],
+      "duelist": [],
+      "text": "Der große Jupiter greift an!"
+    },
+    "V0103_19_00_25_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Großer Karmesin-Fleck!"
+    },
+    "V0103_19_00_26_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12702
+      ],
+      "duelist": [],
+      "text": "Los, Schicksals-HELD - Drilldark!"
+    },
+    "V0103_19_00_26_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Durchbohre sie!"
+    },
+    "V0103_19_00_27_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12703
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Dynatag, lass es krachen!"
+    },
+    "V0103_19_00_28_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12704
+      ],
+      "duelist": [],
+      "text": "Schicksals-HELD - Decider, greif an und entscheide über das Schicksal meines Gegners!"
+    },
+    "V0103_19_00_29_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12705
+      ],
+      "duelist": [],
+      "text": "Los, Schicksals-HELD - Dystopia!"
+    },
+    "V0103_19_00_29_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Dystopischer Schlag!"
+    },
+    "V0103_19_00_30_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12694
+      ],
+      "duelist": [],
+      "text": "Los! Greif an, Schicksals-HELD - Dangerous!"
+    },
+    "V0103_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0103_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze eine Karte!"
+    },
+    "V0103_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0103_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich setze ein Monster!"
+    },
+    "V0103_21_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Spielzug."
+    },
+    "V0103_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich beende meinen Zug."
+    },
+    "V0103_21_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grrr! Ich beende meinen Zug!"
+    },
+    "V0103_28_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mein Schicksal ist es, der Beste zu sein."
+    },
+    "V0103_28_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duelle zu gewinnen, ist einfach, wenn es dein Schicksal ist. "
+    },
+    "V0103_28_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Es ist offensichtlich, dass du an dir gezweifelt hast."
+    },
+    "V0103_28_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wenn du nicht an dich glaubst, wirst du nie ein wahrer Duellant."
+    },
+    "V0103_28_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Dachtest du wirklich, du könntest meine Schicksals-HELDEN besiegen?"
+    },
+    "V0103_28_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        105
+      ],
+      "text": "Du spielst wie ein Baby.\nRenn heim und heul in dein Ojama-Kissen."
+    },
+    "V0103_28_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        102
+      ],
+      "text": "Ich dachte, du wärst stärker, Zaney."
+    },
+    "V0103_28_00_07_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wer sich nicht unter Kontrolle hat, wird zu einem Profi."
+    },
+    "V0103_29_00_00_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Meine Schicksals-HELDEN wurden besiegt …\nVergib mir, Vater."
+    },
+    "V0103_29_00_01_0": {
+      "face": 5,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wie? Wie konnte ich verlieren?\nIch habe nicht einen Fehler gemacht!"
+    },
+    "V0103_29_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh! Was auch immer!"
+    },
+    "V0103_29_00_02_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nur ein kleiner Rückschlag auf meinem Weg zum Profi!"
+    },
+    "V0103_29_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Und doch sind meine Schicksals-HELDEN die stärksten Helden der Welt!"
+    },
+    "V0103_29_00_03_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich habe wohl ein paar Fehler gemacht."
+    },
+    "V0103_29_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        105
+      ],
+      "text": "Du bist besser geworden, Chazz."
+    },
+    "V0103_29_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Wir sehen uns wieder, wenn wir beide Profis sind!"
+    },
+    "V0103_30_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Heh. Ich trete gegen einen Amateur an."
+    },
+    "V0103_30_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich bin noch nicht einmal außer Atem."
+    },
+    "V0103_30_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du verschwendest meine Zeit."
+    },
+    "V0103_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Was?!"
+    },
+    "V0103_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Oh nein!"
+    },
+    "V0103_33_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Du findest bald heraus, warum ich Profi bin und du nur Amateur!"
+    },
+    "V0103_33_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Schicksals-HELDEN! Helft mir!"
+    },
+    "V0103_33_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Keine Gnade!"
+    },
+    "V0103_34_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Niemand kann den Gang des Schicksals aufhalten!"
+    },
+    "V0103_34_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du wirst nie begreifen, was es heißt, ein Held zu sein – wie ich!"
+    },
+    "V0103_34_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Schicksals-HELDEN kontrollieren die Zukunft!"
+    },
+    "V0103_34_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ha ha ha ha!"
+    },
+    "V0103_34_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ein Profi gibt nie aus Versehen seine besten Strategien preis!"
+    },
+    "V0103_34_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Geh mir aus den Augen!"
+    },
+    "V0103_34_00_06_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du hast gegen einen Profi wie mich nicht den Hauch einer Chance!"
+    },
+    "V0103_34_00_07_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du kannst vor deinem Schicksal nicht davonrennen!"
+    },
+    "V0103_34_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich glaube nicht."
+    },
+    "V0103_34_00_09_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Unmöglich!"
+    },
+    "V0103_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0103_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!"
+    },
+    "V0103_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Du wirst lernen, was es heißt, ein Profi zu sein."
+    },
+    "V0103_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Auf zum Sieg, meine Schicksals-HELDEN!"
+    },
+    "V0103_22_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Urk …"
+    },
+    "V0103_22_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh …"
+    },
+    "V0103_22_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahh!"
+    },
+    "V0103_26_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Nichts Besonderes!"
+    },
+    "V0103_26_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Glückstreffer!"
+    },
+    "V0103_26_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ist das alles?"
+    },
+    "V0103_25_00_00_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhhh!"
+    },
+    "V0103_25_00_01_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Gwaaaa!"
+    },
+    "V0103_25_00_02_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hrgh!"
+    },
+    "V0103_27_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Noch ist es nicht vorbei!"
+    },
+    "V0103_27_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich stehe immer noch!"
+    },
+    "V0103_27_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ich gebe dir nur ein Handicap!"
+    },
+    "V0103_24_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Urgh …"
+    },
+    "V0103_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhhhhhh!"
+    }
+  }
+}

@@ -1,0 +1,2388 @@
+{
+  "_GRP_": "SN0133",
+  "_LNG_": "fr-FR",
+  "info": {
+    "V0133_01_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je contrôle le destin, tu ne peux pas gagner !\nLa destruction est à portée de main !"
+    },
+    "V0133_01_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu oses défier le destin ?\nGrave erreur !"
+    },
+    "V0133_01_00_01_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'anéantirai ta lumière !"
+    },
+    "V0133_01_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Les cartes prédisent la victoire... pour moi et moi seul !"
+    },
+    "V0133_01_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu verras à quel point il est stupide de défier ta destinée."
+    },
+    "V0133_01_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Tu as déjà changé le destin une fois, mais y arriveras-tu encore ?"
+    },
+    "V0133_01_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        103
+      ],
+      "text": "Aster !\nLa liberté n'est qu'une illusion !\nTu es destiné à perdre !"
+    },
+    "V0133_02_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Duel !"
+    },
+    "V0133_03_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon pouvoir se renforce !"
+    },
+    "V0133_03_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0133_03_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais mettre un terme à cette mascarade !"
+    },
+    "V0133_03_00_01_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0133_03_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé hé hé..."
+    },
+    "V0133_03_00_02_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0133_03_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je sais ce que le destin te réserve. "
+    },
+    "V0133_03_00_03_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0133_03_00_04_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu sembles avoir l'avantage, mais le destin me dit le contraire."
+    },
+    "V0133_03_00_04_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "À mon tour !"
+    },
+    "V0133_03_00_05_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne changeras pas mon destin !"
+    },
+    "V0133_03_00_05_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est mon tour !"
+    },
+    "V0133_04_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0133_04_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0133_04_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh ! Je pioche !"
+    },
+    "V0133_05_00_00_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne peux rien faire à part me regarder détruire ton avenir !"
+    },
+    "V0133_05_00_00_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je pioche !"
+    },
+    "V0133_06_01_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je connais déjà tous tes coups !"
+    },
+    "V0133_06_01_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ! Imbécile !"
+    },
+    "V0133_06_01_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne peux pas changer le destin !"
+    },
+    "V0133_06_01_03_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le destin se moque de toi !"
+    },
+    "V0133_07_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Depuis ma main..."
+    },
+    "V0133_07_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie !"
+    },
+    "V0133_07_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Jeu-Rapide !"
+    },
+    "V0133_07_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Continue !"
+    },
+    "V0133_07_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie d'Équipement !"
+    },
+    "V0133_07_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie Rituelle !"
+    },
+    "V0133_07_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon Piège s'active !"
+    },
+    "V0133_07_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon Piège Continu s'active !"
+    },
+    "V0133_07_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon Contre-Piège s'active !"
+    },
+    "V0133_07_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'utilise ma carte face verso !"
+    },
+    "V0133_07_09_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je révèle ma carte face verso !"
+    },
+    "V0133_07_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'effet de mon monstre s'active !"
+    },
+    "V0133_07_11_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active une Magie de Terrain !"
+    },
+    "V0133_07_12_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'active un effet !"
+    },
+    "V0133_07_13_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je déclare une Échelle Pendule !"
+    },
+    "V0133_08_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7642
+      ],
+      "duelist": [],
+      "text": "J'active ma Carte Piège !\nAppel de l'Arcane !"
+    },
+    "V0133_08_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        4989
+      ],
+      "duelist": [],
+      "text": "J'active mon Piège Continu !\nAppel de l'Être Hanté !"
+    },
+    "V0133_08_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7640
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Piège, Revirement du Destin !"
+    },
+    "V0133_08_00_02_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'effet de Force Arcane s'inverse !"
+    },
+    "V0133_08_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        6213
+      ],
+      "duelist": [],
+      "text": "J'active la Carte Magie, Réincarnation de Monstre !"
+    },
+    "V0133_08_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        12905
+      ],
+      "duelist": [],
+      "text": "La Magie d'Équipement, Voile Blanc !"
+    },
+    "V0133_08_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7623
+      ],
+      "duelist": [],
+      "text": "La Carte Magie, Coupe des As !"
+    },
+    "V0133_08_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7623
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Coupe des As s'active !"
+    },
+    "V0133_39_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7623
+      ],
+      "duelist": [],
+      "text": "C'est le bon côté !"
+    },
+    "V0133_39_00_08_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [
+        7623
+      ],
+      "duelist": [],
+      "text": "C'est le mauvais côté..."
+    },
+    "V0133_39_00_09_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7623
+      ],
+      "duelist": [],
+      "text": "Comme j'ai eu de la chance, je pioche deux cartes de mon Deck !"
+    },
+    "V0133_39_00_10_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [
+        7623
+      ],
+      "duelist": [],
+      "text": "Tu devrais me remercier.\nTu as le droit de piocher deux cartes."
+    },
+    "V0133_08_00_11_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7624
+      ],
+      "duelist": [],
+      "text": "La Magie de Terrain, Barrière de Lumière !"
+    },
+    "V0133_08_00_12_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7624
+      ],
+      "duelist": [],
+      "text": "Le destin décidera de l'effet de la Carte Barrière de Lumière !"
+    },
+    "V0133_39_00_13_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7624
+      ],
+      "duelist": [],
+      "text": "Le destin se plie à tous mes caprices !\nC'est le bon côté !"
+    },
+    "V0133_39_00_14_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7624
+      ],
+      "duelist": [],
+      "text": "Quoi ? Le mauvais côté ?\nComment cela a-t-il pu arriver ?"
+    },
+    "V0133_39_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7624
+      ],
+      "duelist": [],
+      "text": "Tant que j'ai Barrière de Lumière, le destin ne peut pas changer !"
+    },
+    "V0133_39_00_16_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7624
+      ],
+      "duelist": [],
+      "text": "Mais Barrière de Lumière brillera à nouveau au prochain tour !"
+    },
+    "V0133_08_00_17_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7641
+      ],
+      "duelist": [],
+      "text": "Le Piège Continu, Visite de la Faucheuse !"
+    },
+    "V0133_08_00_18_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7641
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Visite de la Faucheuse !"
+    },
+    "V0133_39_00_19_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7641,
+        3734
+      ],
+      "duelist": [],
+      "text": "C'est le bon côté !"
+    },
+    "V0133_39_00_20_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7641,
+        3734
+      ],
+      "duelist": [],
+      "text": "Le mauvais côté !?"
+    },
+    "V0133_39_00_21_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7641
+      ],
+      "duelist": [],
+      "text": "La vie ne peut pas prospérer chez la Faucheuse !"
+    },
+    "V0133_39_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7641
+      ],
+      "duelist": [],
+      "text": "Mon destin est-il en train de se briser ?"
+    },
+    "V0133_08_00_23_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3734
+      ],
+      "duelist": [],
+      "text": "Couleur des Épées X !"
+    },
+    "V0133_08_00_24_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3731
+      ],
+      "duelist": [],
+      "text": "Le Seigneur Matérialiste s'active !"
+    },
+    "V0133_08_00_25_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3732
+      ],
+      "duelist": [],
+      "text": "Le Seigneur Spirituel s'active !"
+    },
+    "V0133_08_00_26_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3730
+      ],
+      "duelist": [],
+      "text": "Le Seigneur du Ciel s'active !"
+    },
+    "V0133_09_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3724,
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "L'effet de Force Arcane dépend du côté visible de la carte."
+    },
+    "V0133_09_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "Je sais tout... Je sais donc que cette carte sera à l'endroit !"
+    },
+    "V0133_09_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "Laisse-moi faire une prédiction.\nElle sera à l'endroit !"
+    },
+    "V0133_09_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "J'ai un contrôle absolu sur le destin.\nLe futur m'obéira !"
+    },
+    "V0133_40_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "Du bon côté, bien sûr !"
+    },
+    "V0133_40_00_05_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "On ne peut pas changer le destin !\nL'effet est du bon côté !"
+    },
+    "V0133_40_00_06_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "Comme je l'avais prédit !\nIl gagne l'effet du bon côté !"
+    },
+    "V0133_40_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "Je déborde du pouvoir du destin !\nC'est le bon côté !"
+    },
+    "V0133_40_00_08_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "Keuwaaa ?!\nC'est à l'envers ?!"
+    },
+    "V0133_40_00_09_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "Comment mon destin pourrait-il être détourné ?"
+    },
+    "V0133_40_00_10_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727,
+        7582,
+        7583,
+        7584,
+        7585,
+        7586,
+        7587,
+        7588,
+        7589
+      ],
+      "duelist": [],
+      "text": "Impossible !"
+    },
+    "V0133_09_00_11_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7581
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane 0 - L'Arlequin s'active !"
+    },
+    "V0133_09_00_12_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [
+        7581
+      ],
+      "duelist": [],
+      "text": "Alors, qui de nous sera l'arlequin de la farce ?"
+    },
+    "V0133_40_00_13_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7581,
+        3724
+      ],
+      "duelist": [],
+      "text": "Quoi ?\nÀ l'endroit ?!"
+    },
+    "V0133_40_00_14_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7581
+      ],
+      "duelist": [],
+      "text": "À l'envers !\nTu n'échapperas pas à la volonté du destin !"
+    },
+    "V0133_40_00_15_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7581
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane 0 - L'Arlequin à l'endroit !"
+    },
+    "V0133_40_00_16_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7581
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane 0 - L'Arlequin à l'envers !"
+    },
+    "V0133_09_00_17_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7582
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane I - Le Magicien s'active !"
+    },
+    "V0133_40_00_18_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7582
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane I - Le Magicien à l'endroit !"
+    },
+    "V0133_40_00_19_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7582
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane I - Le Magicien à l'envers !"
+    },
+    "V0133_09_00_23_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7583
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane III - L'Impératrice s'active !"
+    },
+    "V0133_09_00_24_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7583
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane III - L'Impératrice à l'endroit !"
+    },
+    "V0133_09_00_25_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7583
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane III - L'Impératrice à l'envers !"
+    },
+    "V0133_09_00_26_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7584
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane IV - L'Empereur s'active !"
+    },
+    "V0133_40_00_27_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7584
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane IV - L'Empereur à l'endroit !"
+    },
+    "V0133_40_00_28_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7584
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane IV - L'Empereur à l'envers !"
+    },
+    "V0133_09_00_32_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7585
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane VI - L'Amoureux s'active !"
+    },
+    "V0133_40_00_33_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7585
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane VI - L'Amoureux à l'endroit !"
+    },
+    "V0133_40_00_34_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7585
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane VI - L'Amoureux à l'envers !"
+    },
+    "V0133_09_00_35_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7586
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane VII - Le Chariot s'active !"
+    },
+    "V0133_09_00_36_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7586
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane VII - Le Chariot à l'endroit !"
+    },
+    "V0133_40_00_37_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7586
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane VII - Le Chariot à l'envers !"
+    },
+    "V0133_09_00_38_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727
+      ],
+      "duelist": [],
+      "text": "L'effet de La Force s'active !"
+    },
+    "V0133_40_00_39_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727
+      ],
+      "duelist": [],
+      "text": "L'effet de La Force à l'endroit !"
+    },
+    "V0133_40_00_40_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727
+      ],
+      "duelist": [],
+      "text": "L'effet de La Force à l'envers !"
+    },
+    "V0133_09_00_50_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3724
+      ],
+      "duelist": [],
+      "text": "L'effet du Pendu s'active !"
+    },
+    "V0133_40_00_51_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3724
+      ],
+      "duelist": [],
+      "text": "L'effet du Pendu à l'endroit !"
+    },
+    "V0133_40_00_52_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3724
+      ],
+      "duelist": [],
+      "text": "L'effet du Pendu à l'envers !"
+    },
+    "V0133_09_00_56_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7587
+      ],
+      "duelist": [],
+      "text": "Prends ça !"
+    },
+    "V0133_09_00_56_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "En défaussant Force Arcane XIV - La Tempérance, les dommages de combat deviennent 0 !"
+    },
+    "V0133_09_00_57_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7587
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XIV - La Tempérance s'active !"
+    },
+    "V0133_40_00_58_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7587
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XIV - La Tempérance à l'endroit !"
+    },
+    "V0133_40_00_59_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7587
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XIV - La Tempérance à l'envers !"
+    },
+    "V0133_09_00_69_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7588
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XVIII - La Lune s'active !"
+    },
+    "V0133_09_00_70_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7588
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XVIII - La Lune à l'endroit !"
+    },
+    "V0133_09_00_71_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7588
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XVIII - La Lune à l'envers !"
+    },
+    "V0133_09_00_78_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7589
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XXI - Le Monde s'active !"
+    },
+    "V0133_09_00_79_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7589
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XXI - Le Monde à l'endroit !"
+    },
+    "V0133_09_00_79_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah !\nLe destin a parlé ! Ton monde disparaîtra quand le mien verra le jour !"
+    },
+    "V0133_09_00_80_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7589
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane XXI - Le Monde à l'envers !"
+    },
+    "V0133_09_00_81_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7344
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane EX - Le Maître de la Lumière s'active !"
+    },
+    "V0133_09_00_82_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7344
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane EX - Le Maître de la Lumière à l'endroit !"
+    },
+    "V0133_09_00_83_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7344
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane EX - Le Maître de la Lumière à l'envers !"
+    },
+    "V0133_09_00_83_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Destruction créatrice !"
+    },
+    "V0133_09_00_84_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7590
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane EX - Le Maître des Ténèbres s'active !"
+    },
+    "V0133_40_00_85_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7590
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane EX - Le Maître des Ténèbres à l'endroit !"
+    },
+    "V0133_40_00_86_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7590
+      ],
+      "duelist": [],
+      "text": "L'effet de la Carte Force Arcane EX - Le Maître des Ténèbres à l'envers !"
+    },
+    "V0133_40_00_86_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Destruction cataclysmique !"
+    },
+    "V0133_10_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais jouer ceci."
+    },
+    "V0133_10_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé hé hé..."
+    },
+    "V0133_10_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Sois témoin du sort que le destin te réserve."
+    },
+    "V0133_10_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah !"
+    },
+    "V0133_11_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position d'Attaque !"
+    },
+    "V0133_11_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre en Position de Défense !"
+    },
+    "V0133_11_02_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque Spécialement un monstre !"
+    },
+    "V0133_11_03_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie un monstre !"
+    },
+    "V0133_11_04_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Sacrifice !"
+    },
+    "V0133_11_05_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Fusion !"
+    },
+    "V0133_11_06_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Rituel !"
+    },
+    "V0133_11_07_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Synchro !"
+    },
+    "V0133_11_08_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Xyz !"
+    },
+    "V0133_11_09_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Pendulation !"
+    },
+    "V0133_11_10_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'Invoque un monstre par Lien !"
+    },
+    "V0133_13_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7581
+      ],
+      "duelist": [],
+      "text": "Rejoins-moi, Force Arcane 0 - L'Arlequin !"
+    },
+    "V0133_13_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7582
+      ],
+      "duelist": [],
+      "text": "J'Invoque Force Arcane I - Le Magicien !"
+    },
+    "V0133_13_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7583
+      ],
+      "duelist": [],
+      "text": "J'en appelle à Force Arcane III - L'Impératrice !"
+    },
+    "V0133_13_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7584
+      ],
+      "duelist": [],
+      "text": "Viens à moi, Force Arcane IV - L'Empereur !"
+    },
+    "V0133_13_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7585
+      ],
+      "duelist": [],
+      "text": "Lève-toi, Force Arcane VI - L'Amoureux !"
+    },
+    "V0133_13_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7586
+      ],
+      "duelist": [],
+      "text": "J'Invoque Force Arcane VII - Le Chariot !"
+    },
+    "V0133_13_00_08_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727
+      ],
+      "duelist": [],
+      "text": "J'Invoque Force Arcane VIII - La Force !"
+    },
+    "V0133_13_00_12_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3724
+      ],
+      "duelist": [],
+      "text": "Viens à moi, Force Arcane XII - Le Pendu !"
+    },
+    "V0133_13_00_14_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7587
+      ],
+      "duelist": [],
+      "text": "Lève-toi ! Force Arcane XIV - La Tempérance !"
+    },
+    "V0133_13_00_18_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [
+        7588
+      ],
+      "duelist": [],
+      "text": "Admire Force Arcane XVIII - La Lune !"
+    },
+    "V0133_13_00_21_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7589
+      ],
+      "duelist": [],
+      "text": "Ah ah ah !\nAvec cette carte, ton existence va prendre fin !"
+    },
+    "V0133_13_00_21_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Le dernier arcane majeur !\nForce Arcane XXI - Le Monde !"
+    },
+    "V0133_13_00_22_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7344
+      ],
+      "duelist": [],
+      "text": "Je vais appeler le grand conquérant pour mettre un terme à ton destin !"
+    },
+    "V0133_13_00_22_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Je Sacrifie ces trois piliers de lumière !"
+    },
+    "V0133_13_00_22_2": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Regarde ça ! Force Arcane EX - Le Maître de la Lumière !"
+    },
+    "V0133_13_00_23_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [
+        7590
+      ],
+      "duelist": [],
+      "text": "Contemple le pouvoir qui gouverne le destin !"
+    },
+    "V0133_13_00_23_1": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 2,
+      "card": [],
+      "duelist": [],
+      "text": "Force Arcane EX - Le Maître des Ténèbres !"
+    },
+    "V0133_14_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est l'heure de combattre !"
+    },
+    "V0133_14_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah ! Combattons !"
+    },
+    "V0133_15_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maintenant..."
+    },
+    "V0133_15_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ne combats pas le destin."
+    },
+    "V0133_15_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Obéis à ta destinée !"
+    },
+    "V0133_17_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Mon monstre attaque !"
+    },
+    "V0133_17_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attaque !"
+    },
+    "V0133_17_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Disparais !"
+    },
+    "V0133_16_00_00_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu aurais pu éviter d'affronter cette dure réalité."
+    },
+    "V0133_16_00_01_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Si seulement tu acceptais ta destinée !"
+    },
+    "V0133_18_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je t'attaque directement !"
+    },
+    "V0133_18_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah !"
+    },
+    "V0133_19_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7581
+      ],
+      "duelist": [],
+      "text": "Force Arcane 0 - L'Arlequin attaque !"
+    },
+    "V0133_19_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7582
+      ],
+      "duelist": [],
+      "text": "Force Arcane I - Le Magicien attaque !"
+    },
+    "V0133_19_00_01_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Flux sphéroïde !"
+    },
+    "V0133_19_00_03_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7583
+      ],
+      "duelist": [],
+      "text": "Force Arcane III - L'Impératrice ! Attaque !"
+    },
+    "V0133_19_00_03_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Bénédiction de L'Impératrice !"
+    },
+    "V0133_19_00_04_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7584
+      ],
+      "duelist": [],
+      "text": "Force Arcane IV - L'Empereur attaque !"
+    },
+    "V0133_19_00_06_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7585
+      ],
+      "duelist": [],
+      "text": "Force Arcane VI - L'Amoureux attaque !"
+    },
+    "V0133_19_00_07_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7586
+      ],
+      "duelist": [],
+      "text": "Force Arcane VII - Le Chariot attaque !"
+    },
+    "V0133_19_00_07_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Explosion conquérante !"
+    },
+    "V0133_19_00_08_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3727
+      ],
+      "duelist": [],
+      "text": "La Force passe à l'attaque !"
+    },
+    "V0133_19_00_12_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        3724
+      ],
+      "duelist": [],
+      "text": "Le Pendu, attaque !"
+    },
+    "V0133_19_00_14_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7587
+      ],
+      "duelist": [],
+      "text": "Force Arcane XIV - La Tempérance attaque !"
+    },
+    "V0133_19_00_18_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7588
+      ],
+      "duelist": [],
+      "text": "Force Arcane XVIII - La Lune ! Attaque !"
+    },
+    "V0133_19_00_21_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7589
+      ],
+      "duelist": [],
+      "text": "Ton destin est de finir en purée !"
+    },
+    "V0133_19_00_21_1": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Force Arcane XXI - Le Monde ! Attaque !\nCataclysme !"
+    },
+    "V0133_19_00_22_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7344
+      ],
+      "duelist": [],
+      "text": "Implore le pardon de la destinée !"
+    },
+    "V0133_19_00_22_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Force Arcane EX - Le Maître de la Lumière attaque!\nRayon ultime !"
+    },
+    "V0133_19_00_23_0": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [
+        7590
+      ],
+      "duelist": [],
+      "text": "Tu n'as plus la force d'affronter ton destin !"
+    },
+    "V0133_19_00_23_1": {
+      "face": 2,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Force Arcane EX - Le Maître des Ténèbres attaque !"
+    },
+    "V0133_20_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0133_20_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose une carte !"
+    },
+    "V0133_20_01_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0133_20_01_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je Pose un monstre !"
+    },
+    "V0133_21_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Maintenant, toi-même tu sais ce que le destin te réserve."
+    },
+    "V0133_21_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0133_21_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je termine mon tour !"
+    },
+    "V0133_21_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Argh ! Je termine mon tour !"
+    },
+    "V0133_28_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'es rien face à la grandiose présence du destin !"
+    },
+    "V0133_28_00_00_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu ne peux pas empêcher ce qui doit arriver !"
+    },
+    "V0133_28_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah !\nGloire à la lumière !"
+    },
+    "V0133_28_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le destin est un mur infranchissable."
+    },
+    "V0133_28_00_02_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Frappe-le autant que tu veux, tu n'y laisseras pas la moindre marque !"
+    },
+    "V0133_28_00_03_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah...\nTu as raison d'avoir peur."
+    },
+    "V0133_28_00_03_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Car le destin te punira pour ta désobéissance !"
+    },
+    "V0133_28_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101,
+        115
+      ],
+      "text": "Ha ha ha ha ha !\nJaden Yuki !"
+    },
+    "V0133_28_00_04_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tes HÉROS ne peuvent rien face à la Lumière de la Destruction !"
+    },
+    "V0133_28_00_05_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        103
+      ],
+      "text": "Ah ah ah... Oui...\nRampe devant moi."
+    },
+    "V0133_28_00_05_1": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "J'avais prédit que tu implorerais mon pardon !"
+    },
+    "V0133_29_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je savais que la Lumière de la Destruction était aussi en toi."
+    },
+    "V0133_29_00_00_1": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu as savouré ma souffrance, n'est-ce pas ?\nAh ah ah !"
+    },
+    "V0133_29_00_01_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Non !\nComment est-ce possible ?!"
+    },
+    "V0133_29_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Comment ? Mes prédictions sont toujours justes !"
+    },
+    "V0133_29_00_03_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?\nLe destin a changé ?"
+    },
+    "V0133_29_00_04_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [
+        101
+      ],
+      "text": "L'univers est encore plein de mystères."
+    },
+    "V0133_29_00_04_1": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'un d'entre eux a été percé par Jaden pour changer le cours du destin."
+    },
+    "V0133_30_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu veux abandonner ?\nCapituler n'est pas une option quand on combat !"
+    },
+    "V0133_30_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu cherches à tout prix à changer le destin, mais tu ne changeras rien du tout."
+    },
+    "V0133_30_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tes coups sont désespérés."
+    },
+    "V0133_31_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi !"
+    },
+    "V0133_31_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Incompréhensible !"
+    },
+    "V0133_33_00_00_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je ne me contente pas de voir.\nJe prévois !"
+    },
+    "V0133_33_00_01_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Le pouvoir du destin me submerge !"
+    },
+    "V0133_33_00_02_0": {
+      "face": 1,
+      "frame": 1,
+      "cutin": 1,
+      "card": [],
+      "duelist": [],
+      "text": "Je peux voir ton destin !"
+    },
+    "V0133_34_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah ! Le destin se rit de toi !"
+    },
+    "V0133_34_00_01_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu veux que je dise ton avenir ?"
+    },
+    "V0133_34_00_02_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le fort peut devenir faible face au destin."
+    },
+    "V0133_34_00_03_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Notre histoire a déjà été écrite."
+    },
+    "V0133_34_00_04_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est ton dernier mot ? \nC'est exactement ce que veut le destin."
+    },
+    "V0133_34_00_05_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "L'avenir me dit que ce Duel se terminera avant mon tour."
+    },
+    "V0133_34_00_06_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "As-tu oublié comment faire un Duel ?"
+    },
+    "V0133_34_00_07_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Attends !\nFais preuve d'un peu de patience !"
+    },
+    "V0133_34_00_08_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Et bien évidemment, la carte est à l'endroit !"
+    },
+    "V0133_34_00_09_0": {
+      "face": 4,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Quoi ?! C'est à l'envers ?!"
+    },
+    "V0133_32_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links"
+    },
+    "V0133_32_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Yu-Gi-Oh! Duel Links!"
+    },
+    "V0133_35_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Confie ton destin à mes cartes."
+    },
+    "V0133_35_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Je vais t'aider."
+    },
+    "V0133_36_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ton destin est scellé !"
+    },
+    "V0133_36_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Chaque événement se déroule comme je l'avais prédit !"
+    },
+    "V0133_36_00_02_0": {
+      "face": 3,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Le destin n'a pas encore été modifié !"
+    },
+    "V0133_22_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Pfff..."
+    },
+    "V0133_22_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Grr..."
+    },
+    "V0133_22_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé."
+    },
+    "V0133_26_00_00_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu n'as rien de mieux à proposer ?"
+    },
+    "V0133_26_00_01_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "C'est tout ce que tu sais faire ?"
+    },
+    "V0133_26_00_02_0": {
+      "face": 1,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Hé hé hé..."
+    },
+    "V0133_25_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ahhhh !"
+    },
+    "V0133_25_00_01_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Noooon !"
+    },
+    "V0133_25_00_02_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ergh..."
+    },
+    "V0133_27_00_00_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Tu vas payer pour ça !"
+    },
+    "V0133_27_00_01_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Cela ne change rien !"
+    },
+    "V0133_27_00_02_0": {
+      "face": 3,
+      "frame": 1,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Même... pas... mal !"
+    },
+    "V0133_24_00_00_0": {
+      "face": 2,
+      "frame": 0,
+      "cutin": 0,
+      "card": [],
+      "duelist": [],
+      "text": "Ah ah ah !"
+    },
+    "V0133_23_00_00_0": {
+      "face": 4,
+      "frame": 1,
+      "cutin": 3,
+      "card": [],
+      "duelist": [],
+      "text": "Noooon !"
+    }
+  }
+}

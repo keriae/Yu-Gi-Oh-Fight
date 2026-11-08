@@ -1,0 +1,25 @@
+{
+  "source": "https://github.com/gkngkc/UnityStandaloneFileBrowser",
+  "commit": "04a5d49ed2545556da8a7192e86c69bd47641f10",
+  "files": {
+    "Plugin.mm": {
+      "upstream_path": "Plugins/MacOS/StandaloneFileBrowser/Plugin.mm",
+      "upstream_sha256": "46962d1e9ce10ec5f7414160ecc60cf5977245801edee9ef248232f4891cb623"
+    },
+    "Plugin.pch": {
+      "upstream_path": "Plugins/MacOS/StandaloneFileBrowser/Plugin.pch",
+      "upstream_sha256": "248cf2cd3714dc0d6841d97d1a26cc820fc0a5cf67d98befe7f0f092ca7250c0"
+    },
+    "LICENSE.txt": {
+      "upstream_path": "LICENSE.txt",
+      "upstream_sha256": "92475e81a68ee0afa580b6c39f4ac3a32f474523506c4ed6ec9cd62e3dc34e0e"
+    }
+  },
+  "modifications": [
+    "Build universal arm64/x86_64 dylib for macOS 13 and the retained SFB C ABI.",
+    "Use ARC and main-thread AppKit requests; retain per-request callbacks and filter handlers.",
+    "Keep synchronous UTF-8 returns in thread-local storage; preserve empty/null input and cancellation semantics.",
+    "Display translated caller-provided filter names without fixed English accessory labels.",
+    "Serialize native asynchronous panels globally; the managed wrapper also queues callers, roots reverse-P/Invoke delegates and rejects synchronous overlap."
+  ]
+}

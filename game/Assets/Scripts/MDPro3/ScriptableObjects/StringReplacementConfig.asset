@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4ab7f6a8f19254a83f9cfa3b2b9ee3, type: 3}
+  m_Name: StringReplacementConfig
+  m_EditorClassIdentifier: 
+  replacementRules:
+  - findString: material.1303350129
+    replaceString: material._Color.r
+    caseSensitive: 1
+  - findString: material.1571785585
+    replaceString: material._Color.g
+    caseSensitive: 1
+  - findString: material.1840221041
+    replaceString: material._Color.b
+    caseSensitive: 1
+  - findString: material.2108656497
+    replaceString: material._Color.a
+    caseSensitive: 1
+  - findString: material.1140649264
+    replaceString: material._AddColor.r
+    caseSensitive: 1
+  - findString: material.1409084720
+    replaceString: material._AddColor.g
+    caseSensitive: 1
+  - findString: material.1677520176
+    replaceString: material._AddColor.b
+    caseSensitive: 1
+  - findString: material.1945955632
+    replaceString: material._AddColor.a
+    caseSensitive: 1
+  - findString: material.1090582214
+    replaceString: material._TintColor.r
+    caseSensitive: 1
+  - findString: material.1359017670
+    replaceString: material._TintColor.g
+    caseSensitive: 1
+  - findString: material.1627453126
+    replaceString: material._TintColor.b
+    caseSensitive: 1
+  - findString: material.1895888582
+    replaceString: material._TintColor.a
+    caseSensitive: 1
+  - findString: material.109495689
+    replaceString: material._MainTex_ST.x
+    caseSensitive: 1
+  - findString: material.377931145
+    replaceString: material._MainTex_ST.y
+    caseSensitive: 1
+  - findString: material.646366601
+    replaceString: material._MainTex_ST.z
+    caseSensitive: 1
+  - findString: material.914802057
+    replaceString: material._MainTex_ST.w
+    caseSensitive: 1
+  - findString: material.5775686
+    replaceString: material._TilingAndOffset.x
+    caseSensitive: 1
+  - findString: material.274211142
+    replaceString: material._TilingAndOffset.y
+    caseSensitive: 1
+  - findString: material.542646598
+    replaceString: material._TilingAndOffset.z
+    caseSensitive: 1
+  - findString: material.811082054
+    replaceString: material._TilingAndOffset.w
+    caseSensitive: 1
+  - findString: material.223630146
+    replaceString: material._MaskTilingOffset.x
+    caseSensitive: 1
+  - findString: material.492065602
+    replaceString: material._MaskTilingOffset.y
+    caseSensitive: 1
+  - findString: material.760501058
+    replaceString: material._MaskTilingOffset.z
+    caseSensitive: 1
+  - findString: material.1028936514
+    replaceString: material._MaskTilingOffset.w
+    caseSensitive: 1
+  - findString: material.2302927600
+    replaceString: material._PositionOffset
+    caseSensitive: 1
+  - findString: material.2415810023
+    replaceString: material._PositionScaling
+    caseSensitive: 1
+  - findString: material.2299196210
+    replaceString: material._CellDensity01
+    caseSensitive: 1
+  - findString: material.2147721864
+    replaceString: material._CellDensity02
+    caseSensitive: 1
+  - findString: material.2194510175
+    replaceString: material._ScrollSpeed
+    caseSensitive: 1
+  - findString: material.2191314575
+    replaceString: material._Gradient_Value_01
+    caseSensitive: 1
+  - findString: material.2276163941
+    replaceString: material._Line_Step
+    caseSensitive: 1
+  - findString: material.2322058489
+    replaceString: material._StepEdge1
+    caseSensitive: 1
+  - findString: material.1090582214
+    replaceString: material._TintColor.r
+    caseSensitive: 1
+  - findString: material.1359017670
+    replaceString: material._TintColor.g
+    caseSensitive: 1
+  - findString: material.1627453126
+    replaceString: material._TintColor.b
+    caseSensitive: 1
+  - findString: material.1895888582
+    replaceString: material._TintColor.a
+    caseSensitive: 1
+  - findString: material.2170181182
+    replaceString: material._RING_Blur
+    caseSensitive: 1
+  - findString: material.2305216973
+    replaceString: material._RING_Radial
+    caseSensitive: 1
+  - findString: material.2274699365
+    replaceString: material._Offset
+    caseSensitive: 1
+  - findString: material.1157001386
+    replaceString: material._ColorA.r
+    caseSensitive: 1
+  - findString: material.1425436842
+    replaceString: material._ColorA.g
+    caseSensitive: 1
+  - findString: material.1693872298
+    replaceString: material._ColorA.b
+    caseSensitive: 1
+  - findString: material.1962307754
+    replaceString: material._ColorA.a
+    caseSensitive: 1
+  - findString: material.1308565776
+    replaceString: material._ColorB.r
+    caseSensitive: 1
+  - findString: material.1577001232
+    replaceString: material._ColorB.g
+    caseSensitive: 1
+  - findString: material.1845436688
+    replaceString: material._ColorB.b
+    caseSensitive: 1
+  - findString: material.2113872144
+    replaceString: material._ColorB.a
+    caseSensitive: 1
+  - findString: material.1257771398
+    replaceString: material._ColorC.r
+    caseSensitive: 1
+  - findString: material.1526206854
+    replaceString: material._ColorC.g
+    caseSensitive: 1
+  - findString: material.1794642310
+    replaceString: material._ColorC.b
+    caseSensitive: 1
+  - findString: material.2063077766
+    replaceString: material._ColorC.a
+    caseSensitive: 1
+  - findString: material.1151108133
+    replaceString: material._ColorD.r
+    caseSensitive: 1
+  - findString: material.1419543589
+    replaceString: material._ColorD.g
+    caseSensitive: 1
+  - findString: material.1687979045
+    replaceString: material._ColorD.b
+    caseSensitive: 1
+  - findString: material.1956414501
+    replaceString: material._ColorD.a
+    caseSensitive: 1
+  - findString: material.1134277811
+    replaceString: material._ColorE.r
+    caseSensitive: 1
+  - findString: material.1402713267
+    replaceString: material._ColorE.g
+    caseSensitive: 1
+  - findString: material.1671148723
+    replaceString: material._ColorE.b
+    caseSensitive: 1
+  - findString: material.1939584179
+    replaceString: material._ColorE.a
+    caseSensitive: 1
+  - findString: material.2277500444
+    replaceString: material._Scale
+    caseSensitive: 1
+  - findString: material.2290117416
+    replaceString: material._TwistStrength
+    caseSensitive: 1
+  - findString: material.2299965625
+    replaceString: material._Rotate
+    caseSensitive: 1
+  - findString: material.56182312
+    replaceString: material._CardAOffset.x
+    caseSensitive: 1
+  - findString: material.324617768
+    replaceString: material._CardAOffset.y
+    caseSensitive: 1
+  - findString: material.593053224
+    replaceString: material._CardAOffset.z
+    caseSensitive: 1
+  - findString: material.861488680
+    replaceString: material._CardAOffset.w
+    caseSensitive: 1
+  - findString: material.2151230803
+    replaceString: material._offset
+    caseSensitive: 1
+  - findString: material.2227223471
+    replaceString: material._Amplitude
+    caseSensitive: 1
+  - findString: material.2276081884
+    replaceString: material._FakeBlend
+    caseSensitive: 1
+  - findString: material.1113375356
+    replaceString: material._ColorStart.r
+    caseSensitive: 1
+  - findString: material.1381810812
+    replaceString: material._ColorStart.g
+    caseSensitive: 1
+  - findString: material.1650246268
+    replaceString: material._ColorStart.b
+    caseSensitive: 1
+  - findString: material.1918681724
+    replaceString: material._ColorStart.a
+    caseSensitive: 1
+  - findString: material.2236799016
+    replaceString: material.Vector1_B142DEE4
+    caseSensitive: 1
+  - findString: 4e7d999e215dd683a8ce2c28c946995e
+    replaceString: 9541d86e2fd84c1d9990edf0852d74ab
+    caseSensitive: 1
+  - findString: material.4092423
+    replaceString: material.TilingOffset.x
+    caseSensitive: 1
+  - findString: material.272527879
+    replaceString: material.TilingOffset.y
+    caseSensitive: 1
+  - findString: material.540963335
+    replaceString: material.TilingOffset.z
+    caseSensitive: 1
+  - findString: material.809398791
+    replaceString: material.TilingOffset.w
+    caseSensitive: 1
+  - findString: material.2192818757
+    replaceString: material._Line_Alpha
+    caseSensitive: 1
+  - findString: material.2272568956
+    replaceString: material._Animation_Alpha
+    caseSensitive: 1
+  - findString: material.2153233492
+    replaceString: material._Animator_Alpha
+    caseSensitive: 1

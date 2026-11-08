@@ -1,0 +1,49 @@
+{
+  "schema": 2,
+  "scenes": [
+    {
+      "id": "classic",
+      "name": "经典场地",
+      "description": "熟悉的场地与天空，延续当前对局体验。",
+      "preview_path": "duel-scenes/classic.jpg",
+      "builder": "classic",
+      "texture_path": "",
+      "overview_path": "duel-scenes/classic-overview.jpg",
+      "style": "自然场地 · 经典体验",
+      "accent": "#C5B382"
+    },
+    {
+      "id": "battle-academy",
+      "name": "战争学院",
+      "description": "蓝色弧形看台环绕奶油色决斗平台，精密灯架、场馆投影与学院观众共同见证对决。",
+      "preview_path": "duel-scenes/battle-academy-court-v3.png",
+      "builder": "battle-academy",
+      "texture_path": "duel-scenes/battle-academy-court-v3.png",
+      "overview_path": "duel-scenes/battle-academy-overview.png",
+      "style": "精密场馆 · 学院竞技",
+      "accent": "#75C9F1"
+    },
+    {
+      "id": "ancient-egypt",
+      "name": "古代埃及",
+      "description": "夕照穿过莲花柱廊，失落记忆石板与千年之眼守望砂岩王庭，青金石镶嵌与青铜祭火唤醒仪式。",
+      "preview_path": "duel-scenes/ancient-egypt-court-v3.png",
+      "builder": "ancient-egypt",
+      "texture_path": "duel-scenes/ancient-egypt-court-v3.png",
+      "overview_path": "duel-scenes/ancient-egypt-overview.png",
+      "style": "王室庭院 · 千年仪式",
+      "accent": "#D9AE59"
+    },
+    {
+      "id": "skyscraper",
+      "name": "摩天大楼",
+      "description": "巨大满月照亮装饰艺术风格的阶梯尖顶楼群，暖金窗格、木质水塔与交叉探照灯围绕屋顶决斗区。",
+      "preview_path": "duel-scenes/skyscraper-court-v3.png",
+      "builder": "skyscraper",
+      "texture_path": "duel-scenes/skyscraper-court-v3.png",
+      "overview_path": "duel-scenes/skyscraper-overview.png",
+      "style": "月下屋顶 · 都市对决",
+      "accent": "#D6B977"
+    }
+  ]
+}
