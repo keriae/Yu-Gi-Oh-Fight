@@ -65,7 +65,7 @@ namespace YuGiOhFight.Client.Duel
             Runtime.AudioManager.PlaySE("SE_LOG_OPEN");
             MoveBaseRectX(ShowX, transitionTime);
             UI.DOTweenLifecycle.KillTarget(cg);
-            cg.DOFade(1f, transitionTime).SetUpdate(true);
+            cg.DOFade(1f, transitionTime).SetUpdate(!Services.ReplayVideoExport.Capturing);
             cg.blocksRaycasts = true;
             cg.interactable = true;
             SnapToLatest();
@@ -74,7 +74,7 @@ namespace YuGiOhFight.Client.Duel
                 bg.gameObject.SetActive(true);
                 UI.DOTweenLifecycle.KillTarget(bg);
                 bg.color = Color.clear;
-                bg.DOFade(0.5f, transitionTime).SetUpdate(true);
+                bg.DOFade(0.5f, transitionTime).SetUpdate(!Services.ReplayVideoExport.Capturing);
             }
         }
 
@@ -87,13 +87,13 @@ namespace YuGiOhFight.Client.Duel
             draged = false;
             MoveBaseRectX(HideX, transitionTime);
             UI.DOTweenLifecycle.KillTarget(cg);
-            cg.DOFade(0f, transitionTime).SetUpdate(true);
+            cg.DOFade(0f, transitionTime).SetUpdate(!Services.ReplayVideoExport.Capturing);
             if (!mute)
                 Runtime.AudioManager.PlaySE("SE_LOG_CLOSE");
             if (UsingMobileLayout)
             {
                 UI.DOTweenLifecycle.KillTarget(bg);
-                bg.DOFade(0f, transitionTime).SetUpdate(true).OnComplete(() =>
+                bg.DOFade(0f, transitionTime).SetUpdate(!Services.ReplayVideoExport.Capturing).OnComplete(() =>
                 {
                     bg.gameObject.SetActive(false);
                     cg.blocksRaycasts = false;
@@ -116,7 +116,7 @@ namespace YuGiOhFight.Client.Duel
         private void MoveBaseRectX(float x, float duration)
         {
             UI.DOTweenLifecycle.Kill(baseTween);
-            baseTween = baseRect.DOAnchorPosX(x, duration).SetUpdate(true).OnKill(() => baseTween = null);
+            baseTween = baseRect.DOAnchorPosX(x, duration).SetUpdate(!Services.ReplayVideoExport.Capturing).OnKill(() => baseTween = null);
         }
 
         private void OnDestroy()
@@ -153,7 +153,7 @@ namespace YuGiOhFight.Client.Duel
             if (!showing && fullHeight > scrollRect.viewport.rect.height)
                 item.SetActive(false);
             if (!draged)
-                scrollRect.DOVerticalNormalizedPos(0f, 0.1f).SetUpdate(true);
+                scrollRect.DOVerticalNormalizedPos(0f, 0.1f).SetUpdate(!Services.ReplayVideoExport.Capturing);
         }
 
         public void ClearLog()

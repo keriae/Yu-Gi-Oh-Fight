@@ -85,15 +85,17 @@ namespace YuGiOhFight.Client.Duel
 
     internal static partial class DuelSceneGeometry
     {
-        // Only the five atlas roles used by the circular fixtures are allocated.
+        // Surfaces are batched by material role so the fine dial details do not
+        // add individual renderers or change the native instrument identity.
         private sealed class Instrument
         {
-            private static readonly int[] AtlasRoles = { 0, 4, 6, 7, 10 };
-            internal readonly Surface[] Parts = new Surface[5];
+            private static readonly int[] AtlasRoles = { 0, 4, 6, 7, 10, 1 };
+            internal readonly Surface[] Parts = new Surface[6];
             internal Surface Body => Parts[0];
             internal Surface Screen => Parts[1];
             internal Surface Recess => Parts[2]; internal Surface Base => Parts[3];
             internal Surface Glow => Parts[4];
+            internal Surface Trim => Parts[5];
             internal Instrument()
             {
                 for (int index = 0; index < Parts.Length; index++)
@@ -114,7 +116,10 @@ namespace YuGiOhFight.Client.Duel
             var model = new DuelSceneFieldModel { Root = root.transform };
             var part = new Instrument();
             SceneInstrumentTints(builder, part);
-            BuildSceneInstrument(kind, part, model);
+            if (builder == DuelSceneCatalog.CityId) BuildCityInstrument(kind, part, model);
+            else if (builder == DuelSceneCatalog.AcademyId) BuildAcademyInstrument(kind, part, model);
+            else if (builder == DuelSceneCatalog.EgyptId) BuildEgyptInstrument(kind, part, model);
+            else BuildSceneInstrument(kind, part, model);
             for (int role = 0; role < part.Parts.Length; role++)
             {
                 part.Parts[role].ExpandBounds(ref model.Minimum, ref model.Maximum);

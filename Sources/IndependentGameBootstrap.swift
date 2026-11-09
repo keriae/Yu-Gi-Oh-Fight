@@ -203,6 +203,7 @@ struct IndependentGameBootstrap {
         let resourceProtection = "\n(deny file-write* (subpath \"\(escapedSource)\"))"
         let arguments = ["/usr/bin/sandbox-exec", "-p", policy + resourceProtection, executable.path]
             + initialWindowArguments(in: support)
+            + Array(CommandLine.arguments.dropFirst())
         try replaceProcess(executable: "/usr/bin/sandbox-exec", arguments: arguments,
                            environment: nativeEnvironment(in: support, inherited: ProcessInfo.processInfo.environment),
                            workingDirectory: support, logDescriptor: log.fileDescriptor, launchLock: lock)

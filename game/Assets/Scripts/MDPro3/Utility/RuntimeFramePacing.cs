@@ -91,16 +91,19 @@ namespace MDPro3.Utility
             }
         }
 
+        private static int exportFrameRate;
+        internal static void SetExportFrameRate(int fps) { exportFrameRate = fps; Apply(); }
+
         private static void Apply()
         {
             // Quality changes can restore vSync, so reapply it with the effective cap.
             QualitySettings.vSyncCount = 0;
-            EffectiveFrameRate = ResolveFrameRate(ConfiguredFrameRate, DuelRendering, HasFocus, Paused);
+            EffectiveFrameRate = exportFrameRate > 0 ? exportFrameRate : ResolveFrameRate(ConfiguredFrameRate, DuelRendering, HasFocus, Paused);
             Application.targetFrameRate = EffectiveFrameRate;
             // Keep transport, AI, timers and animations updating at 15 Hz in the
             // background, but submit a picture only every third update. No
             // rendering is skipped once the window returns to the foreground.
-            SetRenderFrameInterval(!HasFocus || Paused ? BackgroundRenderInterval : 1);
+            SetRenderFrameInterval(exportFrameRate > 0 ? 1 : !HasFocus || Paused ? BackgroundRenderInterval : 1);
         }
     }
 }

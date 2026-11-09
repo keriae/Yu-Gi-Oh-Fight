@@ -172,7 +172,10 @@ namespace YuGiOhFight.Client.Duel
             // One preference snapshot per entry; settings changed during play
             // apply to the next duel without rebuilding cards or presentation.
             bool scene3DEnabled = MDPro3.Config.GetBool(DuelSceneCatalog.EnabledKey, true);
-            DuelSceneDefinition selectedScene = DuelSceneCatalog.Resolve(MDPro3.Config.Get(DuelSceneCatalog.SceneKey, DuelSceneCatalog.DefaultId));
+            string requestedScene = MDPro3.Config.Get(DuelSceneCatalog.SceneKey, DuelSceneCatalog.DefaultId);
+            DuelSceneDefinition selectedScene = DuelSceneCatalog.Resolve(requestedScene);
+            if (Services.ReplayVideoExport.Busy)
+                Debug.Log("[ReplayVideoExport] requested scene=" + requestedScene + ", selected scene=" + selectedScene.Id + ", 3D=" + scene3DEnabled);
             bool integratedTheme = scene3DEnabled && DuelSceneCatalog.IsIntegratedTheme(selectedScene.Builder);
             Scene3DActive = scene3DEnabled;
             ActiveSceneId = selectedScene.Id;
@@ -1343,7 +1346,8 @@ namespace YuGiOhFight.Client.Duel
             if (seconds <= 0f)
                 return UniTask.CompletedTask;
 
-            return UniTask.Delay(TimeSpan.FromSeconds(seconds), DelayType.UnscaledDeltaTime);
+            return Services.ReplayVideoExport.Capturing ? UniTask.WaitForSeconds(seconds)
+                : UniTask.Delay(TimeSpan.FromSeconds(seconds), DelayType.UnscaledDeltaTime);
         }
 
         private static UniTask WaitForSecondsSwapTimingAsync(float seconds, bool useUnscaledTiming)
@@ -1365,8 +1369,8 @@ namespace YuGiOhFight.Client.Duel
             if (mate == null || maxWaitSeconds <= 0f)
                 return 0f;
 
-            var startRealtime = Time.realtimeSinceStartup;
-            while (Time.realtimeSinceStartup - startRealtime < maxWaitSeconds)
+            var startRealtime = Services.ReplayVideoExport.PlaybackClock;
+            while (Services.ReplayVideoExport.PlaybackClock - startRealtime < maxWaitSeconds)
             {
                 await UniTask.Yield(PlayerLoopTiming.Update);
                 if (!mate.TryGetMasterDuelPrimaryAnimatorSnapshot(
@@ -1381,7 +1385,7 @@ namespace YuGiOhFight.Client.Duel
                 }
 
                 if ((!beforeInTransition && inTransition) || stateHash != beforeStateHash)
-                    return Time.realtimeSinceStartup - startRealtime;
+                    return Services.ReplayVideoExport.PlaybackClock - startRealtime;
             }
 
             return 0f;

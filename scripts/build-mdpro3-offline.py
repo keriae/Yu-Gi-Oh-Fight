@@ -20,6 +20,8 @@ from source_build_state import atomic_exchange, validate_generation, validate_so
 from native_server_host import HOST_PATH, compile_host, verify_host
 from native_file_browser import (LIBRARY_PATH as FILE_BROWSER_PATH, MANAGED_LINK as FILE_BROWSER_LINK,
                                  LINK_TARGET as FILE_BROWSER_LINK_TARGET, compile_file_browser, verify_file_browser)
+from native_replay_video import (LIBRARY_PATH as REPLAY_VIDEO_PATH, MANAGED_LINK as REPLAY_VIDEO_LINK,
+                                 LINK_TARGET as REPLAY_VIDEO_LINK_TARGET, compile_replay_video, verify_replay_video)
 from client_ui_assets import content_hashes as client_ui_hashes
 from client_ui_runtime_metadata import plan_runtime_metadata, verify_runtime_metadata
 from client_ui_resources import plan_client_resources, verify_client_resources
@@ -170,7 +172,7 @@ def check_swift_toolchain() -> None:
         raise ValueError(message)
 
 
-def validate_release_inputs(app: Path, snapshot: Path, manifest: dict, host: dict, file_browser: dict, launcher: dict) -> None:
+def validate_release_inputs(app: Path, snapshot: Path, manifest: dict, host: dict, file_browser: dict, replay_video: dict, launcher: dict) -> None:
     """Check editable build inputs again immediately before publication."""
     validate_source_inputs(ROOT, manifest.get("source_files"))
     resources = app / "Contents/Resources"
@@ -201,14 +203,15 @@ def validate_release_inputs(app: Path, snapshot: Path, manifest: dict, host: dic
         try:
             verify_host(client, host)
             verify_file_browser(client, file_browser)
+            verify_replay_video(client, replay_video)
         except ValueError as error:
             raise ValueError("Native build inputs changed during packaging; rerun python3 build.py.") from error
     except (OSError, KeyError, subprocess.SubprocessError) as error:
         raise ValueError("Release inputs changed or became unavailable during packaging; rerun python3 build.py.") from error
 
 
-def publish_application(app: Path, destination: Path, snapshot: Path, manifest: dict, host: dict, file_browser: dict, launcher: dict) -> None:
-    validate_release_inputs(app, snapshot, manifest, host, file_browser, launcher)
+def publish_application(app: Path, destination: Path, snapshot: Path, manifest: dict, host: dict, file_browser: dict, replay_video: dict, launcher: dict) -> None:
+    validate_release_inputs(app, snapshot, manifest, host, file_browser, replay_video, launcher)
     if destination.exists():
         # Keep the prior application until all editable inputs pass verification.
         atomic_exchange(app, destination)
@@ -289,6 +292,10 @@ def main() -> None:
             shutil.copy2(ROOT / "build/libStandaloneFileBrowser.dylib", client / FILE_BROWSER_PATH)
             (client / FILE_BROWSER_LINK).symlink_to(FILE_BROWSER_LINK_TARGET)
             verify_file_browser(client, file_browser_metadata)
+            replay_video_metadata = compile_replay_video(ROOT / "build/libReplayVideo.dylib")
+            shutil.copy2(ROOT / "build/libReplayVideo.dylib", client / REPLAY_VIDEO_PATH)
+            (client / REPLAY_VIDEO_LINK).symlink_to(REPLAY_VIDEO_LINK_TARGET)
+            verify_replay_video(client, replay_video_metadata)
             for architecture in LAUNCHER_ARCHITECTURES:
                 run("xcrun", "swiftc", "-swift-version", LAUNCHER_SWIFT_VERSION, "-parse-as-library", "-O", "-target",
                     architecture + "-apple-macos" + LAUNCHER_MINIMUM_MACOS, ROOT / LAUNCHER_SOURCE, "-o", stage / architecture)
@@ -314,6 +321,7 @@ def main() -> None:
                 "--output", ROOT / "artifacts/mdpro3-source-runtime-packaged.json")
             verify_host(client, host_metadata)
             verify_file_browser(client, file_browser_metadata)
+            verify_replay_video(client, replay_video_metadata)
             publisher_manifest = ROOT / "vendor/MDPro3-mac-metadata/checksums.txt"
             publisher = {name: value for value, name in
                          (line.split("  ", 1) for line in publisher_manifest.read_text().splitlines())}
@@ -324,7 +332,7 @@ def main() -> None:
                 "MDPro3.app/Contents/Resources/Data/Managed/Assembly-CSharp.pdb",
                 "Data/config.conf",
                 HOST_PATH,
-                FILE_BROWSER_PATH, FILE_BROWSER_LINK,
+                FILE_BROWSER_PATH, FILE_BROWSER_LINK, REPLAY_VIDEO_PATH, REPLAY_VIDEO_LINK,
             } | {item["path"] for item in default_report["changes"]} | {item["path"] for item in academy_report["changes"]} | {item["path"] for item in ui_report["changes"]} | {item["path"] for item in ui_runtime_report["changes"]} | set(ui_resources_report["outputs"])
             changes = {}
             for path in sorted(client.rglob("*")):
@@ -339,7 +347,7 @@ def main() -> None:
                     changes[relative] = {"publisher_sha256": before, "sha256": actual}
             change_report = {"ok": True, "source_build_sha256": file_digest(manifest_path),
                              "publisher_manifest_sha256": file_digest(publisher_manifest), "changes": changes,
-                             "native_server_host": host_metadata, "native_file_browser": file_browser_metadata,
+                             "native_server_host": host_metadata, "native_file_browser": file_browser_metadata, "native_replay_video": replay_video_metadata,
                              "client_ui": ui_report, "client_ui_runtime_metadata": ui_runtime_report,
                              "client_ui_resources": ui_resources_report}
             (resources / "Client-Changes.json").write_text(json.dumps(change_report, indent=2) + "\n")
@@ -347,10 +355,10 @@ def main() -> None:
             # The final change inventory is part of the outer application's signed resources.
             run("codesign", "--force", "--sign", "-", "--timestamp=none", app)
             run("codesign", "--verify", "--deep", "--strict", app)
-            publish_application(app, destination, snapshot, manifest, host_metadata, file_browser_metadata, launcher_record)
+            publish_application(app, destination, snapshot, manifest, host_metadata, file_browser_metadata, replay_video_metadata, launcher_record)
     report = {"ok": True, "application": str(destination), "source_compiled": True,
               "assembly_sha256": manifest["assembly_sha256"], "publisher_version": "1.4.7-2", "state_folder": str(support),
-              "native_server_host": host_metadata, "native_file_browser": file_browser_metadata}
+              "native_server_host": host_metadata, "native_file_browser": file_browser_metadata, "native_replay_video": replay_video_metadata}
     (ROOT / "artifacts/mdpro3-offline-build.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, ensure_ascii=False))
 

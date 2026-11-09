@@ -112,11 +112,11 @@ namespace YuGiOhFight.Client.UI.Client
                 float uncover = change + CutHold;
                 float duration = uncover + FadeIn;
                 bool revealed = false, changed = false;
-                float started = Time.unscaledTime;
-                while (generation == entryGeneration && ReferenceEquals(owner, entryOwner) && cameras == entryCamera && Time.unscaledTime - started < duration)
+                float started = Services.ReplayVideoExport.UnscaledClock;
+                while (generation == entryGeneration && ReferenceEquals(owner, entryOwner) && cameras == entryCamera && Services.ReplayVideoExport.UnscaledClock - started < duration)
                 {
                     if (stillCurrent != null && !stillCurrent()) break;
-                    float elapsed = Time.unscaledTime - started;
+                    float elapsed = Services.ReplayVideoExport.UnscaledClock - started;
                     float activation = Mathf.Clamp01((elapsed - Establish) / Activation);
                     float intro = Smooth((elapsed - Establish + .15f) / .36f);
                     float transition = Smooth((elapsed - cut) / FadeOut);

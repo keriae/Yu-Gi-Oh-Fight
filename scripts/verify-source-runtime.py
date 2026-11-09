@@ -238,6 +238,7 @@ def managed_check(client: Path, managed: Path) -> dict:
                           "macos_exclusive_rejected": True, "oversized_window_fitted": True,
                           "normal_window_preserved": True}
         file_selector_resolved = []
+        replay_encoder_resolved = []
         if (managed / "libStandaloneFileBrowser.dylib").is_file():
             selector = klass(image, b"SFB", b"StandaloneFileBrowserMac")
             check(selector, "macOS file selector wrapper did not resolve")
@@ -250,6 +251,19 @@ def managed_check(client: Path, managed: Path) -> dict:
                 check(selected and lookup_native(selected, ctypes.byref(exception_class), ctypes.byref(exception_message)),
                       "Mono could not resolve the packaged file selector: " + name)
                 file_selector_resolved.append(name)
+        if (managed / "libReplayVideo.dylib").is_file():
+            encoder = klass(image, b"YuGiOhFight.Client.Services", b"ReplayVideoExport")
+            check(encoder, "macOS replay encoder wrapper did not resolve")
+            lookup_encoder = api("mono_lookup_pinvoke_call", pointer, [pointer, ctypes.POINTER(string), ctypes.POINTER(string)])
+            for name, count in (("ReplayVideoCreate", 6), ("ReplayVideoAppend", 5),
+                                ("ReplayVideoFinish", 1), ("ReplayVideoCancel", 1), ("ReplayVideoError", 1),
+                                ("ReplayVideoCancelled", 1), ("ReplayVideoCaptureClock", 0),
+                                ("ReplayVideoSetAudioSampleRate", 2)):
+                selected = method(encoder, name.encode(), count)
+                exception_class, exception_message = string(), string()
+                check(selected and lookup_encoder(selected, ctypes.byref(exception_class), ctypes.byref(exception_message)),
+                      "Mono could not resolve the packaged replay encoder: " + name)
+                replay_encoder_resolved.append(name)
         default_field = {"defaultSelectable": "UnityEngine.UI.Selectable"}
         ui_schemas = {
             "MainMenuUI": default_field,
@@ -342,6 +356,7 @@ def managed_check(client: Path, managed: Path) -> dict:
                 "animation_methods_jit_compiled": compiled,
                 "academy_ui_methods_jit_compiled": academy_compiled,
                 "native_file_selector_entry_points_resolved": file_selector_resolved,
+                "native_replay_encoder_entry_points_resolved": replay_encoder_resolved,
                 "gc_handles": "pointer-sized Mono v2 APIs"}
     finally:
         for handle in reversed(handles):

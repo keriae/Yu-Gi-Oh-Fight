@@ -245,7 +245,7 @@ namespace YuGiOhFight.Client.Runtime
         }
 
         private bool PointerBlocked(Camera camera)
-            => camera == null || !camera.isActiveAndEnabled || EventSystem.current == null
+            => Services.ReplayVideoExport.Busy || camera == null || !camera.isActiveAndEnabled || EventSystem.current == null
                 || EventSystem.current.IsPointerOverGameObject() || UIManager.InputBlocker != null
                 || UI.Client.FightClient.BlocksServantInput || UI.Client.FightDuelMenu.BlocksInput || UI.Client.FightOpeningCoin.IsShowing;
 

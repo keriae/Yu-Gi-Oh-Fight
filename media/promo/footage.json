@@ -1,33 +1,37 @@
 {
-  "capture": "Actual game window with recorded game audio; no microphone capture",
-  "capture_canvas_pixels": [
-    1920,
-    1200
-  ],
-  "trailer_fps": 30,
-  "source_captures_may_have_variable_frame_rate": true,
+  "capture": "Original real game-window recordings plus deterministic replay exports from the current macOS game renderer and offline game audio; no microphone capture",
+  "trailer_fps": 60,
   "audio": {
     "sample_rate": 48000,
     "channels": 2,
     "codec": "AAC"
   },
   "raw_recordings_ignored": true,
-  "framing": "Every complete game page is fitted proportionally and centered in a 1840×924 area above a separate caption footer. Only recorded bottom black padding explicitly identified by content_height_pixels is omitted; no gameplay content is cropped or zoomed. The separate full-duel still crops only bottom padding to 1920×1092.",
-  "audio_edit": "Original clip audio retained with short fades; captured menu theme also plays under paused menu shots and the closing card. Each language uses audio from its selected real recording.",
+  "framing": "Every complete game page is fitted proportionally and centered in a 1840×924 area above the unchanged caption footer. Only original recorded bottom black padding identified by content_height_pixels is omitted; exported gameplay is not cropped or zoomed. Full-duel uses the complete 1920×1080 export without any crop.",
+  "audio_edit": "All original non-duel shot audio and menu music are preserved. Refreshed duel and review shots use the export game audio at 0.65 gain, with matching 0.3-second image/audio fades. Each language uses its corresponding interface and game audio.",
   "full_duel": {
-    "source": "full-replay-zh.mp4",
-    "from_seconds": 26,
-    "to_seconds": 149,
+    "source": "replay-export-zh.mp4",
+    "source_sha256": "8b5ed07100929dd18200a8e08e0d11b75911b9d28c906da0ae654adac52054ae",
+    "from_seconds": 0,
+    "to_seconds": 234.15,
     "output": "docs/media/full-duel.mp4",
-    "crop_pixels": [
+    "canvas_pixels": [
       1920,
-      1092
+      1080
     ],
-    "fps": 30,
+    "crop": "None; every exported frame and the complete game view are retained",
+    "fps": 60,
+    "frames": 14049,
+    "packets": 1242,
+    "replay_end_seconds": 223.65,
+    "ending_tail_seconds": 10.5,
+    "requested_scene": "skyscraper",
+    "active_scene": "skyscraper",
     "video_codec": "H.264",
-    "audio": "Original AAC stream copied",
-    "crf": 20,
-    "max_video_bitrate_kbps": 4800
+    "audio": "AAC stereo at 48 kHz / 192 kbps from the native game-audio export",
+    "crf": 18,
+    "max_video_bitrate_kbps": 3087,
+    "maximum_file_bytes": 100000000
   },
   "files": [
     {
@@ -123,7 +127,7 @@
     {
       "file": "full-replay-zh.mp4",
       "sha256": "d35ee914a85a9a6ba6e961edce7b870c371e4de5ab73aa78c51dc3caa01facc8",
-      "role": "Real duel actions and complete replay from opening to victory. Original replay-library shot is excluded; new clean library captures are used instead.",
+      "role": "Real duel actions and complete replay from opening to victory. Original replay-library shot is excluded; new clean library captures are used instead. Original design baseline source only; current duel/review shots use replay-export files.",
       "duration_seconds": 173.845,
       "canvas_pixels": [
         1920,
@@ -255,7 +259,7 @@
     {
       "file": "duel-en.mp4",
       "sha256": "5b49d011eff0ac0b5d5be3957497d7baa8a42613d3fd57150d16a8fa594a9e0b",
-      "role": "Real duel action with the English interface",
+      "role": "Real duel action with the English interface Original design baseline source only; current duel/review shots use replay-export files.",
       "duration_seconds": 32.18,
       "canvas_pixels": [
         1920,
@@ -279,7 +283,7 @@
     {
       "file": "replay-playback-en.mp4",
       "sha256": "e18d78a54233912fc3ecd5a3c5ccbeb17017e0dcb8a0656ee694d0e51ddde680",
-      "role": "Real recorded duel playback with the English interface",
+      "role": "Real recorded duel playback with the English interface Original design baseline source only; current duel/review shots use replay-export files.",
       "duration_seconds": 10.018899,
       "canvas_pixels": [
         1920,
@@ -318,18 +322,116 @@
       ],
       "average_fps": 26.071,
       "content_height_pixels": 1092
+    },
+    {
+      "file": "launch-trailer-en-baseline.mp4",
+      "sha256": "c78a972d6c979dc9756ed2d1d7d671174d6afa003c8433dc1b016072a8fd1e7b",
+      "role": "Original finished 90-second English design baseline; all non-duel shots, captions, footer and transitions are retained",
+      "duration_seconds": 90,
+      "canvas_pixels": [
+        1920,
+        1080
+      ],
+      "average_fps": 30
+    },
+    {
+      "file": "launch-trailer-zh-baseline.mp4",
+      "sha256": "769663196e70723054f3a31af2e396bcdec2ea34ffe7518e93aba69eb715b644",
+      "role": "Original finished 90-second Chinese design baseline; all non-duel shots, captions, footer and transitions are retained",
+      "duration_seconds": 90,
+      "canvas_pixels": [
+        1920,
+        1080
+      ],
+      "average_fps": 30
+    },
+    {
+      "file": "replay-export-en.mp4",
+      "sha256": "e9a9084506eee8fcc5a4e16d9fd2f50c68c5d8119e4510741b4e518fe509487d",
+      "role": "Complete current English duel replay; native 1080p60 source for refreshed duel and replay-playback shots",
+      "duration_seconds": 234.13333333333333,
+      "canvas_pixels": [
+        1920,
+        1080
+      ],
+      "average_fps": 60,
+      "frames": 14048,
+      "audio": {
+        "codec": "AAC",
+        "sample_rate": 48000,
+        "channels": 2
+      },
+      "sidecar": {
+        "file": "replay-export-en.mp4.json",
+        "sha256": "05715fb80044080b50adbf8241ae0c5ca55bffb522436c071ede22f460cd3780"
+      },
+      "packets": 1242,
+      "requested_scene": "skyscraper",
+      "active_scene": "skyscraper",
+      "capture": "Deterministic game-rendered frames and Unity offline game audio"
+    },
+    {
+      "file": "replay-export-zh.mp4",
+      "sha256": "8b5ed07100929dd18200a8e08e0d11b75911b9d28c906da0ae654adac52054ae",
+      "role": "Complete current Chinese duel replay; native 1080p60 source for refreshed duel, replay-playback and full-duel outputs",
+      "duration_seconds": 234.15,
+      "canvas_pixels": [
+        1920,
+        1080
+      ],
+      "average_fps": 60,
+      "frames": 14049,
+      "audio": {
+        "codec": "AAC",
+        "sample_rate": 48000,
+        "channels": 2
+      },
+      "sidecar": {
+        "file": "replay-export-zh.mp4.json",
+        "sha256": "8866ea39a5a13ceb8093f8569ca319aad4100bbb2f39ba867166b01aa17e332c"
+      },
+      "packets": 1242,
+      "requested_scene": "skyscraper",
+      "active_scene": "skyscraper",
+      "capture": "Deterministic game-rendered frames and Unity offline game audio"
     }
   ],
   "outputs": {
     "full-duel.mp4": {
       "repository_path": "docs/media/full-duel.mp4",
-      "size_bytes": 73393027,
-      "sha256": "de10d5cc25e820541a674635a2781b2fcb5f23d43b3c317cdbff842d14883e37"
+      "size_bytes": 96321365,
+      "sha256": "98d6a4a753f67ecad9e3572d8be1c52ff57074493fb9c69d88d8f2dc4c23e373",
+      "metadata": {
+        "width": 1920,
+        "height": 1080,
+        "video_codec": "h264",
+        "fps": 60,
+        "frames": 14049,
+        "duration_seconds": 234.15,
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 48000,
+          "channels": 2
+        }
+      }
     },
     "launch-trailer-en.mp4": {
       "repository_path": "docs/media/launch-trailer-en.mp4",
-      "size_bytes": 14692903,
-      "sha256": "6e21db9a5ee747b7c99e88d200ea3afbf2017643cb903089c1d4d98faf8600d0"
+      "size_bytes": 25343855,
+      "sha256": "4d024efec781b946c85fc1b3267efeab06fc1f838d28bee6b77762bce1ced39b",
+      "metadata": {
+        "width": 1920,
+        "height": 1080,
+        "video_codec": "h264",
+        "fps": 60,
+        "frames": 5400,
+        "duration_seconds": 90,
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 48000,
+          "channels": 2
+        }
+      }
     },
     "launch-trailer-en.srt": {
       "repository_path": "docs/media/launch-trailer-en.srt",
@@ -338,13 +440,31 @@
     },
     "preview-en.jpg": {
       "repository_path": "docs/media/preview-en.jpg",
-      "size_bytes": 366669,
-      "sha256": "67d2b3608a9bbac83200a9001a59310f6e9ab7598e47bd6c620af9635d12031b"
+      "size_bytes": 366880,
+      "sha256": "ba691bc5e9703f5203733e273059a3788605c48cb0b871834d27f2636afa8931",
+      "metadata": {
+        "width": 1920,
+        "height": 1080,
+        "video_codec": "mjpeg"
+      }
     },
     "launch-trailer-zh.mp4": {
       "repository_path": "docs/media/launch-trailer-zh.mp4",
-      "size_bytes": 13860782,
-      "sha256": "7603ae972a1157296242fdc8656eb54bf2e59b066ec3fdad9fd962e3d3f31744"
+      "size_bytes": 24616051,
+      "sha256": "c3ce854cf687a7c408976a2242f6cdd7905fb524ca4eafbddaca33e4e22f615f",
+      "metadata": {
+        "width": 1920,
+        "height": 1080,
+        "video_codec": "h264",
+        "fps": 60,
+        "frames": 5400,
+        "duration_seconds": 90,
+        "audio": {
+          "codec": "aac",
+          "sample_rate": 48000,
+          "channels": 2
+        }
+      }
     },
     "launch-trailer-zh.srt": {
       "repository_path": "docs/media/launch-trailer-zh.srt",
@@ -353,18 +473,41 @@
     },
     "preview-zh.jpg": {
       "repository_path": "docs/media/preview-zh.jpg",
-      "size_bytes": 254529,
-      "sha256": "e8bc122468b5a26047d8e2e8727b79dfb6d270158048613f7e5d72c9ab9caea5"
+      "size_bytes": 367491,
+      "sha256": "0f0754dda84cc6d4750a0ef9157e90040075b8c39b431535583d1a2ea91908be",
+      "metadata": {
+        "width": 1920,
+        "height": 1080,
+        "video_codec": "mjpeg"
+      }
     },
     "launch-trailer-en.gif": {
       "repository_path": "docs/media/launch-trailer-en.gif",
-      "size_bytes": 15775558,
-      "sha256": "6605c3d02d5fda1ab1d2d669112c1d9e4d1312b841c85b756fefb54bb146287a"
+      "size_bytes": 18653994,
+      "sha256": "5fd3fbf8bef6d6860de07e9b30a703d32424a671d428c98a4a79406aadc88ee8",
+      "metadata": {
+        "width": 720,
+        "height": 405,
+        "video_codec": "gif",
+        "fps": 10,
+        "frames": 900,
+        "duration_seconds": 90,
+        "audio": null
+      }
     },
     "launch-trailer-zh.gif": {
       "repository_path": "docs/media/launch-trailer-zh.gif",
-      "size_bytes": 14778745,
-      "sha256": "e0b8a60b11c380aed2de012ddbe9ba67e3d2a343a420d449df76c1c5b58a5eb2"
+      "size_bytes": 17720810,
+      "sha256": "a0425a19a0df3aa535991cb24e4cde11ad80b61dfd293b39cf01f6d46108ee60",
+      "metadata": {
+        "width": 720,
+        "height": 405,
+        "video_codec": "gif",
+        "fps": 10,
+        "frames": 900,
+        "duration_seconds": 90,
+        "audio": null
+      }
     }
   },
   "typography": {
@@ -382,5 +525,154 @@
     "zh": "Simplified Chinese interface, chapter labels and captions"
   },
   "replay_library_cleanup": "Temporary test replays were removed before recapturing the Chinese and English replay libraries. Only genuine duel recordings and official academy demonstrations are shown.",
-  "replay_playback_en": "Derived from 22–32 seconds of the same real English duel recording used by the duel chapter; original AAC audio stream copied."
+  "replay_playback_en": "Current English replay-playback shot uses 211.0–216.2 seconds of replay-export-en.mp4 and its captured game audio.",
+  "original_capture_canvas_pixels": [
+    1920,
+    1200
+  ],
+  "replay_export_canvas_pixels": [
+    1920,
+    1080
+  ],
+  "original_source_captures_may_have_variable_frame_rate": true,
+  "replay_refresh": {
+    "pipeline": "media/promo/scripts/refresh-replay-video.py",
+    "fps": 60,
+    "canvas_pixels": [
+      1920,
+      1080
+    ],
+    "game_viewport_pixels": [
+      40,
+      24,
+      1840,
+      924
+    ],
+    "transition_seconds": 0.3,
+    "preserved": "All other shots, captions, original footer, text, colors, design and 90-second timeline",
+    "preview_seconds": 63,
+    "en": {
+      "baseline": "launch-trailer-en-baseline.mp4",
+      "baseline_sha256": "c78a972d6c979dc9756ed2d1d7d671174d6afa003c8433dc1b016072a8fd1e7b",
+      "source": "replay-export-en.mp4",
+      "source_sha256": "e9a9084506eee8fcc5a4e16d9fd2f50c68c5d8119e4510741b4e518fe509487d",
+      "shots": [
+        {
+          "name": "duel",
+          "timeline_start_seconds": 55.9,
+          "duration_seconds": 12,
+          "replay_start_seconds": 23.3
+        },
+        {
+          "name": "review",
+          "timeline_start_seconds": 79.1,
+          "duration_seconds": 5.2,
+          "replay_start_seconds": 211
+        }
+      ],
+      "verification": {
+        "frames": 5400,
+        "fps": 60,
+        "duration_seconds": 90,
+        "minimum_unchanged_frame_ssim": 0.991902,
+        "minimum_footer_ssim": 0.996864,
+        "motion_samples": [
+          {
+            "seconds": 60,
+            "frames": 60,
+            "distinct_frames": 60
+          },
+          {
+            "seconds": 80,
+            "frames": 60,
+            "distinct_frames": 60
+          }
+        ],
+        "audio_samples": [
+          {
+            "seconds": 59,
+            "mean_dbfs": -18.8,
+            "peak_dbfs": -3.6
+          },
+          {
+            "seconds": 62,
+            "mean_dbfs": -15.8,
+            "peak_dbfs": -3.1
+          },
+          {
+            "seconds": 80,
+            "mean_dbfs": -14.8,
+            "peak_dbfs": -0.5
+          },
+          {
+            "seconds": 82,
+            "mean_dbfs": -15.1,
+            "peak_dbfs": -1.1
+          }
+        ]
+      }
+    },
+    "zh": {
+      "baseline": "launch-trailer-zh-baseline.mp4",
+      "baseline_sha256": "769663196e70723054f3a31af2e396bcdec2ea34ffe7518e93aba69eb715b644",
+      "source": "replay-export-zh.mp4",
+      "source_sha256": "8b5ed07100929dd18200a8e08e0d11b75911b9d28c906da0ae654adac52054ae",
+      "shots": [
+        {
+          "name": "duel",
+          "timeline_start_seconds": 55.9,
+          "duration_seconds": 12,
+          "replay_start_seconds": 23.3
+        },
+        {
+          "name": "review",
+          "timeline_start_seconds": 79.1,
+          "duration_seconds": 5.2,
+          "replay_start_seconds": 211.016666667
+        }
+      ],
+      "event_timing": "Summon sequence matches English frame times; attack sequence is offset by exactly one frame (1/60 second).",
+      "verification": {
+        "frames": 5400,
+        "fps": 60,
+        "duration_seconds": 90,
+        "minimum_unchanged_frame_ssim": 0.99251,
+        "minimum_footer_ssim": 0.997778,
+        "motion_samples": [
+          {
+            "seconds": 60,
+            "frames": 60,
+            "distinct_frames": 60
+          },
+          {
+            "seconds": 80,
+            "frames": 60,
+            "distinct_frames": 60
+          }
+        ],
+        "audio_samples": [
+          {
+            "seconds": 59,
+            "mean_dbfs": -18.8,
+            "peak_dbfs": -3.9
+          },
+          {
+            "seconds": 62,
+            "mean_dbfs": -15.8,
+            "peak_dbfs": -2.9
+          },
+          {
+            "seconds": 80,
+            "mean_dbfs": -14.3,
+            "peak_dbfs": -0.6
+          },
+          {
+            "seconds": 82,
+            "mean_dbfs": -15.2,
+            "peak_dbfs": -1.6
+          }
+        ]
+      }
+    }
+  }
 }

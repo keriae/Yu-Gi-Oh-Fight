@@ -29,6 +29,10 @@ namespace YuGiOhFight.Client.UI.Client
         private FightSceneDialogFrame frame;
         private Image surface, materialGrain;
         private Image focusBackdrop;
+        private Texture2D phaseDiscTexture;
+        private Sprite phaseDiscSprite;
+        private Dictionary<string, Sprite> phaseGrainSprites;
+        private Dictionary<string, float> phaseGrainRetries;
         private readonly Dictionary<Image, ImageState> images = new();
         private readonly Dictionary<Graphic, TextState> texts = new();
         private readonly Dictionary<Selectable, ControlState> controls = new();
@@ -42,6 +46,7 @@ namespace YuGiOhFight.Client.UI.Client
         private float discoverAt;
         private readonly Vector3[] corners = new Vector3[4];
         private bool GlassPrompt => !responsivePanel && (legacy is PopupDuel || nativePromptLayout?.Supported == true);
+        private bool PrecisionPhasePrompt => legacy is PopupDuelPhase && palette != null;
 
         internal static bool SceneThemeActive
         {
@@ -137,6 +142,83 @@ namespace YuGiOhFight.Client.UI.Client
             return false;
         }
 
+        private Text PhaseText(Transform parent, Text original, string name, int size, TextAnchor alignment)
+        {
+            var rect = Node(parent, name, false);
+            rect.anchorMin = rect.anchorMax = rect.pivot = Vector2.one * .5f;
+            var text = rect.gameObject.AddComponent<Text>();
+            text.font = original.font; text.fontSize = size; text.fontStyle = FontStyle.Normal;
+            text.alignment = alignment; text.supportRichText = false; text.resizeTextForBestFit = false;
+            text.horizontalOverflow = HorizontalWrapMode.Overflow; text.verticalOverflow = VerticalWrapMode.Overflow;
+            text.raycastTarget = false;
+            return text;
+        }
+
+        private Sprite PhaseDiscSurface()
+        {
+            if (phaseDiscSprite != null) return phaseDiscSprite;
+            const int size = 256;
+            phaseDiscTexture = new Texture2D(size, size, TextureFormat.RGBA32, false)
+            {
+                name = "Fight phase circular surface", wrapMode = TextureWrapMode.Clamp,
+                filterMode = FilterMode.Bilinear, hideFlags = HideFlags.DontSave
+            };
+            var pixels = new Color[size * size];
+            for (int y = 0; y < size; y++)
+                for (int x = 0; x < size; x++)
+                {
+                    float px = (x + .5f - size * .5f) / (size * .5f);
+                    float py = (y + .5f - size * .5f) / (size * .5f);
+                    float radial = Mathf.Sqrt(px * px + py * py);
+                    float alpha = Mathf.Clamp01((1 - radial) * size * .5f);
+                    float bevel = Mathf.Clamp01(1 - Mathf.Abs(radial - .90f) / .055f);
+                    float shade = Mathf.Clamp01(.91f + py * .035f - radial * .045f + bevel * .09f);
+                    pixels[y * size + x] = new Color(shade, shade, shade, alpha);
+                }
+            phaseDiscTexture.SetPixels(pixels);
+            // Retain CPU pixels for Image's alpha hit test. Only this popup
+            // owns the disc; none of the publisher's sprites are changed.
+            phaseDiscTexture.Apply(false, false);
+            phaseDiscSprite = Sprite.Create(phaseDiscTexture, new Rect(0, 0, size, size),
+                Vector2.one * .5f, 100, 0, SpriteMeshType.FullRect);
+            phaseDiscSprite.name = "Fight phase circular surface";
+            phaseDiscSprite.hideFlags = HideFlags.DontSave;
+            return phaseDiscSprite;
+        }
+
+        private void ReleasePhaseDisc()
+        {
+            if (phaseDiscSprite != null) Destroy(phaseDiscSprite);
+            if (phaseDiscTexture != null) Destroy(phaseDiscTexture);
+            phaseDiscSprite = null; phaseDiscTexture = null;
+        }
+
+        private Sprite PhaseMaterialGrain(string scene)
+        {
+            phaseGrainSprites ??= new Dictionary<string, Sprite>();
+            phaseGrainRetries ??= new Dictionary<string, float>();
+            if (phaseGrainSprites.TryGetValue(scene, out var sprite) && sprite != null) return sprite;
+            if (phaseGrainRetries.TryGetValue(scene, out var retryAt) && Services.ReplayVideoExport.UnscaledClock < retryAt) return null;
+            sprite = DialogArtwork.Material(scene);
+            if (sprite != null)
+            {
+                phaseGrainSprites[scene] = sprite;
+                phaseGrainRetries.Remove(scene);
+            }
+            else phaseGrainRetries[scene] = Services.ReplayVideoExport.UnscaledClock + 2;
+            return sprite;
+        }
+
+        private static readonly Color PhaseLapisPanel = FightUI.Hex("102B43");
+        private static readonly Color PhaseLapisRaised = FightUI.Hex("163F5A");
+        private static Color PhasePanelFill(ScenePalette palette)
+            => palette.Kind == 1 ? Color.Lerp(palette.Panel, PhaseLapisPanel, .72f) : palette.Panel;
+        private static Color PhaseRaisedFill(ScenePalette palette)
+            => palette.Kind == 1 ? Color.Lerp(palette.Raised, PhaseLapisRaised, .85f) : palette.Raised;
+
+        private static Color PhaseSecondaryInk(ScenePalette palette)
+            => palette.Kind == 0 ? Color.Lerp(palette.Text, palette.Muted, .45f) : palette.Muted;
+
         private void Discover()
         {
             if (legacy is PopupDuelSelectCard cards && cards.scrollView != null)
@@ -162,7 +244,17 @@ namespace YuGiOhFight.Client.UI.Client
                     || responsivePanel && control.GetComponentInChildren<FightFrame>(true)?.Primary == true;
                 var state = new ControlState(control, primary, card);
                 state.Glass = GlassPrompt;
-                if (legacy is PopupDuelPhase phase) state.Phase = phase;
+                if (legacy is PopupDuelPhase phase)
+                {
+                    state.Phase = phase;
+                    state.PhaseIndex = FightDuelPopupLayout.PhaseIndex(phase, control);
+                    var caption = control.GetComponentInChildren<Text>();
+                    if (state.PhaseIndex >= 0 && caption != null)
+                    {
+                        state.PhaseName = PhaseText(control.transform, caption, "phase name", 18, TextAnchor.MiddleCenter);
+                        state.CapturePhaseIcon(control.transform.Find("Icon")?.GetComponent<Image>());
+                    }
+                }
                 if (legacy is PopupDuel duelPopup && control == duelPopup.btnHide) state.FieldView = duelPopup;
                 if (!card && !(control is Slider) && !(control is FightDuelReadingControl))
                 {
@@ -173,6 +265,7 @@ namespace YuGiOhFight.Client.UI.Client
                     state.Surface = background.gameObject.AddComponent<Image>();
                     state.Surface.sprite = FightSkin.ButtonSurface; state.Surface.type = Image.Type.Sliced;
                     state.Surface.raycastTarget = true;
+                    if (state.PhaseIndex >= 0) background.gameObject.AddComponent<FightPhaseCircularHitArea>();
                 }
                 var border = Node(control.transform, "control frame", true);
                 border.offsetMin = new Vector2(-.5f, -.5f); border.offsetMax = new Vector2(.5f, .5f);
@@ -215,7 +308,7 @@ namespace YuGiOhFight.Client.UI.Client
             if (content == null) return;
             // Selection rows arrive asynchronously and native virtual lists
             // reuse existing objects. They acquire the same skin on arrival.
-            if (Time.unscaledTime >= discoverAt) { Discover(); discoverAt = Time.unscaledTime + .1f; }
+            if (Services.ReplayVideoExport.UnscaledClock >= discoverAt) { Discover(); discoverAt = Services.ReplayVideoExport.UnscaledClock + .1f; }
             Repaint();
         }
 
@@ -237,8 +330,8 @@ namespace YuGiOhFight.Client.UI.Client
             nativePromptLayout?.Apply();
             FitPanel();
             foreach (var border in originalFrames.Keys) if (border != null) border.enabled = false;
-            var panelColor = palette.Panel;
-            if (GlassPrompt) panelColor.a = palette.Kind == 0 ? .97f : .96f;
+            var panelColor = PrecisionPhasePrompt ? PhasePanelFill(palette) : palette.Panel;
+            if (GlassPrompt) panelColor.a = PrecisionPhasePrompt ? .99f : palette.Kind == 0 ? .97f : .96f;
             if (changed || surface.color != panelColor)
             {
                 surface.sprite = FightSkin.Surface; surface.type = Image.Type.Sliced;
@@ -248,12 +341,15 @@ namespace YuGiOhFight.Client.UI.Client
             }
             // The reading surface blocks field labels and effects beneath it.
             // Button feedback carries selection without a heavy outer frame.
-            frame.enabled = !GlassPrompt;
+            frame.PrecisionPhase = PrecisionPhasePrompt;
+            frame.PhaseHeadingHeight = compactLayout?.HeadingHeight ?? 32;
+            frame.enabled = !GlassPrompt || PrecisionPhasePrompt;
             // Keep the material hint below the reading surface. A texture must
             // never compete with card art, rule text or the selection state.
-            materialGrain.sprite = GlassPrompt ? null : DialogArtwork.Material(sceneId);
-            materialGrain.enabled = !GlassPrompt;
-            materialGrain.color = new Color(1, 1, 1, materialGrain.sprite != null ? .035f : 0);
+            materialGrain.sprite = PrecisionPhasePrompt ? PhaseMaterialGrain(sceneId)
+                : GlassPrompt ? null : DialogArtwork.Material(sceneId);
+            materialGrain.enabled = !GlassPrompt || PrecisionPhasePrompt;
+            materialGrain.color = new Color(1, 1, 1, materialGrain.sprite != null ? PrecisionPhasePrompt ? .022f : .035f : 0);
             foreach (var pair in images)
             {
                 var image = pair.Key;
@@ -311,11 +407,14 @@ namespace YuGiOhFight.Client.UI.Client
             }
             foreach (var scrollbar in cardScrollbars.Values) scrollbar.Apply(palette);
             foreach (var item in cardItems.Values) item.Apply(palette, sceneId);
+            var phaseDisc = PrecisionPhasePrompt ? PhaseDiscSurface() : null;
             foreach (var state in controls.Values)
             {
                 if (state.Control == null) continue;
-                state.Apply(palette, sceneId);
+                state.Apply(palette, phaseDisc);
                 state.Frame.Palette = palette; state.Frame.Danger = state.Destructive;
+                state.Frame.PrecisionPhase = PrecisionPhasePrompt && state.PhaseIndex >= 0;
+                state.Frame.PhaseCurrent = state.CurrentPhase;
                 state.Feedback.Refresh(palette);
             }
             foreach (var pair in texts)
@@ -367,7 +466,7 @@ namespace YuGiOhFight.Client.UI.Client
             var color = palette.Shadow;
             float maximumAlpha = GlassPrompt ? .10f : .36f;
             float targetAlpha = top && !hidden ? maximumAlpha * travel : 0;
-            float step = maximumAlpha * Time.unscaledDeltaTime / .16f;
+            float step = maximumAlpha * Services.ReplayVideoExport.UnscaledDelta / .16f;
             color.a = hidden ? 0 : focusBackdrop.color.a
                 + Mathf.Clamp(targetAlpha - focusBackdrop.color.a, -step, step);
             focusBackdrop.color = color;
@@ -616,11 +715,13 @@ namespace YuGiOhFight.Client.UI.Client
             foreach (var border in originalFrames) if (border.Key != null) border.Key.enabled = border.Value;
             ResetSafeMount(); presented = false; fieldWasHidden = false;
             foreach (var decoration in decorations) if (decoration != null) decoration.SetActive(false);
+            ReleasePhaseDisc();
             applied = false; sceneId = null;
         }
         private void OnDisable() => Restore();
         private void OnDestroy()
         {
+            ReleasePhaseDisc();
             // The focus layer is mounted beside the popup, so it is not
             // destroyed with the popup's own hierarchy.
             if (focusBackdrop != null) Destroy(focusBackdrop.gameObject);
@@ -887,6 +988,13 @@ namespace YuGiOhFight.Client.UI.Client
             internal Image Surface;
             internal bool CurrentPhase;
             internal bool Glass;
+            internal int PhaseIndex = -1;
+            internal Text PhaseName;
+            private static readonly string[] PhaseNames = { "主要阶段 1", "战斗阶段", "主要阶段 2", "结束阶段" };
+            private string phaseNameLanguage;
+            private Image phaseIcon;
+            private Vector2 phaseIconMin, phaseIconMax, phaseIconPivot, phaseIconSize, phaseIconPosition;
+            private bool phaseIconPreserveAspect;
             internal FightSceneDialogFrame Frame;
             internal FightSceneDialogControl Feedback;
             internal PopupDuel FieldView;
@@ -909,7 +1017,17 @@ namespace YuGiOhFight.Client.UI.Client
                     || control.GetComponent<FightFocusKey>()?.Key?.StartsWith("duel:category:", StringComparison.Ordinal) == true
                     || control.GetComponentInParent<ScrollRect>() != null && !primary;
             }
-            internal void Apply(ScenePalette palette, string scene)
+            internal void CapturePhaseIcon(Image icon)
+            {
+                phaseIcon = icon;
+                if (icon == null) return;
+                var rect = icon.rectTransform;
+                phaseIconMin = rect.anchorMin; phaseIconMax = rect.anchorMax; phaseIconPivot = rect.pivot;
+                phaseIconSize = rect.sizeDelta; phaseIconPosition = rect.anchoredPosition;
+                phaseIconPreserveAspect = icon.preserveAspect;
+            }
+
+            internal void Apply(ScenePalette palette, Sprite circularSurface)
             {
                 Feedback.enabled = true;
                 if (ViewGlyph != null && FieldView != null)
@@ -924,10 +1042,38 @@ namespace YuGiOhFight.Client.UI.Client
                 Control.transition = Selectable.Transition.ColorTint; Control.targetGraphic = Surface;
                 CurrentPhase = FightDuelPopupLayout.IsCurrentPhase(Phase, Control);
                 Feedback.Latched = CurrentPhase;
-                Surface.sprite = FightSkin.ButtonSurface; Surface.type = Image.Type.Sliced;
+                bool precisionPhase = PhaseIndex >= 0;
+                if (PhaseName != null)
+                {
+                    if (precisionPhase)
+                    {
+                        string language = MDPro3.Utility.Language.GetConfig();
+                        if (phaseNameLanguage != language || string.IsNullOrEmpty(PhaseName.text))
+                        {
+                            phaseNameLanguage = language; PhaseName.text = FightText.Get(PhaseNames[PhaseIndex]);
+                        }
+                        PhaseName.color = CurrentPhase ? palette.Heading
+                            : Control.IsInteractable() ? palette.Kind == 0 ? palette.Heading : palette.Text
+                                : PhaseSecondaryInk(palette);
+                        PhaseName.rectTransform.sizeDelta = new Vector2(148, 24);
+                        PhaseName.rectTransform.anchoredPosition = new Vector2(0, -88);
+                        PhaseName.resizeTextForBestFit = true; PhaseName.resizeTextMinSize = 14; PhaseName.resizeTextMaxSize = 18;
+                    }
+                }
+                Surface.sprite = precisionPhase ? circularSurface : FightSkin.ButtonSurface;
+                Surface.type = precisionPhase ? Image.Type.Simple : Image.Type.Sliced;
                 Surface.overrideSprite = null; Surface.pixelsPerUnitMultiplier = 1;
+                if (precisionPhase && circularSurface != null && circularSurface.texture.isReadable)
+                    Surface.alphaHitTestMinimumThreshold = .08f;
                 var fill = Destructive ? destructiveFill : Primary || CurrentPhase ? palette.Action : palette.Raised;
-                if (Glass)
+                if (precisionPhase)
+                {
+                    fill = CurrentPhase ? Color.Lerp(palette.Action, palette.Accent, .07f)
+                        : Control.IsInteractable() ? PhaseRaisedFill(palette)
+                            : Color.Lerp(PhasePanelFill(palette), PhaseRaisedFill(palette), .22f);
+                    fill.a = 1;
+                }
+                else if (Glass)
                 {
                     fill.a = CurrentPhase ? .98f : Control.IsInteractable() ? Primary ? .98f : .94f : .65f;
                 }
@@ -935,16 +1081,30 @@ namespace YuGiOhFight.Client.UI.Client
                 var tint = Control.colors;
                 tint.normalColor = Color.white; tint.highlightedColor = new Color(1.06f, 1.06f, 1.06f);
                 tint.selectedColor = new Color(1.08f, 1.08f, 1.08f); tint.pressedColor = new Color(.84f, .84f, .84f);
-                // The current phase is unavailable as a response, but its
-                // selected appearance remains the strongest visual state.
-                tint.disabledColor = CurrentPhase ? Color.white : new Color(.76f, .76f, .76f, 1); tint.fadeDuration = .12f;
+                // The current disc keeps its selected appearance. Other
+                // unavailable phases remain visibly quieter on every theme.
+                tint.disabledColor = CurrentPhase || precisionPhase && palette.Kind == 0
+                    ? Color.white : new Color(.76f, .76f, .76f, 1);
+                tint.fadeDuration = .12f;
                 if (Control.colors != tint) Control.colors = tint;
+                if (precisionPhase && phaseIcon != null)
+                {
+                    var rect = phaseIcon.rectTransform;
+                    rect.anchorMin = rect.anchorMax = rect.pivot = Vector2.one * .5f;
+                    float ratio = phaseIconSize.y > 0 ? phaseIconSize.x / phaseIconSize.y : 1;
+                    rect.sizeDelta = new Vector2(44 * ratio, 44);
+                    rect.anchoredPosition = new Vector2(0, 1);
+                    phaseIcon.preserveAspect = true; phaseIcon.raycastTarget = false;
+                    Tint(phaseIcon, Foreground(palette));
+                }
             }
             internal Color Foreground(ScenePalette palette)
             {
                 if (Glass)
                 {
                     if (CurrentPhase || Primary && Control.IsInteractable()) return palette.PrimaryText;
+                    if (PhaseIndex >= 0 && palette.Kind == 0 && !Control.IsInteractable())
+                        return PhaseSecondaryInk(palette);
                     return Control.IsInteractable() ? palette.Kind == 0 ? palette.Heading : palette.Text : palette.Muted;
                 }
                 bool action = Primary || CurrentPhase;
@@ -956,6 +1116,13 @@ namespace YuGiOhFight.Client.UI.Client
                 if (Control == null) return;
                 Control.targetGraphic = target; Control.colors = colors; Control.transition = transition;
                 Feedback.enabled = false;
+                if (phaseIcon != null)
+                {
+                    var rect = phaseIcon.rectTransform;
+                    rect.anchorMin = phaseIconMin; rect.anchorMax = phaseIconMax; rect.pivot = phaseIconPivot;
+                    rect.sizeDelta = phaseIconSize; rect.anchoredPosition = phaseIconPosition;
+                    phaseIcon.preserveAspect = phaseIconPreserveAspect;
+                }
                 if (ViewHint != null)
                 {
                     ViewHint.Hint = OriginalViewHint; ViewHint.LocalizeHint = ViewHintWasLocalized;
@@ -1008,8 +1175,8 @@ namespace YuGiOhFight.Client.UI.Client
             private static Texture2D Texture(string path)
             {
                 if (textures.TryGetValue(path, out var cached)) return cached;
-                if (retries.TryGetValue(path, out float retryAt) && Time.unscaledTime < retryAt) return null;
-                retries[path] = Time.unscaledTime + 2;
+                if (retries.TryGetValue(path, out float retryAt) && Services.ReplayVideoExport.UnscaledClock < retryAt) return null;
+                retries[path] = Services.ReplayVideoExport.UnscaledClock + 2;
                 Texture2D texture = null;
                 try
                 {
@@ -1029,6 +1196,20 @@ namespace YuGiOhFight.Client.UI.Client
                 if (texture != null) { textures[path] = texture; retries.Remove(path); }
                 return texture;
             }
+        }
+    }
+
+    // The owned circular plate is the only hit graphic on a phase button.
+    // Filter the rectangle's empty corners even before sprite alpha sampling.
+    internal sealed class FightPhaseCircularHitArea : MonoBehaviour, ICanvasRaycastFilter
+    {
+        public bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
+        {
+            var rect = transform as RectTransform;
+            if (rect == null || !RectTransformUtility.ScreenPointToLocalPointInRectangle(rect,
+                screenPoint, eventCamera, out var local)) return false;
+            float radius = Mathf.Min(rect.rect.width, rect.rect.height) * .5f;
+            return radius > 0 && (local - rect.rect.center).sqrMagnitude <= radius * radius;
         }
     }
 
@@ -1310,15 +1491,25 @@ namespace YuGiOhFight.Client.UI.Client
     {
         internal ScenePalette Palette;
         internal bool ControlFrame, Danger, RowFrame, Focused, Selected;
+        internal bool PrecisionPhase, PhaseCurrent;
+        internal float PhaseHeadingHeight = 32;
         internal float Emphasis;
         private float previousEmphasis;
         private bool previousFocused, previousSelected;
+        private bool previousPrecisionPhase, previousPhaseCurrent;
+        private float previousHeadingHeight = 32;
         private ScenePalette previousPalette;
         private void LateUpdate()
         {
             if (previousPalette != Palette || previousFocused != Focused || previousSelected != Selected
+                || previousPrecisionPhase != PrecisionPhase || previousPhaseCurrent != PhaseCurrent
+                || Mathf.Abs(previousHeadingHeight - PhaseHeadingHeight) > .1f
                 || Mathf.Abs(previousEmphasis - Emphasis) > .005f)
-            { previousPalette = Palette; previousEmphasis = Emphasis; previousFocused = Focused; previousSelected = Selected; SetVerticesDirty(); }
+            {
+                previousPalette = Palette; previousEmphasis = Emphasis; previousFocused = Focused; previousSelected = Selected;
+                previousPrecisionPhase = PrecisionPhase; previousPhaseCurrent = PhaseCurrent; SetVerticesDirty();
+                previousHeadingHeight = PhaseHeadingHeight;
+            }
         }
         protected override void OnPopulateMesh(VertexHelper mesh)
         {
@@ -1326,6 +1517,12 @@ namespace YuGiOhFight.Client.UI.Client
             if (Palette == null) return;
             var r = rectTransform.rect;
             if (r.width <= 2 || r.height <= 2) return;
+            if (PrecisionPhase)
+            {
+                if (ControlFrame) PhaseRoundControl(mesh, r);
+                else PrecisionPhaseFrame(mesh, r);
+                return;
+            }
             var edge = Danger ? FightUI.Danger : Color.Lerp(Palette.Edge, Palette.Accent, Emphasis);
             edge.a = Danger ? .92f : ControlFrame ? .4f + Emphasis * .55f : .78f;
             var inner = new Rect(r.xMin + 1.5f, r.yMin + 1.5f, r.width - 3, r.height - 3);
@@ -1355,6 +1552,243 @@ namespace YuGiOhFight.Client.UI.Client
             }
             var fine = Palette.Edge; fine.a = .22f;
             Outline(mesh, new Rect(inner.xMin + 4, inner.yMin + 4, inner.width - 8, inner.height - 8), .6f, fine, cut);
+        }
+
+        private void PhaseRoundControl(VertexHelper mesh, Rect rect)
+        {
+            bool academy = Palette.Kind == 0, egypt = Palette.Kind == 1;
+            var center = rect.center;
+            float radius = Mathf.Min(rect.width, rect.height) * .5f - 2.5f;
+            var shadow = Palette.Shadow; shadow.a = .68f;
+            var metal = Color.Lerp(Palette.Edge, Palette.Accent, PhaseCurrent ? .5f : .16f + Emphasis * .58f);
+            metal.a = .9f;
+            var ink = academy && PhaseCurrent ? Palette.PrimaryText : Palette.Accent;
+            var light = Color.Lerp(ink, Color.white, academy ? .52f : .32f); light.a = .8f;
+            var dark = Color.Lerp(Palette.Edge, Palette.Shadow, .46f); dark.a = .85f;
+            PhaseArc(mesh, center + new Vector2(1, -2), radius + .4f, 3.9f, shadow, 0, 360);
+            PhaseArc(mesh, center, radius, 3.4f, metal, 0, 360);
+            PhaseArc(mesh, center, radius + .8f, 1.25f, light, 25, 155);
+            PhaseArc(mesh, center, radius - .7f, 1.1f, dark, 205, 335);
+            var rail = ink; rail.a = PhaseCurrent ? .82f : .48f;
+            PhaseArc(mesh, center, radius - 4.3f, 1.05f, rail, 0, 360);
+            rail.a = .28f;
+            PhaseArc(mesh, center, radius - 12.5f, .9f, rail, 0, 360);
+            // Fine radial marks and four inset fasteners separate the machined
+            // outer bezel from the open center containing the native symbol.
+            const float degrees = (float)(Math.PI / 180);
+            for (int index = 0; index < 24; index++)
+            {
+                if (index % 6 == 3) continue;
+                float angle = index * 15 * degrees;
+                var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                var tick = index % 3 == 0 ? light : metal; tick.a *= index % 3 == 0 ? .75f : .55f;
+                Line(mesh, center + direction * (radius - 5.7f),
+                    center + direction * (radius - (index % 3 == 0 ? 9.8f : 8.2f)), 1.05f, tick);
+            }
+            for (int index = 0; index < 4; index++)
+            {
+                float angle = (45 + index * 90) * degrees;
+                var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                var at = center + direction * (radius - 1.1f);
+                if (egypt)
+                {
+                    var tangent = new Vector2(-direction.y, direction.x);
+                    var points = new[] { at + direction * 2.3f, at + tangent * 1.7f,
+                        at - direction * 2.3f, at - tangent * 1.7f };
+                    for (int side = 0; side < 4; side++) Line(mesh, points[side], points[(side + 1) % 4], 1.1f, light);
+                }
+                else
+                {
+                    PhaseArc(mesh, at, 2.1f, .95f, dark, 0, 360);
+                    Line(mesh, at - direction * 1.1f, at + direction * 1.1f, 1, light);
+                }
+            }
+            var engraving = ink; engraving.a = PhaseCurrent ? .72f : .4f;
+            var crest = center + Vector2.up * (radius - 22);
+            if (academy)
+            {
+                var points = new[] { crest + new Vector2(-5, 4), crest + new Vector2(5, 4),
+                    crest + new Vector2(5, 0), crest + new Vector2(0, -4), crest + new Vector2(-5, 0) };
+                for (int side = 0; side < points.Length; side++) Line(mesh, points[side], points[(side + 1) % points.Length], 1.05f, engraving);
+                Line(mesh, crest + new Vector2(0, 2), crest + new Vector2(0, -1), 1, engraving);
+            }
+            else if (egypt)
+            {
+                var points = new[] { crest + new Vector2(-7, 0), crest + new Vector2(0, 3),
+                    crest + new Vector2(7, 0), crest + new Vector2(0, -3) };
+                for (int side = 0; side < points.Length; side++) Line(mesh, points[side], points[(side + 1) % points.Length], 1.05f, engraving);
+                PhaseArc(mesh, crest, 1.5f, 1, engraving, 0, 360);
+            }
+            else
+            {
+                for (int fin = -1; fin <= 1; fin++)
+                    Line(mesh, crest + new Vector2(fin * 4, -3), crest + new Vector2(fin * 4, fin == 0 ? 4 : 1), 1.1f, engraving);
+                Line(mesh, crest + new Vector2(-7, -3), crest + new Vector2(7, -3), 1, engraving);
+            }
+            for (int index = -1; index <= 1; index++)
+                Line(mesh, center + new Vector2(index * 6 - 1.8f, -radius + 22),
+                    center + new Vector2(index * 6 + 1.8f, -radius + 22), 1.1f, engraving);
+            if (PhaseCurrent)
+            {
+                var pointer = center + Vector2.up * (radius + 8);
+                var pointerInk = Palette.Accent;
+                Line(mesh, pointer + new Vector2(-4, 3), pointer + new Vector2(0, -2), 1.4f, pointerInk);
+                Line(mesh, pointer + new Vector2(0, -2), pointer + new Vector2(4, 3), 1.4f, pointerInk);
+                PhaseArc(mesh, center, radius - 15.5f, 1.1f, engraving, 22, 158);
+            }
+            if (Focused)
+            {
+                var focus = ink; focus.a = .96f;
+                PhaseArc(mesh, center, radius + 1.8f, 1.6f, focus, 0, 360);
+            }
+        }
+
+        private static void PhaseArc(VertexHelper mesh, Vector2 center, float radius, float width,
+            Color tint, float from, float to)
+        {
+            const float degrees = (float)(Math.PI / 180);
+            int segments = Mathf.Max(1, Mathf.CeilToInt((to - from) / 3.75f));
+            for (int index = 0; index < segments; index++)
+            {
+                float a = Mathf.Lerp(from, to, index / (float)segments) * degrees;
+                float b = Mathf.Lerp(from, to, (index + 1) / (float)segments) * degrees;
+                var outerA = center + new Vector2(Mathf.Cos(a), Mathf.Sin(a)) * (radius + width * .5f);
+                var innerA = center + new Vector2(Mathf.Cos(a), Mathf.Sin(a)) * (radius - width * .5f);
+                var outerB = center + new Vector2(Mathf.Cos(b), Mathf.Sin(b)) * (radius + width * .5f);
+                var innerB = center + new Vector2(Mathf.Cos(b), Mathf.Sin(b)) * (radius - width * .5f);
+                int start = mesh.currentVertCount;
+                mesh.AddVert(outerA, tint, Vector2.zero); mesh.AddVert(innerA, tint, Vector2.zero);
+                mesh.AddVert(innerB, tint, Vector2.zero); mesh.AddVert(outerB, tint, Vector2.zero);
+                mesh.AddTriangle(start, start + 1, start + 2); mesh.AddTriangle(start, start + 2, start + 3);
+            }
+        }
+
+        private void PrecisionPhaseFrame(VertexHelper mesh, Rect rect)
+        {
+            var r = new Rect(rect.xMin + 1.5f, rect.yMin + 1.5f, rect.width - 3, rect.height - 3);
+            bool academy = Palette.Kind == 0, egypt = Palette.Kind == 1;
+            float cut = academy ? 8 : egypt ? 3 : 12;
+            var shadow = Palette.Shadow; shadow.a = .7f;
+            var metal = Color.Lerp(Palette.Edge, Palette.Accent, Emphasis * .8f); metal.a = .88f;
+            var light = Color.Lerp(Palette.Accent, Color.white, .26f); light.a = .72f;
+            Outline(mesh, new Rect(r.xMin, r.yMin - 1.3f, r.width, r.height), 2.1f, shadow, cut);
+            Outline(mesh, r, 1.6f, metal, cut);
+            Line(mesh, new Vector2(r.xMin + cut + 2, r.yMax - 1), new Vector2(r.xMax - cut - 2, r.yMax - 1), .65f, light);
+            var rail = Palette.Edge; rail.a = .44f;
+            Outline(mesh, new Rect(r.xMin + 4, r.yMin + 4, r.width - 8, r.height - 8), .55f, rail, cut - 2);
+            // Theme emblems and metal joinery stay outside the reading area.
+            rail.a = .24f;
+            Outline(mesh, new Rect(r.xMin + 9, r.yMin + 9, r.width - 18, r.height - 18), .55f, rail,
+                academy ? 5 : egypt ? 1 : 7);
+            for (int x = -1; x <= 1; x += 2)
+                for (int y = -1; y <= 1; y += 2)
+                {
+                    var at = new Vector2(rect.center.x + x * (rect.width * .5f - 15),
+                        rect.center.y + y * (rect.height * .5f - 15));
+                    if (egypt)
+                    {
+                        Diamond(mesh, at, 2.8f, metal);
+                        Circle(mesh, at, 1.15f, .55f, light);
+                    }
+                    else
+                    {
+                        Circle(mesh, at, 2.35f, .7f, metal);
+                        var slot = academy ? new Vector2(1.3f, 0) : new Vector2(1.15f, .8f);
+                        Line(mesh, at - slot, at + slot, .55f, light);
+                    }
+                }
+            float crownY = rect.yMax - 22;
+            light.a = .65f;
+            PhaseCrown(mesh, new Vector2(rect.center.x, crownY), light, metal);
+            Line(mesh, new Vector2(r.xMin + 28, crownY + 3), new Vector2(rect.center.x - 34, crownY + 3), .55f, rail);
+            Line(mesh, new Vector2(rect.center.x + 34, crownY + 3), new Vector2(r.xMax - 28, crownY + 3), .55f, rail);
+            if (egypt)
+                for (int side = -1; side <= 1; side += 2)
+                    for (int flute = 0; flute < 2; flute++)
+                    {
+                        float x = rect.center.x + side * (rect.width * .5f - 18 - flute * 3);
+                        Line(mesh, new Vector2(x, rect.yMin + 35), new Vector2(x, rect.yMax - 35), .5f, rail);
+                    }
+            float divider = rect.yMax - PhaseHeadingHeight - 50;
+            rail.a = .36f;
+            Line(mesh, new Vector2(r.xMin + 24, divider), new Vector2(rect.center.x - 8, divider), .65f, rail);
+            Line(mesh, new Vector2(rect.center.x + 8, divider), new Vector2(r.xMax - 24, divider), .65f, rail);
+            if (egypt) EyeLozenge(mesh, new Vector2(rect.center.x, divider), metal);
+            else Diamond(mesh, new Vector2(rect.center.x, divider), 3, metal);
+            float footer = rect.yMin + 82;
+            rail.a = .24f;
+            Line(mesh, new Vector2(r.xMin + 56, footer), new Vector2(rect.center.x - 100, footer), .6f, rail);
+            Line(mesh, new Vector2(rect.center.x + 100, footer), new Vector2(r.xMax - 56, footer), .6f, rail);
+            float baseY = rect.yMin + 18;
+            Diamond(mesh, new Vector2(rect.center.x, baseY), 3.5f, metal);
+            Line(mesh, new Vector2(rect.center.x - 45, baseY), new Vector2(rect.center.x - 10, baseY), .65f, rail);
+            Line(mesh, new Vector2(rect.center.x + 10, baseY), new Vector2(rect.center.x + 45, baseY), .65f, rail);
+        }
+
+        private void PhaseCrown(VertexHelper mesh, Vector2 center, Color light, Color metal)
+        {
+            // These structural strokes must span a pixel at the supported
+            // canvas scales. Subpixel lines on integer boundaries can vanish
+            // completely when the native UI is rendered without multisampling.
+            if (Palette.Kind == 0)
+            {
+                // A small winged shield gives the ivory academy panel a seal.
+                var shield = new[] { center + new Vector2(-9, 10), center + new Vector2(9, 10),
+                    center + new Vector2(9, 4), center + new Vector2(0, -3), center + new Vector2(-9, 4) };
+                for (int i = 0; i < shield.Length; i++) Line(mesh, shield[i], shield[(i + 1) % shield.Length], 1.4f, metal);
+                Line(mesh, center + new Vector2(-2.5f, 8), center + new Vector2(-2.5f, 2), 1.4f, light);
+                Line(mesh, center + new Vector2(2.5f, 8), center + new Vector2(2.5f, 2), 1.4f, light);
+                for (int side = -1; side <= 1; side += 2)
+                    for (int wing = 0; wing < 2; wing++)
+                        Line(mesh, center + new Vector2(side * 12, 7 - wing * 4),
+                            center + new Vector2(side * (24 - wing * 4), 7 - wing * 4), 1.4f, metal);
+                return;
+            }
+            if (Palette.Kind == 1)
+            {
+                // Stepped lintels and fluted columns echo the temple frame.
+                Line(mesh, center + new Vector2(-24, 11), center + new Vector2(24, 11), 1.5f, light);
+                Line(mesh, center + new Vector2(-20, 8), center + new Vector2(20, 8), 1.4f, metal);
+                Line(mesh, center + new Vector2(-19, 0), center + new Vector2(19, 0), 1.4f, metal);
+                for (int side = -1; side <= 1; side += 2)
+                {
+                    Line(mesh, center + new Vector2(side * 15, 0), center + new Vector2(side * 15, 8), 1.4f, light);
+                    Line(mesh, center + new Vector2(side * 11, 0), center + new Vector2(side * 11, 6), 1.4f, metal);
+                    Line(mesh, center + new Vector2(side * 4, 0), center + new Vector2(side * 4, 5), 1.4f, metal);
+                }
+                Line(mesh, center + new Vector2(-4, 5), center + new Vector2(4, 5), 1.4f, metal);
+                return;
+            }
+            for (int fin = -1; fin <= 1; fin++)
+                Line(mesh, center + new Vector2(fin * 11, 0), center + new Vector2(fin * 11, fin == 0 ? 12 : 7), 1.3f, light);
+            Line(mesh, center + new Vector2(-19, 0), center + new Vector2(19, 0), .8f, metal);
+        }
+
+        private static void EyeLozenge(VertexHelper mesh, Vector2 center, Color metal)
+        {
+            var points = new[] { center + new Vector2(-5, 0), center + new Vector2(0, 3),
+                center + new Vector2(5, 0), center + new Vector2(0, -3) };
+            for (int i = 0; i < points.Length; i++) Line(mesh, points[i], points[(i + 1) % points.Length], .7f, metal);
+            Circle(mesh, center, 1.2f, .55f, metal);
+        }
+
+        private static void Circle(VertexHelper mesh, Vector2 center, float radius, float width, Color tint)
+        {
+            const int segments = 32;
+            const float fullTurn = (float)(Math.PI * 2);
+            for (int i = 0; i < segments; i++)
+            {
+                float a = i * fullTurn / segments, b = (i + 1) * fullTurn / segments;
+                Line(mesh, center + new Vector2(Mathf.Cos(a), Mathf.Sin(a)) * radius,
+                    center + new Vector2(Mathf.Cos(b), Mathf.Sin(b)) * radius, width, tint);
+            }
+        }
+
+        private static void Diamond(VertexHelper mesh, Vector2 center, float radius, Color tint)
+        {
+            var points = new[] { center + Vector2.up * radius, center + Vector2.right * radius,
+                center + Vector2.down * radius, center + Vector2.left * radius };
+            for (int i = 0; i < 4; i++) Line(mesh, points[i], points[(i + 1) % 4], .75f, tint);
         }
         private static void Outline(VertexHelper m, Rect r, float thickness, Color c, float cut)
         {
@@ -1393,7 +1827,7 @@ namespace YuGiOhFight.Client.UI.Client
             bool selected=Latched || (card!=null ? card.selected : toggle!=null ? toggle.isOn : nativeToggle!=null && nativeToggle.isOn);
             frame.Palette=palette; frame.Focused=enabled && focus; frame.Selected=enabled && selected;
             float target=enabled ? pressed ? .45f : selected || focus ? 1 : hover ? .75f : .08f : 0;
-            frame.Emphasis=Mathf.Lerp(frame.Emphasis,target,Mathf.Clamp01(Time.unscaledDeltaTime*16));
+            frame.Emphasis=Mathf.Lerp(frame.Emphasis,target,Mathf.Clamp01(Services.ReplayVideoExport.UnscaledDelta*16));
             frame.canvasRenderer.SetAlpha(!enabled || card!=null && card.unselectable ? .38f : 1);
         }
         public void OnPointerEnter(PointerEventData e) { hover=true; }

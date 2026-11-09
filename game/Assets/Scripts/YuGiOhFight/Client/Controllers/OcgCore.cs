@@ -305,7 +305,7 @@ namespace YuGiOhFight.Client.Controllers
             if (DuelBGManager == null)
                 return;
 
-            if (!EventSystem.current.IsPointerOverGameObject()
+            if (!Services.ReplayVideoExport.Busy && !EventSystem.current.IsPointerOverGameObject()
                 && Runtime.UserInput.HoverObject == null
                 && Runtime.UserInput.MouseLeftUp)
             {
@@ -390,6 +390,8 @@ namespace YuGiOhFight.Client.Controllers
             #endregion
 
             #region Hot Key
+
+            if (Services.ReplayVideoExport.Busy) return;
 
             // Full-screen readers and native auxiliary prompts own their input.
             // Keep the preceding battle/hand animation work running while
@@ -1060,7 +1062,7 @@ namespace YuGiOhFight.Client.Controllers
                             if (boundary != pacingBoundary)
                             {
                                 pacingBoundary = boundary;
-                                pacingDeadline = Time.realtimeSinceStartup + 3f;
+                                pacingDeadline = Services.ReplayVideoExport.PlaybackClock + 3f;
                             }
                         }
                         // Hold the actual board and guide at each recorded
@@ -1068,7 +1070,7 @@ namespace YuGiOhFight.Client.Controllers
                         await UniTask.WaitWhile(() => CurrentLoop() && Services.DeckAcademy.HasActiveReplay
                             && !Services.DeckAcademy.ReplayStepRequested && ReferenceEquals(pacingPackages, packages)
                             && frame == allPackages.Count - packages.Count - 1
-                            && Time.realtimeSinceStartup < pacingDeadline);
+                            && Services.ReplayVideoExport.PlaybackClock < pacingDeadline);
                         if (!CurrentLoop())
                             break;
                         if (!ReferenceEquals(pacingPackages, packages)
@@ -1111,6 +1113,8 @@ namespace YuGiOhFight.Client.Controllers
 #endif
                     try
                     {
+                        if (condition == Condition.Replay)
+                            Services.ReplayVideoExport.PacketStart((int)currentMessage, allPackages.Count - packages.Count, allPackages.Count);
                         var messageTask = messageDispatcher.Process(packages[0]);
                         var breakTask = UniTask.WaitUntil(() => NoMoreWait);
                         await UniTask.WhenAny(messageTask, breakTask);
@@ -1119,6 +1123,20 @@ namespace YuGiOhFight.Client.Controllers
 
                     if (!CurrentLoop())
                         break;
+
+                    // Initialization must create the fields and HUD before
+                    // capture can begin. Hold subsequent replay packets at
+                    // this boundary so loading speed cannot hide first actions.
+                    if (condition == Condition.Replay && Services.ReplayVideoExport.Busy
+                        && !Services.ReplayVideoExport.Capturing
+                        && (currentMessage == MDPro3.Duel.YGOSharp.GameMessage.Start
+                            || currentMessage == MDPro3.Duel.YGOSharp.GameMessage.ReloadField
+                            || UI.Client.FightStartupPresentation.NativeFrameReady(this)))
+                    {
+                        await UniTask.WaitWhile(() => CurrentLoop() && Services.ReplayVideoExport.Busy
+                            && !Services.ReplayVideoExport.Capturing);
+                        if (!CurrentLoop()) break;
+                    }
 
                     lastMessage = currentMessage;
                     if (packages.Count == 0)
@@ -1133,6 +1151,8 @@ namespace YuGiOhFight.Client.Controllers
                         && Services.DeckAcademy.ActiveDeck.steps[Services.DeckAcademy.ActiveDeck.steps.Length - 1].replay_frame.Value
                             == allPackages.Count - 1;
                     if (condition == Condition.Replay)
+                        Services.ReplayVideoExport.Packet((int)currentMessage, allPackages.Count - packages.Count, allPackages.Count);
+                    if (condition == Condition.Replay)
                         Services.DeckAcademy.NotifyReplayPacketProcessed((int)currentMessage,
                             allPackages.Count - packages.Count, allPackages.Count, deferAcademyCompletion);
 
@@ -1140,10 +1160,10 @@ namespace YuGiOhFight.Client.Controllers
                     {
                         if (deferAcademyCompletion)
                         {
-                            var completionDeadline = Time.realtimeSinceStartup + 3f;
+                            var completionDeadline = Services.ReplayVideoExport.PlaybackClock + 3f;
                             await UniTask.WaitWhile(() => CurrentLoop() && Services.DeckAcademy.HasActiveReplay
                                 && packages.Count == 0 && !Services.DeckAcademy.ReplayStepRequested
-                                && Time.realtimeSinceStartup < completionDeadline);
+                                && Services.ReplayVideoExport.PlaybackClock < completionDeadline);
                             await UniTask.WaitWhile(() => CurrentLoop() && packages.Count == 0 && pause);
                             if (!CurrentLoop())
                                 break;
@@ -1169,6 +1189,7 @@ namespace YuGiOhFight.Client.Controllers
                 return;
 
             replayPlaybackEndedNotified = true;
+            Services.ReplayVideoExport.NotifyEnded();
             Runtime.MessageManager.Cast(MDPro3.InterString.Get("回放播放结束。"));
         }
 

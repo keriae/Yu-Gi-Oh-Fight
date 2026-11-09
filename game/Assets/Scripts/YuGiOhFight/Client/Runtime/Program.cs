@@ -158,29 +158,6 @@ namespace YuGiOhFight.Client.Runtime
         public void ReadParams()
         {
             var args = Environment.GetCommandLineArgs();
-            //args = new string[11]
-            //{
-                //"-r",
-                //"TURN023"
-
-                //"-s",
-                //"6ace for win!"
-
-            //    "-d",
-            //    "LL铁兽",
-
-            //    "-n",
-            //    "赤子奈落",
-
-            //    "-h",
-            //    "mygo.superpre.pro",
-            //    "-p",
-            //    "888",
-            //    "-w",
-            //    "M#1008611",
-            //    "-j"
-            //};
-
             string nick = null;
             string host = null;
             string port = null;
@@ -219,6 +196,9 @@ namespace YuGiOhFight.Client.Runtime
                 }
             }
 
+            if (Array.IndexOf(args, "--export-replay-video") >= 0 && replay == null)
+                throw new ArgumentException("视频导出需要 -r 回放名称。");
+
             if (join)
             {
                 exitOnReturn = true;
@@ -244,7 +224,8 @@ namespace YuGiOhFight.Client.Runtime
                 if (!File.Exists(replayPath) && !File.Exists(replayPath.Replace(EXPANSION_YRP3D, EXPANSION_YRP)))
                     throw new FileNotFoundException("找不到回放：" + replay);
                 UI.Client.FightStartupPresentation.BeginNativeLaunch("replay");
-                this.replay.PlayReplay(replay);
+                if (!Services.ReplayVideoExport.TryCommandLine(args, replay, () => this.replay.PlayReplay(replay)))
+                    this.replay.PlayReplay(replay);
             }
             else if (puzzle != null)
             {

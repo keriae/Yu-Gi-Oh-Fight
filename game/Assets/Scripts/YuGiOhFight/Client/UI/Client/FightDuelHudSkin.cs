@@ -352,7 +352,7 @@ namespace YuGiOhFight.Client.UI.Client
                     sceneBezel.Palette = palette;
                     sceneBezel.Artwork = FightDuelPopupSkin.DialogArtwork.Control(Runtime.Program.instance.ocgcore.DuelBGManager.ActiveSceneId, 1);
                     sceneBezel.Emphasis = Mathf.Lerp(sceneBezel.Emphasis, available ? pressed ? .35f : focus ? 1 : hover ? .75f : .08f : 0,
-                        Mathf.Clamp01(Time.unscaledDeltaTime * 14));
+                        Mathf.Clamp01(Services.ReplayVideoExport.UnscaledDelta * 14));
                     sceneBezel.color = new Color(1, 1, 1, available ? pressed ? .72f : 1 : .35f);
                     sceneBezel.SetVerticesDirty();
                 }
@@ -361,7 +361,7 @@ namespace YuGiOhFight.Client.UI.Client
                 : palette != null ? focus || hover ? palette.Accent : palette.Edge
                 : focus ? FightUI.Cyan : hover ? FightUI.Active : FightUI.GoldBorder;
             target.a = !available ? .3f : pressed ? .45f : focus || hover ? .95f : .22f;
-            var next = Color.Lerp(ring.color, target, Mathf.Clamp01(Time.unscaledDeltaTime * 12));
+            var next = Color.Lerp(ring.color, target, Mathf.Clamp01(Services.ReplayVideoExport.UnscaledDelta * 12));
             if (Mathf.Abs(next.r - target.r) + Mathf.Abs(next.g - target.g)
                 + Mathf.Abs(next.b - target.b) + Mathf.Abs(next.a - target.a) < .005f) next = target;
             if (ring.color != next) ring.color = next;

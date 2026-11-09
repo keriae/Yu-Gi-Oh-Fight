@@ -1,14 +1,14 @@
 {
   "schema": 1,
-  "version": "v17-simple-round-fixtures",
+  "version": "v22-classic-circular-phase-popup",
   "catalog": "content/client-ui/duel-scenes/catalog.json",
-  "origin": "AI-edited court clean plates preserve scene architecture and restrained floor inlays. Interactive fixtures use a shared simple circular mesh with theme material skins.",
+  "origin": "AI camera-aligned court backgrounds with independent, precisely aligned native instruments. Academy fixtures use porcelain, brushed silver and scholarly crests; Egyptian fixtures use sandstone, lapis, warm gold, winged suns and lotus reliefs; skyscraper fixtures retain their Art Deco steel and brass refinement.",
   "rendering": {
     "environment": "AI camera-aligned overview and court-v3 clean backgrounds; interactive fixtures are separate low circular meshes with soft contact shadows.",
-    "live_3d": "Native cards and card flight effects; matching round grave and banish wells distinguished by blue and violet light; a round phase/TURN disc and round timer; engraved zone corners and pooled card contact shadows. Mate anchor state is restored on release.",
+    "live_3d": "Native cards and card flight effects; matching round grave and banish wells distinguished by blue and violet light; a round phase/TURN disc and round timer; engraved zone corners and pooled card contact shadows. Skyscraper wells use 160-segment stepped steel skirts, broader brass chamfers, a turned mouth, eight exposed slotted fasteners and four stepped inlays. Their bed sits .336 world units below the lip; a .045-unit light inlay and restrained inner reflection identify each pile. Shared material batches and the 4.5-unit footprint retain native hit identities and responses. Mate anchor state is restored on release. Academy and Egyptian fixtures now share the same 160-segment layered structure, 4.5-unit footprint and deep socket standard (.338/.336 units). Academy adds silver fasteners, navy inlays and scholarly crests; Egypt adds sandstone steps, flutes, lotus reliefs and lapis seals. Each theme has equal-sized, half-turn-symmetric grave/banish wells fully inside its own court, with separate clearance for native field-spell and deck zones.",
     "material_limit": "Existing v4 material atlases supply quiet ivory, sandstone and gunmetal surfaces. Procedural vertex shading reveals the bevels. Owned white pixels support solid stencil lettering; per-fixture response pixels tint the single light ring and restrained radial wash.",
-    "modal_ui": "Rule and phase-selection reading panels use alpha .97 for academy and .96 for Egypt/city to suppress field labels and effects beneath them. Current, available and disabled phase fills are .98, .94 and .65; primary actions use .98. Current academy phase uses its primary foreground for contrast. Placement hints and normal notices retain alpha .80 for academy and .74 for Egypt/city; brief phase announcements retain .42. Original callbacks, navigation and interactability remain native.",
-    "field_readouts": "Grave and banish wells have no number labels. Phase and TURN text are engraved directly on a circular face; the timer shows seconds and a quiet remaining-time line when available. Hover, press and native data changes vary light intensity. No moving mechanical ornaments, rectangular sockets or phase lamp arrays. Fits use static circular bounds, shared camera projection and original collider identities; release restores the original hit volumes.",
+    "modal_ui": "All three themes use a 740-unit precision phase panel with four 136-unit circular native buttons in one horizontal row and a separate cancel footer. The discs reuse the classic native card-1, crossed-swords, card-2 and exit-arrow icons, with full localized phase names centred below; no current-phase context, order numbers or current/available/unavailable captions are shown. Current discs use stronger fills and rings plus a top pointer; disabled discs retain quieter fills, borders and symbols. Owned transparent circular sprites provide opaque disc fills, while readable-alpha sampling and explicit circular raycast filters reject the empty corners outside each disc. Academy uses ivory, navy current fills, silver-blue machined rings and shield-wing ornaments. Egypt uses a deep lapis panel, sandstone-toned warm-gold bezels, lapis inlays, lozenge engravings and a temple crown. City uses gunmetal discs, brass ticks, slotted fasteners and a skyline crown. Phase panels use alpha .99 and opaque disc fills; title height determines row and divider spacing. Native callbacks, the current-phase close action, disabled state and keyboard navigation remain. Other rule prompts retain their existing .97 academy/.96 Egypt-city reading alpha; placement hints and notices retain .80 academy/.74 Egypt-city alpha, and brief phase announcements .42.",
+    "field_readouts": "All three themes have 48 graduated dial ticks and floor-aligned distance-field lettering that borrows the native field font/atlas with an independently owned depth-tested material. Visible glyph bounds fit the larger centred phase value and smaller turn row, with theme-coloured dividers and a restrained seal. Academy uses navy text on an ivory face; Egypt and city use a gold gradient on dark faces. Academy adds silver fasteners and book/laurel shields, Egypt uses winged suns and temple caps, and city retains its skyline crest. Missing-font fallback retains solid engraved glyphs. Timer charge has a separate track below its digits. Grave and banish wells have no number labels; native callbacks and collider identities remain.",
     "hud": "Player and opponent avatar, name, LP label and LP digits use separate mirrored columns. Explicit Face and MyCard images take precedence; the default Face uses the chosen Character, including the AI profile character, independently of voice mute. Superseded asynchronous portrait and expression loads cannot overwrite the current selection.",
     "selection_ui": "Native full-UV card textures stay opaque and complete. Folded-card-back, level, pendulum-scale and tuner indicators sit in a separate 24-unit footer with original native visibility/state; selection frames and unknown-card logic remain native. The card viewport leaves space for this footer and horizontal scrolling. Bottom hand presentation is unchanged.",
     "court_markings": "22 unique native card zones (ten per side and two extra monster zones) have quiet corner engravings. Occupied field zones share pooled soft contact meshes; no frame allocations."
@@ -48,7 +48,7 @@
     },
     {
       "path": "content/client-ui/duel-scenes/ancient-egypt-fixture-layout-v3.json",
-      "sha256": "811a587ae4be792db17b96db2861a4e0870675cb6f4a60a5ac68cdd734b42f4a"
+      "sha256": "c6cc241ee7b6c54ced2b51183dd0b03a43c35792ea71d04f30c9cdd0032e5890"
     },
     {
       "path": "content/client-ui/duel-scenes/ancient-egypt-opening-order-v3.png",
@@ -100,7 +100,7 @@
     },
     {
       "path": "content/client-ui/duel-scenes/battle-academy-fixture-layout-v3.json",
-      "sha256": "811a587ae4be792db17b96db2861a4e0870675cb6f4a60a5ac68cdd734b42f4a"
+      "sha256": "dae2147a46d06ddc65916576e92d2b79f385895139a30e60cdf1f88a14092c46"
     },
     {
       "path": "content/client-ui/duel-scenes/battle-academy-opening-order-v3.png",
@@ -164,7 +164,7 @@
     },
     {
       "path": "content/client-ui/duel-scenes/skyscraper-court-v3.png",
-      "sha256": "e91ae40f34ab21418843987af24cc1dce13827e5c0131ce8850de9518298343f",
+      "sha256": "aecd2781bbe714de5b8e104ccaacb3f0b5e59fa24b3c52911842805be7e228a6",
       "dimensions": [
         1672,
         941
@@ -180,7 +180,7 @@
     },
     {
       "path": "content/client-ui/duel-scenes/skyscraper-fixture-layout-v3.json",
-      "sha256": "811a587ae4be792db17b96db2861a4e0870675cb6f4a60a5ac68cdd734b42f4a"
+      "sha256": "360fc8dd008781c140bfb354a8d48f6659ef18bf1944a92d104c6f49209afe27"
     },
     {
       "path": "content/client-ui/duel-scenes/skyscraper-opening-order-v3.png",
@@ -215,10 +215,10 @@
     "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneCatalog.cs": "59be1ae164f915a04efab0d0b0045edd87d0bdfde6ef038c234d5df6a1e9ad14",
     "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneCourtMarkings.cs": "b45e2a1bd756db109811adbe5e90f5e26dbb134be508b081bfe889e6e69de0a1",
     "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneEnvironment.cs": "42eac8fd597d156504e7f1aabf66e617a7e0a95ec5df6cb9d45496189ba3fc1e",
-    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldInstruments.cs": "30eecf867a66996e0408688f3e06be0cf2ea57f87635327e1e36faa95d84ddc5",
-    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldModels.cs": "3310e3f106ad7be88fe0040957a2a613d992f035ecddc58094434d8df3bbdb2d",
-    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldProps.cs": "236bfe18e5ceaca0d9d9ebceabe9aef6c9cfb3cdfa08ae6cb0a99e66a173bcda",
-    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldReadout.cs": "9ef6b15021a9a1bdb731833c9c6a4963edceaaffac1c786a4b54e8706f681b43",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldInstruments.cs": "abf9b608317e58534f818929a209cc042b937e8b920acb71394c5480681a0e95",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldModels.cs": "d7e068a76b3e62fef2251f8dbd38d3e23719071973e143cc46d2c7e97e330ea1",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldProps.cs": "bf5c9e871a72d6d2a06781760fb8271970b374f85db4c0ec3432814877231ae8",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFieldReadout.cs": "91344bc6296a1bac428eaf3f108c64a644fd9a4c1bd9ed44b55fe7c9553adae1",
     "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneFixtureLayout.cs": "042cafba1988d140d7e103e975bd0a57027045893b7048e1ffc16280d1a196e9",
     "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneGeometry.cs": "c61e400e42a5905f5927c5bb16c7ca987960988065a2574792fda6aa332d415d",
     "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelScenePhotoBackdrop.cs": "8b09a8cd3988cce26d0f61fe18dd88a26206b44f84bcb604e8300675c41e4232",
@@ -240,8 +240,8 @@
     "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelMenu.Navigation.cs": "e78b7a3643d2420afd0f78c915bd86a44a95f10e41a03722cc7edcb74aa23b73",
     "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelMenu.cs": "c855645fe73f521b147af7dd4d386a59108590ed4bf636b26b30d39d891f9c07",
     "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelMessageSkin.cs": "b3e9534936b8fec5fa5809b4d553cbec13a1a0f32f5d5cdea7b91a58a09a6cb3",
-    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelPopupLayout.cs": "2cc8d362463dc529f701c7f396cce551ad3e3be4341bd59e149aa68877b58b85",
-    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelPopupSkin.cs": "795745b56cd91bf0a8870ff1497b80529fafcafdc0b41e8d523b920e99448c71",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelPopupLayout.cs": "51144413a500f61d18b1843267abbe6b6d3ade2f9a9ffc1d10eb802990ee417b",
+    "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightDuelPopupSkin.cs": "1e031a9b8b4de25c2a205f8b887f003aa07f21afd13a47b5e233bdc25bacd3fe",
     "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightOpeningCoin.cs": "559e7c2249b22aa624e5172e243730831bffb514672527fff530b39bedc8d61d",
     "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightSceneAnnouncement.cs": "1f1da9ae89d9db4474383ef7f2cc24dd7bc678ea5443cf57c795694ee0dc8476",
     "game/Assets/Scripts/YuGiOhFight/Client/UI/Client/FightSceneCinematic.cs": "8977c497c2c5ad30073818f0ff3395946459653115728d26f66faf6cd2d2b261",
@@ -252,7 +252,9 @@
     "game/Assets/Scripts/YuGiOhFight/Client/UI/UIComponents/PhaseButtonHandler.cs": "d8ae006db794e147dc552919f1b1565b777074b023a7879e38d73492181cdbd3",
     "game/Assets/Scripts/YuGiOhFight/Client/UI/UIComponents/PlaceSelector.cs": "1876f38bddde79fba207a236d25cb561372555a2348fd3f3791b27094a08b4b8",
     "game/Assets/Scripts/YuGiOhFight/Client/UI/UIComponents/TimerHandler.cs": "7715c629e39fa3e2d92a79d47f5443ba9e22815318521edf6ac01b8b66796f81",
-    "scripts/client_ui_assets.py": "0b156554dabdf4fcc79684f1cd9554ed5f8dac8e8a9c9c93232f82fc3b0ec5ce"
+    "scripts/client_ui_assets.py": "0b156554dabdf4fcc79684f1cd9554ed5f8dac8e8a9c9c93232f82fc3b0ec5ce",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneAcademyInstruments.cs": "d7fd7bd1a122bede0360c5f3ca170b2627e978b6d3de467bcf083e85fdd3063a",
+    "game/Assets/Scripts/YuGiOhFight/Client/Duel/BG/DuelSceneEgyptInstruments.cs": "982cbddcdd0421a9583858776f3901d0c9109cbcece5e7e6f7c1cd05a12f1dd2"
   },
   "generation": {
     "battle-academy": {
@@ -268,10 +270,10 @@
       "output": "content/client-ui/duel-scenes/ancient-egypt-court-v3.png"
     },
     "skyscraper": {
-      "conversation_id": "3509630413316",
-      "prompt": "Use case: precise-object-edit. Production game environment clean plate for a top-down 3D Yu-Gi-Oh duel. Edit the supplied image, preserving the exact camera angle, perspective, outer architecture, entrances and entire floor footprint. The play area must stay EMPTY: no cards, no trays, no graves, no portals, no clocks, no consoles, no people, no floating props, no lettering or interface. Refinish the floor as described. All decoration must be restrained and built into the material, no glowing grid, no card slot rectangles. Leave the broad central 65% of the frame very calm, evenly lit and readable for gameplay. Retain realistic physically based materials, cinematic crafted architecture and detailed soft shadows at the outer walls. Generate one landscape image, 16:9, at 2048x1152 or higher. No collage. Refine the rooftop dueling terrace: retain the exact existing gothic industrial buildings, wrought iron rails, water tower, nighttime city view and original dark blue stone floor character. Replace only excessively gritty noise with believable broad slate flagstones, restrained charcoal gunmetal joints, a thin aged brass perimeter inlay, and one very subtle engraved circular art deco compass at the exact center (under 12% of frame width). No visible UI, no neon floor. Lift the broad central court lighting by about one stop so both cards and physical fixtures will be readable against the cool dark blue slate, while walls retain warm amber lanterns and the skyline remains atmospheric. Premium cinematic nighttime rooftop, balanced material detail and clear gameplay negative space.",
-      "model": "gpt-image-2",
-      "output": "content/client-ui/duel-scenes/skyscraper-court-v3.png"
+      "conversation_id": "3506813334788",
+      "prompt": "Use case: precise-object-edit.\nAsset type: production 3D game rooftop duel background clean plate, wide 16:9, preferably 1672 by 941 pixels.\nInput image: edit target, existing Skyscraper court backdrop with a temporary bright magenta trapezoid guide drawn on it. The bright magenta line is a placement guide ONLY; it must be completely gone in the finished picture. Replace that exact magenta path with the new subtle warm brass perimeter, in precisely the same position. Remove every previous inner narrow gold boundary line; the old narrow inner frame must disappear and be replaced with quiet matching paving. There must be ONLY ONE expanded outer brass perimeter following the MAGENTA GUIDE. The EXPANSION of the court is mandatory, keep the new perimeter much wider than the old narrow inner frame. Follow the guide exactly, do not put an extra gold frame inside it.\nPreserve the exact elevated top-down camera angle, the ornate Art Deco outer rooftop architecture, carved balustrades, detailed masonry, midnight blue-gray stone paving, aged warm brass accents, amber lanterns, urban nighttime skyline at the edges, right-hand wooden water tower, left-hand rooftop entrance, pipes and drains. Preserve the rich photorealistic game-material finish and restrained warm lighting. Do not flatten or simplify the architecture.\nPrimary edit: expand, recenter and straighten the thin brass boundary of the playing court. The court must be horizontally symmetrical about the exact image centerline x=50%. Use a wide, clean trapezoid whose corners are approximately top-left (22.5%,14.5%), top-right (77.5%,14.5%), bottom-right (88%,86%), bottom-left (12%,86%). Both side rails must be mirror-symmetrical and precisely straight. Top and bottom rails must be level, parallel and neatly integrated into the paving. This larger court must include wide quiet side lanes so live game fixtures fit completely INSIDE the brass perimeter; keep all architectural clutter outside this boundary. The empty side lanes run at x=27.5% and x=72.5%, from y=25% to y=75%; give them comfortable clear space.\nRecenter the existing subtle engraved compass emblem at exactly (50%,50%) of the full frame. Keep it understated, integrated in the blue-gray floor, no glow, no large protrusion. Keep the broad playing area very calm, evenly textured and readable with orderly symmetrical paving and fine brass edge details. The larger court footprint is the main edit; preserve the atmosphere and architectural identity.\nImportant: this is a CLEAN BACKGROUND ONLY. No baked game controls or fixtures: no circles or wells in the side lanes, no graves, portals, dials, clocks, consoles, trays, cards, card-slot rectangles, characters, people, text, numbers, lettering, HUD, interface, highlights or colored frames. Only the subtle center compass and the thin outer brass court boundary may appear on the playing floor.",
+      "output": "content/client-ui/duel-scenes/skyscraper-court-v3.png",
+      "postprocess": "Exact perspective relocation of the AI-authored brass perimeter to TL(392,137), TR(1280,137), BR(1410,809), BL(262,809), using adjacent stone samples to clear its former position. Central floor and outer architecture are preserved."
     }
   }
 }

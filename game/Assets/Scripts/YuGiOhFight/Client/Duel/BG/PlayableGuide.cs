@@ -43,12 +43,12 @@ namespace YuGiOhFight.Client.Duel
             if (!loaded) return;
 
             if (guide0Showing)
-                guide0ShowLasted += Time.unscaledDeltaTime;
+                guide0ShowLasted += Services.ReplayVideoExport.UnscaledDelta;
             else
                 guide0ShowLasted = 0f;
 
             if(guide1Showing)
-                guide1ShowLasted += Time.unscaledDeltaTime;
+                guide1ShowLasted += Services.ReplayVideoExport.UnscaledDelta;
             else
                 guide1ShowLasted = 0f;
 

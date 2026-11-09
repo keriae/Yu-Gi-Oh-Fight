@@ -232,14 +232,14 @@ namespace YuGiOhFight.Client.Presentation.UI
 
             if (setupWaitCount > 0f)
             {
-                setupWaitCount -= ignoreTimeScale ? Time.unscaledDeltaTime : Time.deltaTime;
+                setupWaitCount -= ignoreTimeScale ? Services.ReplayVideoExport.UnscaledDelta : Time.deltaTime;
                 return;
             }
 
             if (!isCaptured)
                 ExecSetup();
 
-            float delta = ignoreTimeScale ? Time.unscaledDeltaTime : Time.deltaTime;
+            float delta = ignoreTimeScale ? Services.ReplayVideoExport.UnscaledDelta : Time.deltaTime;
             if (delta > FRAMERATE_LIMIT)
                 delta = FRAMERATE_LIMIT;
 

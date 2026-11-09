@@ -77,7 +77,7 @@ namespace YuGiOhFight.Client.Services
 
         internal static void PerFrame()
         {
-            if (!Application.isFocused || Application.isMobilePlatform) return;
+            if (ReplayVideoExport.Busy || !Application.isFocused || Application.isMobilePlatform) return;
             var keyboard = Keyboard.current;
             if (keyboard == null) return;
             bool macShortcut = Application.platform == RuntimePlatform.OSXPlayer

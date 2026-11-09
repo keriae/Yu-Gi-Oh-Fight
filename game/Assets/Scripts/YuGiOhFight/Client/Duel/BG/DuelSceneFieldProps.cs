@@ -138,7 +138,8 @@ namespace YuGiOhFight.Client.Duel
             var plate = new Plate { Layout = layout.Get(id), Anchor = anchor, Kind = kind };
             plate.Model = DuelSceneGeometry.BuildFieldModel(builder, kind, transform, surfaceMaterial, resource => resources.Add(resource));
             if (kind < 2)
-                DuelSceneGeometry.BuildInstrumentInscription(plate.Model, kind, builder, inscriptionMaterial, resource => resources.Add(resource));
+                DuelSceneGeometry.BuildInstrumentInscription(plate.Model, kind, builder, inscriptionMaterial,
+                    resource => resources.Add(resource), kind == 1 ? phaseMain : timerText);
             plate.Model.InitializeResponse(resource => resources.Add(resource));
             AddContactShadow(plate.Model);
             plate.Model.Root.gameObject.SetActive(false);
@@ -222,11 +223,11 @@ namespace YuGiOhFight.Client.Duel
                         plate.LastCount = count;
                     }
                 }
-                plate.Model.TickResponse(Time.unscaledDeltaTime);
+                plate.Model.TickResponse(Services.ReplayVideoExport.UnscaledDelta);
                 Color light = plate.Kind == 2 ? new Color(.30f, .62f, 1)
                     : plate.Kind == 3 ? new Color(.72f, .45f, 1)
                     : plate.Kind == 1 && !Controllers.OcgCore.myTurn ? new Color(1, .40f, .31f) : themeLight;
-                float response = plate.Model.EaseResponse(press ? 1 : hover ? .78f : activity + plate.Model.ChangeResponse * .65f, Time.unscaledDeltaTime);
+                float response = plate.Model.EaseResponse(press ? 1 : hover ? .78f : activity + plate.Model.ChangeResponse * .65f, Services.ReplayVideoExport.UnscaledDelta);
                 plate.Model.SetResponse(light, response);
             }
             if (!showing) return;

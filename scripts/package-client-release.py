@@ -19,6 +19,7 @@ import zipfile
 
 from source_build_state import game_source_paths
 from native_file_browser import LIBRARY_PATH as FILE_BROWSER_PATH, verify_file_browser
+from native_replay_video import LIBRARY_PATH as REPLAY_VIDEO_PATH, verify_replay_video
 from client_ui_resources import verify_client_resources
 from client_ui_runtime_metadata import verify_runtime_metadata
 
@@ -45,8 +46,9 @@ RELEASE_DOCUMENTS = (DOCUMENT,
                   Path("Contents/Resources/docs/media/launch-trailer-zh.srt"),
                   Path("Contents/Resources/docs/media/full-duel.mp4"))
 NATIVE_FILE_BROWSER = Path("Contents/Resources/Client") / FILE_BROWSER_PATH
+NATIVE_REPLAY_VIDEO = Path("Contents/Resources/Client") / REPLAY_VIDEO_PATH
 FILE_BROWSER_LICENSE = Path("Contents/Resources/licenses/StandaloneFileBrowser-LICENSE.txt")
-CRITICAL_FILES = (ASSEMBLY, MANIFEST, NATIVE_FILE_BROWSER, FILE_BROWSER_LICENSE, *RELEASE_DOCUMENTS)
+CRITICAL_FILES = (ASSEMBLY, MANIFEST, NATIVE_FILE_BROWSER, NATIVE_REPLAY_VIDEO, FILE_BROWSER_LICENSE, *RELEASE_DOCUMENTS)
 
 
 def require(value: bool, message: str) -> None:
@@ -243,6 +245,10 @@ def verify_application(app: Path) -> dict[str, str]:
             "Packaged serialized resource inventory differs from its source manifest")
     require(changes.get("native_file_browser") is not None, "Packaged native file selector metadata is missing")
     verify_file_browser(client, changes["native_file_browser"])
+    require(changes.get("native_replay_video") is not None, "Packaged native replay encoder metadata is missing")
+    require(changes.get("changes", {}).get(REPLAY_VIDEO_PATH, {}).get("sha256") == expected[NATIVE_REPLAY_VIDEO.as_posix()],
+            "Packaged native replay encoder inventory differs from its binary")
+    verify_replay_video(client, changes["native_replay_video"])
     require(expected[FILE_BROWSER_LICENSE.as_posix()] == digest(ROOT / "native/StandaloneFileBrowser/LICENSE.txt"),
             "Packaged native file selector license is stale")
     require(not any((app / "Contents/Resources/Client").rglob("credentials.json*")),

@@ -763,7 +763,7 @@ namespace YuGiOhFight.Client.UI.Client
             string replayPath = selectedReplay;
             ReadClientReplay(replayPath, out var parsed, out bool playable, out bool godAvailable, out string replayError);
             bool reading = replayError == "正在读取录像信息…";
-            float actionsY = h - 198;
+            float actionsY = h - 254;
             bool retryLoading = Runtime.Program.instance.replay.servantUI == null && replayLoadError != null;
             ModuleDivider(filePreview, reading ? "正在读取录像" : retryLoading ? "录像加载未完成" : !playable ? "录像不可播放"
                 : parsed?.playerData != null ? "双方构筑" : "录像内容", 24, 22, w - 48, 20);
@@ -817,16 +817,17 @@ namespace YuGiOhFight.Client.UI.Client
             }
             CompleteLibraryRefresh(previewScroll, replayPreviewScroll);
             FightUI.Line(filePreview, 24, actionsY, w - 48, FightUI.Border);
-            var playButton = FightUI.Button(filePreview, retryLoading ? "重新加载录像界面  →" : "播放录像  →", 24, h - 182, w - 48, 48,
+            var playButton = FightUI.Button(filePreview, retryLoading ? "重新加载录像界面  →" : "播放录像  →", 24, h - 238, w - 48, 48,
                 () => { if (retryLoading) { if (!replayLoading) StartCoroutine(LoadReplayUI()); } else PlayClientReplay(false); }, true, playable || retryLoading);
             if (!playable && !retryLoading)
             {
                 playButton.GetComponentInChildren<TextMeshProUGUI>().text = reading ? "正在读取录像…" : "录像暂不可播放";
                 FightUI.Hint(playButton.gameObject, replayError ?? "此录像暂时无法播放。");
             }
-            var godButton = FightUI.Button(filePreview, "上帝视角", 24, h - 122, w - 48, 40, () => PlayClientReplay(true), false, godAvailable);
+            var godButton = FightUI.Button(filePreview, "上帝视角", 24, h - 178, w - 48, 40, () => PlayClientReplay(true), false, godAvailable);
             if (!godAvailable) godButton.GetComponentInChildren<TextMeshProUGUI>().text = "上帝视角 · 需离线记录";
             FightUI.Hint(godButton.gameObject, godAvailable ? "从可读取的离线录像还原双方视角" : "仅可读取的离线回放支持上帝视角");
+            FightUI.Button(filePreview, "导出视频", 24, h - 110, w - 48, 40, () => ShowReplayExport(replayPath), false, playable && !Services.ReplayVideoExport.Busy);
             FightUI.Button(filePreview, "重命名", 24, h - 66, (w - 60) / 2, 40, () => Prompt("重命名回放", "新名称", Path.GetFileNameWithoutExtension(replayPath), name => RenameClientReplay(replayPath, name)));
             var delete = FightUI.Button(filePreview, "删除…", (w + 12) / 2, h - 66, (w - 60) / 2, 40, () => Confirm("删除回放", "删除录像“" + FightText.Keep(Path.GetFileNameWithoutExtension(replayPath)) + "”？", () => { File.Delete(replayPath); selectedReplay = null; Rebuild(); }));
             delete.GetComponentInChildren<TextMeshProUGUI>().color = FightUI.Danger;

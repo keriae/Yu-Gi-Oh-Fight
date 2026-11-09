@@ -26,6 +26,7 @@ namespace YuGiOhFight.Client.UI.Client
         private int cardsSignature;
         private float titleHeight = 32;
         internal Vector2 Size { get; private set; }
+        internal float HeadingHeight => titleHeight;
         internal bool Supported => popup is PopupDuelPosition || popup is PopupDuelPhase
             || popup is PopupDuelYesOrNo || popup is PopupDuelSelection
             || popup is PopupDuelSelectCard || popup is PopupDuelInput;
@@ -252,25 +253,37 @@ namespace YuGiOhFight.Client.UI.Client
 
         private void Phase(PopupDuelPhase source)
         {
-            const float width = 600;
+            const float width = 740;
+            if (TitleText != null)
+            {
+                if (!phaseCaptions.ContainsKey(TitleText)) phaseCaptions.Add(TitleText, TitleText.text);
+                TitleText.text = FightText.Get("选择阶段");
+            }
             float heading = MeasureTitle(width - 48);
-            Size = new Vector2(width, Mathf.Max(300, heading + 268));
+            Size = new Vector2(width, heading + 328);
             var buttons = new[] { source.main1, source.battle, source.main2, source.end };
-            string[] labels = { "主要阶段 1", "战斗阶段", "主要阶段 2", "结束阶段" };
+            float buttonY = Size.y * .5f - heading - 142;
             for (int index = 0; index < buttons.Length; index++)
             {
                 var button = buttons[index];
                 if (button == null) continue;
-                Place(button.transform as RectTransform, new Vector2(268, 68),
-                    new Vector2(index % 2 == 0 ? -142 : 142, Size.y * .5f - 114 - (index / 2) * 80));
+                Place(button.transform as RectTransform, new Vector2(136, 136),
+                    new Vector2((index - 1.5f) * 156, buttonY));
                 ButtonCaption(button, 22);
                 var caption = button.GetComponentInChildren<Text>();
                 if (caption != null)
                 {
                     if (!phaseCaptions.ContainsKey(caption)) phaseCaptions.Add(caption, caption.text);
-                    caption.text = FightText.Get(labels[index]);
-                    caption.supportRichText = false; caption.alignment = TextAnchor.MiddleCenter;
-                    caption.horizontalOverflow = HorizontalWrapMode.Wrap; caption.verticalOverflow = VerticalWrapMode.Overflow;
+                    // The original phase icon remains the central glyph.
+                    // The skin places the localized phase name below the dial.
+                    caption.text = "";
+                    caption.supportRichText = false;
+                    caption.alignment = TextAnchor.MiddleCenter;
+                    caption.rectTransform.offsetMin = new Vector2(18, 28);
+                    caption.rectTransform.offsetMax = new Vector2(-18, -28);
+                    caption.horizontalOverflow = HorizontalWrapMode.Overflow;
+                    caption.verticalOverflow = VerticalWrapMode.Overflow;
+                    caption.fontStyle = FontStyle.Bold;
                     caption.lineSpacing = 1;
                 }
                 var group = button.transform.parent;
@@ -282,10 +295,8 @@ namespace YuGiOhFight.Client.UI.Client
             }
             if (source.btnCancel != null)
             {
-                // Keep the original cancel object and callback, with a clear
-                // separate footer target below the native phase choices.
                 Place(source.btnCancel.transform as RectTransform, new Vector2(160, 44),
-                    new Vector2(0, -Size.y * .5f + 38));
+                    new Vector2(0, -Size.y * .5f + 42));
                 ButtonCaption(source.btnCancel, 20);
             }
         }
@@ -300,6 +311,10 @@ namespace YuGiOhFight.Client.UI.Client
                 || control == source.battle && current != null && (current.StartsWith("Battle", StringComparison.Ordinal)
                     || current.StartsWith("Damage", StringComparison.Ordinal));
         }
+
+        internal static int PhaseIndex(PopupDuelPhase source, Selectable control)
+            => source == null ? -1 : control == source.main1 ? 0 : control == source.battle ? 1
+                : control == source.main2 ? 2 : control == source.end ? 3 : -1;
 
         private void YesNo(PopupDuelYesOrNo source)
         {
@@ -418,7 +433,7 @@ namespace YuGiOhFight.Client.UI.Client
             bool phase = popup is PopupDuelPhase;
             float height = titleHeight;
             Place(TitleText.rectTransform, new Vector2(Size.x - (phase ? 48 : 64), height),
-                new Vector2(0, Size.y * .5f - 22 - height * .5f));
+                new Vector2(0, Size.y * .5f - (phase ? 34 : 22) - height * .5f));
         }
 
         private void StyleTitle()

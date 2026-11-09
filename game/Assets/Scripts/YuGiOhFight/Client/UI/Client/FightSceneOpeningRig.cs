@@ -281,7 +281,7 @@ namespace YuGiOhFight.Client.UI.Client
             if (visibility > .05f) PlaySounds(progress);
             if (revealed && core != null)
             {
-                float time = Mathf.Max(0, Time.unscaledTime - revealedAt);
+                float time = Mathf.Max(0, Services.ReplayVideoExport.UnscaledClock - revealedAt);
                 float lockLight = Segment(time, 0, .22f);
                 var color = Color.Lerp(core.LitColor, core.LitColor * revealColor, lockLight);
                 color.a = visibility; core.Image.color = color;
@@ -299,7 +299,7 @@ namespace YuGiOhFight.Client.UI.Client
         {
             if (released || revealed) return;
             revealed = true; this.first = first;
-            revealedAt = Time.unscaledTime;
+            revealedAt = Services.ReplayVideoExport.UnscaledClock;
             revealColor = scene == Duel.DuelSceneCatalog.EgyptId ? new Color(1, .96f, .82f)
                 : scene == Duel.DuelSceneCatalog.CityId ? new Color(.86f, .95f, 1) : new Color(.87f, .96f, 1);
             PlaySounds(1, true);

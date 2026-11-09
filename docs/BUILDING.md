@@ -100,6 +100,35 @@ Academy authoring provenance can additionally be checked with
 recording sources are present. The default validator verifies the complete
 content inventory, replay facts and publisher bindings independently.
 
+## Replay video export
+
+The replay library offers **Export video** with resolution, FPS, quality and
+audio controls. The default is 1920×1080 at 60 FPS with game audio; 24, 30, 60
+and 120 FPS are available. The client renders each frame at the selected
+simulation interval and encodes an MP4 through the bundled macOS encoder.
+The complete game view is preserved. Escape or the progress panel cancels
+export and restores the previous settings.
+
+For an unattended export, place the replay in the application's user `Replay/`
+directory, close the game, and run the launcher directly. Pass the replay name
+without its `.yrp3d` extension (or include `.yrp` for that format):
+
+```sh
+"dist/Yu-Gi-Oh! Fight.app/Contents/MacOS/YuGiOhFight" \
+  -r "example" --export-replay-video /tmp/example.mp4 \
+  --export-width 1920 --export-height 1080 --export-fps 60 \
+  --export-quality high
+```
+
+Quality accepts `high`, `medium` or `small`. Add `--export-no-audio` to omit
+audio, or `--export-overwrite` to replace an existing destination after the new
+video finishes. `--export-tail-seconds` sets the final board hold (default 10,
+range 0–60), and `--export-max-seconds` bounds a capture for inspection. The
+launcher exits with status 0 on success and 1 on cancellation or failure.
+The adjacent `example.mp4.json` records exact video settings and replay packet
+frame timestamps for video editing. Exported dimensions must be even, between
+320×240 and 7680×4320, and supported by the active display's render mode.
+
 ## Optional macOS packages
 
 ```sh

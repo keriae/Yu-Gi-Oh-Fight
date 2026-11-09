@@ -2,7 +2,7 @@
 """Atomically refresh only compiled game code in an existing verified macOS app.
 
 Compile successfully with build-mdpro3-source.py first. Resource/dependency,
-launcher, or native-host changes require the complete offline builder instead.
+launcher, or native-bridge changes require the complete offline builder instead.
 """
 from __future__ import annotations
 
@@ -22,6 +22,7 @@ import tempfile
 
 from native_server_host import HOST_PATH, verify_host
 from native_file_browser import LIBRARY_PATH as FILE_BROWSER_PATH, verify_file_browser
+from native_replay_video import LIBRARY_PATH as REPLAY_VIDEO_PATH, verify_replay_video
 from source_build_state import atomic_exchange, source_snapshot, validate_generation, validate_source_inputs
 from client_ui_assets import content_hashes as client_ui_hashes
 from client_ui_runtime_metadata import verify_runtime_metadata, RUNTIME_INITIALIZE_PATH
@@ -179,6 +180,11 @@ def verify_package(app: Path, manifest: dict, changes: dict, launcher: dict) -> 
     require(changes["changes"].get(FILE_BROWSER_PATH, {}).get("sha256") == changes["native_file_browser"]["sha256"],
             "Native file selector inventory is incomplete")
     verify_file_browser(client, changes["native_file_browser"])
+    require(changes.get("native_replay_video") is not None,
+            "Native replay encoder metadata is missing; use the complete builder")
+    require(changes["changes"].get(REPLAY_VIDEO_PATH, {}).get("sha256") == changes["native_replay_video"]["sha256"],
+            "Native replay encoder inventory is incomplete")
+    verify_replay_video(client, changes["native_replay_video"])
     signature(app)
 
 
@@ -274,8 +280,8 @@ def main() -> None:
                     and info.get("CFBundleExecutable") == builder.EXECUTABLE_NAME, "Unexpected application identity")
             version = str(info["CFBundleVersion"])
             require(version.isdigit(), "Non-numeric bundle version needs the complete builder")
-            info["CFBundleVersion"] = str(int(version) + 1)
-            info_path.write_bytes(plistlib.dumps(info, sort_keys=False))
+            # Refresh the existing release without changing its version or
+            # rewriting Info.plist; the release builder owns version changes.
             runtime_path = work / "source-runtime.json"
             run(sys.executable, ROOT / "scripts/verify-source-runtime.py", "--client", client,
                 "--assembly", client / MANAGED / "Assembly-CSharp.dll", "--manifest", snapshot / "manifest.json",
@@ -302,7 +308,8 @@ def main() -> None:
                       "previous_assembly_sha256": previous["assembly_sha256"],
                       "source_file_count": manifest["source_file_count"], "bundle_version": info["CFBundleVersion"],
                       "publisher_version": manifest["publisher_version"], "state_folder": str(SUPPORT),
-                      "native_server_host": updated_changes["native_server_host"], "deep_strict_signature_verified": True,
+                      "native_server_host": updated_changes["native_server_host"],
+                      "native_replay_video": updated_changes["native_replay_video"], "deep_strict_signature_verified": True,
                       "resources_and_dependencies_retained": True}
             publish_evidence(app, APP, work, {
                 ARTIFACTS / "mdpro3-source-runtime-packaged.json": encoded(runtime),
